@@ -10,6 +10,10 @@ Welcome to NeuroML's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   ./Introduction/index.rst
+   ./NeuroMLOrg/index.rst
+   ./Userdocs/index.rst
+   ./Devdocs/index.rst
 
 
 Indices and tables
