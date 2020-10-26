@@ -7,8 +7,8 @@
 
 ## Building docs locally
 
-The documentation currently uses Sphinx.
-To build the documentation locally, for example, to test before opening Pull Requests, a virtual environment can be used:
+The documentation currently uses [Jupyter-book](https://jupyterbook.org/).
+To build the documentation locally, to test before opening Pull Requests for example, a virtual environment can be used:
 
   # Create a new virtual environment
   $ python3 -m venv ./.venv
