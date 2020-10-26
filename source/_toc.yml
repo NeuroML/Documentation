@@ -2,15 +2,19 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: intro
-  numbered: true
+  numbered: false
 
 - part: Introduction
   chapters:
-    - file: ./Introduction/index
+    - file: ./Introduction/Overview
+    - file: ./Introduction/Motivation
+    - file: ./Introduction/History
 
 - part: User documentation
   chapters:
-    - file: ./Userdocs/index
+    - file: ./Userdocs/NeuroML
+    - file: ./Userdocs/LEMS
+    - file: ./Userdocs/Software/index
 
 - part: Developer documentation
   chapters:
@@ -18,4 +22,10 @@
 
 - part: The NeuroML Initiative
   chapters:
-    - file: ./NeuroMLOrg/index
+    - file: ./NeuroMLOrg/Community
+    - file: ./NeuroMLOrg/Funding
+    - file: ./NeuroMLOrg/Standardisation
+
+- part: Reference
+  chapters:
+    - file: ./Reference/Glossary.md
