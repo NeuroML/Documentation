@@ -29,6 +29,8 @@ html:
   use_edit_page_button: true
   favicon: images/favicon.ico
   google_analytics_id: "" # To be added
+  home_page_in_navbar: false
+
 
 # Binder bits
 # Configure your Binder links, such as the URL of the BinderHub.

@@ -3,6 +3,7 @@
 #
 - file: Landing
   numbered: false
+  title: ""
 
 - part: User documentation
   chapters:
@@ -35,14 +36,19 @@
 
 - part: Developer documentation
   chapters:
-    - file: ./Devdocs/index
+    - file: ./Devdocs/Devdocs
+      sections:
+        - file: ./Devdocs/ReleaseProcess
 
 - part: The NeuroML Initiative
   chapters:
     - file: ./NeuroMLOrg/Community
+      sections:
+        - file: ./NeuroMLOrg/CommunicationChannels
     - file: ./NeuroMLOrg/Funding
-    - file: ./NeuroMLOrg/Standardisation
+    - file: ./NeuroMLOrg/CoC
 
 - part: Reference
   chapters:
-    - file: ./Reference/Glossary.md
+    - file: ./Reference/Glossary
+    - file: ./Reference/Publications
