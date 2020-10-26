@@ -1,0 +1,21 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+  numbered: true
+
+- part: Introduction
+  chapters:
+    - file: ./Introduction/index
+
+- part: User documentation
+  chapters:
+    - file: ./Userdocs/index
+
+- part: Developer documentation
+  chapters:
+    - file: ./Devdocs/index
+
+- part: The NeuroML Initiative
+  chapters:
+    - file: ./NeuroMLOrg/index
