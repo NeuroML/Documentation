@@ -4,17 +4,34 @@
 - file: Landing
   numbered: false
 
-- part: Introduction
-  chapters:
-    - file: ./Introduction/Overview
-    - file: ./Introduction/Motivation
-    - file: ./Introduction/History
-
 - part: User documentation
   chapters:
-    - file: ./Userdocs/NeuroML
-    - file: ./Userdocs/LEMS
-    - file: ./Userdocs/Software/index
+    - file: ./Userdocs/Overview
+    - file: ./Userdocs/Components
+      sections:
+        - file: ./Userdocs/LEMS
+        - file: ./Userdocs/NeuroML
+        - file: ./Userdocs/Examples
+    - file: ./Userdocs/Software/Software
+      sections:
+        - file: ./Userdocs/Software/jNeuroML
+        - file: ./Userdocs/Software/jLEMS
+        - file: ./Userdocs/Software/libNeuroML
+        - file: ./Userdocs/Software/PyNeuroML
+        - file: ./Userdocs/Software/PyLEMS
+        - file: ./Userdocs/Software/NeuroMLlite
+        - file: ./Userdocs/Software/NeuroML_API
+        - file: ./Userdocs/Software/MatLab
+    - file: ./Userdocs/SimulatorSupport/SimulatorSupport
+      sections:
+        - file: ./Userdocs/SimulatorSupport/jNeuroML
+        - file: ./Userdocs/SimulatorSupport/NEURON
+        - file: ./Userdocs/SimulatorSupport/NetPyNE
+        - file: ./Userdocs/SimulatorSupport/Brian
+        - file: ./Userdocs/SimulatorSupport/MOOSE
+        - file: ./Userdocs/SimulatorSupport/NEST
+        - file: ./Userdocs/SimulatorSupport/PyNN
+    - file: ./Userdocs/Guides/Guides
 
 - part: Developer documentation
   chapters:
