@@ -1,8 +1,8 @@
 # Contribution guidelines
 
-- Markdown is preferred to Restructured Text
-- Please start each sentence on a new line. This allows for better diffs and
-  pull requests.
+- Jupyter-book supports [multiple content types](https://jupyterbook.org/file-types/index.html). Their flavour of Markdown is preferred.
+- Please start each sentence on a new line in the documentation. This allows
+  for better diffs and pull requests.
 
 
 ## Building docs locally
@@ -17,10 +17,8 @@ To build the documentation locally, for example, to test before opening Pull Req
   # Install the necessary Python packages
   $ pip install -r requirements.txt
   # Build the docs
-  $ make html
-
-This will create the HTML documentation in `build/html`.
-You can view the generated documentation by opening the `build/html/index.html` file in your preferred browser.
+  $ jupyter-book build ./source
+  # This will create the HTML files in ./source/_build/html
 
 
 To deactivate the virtual environment:
