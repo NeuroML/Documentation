@@ -1,2 +1,2 @@
-sphinx
-recommonmark
+jupyter-book
+matplotlib
