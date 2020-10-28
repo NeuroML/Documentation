@@ -19,6 +19,8 @@
         - file: ./Userdocs/Software/jLEMS
         - file: ./Userdocs/Software/libNeuroML
         - file: ./Userdocs/Software/PyNeuroML
+          sections:
+            - file: ./Userdocs/Software/examples/pynml-example
         - file: ./Userdocs/Software/PyLEMS
         - file: ./Userdocs/Software/NeuroMLlite
         - file: ./Userdocs/Software/NeuroML_API

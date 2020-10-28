@@ -35,4 +35,5 @@ html:
 # Binder bits
 # Configure your Binder links, such as the URL of the BinderHub.
 launch_buttons:
-  binderhub_url: https://mybinder.org
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
