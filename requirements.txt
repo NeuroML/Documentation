@@ -1,6 +1,4 @@
-jupyter-book
-matplotlib
-numpy
+# For Jupyter notebooks, on mybinder etc.
 pyneuroml
 neuromllite
 NEURON

@@ -15,7 +15,7 @@ To build the documentation locally, to test before opening Pull Requests for exa
   # Activate the virtual environment
   $ source .venv/bin/activate
   # Install the necessary Python packages
-  $ pip install -r source/requirements.txt
+  $ pip install -r requirements-book.txt
   # Build the docs
   $ jupyter-book build ./source
   # This will create the HTML files in ./source/_build/html
