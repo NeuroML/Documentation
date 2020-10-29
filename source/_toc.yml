@@ -7,12 +7,12 @@
 
 - part: User documentation
   chapters:
-    - file: ./Userdocs/Overview
-    - file: ./Userdocs/Components
+    - file: ./Userdocs/GettingStarted
+    - file: ./Userdocs/Specification
       sections:
-        - file: ./Userdocs/LEMS
-        - file: ./Userdocs/NeuroML
         - file: ./Userdocs/Examples
+        - file: ./Userdocs/NeuroMLv1.md
+    - file: ./Userdocs/FindingModels
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/jNeuroML
