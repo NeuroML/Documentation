@@ -50,3 +50,8 @@ Can be split into a separate section.
   - Showcase
   - Channelpedia
 
+## Finding NeuroML models
+
+- NeuroML-DB
+- Open Source Brain (v1)
+

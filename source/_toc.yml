@@ -17,7 +17,6 @@
           sections:
             - file: ./Userdocs/Examplesv2
         - file: ./Userdocs/v1tov2.md
-    - file: ./Userdocs/FindingModels
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/jNeuroML
