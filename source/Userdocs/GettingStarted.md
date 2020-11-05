@@ -5,7 +5,3 @@ We don't talk about LEMS here or go into other details about simulators and othe
 We just go through the file and give the reader an idea of what NeuroML does.
 
 This page leads to the next one, on the specification.
-
-## History and future of NeuroML
-
-The development history of NeuroML, leading up to the current version of the schema.
