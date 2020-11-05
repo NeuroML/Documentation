@@ -5,6 +5,10 @@ We explain how the specification is written, perhaps show an example specificati
 We explain how/why LEMS is needed, and give an overview of LEMS.
 Then, we provide links to all the schemas.
 
+The XML language itself has no predefined tags.
+So, for NeuroML, we develop a "schema" that defines valid, standard tags to be used in NeuroML files.
+
+
 ```{figure} ../images/Figure6a.png
 :alt: NeuroML v2.0 structure
 :align: center
