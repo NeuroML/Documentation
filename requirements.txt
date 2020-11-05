@@ -1,4 +1,4 @@
 # For Jupyter notebooks, on mybinder etc.
 pyneuroml
 neuromllite
-NEURON
+#NEURON
