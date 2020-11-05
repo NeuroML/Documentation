@@ -26,3 +26,13 @@ To deactivate the virtual environment:
   $ deactivate
 
 More information on Python virtual environments can be found in the Python documentation [here](https://docs.python.org/3.9/library/venv.html).
+
+## Publishing the book
+
+The book is published using GitHub pages, using the `ghp-import` tool.
+
+  # Use ghp-import
+  $ ghp-import -n -p -f ./source/_build/html
+
+This will import the HTML files built by `jupyter-book` to the `gh-pages` branch.
+More information on this can be found in the [official documentation](https://jupyterbook.org/publish/gh-pages.html).
