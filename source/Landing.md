@@ -36,10 +36,6 @@ This bit can be split to a different section, and then each entry in the list be
 - Sonata
 - NineML & SpineML
 
-## History and future of NeuroML
-
-The development history of NeuroML, leading up to the current version of the schema.
-
 ## Projects supporting NeuroML
 
 ```{note}

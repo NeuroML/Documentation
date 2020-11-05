@@ -10,8 +10,13 @@
     - file: ./Userdocs/GettingStarted
     - file: ./Userdocs/Specification
       sections:
-        - file: ./Userdocs/Examples
+        - file: ./Userdocs/NeuroMLv2.md
+          sections:
+            - file: ./Userdocs/Examplesv1
         - file: ./Userdocs/NeuroMLv1.md
+          sections:
+            - file: ./Userdocs/Examplesv2
+        - file: ./Userdocs/v1tov2.md
     - file: ./Userdocs/FindingModels
     - file: ./Userdocs/Software/Software
       sections:
