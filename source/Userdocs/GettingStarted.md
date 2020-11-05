@@ -4,13 +4,19 @@ In this section, we will look at some example NeuroML files and how various aspe
 We will not, at this point, dive into the details of these models or how they are to be run.
 That will be discussed in later sections.
 
-## Example: A Na+ ion channel
+## Example: Izhikevich point neuron model
 
-In this section, we look at the description of a simple Na+ ion channel in NeuroML, shown below [(Source)](https://github.com/NeuroML/NeuroML2/blob/master/examples/NML2_SimpleIonChannel.nml):
-```{literalinclude} ./NML2_examples/NML2_SimpleIonChannel.nml
----
-language: xml
----
+In this section, we look at the description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2003a`) in NeuroML, shown below:
+```{code-block} xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+    id="NML2_AbstractCells">
+
+  <izhikevichCell id="izBurst" v0 = "-70mV" thresh = "30mV" a="0.02" b = "0.2" c = "-50.0" d = "2"/>
+</neuroml>
 ```
 
 NeuroML files are written in XML.
@@ -39,9 +45,9 @@ All XML files, and so all NeuroML files, must start with this line.
 The next segment introduces the `neuroml` tag that includes information on the specification that this NeuroML file adheres to.
 ```{code-block} xml
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
-         id="NML2_SimpleIonChannel">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+    id="NML2_AbstractCells">
 ```
 
 The first attribute, `xmlns` defines the XML *namespace*.
@@ -85,6 +91,13 @@ The last attribute, `id` is the identification (or the name) of this particular 
 Ankur: Continue from here.
 ```
 
+## Example: Na+ Ion channel model
+
+```{literalinclude} ./NML2_examples/NML2_SimpleIonChannel.nml
+---
+language: xml
+---
+```
 ## Example: Single compartment neuron with HH channels
 
 ```{code-block} xml
