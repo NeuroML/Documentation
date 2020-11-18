@@ -155,7 +155,7 @@ How are these dynamics represented in NeuroML?
 The answer is: "with [LEMS](http://lems.github.io/LEMS)".
 Let us take a short segue to understand LEMS, and we will return to the Izhikevich model after.
 
-## Defining dynamical systems with LEMS
+## A quick overview of LEMS
 
 [LEMS](http://lems.github.io/LEMS) (Low Entropy Model Specification) is an XML based language with interpreter originally developed by Robert Cannon for specifying generic models of hybrid dynamical systems.
 
