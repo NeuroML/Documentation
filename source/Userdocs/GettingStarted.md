@@ -6,7 +6,7 @@ That will be discussed in later sections.
 
 ## Example: Izhikevich point neuron model
 
-In this section, we look at the description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2003a`) in NeuroML, shown below:
+The description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2003a`) in NeuroML is shown below:
 ```{code-block} xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -21,7 +21,7 @@ In this section, we look at the description of a simple single compartment Izhik
 
 NeuroML files are written in XML.
 So, they consist of tags and attributes and can be processed by general purpose XML tools.
-Each entity between chevrons is a *tag*: `<..>`, and each tag may have multiple *attribute* that are defined using a simple `name=value` format.
+Each entity between chevrons is a *tag*: `<..>`, and each tag may have multiple *attributes* that are defined using the `name=value` format.
 For example `<neuroml ..>` is a tag, that contains the `id` attribute with value `NML2_SimpleIonChannel`.
 
 ```{admonition} XML Tutorial
@@ -39,7 +39,7 @@ Let us step through this file to understand the different constructs used in it.
 ```
 The first line is the XML header.
 This tells us that this file is using version 1 of the XML standard.
-Next, the `encoding` attribute in this first tag tells us that the common ["UTF-8" encoding](https://en.wikipedia.org/wiki/UTF-8) is in use here.
+Next, the `encoding` attribute tells us that the common ["UTF-8" encoding](https://en.wikipedia.org/wiki/UTF-8) is in use in this file.
 All XML files, and so all NeuroML files, must start with this line.
 
 The next segment introduces the `neuroml` tag that includes information on the specification that this NeuroML file adheres to.
@@ -56,7 +56,7 @@ This prevents conflicts with other XML schemas that may use the same tags.
 Read more on XML namespaces [here](https://en.wikipedia.org/wiki/XML_namespace).
 
 The remaining lines in this snippet refer to the *XML Schema* that is defined for NeuroML.
-XML itself does not define any tags, so any tags can be used in an XML document.
+XML itself does not define any tags, so any tags can be used in a general XML document.
 Here is an example of a valid XML document, a simple HTML snippet:
 
 ```{code-block} xml
@@ -68,7 +68,7 @@ Here is an example of a valid XML document, a simple HTML snippet:
 ```
 NeuroML, however, does not use these tags.
 It defines its own set of standard tags using an [XML Schema](http://www.w3.org/2001/XMLSchema-instance).
-The NeuroML XML schema defines the structure and contents of a valid NeuroML document.
+In other words, the NeuroML XML schema defines the structure and contents of a valid NeuroML document.
 Various tools can then compare NeuroML documents to the NeuroML Schema to validate them.
 
 ```{admonition} Purpose of the NeuroML schema
@@ -79,8 +79,8 @@ The `xmlns:xi` attribute documents that NeuroML has a defined XML Schema.
 The next attribute, `xsi:schemaLocation` tells us the locations of the NeuroML Schema.
 Here, two locations are provided:
 
-- the Web URL: http://www.neuroml.org/schema/neuroml2,
-- and the location of the Schema Definition file (xsd file) relative to this example file in the GitHub repository.
+- the Web URL: [http://www.neuroml.org/schema/neuroml2](http://www.neuroml.org/schema/neuroml2),
+- and the location of the Schema Definition file (an `xsd` file) relative to this example file in the GitHub repository.
 
 We will look at the NeuroML schema in detail in later sections.
 All NeuroML files must include the `neuroml` tag, and the attributes related to the NeuroML Schema.
