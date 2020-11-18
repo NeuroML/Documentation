@@ -1,10 +1,12 @@
 # Getting started with NeuroML
 
-In this section, we will look at some example NeuroML files and how various aspects of a neuron may be represented in NeuroML.
-We will not, at this point, dive into the details of these models or how they are to be run.
-That will be discussed in later sections.
+The best way to understand NeuroML is to look at some example NeuroML files and how they are constructed.
+In this section, we will walk through a cell model and see how it is defined in NeuroML.
+To keep this section simple, we will intentionally gloss over many of the details and only focus on the salient, important bits necessary to grasp how NeuroML works and is to be used.
 
-## Example: Izhikevich point neuron model
+
+% Needs a better heading
+## Izhikevich neuron model in NeuroML
 
 The description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2003a`) in NeuroML is shown below:
 ```{code-block} xml
@@ -87,117 +89,96 @@ All NeuroML files must include the `neuroml` tag, and the attributes related to 
 
 The last attribute, `id` is the identification (or the name) of this particular NeuroML document.
 
-```{note}
-Ankur: Continue from here.
+The remaining part of the file is the *declaration* of the model and its dynamics:
+```{code-block} xml
+  <izhikevichCell id="izBurst" v0 = "-70mV" thresh = "30mV" a="0.02" b = "0.2" c = "-50.0" d = "2"/>
+```
+The cell, is defined in the `izhikevichCell` tag, which has a number of attributes:
+- `id`: the name that we want to give to this cell to refer to it later, for example,
+- `v0`: the initial membrane potential for the cell,
+- `thresh`: the threshold membrane potential, to detect a spike,
+- `a`, `b`, `c`, and `d`: are parameters of the Izhikevich neuron model.
+
+
+We observe that even though we have declared the cell, and the parameters that govern it, we do not state what and how these parameters are used.
+This is because NeuroML is a [declarative language](https://en.wikipedia.org/wiki/Declarative_programming).
+That is, it describes *what* needs to be done rather than *how* it should be done.
+The *how* is left to the various simulators, which each have their own implementation of various dynamics.
+This will become clearer later in this document.
+```{admonition} NeuroML is a declarative language.
+We describe the various components of the model but not how they are to be simulated.
 ```
 
-## Example: Na+ Ion channel model
-
-```{literalinclude} ./NML2_examples/NML2_SimpleIonChannel.nml
----
-language: xml
----
-```
-## Example: Single compartment neuron with HH channels
+We have seen how an Izhikevich cell can be declared in NeuroML, with all its parameters.
+However, given that NeuroML develops a standard and defines what tags and attributes can be used, let us see how these are defined for the Izhikevich cell.
+The Izhikevich cell is defined in the NeuroML schema [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.0.xsd#L1392):
 
 ```{code-block} xml
----
-caption: |
-  An example NeuroML file that shows a single compartment cell with HH channels.
----
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
-         id="NML2_SingleCompHHCell">
-
-    <!-- Single compartment cell with HH channels -->
-
-    <!-- This is a "pure" NeuroML 2 file. It can be included in a LEMS file for use in a simulaton
-    by the LEMS interpreter, see LEMS_NML2_Ex5_DetCell.xml -->
-
-    <ionChannelHH id="passiveChan" conductance="10pS">
-        <notes>Leak conductance</notes>
-    </ionChannelHH>
-
-
-    <ionChannelHH id="naChan" conductance="10pS" species="na">
-        <notes>Na channel</notes>
-
-        <gateHHrates id="m" instances="3">
-            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
-        </gateHHrates>
-
-        <gateHHrates id="h" instances="1">
-            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
-            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
-        </gateHHrates>
-
-    </ionChannelHH>
-
-
-    <ionChannelHH id="kChan" conductance="10pS" species="k">
-
-        <gateHHrates id="n" instances="4">
-            <forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
-        </gateHHrates>
-
-    </ionChannelHH>
-
-
-
-    <cell id="hhcell">
-
-        <morphology id="morph1">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um^2-->
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
-            </segment>
-
-            <segmentGroup id="soma_group">
-                <member segment="0"/>
-            </segmentGroup>
-
-        </morphology>
-
-        <biophysicalProperties id="bioPhys1">
-
-            <membraneProperties>
-
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
-
-            </membraneProperties>
-
-            <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   <!-- Note: not used in single compartment simulations -->
-            </intracellularProperties>
-
-        </biophysicalProperties>
-
-    </cell>
-
-    <pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.08nA"/>
-
-
-    <network id="net1">
-        <population id="hhpop" component="hhcell" size="1"/>
-        <explicitInput target="hhpop[0]" input="pulseGen1"/>
-    </network>
-
-</neuroml>
-
+    <xs:complexType name="IzhikevichCell">
+        <xs:complexContent>
+            <xs:extension base="BaseCell">
+                <xs:attribute name="v0" type="Nml2Quantity_voltage" use="required"/>
+                <xs:attribute name="thresh" type="Nml2Quantity_voltage" use="required"/>
+                <xs:attribute name="a" type="Nml2Quantity_none" use="required"/>
+                <xs:attribute name="b" type="Nml2Quantity_none" use="required"/>
+                <xs:attribute name="c" type="Nml2Quantity_none" use="required"/>
+                <xs:attribute name="d" type="Nml2Quantity_none" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 ```
 
-## Example: Multi-compartmental cell
+The `xs:` prefix indicates that these are all part of an XML Schema.
+As we can see above, the Izhikevich cell and its parameters are defined in the schema, with their dimensions (units).
+As we saw before, parameters of the model are defined as attributes in NeuroML files.
+So, here in the schema, they are also defined as `attributes` of the `complexType` that the schema describes.
+The schema also specifies which of the parameters are necessary, and what their dimensions (units) are using the `use` and `type` properties.
 
-NML2_FullCell.nml
+This schema gives us all the information we need to describe an Izhikevich cell in NeuroML.
+Using the specification in the Schema, any number of Izhikevich cells can be defined in a NeuroML file with the necessary parameter sets.
+
+Different aspects of computational models---cells, synapses, ion channels, and so on---generally have some *dynamics* associated with them.
+The dynamics of the Izhikevich cell model, for example, are defined by two differential equations:
+
+\begin{align}
+\frac{dv}{dt} &= 0.5v^2 + 5v + 140.0 -U \\
+\frac{dU}{dt} &= a (bv -U)
+\end{align}
+
+Additionally, a spike is detected when the membrane potential `v` is greater than the threshold `thresh`.
+When this occurs, some variables are updated:
+
+- `v` is set to `c`,
+- `U` is incremented: `U = U+d`.
+
+How are these dynamics represented in NeuroML?
+The answer is: "with [LEMS](http://lems.github.io/LEMS)".
+Let us take a short segue to understand LEMS, and we will return to the Izhikevich model after.
+
+## Defining dynamical systems with LEMS
+
+[LEMS](http://lems.github.io/LEMS) (Low Entropy Model Specification) is an XML based language with interpreter originally developed by Robert Cannon for specifying generic models of hybrid dynamical systems.
+
+In other words, similar to NeuroML, LEMS defines a Schema but one that allows us to describe dynamical systems.
+
+For example, a class can be defined as follows:
+```{code-block} cpp
+class rectangle {
+  int length;
+  int breadth;
+}
+```
+
+There can be many rectangles of different dimensions, so we can *instantiate* different objects of this class:
+```{code-block} cpp
+/* A rectangle */
+rectangle r1 = rectangle();
+r1.length = 5;
+r1.breadth = 6;
+
+/* A different rectangle */
+rectangle r1 = rectangle();
+r1.length = 10;
+r1.breadth = 50;
+```
+In the same way, once the `izhikevichCell` ComponentType has been defined in the NeuroML standard with its parameters and dynamics, any number of cells of this type can be instantiated.
