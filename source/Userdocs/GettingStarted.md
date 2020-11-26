@@ -2,13 +2,15 @@
 
 The best way to understand NeuroML is to look at some example NeuroML files and how they are constructed.
 In this section, we will walk through a cell model and see how it is defined in NeuroML.
-To keep this section simple, we will intentionally gloss over many of the details and only focus on the salient, important bits necessary to grasp how NeuroML works and is to be used.
+We will use the Python tools for NeuroML, [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) and [pyNeuroML](https://github.com/NeuroML/pyNeuroML), which are the suggested tools for developing and simulating models in NeuroML.
+You can learn more about the different tools in their specific sections where you will also find examples in IPython notebooks to work through.
 
+Please note that to keep this section simple, we will intentionally skip many of the details and only focus on the important bits necessary to grasp how NeuroML works and is to be used.
 
 % Needs a better heading
-## Izhikevich neuron model in NeuroML
+## Understanding NeuroML: the Izhikevich neuron model
 
-The description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2003a`) in NeuroML is shown below:
+The description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2007`) in NeuroML is shown below:
 ```{code-block} xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -17,7 +19,9 @@ The description of a simple single compartment Izhikevich point neuron model ({c
     xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
     id="NML2_AbstractCells">
 
-  <izhikevichCell id="izBurst" v0 = "-70mV" thresh = "30mV" a="0.02" b = "0.2" c = "-50.0" d = "2"/>
+  <izhikevich2007Cell id="iz2007RS" v0 = "-60mV" C="100 pF" k = "0.7 nS_per_mV"
+                      vr = "-60 mV" vt = "-40 mV" vpeak = "35 mV" 
+                      a = "0.03 per_ms" b = "-2 nS" c = "-50 mV" d = "100 pA"/>
 </neuroml>
 ```
 
@@ -91,71 +95,124 @@ The last attribute, `id` is the identification (or the name) of this particular 
 
 The remaining part of the file is the *declaration* of the model and its dynamics:
 ```{code-block} xml
-  <izhikevichCell id="izBurst" v0 = "-70mV" thresh = "30mV" a="0.02" b = "0.2" c = "-50.0" d = "2"/>
+    <izhikevich2007Cell id="iz2007RS" v0 = "-60mV" C="100 pF" k = "0.7 nS_per_mV"
+                        vr = "-60 mV" vt = "-40 mV" vpeak = "35 mV" 
+                        a = "0.03 per_ms" b = "-2 nS" c = "-50 mV" d = "100 pA"/>
 ```
 The cell, is defined in the `izhikevichCell` tag, which has a number of attributes:
-- `id`: the name that we want to give to this cell to refer to it later, for example,
+- `id`: the name that we want to give to this cell. To refer to it later, for example,
 - `v0`: the initial membrane potential for the cell,
-- `thresh`: the threshold membrane potential, to detect a spike,
+- `C`: the leak conductance,
+- `k`: conductance per voltage,
+- `vr`: the membrane potential after a spike,
+- `vt`: the threshold membrane potential, to detect a spike,
+- `vpeak`: the peak membrane potential,
 - `a`, `b`, `c`, and `d`: are parameters of the Izhikevich neuron model.
 
-
-We observe that even though we have declared the cell, and the parameters that govern it, we do not state what and how these parameters are used.
-This is because NeuroML is a [declarative language](https://en.wikipedia.org/wiki/Declarative_programming).
-That is, it describes *what* needs to be done rather than *how* it should be done.
-The *how* is left to the various simulators, which each have their own implementation of various dynamics.
-This will become clearer later in this document.
+We observe that even though we have declared the cell, and the values for parameters that govern it, we do not state what and how these parameters are used.
+This is because NeuroML is a [declarative language](https://en.wikipedia.org/wiki/Declarative_programming) that defines the structure of models.
+We do not need to define how the dynamics of the different parts of the model are implemented.
+As we will see further below, these are already defined in NeuroML.
 ```{admonition} NeuroML is a declarative language.
-We describe the various components of the model but not how they are to be simulated.
+Users describe the various components of the model but do not need to worry about how they are implemented.
 ```
-
 We have seen how an Izhikevich cell can be declared in NeuroML, with all its parameters.
 However, given that NeuroML develops a standard and defines what tags and attributes can be used, let us see how these are defined for the Izhikevich cell.
-The Izhikevich cell is defined in the NeuroML schema [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.0.xsd#L1392):
-
+The Izhikevich cell is defined in version 2 of the NeuroML schema [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.0.xsd#L1422):
 ```{code-block} xml
-    <xs:complexType name="IzhikevichCell">
+    <xs:complexType name="Izhikevich2007Cell">
         <xs:complexContent>
-            <xs:extension base="BaseCell">
+            <xs:extension base="BaseCellMembPotCap">
                 <xs:attribute name="v0" type="Nml2Quantity_voltage" use="required"/>
-                <xs:attribute name="thresh" type="Nml2Quantity_voltage" use="required"/>
-                <xs:attribute name="a" type="Nml2Quantity_none" use="required"/>
-                <xs:attribute name="b" type="Nml2Quantity_none" use="required"/>
-                <xs:attribute name="c" type="Nml2Quantity_none" use="required"/>
-                <xs:attribute name="d" type="Nml2Quantity_none" use="required"/>
+                <xs:attribute name="k" type="Nml2Quantity_conductancePerVoltage" use="required"/>
+                <xs:attribute name="vr" type="Nml2Quantity_voltage" use="required"/>
+                <xs:attribute name="vt" type="Nml2Quantity_voltage" use="required"/>
+                <xs:attribute name="vpeak" type="Nml2Quantity_voltage" use="required"/>
+                <xs:attribute name="a" type="Nml2Quantity_pertime" use="required"/>
+                <xs:attribute name="b" type="Nml2Quantity_conductance" use="required"/>
+                <xs:attribute name="c" type="Nml2Quantity_voltage" use="required"/>
+                <xs:attribute name="d" type="Nml2Quantity_current" use="required"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 ```
 
 The `xs:` prefix indicates that these are all part of an XML Schema.
-As we can see above, the Izhikevich cell and its parameters are defined in the schema, with their dimensions (units).
+The Izhikevich cell and all its parameters are defined in the schema.
 As we saw before, parameters of the model are defined as attributes in NeuroML files.
 So, here in the schema, they are also defined as `attributes` of the `complexType` that the schema describes.
 The schema also specifies which of the parameters are necessary, and what their dimensions (units) are using the `use` and `type` properties.
 
 This schema gives us all the information we need to describe an Izhikevich cell in NeuroML.
-Using the specification in the Schema, any number of Izhikevich cells can be defined in a NeuroML file with the necessary parameter sets.
+Using the specification in the Schema, any number of Izhikevich cells can be defined in a NeuroML file with the necessary parameter sets to create networks of Izhikevich cells.
 
-Different aspects of computational models---cells, synapses, ion channels, and so on---generally have some *dynamics* associated with them.
-The dynamics of the Izhikevich cell model, for example, are defined by two differential equations:
+### Defining the Izhikevich cell in NeuroML using Python
+
+Until now, we have only looked at the XML file themselves.
+As is evident, XML files are excellent for storing structured data, but may not be easy to write by hand.
+However, NeuroML users *are not expected* to write in XML.
+Instead, they use various tools to write their models and their descriptions, and then can *export* their models in to NeuroML to run them on different simulators and to share them with others.
+
+In the Python script below, we can see how NeuroML description of the Izhikevich cell can be generated:
+```{code-block} python
+#!/usr/bin/python3
+# saved as izhikevich2007.py
+from neuroml import NeuroMLDocument
+from neuroml import Izhikevich2007Cell
+from neuroml.writers import NeuroMLWriter
+from neuroml.utils import validate_neuroml2
+
+
+nml_filename = "IzhikevichCell2007.nml.xml"
+nml_doc = NeuroMLDocument(id="SingleIzhikevich")
+
+iz0 = Izhikevich2007Cell(id="iz2007RS", v0="-60mV", C="100pF",
+                         k="0.7nS_per_mV", vr="-60mV", vt="-40mV",
+                         vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV",
+                         d="100pA")
+
+nml_doc.izhikevich2007_cells.append(iz0)
+
+NeuroMLWriter.write(nml_doc, nml_filename)
+validate_neuroml2(nml_filename)
+```
+We can now run this using Python:
+```{code-block}
+$ python3 ./izhikevich2007.py
+Validating IzhikevichCell2007.nml.xml against /usr/lib/python3.9/site-packages/neuroml/nml/NeuroML_v2.1.xsd
+It's valid!
+```
+Next, we can check its contents and verify that we get the same NeuroML code that we've seen above:
+```{code-block}
+$ cat IzhikevichCell2007.nml.xml
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="SingleIzhikevich">
+    <izhikevich2007Cell id="iz2007RS" C="100pF" v0="-60mV" k="0.7nS_per_mV" vr="-60mV" vt="-40mV" vpeak="35mV" a="0.03per_ms" b="-2nS" c="-50.0mV" d="100pA"/>
+    </neuroml>
+```
+
+% Ankur: continue here: go on to building a network, then go on to dynamics/simulating where LEMS needs to be discussed.
+
+## A quick overview of LEMS
+
+Different aspects of computational models---cells, synapses, ion channels, and so on---have some *dynamics* associated with them.
+The dynamics of the Izhikevich cell model, for example, are defined by a set of equations:
 
 \begin{align}
-\frac{dv}{dt} &= 0.5v^2 + 5v + 140.0 -U \\
-\frac{dU}{dt} &= a (bv -U)
+iMemb &= k * (v- vr) * (v - vt) * iSyn -u \\
+\frac{du}{dt} &= a (bv -u) \\
+\frac{dv}{dt} &= iMemb/C
 \end{align}
 
+Here, `iSyn` and `iMemb` are two *derived variables*: the synaptic input current, and the membrane current respectively.
 Additionally, a spike is detected when the membrane potential `v` is greater than the threshold `thresh`.
 When this occurs, some variables are updated:
 
 - `v` is set to `c`,
-- `U` is incremented: `U = U+d`.
+- `u` is incremented: `u = u+d`.
 
 How are these dynamics represented in NeuroML?
 The answer is: "with [LEMS](http://lems.github.io/LEMS)".
-Let us take a short segue to understand LEMS, and we will return to the Izhikevich model after.
-
-## A quick overview of LEMS
+Let us take a short segue to understand how NeuroML constructs are defined LEMS, and we will return to the Izhikevich model after.
 
 [LEMS](http://lems.github.io/LEMS) (Low Entropy Model Specification) is an XML based language with interpreter originally developed by Robert Cannon for specifying generic models of hybrid dynamical systems.
 
