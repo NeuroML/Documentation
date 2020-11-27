@@ -8,6 +8,7 @@
 - part: User documentation
   chapters:
     - file: ./Userdocs/GettingStarted
+    - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/Specification
       sections:
         - file: ./Userdocs/NeuroMLv2.md
