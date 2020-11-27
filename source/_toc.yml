@@ -29,15 +29,15 @@
         - file: ./Userdocs/Software/NeuroMLlite
         - file: ./Userdocs/Software/NeuroML_API
         - file: ./Userdocs/Software/MatLab
-    - file: ./Userdocs/SimulatorSupport/SimulatorSupport
+    - file: ./Userdocs/SimulatingNeuroMLModels/SimulatingNeuroMLModels
       sections:
-        - file: ./Userdocs/SimulatorSupport/jNeuroML
-        - file: ./Userdocs/SimulatorSupport/NEURON
-        - file: ./Userdocs/SimulatorSupport/NetPyNE
-        - file: ./Userdocs/SimulatorSupport/Brian
-        - file: ./Userdocs/SimulatorSupport/MOOSE
-        - file: ./Userdocs/SimulatorSupport/NEST
-        - file: ./Userdocs/SimulatorSupport/PyNN
+        - file: ./Userdocs/SimulatingNeuroMLModels/jNeuroML
+        - file: ./Userdocs/SimulatingNeuroMLModels/NEURON
+        - file: ./Userdocs/SimulatingNeuroMLModels/NetPyNE
+        - file: ./Userdocs/SimulatingNeuroMLModels/Brian
+        - file: ./Userdocs/SimulatingNeuroMLModels/MOOSE
+        - file: ./Userdocs/SimulatingNeuroMLModels/NEST
+        - file: ./Userdocs/SimulatingNeuroMLModels/PyNN
     - file: ./Userdocs/Guides/Guides
 
 - part: Developer documentation
