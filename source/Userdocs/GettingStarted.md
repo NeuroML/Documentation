@@ -254,5 +254,12 @@ This generates the following NeuroML file:
 language: xml
 ----
 ```
+
+Now that we have a complete network model, in NeuroML, we need to be able to simulate it.
+NeuroML itself is limited to descriptions of models only, and does not include functionality to simulate the generated model instances.
+To see how we can simulate NeuroML models, we take a short segue into [LEMS](http://lems.github.io/LEMS/index.html).
+
+### A quick overview of LEMS
+
 ### Simulating the NeuroML model using Python with the help of PyNeuroML
 
