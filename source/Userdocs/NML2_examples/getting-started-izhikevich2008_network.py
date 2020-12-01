@@ -13,7 +13,7 @@ import neuroml.writers as writers
 from neuroml.utils import validate_neuroml2
 import random
 
-nml_doc = NeuroMLDocument(id="IafNet")
+nml_doc = NeuroMLDocument(id="IzNet")
 
 iz0 = Izhikevich2007Cell(
     id="iz2007RS0", v0="-60mV", C="100pF",
