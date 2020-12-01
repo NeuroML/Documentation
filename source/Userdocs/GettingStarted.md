@@ -239,5 +239,20 @@ By changing the seed for Python's `random` function here, we can generate multip
 
 ## Simulating the generated NeuroML model
 
+Now that we have a network of cells, the next step is to simulate our model.
+For this, first we need to provide some input to the network.
+We can do this by adding `pulseGenerators` to the projecting population of cells:
+```{literalinclude} ./NML2_examples/getting-started-izhikevich2008_network-with-inputs.py
+----
+language: python
+----
+```
+
+This generates the following NeuroML file:
+```{literalinclude} ./NML2_examples/getting-started-izhikevich2008_network-with-inputs.nml
+----
+language: xml
+----
+```
 ### Simulating the NeuroML model using Python with the help of PyNeuroML
 
