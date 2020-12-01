@@ -145,7 +145,7 @@ The schema also specifies which of the parameters are necessary, and what their 
 This schema gives us all the information we need to describe an Izhikevich cell in NeuroML.
 Using the specification in the Schema, any number of Izhikevich cells can be defined in a NeuroML file with the necessary parameter sets to create networks of Izhikevich cells.
 
-### Defining the Izhikevich cell in NeuroML using Python
+### Defining the Izhikevich cell using Python
 
 Until now, we have only looked at the XML file themselves.
 As is evident, XML files are excellent for storing structured data, but may not be easy to write by hand.
@@ -200,8 +200,42 @@ We will cover this in later sections.
 
 ## A network of Izhikevich cells in NeuroML
 
-### Defining a network of Izhikevich Cells in NeuroML using Python
+Now that we have defined a cell, let us see how a network of these cells may be declared:
 
+```{code-block} xml
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="IafNet">
+    <izhikevich2007Cell id="iz2007RS0" C="100pF" v0="-60mV" k="0.7nS_per_mV" vr="-60mV" vt="-40mV" vpeak="35mV" a="0.03per_ms" b="-2nS" c="-50.0mV" d="100pA"/>
+    <network id="IzNet">
+        <population id="IzPop0" component="iz2007RS0" size="5"/>
+        <population id="IzPop1" component="iz2007RS0" size="5"/>
+    </network>
+</neuroml>
+```
+Here, after defining our `izhikevich2007Cell` as before, we now create a network using the `network` NeuroML tag.
+Similarly, we give it an `id`, so we can refer to it later.
+Next, in this network, we create two populations of our Izhikevich cells: `IzPop0` and `IzPop1`, of 5 cells each.
+We do this by using the `id` of the `izhikevich2007Cell`, `iz2007RS0`, in the `population` tag's `component` attribute with the `size` attribute to specify the number of cells.
+
+Let us now connect these two populations such that `IzPop0` projects on to `IzPop1` with some probability of connection.
+This can be seen in the snippet below:
+```{literalinclude} ./NML2_examples/getting-started-izhikevich2008_network.nml
+----
+language: xml
+----
+```
+We have now defined a `expOneSynapse` synapse type with certain parameters, and connected the two populations using it.
+Note that here, each connection between pairs of neurons is explicitly listed as a new `synapticConnection`.
+
+### Defining the network using Python
+
+Since users are not expected to write NeuroML files by hand in XML, let us see how this network can be generated using the libNeuroML Python API:
+```{literalinclude} ./NML2_examples/getting-started-izhikevich2008_network.py
+----
+language: python
+----
+```
+We see here that the probability of connection is defined as `0.5`, and we use that to easily generate the network.
+By changing the seed for Python's `random` function here, we can generate multiple instances of the network to simulate.
 
 ## Simulating the generated NeuroML model
 
