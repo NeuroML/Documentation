@@ -9,7 +9,7 @@ Please note that to keep this section simple, we will intentionally skip many of
 
 ## The Izhikevich neuron model in NeuroML
 
-The description of a simple single compartment Izhikevich point neuron model ({cite}`Izhikevich2007`) in NeuroML is shown below:
+The description of a simple single compartment Izhikevich point neuron model with regular spiking ({cite}`Izhikevich2007`) in NeuroML is shown below:
 ```{code-block} xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -19,7 +19,7 @@ The description of a simple single compartment Izhikevich point neuron model ({c
     id="NML2_AbstractCells">
 
   <izhikevich2007Cell id="iz2007RS" v0 = "-60mV" C="100 pF" k = "0.7 nS_per_mV"
-                      vr = "-60 mV" vt = "-40 mV" vpeak = "35 mV" 
+                      vr = "-60 mV" vt = "-40 mV" vpeak = "35 mV"
                       a = "0.03 per_ms" b = "-2 nS" c = "-50 mV" d = "100 pA"/>
 </neuroml>
 ```
@@ -95,7 +95,7 @@ The last attribute, `id` is the identification (or the name) of this particular 
 The remaining part of the file is the *declaration* of the model and its dynamics:
 ```{code-block} xml
     <izhikevich2007Cell id="iz2007RS" v0 = "-60mV" C="100 pF" k = "0.7 nS_per_mV"
-                        vr = "-60 mV" vt = "-40 mV" vpeak = "35 mV" 
+                        vr = "-60 mV" vt = "-40 mV" vpeak = "35 mV"
                         a = "0.03 per_ms" b = "-2 nS" c = "-50 mV" d = "100 pA"/>
 ```
 The cell, is defined in the `izhikevichCell` tag, which has a number of attributes:
@@ -259,7 +259,18 @@ Now that we have a complete network model, in NeuroML, we need to be able to sim
 NeuroML itself is limited to descriptions of models only, and does not include functionality to simulate the generated model instances.
 To see how we can simulate NeuroML models, we take a short segue into [LEMS](http://lems.github.io/LEMS/index.html).
 
-### A quick overview of LEMS
+### Adding information to simulate the model with LEMS
+
+LEMS, the Low Entropy Model Specification language, is an XML based language with interpreter for specifying generic models of hybrid dynamical systems.
+
+LEMS plays 2 roles in the NeuroML eco-system:
+
+- LEMS is used by NeuroML to define specific *components types* which form the standard NeuroML schema.
+- LEMS provides the necessary components to simulate the dynamics of models described in NeuroML
+
+You can read about LEMS in detail in later sections.
+Here, we will only discuss bits that are necessary to run the NeuroML network that we have constructed.
+
 
 ### Simulating the NeuroML model using Python with the help of PyNeuroML
 

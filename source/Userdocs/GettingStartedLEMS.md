@@ -1,5 +1,69 @@
 # NeuroML under the hood: LEMS
 
+In LEMS, **ComponentType** elements which specify **Parameter**s, **StateVariable**s and their **Dynamics** and **Structure** can be defined as templates for model elements.
+For example, the definition of the Izhikevich cell component type that we have been using in NeuroML, in LEMS is below:
+```{code-block} xml
+<Lems xmlns="http://www.neuroml.org/lems/0.7.4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.7.4 ../../LEMS/Schemas/LEMS/LEMS_v0.7.4.xsd"
+      description="Defines both abstract cell models (e.g. _izhikevichCell_, adaptive exponential integrate and fire cell, _adExIaFCell_), point conductance based cell models (_pointCellCondBased_, _pointCellCondBasedCa_) and cells models (_cell_) which specify the _morphology_ (containing _segment_s) and _biophysicalProperties_ separately.">
+
+    <!-- other components -->
+
+    <ComponentType name="izhikevich2007Cell"
+        extends="baseCellMembPotCap"
+        description="Cell based on the modified Izhikevich model in Izhikevich 2007, Dynamical systems in neuroscience, MIT Press">
+
+        <Parameter name="v0" dimension="voltage"/>
+        <!--
+        Defined in baseCellMembPotCap:
+        <Parameter name="C" dimension="capacitance"/>
+        -->
+        <Parameter name="k" dimension="conductance_per_voltage"/>
+
+        <Parameter name="vr" dimension="voltage"/>
+        <Parameter name="vt" dimension="voltage"/>
+        <Parameter name="vpeak" dimension="voltage"/>
+
+        <Parameter name="a" dimension="per_time"/>
+        <Parameter name="b" dimension="conductance"/>
+        <Parameter name="c" dimension="voltage"/>
+        <Parameter name="d" dimension="current"/>
+
+        <Attachments name="synapses" type="basePointCurrent"/>
+
+        <Exposure name="u" dimension="current"/>
+
+        <Dynamics>
+            <StateVariable name="v" dimension="voltage" exposure="v"/>
+            <StateVariable name="u" dimension="current" exposure="u"/>
+            <DerivedVariable name="iSyn"  dimension="current" exposure="iSyn" select="synapses[*]/i" reduce="add" />
+            <DerivedVariable name="iMemb" dimension="current" exposure="iMemb" value="k * (v-vr) * (v-vt) + iSyn - u"/>
+            <TimeDerivative variable="v" value="iMemb / C"/>
+            <TimeDerivative variable="u" value="a * (b * (v-vr) - u)"/>
+
+            <OnStart>
+                <StateAssignment variable="v" value="v0"/>
+                <StateAssignment variable="u" value="0"/>
+            </OnStart>
+
+            <OnCondition test="v .gt. vpeak">
+                <StateAssignment variable="v" value="c"/>
+                <StateAssignment variable="u" value="u + d"/>
+                <EventOut port="spike"/>
+            </OnCondition>
+        </Dynamics>
+    </ComponentType>
+
+```
+The `<izhikevich2007 ..>`  *Component* in our NeuroML files is an *instance* of this defined *ComponentType* with specific values of Parameters.
+If you are familiar with object oriented programming, you can think of the definition of the component type in LEMS as the definition of a class.
+The component then becomes an instance of this class, with whatever parameter values we need to use.
+So, for the Izhikevich cell where we have been using parameters that model a regular spiking neuron, we can have another instance with different parameters that models an adaptive spiking neuron.
+They will both use the same ComponentType, but will be two different Components, with different parameter values.
+
+
+## More extra text
 Different aspects of computational models---cells, synapses, ion channels, and so on---have some *dynamics* associated with them.
 The dynamics of the Izhikevich cell model, for example, are defined by a set of equations:
 
