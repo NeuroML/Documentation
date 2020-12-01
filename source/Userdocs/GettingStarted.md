@@ -182,18 +182,21 @@ Validating IzhikevichCell2007.nml.xml against /usr/lib/python3.9/site-packages/n
 It's valid!
 ```
 Next, we can check its contents and verify that we get the same NeuroML code that we've seen above:
-```{code-block}
+```{code-block} xml
 $ cat IzhikevichCell2007.nml.xml
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="SingleIzhikevich">
     <izhikevich2007Cell id="iz2007RS" C="100pF" v0="-60mV" k="0.7nS_per_mV" vr="-60mV" vt="-40mV" vpeak="35mV" a="0.03per_ms" b="-2nS" c="-50.0mV" d="100pA"/>
     </neuroml>
 ```
 
-The Python code is quite self-explanatory.
-We first create a NeuroML document with the preferred `id`, an instance of the `NeuroMLDocument` class.
+In the Python code, we first create a NeuroML *document* with the preferred `id`, an instance of the `NeuroMLDocument` class.
 We then define our Izhikevich cell, and add it to the document.
 We then use the `NeuroMLWriter` to write this to a file.
 Finally, we use the `validate_neuroml2` function to check if our NeuroML file is valid according to the NeuroML schema or not.
+
+All the cell types that are defined in the NeuroML schema are available in the Python API.
+It is also possible to extend NeuroML to define new cell types and so on.
+We will cover this in later sections.
 
 ## A network of Izhikevich cells in NeuroML
 
@@ -202,5 +205,5 @@ Finally, we use the `validate_neuroml2` function to check if our NeuroML file is
 
 ## Simulating the generated NeuroML model
 
-### Simulating the NeuroML model using Python using PyNeuroML
+### Simulating the NeuroML model using Python with the help of PyNeuroML
 
