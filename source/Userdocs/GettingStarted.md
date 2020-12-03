@@ -147,6 +147,9 @@ Using the specification in the Schema, any number of Izhikevich cells can be def
 
 ### Defining the Izhikevich cell using Python
 
+```{admonition} Python is the suggested programming language to use for working with NeuroML.
+The Python NeuroML tools and libraries provide a convenient, easy to use interface to use NeuroML.
+```
 Until now, we have only looked at the XML file themselves.
 As is evident, XML files are excellent for storing structured data, but may not be easy to write by hand.
 However, NeuroML users *are not expected* to write in XML.
