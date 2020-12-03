@@ -1,0 +1,31 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.5.6 (libNeuroML v0.2.52)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="example-izhikevich2007cell-sim"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="izhikevich2007_network.nml"/>
+   
+    <Simulation id="example-izhikevich2007cell-sim" length="10000ms" step="0.1ms" target="IzNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <EventOutputFile id="pop0" fileName="example-izhikevich2007cell-sim.spikes.dat" format="ID_TIME">
+            <EventSelection id="0" select="IzPop0[0]" eventPort="spike"/> 
+            <EventSelection id="1" select="IzPop0[1]" eventPort="spike"/> 
+            <EventSelection id="2" select="IzPop0[2]" eventPort="spike"/> 
+            <EventSelection id="3" select="IzPop0[3]" eventPort="spike"/> 
+            <EventSelection id="4" select="IzPop0[4]" eventPort="spike"/> 
+        </EventOutputFile>
+        
+    </Simulation>
+
+</Lems>

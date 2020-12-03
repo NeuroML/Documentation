@@ -14,6 +14,8 @@ from neuroml import SynapticConnection
 import neuroml.writers as writers
 import random
 from neuroml.utils import validate_neuroml2
+from pyneuroml.lems import LEMSSimulation
+
 
 nml_doc = NeuroMLDocument(id="IzNet")
 
@@ -40,7 +42,7 @@ random.seed(42)
 prob_connection = 0.5
 for pre in range(0, size0):
     pg = PulseGenerator(
-        id="pulseGen_%i" % pre, delay="0ms", duration="1000ms",
+        id="pulseGen_%i" % pre, delay="0ms", duration="10000ms",
         amplitude="%f nA" % (0.1 * random.random())
     )
     nml_doc.pulse_generators.append(pg)
@@ -51,10 +53,9 @@ for pre in range(0, size0):
     for post in range(0, size1):
         # 'from_' is used since 'from' is Python keyword
         if random.random() <= prob_connection:
-            syn = SynapticConnection(
-                from_="%s[%i]" % (pop0.id, pre), synapse=syn0.id,
-                to="%s[%i]" % (pop1.id, post)
-            )
+            syn = SynapticConnection(from_="%s[%i]" % (pop0.id, pre),
+                                     synapse=syn0.id,
+                                     to="%s[%i]" % (pop1.id, post))
             net.synaptic_connections.append(syn)
 
 nml_file = 'izhikevich2007_network.nml'
@@ -62,3 +63,19 @@ writers.NeuroMLWriter.write(nml_doc, nml_file)
 
 print("Written network file to: " + nml_file)
 validate_neuroml2(nml_file)
+
+simulation_id = "example-izhikevich2007cell-sim"
+simulation = LEMSSimulation(sim_id=simulation_id,
+                            duration=10000, dt=0.1, simulation_seed=123)
+simulation.assign_simulation_target(net.id)
+simulation.include_neuroml2_file(nml_file)
+
+simulation.create_event_output_file(
+    "pop0", "%s.spikes.dat" % simulation_id, format='ID_TIME'
+)
+
+for pre in range(0, size0):
+    simulation.add_selection_to_event_output_file(
+        "pop0", pre, 'IzPop0[{}]'.format(pre), 'spike')
+
+lems_simulation_file = simulation.save_to_file()
