@@ -37,6 +37,8 @@ html:
 launch_buttons:
   binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
+  notebook_interface: "classic"
+  thebe: true
 
 # Extra parsing options
 parse:
