@@ -8,6 +8,8 @@
 - part: User documentation
   chapters:
     - file: ./Userdocs/GettingStarted
+      sections:
+      - file: ./Userdocs/NML2_examples/GettingStartedNotebook.ipynb
     - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/Specification
       sections:
