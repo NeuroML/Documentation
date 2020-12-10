@@ -21,7 +21,7 @@ Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--
 
 <table>
 <tr>
-<td>
+<td style="width:20%">
 
 ```{image} ../images/Board/justas.jpg
 ---
@@ -31,7 +31,7 @@ height: 150px
 ```
 
 </td>
-<td>
+<td style="width:20%">
 
 ```{image} ../images/Board/andrew.jpg
 ---
@@ -41,9 +41,9 @@ height: 150px
 ```
 
 </td>
-<td>
+<td style="width:20%">
 
-```{image} ../images/Board/new_salva.png
+```{image} ../images/Board/salva.png
 ---
 alt: Salvador Dura-Bernal
 height: 150px
@@ -51,9 +51,9 @@ height: 150px
 ```
 
 </td>
-<td>
+<td style="width:20%">
 
-```{image} ../images/Board/new_padraig.jpg
+```{image} ../images/Board/padraig.jpg
 ---
 alt: Padraig Gleeson
 height: 150px
@@ -61,7 +61,7 @@ height: 150px
 ```
 
 </td>
-<td>
+<td style="width:20%">
 
 ```{image} ../images/Board/boris.jpg
 ---
@@ -73,52 +73,52 @@ height: 150px
 </td>
 </tr>
 <tr>
-<td>
+<td style="width:20%">
 <center>
 
-**Justas Birgiolas**  
-Independent Researcher  
-Buffalo, NY  
+**Justas Birgiolas**<br />
+Independent Researcher<br />
+Buffalo, NY<br />
 [Website](https://www.linkedin.com/in/justasbirgiolas/)
 
 </center>
 </td>
-<td>
+<td style="width:20%">
 <center>
 
-**Andrew Davidson**  
-CNRS, Gif-sur-Yvette  
-France  
+**Andrew Davidson**<br />
+CNRS, Gif-sur-Yvette<br />
+France<br />
 [Website](http://www.andrewdavison.info/)
 
 </center>
 </td>
-<td>
+<td style="width:20%">
 <center>
 
-**Salvador Dura-Bernal**  
-SUNY Downstate  
-Brooklyn, USA  
+**Salvador Dura-Bernal**<br />
+SUNY Downstate<br />
+Brooklyn, USA<br />
 [Website](http://www.neurosimlab.com/users/salvador-dura-bernal)
 
 </center>
 </td>
-<td>
+<td style="width:20%">
 <center>
 
-**Padraig Gleeson**  
-University College London  
-UK  
+**Padraig Gleeson**<br />
+University College London<br />
+UK<br />
 [Website](http://www.opensourcebrain.org/users/4)
 
 </center>
 </td>
-<td>
+<td style="width:20%">
 <center>
 
-**Boris Marin**  
-Universidade Federal do ABC  
-Brazil  
+**Boris Marin**<br />
+Universidade Federal do ABC<br />
+Brazil<br />
 [Website](http://opensourcebrain.org/)
 
 

@@ -53,11 +53,11 @@
   chapters:
     - file: ./NeuroMLOrg/CommunicationChannels
     - file: ./NeuroMLOrg/History
-    - file: ./NeuroMLOrg/Community
+    - file: ./NeuroMLOrg/Board
       sections:
-        - file: ./NeuroMLOrg/Board
         - file: ./NeuroMLOrg/BoardHistory
         - file: ./NeuroMLOrg/BoardMeetingReports
+    - file: ./NeuroMLOrg/ScientificCommittee
     - file: ./NeuroMLOrg/Funding
     - file: ./NeuroMLOrg/CoC
 
