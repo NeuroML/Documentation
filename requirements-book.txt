@@ -4,3 +4,4 @@ matplotlib
 numpy
 ghp-import
 jupytext>=0.16
+sphinxcontrib-bibtex

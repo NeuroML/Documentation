@@ -51,6 +51,7 @@
 
 - part: The NeuroML Initiative
   chapters:
+    - file: ./NeuroMLOrg/History
     - file: ./NeuroMLOrg/Community
       sections:
         - file: ./NeuroMLOrg/CommunicationChannels
