@@ -1,3 +1,7 @@
 .venv/
 source/_build
 tags.*
+/bin
+/build
+/lib
+/pyvenv.cfg
