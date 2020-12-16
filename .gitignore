@@ -1,5 +1,5 @@
 .venv/
-source/_build
+source/_build/*
 tags.*
 /bin
 /build
