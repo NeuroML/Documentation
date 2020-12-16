@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: "" # Leave empty: logo says NeuroML
+title: "NeuroML Documentation" # Leave empty: logo says NeuroML
 author: NeuroML contributors
 logo: images/logo.png
 
