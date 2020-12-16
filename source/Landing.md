@@ -1,3 +1,4 @@
+(landing)=
 # Welcome to the NeuroML documentation
 
 Computational models, based on detailed neuroanatomical and electrophysiological data, are heavily used as an aid for understanding the nervous system.
@@ -5,7 +6,7 @@ NeuroML is an international, collaborative initiative to develop a language for 
 standard data format for defining and exchanging descriptions of neuronal cell and network models.
 
 The NeuroML project community develops an [XML (eXtensible Markup Language)](https://wikipedia.org/XML) based description language where [XML Schemas](http://www.w3schools.com/schema/default.asp) are used to define model specifications.
-The community also develops and maintains a number of libraries (in [Python, Java and other languages](./Userdocs/Software/Software.md)) to facilitate use of these specifications.
+The community also develops and maintains a number of libraries (in {ref}`Python, Java and other languages <userdocs:software>`) to facilitate use of these specifications.
 
 NeuroML specifications are developed by the [NeuroML Editorial Board](https://neuroml.org/editors) and overseen by its [Scientific Committee](https://neuroml.org/scientific_committee).
 NeuroML is [endorsed by INCF](https://www.incf.org/sbp/neuroml), and is also an official [COMBINE standard](http://co.mbine.org/standards/neuroml).
@@ -18,24 +19,6 @@ The **aims of the NeuroML initiative** are:
 - To encourage researchers with models within the scope of NeuroML to exchange and publish their models in this format
 
 Here, you will find documentation on using NeuroML, developing with NeuroML, its specifications, and the community that maintains it.
-
-## Overview of standards in neuroscience
-
-What standards are out there: COMBINE, INCF.
-
-### NeuroML as a standard
-
-How NeuroML fits in with all the standards, and what purpose it serves.
-
-#### Interaction with other languages and standards
-
-```{note}
-This bit can be split to a different section, and then each entry in the list below can be split into a separate heading depending on how much detail is needed here.
-```
-- PyNN
-- SBML
-- Sonata
-- NineML & SpineML
 
 ## Projects supporting NeuroML
 ```{note}

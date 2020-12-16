@@ -45,6 +45,7 @@
 
 - part: Developer documentation
   chapters:
+    - file: ./Devdocs/InteractionOtherBits
     - file: ./Devdocs/Devdocs
       sections:
         - file: ./Devdocs/ReleaseProcess
@@ -52,6 +53,7 @@
 - part: The NeuroML Initiative
   chapters:
     - file: ./NeuroMLOrg/CommunicationChannels
+    - file: ./NeuroMLOrg/Standards
     - file: ./NeuroMLOrg/History
     - file: ./NeuroMLOrg/Board
       sections:
