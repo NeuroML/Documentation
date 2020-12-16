@@ -1,3 +1,4 @@
+(userdocs:getting_started_neuroml)=
 # Getting started with NeuroML
 
 The best way to understand NeuroML is to look at some example NeuroML files and how they are constructed.

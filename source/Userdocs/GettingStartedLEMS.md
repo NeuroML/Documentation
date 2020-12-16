@@ -1,3 +1,4 @@
+(userdocs:getting_started_lems)=
 # NeuroML under the hood: LEMS
 
 In LEMS, **ComponentType** elements which specify **Parameter**s, **StateVariable**s and their **Dynamics** and **Structure** can be defined as templates for model elements.
