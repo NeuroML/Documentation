@@ -8,9 +8,13 @@ You can learn more about the different tools in their specific sections where yo
 
 Please note that to keep this section simple, we will intentionally skip many of the details and only focus on the important bits necessary to grasp how NeuroML works and is to be used.
 
-## The Izhikevich neuron model in NeuroML
+## Simulating a regular spiking Izhikevich neuron
 
-The description of a simple single compartment Izhikevich point neuron model with regular spiking ({cite}`Izhikevich2007`) in NeuroML is shown below:
+
+## A two population network of regular spiking Izhikevich neurons
+
+Now that we have seen how a single Izhikevich neuron may be specified and simulated using NeuroML, let us build and simulate a network.
+As noted above, the description of a simple single compartment Izhikevich point neuron model with regular spiking ({cite}`Izhikevich2007`) in NeuroML is:
 ```{code-block} xml
 <?xml version="1.0" encoding="UTF-8"?>
 
