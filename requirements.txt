@@ -1,4 +1,5 @@
 # For Jupyter notebooks, on mybinder etc.
 pyneuroml
 neuromllite
+libNeuroML
 #NEURON
