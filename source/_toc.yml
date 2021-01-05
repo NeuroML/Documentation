@@ -9,6 +9,8 @@
   chapters:
     - file: ./Userdocs/GettingStarted
       sections:
+      - file: ./Userdocs/SingleNeuronExample
+      - file: ./Userdocs/IzhikevichNetworkExample
       - file: ./Userdocs/NML2_examples/GettingStartedNotebook.ipynb
     - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/Specification
