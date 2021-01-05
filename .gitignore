@@ -5,3 +5,4 @@ tags.*
 /build
 /lib
 /pyvenv.cfg
+.ipynb_checkpoints/

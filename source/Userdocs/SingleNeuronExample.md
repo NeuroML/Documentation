@@ -1,4 +1,4 @@
-(userdocs:getting started:single example)=
+(userdocs:getting_started:single_example)=
 # Simulating a regular spiking Izhikevich neuron
 
 In this section, we wish to simulate a single regular spiking Izhikevich neuron ({cite}`Izhikevich2007`) and record/visualise its membrane potential (as shown in the figure below):
@@ -256,3 +256,6 @@ lines: 78-86
 ----
 ```
 
+The next section is an interactive Jupyter notebook where you can play with this example.
+Click the "launch" button in the top right hand corner to run the notebook in a configured service.
+*You do not need to install any software on your computer to run these notebooks.*
