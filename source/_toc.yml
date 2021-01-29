@@ -14,6 +14,17 @@
       - file: ./Userdocs/IzhikevichNetworkExample
       - file: ./Userdocs/NML2_examples/GettingStartedNotebook.ipynb
     - file: ./Userdocs/GettingStartedLEMS
+    - file: ./Userdocs/FindingNeuroMLModels
+    - file: ./Userdocs/VisualisingNeuroMLModels
+    - file: ./Userdocs/SimulatingNeuroMLModels/SimulatingNeuroMLModels
+      sections:
+        - file: ./Userdocs/SimulatingNeuroMLModels/jNeuroML
+        - file: ./Userdocs/SimulatingNeuroMLModels/NEURON
+        - file: ./Userdocs/SimulatingNeuroMLModels/NetPyNE
+        - file: ./Userdocs/SimulatingNeuroMLModels/Brian
+        - file: ./Userdocs/SimulatingNeuroMLModels/MOOSE
+        - file: ./Userdocs/SimulatingNeuroMLModels/NEST
+        - file: ./Userdocs/SimulatingNeuroMLModels/PyNN
     - file: ./Userdocs/Specification
       sections:
         - file: ./Userdocs/NeuroMLv2.md
@@ -23,8 +34,6 @@
           sections:
             - file: ./Userdocs/Examplesv2
         - file: ./Userdocs/v1tov2.md
-    - file: ./Userdocs/FindingNeuroMLModels
-    - file: ./Userdocs/VisualisingNeuroMLModels
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/jNeuroML
@@ -37,15 +46,6 @@
         - file: ./Userdocs/Software/NeuroMLlite
         - file: ./Userdocs/Software/NeuroML_API
         - file: ./Userdocs/Software/MatLab
-    - file: ./Userdocs/SimulatingNeuroMLModels/SimulatingNeuroMLModels
-      sections:
-        - file: ./Userdocs/SimulatingNeuroMLModels/jNeuroML
-        - file: ./Userdocs/SimulatingNeuroMLModels/NEURON
-        - file: ./Userdocs/SimulatingNeuroMLModels/NetPyNE
-        - file: ./Userdocs/SimulatingNeuroMLModels/Brian
-        - file: ./Userdocs/SimulatingNeuroMLModels/MOOSE
-        - file: ./Userdocs/SimulatingNeuroMLModels/NEST
-        - file: ./Userdocs/SimulatingNeuroMLModels/PyNN
     - file: ./Userdocs/Guides/Guides
 
 - part: Developer documentation
