@@ -6,3 +6,4 @@ tags.*
 /lib
 /pyvenv.cfg
 .ipynb_checkpoints/
+*.gv
