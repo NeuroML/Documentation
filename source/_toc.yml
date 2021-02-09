@@ -10,9 +10,9 @@
     - file: ./Userdocs/GettingStarted
       sections:
       - file: ./Userdocs/SingleNeuronExample
-      - file: ./Userdocs/NML2_examples/GettingStartedSingleNeuron.ipynb
+      - file: ./Userdocs/NML2_examples/SingleNeuron.ipynb
       - file: ./Userdocs/IzhikevichNetworkExample
-      - file: ./Userdocs/NML2_examples/GettingStartedNotebook.ipynb
+      - file: ./Userdocs/NML2_examples/IzhikevichNetwork.ipynb
     - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/FindingNeuroMLModels
     - file: ./Userdocs/VisualisingNeuroMLModels

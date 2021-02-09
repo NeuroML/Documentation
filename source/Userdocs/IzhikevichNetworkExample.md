@@ -4,7 +4,7 @@ Now that we have defined a cell, let us see how a network of these cells may be 
 We will create a small network of cells, simulate this network, and generate a plot of the spike times of the cells (a raster plot):
 
 
-```{figure} ../Userdocs/NML2_examples/example-izhikevich2007network-sim-spikes.png
+```{figure} ../Userdocs/NML2_examples/example_izhikevich2007network_sim-spikes.png
 :alt: Spike times of neurons recorded from the simulation
 :align: center
 
