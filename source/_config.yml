@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: "NeuroML Documentation" # Leave empty: logo says NeuroML
-author: NeuroML contributors
+author: "NeuroML contributors"
 logo: images/logo.png
 
 # Force re-execution of notebooks on each build.
