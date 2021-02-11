@@ -7,3 +7,6 @@ tags.*
 /pyvenv.cfg
 .ipynb_checkpoints/
 *.gv
+*.mod
+x86_64/
+*.dat
