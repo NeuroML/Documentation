@@ -84,7 +84,7 @@ simulation.create_event_output_file(
 
 for pre in range(0, size0):
     simulation.add_selection_to_event_output_file(
-        "pop0", pre, 'IzPop0/{}'.format(pre), 'spike')
+        "pop0", pre, 'IzPop0[{}]'.format(pre), 'spike')
 
 lems_simulation_file = simulation.save_to_file()
 
