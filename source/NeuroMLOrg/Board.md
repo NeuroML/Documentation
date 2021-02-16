@@ -1,13 +1,15 @@
+(neuromlorg:board)=
 # NeuroML Editorial Board
 
 An elected board of editors has been formed to manage the NeuroML specification development process.
 The editorial board consists of five members, elected by the NeuroML community.
 The editors are responsible for producing and maintaining the official documentation for the NeuroML language.
+
 Due to the close link between the development of NeuroML 2 and LEMS, this group is also responsible for producing a stable specification for the subset of LEMS used by NeuroML 2.
 
 ## Current Editorial Board
 
-The five current members of the NeuroML Editorial Board are: 
+The five current members of the NeuroML Editorial Board are:
 
 - Justas Birgiolas,
 - Andrew Davison,
@@ -127,6 +129,7 @@ Brazil<br />
 </tr>
 </table>
 
+Information on past editors and elections can be found {ref}`here <neuromlorg:boardhistory>`.
 
 ## Procedures
 
@@ -139,12 +142,12 @@ Their main responsibilities are:
 
 - Defining and documenting the procedure for specification production: scope, release frequency, update procedures, form of specification (web based or single pdf, etc.).
     This should be based on some or all of the recommendations for community based standards development from the COMBINE initiative.
-    These procedures for specification production will have to be agreed with the [NeuroML Scientific Committee](https://www.neuroml.org/scientific_committee).
+    These procedures for specification production will have to be agreed with the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`.
 - Preparing the core specification for the NeuroML language.
 - Testing reference implementations of NeuroML compliant applications.
 - Preparing a specification for the LEMS language.
     This can be a subset of the language supported by the reference implementations in Java (jLEMS) and Python (PyLEMS), but will have to cover all of the LEMS elements required to specify the ComponentType definitions for NeuroML 2.
 - Responding to community queries about the specification.
-- Establishing a procedure for incorporating major changes into the specification (in cooperation with the NeuroML Scientific Committee).
+- Establishing a procedure for incorporating major changes into the specification (in cooperation with the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`).
 
 Participation in the editorial board will be on a volunteer basis, there is no central funding to support this work.

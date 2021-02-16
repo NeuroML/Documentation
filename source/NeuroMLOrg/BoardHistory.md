@@ -1,3 +1,4 @@
+(neuromlorg:boardhistory)=
 # History of the NeuroML Editorial Board
 
 This page documents the previous members of the NeuroML Board.
