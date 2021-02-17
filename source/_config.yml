@@ -5,6 +5,10 @@ title: "NeuroML Documentation" # Leave empty: logo says NeuroML
 author: "NeuroML contributors"
 logo: images/logo.png
 
+# List bibtex source file
+bibtex_bibfiles:
+  - Reference/references.bib
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
@@ -42,4 +46,15 @@ launch_buttons:
 
 # Extra parsing options
 parse:
-  myst_extended_syntax: true
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+  myst_url_schemes          : [mailto, http, https]
