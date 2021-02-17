@@ -72,4 +72,4 @@
 - part: Reference
   chapters:
     - file: ./Reference/Glossary
-    - file: ./Reference/Bibliography
+    - file: ./Reference/zBibliography
