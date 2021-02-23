@@ -29,7 +29,7 @@
       sections:
         - file: ./Userdocs/NeuroMLv2.md
           sections:
-            # - file: ./Userdocs/SchemaCells
+            - file: ./Userdocs/Schemas/Cells
             - file: ./Userdocs/Examplesv2
         - file: ./Userdocs/NeuroMLv1.md
           sections:
