@@ -29,10 +29,11 @@
       sections:
         - file: ./Userdocs/NeuroMLv2.md
           sections:
-            - file: ./Userdocs/Examplesv1
+            # - file: ./Userdocs/SchemaCells
+            - file: ./Userdocs/Examplesv2
         - file: ./Userdocs/NeuroMLv1.md
           sections:
-            - file: ./Userdocs/Examplesv2
+            - file: ./Userdocs/Examplesv1
         - file: ./Userdocs/v1tov2.md
     - file: ./Userdocs/Software/Software
       sections:
@@ -71,4 +72,4 @@
 - part: Reference
   chapters:
     - file: ./Reference/Glossary
-    - file: ./Reference/Bibliography
+    - file: ./Reference/zBibliography
