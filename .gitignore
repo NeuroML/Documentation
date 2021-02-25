@@ -10,3 +10,4 @@ tags.*
 *.mod
 x86_64/
 *.dat
+*nrn.py
