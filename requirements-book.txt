@@ -3,5 +3,3 @@ jupyter-book
 matplotlib
 numpy
 ghp-import
-jupytext>=0.16
-sphinxcontrib-bibtex==1.0.0
