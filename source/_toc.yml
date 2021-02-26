@@ -29,8 +29,14 @@
       sections:
         - file: ./Userdocs/NeuroMLv2.md
           sections:
-            # - file: ./Userdocs/SchemaCells
-            - file: ./Userdocs/Examplesv2
+            - file: ./Userdocs/Schemas/NeuroMLCoreDimensions
+            - file: ./Userdocs/Schemas/NeuroMLCoreCompTypes
+            - file: ./Userdocs/Schemas/Cells
+            - file: ./Userdocs/Schemas/Channels
+            - file: ./Userdocs/Schemas/Synapses
+            - file: ./Userdocs/Schemas/Inputs
+            - file: ./Userdocs/Schemas/Networks
+            - file: ./Userdocs/Schemas/PyNN
         - file: ./Userdocs/NeuroMLv1.md
           sections:
             - file: ./Userdocs/Examplesv1
