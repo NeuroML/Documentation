@@ -1,8 +1,8 @@
 name: Publish
 
 on:
-  push:
-    branches: [ master ]
+  pull_request:
+    branches: [ master, development ]
 
 jobs:
   build:
@@ -32,6 +32,3 @@ jobs:
       run: |
         jupyter-book clean ./source
         jupyter-book build ./source
-    - name: Import to GitHub pages
-      run: |
-        ghp-import -n -p -f ./source/_build/html
