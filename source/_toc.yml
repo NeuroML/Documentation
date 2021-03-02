@@ -44,16 +44,17 @@
         - file: ./Userdocs/v1tov2.md
     - file: ./Userdocs/Software/Software
       sections:
-        - file: ./Userdocs/Software/jNeuroML
-        - file: ./Userdocs/Software/jLEMS
-        - file: ./Userdocs/Software/libNeuroML
         - file: ./Userdocs/Software/PyNeuroML
           sections:
             - file: ./Userdocs/Software/examples/pynml-example
+        - file: ./Userdocs/Software/libNeuroML
         - file: ./Userdocs/Software/PyLEMS
         - file: ./Userdocs/Software/NeuroMLlite
+        - file: ./Userdocs/Software/jNeuroML
+        - file: ./Userdocs/Software/jLEMS
         - file: ./Userdocs/Software/NeuroML_API
         - file: ./Userdocs/Software/MatLab
+        - file: ./Userdocs/Software/SupportingTools
     - file: ./Userdocs/Guides/Guides
 
 - part: Developer documentation

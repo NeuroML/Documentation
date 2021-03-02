@@ -3,7 +3,7 @@
 
 The best way to understand NeuroML is to work through NeuroML examples to see how they are constructed and what they can do.
 In this chapter, we will step through increasingly complex models to see how they are written and simulated using NeuroML.
-To stress that Python is the suggested language for developing, simulating, and analysing NeuroML models, we will limit ourselves to the Python NeuroML tools only: [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) and [pyNeuroML](https://github.com/NeuroML/pyNeuroML).
+To stress that Python is the suggested language for developing, simulating, and analysing NeuroML models, we will limit ourselves to the Python NeuroML tools only: {ref}`libNeuroML <libNeuroML>` and {ref}`pyNeuroML <pyNeuroML>`.
 You can learn more about the different NeuroML tools in their specific sections.
 
 You do not need to install any software on your computers to run the example code included in this chapter.

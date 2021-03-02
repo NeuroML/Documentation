@@ -1,6 +1,7 @@
-# Scientific Committee
+(neuromlorg:ScientificCommittee)=
+# NeuroML Scientific Committee
 
-The responsibilities of the Scientific Committee are:
+The responsibilities of the NeuroML Scientific Committee are:
 - To advise on the scientific focus of the NeuroML initiative; to ensure that the structure of the language is based on the latest knowledge of neuronal anatomy and physiology.
 - To agree on the technical implementation for the core specifications and to ensure that best practices are encouraged in model specification.
 - To promote NeuroML internationally, both the core specifications and the tools which support the language.
@@ -218,6 +219,6 @@ London, UK<br />
 
 ## Past Members
 
-(Note: past members who are currently members of the NeuroML Editorial Board are not listed.)
+(Note: past members who are currently members of the {ref}`NeuroML Editorial Board <neuromlorg:board>` are not listed.)
 
 - Robert Cannon
