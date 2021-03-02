@@ -42,6 +42,37 @@ nml_date = date.today().strftime("%d/%m/%y")
 nml_commit = "6e4643d0eaa7246982b351a01e28856eeb320500"
 
 
+def format_description(text):
+    """Format the description.
+
+    This is too complex to be done in the Jinja template. It can be done, but
+    it'll be messy.
+
+    - convert underscores in text to URLs and bold,
+    - no need to convert asterisk, since they're underline in myAST already,
+    - no need to format http:// URLs, since they're also handled automatically.
+
+    :param text: text to process
+    :type text: string
+    :returns: converted string
+
+    """
+    words = text.split(" ")
+    text2 = ""
+    for word in words:
+        if len(word) > 0:
+            if word.count('_') == 2:
+                pre = word[0:word.find('_')]
+                ct = word[word.find('_') + 1:word.rfind('_')]
+                post = word[word.rfind('_') + 1:]
+                word = "{} {{ref}}`schema:{}`{}".format(pre, ct.lower(), post)
+            elif word[0] == '_':
+                word = "**{}**".format(word[1:])
+
+        text2 = text2 + word + " "
+    return text2
+
+
 def get_component_types(srcdir):
     """Obtain a list of all defined component types.
 
@@ -207,6 +238,7 @@ def main(srcdir, destdir):
             if " cno_00" in str(comp_type.description):
                 cno = comp_type.description.split(" ")[-1]
                 comp_type.description = comp_type.description.replace(cno, "")
+            comp_type.description = format_description(comp_type.description)
             if not comp_type.description.endswith("."):
                 comp_type.description += "."
             print(asttemplates.comp.render(comp_definition=comp_definition,
