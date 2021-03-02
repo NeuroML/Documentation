@@ -1027,7 +1027,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>This component is similar to the original component type **** channelDensityNernst **** but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool (ca2). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
+<i>This component is similar to the original component type **channelDensityNernst** but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool (ca2). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
