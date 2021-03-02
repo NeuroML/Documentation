@@ -3,6 +3,10 @@
 
 *A model description language for computational neuroscience.*
 
+```{warning}
+**Draft documentation**: this documentation is currently a work in progress.
+Please {ref}`contact <contact>` the NeuroML community for issues and contribution opportunities.
+```
 <!-- be careful with the indentation -->
 
 <div id="carousel-neuroml" class="carousel slide" data-ride="carousel">
@@ -60,8 +64,8 @@
 </div>
 <br />
 
-```{warning}
-Needs work: this is our elevator speech. *Why should you use NeuroML?*
+```{admonition} Needs work
+This is our elevator speech. *Why should you use NeuroML?*
 ```
 NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models.
 NeuroML is:
