@@ -72,7 +72,7 @@ lems_simulation_file = simulation.save_to_file()
 
 # Run the simulation using the jNeuroML simulator
 pynml.run_lems_with_jneuroml(
-    lems_simulation_file, max_memory="20G", nogui=True, plot=False
+    lems_simulation_file, max_memory="2G", nogui=True, plot=False
 )
 
 # Load the data from the file and plot the graph for the membrane potential

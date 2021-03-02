@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/02/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,7 +23,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all synapses, i.e. ComponentTypes which produce a current (dimension current) and change Dynamics in response to an incoming event. .</i>
+<i>Base type for all synapses, i.e. ComponentTypes which produce a current (dimension current) and change Dynamics in response to an incoming event.</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000009)
@@ -105,7 +105,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 
 
 
-<i>Base type for all synapses, i.e. ComponentTypes which produce a dimensionless current and change Dynamics in response to an incoming event. .</i>
+<i>Base type for all synapses, i.e. ComponentTypes which produce a dimensionless current and change Dynamics in response to an incoming event.</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapseDL.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000009)
@@ -177,7 +177,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 
 
 
-<i>Alpha current synapse: rise time and decay time are both _tau.</i>
+<i>Alpha current synapse: rise time and decay time are both **tau.**.</i>
 
 
 
@@ -268,7 +268,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>Synapse model which exposes a conductance _g in addition to producing a current. Not necessarily ohmic!! .</i>
+<i>Synapse model which exposes a conductance **g** in addition to producing a current. Not necessarily ohmic!!</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000027)
@@ -327,7 +327,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>Synapse model suited for a sum of two expTwoSynapses which exposes a conductance _g in addition to producing a current. Not necessarily ohmic!! .</i>
+<i>Synapse model suited for a sum of two expTwoSynapses which exposes a conductance **g** in addition to producing a current. Not necessarily ohmic!!</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapseTwo.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000027)
@@ -387,7 +387,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model whose conductance rises instantaneously by (_gbase * _weight) on receiving an event, and which decays exponentially to zero with time course _tauDecay.</i>
+<i>Ohmic synapse model whose conductance rises instantaneously by (_gbase * **weight)** on receiving an event, and which decays exponentially to zero with time course **tauDecay**.</i>
 
 
 
@@ -487,7 +487,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model where rise time and decay time are both _tau. Max conductance reached during this time (assuming zero conductance before) is _gbase * _weight.</i>
+<i>Ohmic synapse model where rise time and decay time are both **tau.** Max conductance reached during this time (assuming zero conductance before) is **gbase** * **weight.**.</i>
 
 
 
@@ -590,7 +590,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of _tauRise and a decay time of _tauDecay. Max conductance reached during this time (assuming zero conductance before) is _gbase * _weight.</i>
+<i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of **tauRise** and a decay time of **tauDecay.** Max conductance reached during this time (assuming zero conductance before) is **gbase** * **weight.**.</i>
 
 
 
@@ -828,7 +828,7 @@ waveformFactor2,Dimensionless
 
 
 
-<i>Base of any ComponentType which produces a varying scaling (or blockage) of synaptic strength of magnitude _scaling.</i>
+<i>Base of any ComponentType which produces a varying scaling (or blockage) of synaptic strength of magnitude **scaling**.</i>
 
 
 
@@ -1403,7 +1403,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>Spike timing dependent plasticity mechanism,  NOTE: EXAMPLE NOT YET WORKING!!!! .</i>
+<i>Spike timing dependent plasticity mechanism,  NOTE: EXAMPLE NOT YET WORKING!!!!</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to stdpSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000034)

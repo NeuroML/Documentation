@@ -1,21 +1,84 @@
 (landing)=
-# Welcome to the NeuroML documentation
+# NeuroML
 
-Computational models, based on detailed neuroanatomical and electrophysiological data, are heavily used as an aid for understanding the nervous system.
-NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a
-standard data format for defining and exchanging descriptions of neuronal cell and network models.
+*A model description language for computational neuroscience.*
 
-The NeuroML project community develops an [XML (eXtensible Markup Language)](https://wikipedia.org/XML) based description language where [XML Schemas](http://www.w3schools.com/schema/default.asp) are used to define model specifications.
-The community also develops and maintains a number of libraries (in {ref}`Python, Java and other languages <userdocs:software>`) to facilitate use of these specifications.
+<!-- be careful with the indentation -->
 
-NeuroML specifications are developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>` and overseen by its {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`.
-NeuroML is [endorsed by INCF](https://www.incf.org/sbp/neuroml), and is also an official [COMBINE standard](http://co.mbine.org/standards/neuroml).
+<div id="carousel-neuroml" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-neuroml" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-neuroml" data-slide-to="1"></li>
+    <li data-target="#carousel-neuroml" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
 
-The **aims of the NeuroML initiative** are:
+```{image} images/slider/endorsed.png
+:alt: NeuroML is endorsed by the INCF.
+:class: d-block w-100
+:target: #
+```
 
-- To create specifications for an XML-based language that describes the biophysics, anatomy and network architecture of neuronal systems at multiple scales
-- To facilitate the exchange of complex neuronal models between researchers, allowing for greater transparency and accessibility of models
-- To promote software tools which support NeuroML and support the development of new software and databases for neural modeling
-- To encourage researchers with models within the scope of NeuroML to exchange and publish their models in this format
+  </div>
+<div class="carousel-item">
 
-Here, you will find documentation on using NeuroML, developing with NeuroML, its specifications, and the community that maintains it.
+```{image} images/slider/combine.png
+:alt: NeuroML is a COMBINE standard.
+:class: d-block w-100
+:target: http://co.mbine.org/standards/neuroml
+```
+
+  </div>
+<div class="carousel-item">
+
+```{image} images/slider/osbnivo_mod2.png
+:alt: Explore models using NeuroML on the Open Source Brain platform.
+:class: d-block w-100
+:target: http://www.opensourcebrain.org/projects
+```
+
+  </div>
+<div class="carousel-item">
+
+```{image} images/slider/openworm2-mod.png
+:alt: Explore the Open Worm project.
+:class: d-block w-100
+:target: http://www.openworm.org/
+```
+
+  </div>
+</div>
+<a class="carousel-control-prev" href="#carousel-neuroml" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carousel-neuroml" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
+</div>
+<br />
+
+```{warning}
+Needs work: this is our elevator speech. *Why should you use NeuroML?*
+```
+NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models.
+NeuroML is:
+
+- modular,
+- standardised,
+- structured.
+
+which allows you to:
+
+- easily build detailed models of neural systems,
+- easily validate your models,
+- easily visualise your models,
+- easily simulate your models using a variety of simulators,
+- easily analyse your simulations,
+
+all using a well supported set of tools in the powerful [Python programming language](https://www.python.org).
+
+In this documentation, you will find information on using NeuroML, developing with NeuroML, its specifications, and the community that maintains it.
+For any queries, please contact the NeuroML community using any of our {ref}`communication channels <contact>`.

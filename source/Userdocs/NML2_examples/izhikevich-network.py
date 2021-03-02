@@ -89,7 +89,7 @@ for pre in range(0, size0):
 lems_simulation_file = simulation.save_to_file()
 
 pynml.run_lems_with_jneuroml_neuron(
-    lems_simulation_file, max_memory="20G", nogui=True, plot=False
+    lems_simulation_file, max_memory="2G", nogui=True, plot=False
 )
 
 # Load the data from the file and plot the spike times

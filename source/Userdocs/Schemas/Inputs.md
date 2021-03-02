@@ -8,7 +8,7 @@ Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/Neur
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/02/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current _i (with dimension current).</i>
+<i>Base type for all ComponentTypes which produce a current **i** (with dimension current).</i>
 
 
 
@@ -48,7 +48,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current _i (with dimension current) and require a membrane potential _v exposed on the parent Component.</i>
+<i>Base type for all ComponentTypes which produce a current **i** (with dimension current) and require a membrane potential **v** exposed on the parent Component.</i>
 
 
 
@@ -83,7 +83,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current _i, require a membrane potential _v exposed on the parent and emit spikes (on a port _spike). The exposed variable _tsince can be used for plotting the time since the Component has spiked last.</i>
+<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
@@ -125,7 +125,7 @@ spike,Direction: out
 
 
 
-<i>Base type for all ComponentTypes which produce a dimensionless current _I. There will eventually be dimensionless equivalents of all the core current producing ComponentTypes such as _pulseGenerator_, _sineGenerator_ and _rampGenerator_.</i>
+<i>Base type for all ComponentTypes which produce a dimensionless current **I.** There will eventually be dimensionless equivalents of all the core current producing ComponentTypes such as  {ref}`schema:pulsegenerator`,  {ref}`schema:sinegenerator` and  {ref}`schema:rampgenerator`.</i>
 
 
 
@@ -150,7 +150,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Base type for all ComponentTypes which produce a dimensionless current _I and require a dimensionless membrane potential _V exposed on the parent Component.</i>
+<i>Base type for all ComponentTypes which produce a dimensionless current **I** and require a dimensionless membrane potential **V** exposed on the parent Component.</i>
 
 
 
@@ -181,7 +181,7 @@ V,Dimensionless
 
 
 
-<i>Base for any ComponentType whose main purpose is to emit spikes (on a port _spike). The exposed variable _tsince can be used for plotting the time since the Component has spiked last.</i>
+<i>Base for any ComponentType whose main purpose is to emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
@@ -216,7 +216,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Simple generator of spikes at a regular interval set by _period.</i>
+<i>Simple generator of spikes at a regular interval set by **period.**.</i>
 
 
 
@@ -315,7 +315,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Generator of spikes with a random interspike interval of at least _minISI and at most _maxISI.</i>
+<i>Generator of spikes with a random interspike interval of at least **minISI** and at most **maxISI**.</i>
 
 
 
@@ -1090,7 +1090,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a constant current pulse of a certain _amplitude for a specified _duration after a _delay. Scaled by _weight, if set.</i>
+<i>Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay.** Scaled by **weight,** if set.</i>
 
 
 
@@ -1180,7 +1180,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a current which is the sum of all its child _basePointCurrent_ elements.</i>
+<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrent` elements.</i>
 
 
 
@@ -1257,7 +1257,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a current which is the sum of all its child _basePointCurrentDL_ elements.</i>
+<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrentdl` elements.</i>
 
 
 
@@ -1334,7 +1334,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Dimensionless equivalent of _pulseGenerator_. Generates a constant current pulse of a certain _amplitude for a specified _duration after a _delay.</i>
+<i>Dimensionless equivalent of  {ref}`schema:pulsegenerator`. Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay**.</i>
 
 
 
@@ -1424,7 +1424,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a sinusoidally varying current after a time _delay, for a fixed _duration. The _period and maximum _amplitude of the current can be set as well as the _phase at which to start.</i>
+<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start.</i>
 
 
 
@@ -1516,7 +1516,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a sinusoidally varying current after a time _delay, for a fixed _duration. The _period and maximum _amplitude of the current can be set as well as the _phase at which to start.</i>
+<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start.</i>
 
 
 
@@ -1608,7 +1608,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a ramping current after a time _delay, for a fixed _duration. During this time the current steadily changes from _startAmplitude to _finishAmplitude.</i>
+<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the current steadily changes from **startAmplitude** to **finishAmplitude.**.</i>
 
 
 
@@ -1702,7 +1702,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a ramping current after a time _delay, for a fixed _duration. During this time the dimensionless current steadily changes from _startAmplitude to _finishAmplitude.</i>
+<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the dimensionless current steadily changes from **startAmplitude** to **finishAmplitude.**.</i>
 
 
 
@@ -1796,7 +1796,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Voltage clamp. Applies a variable current _i to try to keep parent at _targetVoltage. Not yet fully tested!!! Consider using voltageClampTriple!!.</i>
+<i>Voltage clamp. Applies a variable current **i** to try to keep parent at **targetVoltage.** Not yet fully tested!!! Consider using voltageClampTriple!!</i>
 
 
 
@@ -1897,7 +1897,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Voltage clamp with 3 clamp levels. Applies a variable current _i (through _simpleSeriesResistance) to try to keep parent cell at _conditioningVoltage until time _delay, _testingVoltage until _delay + _duration, and _returnVoltage afterwards. Only enabled if _active = 1. .</i>
+<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** (through **simpleSeriesResistance)** to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
 
 
 

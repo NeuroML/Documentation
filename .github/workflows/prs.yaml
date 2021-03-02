@@ -1,0 +1,34 @@
+name: Test build pull requests
+
+on:
+  pull_request:
+    branches: [ master, development ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Set up JDK 11 for jNeuroML etc
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # pip install -r requirements.txt
+        pip install -r requirements-book.txt
+        sudo apt-get install build-essential
+    - name: Disable building jupyter-books
+      run: |
+        sed -i "s/execute_notebooks.*/execute_notebooks: 'off'/" source/_config.yml
+    - name: Run jupyter-book
+      run: |
+        jupyter-book clean ./source
+        jupyter-book build ./source
