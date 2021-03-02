@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** (with dimension current) .</i>
+<i>Base type for all ComponentTypes which produce a current **i** (with dimension current).</i>
 
 
 
@@ -48,7 +48,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** (with dimension current) and require a membrane potential **v** exposed on the parent Component .</i>
+<i>Base type for all ComponentTypes which produce a current **i** (with dimension current) and require a membrane potential **v** exposed on the parent Component.</i>
 
 
 
@@ -83,7 +83,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last .</i>
+<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
@@ -125,7 +125,7 @@ spike,Direction: out
 
 
 
-<i>Base type for all ComponentTypes which produce a dimensionless current **I.** There will eventually be dimensionless equivalents of all the core current producing ComponentTypes such as  {ref}`schema:pulsegenerator`,  {ref}`schema:sinegenerator` and  {ref}`schema:rampgenerator` .</i>
+<i>Base type for all ComponentTypes which produce a dimensionless current **I.** There will eventually be dimensionless equivalents of all the core current producing ComponentTypes such as  {ref}`schema:pulsegenerator`,  {ref}`schema:sinegenerator` and  {ref}`schema:rampgenerator`.</i>
 
 
 
@@ -150,7 +150,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Base type for all ComponentTypes which produce a dimensionless current **I** and require a dimensionless membrane potential **V** exposed on the parent Component .</i>
+<i>Base type for all ComponentTypes which produce a dimensionless current **I** and require a dimensionless membrane potential **V** exposed on the parent Component.</i>
 
 
 
@@ -181,7 +181,7 @@ V,Dimensionless
 
 
 
-<i>Base for any ComponentType whose main purpose is to emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last .</i>
+<i>Base for any ComponentType whose main purpose is to emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
@@ -216,7 +216,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Simple generator of spikes at a regular interval set by **period.** .</i>
+<i>Simple generator of spikes at a regular interval set by **period.**.</i>
 
 
 
@@ -315,7 +315,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Generator of spikes with a random interspike interval of at least **minISI** and at most **maxISI** .</i>
+<i>Generator of spikes with a random interspike interval of at least **minISI** and at most **maxISI**.</i>
 
 
 
@@ -419,7 +419,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Generator of spikes whose ISI is distributed according to an exponential pdf with scale 1/_averageRate .</i>
+<i>Generator of spikes whose ISI is distributed according to an exponential pdf with scale 1/_averageRate.</i>
 
 
 
@@ -527,7 +527,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 
 
-<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity) with mean 1/_averageRate .</i>
+<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity) with mean 1/_averageRate.</i>
 
 
 
@@ -636,7 +636,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Poisson spike generator connected to single synapse providing an input current .</i>
+<i>Poisson spike generator connected to single synapse providing an input current.</i>
 
 
 
@@ -799,7 +799,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Poisson spike generator with delay and duration connected to single synapse providing an input current.                        Similar to ComponentType poissonFiringSynapse. .</i>
+<i>Poisson spike generator with delay and duration connected to single synapse providing an input current.                        Similar to ComponentType poissonFiringSynapse.</i>
 
 
 
@@ -965,7 +965,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Spike array connected to a single synapse, producing current triggered by each spike in the array .</i>
+<i>Spike array connected to a single synapse, producing current triggered by each spike in the array.</i>
 
 
 
@@ -1090,7 +1090,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay.** Scaled by **weight,** if set .</i>
+<i>Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay.** Scaled by **weight,** if set.</i>
 
 
 
@@ -1180,7 +1180,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrent` elements .</i>
+<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrent` elements.</i>
 
 
 
@@ -1257,7 +1257,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrentdl` elements .</i>
+<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrentdl` elements.</i>
 
 
 
@@ -1334,7 +1334,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Dimensionless equivalent of  {ref}`schema:pulsegenerator`. Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay** .</i>
+<i>Dimensionless equivalent of  {ref}`schema:pulsegenerator`. Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay**.</i>
 
 
 
@@ -1424,7 +1424,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start. .</i>
+<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start.</i>
 
 
 
@@ -1516,7 +1516,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start. .</i>
+<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start.</i>
 
 
 
@@ -1608,7 +1608,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the current steadily changes from **startAmplitude** to **finishAmplitude.** .</i>
+<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the current steadily changes from **startAmplitude** to **finishAmplitude.**.</i>
 
 
 
@@ -1702,7 +1702,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the dimensionless current steadily changes from **startAmplitude** to **finishAmplitude.** .</i>
+<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the dimensionless current steadily changes from **startAmplitude** to **finishAmplitude.**.</i>
 
 
 
@@ -1796,7 +1796,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Voltage clamp. Applies a variable current **i** to try to keep parent at **targetVoltage.** Not yet fully tested!!! Consider using voltageClampTriple!! .</i>
+<i>Voltage clamp. Applies a variable current **i** to try to keep parent at **targetVoltage.** Not yet fully tested!!! Consider using voltageClampTriple!!</i>
 
 
 
@@ -1897,7 +1897,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** (through **simpleSeriesResistance)** to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.  .</i>
+<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** (through **simpleSeriesResistance)** to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
 
 
 
@@ -2001,7 +2001,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Set of spike ComponentTypes, each emitting one spike at a certain time. Can be used to feed a predetermined spike train into a cell .</i>
+<i>Set of spike ComponentTypes, each emitting one spike at a certain time. Can be used to feed a predetermined spike train into a cell.</i>
 
 
 
@@ -2085,7 +2085,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Emits a single spike at the specified time .</i>
+<i>Emits a single spike at the specified time.</i>
 
 
 

@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type of any cell which can be used in a population .</i>
+<i>Base type of any cell which can be used in a population.</i>
 
 
 
@@ -38,7 +38,7 @@ extends *{ref}`schema:basecell`*
 
 
 
-<i>Base type of any cell which can emit **spike** events. .</i>
+<i>Base type of any cell which can emit **spike** events.</i>
 
 
 
@@ -63,7 +63,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a membrane potential **v** with voltage units. .</i>
+<i>Any spiking cell which has a membrane potential **v** with voltage units.</i>
 
 
 
@@ -98,7 +98,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a dimensioness membrane potential, **V.** .</i>
+<i>Any spiking cell which has a dimensioness membrane potential, **V.**.</i>
 
 
 
@@ -133,7 +133,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for any current produced by a population of channels, all of type **ionChannel** .</i>
+<i>Base type for any current produced by a population of channels, all of type **ionChannel**.</i>
 
 
 
@@ -178,7 +178,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of **number** ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.** .</i>
+<i>Population of **number** ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.**.</i>
 
 
 
@@ -267,7 +267,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of channels with a time varying reversal potential **erev** determined by Nernst equation. Hard coded for Ca only! .</i>
+<i>Population of channels with a time varying reversal potential **erev** determined by Nernst equation. Hard coded for Ca only!</i>
 
 
 
@@ -359,7 +359,7 @@ temperature,{ref}`schema:dimensions:temperature`
 
 
 
-<i>Base type for current distributed on an area of a cell .</i>
+<i>Base type for current distributed on an area of a cell.</i>
 
 
 
@@ -404,7 +404,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Base type for distributed conductances on an area of a cell producing a (not necessarily ohmic) current .</i>
+<i>Base type for distributed conductances on an area of a cell producing a (not necessarily ohmic) current.</i>
 
 
 
@@ -446,7 +446,7 @@ gDensity,{ref}`schema:dimensions:conductanceDensity`
 
 
 
-<i>Specifies a parameter which can vary its value across a **segmentGroup** .</i>
+<i>Specifies a parameter which can vary its value across a **segmentGroup**.</i>
 
 
 
@@ -476,7 +476,7 @@ inhomogeneousValue, {ref}`schema:inhomogeneousvalue`
 
 
 
-<i>Specifies the value of a  {ref}`schema:variableparameter` .</i>
+<i>Specifies the value of a  {ref}`schema:variableparameter`.</i>
 
 
 
@@ -500,7 +500,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying ohmic conductance density, which is distributed on a region of the cell. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON .</i>
+<i>Specifies a time varying ohmic conductance density, which is distributed on a region of the cell. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -597,7 +597,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON .</i>
+<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -684,7 +684,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON .</i>
+<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -771,7 +771,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the cell with fixed reversal potential **erev** producing a current density **iDensity** .</i>
+<i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the cell with fixed reversal potential **erev** producing a current density **iDensity**.</i>
 
 
 
@@ -862,7 +862,7 @@ extends {ref}`schema:channeldensity`
 
 
 
-<i>Same as  {ref}`schema:channeldensity`, but with a **vShift** parameter to change voltage activation of gates. The exact usage of **vShift** in expressions for rates is determined by the individual gates. .</i>
+<i>Same as  {ref}`schema:channeldensity`, but with a **vShift** parameter to change voltage activation of gates. The exact usage of **vShift** in expressions for rates is determined by the individual gates.</i>
 
 
 
@@ -919,7 +919,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst. .</i>
+<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1027,7 +1027,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>This component is similar to the original component type **** channelDensityNernst **** but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool (ca2). See https://github.com/OpenSourceBrain/ghk-nernst. .</i>
+<i>This component is similar to the original component type **** channelDensityNernst **** but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool (ca2). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1135,7 +1135,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Goldman Hodgkin Katz equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst. .</i>
+<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Goldman Hodgkin Katz equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1235,7 +1235,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity.** Modified version of Jaffe et al. 1994 (used also in Lawrence et al. 2006). See https://github.com/OpenSourceBrain/ghk-nernst. .</i>
+<i>Time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity.** Modified version of Jaffe et al. 1994 (used also in Lawrence et al. 2006). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1344,7 +1344,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Simple model of a conductance based cell, with no separate morphology element, just an absolute capacitance **C,** and a set of channel populations .</i>
+<i>Simple model of a conductance based cell, with no separate morphology element, just an absolute capacitance **C,** and a set of channel populations.</i>
 
 
 
@@ -1464,7 +1464,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>TEMPORARY: Point cell with conductances and Ca concentration  info. Not yet fully tested!!! .</i>
+<i>TEMPORARY: Point cell with conductances and Ca concentration  info. Not yet fully tested!!!</i>
 
 
 
@@ -1589,7 +1589,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point furthest from the soma in a segment .</i>
+<i>Point furthest from the soma in a segment.</i>
 
 
 
@@ -1630,7 +1630,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point closest to the soma in a segment. Note, if the proximal point is equal to the distal point of the parent segment, proximal can be omitted. .</i>
+<i>Point closest to the soma in a segment. Note, if the proximal point is equal to the distal point of the parent segment, proximal can be omitted.</i>
 
 
 
@@ -1667,7 +1667,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Specifies the segment which is this segment's parent .</i>
+<i>Specifies the segment which is this segment's parent.</i>
 
 
 
@@ -1687,7 +1687,7 @@ fractionAlong,
 
 
 
-<i>A segment defines the smallest unit within a possibly branching structure ( {ref}`schema:morphology`), such as a dendrite or axon. The shape is given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. If  {ref}`schema:proximal` is missing, the proximal point is assumed to be the  {ref}`schema:distal` point of the parent.  {ref}`schema:parent` specifies the parent segment. The first segment (no  {ref}`schema:parent`) usually represents the soma. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.  .</i>
+<i>A segment defines the smallest unit within a possibly branching structure ( {ref}`schema:morphology`), such as a dendrite or axon. The shape is given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. If  {ref}`schema:proximal` is missing, the proximal point is assumed to be the  {ref}`schema:distal` point of the parent.  {ref}`schema:parent` specifies the parent segment. The first segment (no  {ref}`schema:parent`) usually represents the soma. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
 
 
 
@@ -1772,7 +1772,7 @@ surfaceArea,{ref}`schema:dimensions:area`
 
 
 
-<i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology` .</i>
+<i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology`.</i>
 
 
 
@@ -1817,7 +1817,7 @@ inhomogeneousParameter, {ref}`schema:inhomogeneousparameter`
 
 
 
-<i>A single identified  {ref}`schema:segment` which is part of the  {ref}`schema:segmentgroup` .</i>
+<i>A single identified  {ref}`schema:segment` which is part of the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -1836,7 +1836,7 @@ segment,
 
 
 
-<i>Specifies which  {ref}`schema:segment` distal from which to calculate the  {ref}`schema:segmentgroup` .</i>
+<i>Specifies which  {ref}`schema:segment` distal from which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -1855,7 +1855,7 @@ segment,
 
 
 
-<i>Specifies which  {ref}`schema:segment` up to which to calculate the  {ref}`schema:segmentgroup` .</i>
+<i>Specifies which  {ref}`schema:segment` up to which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -1874,7 +1874,7 @@ segment,
 
 
 
-<i>Include all members of another  {ref}`schema:segmentgroup` in this .</i>
+<i>Include all members of another  {ref}`schema:segmentgroup` in this.</i>
 
 
 
@@ -1894,7 +1894,7 @@ segmentGroup,
 
 
 
-<i>Include all the segments between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive .</i>
+<i>Include all the segments between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive.</i>
 
 
 
@@ -1916,7 +1916,7 @@ to, {ref}`schema:to`
 
 
 
-<i>Include all the segments distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup` .</i>
+<i>Include all the segments distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -1937,7 +1937,7 @@ from, {ref}`schema:from`
 
 
 
-<i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup` .</i>
+<i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -1968,7 +1968,7 @@ distal, {ref}`schema:distalproperties`
 
 
 
-<i>What to do at the proximal point when creating an inhomogeneous parameter .</i>
+<i>What to do at the proximal point when creating an inhomogeneous parameter.</i>
 
 
 
@@ -1987,7 +1987,7 @@ translationStart,
 
 
 
-<i>What to do at the distal point when creating an inhomogeneous parameter .</i>
+<i>What to do at the distal point when creating an inhomogeneous parameter.</i>
 
 
 
@@ -2006,7 +2006,7 @@ normalizationEnd,
 
 
 
-<i>The collection of  {ref}`schema:segment`s which specify the 3D structure of the cell, along with a number of  {ref}`schema:segmentgroup`s .</i>
+<i>The collection of  {ref}`schema:segment`s which specify the 3D structure of the cell, along with a number of  {ref}`schema:segmentgroup`s.</i>
 
 
 
@@ -2028,7 +2028,7 @@ segmentGroups, {ref}`schema:segmentgroup`
 
 
 
-<i>Capacitance per unit area .</i>
+<i>Capacitance per unit area.</i>
 
 
 
@@ -2086,7 +2086,7 @@ specCap,{ref}`schema:dimensions:specificCapacitance`
 
 
 
-<i>Explicitly set initial membrane potential for the cell .</i>
+<i>Explicitly set initial membrane potential for the cell.</i>
 
 
 
@@ -2107,7 +2107,7 @@ value,{ref}`schema:dimensions:voltage`
 
 
 
-<i>Membrane potential at which to emit a spiking event. Note, usually the spiking event will not be emitted again until the membrane potential has fallen below this value and rises again to cross it in a positive direction .</i>
+<i>Membrane potential at which to emit a spiking event. Note, usually the spiking event will not be emitted again until the membrane potential has fallen below this value and rises again to cross it in a positive direction.</i>
 
 
 
@@ -2128,7 +2128,7 @@ value,{ref}`schema:dimensions:voltage`
 
 
 
-<i>Properties specific to the membrane, such as the **populations** of channels, **channelDensities,** **specificCapacitance,** etc. .</i>
+<i>Properties specific to the membrane, such as the **populations** of channels, **channelDensities,** **specificCapacitance,** etc.</i>
 
 
 
@@ -2213,7 +2213,7 @@ extends {ref}`schema:membraneproperties`
 
 
 
-<i>Variant of membraneProperties with 2 independent Ca pools .</i>
+<i>Variant of membraneProperties with 2 independent Ca pools.</i>
 
 
 
@@ -2299,7 +2299,7 @@ surfaceArea,{ref}`schema:dimensions:area`
 
 
 
-<i>The biophysical properties of the  {ref}`schema:cell`, including the  {ref}`schema:membraneproperties` and the  {ref}`schema:intracellularproperties` .</i>
+<i>The biophysical properties of the  {ref}`schema:cell`, including the  {ref}`schema:membraneproperties` and the  {ref}`schema:intracellularproperties`.</i>
 
 
 
@@ -2350,7 +2350,7 @@ totSpecCap,{ref}`schema:dimensions:specificCapacitance`
 
 
 
-<i>The biophysical properties of the  {ref}`schema:cell`, including the  {ref}`schema:membraneproperties2capools` and the  {ref}`schema:intracellularproperties2capools` for a cell with two Ca pools .</i>
+<i>The biophysical properties of the  {ref}`schema:cell`, including the  {ref}`schema:membraneproperties2capools` and the  {ref}`schema:intracellularproperties2capools` for a cell with two Ca pools.</i>
 
 
 
@@ -2401,7 +2401,7 @@ totSpecCap,{ref}`schema:dimensions:specificCapacitance`
 
 
 
-<i>Biophysical properties related to the intracellular space within the  {ref}`schema:cell`, such as the  {ref}`schema:resistivity` and the list of ionic  {ref}`schema:species` present. **caConc** and **caConcExt** are explicitly exposed here to facilitate accessing these values from other Components, even though **caConcExt** is clearly not an intracellular property .</i>
+<i>Biophysical properties related to the intracellular space within the  {ref}`schema:cell`, such as the  {ref}`schema:resistivity` and the list of ionic  {ref}`schema:species` present. **caConc** and **caConcExt** are explicitly exposed here to facilitate accessing these values from other Components, even though **caConcExt** is clearly not an intracellular property.</i>
 
 
 
@@ -2458,7 +2458,7 @@ extends {ref}`schema:intracellularproperties`
 
 
 
-<i>Variant of intracellularProperties with 2 independent Ca pools .</i>
+<i>Variant of intracellularProperties with 2 independent Ca pools.</i>
 
 
 
@@ -2515,7 +2515,7 @@ caConcExt2,{ref}`schema:dimensions:concentration`
 
 
 
-<i>The resistivity, or specific axial resistance, of the cytoplasm .</i>
+<i>The resistivity, or specific axial resistance, of the cytoplasm.</i>
 
 
 
@@ -2544,7 +2544,7 @@ segmentGroup,
 
 
 
-<i>Base for any model of an **ion** concentration which changes with time. Internal (_concentration) and external (_extConcentration) values for the concentration of the ion are given. .</i>
+<i>Base for any model of an **ion** concentration which changes with time. Internal (_concentration) and external (_extConcentration) values for the concentration of the ion are given.</i>
 
 
 
@@ -2619,7 +2619,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>Model of an intracellular buffering mechanism for **ion** (currently hard Coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** The ion is assumed to occupy a shell inside the membrane of thickness **shellThickness.** .</i>
+<i>Model of an intracellular buffering mechanism for **ion** (currently hard Coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** The ion is assumed to occupy a shell inside the membrane of thickness **shellThickness.**.</i>
 
 
 
@@ -2737,7 +2737,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** A fixed factor **rho** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change. .</i>
+<i>Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** A fixed factor **rho** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change.</i>
 
 
 
@@ -2837,7 +2837,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course 1 / **beta.** A fixed factor **phi** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change. Not recommended for use in models other than Traub et al. 2005! .</i>
+<i>Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course 1 / **beta.** A fixed factor **phi** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change. Not recommended for use in models other than Traub et al. 2005!</i>
 
 
 
@@ -2933,7 +2933,7 @@ surfaceArea,{ref}`schema:dimensions:area`
 
 
 
-<i>Description of a chemical species identified by **ion,** which has internal, **concentration,** and external, **extConcentration** values for its concentration .</i>
+<i>Description of a chemical species identified by **ion,** which has internal, **concentration,** and external, **extConcentration** values for its concentration.</i>
 
 
 
@@ -3013,7 +3013,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Cell with  {ref}`schema:segment`s specified in a  {ref}`schema:morphology` element along with details on its  {ref}`schema:biophysicalproperties`. NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v** of this cell represents the membrane potential in that isopotential segment. .</i>
+<i>Cell with  {ref}`schema:segment`s specified in a  {ref}`schema:morphology` element along with details on its  {ref}`schema:biophysicalproperties`. NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v** of this cell represents the membrane potential in that isopotential segment.</i>
 
 
 
@@ -3143,7 +3143,7 @@ extends {ref}`schema:cell`
 
 
 
-<i>Variant of cell with two independent Ca2+ pools. Cell with  {ref}`schema:segment`s specified in a  {ref}`schema:morphology` element along with details on its  {ref}`schema:biophysicalproperties`. NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v** of this cell represents the membrane potential in that isopotential segment. .</i>
+<i>Variant of cell with two independent Ca2+ pools. Cell with  {ref}`schema:segment`s specified in a  {ref}`schema:morphology` element along with details on its  {ref}`schema:biophysicalproperties`. NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v** of this cell represents the membrane potential in that isopotential segment.</i>
 
 
 
@@ -3278,7 +3278,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Any cell with a membrane potential **v** with voltage units and a membrane capacitance **C.** Also defines exposed value **iSyn** for current due to external synapses and **iMemb** for total transmembrane current (usually channel currents plus **iSyn)** .</i>
+<i>Any cell with a membrane potential **v** with voltage units and a membrane capacitance **C.** Also defines exposed value **iSyn** for current due to external synapses and **iMemb** for total transmembrane current (usually channel currents plus **iSyn)**.</i>
 
 
 
@@ -3325,7 +3325,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Base ComponentType for an integrate and fire cell which emits a spiking event at membrane potential **thresh** and and resets to **reset** .</i>
+<i>Base ComponentType for an integrate and fire cell which emits a spiking event at membrane potential **thresh** and and resets to **reset**.</i>
 
 
 
@@ -3371,7 +3371,7 @@ extends *{ref}`schema:baseiaf`*
 
 
 
-<i>Integrate and fire cell which returns to its leak reversal potential of **leakReversal** with a time constant **tau** .</i>
+<i>Integrate and fire cell which returns to its leak reversal potential of **leakReversal** with a time constant **tau**.</i>
 
 
 
@@ -3458,7 +3458,7 @@ extends {ref}`schema:iaftaucell`
 
 
 
-<i>Integrate and fire cell which returns to its leak reversal potential of **leakReversal** with a time course **tau.** It has a refractory period of **refract** after spiking .</i>
+<i>Integrate and fire cell which returns to its leak reversal potential of **leakReversal** with a time course **tau.** It has a refractory period of **refract** after spiking.</i>
 
 
 
@@ -3551,7 +3551,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Base Type for all Integrate and Fire cells with a capacitance **C,** threshold **thresh** and reset membrane potential **reset** .</i>
+<i>Base Type for all Integrate and Fire cells with a capacitance **C,** threshold **thresh** and reset membrane potential **reset**.</i>
 
 
 
@@ -3600,7 +3600,7 @@ extends *{ref}`schema:baseiafcapcell`*
 
 
 
-<i>Integrate and fire cell with capacitance **C,** **leakConductance** and **leakReversal** .</i>
+<i>Integrate and fire cell with capacitance **C,** **leakConductance** and **leakReversal**.</i>
 
 
 
@@ -3706,7 +3706,7 @@ extends {ref}`schema:iafcell`
 
 
 
-<i>Integrate and fire cell  with capacitance **C,** **leakConductance,** **leakReversal** and refractory period **refract** .</i>
+<i>Integrate and fire cell  with capacitance **C,** **leakConductance,** **leakReversal** and refractory period **refract**.</i>
 
 
 
@@ -3818,7 +3818,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Cell based on the 2003 model of Izhikevich, see http://izhikevich.org/publications/spikes.htm .</i>
+<i>Cell based on the 2003 model of Izhikevich, see http://izhikevich.org/publications/spikes.htm.</i>
 
 
 
@@ -3938,7 +3938,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Cell based on the modified Izhikevich model in Izhikevich 2007, Dynamical systems in neuroscience, MIT Press .</i>
+<i>Cell based on the modified Izhikevich model in Izhikevich 2007, Dynamical systems in neuroscience, MIT Press.</i>
 
 
 
@@ -4054,7 +4054,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Model based on Brette R and Gerstner W (2005) Adaptive Exponential Integrate-and-Fire Model as an Effective Description of Neuronal Activity. J Neurophysiol 94:3637-3642 .</i>
+<i>Model based on Brette R and Gerstner W (2005) Adaptive Exponential Integrate-and-Fire Model as an Effective Description of Neuronal Activity. J Neurophysiol 94:3637-3642.</i>
 
 
 
@@ -4178,7 +4178,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 
 
 
-<i>Simple dimensionless model of spiking cell from FitzHugh and Nagumo. Superseded by **fitzHughNagumo1969Cell** (See https://github.com/NeuroML/NeuroML2/issues/42) .</i>
+<i>Simple dimensionless model of spiking cell from FitzHugh and Nagumo. Superseded by **fitzHughNagumo1969Cell** (See https://github.com/NeuroML/NeuroML2/issues/42).</i>
 
 
 
@@ -4258,7 +4258,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Reduced CA3 cell model from Pinsky and Rinzel 1994. See https://github.com/OpenSourceBrain/PinskyRinzelModel .</i>
+<i>Reduced CA3 cell model from Pinsky and Rinzel 1994. See https://github.com/OpenSourceBrain/PinskyRinzelModel.</i>
 
 
 
