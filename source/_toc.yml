@@ -7,6 +7,7 @@
 
 - part: User documentation
   chapters:
+    - file: ./What
     - file: ./Userdocs/GettingStarted
       sections:
       - file: ./Userdocs/SingleNeuronExample

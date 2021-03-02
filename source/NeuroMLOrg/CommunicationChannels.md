@@ -1,3 +1,4 @@
+(contact)=
 # Getting in touch
 
 We're happy to talk with users, developers and modellers about using NeuroML in their work.
