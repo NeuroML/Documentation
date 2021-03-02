@@ -8,7 +8,7 @@ Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/02/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Network containing _population_s, _projection_s and lists of _explicitConnection_s (either directly between components of the populations or via synapses).</i>
+<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s (either directly between components of the populations or via synapses) .</i>
 
 
 
@@ -55,7 +55,7 @@ extends {ref}`schema:network`
 
 
 
-<i>Network containing _population_s, _projection_s and lists of _explicitConnection_s (either directly between components of the populations or via synapses), and an explicit temperature.</i>
+<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s (either directly between components of the populations or via synapses), and an explicit temperature .</i>
 
 
 
@@ -80,7 +80,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>A population of cells (anything which extends _baseCell_).</i>
+<i>A population of cells (anything which extends  {ref}`schema:basecell`) .</i>
 
 
 
@@ -126,7 +126,7 @@ extends *{ref}`schema:basepopulation`*
 
 
 
-<i>A population of components, with just one parameter for the _size.</i>
+<i>A population of components, with just one parameter for the **size** .</i>
 
 
 
@@ -151,7 +151,7 @@ extends *{ref}`schema:basepopulation`*
 
 
 
-<i>An explicit list of the cells in the population. .</i>
+<i>An explicit list of the cells in the population.  .</i>
 
 
 
@@ -180,7 +180,7 @@ instances, {ref}`schema:instance`
 
 
 
-<i>Specifies a single instance of a component in a population (placed at _location_).</i>
+<i>Specifies a single instance of a component in a population (placed at  {ref}`schema:location`). .</i>
 
 
 
@@ -201,7 +201,7 @@ location, {ref}`schema:location`
 
 
 
-<i>Specifies location of a single _instance_ of a component in a population.</i>
+<i>Specifies location of a single  {ref}`schema:instance` of a component in a population .</i>
 
 
 
@@ -224,7 +224,7 @@ z,Dimensionless
 
 
 
-<i>Initial attempt to specify 3D region for placing cells. Work in progress...</i>
+<i>Initial attempt to specify 3D region for placing cells. Work in progress... .</i>
 
 
 
@@ -245,7 +245,7 @@ rectangularExtent, {ref}`schema:rectangularextent`
 
 
 
-<i>For defining a 3D rectangular box.</i>
+<i>For defining a 3D rectangular box .</i>
 
 
 
@@ -271,7 +271,7 @@ zStart,Dimensionless
 
 
 
-<i>Projection from one population, _presynapticPopulation to another, _postsynapticPopulation, through _synapse. Contains lists of _connection_ or _connectionWD_ elements.</i>
+<i>Projection from one population, **presynapticPopulation** to another, **postsynapticPopulation,** through **synapse.** Contains lists of  {ref}`schema:connection` or  {ref}`schema:connectionwd` elements. .</i>
 
 
 
@@ -312,7 +312,7 @@ connectionsWD, {ref}`schema:connectionwd`
 
 
 
-<i>Explicit event connection between components.</i>
+<i>Explicit event connection between components .</i>
 
 
 
@@ -340,7 +340,7 @@ to,
 
 
 
-<i>Event connection directly between named components, which gets processed via a new instance of a _synapse component which is created on the target component. Normally contained inside a _projection_ element.</i>
+<i>Event connection directly between named components, which gets processed via a new instance of a **synapse** component which is created on the target component. Normally contained inside a  {ref}`schema:projection` element. .</i>
 
 
 
@@ -376,7 +376,7 @@ extends {ref}`schema:explicitconnection`
 
 
 
-<i>Explicit event connection between named components, which gets processed via a new instance of a _synapse component which is created on the target component.</i>
+<i>Explicit event connection between named components, which gets processed via a new instance of a **synapse** component which is created on the target component .</i>
 
 
 
@@ -418,7 +418,7 @@ extends {ref}`schema:synapticconnection`
 
 
 
-<i>Explicit event connection between named components, which gets processed via a new instance of a _synapse component which is created on the target component, includes setting of _weight and _delay for the synaptic connection.</i>
+<i>Explicit event connection between named components, which gets processed via a new instance of a **synapse** component which is created on the target component, includes setting of **weight** and **delay** for the synaptic connection .</i>
 
 
 
@@ -453,7 +453,7 @@ extends {ref}`schema:connection`
 
 
 
-<i>Event connection between named components, which gets processed via a new instance of a synapse component which is created on the target component, includes setting of _weight and _delay for the synaptic connection.</i>
+<i>Event connection between named components, which gets processed via a new instance of a synapse component which is created on the target component, includes setting of **weight** and **delay** for the synaptic connection .</i>
 
 
 
@@ -496,7 +496,7 @@ postCellId,
 
 
 
-<i>To enable connections between populations through gap junctions.</i>
+<i>To enable connections between populations through gap junctions. .</i>
 
 
 
@@ -517,7 +517,7 @@ synapse, {ref}`schema:gapjunction`
 
 
 
-<i>To enable connections between populations through gap junctions. Populations need to be of type _populationList_ and contain _instance_ and _location_ elements.</i>
+<i>To enable connections between populations through gap junctions. Populations need to be of type  {ref}`schema:populationlist` and contain  {ref}`schema:instance` and  {ref}`schema:location` elements. .</i>
 
 
 
@@ -562,7 +562,7 @@ extends {ref}`schema:electricalconnectioninstance`
 
 
 
-<i>To enable connections between populations through gap junctions. Populations need to be of type _populationList_ and contain _instance_ and _location_ elements. Includes setting of _weight for the connection.</i>
+<i>To enable connections between populations through gap junctions. Populations need to be of type  {ref}`schema:populationlist` and contain  {ref}`schema:instance` and  {ref}`schema:location` elements. Includes setting of **weight** for the connection .</i>
 
 
 
@@ -603,7 +603,7 @@ postCell,
 
 
 
-<i>A projection between _presynapticPopulation to another _postsynapticPopulation through gap junctions.</i>
+<i>A projection between **presynapticPopulation** to another **postsynapticPopulation** through gap junctions. .</i>
 
 
 
@@ -636,7 +636,7 @@ connectionInstances, {ref}`schema:electricalconnectioninstance`
 
 
 
-<i>An instance of a connection in a _continuousProjection_ between _presynapticPopulation to another _postsynapticPopulation through a _preComponent at the start and _postComponent at the end. Can be used for analog synapses.</i>
+<i>An instance of a connection in a  {ref}`schema:continuousprojection` between **presynapticPopulation** to another **postsynapticPopulation** through a **preComponent** at the start and **postComponent** at the end. Can be used for analog synapses. .</i>
 
 
 
@@ -658,7 +658,7 @@ postComponent, {ref}`schema:basegradedsynapse`
 
 
 
-<i>An instance of a connection in a _continuousProjection_ between _presynapticPopulation to another _postsynapticPopulation through a _preComponent at the start and _postComponent at the end. Populations need to be of type _populationList_ and contain _instance_ and _location_ elements. Can be used for analog synapses.</i>
+<i>An instance of a connection in a  {ref}`schema:continuousprojection` between **presynapticPopulation** to another **postsynapticPopulation** through a **preComponent** at the start and **postComponent** at the end. Populations need to be of type  {ref}`schema:populationlist` and contain  {ref}`schema:instance` and  {ref}`schema:location` elements. Can be used for analog synapses. .</i>
 
 
 
@@ -704,7 +704,7 @@ extends {ref}`schema:continuousconnectioninstance`
 
 
 
-<i>An instance of a connection in a _continuousProjection_ between _presynapticPopulation to another _postsynapticPopulation through a _preComponent at the start and _postComponent at the end. Populations need to be of type _populationList_ and contain _instance_ and _location_ elements. Can be used for analog synapses. Includes setting of _weight for the connection.</i>
+<i>An instance of a connection in a  {ref}`schema:continuousprojection` between **presynapticPopulation** to another **postsynapticPopulation** through a **preComponent** at the start and **postComponent** at the end. Populations need to be of type  {ref}`schema:populationlist` and contain  {ref}`schema:instance` and  {ref}`schema:location` elements. Can be used for analog synapses. Includes setting of **weight** for the connection .</i>
 
 
 
@@ -745,7 +745,7 @@ postCell,
 
 
 
-<i>A projection between _presynapticPopulation and _postsynapticPopulation through components _preComponent at the start and _postComponent at the end of a _continuousConnection_ or _continuousConnectionInstance_. Can be used for analog synapses.</i>
+<i>A projection between **presynapticPopulation** and **postsynapticPopulation** through components **preComponent** at the start and **postComponent** at the end of a  {ref}`schema:continuousconnection` or  {ref}`schema:continuousconnectioninstance`. Can be used for analog synapses. .</i>
 
 
 
@@ -778,7 +778,7 @@ connectionInstances, {ref}`schema:continuousconnectioninstance`
 
 
 
-<i>An explicit input (anything which extends _basePointCurrent_) to a target cell in a population.</i>
+<i>An explicit input (anything which extends  {ref}`schema:basepointcurrent`) to a target cell in a population .</i>
 
 
 
@@ -817,7 +817,7 @@ input, {ref}`schema:basepointcurrent`
 
 
 
-<i>An explicit list of inputs. Not yet stable...</i>
+<i>An explicit list of inputs. Not yet stable... .</i>
 
 
 
@@ -856,7 +856,7 @@ inputs, {ref}`schema:input`
 
 
 
-<i>Specifies input lists.</i>
+<i>Specifies input lists. .</i>
 
 
 
@@ -889,7 +889,7 @@ extends {ref}`schema:input`
 
 
 
-<i>Specifies input lists. Can set _weight to scale individual inputs.</i>
+<i>Specifies input lists. Can set **weight** to scale individual inputs. .</i>
 
 
 

@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.co
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/02/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -19,7 +19,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>Human readable notes on a Component.</i>
+<i>Human readable notes on a Component .</i>
 
 
 
@@ -30,7 +30,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>Annotation...</i>
+<i>Annotation... .</i>
 
 
 
@@ -61,7 +61,7 @@ property, {ref}`schema:property`
 
 
 
-<i>Property in Annotation...</i>
+<i>Property in Annotation... .</i>
 
 
 
@@ -81,7 +81,7 @@ value,
 
 
 
-<i>Base type of any component which will require notes, annotation, etc.</i>
+<i>Base type of any component which will require notes, annotation, etc. .</i>
 
 
 
@@ -113,7 +113,7 @@ property, {ref}`schema:property`
 
 
 
-<i>Work in progress...</i>
+<i>Work in progress... .</i>
 
 
 
@@ -142,7 +142,7 @@ rdf:Description, {ref}`schema:rdf_description`
 
 
 
-<i>Work in progress...</i>
+<i>Work in progress... .</i>
 
 
 
@@ -186,7 +186,7 @@ bqmodel:isDerivedFrom, {ref}`schema:bqmodel_isderivedfrom`
 
 
 
-<i>Work in progress...</i>
+<i>Work in progress... .</i>
 
 
 
@@ -211,7 +211,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -226,7 +226,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -241,7 +241,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -256,7 +256,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -271,7 +271,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -286,7 +286,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -301,7 +301,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -316,7 +316,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -331,7 +331,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -346,7 +346,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -361,7 +361,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -384,7 +384,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -399,7 +399,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -414,7 +414,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -429,7 +429,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -452,7 +452,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>See http://co.mbine.org/standards/qualifiers.</i>
+<i>See http://co.mbine.org/standards/qualifiers .</i>
 
 
 
@@ -463,7 +463,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>Work in progress...</i>
+<i>Work in progress... .</i>
 
 
 
@@ -484,7 +484,7 @@ rdf:li, {ref}`schema:rdf:li`
 
 
 
-<i>Annotation...</i>
+<i>Annotation... .</i>
 
 
 
@@ -503,7 +503,7 @@ rdf:resource,
 
 
 
-<i>Base type for ComponentTypes which specify an ( _x, _y, _z ) coordinate along with a _diameter. Note: no dimension used in the attributes for these coordinates! These are assumed to have dimension micrometer (10^-6 m). This is due to micrometers being the default option for the majority of neuronal morphology formats, and dimensions are omitted here to facilitate reading and writing of morphologies in NeuroML.</i>
+<i>Base type for ComponentTypes which specify an ( **x,** **y,** **z** ) coordinate along with a **diameter.** Note: no dimension used in the attributes for these coordinates! These are assumed to have dimension micrometer (10^-6 m). This is due to micrometers being the default option for the majority of neuronal morphology formats, and dimensions are omitted here to facilitate reading and writing of morphologies in NeuroML. .</i>
 
 
 

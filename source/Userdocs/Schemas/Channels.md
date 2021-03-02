@@ -8,7 +8,7 @@ Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/02/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -19,7 +19,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>Base ComponentType for voltage dependent rate. Produces a time varying rate _r which depends on _v.</i>
+<i>Base ComponentType for voltage dependent rate. Produces a time varying rate **r** which depends on **v.** .</i>
 
 
 
@@ -54,7 +54,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 
 
-<i>Base ComponentType for voltage and concentration dependent rate. Produces a time varying rate _r which depends on _v and _caConc.</i>
+<i>Base ComponentType for voltage and concentration dependent rate. Produces a time varying rate **r** which depends on **v** and **caConc.** .</i>
 
 
 
@@ -90,7 +90,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 
 
-<i>Base ComponentType for rate which follow one of the typical forms for rate equations in the standard HH formalism, using the parameters _rate, _midpoint and _scale.</i>
+<i>Base ComponentType for rate which follow one of the typical forms for rate equations in the standard HH formalism, using the parameters **rate,** **midpoint** and **scale** .</i>
 
 
 
@@ -137,7 +137,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 
-<i>Exponential form for rate equation (Q: Should these be renamed hhExpRate, etc?).</i>
+<i>Exponential form for rate equation (Q: Should these be renamed hhExpRate, etc?) .</i>
 
 
 
@@ -203,7 +203,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 
-<i>Sigmoidal form for rate equation.</i>
+<i>Sigmoidal form for rate equation .</i>
 
 
 
@@ -269,7 +269,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 
-<i>Exponential linear form for rate equation. Linear for large positive _v, exponentially decays for large negative _v.</i>
+<i>Exponential linear form for rate equation. Linear for large positive **v,** exponentially decays for large negative **v.** .</i>
 
 
 
@@ -337,7 +337,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 
-<i>Base ComponentType for voltage dependent variable  _x, which depends on _v. Can be used for inf/steady state of rate variable.</i>
+<i>Base ComponentType for voltage dependent variable  **x,** which depends on **v.** Can be used for inf/steady state of rate variable. .</i>
 
 
 
@@ -372,7 +372,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 
 
-<i>Base ComponentType for voltage and calcium concentration dependent variable _x, which depends on _v and _caConc.</i>
+<i>Base ComponentType for voltage and calcium concentration dependent variable **x,** which depends on **v** and **caConc.** .</i>
 
 
 
@@ -408,7 +408,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 
 
-<i>Base ComponentType for voltage dependent dimensionless variable which follow one of the typical forms for variable equations in the standard HH formalism, using the parameters _rate, _midpoint, _scale.</i>
+<i>Base ComponentType for voltage dependent dimensionless variable which follow one of the typical forms for variable equations in the standard HH formalism, using the parameters **rate,** **midpoint,** **scale** .</i>
 
 
 
@@ -455,7 +455,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
-<i>Exponential form for variable equation.</i>
+<i>Exponential form for variable equation .</i>
 
 
 
@@ -521,7 +521,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
-<i>Sigmoidal form for variable equation.</i>
+<i>Sigmoidal form for variable equation .</i>
 
 
 
@@ -587,7 +587,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
-<i>Exponential linear form for variable equation. Linear for large positive _v, exponentially decays for large negative _v.</i>
+<i>Exponential linear form for variable equation. Linear for large positive **v,** exponentially decays for large negative **v.** .</i>
 
 
 
@@ -650,7 +650,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
-<i>Base ComponentType for voltage dependent ComponentType producing value _t with dimension time (e.g. for time course of rate variable). Note: time course would not normally be fit to exp/sigmoid etc.</i>
+<i>Base ComponentType for voltage dependent ComponentType producing value **t** with dimension time (e.g. for time course of rate variable). Note: time course would not normally be fit to exp/sigmoid etc. .</i>
 
 
 
@@ -685,7 +685,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 
 
-<i>Base type for voltage and calcium concentration dependent ComponentType producing value _t with dimension time (e.g. for time course of rate variable).</i>
+<i>Base type for voltage and calcium concentration dependent ComponentType producing value **t** with dimension time (e.g. for time course of rate variable). .</i>
 
 
 
@@ -721,7 +721,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 
 
-<i>Time course of a fixed magnitude _tau which can be used for the time course in _gateHH_.</i>
+<i>Time course of a fixed magnitude **tau** which can be used for the time course in  {ref}`schema:gatehh` .</i>
 
 
 
@@ -781,7 +781,7 @@ tau,{ref}`schema:dimensions:time`
 
 
 
-<i>Base ComponentType for a scaling to apply to gating variable time course, usually temperature dependent.</i>
+<i>Base ComponentType for a scaling to apply to gating variable time course, usually temperature dependent .</i>
 
 
 
@@ -816,7 +816,7 @@ extends *{ref}`schema:baseq10settings`*
 
 
 
-<i>A fixed value, _fixedQ10, for the scaling of the time course of the gating variable.</i>
+<i>A fixed value, **fixedQ10,** for the scaling of the time course of the gating variable .</i>
 
 
 
@@ -880,7 +880,7 @@ extends *{ref}`schema:baseq10settings`*
 
 
 
-<i>A value for the Q10 scaling which varies as a standard function of the difference between the current temperature, _temperature, and the temperature at which the gating variable equations were determined, _experimentalTemp.</i>
+<i>A value for the Q10 scaling which varies as a standard function of the difference between the current temperature, **temperature,** and the temperature at which the gating variable equations were determined, **experimentalTemp** .</i>
 
 
 
@@ -951,7 +951,7 @@ TENDEGREES = 10K, {ref}`schema:dimensions:temperature`
 
 
 
-<i>Base ComponentType for a scaling to apply to a gate's conductance, e.g. temperature dependent scaling.</i>
+<i>Base ComponentType for a scaling to apply to a gate's conductance, e.g. temperature dependent scaling .</i>
 
 
 
@@ -986,7 +986,7 @@ extends *{ref}`schema:baseconductancescaling`*
 
 
 
-<i>A value for the conductance scaling which varies as a standard function of the difference between the current temperature, _temperature, and the temperature at which the conductance was originally determined, _experimentalTemp.</i>
+<i>A value for the conductance scaling which varies as a standard function of the difference between the current temperature, **temperature,** and the temperature at which the conductance was originally determined, **experimentalTemp** .</i>
 
 
 
@@ -1061,7 +1061,7 @@ extends *{ref}`schema:baseconductancescaling`*
 
 
 
-<i>Base ComponentType for a scaling to apply to a gate's conductance which depends on Ca concentration. Usually a generic expression of _caConc (so no standard, non-base form here).</i>
+<i>Base ComponentType for a scaling to apply to a gate's conductance which depends on Ca concentration. Usually a generic expression of **caConc** (so no standard, non-base form here). .</i>
 
 
 
@@ -1093,7 +1093,7 @@ caConc,{ref}`schema:dimensions:concentration`
 
 
 
-<i>Base ComponentType for a voltage and/or concentration dependent gate.</i>
+<i>Base ComponentType for a voltage and/or concentration dependent gate .</i>
 
 
 
@@ -1139,7 +1139,7 @@ extends *{ref}`schema:basegate`*
 
 
 
-<i>Conveniently named baseGate.</i>
+<i>Conveniently named baseGate .</i>
 
 
 
@@ -1175,7 +1175,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate which follows the general Hodgkin Huxley formalism.</i>
+<i>Gate which follows the general Hodgkin Huxley formalism .</i>
 
 
 
@@ -1278,7 +1278,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate which follows the general Hodgkin Huxley formalism.</i>
+<i>Gate which follows the general Hodgkin Huxley formalism .</i>
 
 
 
@@ -1378,7 +1378,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate which follows the general Hodgkin Huxley formalism but is instantaneous, so tau = 0 and gate follows exactly inf value.</i>
+<i>Gate which follows the general Hodgkin Huxley formalism but is instantaneous, so tau = 0 and gate follows exactly inf value .</i>
 
 
 
@@ -1458,7 +1458,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate which follows the general Hodgkin Huxley formalism.</i>
+<i>Gate which follows the general Hodgkin Huxley formalism .</i>
 
 
 
@@ -1563,7 +1563,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate which follows the general Hodgkin Huxley formalism.</i>
+<i>Gate which follows the general Hodgkin Huxley formalism .</i>
 
 
 
@@ -1667,7 +1667,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate which follows the general Hodgkin Huxley formalism.</i>
+<i>Gate which follows the general Hodgkin Huxley formalism .</i>
 
 
 
@@ -1773,7 +1773,7 @@ extends {ref}`schema:gate`
 
 
 
-<i>Gate composed of subgates contributing with fractional conductance.</i>
+<i>Gate composed of subgates contributing with fractional conductance .</i>
 
 
 
@@ -1838,7 +1838,7 @@ rateScale,Dimensionless
 
 
 
-<i>Gate composed of subgates contributing with fractional conductance.</i>
+<i>Gate composed of subgates contributing with fractional conductance .</i>
 
 
 
@@ -1933,7 +1933,7 @@ rateScale,Dimensionless
 
 
 
-<i>Base for all ion channel ComponentTypes.</i>
+<i>Base for all ion channel ComponentTypes .</i>
 
 
 
@@ -1998,7 +1998,7 @@ extends {ref}`schema:ionchannel`
 
 
 
-<i>Simple passive ion channel where the constant conductance through the channel is equal to _conductance.</i>
+<i>Simple passive ion channel where the constant conductance through the channel is equal to **conductance** .</i>
 
 
 
@@ -2072,7 +2072,7 @@ extends *{ref}`schema:baseionchannel`*
 
 
 
-<i>Note _ionChannel_ and _ionChannelHH_ are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH.</i>
+<i>Note  {ref}`schema:ionchannel` and  {ref}`schema:ionchannelhh` are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH. .</i>
 
 
 
@@ -2159,7 +2159,7 @@ extends {ref}`schema:ionchannelhh`
 
 
 
-<i>Note _ionChannel_ and _ionChannelHH_ are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH.</i>
+<i>Note  {ref}`schema:ionchannel` and  {ref}`schema:ionchannelhh` are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH. .</i>
 
 
 
@@ -2227,7 +2227,7 @@ extends {ref}`schema:ionchannel`
 
 
 
-<i>Same as _ionChannel_, but with a _vShift parameter to change voltage activation of gates. The exact usage of _vShift in expressions for rates is determined by the individual gates.</i>
+<i>Same as  {ref}`schema:ionchannel`, but with a **vShift** parameter to change voltage activation of gates. The exact usage of **vShift** in expressions for rates is determined by the individual gates. .</i>
 
 
 
@@ -2278,7 +2278,7 @@ species,
 
 
 
-<i>One of the states in which a _gateKS_ can be. The rates of transitions between these states are given by _KSTransition_s.</i>
+<i>One of the states in which a  {ref}`schema:gateks` can be. The rates of transitions between these states are given by  {ref}`schema:kstransition`s .</i>
 
 
 
@@ -2337,7 +2337,7 @@ extends {ref}`schema:ksstate`
 
 
 
-<i>A _KSState_ with _relativeConductance of 0.</i>
+<i>A  {ref}`schema:ksstate` with **relativeConductance** of 0 .</i>
 
 
 
@@ -2373,7 +2373,7 @@ extends {ref}`schema:ksstate`
 
 
 
-<i>A _KSState_ with _relativeConductance of 1.</i>
+<i>A  {ref}`schema:ksstate` with **relativeConductance** of 1 .</i>
 
 
 
@@ -2409,7 +2409,7 @@ extends *{ref}`schema:baseionchannel`*
 
 
 
-<i>A kinetic scheme based ion channel with multiple _gateKS_s, each of which consists of multiple _KSState_s and _KSTransition_s giving the rates of transition between them.</i>
+<i>A kinetic scheme based ion channel with multiple  {ref}`schema:gateks`s, each of which consists of multiple  {ref}`schema:ksstate`s and  {ref}`schema:kstransition`s giving the rates of transition between them .</i>
 
 
 
@@ -2490,7 +2490,7 @@ gates, {ref}`schema:gateks`
 
 
 
-<i>Specified the forward and reverse rates of transition between two _KSState_s in a _gateKS_.</i>
+<i>Specified the forward and reverse rates of transition between two  {ref}`schema:ksstate`s in a  {ref}`schema:gateks` .</i>
 
 
 
@@ -2516,7 +2516,7 @@ extends {ref}`schema:kstransition`
 
 
 
-<i>A forward only _KSTransition_ for a _gateKS_ which specifies a _rate (type _baseHHRate_) which follows one of the standard Hodgkin Huxley forms (e.g. _HHExpRate_, _HHSigmoidRate_, _HHExpLinearRate_.</i>
+<i>A forward only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** (type  {ref}`schema:basehhrate`) which follows one of the standard Hodgkin Huxley forms (e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate` .</i>
 
 
 
@@ -2583,7 +2583,7 @@ extends {ref}`schema:kstransition`
 
 
 
-<i>A reverse only _KSTransition_ for a _gateKS_ which specifies a _rate (type _baseHHRate_) which follows one of the standard Hodgkin Huxley forms (e.g. _HHExpRate_, _HHSigmoidRate_, _HHExpLinearRate_.</i>
+<i>A reverse only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** (type  {ref}`schema:basehhrate`) which follows one of the standard Hodgkin Huxley forms (e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate` .</i>
 
 
 
@@ -2650,7 +2650,7 @@ extends {ref}`schema:kstransition`
 
 
 
-<i>Transition which specifies both the forward and reverse rates of transition.</i>
+<i>Transition which specifies both the forward and reverse rates of transition .</i>
 
 
 
@@ -2732,7 +2732,7 @@ extends {ref}`schema:kstransition`
 
 
 
-<i>KS Transition specified in terms of time constant _tau_ and steady state _inf_.</i>
+<i>KS Transition specified in terms of time constant  {ref}`schema:tau` and steady state  {ref}`schema:inf` .</i>
 
 
 
@@ -2791,7 +2791,7 @@ extends *{ref}`schema:basegate`*
 
 
 
-<i>A gate which consists of multiple _KSState_s and _KSTransition_s giving the rates of transition between them.</i>
+<i>A gate which consists of multiple  {ref}`schema:ksstate`s and  {ref}`schema:kstransition`s giving the rates of transition between them .</i>
 
 
 

@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/02/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,7 +23,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all synapses, i.e. ComponentTypes which produce a current (dimension current) and change Dynamics in response to an incoming event. .</i>
+<i>Base type for all synapses, i.e. ComponentTypes which produce a current (dimension current) and change Dynamics in response to an incoming event.  .</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000009)
@@ -60,7 +60,7 @@ extends *{ref}`schema:basesynapse`*
 
 
 
-<i>Base type for synapses with a dependence on membrane potential.</i>
+<i>Base type for synapses with a dependence on membrane potential .</i>
 
 
 
@@ -105,7 +105,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 
 
 
-<i>Base type for all synapses, i.e. ComponentTypes which produce a dimensionless current and change Dynamics in response to an incoming event. .</i>
+<i>Base type for all synapses, i.e. ComponentTypes which produce a dimensionless current and change Dynamics in response to an incoming event.  .</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapseDL.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000009)
@@ -142,7 +142,7 @@ extends *{ref}`schema:basesynapse`*
 
 
 
-<i>Synapse model which produces a synaptic current.</i>
+<i>Synapse model which produces a synaptic current. .</i>
 
 
 
@@ -177,7 +177,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 
 
 
-<i>Alpha current synapse: rise time and decay time are both _tau.</i>
+<i>Alpha current synapse: rise time and decay time are both **tau.** .</i>
 
 
 
@@ -268,7 +268,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>Synapse model which exposes a conductance _g in addition to producing a current. Not necessarily ohmic!! .</i>
+<i>Synapse model which exposes a conductance **g** in addition to producing a current. Not necessarily ohmic!!  .</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000027)
@@ -327,7 +327,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>Synapse model suited for a sum of two expTwoSynapses which exposes a conductance _g in addition to producing a current. Not necessarily ohmic!! .</i>
+<i>Synapse model suited for a sum of two expTwoSynapses which exposes a conductance **g** in addition to producing a current. Not necessarily ohmic!!  .</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapseTwo.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000027)
@@ -387,7 +387,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model whose conductance rises instantaneously by (_gbase * _weight) on receiving an event, and which decays exponentially to zero with time course _tauDecay.</i>
+<i>Ohmic synapse model whose conductance rises instantaneously by (_gbase * **weight)** on receiving an event, and which decays exponentially to zero with time course **tauDecay** .</i>
 
 
 
@@ -487,7 +487,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model where rise time and decay time are both _tau. Max conductance reached during this time (assuming zero conductance before) is _gbase * _weight.</i>
+<i>Ohmic synapse model where rise time and decay time are both **tau.** Max conductance reached during this time (assuming zero conductance before) is **gbase** * **weight.** .</i>
 
 
 
@@ -590,7 +590,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of _tauRise and a decay time of _tauDecay. Max conductance reached during this time (assuming zero conductance before) is _gbase * _weight.</i>
+<i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of **tauRise** and a decay time of **tauDecay.** Max conductance reached during this time (assuming zero conductance before) is **gbase** * **weight.** .</i>
 
 
 
@@ -707,7 +707,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 
 
 
-<i>Ohmic synapse similar to expTwoSynapse but consisting of two components that can differ in decay times and max conductances but share the same rise time.</i>
+<i>Ohmic synapse similar to expTwoSynapse but consisting of two components that can differ in decay times and max conductances but share the same rise time. .</i>
 
 
 
@@ -828,7 +828,7 @@ waveformFactor2,Dimensionless
 
 
 
-<i>Base of any ComponentType which produces a varying scaling (or blockage) of synaptic strength of magnitude _scaling.</i>
+<i>Base of any ComponentType which produces a varying scaling (or blockage) of synaptic strength of magnitude **scaling** .</i>
 
 
 
@@ -853,7 +853,7 @@ extends *{ref}`schema:baseblockmechanism`*
 
 
 
-<i>Synaptic blocking mechanism which varys with membrane potential across the synapse, e.g. in NMDA receptor mediated synapses.</i>
+<i>Synaptic blocking mechanism which varys with membrane potential across the synapse, e.g. in NMDA receptor mediated synapses .</i>
 
 
 
@@ -923,7 +923,7 @@ v,{ref}`schema:dimensions:voltage`
 
 
 
-<i>Base plasticity mechanism.</i>
+<i>Base plasticity mechanism. .</i>
 
 
 
@@ -958,7 +958,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 
 
 
-<i>Depression-only Tsodyks-Markram model, as in Tsodyks and Markram 1997.</i>
+<i>Depression-only Tsodyks-Markram model, as in Tsodyks and Markram 1997. .</i>
 
 
 
@@ -1054,7 +1054,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 
 
 
-<i>Full Tsodyks-Markram STP model with both depression and facilitation, as in Tsodyks, Pawelzik and Markram 1998.</i>
+<i>Full Tsodyks-Markram STP model with both depression and facilitation, as in Tsodyks, Pawelzik and Markram 1998. .</i>
 
 
 
@@ -1154,7 +1154,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>Biexponential synapse that allows for     optional block and plasticity     mechanisms, which can be expressed as     child elements.</i>
+<i>Biexponential synapse that allows for     optional block and plasticity     mechanisms, which can be expressed as     child elements. .</i>
 
 
 
@@ -1286,7 +1286,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>Synapse consisting of two independent synaptic mechanisms (e.g. AMPA-R and NMDA-R), which can be easily colocated in connections.</i>
+<i>Synapse consisting of two independent synaptic mechanisms (e.g. AMPA-R and NMDA-R), which can be easily colocated in connections .</i>
 
 
 
@@ -1403,7 +1403,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>Spike timing dependent plasticity mechanism,  NOTE: EXAMPLE NOT YET WORKING!!!! .</i>
+<i>Spike timing dependent plasticity mechanism,  NOTE: EXAMPLE NOT YET WORKING!!!!  .</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to stdpSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000034)
@@ -1544,7 +1544,7 @@ extends *{ref}`schema:basesynapse`*
 
 
 
-<i>Gap junction/single electrical connection.</i>
+<i>Gap junction/single electrical connection .</i>
 
 
 
@@ -1619,7 +1619,7 @@ extends *{ref}`schema:basesynapse`*
 
 
 
-<i>Base type for graded synapses.</i>
+<i>Base type for graded synapses .</i>
 
 
 
@@ -1654,7 +1654,7 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 
-<i>Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection.</i>
+<i>Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection. .</i>
 
 
 
@@ -1719,7 +1719,7 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 
-<i>Behaves just like a one way gap junction.</i>
+<i>Behaves just like a one way gap junction. .</i>
 
 
 
@@ -1794,7 +1794,7 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 
-<i>Graded/analog synapse. Based on synapse in Methods of http://www.nature.com/neuro/journal/v7/n12/abs/nn1352.html.</i>
+<i>Graded/analog synapse. Based on synapse in Methods of http://www.nature.com/neuro/journal/v7/n12/abs/nn1352.html .</i>
 
 
 
