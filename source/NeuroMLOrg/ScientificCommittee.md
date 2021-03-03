@@ -11,7 +11,8 @@ The responsibilities of the NeuroML Scientific Committee are:
 
 ## Current Members
 
-<table>
+<div class="table-responsive">
+<table class="table table-borderless">
 <tr>
 <td style="width:20%">
 
@@ -215,6 +216,7 @@ London, UK<br />
 </td>
 </tr>
 </table>
+</div>
 
 
 ## Past Members

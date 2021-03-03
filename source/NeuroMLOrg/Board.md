@@ -21,7 +21,8 @@ Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--
 
 % To force a new line in markdown, end the line with two or more spaces, so do not strip these.
 
-<table>
+<div class="table-responsive">
+<table class="table table-borderless">
 <tr>
 <td style="width:20%">
 
@@ -128,6 +129,7 @@ Brazil<br />
 </td>
 </tr>
 </table>
+</div>
 
 Information on past editors and elections can be found {ref}`here <neuromlorg:boardhistory>`.
 
