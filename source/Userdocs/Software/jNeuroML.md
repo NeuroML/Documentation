@@ -10,6 +10,7 @@ With jNeuroML you can:
 - **Simulate** NeuroML 2 models
 - **Export** NeuroML 2 and LEMS files to many formats such as Neuron, Brian, Matlab, etc.
 - **Import** other languages into LEMS (e.g. SBML)
+- **Visualise** NeuroML models and simulations
 
 (jneuroml:quickstart)=
 ## Quick start
