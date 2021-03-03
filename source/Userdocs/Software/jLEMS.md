@@ -10,7 +10,7 @@ jLEMS was developed by Robert Cannon when the LEMS language was being devised an
 (jlems:quickstart)=
 ## Quick start
 
-Since jLEMS is included in {ref}`jNeuroML <jneuroml>`, it does not to be installed it separately.
+Since jLEMS is included in {ref}`jNeuroML <jneuroml>`, it does need not to be installed it separately.
 Please follow the instructions on installing jNeuroML provided {ref}`here <jneuroml:quickstart>`.
 
 Please see the {ref}`development section below <jlems:development>` for information on building the jLEMS interpreter from source.
