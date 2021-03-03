@@ -8,7 +8,7 @@ libNeuroML is a Python API package for working with models specified in NeuroML 
 (libneuroml:quickstart)=
 ## Quick start
 
-(libneuroml:install_python_and_java)=
+(libneuroml:install_python)=
 ### Install Python
 
 [Python](https://www.python.org/) is generally pre-installed on all computers nowadays.
