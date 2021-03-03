@@ -2,9 +2,9 @@
 # libNeuroML
 
 libNeuroML is a Python API package for working with models specified in NeuroML version 2.
-```{admonition} Use PyNeuroML
+```{admonition} Use pyNeuroML
 :class: dropdown
-{ref}`PyNeuroML <pyneuroml>` builds on libNeuroML and includes additional functions.
+{ref}`pyNeuroML <pyneuroml>` builds on libNeuroML and includes additional functions.
 ```
 ```{admonition} Citation
 :class: dropdown

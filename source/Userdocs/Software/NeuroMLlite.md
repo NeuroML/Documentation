@@ -36,7 +36,7 @@ pip install neuromllite
 (neuromllite:install_fedora)=
 ### Installation on Fedora Linux
 
-On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides PyNeuroML as a package in their [extras repository](https://docs.fedoraproject.org/en-US/neurofedora/copr/) and can be installed using the following commands:
+On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides pyNeuroML as a package in their [extras repository](https://docs.fedoraproject.org/en-US/neurofedora/copr/) and can be installed using the following commands:
 
 ```{code-block} console
 sudo dnf copr enable @neurofedora/neurofedora-extra
@@ -132,6 +132,6 @@ You can also use any of the {ref}`communication channels of the NeuroML communit
 (neuromllite:development)=
 ## Development
 
-PyNeuroML is developed on GitHub at [https://github.com/NeuroML/NeuroMLlite](https://github.com/NeuroML/NeuroMLlite) under the [LPGL-3.0 license](https://github.com/NeuroML/NeuroMLlite/blob/master/LICENSE.lesser).
-The repository contains the complete source code along with instructions on building/installing PyNeuroML.
-Please follow the instructions there to build PyNeuroML from source.
+pyNeuroML is developed on GitHub at [https://github.com/NeuroML/NeuroMLlite](https://github.com/NeuroML/NeuroMLlite) under the [LPGL-3.0 license](https://github.com/NeuroML/NeuroMLlite/blob/master/LICENSE.lesser).
+The repository contains the complete source code along with instructions on building/installing pyNeuroML.
+Please follow the instructions there to build pyNeuroML from source.

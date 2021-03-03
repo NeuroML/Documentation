@@ -1,16 +1,16 @@
 (pylems)=
-# PyLEMS
+# pyLEMS
 
-PyLEMS is a Python package which provides an API, as well as a simulator for the [LEMS](http://lems.github.io/LEMS) language.
+pyLEMS is a Python package which provides an API, as well as a simulator for the [LEMS](http://lems.github.io/LEMS) language.
 It can also be used to run NeuroML2 models.
-```{admonition} Use PyNeuroML
+```{admonition} Use pyNeuroML
 :class: dropdown
-{ref}`PyNeuroML <pyneuroml>` builds on PyLEMS and includes additional functions.
+{ref}`pyNeuroML <pyneuroml>` builds on pyLEMS and includes additional functions.
 ```
 
 ```{admonition} Citation
 :class: dropdown
-Please cite Vella et al. ({cite}`Vella2014`) if you use PyLEMS.
+Please cite Vella et al. ({cite}`Vella2014`) if you use pyLEMS.
 ```
 
 (pylems:quickstart)=
@@ -25,7 +25,7 @@ A number of Free/Open source Integrated Development Environments (IDEs) are also
 An example list is [here](https://opensource.com/resources/python/ides).
 
 (pylems:install_with_pip)=
-### Install PyLEMS with pip
+### Install pyLEMS with pip
 ```{admonition} Tip: Use a virtual environment
 :class: tip dropdown
 
@@ -33,22 +33,22 @@ While using Python packages, it is suggested to use a virtual environment to iso
 Learn more about using virtual environments in Python [here](https://docs.python.org/3/tutorial/venv.html).
 ```
 
-The easiest way to install the latest version of PyLEMS is using the default Python package manager, `pip`:
+The easiest way to install the latest version of pyLEMS is using the default Python package manager, `pip`:
 ```{code-block} console
-pip install PyLEMS
+pip install pyLEMS
 ```
 (pylems:install_fedora)=
 ### Installation on Fedora Linux
 
-On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides PyLEMS in the [standard Fedora repos](https://src.fedoraproject.org/rpms/python-PyLEMS) and can be installed using the following commands:
+On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides pyLEMS in the [standard Fedora repos](https://src.fedoraproject.org/rpms/python-pyLEMS) and can be installed using the following commands:
 
 ```{code-block} console
-sudo dnf install python3-PyLEMS
+sudo dnf install python3-pyLEMS
 ```
 (pylems:docs)=
 ## Documentation
 
-PyLEMS provides the `pylems` command line utility that can be used to simulate LEMS files.
+pyLEMS provides the `pylems` command line utility that can be used to simulate LEMS files.
 `pylems` is self documented, and you can learn about its usage using the `-h` flag:
 
 ```{code-block} console
@@ -78,16 +78,16 @@ We suggest that you use {ref}`pyNeuroML <pyNeuroML>` where this is not required:
 pylems -I <dir of NeuroML2 install>/NeuroML2CoreTypes/  LEMS_NeuroML2_Model.xml
 ```
 
-For more information on PyLEMS, please see Vella et al. ({cite}`Vella2014`) and Cannon et al. ({cite}`Cannon2014`).
+For more information on pyLEMS, please see Vella et al. ({cite}`Vella2014`) and Cannon et al. ({cite}`Cannon2014`).
 
 (pylems:api_docs)=
 ### API documentation
 ```{admonition} TODO!
 :class: dropdown
-Generate and publish API documentation for PyLEMS.
+Generate and publish API documentation for pyLEMS.
 Issue filed: https://github.com/LEMS/pylems/issues/45
 ```
-The PyLEMS API is also self documented.
+The pyLEMS API is also self documented.
 You can use Python's in-built documentation viewer `pydoc` to view the documentation for any of the package's modules and their functions:
 
 ```{code-block} console
@@ -125,7 +125,7 @@ Most IDEs are able to show you this information as you use them in your Python s
 (pylems:gethelp)=
 ### Getting help
 
-For any questions regarding PyLEMS, please open an issue on the GitHub issue tracker [here](https://github.com/LEMS/pylems/issues).
+For any questions regarding pyLEMS, please open an issue on the GitHub issue tracker [here](https://github.com/LEMS/pylems/issues).
 Any bugs and feature requests can also be filed there.
 
 You can also use any of the {ref}`communication channels of the NeuroML community <contact>`.
@@ -133,6 +133,6 @@ You can also use any of the {ref}`communication channels of the NeuroML communit
 (pylems:development)=
 ## Development
 
-PyLEMS is developed on GitHub at [https://github.com/LEMS/pylems](https://github.com/LEMS/pylems) under the [LGPL-3.0 license](https://github.com/LEMS/pylems/blob/master/LICENSE.lesser).
-The repository contains the complete source code along with instructions on building/installing PyLEMS.
-Please follow the instructions there to build PyLEMS from source.
+pyLEMS is developed on GitHub at [https://github.com/LEMS/pylems](https://github.com/LEMS/pylems) under the [LGPL-3.0 license](https://github.com/LEMS/pylems/blob/master/LICENSE.lesser).
+The repository contains the complete source code along with instructions on building/installing pyLEMS.
+Please follow the instructions there to build pyLEMS from source.

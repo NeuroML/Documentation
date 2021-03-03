@@ -146,7 +146,7 @@ Their main responsibilities are:
 - Preparing the core specification for the NeuroML language.
 - Testing reference implementations of NeuroML compliant applications.
 - Preparing a specification for the LEMS language.
-    This can be a subset of the language supported by the reference implementations in Java (jLEMS) and Python (PyLEMS), but will have to cover all of the LEMS elements required to specify the ComponentType definitions for NeuroML 2.
+    This can be a subset of the language supported by the reference implementations in Java (jLEMS) and Python (pyLEMS), but will have to cover all of the LEMS elements required to specify the ComponentType definitions for NeuroML 2.
 - Responding to community queries about the specification.
 - Establishing a procedure for incorporating major changes into the specification (in cooperation with the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`).
 

@@ -1,20 +1,20 @@
 (pyneuroml)=
-# PyNeuroML
+# pyNeuroML
 
 ```{admonition} Suggested NeuroML tool
 :class: dropdown
-PyNeuroML is the suggested software tool for working with NeuroML.
-It builds on {ref}`jNeuroML <jneuroml>`, {ref}`libNeuroML <libneuroml>`, and {ref}`PyLEMS <pylems>`.
+pyNeuroML is the suggested software tool for working with NeuroML.
+It builds on {ref}`jNeuroML <jneuroml>`, {ref}`libNeuroML <libneuroml>`, and {ref}`pyLEMS <pylems>`.
 ```
 ```{admonition} Citation
 :class: dropdown
-Please cite Vella et al. ({cite}`Vella2014`) if you use PyNeuroML.
+Please cite Vella et al. ({cite}`Vella2014`) if you use pyNeuroML.
 ```
 
-PyNeuroML is a Python package that allows you to work with NeuroML models using the Python programming language.
+pyNeuroML is a Python package that allows you to work with NeuroML models using the Python programming language.
 It includes all the API functions provided by {ref}`libNeuroML <libNeuroML>` and {ref}`pyLEMS <pylems>`, and also wraps all the functions that {ref}`jNeuroML <jNeuroML>` provides, which can therefore be used from within Python itself.
 
-With PyNeuroML you can:
+With pyNeuroML you can:
 
 - **Create** NeuroML models and simulations
 - **Validate** NeuroML v1.8.1 and v2.x files
@@ -34,13 +34,13 @@ However, if you do not have Python installed on your system, please follow the o
 A number of Free/Open source Integrated Development Environments (IDEs) are also available that make working with Python (even) easier.
 An example list is [here](https://opensource.com/resources/python/ides).
 
-Since PyNeuroML wraps around jNeuroML which is written in Java, you will need a Java Runtime Environment (JRE) installed on your system.
+Since pyNeuroML wraps around jNeuroML which is written in Java, you will need a Java Runtime Environment (JRE) installed on your system.
 On most Linux systems [Free/Open source OpenJDK runtime environment](https://openjdk.java.net/) is already pre-installed.
 You can also install Oracle's proprietary Java platform from their [download page](https://www.oracle.com/java/technologies/javase-downloads.html) if you prefer.
 Please refer to your operating system's documentation to install a JRE.
 
 (pyneuroml:install_with_pip)=
-### Install PyNeuroML with pip
+### Install pyNeuroML with pip
 
 ```{admonition} Tip: Use a virtual environment
 :class: tip dropdown
@@ -49,7 +49,7 @@ While using Python packages, it is suggested to use a virtual environment to iso
 Learn more about using virtual environments in Python [here](https://docs.python.org/3/tutorial/venv.html).
 ```
 
-The easiest way to install the latest version of PyNeuroML is using the default Python package manager, `pip`:
+The easiest way to install the latest version of pyNeuroML is using the default Python package manager, `pip`:
 
 ```{code-block} console
 pip install pyneuroml
@@ -57,7 +57,7 @@ pip install pyneuroml
 (pyneuroml:install_fedora)=
 ### Installation on Fedora Linux
 
-On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides PyNeuroML as a package in their [extras repository](https://docs.fedoraproject.org/en-US/neurofedora/copr/) and can be installed using the following commands:
+On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides pyNeuroML as a package in their [extras repository](https://docs.fedoraproject.org/en-US/neurofedora/copr/) and can be installed using the following commands:
 
 ```{code-block} console
 sudo dnf copr enable @neurofedora/neurofedora-extra
@@ -66,7 +66,7 @@ sudo dnf install python3-pyneuroml
 (pyneuroml:docs)=
 ## Documentation
 
-PyNeuroML provides a set of command line utilities along with an API to use from within Python scripts:
+pyNeuroML provides a set of command line utilities along with an API to use from within Python scripts:
 
 ```{admonition} TODO!
 :class: dropdown
@@ -116,10 +116,10 @@ Shared options:
 
 ```{admonition} TODO!
 :class: dropdown
-Generate and publish API documentation for PyNeuroML.
+Generate and publish API documentation for pyNeuroML.
 Issue filed: https://github.com/NeuroML/pyNeuroML/issues/86
 ```
-The PyNeuroML API is also self documented.
+The pyNeuroML API is also self documented.
 You can use Python's in-built documentation viewer `pydoc` to view the documentation for any of the package's modules and their functions:
 ```{code-block} console
 
@@ -176,7 +176,7 @@ Most IDEs are able to show you this information as you use them in your Python s
 (pyneuroml:gethelp)=
 ### Getting help
 
-For any questions regarding PyNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/pyNeuroML/issues).
+For any questions regarding pyNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/pyNeuroML/issues).
 Any bugs and feature requests can also be filed there.
 
 You can also use any of the {ref}`communication channels of the NeuroML community <contact>`.
@@ -184,6 +184,6 @@ You can also use any of the {ref}`communication channels of the NeuroML communit
 (pyneuroml:development)=
 ## Development
 
-PyNeuroML is developed on GitHub at [https://github.com/NeuroML/pyNeuroML](https://github.com/NeuroML/pyNeuroML) under the [LPGL-3.0 license](https://github.com/NeuroML/pyNeuroML/blob/master/LICENSE.lesser).
-The repository contains the complete source code along with instructions on building/installing PyNeuroML.
-Please follow the instructions there to build PyNeuroML from source.
+pyNeuroML is developed on GitHub at [https://github.com/NeuroML/pyNeuroML](https://github.com/NeuroML/pyNeuroML) under the [LPGL-3.0 license](https://github.com/NeuroML/pyNeuroML/blob/master/LICENSE.lesser).
+The repository contains the complete source code along with instructions on building/installing pyNeuroML.
+Please follow the instructions there to build pyNeuroML from source.
