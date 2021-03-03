@@ -6,6 +6,10 @@
 PyNeuroML is the suggested software tool for working with NeuroML.
 It builds on {ref}`jNeuroML <jneuroml>`, {ref}`libNeuroML <libneuroml>`, and {ref}`PyLEMS <pylems>`.
 ```
+```{admonition} Citation
+:class: dropdown
+Please cite Vella et al. ({cite}`Vella2014`) if you use PyNeuroML.
+```
 
 PyNeuroML is a Python package that allows you to work with NeuroML models using the Python programming language.
 It includes all the API functions provided by {ref}`libNeuroML <libNeuroML>` and {ref}`pyLEMS <pylems>`, and also wraps all the functions that {ref}`jNeuroML <jNeuroML>` provides, which can therefore be used from within Python itself.
