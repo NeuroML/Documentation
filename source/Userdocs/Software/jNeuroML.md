@@ -1,41 +1,67 @@
 (jneuroml)=
 # jNeuroML
 
-jNeuroML is a comprehensive application built in Java for handling LEMS and NeuroML 2.
+jNeuroML is a Free/Open Source Java tool for working with LEMS and NeuroML 2.
+It includes the `jnml` command line application, and can also be used as a Java library.
 
-It bundles {ref}`jLEMS <jLEMS>` together with the LEMS definitions for {ref}`NeuroML 2 ComponentTypes <userdocs:neuromlv2>`. The aim is to
-allow easy access to a range of NeuroML2/LEMS functionality through a simple command line interface (**jnml**), or in other Java based
-applications when used as a library.
+With jNeuroML you can:
 
-jNeuroML can:
+- **Validate** NeuroML v1.8.1 and v2.x files,
+- **Simulate** NeuroML 2 models,
+- **Export** NeuroML 2 and LEMS files to many formats such as Neuron, Brian, Matlab, etc.
+- **Import** other languages into LEMS (e.g. SBML).
 
-- **Validate** NeuroML v1.8.1 and v2.x files
-- **Simulate** most NeuroML 2 models (simulation should be specified in the [Simulation element in LEMS file](https://github.com/NeuroML/NeuroML2/blob/master/LEMSexamples/LEMS_NML2_Ex5_DetCell.xml))
-- **Export** NeuroML 2 and LEMS to many formats such as Neuron, Brian, Matlab, etc.
-- **Import** other languages into LEMS (e.g. SBML)
-
+(jneuroml:quickstart)=
 ## Quick start
 
-To get a precompiled binary for jNeuroML, go to [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases), download the latest **jNeuroML.zip** file and you have everything you need. Unzip on your local machine and go into the *jNeuroMLJar* directory.
+(jneuroml:install_java)=
+### Install the Java Runtime Environment
 
-You can also check out the most recent verson of the jar file using:
+Since jNeuroML is written in Java, you will need a Java Runtime Environment (JRE) installed on your system.
+On most Linux systems [Free/Open source OpenJDK runtime environment](https://openjdk.java.net/) is already pre-installed.
+You can also install Oracle's proprietary Java platform from their [download page](https://www.oracle.com/java/technologies/javase-downloads.html) if you prefer.
+Please refer to your operating system's documentation to install a JRE.
 
+(jneuroml:install_jar)=
+### Installation using pre-compiled JAR
+
+jNeuroML is provided as a pre-compiled ready-to-use Java JAR file that can be used on any computer that has Java installed.
+Please download it from the [GitHub release page](https://github.com/NeuroML/jNeuroML/releases) and unzip (extract) it in a preferred folder on your computer:
+
+```{code-block} console
+cd <folder where you downloaded the jNeuroML zip file>
+unzip jNeuroML.zip
 ```
-    svn checkout svn://svn.code.sf.net/p/neuroml/code/jNeuroMLJar
-    cd jNeuroMLJar
+This will extract the zip file to a new folder which will contain the pre-compiled JAR file and runner scripts:
+
+```{code-block} console
+ls jNeuroMLJar/
+jNeuroML-0.10.2-jar-with-dependencies.jar  jnml  jnml.bat  README
 ```
 
-More information on installation from source etc. can be found [here](https://github.com/NeuroML/jNeuroML).
+```{admonition} TODO
+Add instructions on using the installer script.
+https://github.com/NeuroML/jNeuroML/pull/76
+```
 
-## Source
+(jneuroml:install_fedora)=
+### Installation on Fedora Linux
 
-jNeuroML is under development on GitHub at [https://github.com/NeuroML/jNeuroML](https://github.com/NeuroML/jNeuroML).
+On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides jNeuroML as a package in their [extras repository](https://docs.fedoraproject.org/en-US/neurofedora/copr/) and can be installed using the following commands:
 
+```{code-block} console
+sudo dnf copr enable @neurofedora/neurofedora-extra
+sudo dnf install jneuroml
+```
+
+(jneuroml:docs)=
 ## Documentation
 
 Information on usage of the command line application can be found with the -h option:
-```
->> jnml -h
+
+```{code-block} console
+jnml -h
+
  jNeuroML v0.10.1
 Usage:
 
@@ -48,8 +74,33 @@ Usage:
     ...
 ```
 
-More information can be found [here](https://github.com/NeuroML/jNeuroML).
+(jneuroml:gethelp)=
+### Getting help
 
-## Issue tracker
+For any questions regarding jNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/jNeuroML/issues).
+Any bugs and feature requests can also be filed there.
 
-To report any issues related to jNeuroML, please open an issue [here](https://github.com/NeuroML/jNeuroML/issues).
+You can also use any of the {ref}`communication channels of the NeuroML community <contact>`.
+
+(jneuroml:development)=
+## Development
+
+jNeuroML is developed on GitHub at [https://github.com/NeuroML/jNeuroML](https://github.com/NeuroML/jNeuroML) under the [LPGL-3.0 license](https://github.com/NeuroML/jNeuroML/blob/master/LICENSE.lesser).
+The repository contains the complete source code along with instructions on building/installing jNeuroML.
+Please follow the instructions there to build jNeuroML from source.
+
+(jneuroml:nightlies)=
+### Nightly (pre-release) jar builds:
+
+```{warning}
+Please note that these JARs are considered experimental and should only be used for testing purposes.
+```
+
+In case you want to use a development (un-released) version of jNeuroML, you can download a development build following the steps below.
+You will need to have the [Subversion](https://subversion.apache.org/) tool installed on your system.
+
+```{code-block} console
+svn checkout svn://svn.code.sf.net/p/neuroml/code/jNeuroMLJar
+cd jNeuroMLJar
+```
+
