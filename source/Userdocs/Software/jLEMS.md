@@ -1,42 +1,35 @@
 (jlems)=
 # jLEMS
 
-Java Interpreter for the Low Entropy Model Specification language. See http://lems.github.com/LEMS for the LEMS specification.
-
+jLEMS is an interpreter for the Low Entropy Model Specification language written in Java.
 ```{admonition} jLEMS is the reference implementation of LEMS
 jLEMS was developed by Robert Cannon when the LEMS language was being devised and serves at the key reference for how to implement/interpret the language.
 ```
 
+(jlems:quickstart)=
 ## Quick start
 
-Clone this repository:
+Since jLEMS is included in {ref}`jNeuroML <jneuroml>`, it does not to be installed it separately.
+Please follow the instructions on installing jNeuroML provided {ref}`here <jneuroml:quickstart>`.
 
-    git clone git://github.com/LEMS/jLEMS.git
+Please see the {ref}`development section below <jlems:development>` for information on building the jLEMS interpreter from source.
 
-Install with Maven:
-
-    cd jLEMS
-    mvn install
-
-Run an example:
-
-    ./lems src/test/resources/example1.xml        (Linux/Mac)
-    lems.bat src\test\resources\example1.xml      (Windows)
-
-## Source
-
-jLEMS is under development on GitHub at [https://github.com/LEMS/jLEMS](https://github.com/LEMS/jLEMS).
-
+(jlems:docs)=
 ## Documentation
 
-More information can be found [here](http://lems.github.io/LEMS/).
+Detailed documentation on LEMS is maintained [here](http://lems.github.io/LEMS/).
+For more information on LEMS, please also see Cannon et al. ({cite}`Cannon2014`)
 
-For more details on LEMS see:
+(jlems:gethelp)=
+### Getting help
 
-Robert C. Cannon, Padraig Gleeson, Sharon Crook, Gautham Ganapathy, Boris Marin, Eugenio Piasini and R. Angus Silver,
-**LEMS: A language for expressing complex biological models in concise and hierarchical form and its use in underpinning NeuroML 2**,
-[Frontiers in Neuroinformatics 2014](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00079/abstract), doi: 10.3389/fninf.2014.00079
+For any questions regarding jLEMS, please open an issue on the GitHub issue tracker [here](https://github.com/LEMS/jLEMS/issues).
+Any bugs and feature requests can also be filed there.
 
-## Issue tracker
+You can also use any of the {ref}`communication channels of the NeuroML community <contact>`.
 
-To report any issues related to jLEMS, please open an issue [here](https://github.com/LEMS/jLEMS/issues).
+(jlems:development)=
+## Development
+
+jLEMS is developed on GitHub at [https://github.com/LEMS/jLEMS](https://github.com/LEMS/jLEMS) under the [MIT license](https://github.com/LEMS/jLEMS/blob/master/LICENSE).
+The repository contains the complete source code along with instructions on building/installing jLEMS.
