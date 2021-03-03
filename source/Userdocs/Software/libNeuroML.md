@@ -2,9 +2,15 @@
 # libNeuroML
 
 libNeuroML is a Python API package for working with models specified in NeuroML version 2.
-```{tip}
+```{admonition} Use PyNeuroML
+:class: dropdown
 {ref}`PyNeuroML <pyneuroml>` builds on libNeuroML and includes additional functions.
 ```
+```{admonition} Citation
+:class: dropdown
+Please cite Vella et al. ({cite}`Vella2014`) if you use libNeuroML.
+```
+
 (libneuroml:quickstart)=
 ## Quick start
 
@@ -18,9 +24,8 @@ An example list is [here](https://opensource.com/resources/python/ides).
 
 (libneuroml:install_with_pip)=
 ### Install libNeuroML with pip
-```{tip} 
-
-**Use a virtual environment**
+```{admonition} Tip: Use a virtual environment
+:class: tip dropdown
 
 While using Python packages, it is suggested to use a virtual environment to isolate the software you install from each other.
 Learn more about using virtual environments in Python [here](https://docs.python.org/3/tutorial/venv.html).
@@ -44,9 +49,6 @@ sudo dnf install python3-libNeuroML
 Detailed API documentation for libNeuroML can be found [here](https://libneuroml.readthedocs.io/en/latest/).
 For more information on libNeuroML, please see Vella et al. ({cite}`Vella2014`) and Cannon et al. ({cite}`Cannon2014`).
 
-```{admonition} Citation
-Please cite Vella et al. ({cite}`Vella2014`) if you use libNeuroML.
-```
 (libneuroml:gethelp)=
 ### Getting help
 

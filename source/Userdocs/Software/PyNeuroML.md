@@ -2,7 +2,9 @@
 # PyNeuroML
 
 ```{admonition} Suggested NeuroML tool
+:class: dropdown
 PyNeuroML is the suggested software tool for working with NeuroML.
+It builds on {ref}`jNeuroML <jneuroml>`, {ref}`libNeuroML <libneuroml>`, and {ref}`PyLEMS <pylems>`.
 ```
 
 PyNeuroML is a Python package that allows you to work with NeuroML models using the Python programming language.
@@ -36,9 +38,8 @@ Please refer to your operating system's documentation to install a JRE.
 (pyneuroml:install_with_pip)=
 ### Install PyNeuroML with pip
 
-```{tip} 
-
-**Use a virtual environment**
+```{admonition} Tip: Use a virtual environment
+:class: tip dropdown
 
 While using Python packages, it is suggested to use a virtual environment to isolate the software you install from each other.
 Learn more about using virtual environments in Python [here](https://docs.python.org/3/tutorial/venv.html).
@@ -64,6 +65,7 @@ sudo dnf install python3-pyneuroml
 PyNeuroML provides a set of command line utilities along with an API to use from within Python scripts:
 
 ```{admonition} TODO!
+:class: dropdown
 Check that all of these have usage documentation that is viewable using the `-h` flag.
 Issue filed: https://github.com/NeuroML/pyNeuroML/issues/87
 ```
@@ -109,6 +111,7 @@ Shared options:
 ### API documentation
 
 ```{admonition} TODO!
+:class: dropdown
 Generate and publish API documentation for PyNeuroML.
 Issue filed: https://github.com/NeuroML/pyNeuroML/issues/86
 ```

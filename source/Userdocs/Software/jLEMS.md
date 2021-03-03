@@ -3,6 +3,7 @@
 
 jLEMS is an interpreter for the Low Entropy Model Specification language written in Java.
 ```{admonition} jLEMS is the reference implementation of LEMS
+:class: dropdown
 jLEMS was developed by Robert Cannon when the LEMS language was being devised and serves at the key reference for how to implement/interpret the language.
 ```
 

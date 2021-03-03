@@ -12,6 +12,10 @@ With jNeuroML you can:
 - **Import** other languages into LEMS (e.g. SBML)
 - **Visualise** NeuroML models and simulations
 
+```{admonition} Use PyNeuroML
+:class: dropdown
+{ref}`PyNeuroML <pyneuroml>` builds on jNeuroML and includes additional functions.
+```
 (jneuroml:quickstart)=
 ## Quick start
 
@@ -41,6 +45,7 @@ jNeuroML-0.10.2-jar-with-dependencies.jar  jnml  jnml.bat  README
 ```
 
 ```{admonition} TODO
+:class: dropdown
 Add instructions on using the installer script.
 https://github.com/NeuroML/jNeuroML/pull/76
 ```
