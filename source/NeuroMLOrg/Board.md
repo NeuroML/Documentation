@@ -11,11 +11,11 @@ Due to the close link between the development of NeuroML 2 and LEMS, this group 
 
 The five current members of the NeuroML Editorial Board are:
 
-- Justas Birgiolas,
-- Andrew Davison,
-- Salvador Dura-Bernal,
-- Padraig Gleeson and,
-- Boris Marin.
+- Justas Birgiolas
+- Andrew Davison
+- Salvador Dura-Bernal
+- Padraig Gleeson
+- Boris Marin
 
 Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--2021 and Padraig Gleeson, Boris Marin and Justas Birgiolas were elected for three year terms 2020--2022.
 
@@ -55,7 +55,7 @@ height: 150px
 </td>
 <td style="width:20%">
 
-```{image} ../images/Board/padraig.jpg
+```{image} ../images/Board/padraig2.jpeg
 ---
 alt: Padraig Gleeson
 height: 150px
