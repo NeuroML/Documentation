@@ -1,7 +1,11 @@
 (userdocs:specification)=
 # Specification
 
-Here, we continue from the getting started tutorial to dive into more details.
+```{admonition} NeuroML v2.0 is the current stable release of the language, and is described below.
+For an overview of the various releases of the language see: {ref}`A brief history of NeuroML <history>`.
+```
+
+Here, we continue from the {ref}`Getting Started <userdocs:getting_started_neuroml>` tutorial to dive into more details of NeuroML 2.
 We explain how the specification is written, perhaps show an example specification file.
 We explain how/why LEMS is needed, and give an overview of LEMS.
 Then, we provide links to all the schemas.

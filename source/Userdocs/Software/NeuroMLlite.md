@@ -1,3 +1,4 @@
+(neuromllite)=
 # NeuroMLlite
 
 NeuroMLlite is a common framework for reading/writing/generating network specifications which builds on NeuroML 2.
