@@ -45,6 +45,15 @@ Please {ref}`contact <contact>` the NeuroML community for issues and contributio
   </div>
 <div class="carousel-item">
 
+```{image} images/slider/moose_mod.png
+:alt: Featured tool - MOOSE
+:class: d-block w-100
+:target: http://moose.sourceforge.net/
+```
+
+  </div>
+<div class="carousel-item">
+
 ```{image} images/slider/openworm2-mod.png
 :alt: Explore the Open Worm project.
 :class: d-block w-100
