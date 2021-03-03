@@ -1,5 +1,5 @@
-(what)=
-# NeuroML
+(missions_and_aims)=
+# Mission and Aims
 
 Computational models, based on detailed neuroanatomical and electrophysiological data, are heavily used as an aid for understanding the nervous system.
 NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a
