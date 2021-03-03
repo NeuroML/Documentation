@@ -6,10 +6,10 @@ It includes the `jnml` command line application, and can also be used as a Java 
 
 With jNeuroML you can:
 
-- **Validate** NeuroML v1.8.1 and v2.x files,
-- **Simulate** NeuroML 2 models,
+- **Validate** NeuroML v1.8.1 and v2.x files
+- **Simulate** NeuroML 2 models
 - **Export** NeuroML 2 and LEMS files to many formats such as Neuron, Brian, Matlab, etc.
-- **Import** other languages into LEMS (e.g. SBML).
+- **Import** other languages into LEMS (e.g. SBML)
 
 (jneuroml:quickstart)=
 ## Quick start
