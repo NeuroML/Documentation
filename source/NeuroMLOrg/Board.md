@@ -24,6 +24,7 @@ Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--
 <div class="container-fluid">
 <div class="row my-2 py-2">
 <div class="col-sm-2 px-2">
+<center>
 
 ```{image} ../images/Board/justas.jpg
 ---
@@ -31,7 +32,6 @@ alt: Justas Birgiolas
 height: 150px
 ---
 ```
-<center>
 
 **Justas Birgiolas**<br />
 Independent Researcher<br />
@@ -42,6 +42,7 @@ Buffalo, NY<br />
 
 </div>
 <div class="col-sm-2 px-2">
+<center>
 
 ```{image} ../images/Board/andrew.jpg
 ---
@@ -49,7 +50,6 @@ alt: Andrew Davidson
 height: 150px
 ---
 ```
-<center>
 
 **Andrew Davidson**<br />
 CNRS, Gif-sur-Yvette<br />
@@ -60,6 +60,7 @@ France<br />
 
 </div>
 <div class="col-sm-2 px-2">
+<center>
 
 ```{image} ../images/Board/salva.png
 ---
@@ -67,7 +68,6 @@ alt: Salvador Dura-Bernal
 height: 150px
 ---
 ```
-<center>
 
 **Salvador Dura-Bernal**<br />
 SUNY Downstate<br />
@@ -78,6 +78,7 @@ Brooklyn, USA<br />
 
 </div>
 <div class="col-sm-2 px-2">
+<center>
 
 ```{image} ../images/Board/padraig2.jpeg
 ---
@@ -85,7 +86,6 @@ alt: Padraig Gleeson
 height: 150px
 ---
 ```
-<center>
 
 **Padraig Gleeson**<br />
 University College London<br />
@@ -96,6 +96,7 @@ UK<br />
 
 </div>
 <div class="col-sm-2 px-2">
+<center>
 
 ```{image} ../images/Board/boris.jpg
 ---
@@ -103,7 +104,6 @@ alt: Boris Marin
 height: 150px
 ---
 ```
-<center>
 
 **Boris Marin**<br />
 Universidade Federal do ABC<br />
