@@ -21,10 +21,9 @@ Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--
 
 % To force a new line in markdown, end the line with two or more spaces, so do not strip these.
 
-<div class="table-responsive">
-<table class="table table-borderless">
-<tr>
-<td style="width:20%">
+<div class="container-fluid">
+<div class="row my-2 py-2">
+<div class="col px-2">
 
 ```{image} ../images/Board/justas.jpg
 ---
@@ -32,51 +31,6 @@ alt: Justas Birgiolas
 height: 150px
 ---
 ```
-
-</td>
-<td style="width:20%">
-
-```{image} ../images/Board/andrew.jpg
----
-alt: Andrew Davidson
-height: 150px
----
-```
-
-</td>
-<td style="width:20%">
-
-```{image} ../images/Board/salva.png
----
-alt: Salvador Dura-Bernal
-height: 150px
----
-```
-
-</td>
-<td style="width:20%">
-
-```{image} ../images/Board/padraig2.jpeg
----
-alt: Padraig Gleeson
-height: 150px
----
-```
-
-</td>
-<td style="width:20%">
-
-```{image} ../images/Board/boris.jpg
----
-alt: Boris Marin
-height: 150px
----
-```
-
-</td>
-</tr>
-<tr>
-<td style="width:20%">
 <center>
 
 **Justas Birgiolas**<br />
@@ -85,8 +39,16 @@ Buffalo, NY<br />
 [Website](https://www.linkedin.com/in/justasbirgiolas/)
 
 </center>
-</td>
-<td style="width:20%">
+
+</div>
+<div class="col px-2">
+
+```{image} ../images/Board/andrew.jpg
+---
+alt: Andrew Davidson
+height: 150px
+---
+```
 <center>
 
 **Andrew Davidson**<br />
@@ -95,8 +57,16 @@ France<br />
 [Website](http://www.andrewdavison.info/)
 
 </center>
-</td>
-<td style="width:20%">
+
+</div>
+<div class="col px-2">
+
+```{image} ../images/Board/salva.png
+---
+alt: Salvador Dura-Bernal
+height: 150px
+---
+```
 <center>
 
 **Salvador Dura-Bernal**<br />
@@ -105,8 +75,16 @@ Brooklyn, USA<br />
 [Website](http://www.neurosimlab.com/users/salvador-dura-bernal)
 
 </center>
-</td>
-<td style="width:20%">
+
+</div>
+<div class="col px-2">
+
+```{image} ../images/Board/padraig2.jpeg
+---
+alt: Padraig Gleeson
+height: 150px
+---
+```
 <center>
 
 **Padraig Gleeson**<br />
@@ -115,8 +93,16 @@ UK<br />
 [Website](http://www.opensourcebrain.org/users/4)
 
 </center>
-</td>
-<td style="width:20%">
+
+</div>
+<div class="col px-2">
+
+```{image} ../images/Board/boris.jpg
+---
+alt: Boris Marin
+height: 150px
+---
+```
 <center>
 
 **Boris Marin**<br />
@@ -126,9 +112,9 @@ Brazil<br />
 
 
 </center>
-</td>
-</tr>
-</table>
+
+</div>
+</div>
 </div>
 
 Information on past editors and elections can be found {ref}`here <neuromlorg:boardhistory>`.
