@@ -122,7 +122,7 @@ python Example4.py -pynnbrian       # Generate & run the network in Brian using 
 ```
 
 (neuromllite:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding NeuroMLlite, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/NeuroMLlite/issues).
 Any bugs and feature requests can also be filed there.

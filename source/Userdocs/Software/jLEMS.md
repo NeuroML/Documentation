@@ -22,7 +22,7 @@ Detailed documentation on LEMS is maintained [here](http://lems.github.io/LEMS/)
 For more information on LEMS, please also see Cannon et al. ({cite}`Cannon2014`)
 
 (jlems:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding jLEMS, please open an issue on the GitHub issue tracker [here](https://github.com/LEMS/jLEMS/issues).
 Any bugs and feature requests can also be filed there.

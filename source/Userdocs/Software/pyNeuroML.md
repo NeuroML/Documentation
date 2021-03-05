@@ -174,7 +174,7 @@ FILE
 Most IDEs are able to show you this information as you use them in your Python scripts.
 
 (pyneuroml:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding pyNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/pyNeuroML/issues).
 Any bugs and feature requests can also be filed there.

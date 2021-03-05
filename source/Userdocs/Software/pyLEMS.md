@@ -123,7 +123,7 @@ FILE
 Most IDEs are able to show you this information as you use them in your Python scripts.
 
 (pylems:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding pyLEMS, please open an issue on the GitHub issue tracker [here](https://github.com/LEMS/pylems/issues).
 Any bugs and feature requests can also be filed there.

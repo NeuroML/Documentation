@@ -28,7 +28,7 @@ Please refer to the {ref}`jNeuroML documentation <jneuroml:docs>` for informatio
 Examples on using the Matlab toolbox are available [here](https://github.com/NeuroML/NeuroMLToolbox/blob/master/examples/run_examples.m).
 
 (neuromlmatlab:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding the NeuroML Matlab toolbix, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/NeuroMLToolbox/issues).
 Any bugs and feature requests can also be filed there.

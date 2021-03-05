@@ -50,7 +50,7 @@ Detailed API documentation for libNeuroML can be found [here](https://libneuroml
 For more information on libNeuroML, please see Vella et al. ({cite}`Vella2014`) and Cannon et al. ({cite}`Cannon2014`).
 
 (libneuroml:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding libNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuralEnsemble/libNeuroML/issues).
 Any bugs and feature requests can also be filed there.

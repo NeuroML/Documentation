@@ -96,7 +96,7 @@ Please refer to the various packages to learn their usage:
 - [NeuroML/org.neuroml.export: Export from NeuroML & LEMS](https://github.com/NeuroML/org.neuroml.export)
 
 (jneuroml:gethelp)=
-### Getting help
+## Getting help
 
 For any questions regarding jNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/jNeuroML/issues).
 Any bugs and feature requests can also be filed there.
