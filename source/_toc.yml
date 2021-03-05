@@ -17,15 +17,7 @@
     - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/FindingNeuroMLModels
     - file: ./Userdocs/VisualisingNeuroMLModels
-    - file: ./Userdocs/SimulatingNeuroMLModels/SimulatingNeuroMLModels
-      sections:
-        - file: ./Userdocs/SimulatingNeuroMLModels/jNeuroML
-        - file: ./Userdocs/SimulatingNeuroMLModels/NEURON
-        - file: ./Userdocs/SimulatingNeuroMLModels/NetPyNE
-        - file: ./Userdocs/SimulatingNeuroMLModels/Brian
-        - file: ./Userdocs/SimulatingNeuroMLModels/MOOSE
-        - file: ./Userdocs/SimulatingNeuroMLModels/NEST
-        - file: ./Userdocs/SimulatingNeuroMLModels/PyNN
+    - file: ./Userdocs/SimulatingNeuroMLModels
     - file: ./Userdocs/Specification
       sections:
         - file: ./Userdocs/NeuroMLv2.md
