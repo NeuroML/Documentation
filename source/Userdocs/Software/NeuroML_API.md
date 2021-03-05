@@ -20,7 +20,7 @@ API documentation can also be generated while building the API, as documented in
 (neuromlc++:gethelp)=
 ### Getting help
 
-For any questions regarding libNeuroML, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/NeuroML_API/issues).
+For any questions regarding the C++ NeuroML API, please open an issue on the GitHub issue tracker [here](https://github.com/NeuroML/NeuroML_API/issues).
 Any bugs and feature requests can also be filed there.
 
 You can also use any of the {ref}`communication channels of the NeuroML community <contact>`.
