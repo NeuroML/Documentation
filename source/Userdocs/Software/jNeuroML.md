@@ -63,7 +63,7 @@ sudo dnf install jneuroml
 (jneuroml:docs)=
 ## Documentation
 
-Information on usage of the command line application can be found with the -h option:
+Information on usage of the `jnml` command line application can be found with the -h option:
 
 ```{code-block} console
 jnml -h
