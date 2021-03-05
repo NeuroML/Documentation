@@ -31,8 +31,6 @@
             - file: ./Userdocs/Schemas/Networks
             - file: ./Userdocs/Schemas/PyNN
         - file: ./Userdocs/NeuroMLv1.md
-          sections:
-            - file: ./Userdocs/Examplesv1
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/pyNeuroML

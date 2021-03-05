@@ -1,2 +1,2 @@
 (userdocs:neuromlv2)=
-# Current version: NeuroML v2
+# NeuroML v2
