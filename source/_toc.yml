@@ -33,7 +33,6 @@
         - file: ./Userdocs/NeuroMLv1.md
           sections:
             - file: ./Userdocs/Examplesv1
-        - file: ./Userdocs/v1tov2.md
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/pyNeuroML
