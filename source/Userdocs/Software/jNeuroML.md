@@ -79,6 +79,21 @@ Usage:
 
     ...
 ```
+(jneuroml:api_docs)=
+### API documentation
+
+```{admonition} TODO!
+:class: dropdown
+Generate and publish API documentation for jNeuroML.
+Issue filed: https://github.com/NeuroML/jNeuroML/issues/78
+```
+
+The jNeuroML API is self documented.
+Please refer to the various packages to learn their usage:
+
+- [NeuroML/org.neuroml.model](https://github.com/NeuroML/org.neuroml.model)
+- [NeuroML/org.neuroml.import: Import other formats into LEMS & combine with NeuroML models](https://github.com/NeuroML/org.neuroml.import)
+- [NeuroML/org.neuroml.export: Export from NeuroML & LEMS](https://github.com/NeuroML/org.neuroml.export)
 
 (jneuroml:gethelp)=
 ### Getting help
