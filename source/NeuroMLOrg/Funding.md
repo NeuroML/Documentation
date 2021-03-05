@@ -106,14 +106,14 @@ align: center
 
 ```{image} ../images/Funders/wtlogo.png
 ---
-alt: Wellcome Trust
+alt: Wellcome
 align: center
 ---
 ```
 </td>
 <td>
 
-[Wellcome Trust](http://www.wellcome.ac.uk/)
+[Wellcome](http://www.wellcome.ac.uk/)
 
 </td>
 </tr>
