@@ -28,4 +28,4 @@ You can also use any of the {ref}`communication channels of the NeuroML communit
 (neuromlc++:development)=
 ## Development
 
-The C++ NeuroML API is developed on GitHub at [https://github.com/NeuroML/NeuroML_API](https://github.com/NeurroML/NeuroML_API) under the [MIT license](https://github.com/NeuroML/NeuroML_API/blob/master/License.txt).
+The C++ NeuroML API is developed on GitHub at [https://github.com/NeuroML/NeuroML_API](https://github.com/NeuroML/NeuroML_API) under the [MIT license](https://github.com/NeuroML/NeuroML_API/blob/master/License.txt).

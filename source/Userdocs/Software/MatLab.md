@@ -38,4 +38,4 @@ You can also use any of the {ref}`communication channels of the NeuroML communit
 (neuromlmatlab:development)=
 ## Development
 
-The NeuroML Matlab toolbox is developed on GitHub at [https://github.com/NeuroML/NeuroMLToolbox](https://github.com/NeurroML/NeuroMLToolbox).
+The NeuroML Matlab toolbox is developed on GitHub at [https://github.com/NeuroML/NeuroMLToolbox](https://github.com/NeuroML/NeuroMLToolbox).
