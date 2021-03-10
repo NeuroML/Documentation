@@ -82,12 +82,6 @@ Usage:
 (jneuroml:api_docs)=
 ### API documentation
 
-```{admonition} TODO!
-:class: dropdown
-Generate and publish API documentation for jNeuroML.
-Issue filed: https://github.com/NeuroML/jNeuroML/issues/78
-```
-
 The jNeuroML API is self documented.
 Please refer to the various packages to learn their usage:
 
