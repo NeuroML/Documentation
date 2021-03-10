@@ -91,10 +91,11 @@ Issue filed: https://github.com/NeuroML/jNeuroML/issues/78
 The jNeuroML API is self documented.
 Please refer to the various packages to learn their usage:
 
-- [NeuroML/org.neuroml.model](https://github.com/NeuroML/org.neuroml.model): API Documentation can be found [here](http://neuroml.github.io/org.neuroml.model/index.html)
-- [NeuroML/org.neuroml.model.injectingplugin](https://github.com/NeuroML/org.neuroml.model.injectingplugin): API Documentation can be found [here](http://neuroml.github.io/org.neuroml.model.injectingplugin/index.html)
-- [NeuroML/org.neuroml.import: Import other formats into LEMS & combine with NeuroML models](https://github.com/NeuroML/org.neuroml.import)
-- [NeuroML/org.neuroml.export: Export from NeuroML & LEMS](https://github.com/NeuroML/org.neuroml.export): API Documentation can be found [here](http://neuroml.github.io/org.neuroml.export/index.html)
+- [NeuroML/jNeuroML](https://github.com/NeuroML/jNeuroML) (API Documentation [here](http://neuroml.github.io/jNeuroML))
+- [NeuroML/org.neuroml.model](https://github.com/NeuroML/org.neuroml.model) (API Documentation [here](http://neuroml.github.io/org.neuroml.model/index.html))
+- [NeuroML/org.neuroml.model.injectingplugin](https://github.com/NeuroML/org.neuroml.model.injectingplugin) (API Documentation [here](http://neuroml.github.io/org.neuroml.model.injectingplugin/index.html))
+- [NeuroML/org.neuroml.import: Import other formats into LEMS & combine with NeuroML models](https://github.com/NeuroML/org.neuroml.import) (API documentation [here](http://neuroml.github.io/org.neuroml.import/))
+- [NeuroML/org.neuroml.export: Export from NeuroML & LEMS](https://github.com/NeuroML/org.neuroml.export) (API Documentation [here](http://neuroml.github.io/org.neuroml.export/index.html))
 
 (jneuroml:gethelp)=
 ## Getting help
