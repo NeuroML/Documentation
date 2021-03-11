@@ -108,7 +108,7 @@ height: 150px
 **Boris Marin**<br />
 Universidade Federal do ABC<br />
 Brazil<br />
-[Website](http://opensourcebrain.org/)
+[Website](https://www.opensourcebrain.org/users/67)
 
 
 </center>
