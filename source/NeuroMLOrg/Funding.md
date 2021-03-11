@@ -108,6 +108,7 @@ align: center
 ---
 alt: Wellcome
 align: center
+width: 30%
 ---
 ```
 </td>
