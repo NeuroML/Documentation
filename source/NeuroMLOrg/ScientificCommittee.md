@@ -14,7 +14,7 @@ The responsibilities of the NeuroML Scientific Committee are:
 
 <div class="container-fluid">
 <div class="row my-2 py-2">
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/bhalla.png
@@ -32,7 +32,7 @@ Bangalore, India<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/avrama.jpg
@@ -50,7 +50,7 @@ George Mason University, USA<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/hugo.png
@@ -68,7 +68,7 @@ Belgium<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/rsz_crook.jpg
@@ -86,7 +86,7 @@ USA<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/robertmcdougal.png
@@ -104,7 +104,7 @@ USA<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/lyle.png
@@ -122,7 +122,7 @@ Paris, France<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/cgunay.JPG
@@ -141,7 +141,7 @@ USA<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/michael.png
@@ -159,7 +159,7 @@ USA<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/ScientificCommittee/angus.png

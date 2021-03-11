@@ -23,7 +23,7 @@ Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--
 
 <div class="container-fluid">
 <div class="row my-2 py-2">
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/Board/justas.jpg
@@ -41,7 +41,7 @@ Buffalo, NY<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/Board/andrew.jpg
@@ -59,7 +59,7 @@ France<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/Board/salva.png
@@ -77,7 +77,7 @@ Brooklyn, USA<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/Board/padraig2.jpeg
@@ -95,7 +95,7 @@ UK<br />
 </center>
 
 </div>
-<div class="col-sm-2 px-2">
+<div class="col-sm-4 px-2">
 <center>
 
 ```{image} ../images/Board/boris.jpg
