@@ -7,16 +7,22 @@ We're happy to talk with users, developers and modellers about using NeuroML in 
 
 For general discussion, queries, and troubleshooting related to NeuroML please use the mailing list: [https://lists.sourceforge.net/lists/listinfo/neuroml-technology](https://lists.sourceforge.net/lists/listinfo/neuroml-technology).
 
+## Chat channels
+
+Chat channels for quick queries are also available on:
+
+- [Gitter](https://gitter.im/NeuroML/community)
+- [Matrix/Element](https://matrix.to/#/!EQLdKYsJxEfGHAybdP:gitter.im?via=gitter.im&via=matrix.org)
+
+The two rooms are bridged, so you can use either.
+Please note that activity in these rooms depends on time zones and the availability of community members.
+So, if you do not get a response soon, please post to the mailing list listed above or file an issue on GitHub as noted below.
+
 ##  Issues related to the libraries or specification
 
-General issues related to NeuroML should be filed at the [NeuroML/NeuroML2 repository on GitHub](https://github.com/NeuroML/Neu.oML2/issues).
-
-Issues related to the NeuroML core tools should be filed at their individual GitHub repositories:
-  - [jNeuroML](https://github.com/NeuroML/jNeuroML/issues),
-  - [libNeuroML](https://github.com/NeuroML/libNeuroML/issues),
-  - [pyNeuroML](https://github.com/NeuroML/pyNeuroML/issues).
-
-Issues related to LEMS and jLEMS should be filed at the [LEMS/jLEMS repository on GitHub](https://github.com/LEMS/jLEMS/issues).
+- Please file general issues related to NeuroML at the [NeuroML/NeuroML2 repository on GitHub](https://github.com/NeuroML/Neu.oML2/issues).
+- Please file issues related to LEMS and jLEMS at the [LEMS/jLEMS repository on GitHub](https://github.com/LEMS/jLEMS/issues).
+- Additionally, please file issues related to the different NeuroML core tools at their individual {ref}`GitHub repositories <userdocs:software>`.
 
 ##  Social media
 
