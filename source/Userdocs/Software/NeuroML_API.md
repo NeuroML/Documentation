@@ -14,8 +14,12 @@ Please refer to the instructions in the [Readme document](https://github.com/Neu
 ## Documentation
 
 For information on the generated C++ structure, please see the [XSD user manual](http://www.codesynthesis.com/projects/xsd/documentation/cxx/tree/manual/).
-API documentation can also be generated while building the API, as documented in the [Readme](https://github.com/NeuroML/NeuroML_API/blob/master/README.md).
 
+(neuromlc++:api_docs)=
+### API documentation
+
+API documentation for the C++ API can be found [here](https://neuroml.github.io/NeuroML_API/).
+It can also be generated while building the API from source, as documented in the [Readme](https://github.com/NeuroML/NeuroML_API/blob/master/README.md).
 
 (neuromlc++:gethelp)=
 ## Getting help
