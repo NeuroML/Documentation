@@ -202,3 +202,7 @@ pynml LEMS_MediumNet.xml -lems-graph
 ```
 
 This generates {download}`this image <../images/Acnet-LEMS.png>` (please click to open: it is too large to display in the page).
+
+
+% TODO: add section on visualising using Python and pyNeuroML API
+% TODO: ensure that all cli functions are available from the API also
