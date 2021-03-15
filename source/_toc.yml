@@ -64,6 +64,10 @@
     - file: ./NeuroMLOrg/Funding
     - file: ./NeuroMLOrg/CoC
 
+- part: NeuroML events
+  chapters:
+    - file: ./Events/202103-Harmony
+
 - part: Reference
   chapters:
     - file: ./Reference/Glossary
