@@ -75,7 +75,7 @@ function build_book() {
 function publish_book() {
     enable_virtenv
     echo "Publishing book."
-    ghp-import -n -p -f ./source/_build/html
+    ghp-import -c "docs.neuroml.org" -n -p -f ./source/_build/html
 }
 
 function clean_book() {

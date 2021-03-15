@@ -34,4 +34,4 @@ jobs:
         jupyter-book build ./source
     - name: Import to GitHub pages
       run: |
-        ghp-import -n -p -f ./source/_build/html
+        ghp-import -c "docs.neuroml.org" -n -p -f ./source/_build/html
