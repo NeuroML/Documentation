@@ -44,12 +44,9 @@
         - file: ./Userdocs/Software/SupportingTools
     - file: ./Userdocs/Guides/Guides
 
-- part: Developer documentation
+- part: NeuroML events
   chapters:
-    - file: ./Devdocs/InteractionOtherBits
-    - file: ./Devdocs/Devdocs
-      sections:
-        - file: ./Devdocs/ReleaseProcess
+    - file: ./Events/202103-Harmony
 
 - part: The NeuroML Initiative
   chapters:
@@ -64,9 +61,12 @@
     - file: ./NeuroMLOrg/Funding
     - file: ./NeuroMLOrg/CoC
 
-- part: NeuroML events
+- part: Developer documentation
   chapters:
-    - file: ./Events/202103-Harmony
+    - file: ./Devdocs/InteractionOtherBits
+    - file: ./Devdocs/Devdocs
+      sections:
+        - file: ./Devdocs/ReleaseProcess
 
 - part: Reference
   chapters:
