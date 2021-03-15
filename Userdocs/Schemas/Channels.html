@@ -1,0 +1,3890 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Channels &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Synapses" href="Synapses.html" />
+    <link rel="prev" title="Cells" href="Cells.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../IzhikevichNetworkExample.html">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Specification.html">
+   Specification
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreDimensions.html">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreCompTypes.html">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Inputs.html">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="PyNN.html">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Software/Software.html">
+   Software and Tools
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyNeuroML.html">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Userdocs/Schemas/Channels.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Schemas/Channels.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/Schemas/Channels.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltagedeprate">
+   <em>
+    baseVoltageDepRate
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltageconcdeprate">
+   <em>
+    baseVoltageConcDepRate
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basehhrate">
+   <em>
+    baseHHRate
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hhexprate">
+   HHExpRate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hhsigmoidrate">
+   HHSigmoidRate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hhexplinearrate">
+   HHExpLinearRate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltagedepvariable">
+   <em>
+    baseVoltageDepVariable
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltageconcdepvariable">
+   <em>
+    baseVoltageConcDepVariable
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basehhvariable">
+   <em>
+    baseHHVariable
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hhexpvariable">
+   HHExpVariable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hhsigmoidvariable">
+   HHSigmoidVariable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hhexplinearvariable">
+   HHExpLinearVariable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltagedeptime">
+   <em>
+    baseVoltageDepTime
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltageconcdeptime">
+   <em>
+    baseVoltageConcDepTime
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixedtimecourse">
+   fixedTimeCourse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#baseq10settings">
+   <em>
+    baseQ10Settings
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q10fixed">
+   q10Fixed
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q10exptemp">
+   q10ExpTemp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#baseconductancescaling">
+   <em>
+    baseConductanceScaling
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q10conductancescaling">
+   q10ConductanceScaling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#baseconductancescalingcadependent">
+   <em>
+    baseConductanceScalingCaDependent
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basegate">
+   <em>
+    baseGate
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gate">
+   gate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatehhrates">
+   gateHHrates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatehhtauinf">
+   gateHHtauInf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatehhinstantaneous">
+   gateHHInstantaneous
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatehhratestau">
+   gateHHratesTau
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatehhratesinf">
+   gateHHratesInf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatehhratestauinf">
+   gateHHratesTauInf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gatefractional">
+   gateFractional
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subgate">
+   subGate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#baseionchannel">
+   <em>
+    baseIonChannel
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ionchannelpassive">
+   ionChannelPassive
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ionchannelhh">
+   ionChannelHH
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ionchannel">
+   ionChannel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ionchannelvshift">
+   ionChannelVShift
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ksstate">
+   KSState
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#closedstate">
+   closedState
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#openstate">
+   openState
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ionchannelks">
+   ionChannelKS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kstransition">
+   KSTransition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forwardtransition">
+   forwardTransition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reversetransition">
+   reverseTransition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vhalftransition">
+   vHalfTransition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tauinftransition">
+   tauInfTransition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gateks">
+   gateKS
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="channels">
+<span id="schema-channels"></span><h1>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h1>
+<p>Original ComponentType definitions: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Channels.xml">Channels.xml</a>.</p>
+<p>Schema against which NeuroML based on these should be valid: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd">NeuroML_v2.1.xsd</a>.</p>
+<p>Generated on 02/03/21 from <a class="reference external" href="https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500">this</a> commit.</p>
+<p>Please file any issues or questions at the <a class="reference external" href="https://github.com/NeuroML/NeuroML2/issues">issue tracker here</a>.</p>
+<div class="section" id="basevoltagedeprate">
+<span id="schema-basevoltagedeprate"></span><h2><em>baseVoltageDepRate</em><a class="headerlink" href="#basevoltagedeprate" title="Permalink to this headline">¶</a></h2>
+<p><i>Base ComponentType for voltage dependent rate. Produces a time varying rate <strong>r</strong> which depends on <strong>v.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="22892afc-5a0e-48db-a0b9-e3276a026655" name="6b69b002-0c12-441e-8a00-a46564ab6ad7" type="radio">
+</input><label class="tabbed-label" for="22892afc-5a0e-48db-a0b9-e3276a026655">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>r</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b347a200-7fff-4fba-956b-ae6c0a7da164" name="6b69b002-0c12-441e-8a00-a46564ab6ad7" type="radio">
+</input><label class="tabbed-label" for="b347a200-7fff-4fba-956b-ae6c0a7da164">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltageconcdeprate">
+<span id="schema-basevoltageconcdeprate"></span><h2><em>baseVoltageConcDepRate</em><a class="headerlink" href="#basevoltageconcdeprate" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></em></p>
+<p><i>Base ComponentType for voltage and concentration dependent rate. Produces a time varying rate <strong>r</strong> which depends on <strong>v</strong> and <strong>caConc.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="28dd87b6-a263-4caf-9153-c58c66e5c34f" name="bf3828a1-b0df-4e0c-8c02-4f38de6a045d" type="radio">
+</input><label class="tabbed-label" for="28dd87b6-a263-4caf-9153-c58c66e5c34f">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>r (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="12a9dc40-12b4-41ed-b7af-9b5624fcfa76" name="bf3828a1-b0df-4e0c-8c02-4f38de6a045d" type="radio">
+</input><label class="tabbed-label" for="12a9dc40-12b4-41ed-b7af-9b5624fcfa76">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>caConc</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basehhrate">
+<span id="schema-basehhrate"></span><h2><em>baseHHRate</em><a class="headerlink" href="#basehhrate" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></em></p>
+<p><i>Base ComponentType for rate which follow one of the typical forms for rate equations in the standard HH formalism, using the parameters <strong>rate,</strong> <strong>midpoint</strong> and <strong>scale</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="dc579fdf-cbfd-47a0-a512-2cb06c355d87" name="3a1c7c6c-6f65-4f88-8558-254ff1d49f1d" type="radio">
+</input><label class="tabbed-label" for="dc579fdf-cbfd-47a0-a512-2cb06c355d87">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>midpoint</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>rate</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>scale</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="de455b23-a9b9-4536-afaf-c95510abdb16" name="3a1c7c6c-6f65-4f88-8558-254ff1d49f1d" type="radio">
+</input><label class="tabbed-label" for="de455b23-a9b9-4536-afaf-c95510abdb16">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>r (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="dfc62716-6d62-456f-9c29-0e477633d0d6" name="3a1c7c6c-6f65-4f88-8558-254ff1d49f1d" type="radio">
+</input><label class="tabbed-label" for="dfc62716-6d62-456f-9c29-0e477633d0d6">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="hhexprate">
+<span id="schema-hhexprate"></span><h2>HHExpRate<a class="headerlink" href="#hhexprate" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a></em></p>
+<p><i>Exponential form for rate equation (Q: Should these be renamed hhExpRate, etc?).</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="19650f33-a738-4479-a240-54d1d6afafb7" name="e03ec74f-2f1d-4abb-b57b-a709ecccd97d" type="radio">
+</input><label class="tabbed-label" for="19650f33-a738-4479-a240-54d1d6afafb7">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>midpoint (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rate (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>scale (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="cfb3dd97-6929-4ac3-81d2-942dcf189816" name="e03ec74f-2f1d-4abb-b57b-a709ecccd97d" type="radio">
+</input><label class="tabbed-label" for="cfb3dd97-6929-4ac3-81d2-942dcf189816">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>r (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2157638b-d6f0-4042-9b5b-8c0d076f4d31" name="e03ec74f-2f1d-4abb-b57b-a709ecccd97d" type="radio">
+</input><label class="tabbed-label" for="2157638b-d6f0-4042-9b5b-8c0d076f4d31">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="39a9835b-752b-4d45-9ba7-d21294ada5ef" name="e03ec74f-2f1d-4abb-b57b-a709ecccd97d" type="radio">
+</input><label class="tabbed-label" for="39a9835b-752b-4d45-9ba7-d21294ada5ef">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>r</strong> = rate * exp((v - midpoint)/scale) (exposed as <strong>r</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="hhsigmoidrate">
+<span id="schema-hhsigmoidrate"></span><h2>HHSigmoidRate<a class="headerlink" href="#hhsigmoidrate" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a></em></p>
+<p><i>Sigmoidal form for rate equation.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0dc5fe92-c031-4b49-9f2b-9bfdc78daca5" name="8f48b5e4-770f-4819-9707-61445529705b" type="radio">
+</input><label class="tabbed-label" for="0dc5fe92-c031-4b49-9f2b-9bfdc78daca5">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>midpoint (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rate (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>scale (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="807d8c93-11a7-4195-bdb7-01c6312fe2cd" name="8f48b5e4-770f-4819-9707-61445529705b" type="radio">
+</input><label class="tabbed-label" for="807d8c93-11a7-4195-bdb7-01c6312fe2cd">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>r (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2aaaf367-60d2-4972-b5e6-f2312f8133e6" name="8f48b5e4-770f-4819-9707-61445529705b" type="radio">
+</input><label class="tabbed-label" for="2aaaf367-60d2-4972-b5e6-f2312f8133e6">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f1c9ea35-ea76-4117-b3e0-76155b45bc06" name="8f48b5e4-770f-4819-9707-61445529705b" type="radio">
+</input><label class="tabbed-label" for="f1c9ea35-ea76-4117-b3e0-76155b45bc06">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>r</strong> = rate / (1 + exp(0 - (v - midpoint)/scale)) (exposed as <strong>r</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="hhexplinearrate">
+<span id="schema-hhexplinearrate"></span><h2>HHExpLinearRate<a class="headerlink" href="#hhexplinearrate" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a></em></p>
+<p><i>Exponential linear form for rate equation. Linear for large positive <strong>v,</strong> exponentially decays for large negative <strong>v.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="277d2395-5343-4f8e-b199-7c106efb7fa2" name="3fbbc0d9-7e0e-419e-b5ab-95f6cbdc7e54" type="radio">
+</input><label class="tabbed-label" for="277d2395-5343-4f8e-b199-7c106efb7fa2">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>midpoint (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rate (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>scale (from <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2a254d15-5459-44e2-a04e-a219fd315b89" name="3fbbc0d9-7e0e-419e-b5ab-95f6cbdc7e54" type="radio">
+</input><label class="tabbed-label" for="2a254d15-5459-44e2-a04e-a219fd315b89">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>r (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e3068f98-ae4e-4fe4-8de8-1cc6e2ba8b7c" name="3fbbc0d9-7e0e-419e-b5ab-95f6cbdc7e54" type="radio">
+</input><label class="tabbed-label" for="e3068f98-ae4e-4fe4-8de8-1cc6e2ba8b7c">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="fd3bc502-90c7-4899-be79-41b6b38a6b81" name="3fbbc0d9-7e0e-419e-b5ab-95f6cbdc7e54" type="radio">
+</input><label class="tabbed-label" for="fd3bc502-90c7-4899-be79-41b6b38a6b81">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>x</strong> = (v - midpoint) / scale</p>
+</dd>
+<dt><i><strong>Conditional Derived Variables</strong></i></dt><dd><p>IF x != 0 THEN</p>
+</dd>
+<dd><p>  <strong>r</strong> = rate * x / (1 - exp(0 - x))  (exposed as <strong>r</strong>)</p>
+</dd>
+<dd><p>IF x = 0 THEN</p>
+</dd>
+<dd><p>  <strong>r</strong> = rate  (exposed as <strong>r</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltagedepvariable">
+<span id="schema-basevoltagedepvariable"></span><h2><em>baseVoltageDepVariable</em><a class="headerlink" href="#basevoltagedepvariable" title="Permalink to this headline">¶</a></h2>
+<p><i>Base ComponentType for voltage dependent variable  <strong>x,</strong> which depends on <strong>v.</strong> Can be used for inf/steady state of rate variable.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="240a58f4-0490-416d-9c4b-c735bf831533" name="e84feaff-31e2-48c0-b81f-4ed04592f93e" type="radio">
+</input><label class="tabbed-label" for="240a58f4-0490-416d-9c4b-c735bf831533">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="66dd5303-430b-41a8-a202-eca78b31458b" name="e84feaff-31e2-48c0-b81f-4ed04592f93e" type="radio">
+</input><label class="tabbed-label" for="66dd5303-430b-41a8-a202-eca78b31458b">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltageconcdepvariable">
+<span id="schema-basevoltageconcdepvariable"></span><h2><em>baseVoltageConcDepVariable</em><a class="headerlink" href="#basevoltageconcdepvariable" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></em></p>
+<p><i>Base ComponentType for voltage and calcium concentration dependent variable <strong>x,</strong> which depends on <strong>v</strong> and <strong>caConc.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="39108c7b-913a-42ee-9830-b4fa3bc68787" name="e6661614-5f4b-4578-9458-67c2c3b4b6f3" type="radio">
+</input><label class="tabbed-label" for="39108c7b-913a-42ee-9830-b4fa3bc68787">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>x (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="99b35ceb-9900-4435-ab47-bc1756128272" name="e6661614-5f4b-4578-9458-67c2c3b4b6f3" type="radio">
+</input><label class="tabbed-label" for="99b35ceb-9900-4435-ab47-bc1756128272">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>caConc</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basehhvariable">
+<span id="schema-basehhvariable"></span><h2><em>baseHHVariable</em><a class="headerlink" href="#basehhvariable" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></em></p>
+<p><i>Base ComponentType for voltage dependent dimensionless variable which follow one of the typical forms for variable equations in the standard HH formalism, using the parameters <strong>rate,</strong> <strong>midpoint,</strong> <strong>scale</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="de586a72-e719-45e7-ad81-0bb69d725be3" name="ecad7620-4afc-41fb-a99c-b5a98f6f2d30" type="radio">
+</input><label class="tabbed-label" for="de586a72-e719-45e7-ad81-0bb69d725be3">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>midpoint</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>rate</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>scale</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="04acfcdd-1137-4a70-8b9c-c6bd72e63443" name="ecad7620-4afc-41fb-a99c-b5a98f6f2d30" type="radio">
+</input><label class="tabbed-label" for="04acfcdd-1137-4a70-8b9c-c6bd72e63443">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>x (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7a955439-63cd-4001-a547-7dc6816841c9" name="ecad7620-4afc-41fb-a99c-b5a98f6f2d30" type="radio">
+</input><label class="tabbed-label" for="7a955439-63cd-4001-a547-7dc6816841c9">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="hhexpvariable">
+<span id="schema-hhexpvariable"></span><h2>HHExpVariable<a class="headerlink" href="#hhexpvariable" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a></em></p>
+<p><i>Exponential form for variable equation.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c87c0ff1-5538-4f88-ac84-5c6189899b32" name="ad819b72-b7f2-471d-8d37-f873e41d0241" type="radio">
+</input><label class="tabbed-label" for="c87c0ff1-5538-4f88-ac84-5c6189899b32">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>midpoint (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rate (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>scale (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7aa347c1-7059-4708-aa07-51f414740c92" name="ad819b72-b7f2-471d-8d37-f873e41d0241" type="radio">
+</input><label class="tabbed-label" for="7aa347c1-7059-4708-aa07-51f414740c92">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>x (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="59107e73-a5ab-40a9-aa97-1b407cc5a9a2" name="ad819b72-b7f2-471d-8d37-f873e41d0241" type="radio">
+</input><label class="tabbed-label" for="59107e73-a5ab-40a9-aa97-1b407cc5a9a2">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0196bf80-25b5-413c-b97d-595f4f954dbb" name="ad819b72-b7f2-471d-8d37-f873e41d0241" type="radio">
+</input><label class="tabbed-label" for="0196bf80-25b5-413c-b97d-595f4f954dbb">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>x</strong> = rate * exp((v - midpoint)/scale) (exposed as <strong>x</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="hhsigmoidvariable">
+<span id="schema-hhsigmoidvariable"></span><h2>HHSigmoidVariable<a class="headerlink" href="#hhsigmoidvariable" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a></em></p>
+<p><i>Sigmoidal form for variable equation.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="f804cb6b-7550-4806-b920-704d7c9de15f" name="f87c3365-9dc3-47b2-a656-6789b23e6490" type="radio">
+</input><label class="tabbed-label" for="f804cb6b-7550-4806-b920-704d7c9de15f">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>midpoint (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rate (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>scale (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="251f499e-be82-4e60-8ca7-2c192715a610" name="f87c3365-9dc3-47b2-a656-6789b23e6490" type="radio">
+</input><label class="tabbed-label" for="251f499e-be82-4e60-8ca7-2c192715a610">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>x (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7d991fe1-d240-4f54-8389-6af103683f14" name="f87c3365-9dc3-47b2-a656-6789b23e6490" type="radio">
+</input><label class="tabbed-label" for="7d991fe1-d240-4f54-8389-6af103683f14">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f8e50726-0529-45ad-a46c-2200e2f42a10" name="f87c3365-9dc3-47b2-a656-6789b23e6490" type="radio">
+</input><label class="tabbed-label" for="f8e50726-0529-45ad-a46c-2200e2f42a10">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>x</strong> = rate / (1 + exp(0 - (v - midpoint)/scale)) (exposed as <strong>x</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="hhexplinearvariable">
+<span id="schema-hhexplinearvariable"></span><h2>HHExpLinearVariable<a class="headerlink" href="#hhexplinearvariable" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a></em></p>
+<p><i>Exponential linear form for variable equation. Linear for large positive <strong>v,</strong> exponentially decays for large negative <strong>v.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="372c3575-78ca-4d46-b585-2e571568b033" name="cd81db89-a851-46be-a79d-ccae1b6954a1" type="radio">
+</input><label class="tabbed-label" for="372c3575-78ca-4d46-b585-2e571568b033">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>midpoint (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rate (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>scale (from <a class="reference internal" href="#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7bf4dab9-c697-4c07-a3b9-c0055e7319c6" name="cd81db89-a851-46be-a79d-ccae1b6954a1" type="radio">
+</input><label class="tabbed-label" for="7bf4dab9-c697-4c07-a3b9-c0055e7319c6">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>x (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a26e6c55-931f-49b6-b989-ebb86b3f524e" name="cd81db89-a851-46be-a79d-ccae1b6954a1" type="radio">
+</input><label class="tabbed-label" for="a26e6c55-931f-49b6-b989-ebb86b3f524e">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f3d906d3-1808-48fc-9100-11a21cfc2226" name="cd81db89-a851-46be-a79d-ccae1b6954a1" type="radio">
+</input><label class="tabbed-label" for="f3d906d3-1808-48fc-9100-11a21cfc2226">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>a</strong> = (v - midpoint) / scale</p>
+</dd>
+<dd><p><strong>x</strong> = rate * a / (1 - exp(0 - a)) (exposed as <strong>x</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltagedeptime">
+<span id="schema-basevoltagedeptime"></span><h2><em>baseVoltageDepTime</em><a class="headerlink" href="#basevoltagedeptime" title="Permalink to this headline">¶</a></h2>
+<p><i>Base ComponentType for voltage dependent ComponentType producing value <strong>t</strong> with dimension time (e.g. for time course of rate variable). Note: time course would not normally be fit to exp/sigmoid etc.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="6ee6f4d8-6aa7-44b4-be81-213949b870b6" name="212a58a7-15db-4ce7-8bab-abd1780beb6b" type="radio">
+</input><label class="tabbed-label" for="6ee6f4d8-6aa7-44b4-be81-213949b870b6">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="32503618-2ecd-48f8-a913-a7d5ce18f9d0" name="212a58a7-15db-4ce7-8bab-abd1780beb6b" type="radio">
+</input><label class="tabbed-label" for="32503618-2ecd-48f8-a913-a7d5ce18f9d0">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltageconcdeptime">
+<span id="schema-basevoltageconcdeptime"></span><h2><em>baseVoltageConcDepTime</em><a class="headerlink" href="#basevoltageconcdeptime" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></em></p>
+<p><i>Base type for voltage and calcium concentration dependent ComponentType producing value <strong>t</strong> with dimension time (e.g. for time course of rate variable).</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="be5321a8-01c4-4560-a09e-ac73d57428c5" name="8b315e72-b2fc-4a84-8dc4-dca64f665c10" type="radio">
+</input><label class="tabbed-label" for="be5321a8-01c4-4560-a09e-ac73d57428c5">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>t (from <a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0be8a5d7-d0eb-4c72-adfe-7405340060ae" name="8b315e72-b2fc-4a84-8dc4-dca64f665c10" type="radio">
+</input><label class="tabbed-label" for="0be8a5d7-d0eb-4c72-adfe-7405340060ae">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>caConc</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="fixedtimecourse">
+<span id="schema-fixedtimecourse"></span><h2>fixedTimeCourse<a class="headerlink" href="#fixedtimecourse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></em></p>
+<p><i>Time course of a fixed magnitude <strong>tau</strong> which can be used for the time course in  <span class="xref std std-ref">schema:gatehh</span>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c8baa898-6658-4dcf-82e2-b4ccbfdd2c3a" name="22d601c7-caf1-4513-b7f9-f22fc2906d2c" type="radio">
+</input><label class="tabbed-label" for="c8baa898-6658-4dcf-82e2-b4ccbfdd2c3a">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c5c19b2f-c1f4-4f5f-b02a-ea26608b254f" name="22d601c7-caf1-4513-b7f9-f22fc2906d2c" type="radio">
+</input><label class="tabbed-label" for="c5c19b2f-c1f4-4f5f-b02a-ea26608b254f">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>t (from <a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="afbcaff6-7f30-4c6d-a4f5-18f639c6a190" name="22d601c7-caf1-4513-b7f9-f22fc2906d2c" type="radio">
+</input><label class="tabbed-label" for="afbcaff6-7f30-4c6d-a4f5-18f639c6a190">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e444a470-bddd-4411-b806-c386f8a8b653" name="22d601c7-caf1-4513-b7f9-f22fc2906d2c" type="radio">
+</input><label class="tabbed-label" for="e444a470-bddd-4411-b806-c386f8a8b653">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>t</strong> = tau (exposed as <strong>t</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="baseq10settings">
+<span id="schema-baseq10settings"></span><h2><em>baseQ10Settings</em><a class="headerlink" href="#baseq10settings" title="Permalink to this headline">¶</a></h2>
+<p><i>Base ComponentType for a scaling to apply to gating variable time course, usually temperature dependent.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="08378106-2442-4d79-92c8-78e70bc77675" name="c2480eef-d869-4d96-905a-9bd4973a08fc" type="radio">
+</input><label class="tabbed-label" for="08378106-2442-4d79-92c8-78e70bc77675">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c31a65e0-a0fd-4fa9-abf3-06e3ec3af9fe" name="c2480eef-d869-4d96-905a-9bd4973a08fc" type="radio">
+</input><label class="tabbed-label" for="c31a65e0-a0fd-4fa9-abf3-06e3ec3af9fe">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>temperature</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="q10fixed">
+<span id="schema-q10fixed"></span><h2>q10Fixed<a class="headerlink" href="#q10fixed" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></em></p>
+<p><i>A fixed value, <strong>fixedQ10,</strong> for the scaling of the time course of the gating variable.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="4dfb2a4e-efa0-4873-a6b1-d28c1f8ba522" name="7ba7c18c-72d7-4174-803e-5dd10b4cbd91" type="radio">
+</input><label class="tabbed-label" for="4dfb2a4e-efa0-4873-a6b1-d28c1f8ba522">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>fixedQ10</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="22d74c0e-c995-4c64-a2d5-93164740a83a" name="7ba7c18c-72d7-4174-803e-5dd10b4cbd91" type="radio">
+</input><label class="tabbed-label" for="22d74c0e-c995-4c64-a2d5-93164740a83a">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>q10 (from <a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3be97766-0497-460d-9198-a8e5504a9529" name="7ba7c18c-72d7-4174-803e-5dd10b4cbd91" type="radio">
+</input><label class="tabbed-label" for="3be97766-0497-460d-9198-a8e5504a9529">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>temperature (from <a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f0922b3f-1be1-46ac-8058-d766d7632c93" name="7ba7c18c-72d7-4174-803e-5dd10b4cbd91" type="radio">
+</input><label class="tabbed-label" for="f0922b3f-1be1-46ac-8058-d766d7632c93">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>q10</strong> = fixedQ10 (exposed as <strong>q10</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="q10exptemp">
+<span id="schema-q10exptemp"></span><h2>q10ExpTemp<a class="headerlink" href="#q10exptemp" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></em></p>
+<p><i>A value for the Q10 scaling which varies as a standard function of the difference between the current temperature, <strong>temperature,</strong> and the temperature at which the gating variable equations were determined, <strong>experimentalTemp</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="28765111-c1f1-49cd-8503-f6110526758c" name="7e53f126-41f3-4c2e-b322-cc5ef094d059" type="radio">
+</input><label class="tabbed-label" for="28765111-c1f1-49cd-8503-f6110526758c">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>experimentalTemp</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>q10Factor</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="bde50c1e-1368-47d9-9b94-80c2eec9fda2" name="7e53f126-41f3-4c2e-b322-cc5ef094d059" type="radio">
+</input><label class="tabbed-label" for="bde50c1e-1368-47d9-9b94-80c2eec9fda2">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TENDEGREES = 10K</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="49b55f90-5713-4f2c-96c9-848250e7365d" name="7e53f126-41f3-4c2e-b322-cc5ef094d059" type="radio">
+</input><label class="tabbed-label" for="49b55f90-5713-4f2c-96c9-848250e7365d">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>q10 (from <a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="da9929cb-3a3c-4939-b5e4-7dc5d34f978f" name="7e53f126-41f3-4c2e-b322-cc5ef094d059" type="radio">
+</input><label class="tabbed-label" for="da9929cb-3a3c-4939-b5e4-7dc5d34f978f">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>temperature (from <a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="36192ee2-3aea-4b52-ba89-2c289e1bc70d" name="7e53f126-41f3-4c2e-b322-cc5ef094d059" type="radio">
+</input><label class="tabbed-label" for="36192ee2-3aea-4b52-ba89-2c289e1bc70d">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>q10</strong> = q10Factor^((temperature - experimentalTemp)/TENDEGREES) (exposed as <strong>q10</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="baseconductancescaling">
+<span id="schema-baseconductancescaling"></span><h2><em>baseConductanceScaling</em><a class="headerlink" href="#baseconductancescaling" title="Permalink to this headline">¶</a></h2>
+<p><i>Base ComponentType for a scaling to apply to a gate’s conductance, e.g. temperature dependent scaling.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="34b9ede4-7781-4da4-b251-075eb8ed53a7" name="14d45aa1-c221-4e38-973b-7bbff0d4c981" type="radio">
+</input><label class="tabbed-label" for="34b9ede4-7781-4da4-b251-075eb8ed53a7">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>factor</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="55992d44-4214-45e7-bb34-725cf77c3101" name="14d45aa1-c221-4e38-973b-7bbff0d4c981" type="radio">
+</input><label class="tabbed-label" for="55992d44-4214-45e7-bb34-725cf77c3101">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>temperature</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="q10conductancescaling">
+<span id="schema-q10conductancescaling"></span><h2>q10ConductanceScaling<a class="headerlink" href="#q10conductancescaling" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a></em></p>
+<p><i>A value for the conductance scaling which varies as a standard function of the difference between the current temperature, <strong>temperature,</strong> and the temperature at which the conductance was originally determined, <strong>experimentalTemp</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="1be6b5e9-a450-4ccc-80d0-d2467c6ddd43" name="7d9d2e1b-4784-4faa-9b8b-cc3c78a2d01b" type="radio">
+</input><label class="tabbed-label" for="1be6b5e9-a450-4ccc-80d0-d2467c6ddd43">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>experimentalTemp</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>q10Factor</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="299621ad-0049-4993-86a8-130b6527df6a" name="7d9d2e1b-4784-4faa-9b8b-cc3c78a2d01b" type="radio">
+</input><label class="tabbed-label" for="299621ad-0049-4993-86a8-130b6527df6a">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>TENDEGREES = 10K</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="20f5f8c9-f7de-4c92-b900-6b7c22e61b11" name="7d9d2e1b-4784-4faa-9b8b-cc3c78a2d01b" type="radio">
+</input><label class="tabbed-label" for="20f5f8c9-f7de-4c92-b900-6b7c22e61b11">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>factor (from <a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f8124584-4e5a-44e9-bca6-377c6d485c8e" name="7d9d2e1b-4784-4faa-9b8b-cc3c78a2d01b" type="radio">
+</input><label class="tabbed-label" for="f8124584-4e5a-44e9-bca6-377c6d485c8e">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>temperature (from <a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="528a0ec9-8480-434c-a51e-f3ddc4ed2bd4" name="7d9d2e1b-4784-4faa-9b8b-cc3c78a2d01b" type="radio">
+</input><label class="tabbed-label" for="528a0ec9-8480-434c-a51e-f3ddc4ed2bd4">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>factor</strong> = q10Factor^((temperature - experimentalTemp)/TENDEGREES) (exposed as <strong>factor</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="baseconductancescalingcadependent">
+<span id="schema-baseconductancescalingcadependent"></span><h2><em>baseConductanceScalingCaDependent</em><a class="headerlink" href="#baseconductancescalingcadependent" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a></em></p>
+<p><i>Base ComponentType for a scaling to apply to a gate’s conductance which depends on Ca concentration. Usually a generic expression of <strong>caConc</strong> (so no standard, non-base form here).</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="973a84f0-dc7b-4135-be15-cf57cd796fc1" name="e5364410-bc2f-495f-9d81-1a0ad5e77e7d" type="radio">
+</input><label class="tabbed-label" for="973a84f0-dc7b-4135-be15-cf57cd796fc1">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>factor (from <a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="aa130391-6172-4360-ab74-f4cdb12c9e20" name="e5364410-bc2f-495f-9d81-1a0ad5e77e7d" type="radio">
+</input><label class="tabbed-label" for="aa130391-6172-4360-ab74-f4cdb12c9e20">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>caConc</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>temperature (from <a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basegate">
+<span id="schema-basegate"></span><h2><em>baseGate</em><a class="headerlink" href="#basegate" title="Permalink to this headline">¶</a></h2>
+<p><i>Base ComponentType for a voltage and/or concentration dependent gate.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="379a0501-c898-4747-8c8f-e3dfec1a8b33" name="62d5c9cc-91c4-415b-aec1-ae9c28ec6ef1" type="radio">
+</input><label class="tabbed-label" for="379a0501-c898-4747-8c8f-e3dfec1a8b33">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>instances</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="5daa65e5-4d6b-4375-b142-66601fb9b935" name="62d5c9cc-91c4-415b-aec1-ae9c28ec6ef1" type="radio">
+</input><label class="tabbed-label" for="5daa65e5-4d6b-4375-b142-66601fb9b935">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>notes</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-notes"><span class="std std-ref">notes</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="1f21c976-ee5d-409b-af09-0df8c311a826" name="62d5c9cc-91c4-415b-aec1-ae9c28ec6ef1" type="radio">
+</input><label class="tabbed-label" for="1f21c976-ee5d-409b-af09-0df8c311a826">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>fcond</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>q</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="gate">
+<span id="schema-gate"></span><h2>gate<a class="headerlink" href="#gate" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a></em></p>
+<p><i>Conveniently named baseGate.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="536881f4-8426-4ede-b859-5da79f01b91c" name="6444bf5e-30b6-429a-9067-5064d2e38fe5" type="radio">
+</input><label class="tabbed-label" for="536881f4-8426-4ede-b859-5da79f01b91c">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="fd1155d0-7f24-4d12-a8bf-3810b6c3dd48" name="6444bf5e-30b6-429a-9067-5064d2e38fe5" type="radio">
+</input><label class="tabbed-label" for="fd1155d0-7f24-4d12-a8bf-3810b6c3dd48">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="gatehhrates">
+<span id="schema-gatehhrates"></span><h2>gateHHrates<a class="headerlink" href="#gatehhrates" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate which follows the general Hodgkin Huxley formalism.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="47a261b0-5a9c-4ee1-bddc-d19eb3ed3b3a" name="6856765d-5724-4898-b27c-3b669e7ee74f" type="radio">
+</input><label class="tabbed-label" for="47a261b0-5a9c-4ee1-bddc-d19eb3ed3b3a">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="85dde6b0-be10-44f2-aff9-b3eefa821403" name="6856765d-5724-4898-b27c-3b669e7ee74f" type="radio">
+</input><label class="tabbed-label" for="85dde6b0-be10-44f2-aff9-b3eefa821403">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>forwardRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>reverseRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="26ac1a69-1020-48c9-a832-b818a033b539" name="6856765d-5724-4898-b27c-3b669e7ee74f" type="radio">
+</input><label class="tabbed-label" for="26ac1a69-1020-48c9-a832-b818a033b539">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2f2dfcd3-5998-4c61-ac92-6cd9446369a7" name="6856765d-5724-4898-b27c-3b669e7ee74f" type="radio">
+</input><label class="tabbed-label" for="2f2dfcd3-5998-4c61-ac92-6cd9446369a7">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>beta</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="015b6af0-4a25-4ca3-836c-539e37d0baa4" name="6856765d-5724-4898-b27c-3b669e7ee74f" type="radio">
+</input><label class="tabbed-label" for="015b6af0-4a25-4ca3-836c-539e37d0baa4">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>q</strong>: Dimensionless  (exposed as <strong>q</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>q</strong> = inf</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+<dd><p><strong>alpha</strong> = forwardRate-&gt;r (exposed as <strong>alpha</strong>)</p>
+</dd>
+<dd><p><strong>beta</strong> = reverseRate-&gt;r (exposed as <strong>beta</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+<dd><p><strong>inf</strong> = alpha/(alpha+beta) (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tau</strong> = 1/((alpha+beta) * rateScale) (exposed as <strong>tau</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>q</strong> /dt = (inf - q) / tau</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gatehhtauinf">
+<span id="schema-gatehhtauinf"></span><h2>gateHHtauInf<a class="headerlink" href="#gatehhtauinf" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate which follows the general Hodgkin Huxley formalism.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="cc3be6f3-7063-4f56-92c5-f68d666a6647" name="b927950e-9aa4-4218-a8b3-529497412675" type="radio">
+</input><label class="tabbed-label" for="cc3be6f3-7063-4f56-92c5-f68d666a6647">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="8e44a0ef-b9d6-4db7-a796-ea636aa7a85b" name="b927950e-9aa4-4218-a8b3-529497412675" type="radio">
+</input><label class="tabbed-label" for="8e44a0ef-b9d6-4db7-a796-ea636aa7a85b">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>timeCourse</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>steadyState</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ef655642-b4a6-48bb-b359-7aa612930ac5" name="b927950e-9aa4-4218-a8b3-529497412675" type="radio">
+</input><label class="tabbed-label" for="ef655642-b4a6-48bb-b359-7aa612930ac5">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="cacbec93-d0b0-44a2-875c-d881760bde52" name="b927950e-9aa4-4218-a8b3-529497412675" type="radio">
+</input><label class="tabbed-label" for="cacbec93-d0b0-44a2-875c-d881760bde52">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c5cb010d-2c71-406d-8035-924fb819cd00" name="b927950e-9aa4-4218-a8b3-529497412675" type="radio">
+</input><label class="tabbed-label" for="c5cb010d-2c71-406d-8035-924fb819cd00">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>q</strong>: Dimensionless  (exposed as <strong>q</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>q</strong> = inf</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+<dd><p><strong>inf</strong> = steadyState-&gt;x (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tauUnscaled</strong> = timeCourse-&gt;t</p>
+</dd>
+<dd><p><strong>tau</strong> = tauUnscaled / rateScale (exposed as <strong>tau</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>q</strong> /dt = (inf - q) / tau</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gatehhinstantaneous">
+<span id="schema-gatehhinstantaneous"></span><h2>gateHHInstantaneous<a class="headerlink" href="#gatehhinstantaneous" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate which follows the general Hodgkin Huxley formalism but is instantaneous, so tau = 0 and gate follows exactly inf value.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="160381d6-2117-4aba-8ff7-4ed36f1061db" name="e4d44e92-ff1d-418b-ac0d-8ed20a7a2e23" type="radio">
+</input><label class="tabbed-label" for="160381d6-2117-4aba-8ff7-4ed36f1061db">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="8e9254f9-f594-42a3-bba3-03534a0c51b0" name="e4d44e92-ff1d-418b-ac0d-8ed20a7a2e23" type="radio">
+</input><label class="tabbed-label" for="8e9254f9-f594-42a3-bba3-03534a0c51b0">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>steadyState</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f3b4b33a-0ef2-4af9-af2d-711d79893c50" name="e4d44e92-ff1d-418b-ac0d-8ed20a7a2e23" type="radio">
+</input><label class="tabbed-label" for="f3b4b33a-0ef2-4af9-af2d-711d79893c50">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SEC = 1 s</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="69b3f48e-74c3-4d90-93c4-7274e527954c" name="e4d44e92-ff1d-418b-ac0d-8ed20a7a2e23" type="radio">
+</input><label class="tabbed-label" for="69b3f48e-74c3-4d90-93c4-7274e527954c">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="334d40d4-b9a1-42a1-a577-622328e7e31e" name="e4d44e92-ff1d-418b-ac0d-8ed20a7a2e23" type="radio">
+</input><label class="tabbed-label" for="334d40d4-b9a1-42a1-a577-622328e7e31e">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>inf</strong> = steadyState-&gt;x (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tau</strong> = 0 * SEC (exposed as <strong>tau</strong>)</p>
+</dd>
+<dd><p><strong>q</strong> = inf (exposed as <strong>q</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gatehhratestau">
+<span id="schema-gatehhratestau"></span><h2>gateHHratesTau<a class="headerlink" href="#gatehhratestau" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate which follows the general Hodgkin Huxley formalism.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="8e8e888c-3770-4a3d-9454-621e4079baa2" name="586e4a6f-7ff3-4c0e-966d-c7dc89af3f0a" type="radio">
+</input><label class="tabbed-label" for="8e8e888c-3770-4a3d-9454-621e4079baa2">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2f22eee4-4772-454f-bca0-473abf678ec4" name="586e4a6f-7ff3-4c0e-966d-c7dc89af3f0a" type="radio">
+</input><label class="tabbed-label" for="2f22eee4-4772-454f-bca0-473abf678ec4">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>forwardRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>reverseRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>timeCourse</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="5141ee92-0db5-49f5-9b57-78dc30560cc1" name="586e4a6f-7ff3-4c0e-966d-c7dc89af3f0a" type="radio">
+</input><label class="tabbed-label" for="5141ee92-0db5-49f5-9b57-78dc30560cc1">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="05f1e507-26bb-4efe-832a-cd02a945c03f" name="586e4a6f-7ff3-4c0e-966d-c7dc89af3f0a" type="radio">
+</input><label class="tabbed-label" for="05f1e507-26bb-4efe-832a-cd02a945c03f">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>beta</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="11ec1385-816a-4ca4-bdd3-2a9debce3771" name="586e4a6f-7ff3-4c0e-966d-c7dc89af3f0a" type="radio">
+</input><label class="tabbed-label" for="11ec1385-816a-4ca4-bdd3-2a9debce3771">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>q</strong>: Dimensionless  (exposed as <strong>q</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>q</strong> = inf</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+<dd><p><strong>alpha</strong> = forwardRate-&gt;r (exposed as <strong>alpha</strong>)</p>
+</dd>
+<dd><p><strong>beta</strong> = reverseRate-&gt;r (exposed as <strong>beta</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+<dd><p><strong>inf</strong> = alpha/(alpha+beta) (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tauUnscaled</strong> = timeCourse-&gt;t</p>
+</dd>
+<dd><p><strong>tau</strong> = tauUnscaled / rateScale (exposed as <strong>tau</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>q</strong> /dt = (inf - q) / tau</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gatehhratesinf">
+<span id="schema-gatehhratesinf"></span><h2>gateHHratesInf<a class="headerlink" href="#gatehhratesinf" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate which follows the general Hodgkin Huxley formalism.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="2e702e57-f80e-4c27-9821-917c36439794" name="cfd07f69-871a-466c-89b4-8548a7713a16" type="radio">
+</input><label class="tabbed-label" for="2e702e57-f80e-4c27-9821-917c36439794">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="34ca3ce1-457b-4bf1-9c3c-473d4390f1cb" name="cfd07f69-871a-466c-89b4-8548a7713a16" type="radio">
+</input><label class="tabbed-label" for="34ca3ce1-457b-4bf1-9c3c-473d4390f1cb">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>forwardRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>reverseRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>steadyState</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7a6064c2-5d8b-40f3-97e3-d309b00fcf5b" name="cfd07f69-871a-466c-89b4-8548a7713a16" type="radio">
+</input><label class="tabbed-label" for="7a6064c2-5d8b-40f3-97e3-d309b00fcf5b">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="89b98b4e-be65-48de-8832-a3a7355f1f5d" name="cfd07f69-871a-466c-89b4-8548a7713a16" type="radio">
+</input><label class="tabbed-label" for="89b98b4e-be65-48de-8832-a3a7355f1f5d">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>beta</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="4ac08b0a-5d17-414c-99da-eabf903f5bc8" name="cfd07f69-871a-466c-89b4-8548a7713a16" type="radio">
+</input><label class="tabbed-label" for="4ac08b0a-5d17-414c-99da-eabf903f5bc8">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>q</strong>: Dimensionless  (exposed as <strong>q</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>q</strong> = inf</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+<dd><p><strong>alpha</strong> = forwardRate-&gt;r (exposed as <strong>alpha</strong>)</p>
+</dd>
+<dd><p><strong>beta</strong> = reverseRate-&gt;r (exposed as <strong>beta</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+<dd><p><strong>inf</strong> = steadyState-&gt;x (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tau</strong> = 1/((alpha+beta) * rateScale) (exposed as <strong>tau</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>q</strong> /dt = (inf - q) / tau</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gatehhratestauinf">
+<span id="schema-gatehhratestauinf"></span><h2>gateHHratesTauInf<a class="headerlink" href="#gatehhratestauinf" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate which follows the general Hodgkin Huxley formalism.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="9c5d37df-bf05-474e-8ffe-10b8042b9372" name="c873df39-7328-4398-87b5-f3094987091e" type="radio">
+</input><label class="tabbed-label" for="9c5d37df-bf05-474e-8ffe-10b8042b9372">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="77358b65-44f5-4c7e-bc87-eacc3d65d717" name="c873df39-7328-4398-87b5-f3094987091e" type="radio">
+</input><label class="tabbed-label" for="77358b65-44f5-4c7e-bc87-eacc3d65d717">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>forwardRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>reverseRate</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>timeCourse</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>steadyState</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b86d9d96-6a12-4509-b9b0-68f0aa41137b" name="c873df39-7328-4398-87b5-f3094987091e" type="radio">
+</input><label class="tabbed-label" for="b86d9d96-6a12-4509-b9b0-68f0aa41137b">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2545a100-53a4-43df-af67-31eb101fbeb8" name="c873df39-7328-4398-87b5-f3094987091e" type="radio">
+</input><label class="tabbed-label" for="2545a100-53a4-43df-af67-31eb101fbeb8">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>beta</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="686a114e-8bd2-4ad5-898c-b8ce18d065fb" name="c873df39-7328-4398-87b5-f3094987091e" type="radio">
+</input><label class="tabbed-label" for="686a114e-8bd2-4ad5-898c-b8ce18d065fb">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>q</strong>: Dimensionless  (exposed as <strong>q</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>q</strong> = inf</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+<dd><p><strong>alpha</strong> = forwardRate-&gt;r (exposed as <strong>alpha</strong>)</p>
+</dd>
+<dd><p><strong>beta</strong> = reverseRate-&gt;r (exposed as <strong>beta</strong>)</p>
+</dd>
+<dd><p><strong>inf</strong> = steadyState-&gt;x (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tauUnscaled</strong> = timeCourse-&gt;t</p>
+</dd>
+<dd><p><strong>tau</strong> = tauUnscaled / rateScale (exposed as <strong>tau</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>q</strong> /dt = (inf - q) / tau</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gatefractional">
+<span id="schema-gatefractional"></span><h2>gateFractional<a class="headerlink" href="#gatefractional" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p>
+<p><i>Gate composed of subgates contributing with fractional conductance.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="23c18e35-4954-4b29-b85e-a3ebfbae4913" name="c3f19cf1-05da-495d-a931-26223f09aa77" type="radio">
+</input><label class="tabbed-label" for="23c18e35-4954-4b29-b85e-a3ebfbae4913">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0ec31092-c818-45ec-adcb-efd7563b8953" name="c3f19cf1-05da-495d-a931-26223f09aa77" type="radio">
+</input><label class="tabbed-label" for="0ec31092-c818-45ec-adcb-efd7563b8953">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>subGate</p></td>
+<td><p><a class="reference internal" href="#schema-subgate"><span class="std std-ref">subGate</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="73d8fa64-e735-4d73-894f-32885e0aabdc" name="c3f19cf1-05da-495d-a931-26223f09aa77" type="radio">
+</input><label class="tabbed-label" for="73d8fa64-e735-4d73-894f-32885e0aabdc">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f4c06fc4-8311-4b24-86b8-f69c3b0653a8" name="c3f19cf1-05da-495d-a931-26223f09aa77" type="radio">
+</input><label class="tabbed-label" for="f4c06fc4-8311-4b24-86b8-f69c3b0653a8">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>q</strong> = subGate[*]-&gt;qfrac(reduce method: add) (exposed as <strong>q</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+<dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="subgate">
+<span id="schema-subgate"></span><h2>subGate<a class="headerlink" href="#subgate" title="Permalink to this headline">¶</a></h2>
+<p><i>Gate composed of subgates contributing with fractional conductance.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="f4e9f7a1-3ed9-4337-abae-fc399c9c5f92" name="8a1acd45-f93a-4ce5-a1e7-51f3191ca385" type="radio">
+</input><label class="tabbed-label" for="f4e9f7a1-3ed9-4337-abae-fc399c9c5f92">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>fractionalConductance</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="242f6319-8613-46ac-bea3-98c732c485ad" name="8a1acd45-f93a-4ce5-a1e7-51f3191ca385" type="radio">
+</input><label class="tabbed-label" for="242f6319-8613-46ac-bea3-98c732c485ad">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>notes</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-notes"><span class="std std-ref">notes</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>timeCourse</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>steadyState</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="48a8af7d-42ad-43cd-974e-a747fd75656f" name="8a1acd45-f93a-4ce5-a1e7-51f3191ca385" type="radio">
+</input><label class="tabbed-label" for="48a8af7d-42ad-43cd-974e-a747fd75656f">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inf</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>q</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>qfrac</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ff6ae6a9-0849-4bc1-9ab1-424c6982778d" name="8a1acd45-f93a-4ce5-a1e7-51f3191ca385" type="radio">
+</input><label class="tabbed-label" for="ff6ae6a9-0849-4bc1-9ab1-424c6982778d">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7eb5cfde-52c3-43fa-bca3-0fd957118388" name="8a1acd45-f93a-4ce5-a1e7-51f3191ca385" type="radio">
+</input><label class="tabbed-label" for="7eb5cfde-52c3-43fa-bca3-0fd957118388">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>q</strong>: Dimensionless  (exposed as <strong>q</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>q</strong> = inf</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>inf</strong> = steadyState-&gt;x (exposed as <strong>inf</strong>)</p>
+</dd>
+<dd><p><strong>tauUnscaled</strong> = timeCourse-&gt;t</p>
+</dd>
+<dd><p><strong>tau</strong> = tauUnscaled / rateScale (exposed as <strong>tau</strong>)</p>
+</dd>
+<dd><p><strong>qfrac</strong> = q * fractionalConductance (exposed as <strong>qfrac</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>q</strong> /dt = (inf - q) / tau</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="baseionchannel">
+<span id="schema-baseionchannel"></span><h2><em>baseIonChannel</em><a class="headerlink" href="#baseionchannel" title="Permalink to this headline">¶</a></h2>
+<p><i>Base for all ion channel ComponentTypes.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="d0b391ff-34a8-4578-976d-937ba9732e78" name="dada2414-8e78-4474-835c-e794884d6342" type="radio">
+</input><label class="tabbed-label" for="d0b391ff-34a8-4578-976d-937ba9732e78">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>conductance</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="1dad7f7e-20ab-46c4-910a-020c6b6c922c" name="dada2414-8e78-4474-835c-e794884d6342" type="radio">
+</input><label class="tabbed-label" for="1dad7f7e-20ab-46c4-910a-020c6b6c922c">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>neuroLexId</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="104b84c5-e96d-4a0a-9846-f9e0fbd130dd" name="dada2414-8e78-4474-835c-e794884d6342" type="radio">
+</input><label class="tabbed-label" for="104b84c5-e96d-4a0a-9846-f9e0fbd130dd">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>notes</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-notes"><span class="std std-ref">notes</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>annotation</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-annotation"><span class="std std-ref">annotation</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="979a6ed4-d813-465b-86e1-0c9c35accd3b" name="dada2414-8e78-4474-835c-e794884d6342" type="radio">
+</input><label class="tabbed-label" for="979a6ed4-d813-465b-86e1-0c9c35accd3b">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>fopen</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7c96fda6-cc96-44ff-a166-b0b36adb81a9" name="dada2414-8e78-4474-835c-e794884d6342" type="radio">
+</input><label class="tabbed-label" for="7c96fda6-cc96-44ff-a166-b0b36adb81a9">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="ionchannelpassive">
+<span id="schema-ionchannelpassive"></span><h2>ionChannelPassive<a class="headerlink" href="#ionchannelpassive" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-ionchannel"><span class="std std-ref">ionChannel</span></a></p>
+<p><i>Simple passive ion channel where the constant conductance through the channel is equal to <strong>conductance</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="117dee68-998e-439d-b602-3234dae49e0e" name="38ac85d3-0621-456d-9740-0fdbac645174" type="radio">
+</input><label class="tabbed-label" for="117dee68-998e-439d-b602-3234dae49e0e">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>conductance (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b854a0ec-57ef-44f3-8c86-3fbf5e2fab04" name="38ac85d3-0621-456d-9740-0fdbac645174" type="radio">
+</input><label class="tabbed-label" for="b854a0ec-57ef-44f3-8c86-3fbf5e2fab04">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>species</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0f22fd57-d417-4885-8a00-90b025dadca6" name="38ac85d3-0621-456d-9740-0fdbac645174" type="radio">
+</input><label class="tabbed-label" for="0f22fd57-d417-4885-8a00-90b025dadca6">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fopen (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>g (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="07e7dd9d-c298-4e08-952f-15d73e51a023" name="38ac85d3-0621-456d-9740-0fdbac645174" type="radio">
+</input><label class="tabbed-label" for="07e7dd9d-c298-4e08-952f-15d73e51a023">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="09607be1-3691-47d5-abff-d54286c86655" name="38ac85d3-0621-456d-9740-0fdbac645174" type="radio">
+</input><label class="tabbed-label" for="09607be1-3691-47d5-abff-d54286c86655">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>fopen</strong> = 1 (exposed as <strong>fopen</strong>)</p>
+</dd>
+<dd><p><strong>g</strong> = conductance (exposed as <strong>g</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="ionchannelhh">
+<span id="schema-ionchannelhh"></span><h2>ionChannelHH<a class="headerlink" href="#ionchannelhh" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a></em></p>
+<p><i>Note  <a class="reference internal" href="#schema-ionchannel"><span class="std std-ref">ionChannel</span></a> and  <a class="reference internal" href="#schema-ionchannelhh"><span class="std std-ref">ionChannelHH</span></a> are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="e906b887-7506-4c4c-98b7-4e9b42377d36" name="9acec722-7f64-4937-8fce-158b93773690" type="radio">
+</input><label class="tabbed-label" for="e906b887-7506-4c4c-98b7-4e9b42377d36">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>conductance (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="58465e8c-e692-4276-bc81-49abdf847bda" name="9acec722-7f64-4937-8fce-158b93773690" type="radio">
+</input><label class="tabbed-label" for="58465e8c-e692-4276-bc81-49abdf847bda">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>species</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f1aaee37-2527-43bb-bc7c-fe9254b7e024" name="9acec722-7f64-4937-8fce-158b93773690" type="radio">
+</input><label class="tabbed-label" for="f1aaee37-2527-43bb-bc7c-fe9254b7e024">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>conductanceScaling</p></td>
+<td><p><a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>gates</p></td>
+<td><p><a class="reference internal" href="#schema-gate"><span class="std std-ref">gate</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="60b1bd08-7716-4f02-b5c6-ae4bc7027a27" name="9acec722-7f64-4937-8fce-158b93773690" type="radio">
+</input><label class="tabbed-label" for="60b1bd08-7716-4f02-b5c6-ae4bc7027a27">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fopen (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>g (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="15181f2f-00dc-426a-b107-be7ae0ab4548" name="9acec722-7f64-4937-8fce-158b93773690" type="radio">
+</input><label class="tabbed-label" for="15181f2f-00dc-426a-b107-be7ae0ab4548">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="4f54dac7-b550-4eab-8a58-64a457ad6dbd" name="9acec722-7f64-4937-8fce-158b93773690" type="radio">
+</input><label class="tabbed-label" for="4f54dac7-b550-4eab-8a58-64a457ad6dbd">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>conductanceScale</strong> = conductanceScaling[*]-&gt;factor(reduce method: multiply)</p>
+</dd>
+<dd><p><strong>fopen0</strong> = gates[*]-&gt;fcond(reduce method: multiply)</p>
+</dd>
+<dd><p><strong>fopen</strong> = conductanceScale * fopen0 (exposed as <strong>fopen</strong>)</p>
+</dd>
+<dd><p><strong>g</strong> = conductance * fopen (exposed as <strong>g</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="ionchannel">
+<span id="schema-ionchannel"></span><h2>ionChannel<a class="headerlink" href="#ionchannel" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-ionchannelhh"><span class="std std-ref">ionChannelHH</span></a></p>
+<p><i>Note  <a class="reference internal" href="#schema-ionchannel"><span class="std std-ref">ionChannel</span></a> and  <a class="reference internal" href="#schema-ionchannelhh"><span class="std std-ref">ionChannelHH</span></a> are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="1dba9fc3-db8c-45ae-8de0-57c35a51fed7" name="bd3d0ef6-0d8e-467f-8e97-feefe34f37f3" type="radio">
+</input><label class="tabbed-label" for="1dba9fc3-db8c-45ae-8de0-57c35a51fed7">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>conductance (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2f46314c-6c96-4fdf-aea0-aa48b7332c97" name="bd3d0ef6-0d8e-467f-8e97-feefe34f37f3" type="radio">
+</input><label class="tabbed-label" for="2f46314c-6c96-4fdf-aea0-aa48b7332c97">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fopen (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>g (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="bdebf08d-f18a-484d-8071-2fba4fa877dc" name="bd3d0ef6-0d8e-467f-8e97-feefe34f37f3" type="radio">
+</input><label class="tabbed-label" for="bdebf08d-f18a-484d-8071-2fba4fa877dc">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c7534750-1182-41cd-96b2-ed4122589f55" name="bd3d0ef6-0d8e-467f-8e97-feefe34f37f3" type="radio">
+</input><label class="tabbed-label" for="c7534750-1182-41cd-96b2-ed4122589f55">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>conductanceScale</strong> = conductanceScaling[*]-&gt;factor(reduce method: multiply)</p>
+</dd>
+<dd><p><strong>fopen0</strong> = gates[*]-&gt;fcond(reduce method: multiply)</p>
+</dd>
+<dd><p><strong>fopen</strong> = conductanceScale * fopen0 (exposed as <strong>fopen</strong>)</p>
+</dd>
+<dd><p><strong>g</strong> = conductance * fopen (exposed as <strong>g</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="ionchannelvshift">
+<span id="schema-ionchannelvshift"></span><h2>ionChannelVShift<a class="headerlink" href="#ionchannelvshift" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-ionchannel"><span class="std std-ref">ionChannel</span></a></p>
+<p><i>Same as  <a class="reference internal" href="#schema-ionchannel"><span class="std std-ref">ionChannel</span></a>, but with a <strong>vShift</strong> parameter to change voltage activation of gates. The exact usage of <strong>vShift</strong> in expressions for rates is determined by the individual gates.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ac96ef85-0640-48c8-a9de-913934085d1e" name="4598b69c-3898-4d81-bc55-4b3375471609" type="radio">
+</input><label class="tabbed-label" for="ac96ef85-0640-48c8-a9de-913934085d1e">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>conductance (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>vShift</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c55d0694-ea54-4e25-b60d-24918591b40f" name="4598b69c-3898-4d81-bc55-4b3375471609" type="radio">
+</input><label class="tabbed-label" for="c55d0694-ea54-4e25-b60d-24918591b40f">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>species</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="978712cf-09a7-43b6-ac0c-166136603465" name="4598b69c-3898-4d81-bc55-4b3375471609" type="radio">
+</input><label class="tabbed-label" for="978712cf-09a7-43b6-ac0c-166136603465">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fopen (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>g (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a238b40e-4a00-4926-a4d0-5068a1e5b4eb" name="4598b69c-3898-4d81-bc55-4b3375471609" type="radio">
+</input><label class="tabbed-label" for="a238b40e-4a00-4926-a4d0-5068a1e5b4eb">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="ksstate">
+<span id="schema-ksstate"></span><h2>KSState<a class="headerlink" href="#ksstate" title="Permalink to this headline">¶</a></h2>
+<p><i>One of the states in which a  <a class="reference internal" href="#schema-gateks"><span class="std std-ref">gateKS</span></a> can be. The rates of transitions between these states are given by  <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>s.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="e1cfb6e9-6c19-4175-8479-0f9b1021083d" name="c2d30f1e-ec8c-4d64-9872-4851c6a0e6dd" type="radio">
+</input><label class="tabbed-label" for="e1cfb6e9-6c19-4175-8479-0f9b1021083d">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>relativeConductance</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0071715c-c06a-44d4-8f25-28dea9e47070" name="c2d30f1e-ec8c-4d64-9872-4851c6a0e6dd" type="radio">
+</input><label class="tabbed-label" for="0071715c-c06a-44d4-8f25-28dea9e47070">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>occupancy</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>q</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e1913790-d682-4a21-a1a4-691c539bef07" name="c2d30f1e-ec8c-4d64-9872-4851c6a0e6dd" type="radio">
+</input><label class="tabbed-label" for="e1913790-d682-4a21-a1a4-691c539bef07">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>occupancy</strong>: Dimensionless  (exposed as <strong>occupancy</strong>)</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>q</strong> = relativeConductance * occupancy (exposed as <strong>q</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="closedstate">
+<span id="schema-closedstate"></span><h2>closedState<a class="headerlink" href="#closedstate" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a></p>
+<p><i>A  <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a> with <strong>relativeConductance</strong> of 0.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="eebfb538-022b-489b-81d3-c7ee7f143baf" name="64cc4654-d6df-498f-b878-8217d05b37e2" type="radio">
+</input><label class="tabbed-label" for="eebfb538-022b-489b-81d3-c7ee7f143baf">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>relativeConductance (from <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b5ec1659-4363-4333-89fd-73c78b43b94c" name="64cc4654-d6df-498f-b878-8217d05b37e2" type="radio">
+</input><label class="tabbed-label" for="b5ec1659-4363-4333-89fd-73c78b43b94c">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>occupancy (from <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>q (from <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="openstate">
+<span id="schema-openstate"></span><h2>openState<a class="headerlink" href="#openstate" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a></p>
+<p><i>A  <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a> with <strong>relativeConductance</strong> of 1.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="7f65ee04-bc6c-437d-8f01-3fd8ce3305fc" name="9e271e9e-f131-4d0f-af19-4846d6ac9b95" type="radio">
+</input><label class="tabbed-label" for="7f65ee04-bc6c-437d-8f01-3fd8ce3305fc">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>relativeConductance (from <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f1b09bcc-a2fa-403f-8b89-1509d6000256" name="9e271e9e-f131-4d0f-af19-4846d6ac9b95" type="radio">
+</input><label class="tabbed-label" for="f1b09bcc-a2fa-403f-8b89-1509d6000256">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>occupancy (from <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>q (from <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="ionchannelks">
+<span id="schema-ionchannelks"></span><h2>ionChannelKS<a class="headerlink" href="#ionchannelks" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a></em></p>
+<p><i>A kinetic scheme based ion channel with multiple  <a class="reference internal" href="#schema-gateks"><span class="std std-ref">gateKS</span></a>s, each of which consists of multiple  <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>s and  <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>s giving the rates of transition between them.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="13d5fee8-d062-419b-b310-93519c887232" name="a0fea190-0294-487c-9472-0f6676b5c179" type="radio">
+</input><label class="tabbed-label" for="13d5fee8-d062-419b-b310-93519c887232">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>conductance (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="335ba05e-3cbe-4a3b-a4ae-d58483ff04a1" name="a0fea190-0294-487c-9472-0f6676b5c179" type="radio">
+</input><label class="tabbed-label" for="335ba05e-3cbe-4a3b-a4ae-d58483ff04a1">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>species</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="196d1957-ec2c-4d76-b070-7fa75d425aa4" name="a0fea190-0294-487c-9472-0f6676b5c179" type="radio">
+</input><label class="tabbed-label" for="196d1957-ec2c-4d76-b070-7fa75d425aa4">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>conductanceScaling</p></td>
+<td><p><a class="reference internal" href="#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>gates</p></td>
+<td><p><a class="reference internal" href="#schema-gateks"><span class="std std-ref">gateKS</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e093fe40-8243-45ae-b9d5-4225f9ea3ab3" name="a0fea190-0294-487c-9472-0f6676b5c179" type="radio">
+</input><label class="tabbed-label" for="e093fe40-8243-45ae-b9d5-4225f9ea3ab3">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fopen (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>g (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="377ad0d0-69df-482a-808f-311ebfceb40f" name="a0fea190-0294-487c-9472-0f6676b5c179" type="radio">
+</input><label class="tabbed-label" for="377ad0d0-69df-482a-808f-311ebfceb40f">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="23deab05-423a-4c2e-b081-b14bc80a43ee" name="a0fea190-0294-487c-9472-0f6676b5c179" type="radio">
+</input><label class="tabbed-label" for="23deab05-423a-4c2e-b081-b14bc80a43ee">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>fopen</strong> = gates[*]-&gt;fcond(reduce method: multiply) (exposed as <strong>fopen</strong>)</p>
+</dd>
+<dd><p><strong>g</strong> = fopen * conductance (exposed as <strong>g</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="kstransition">
+<span id="schema-kstransition"></span><h2>KSTransition<a class="headerlink" href="#kstransition" title="Permalink to this headline">¶</a></h2>
+<p><i>Specified the forward and reverse rates of transition between two  <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>s in a  <a class="reference internal" href="#schema-gateks"><span class="std std-ref">gateKS</span></a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="180bc833-12b8-4247-88a5-cb96ad45c5b5" name="15e4d01d-34e8-43c2-b663-1a9cfa904fcd" type="radio">
+</input><label class="tabbed-label" for="180bc833-12b8-4247-88a5-cb96ad45c5b5">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rf</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>rr</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="forwardtransition">
+<span id="schema-forwardtransition"></span><h2>forwardTransition<a class="headerlink" href="#forwardtransition" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a></p>
+<p><i>A forward only  <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a> for a  <a class="reference internal" href="#schema-gateks"><span class="std std-ref">gateKS</span></a> which specifies a <strong>rate</strong> (type  <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>) which follows one of the standard Hodgkin Huxley forms (e.g.  <a class="reference internal" href="#schema-hhexprate"><span class="std std-ref">HHExpRate</span></a>,  <a class="reference internal" href="#schema-hhsigmoidrate"><span class="std std-ref">HHSigmoidRate</span></a>,  <a class="reference internal" href="#schema-hhexplinearrate"><span class="std std-ref">HHExpLinearRate</span></a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="99f98038-ca9d-4058-8f33-97c026873b15" name="f49da6fb-dada-491a-9aed-cbd4bd9825bd" type="radio">
+</input><label class="tabbed-label" for="99f98038-ca9d-4058-8f33-97c026873b15">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rate</p></td>
+<td><p><a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d62aa8ed-fcbd-4abd-8336-c5bb617c523d" name="f49da6fb-dada-491a-9aed-cbd4bd9825bd" type="radio">
+</input><label class="tabbed-label" for="d62aa8ed-fcbd-4abd-8336-c5bb617c523d">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SEC = 1s</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b7cb4d33-3ec6-4b67-8aa5-b0fb3fed0fb5" name="f49da6fb-dada-491a-9aed-cbd4bd9825bd" type="radio">
+</input><label class="tabbed-label" for="b7cb4d33-3ec6-4b67-8aa5-b0fb3fed0fb5">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>rf (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rr (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="cc78072b-ffac-405c-ba20-984ec5e1c11e" name="f49da6fb-dada-491a-9aed-cbd4bd9825bd" type="radio">
+</input><label class="tabbed-label" for="cc78072b-ffac-405c-ba20-984ec5e1c11e">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rf0</strong> = rate-&gt;r</p>
+</dd>
+<dd><p><strong>rf</strong> = rf0 (exposed as <strong>rf</strong>)</p>
+</dd>
+<dd><p><strong>rr</strong> = 0/SEC (exposed as <strong>rr</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="reversetransition">
+<span id="schema-reversetransition"></span><h2>reverseTransition<a class="headerlink" href="#reversetransition" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a></p>
+<p><i>A reverse only  <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a> for a  <a class="reference internal" href="#schema-gateks"><span class="std std-ref">gateKS</span></a> which specifies a <strong>rate</strong> (type  <a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>) which follows one of the standard Hodgkin Huxley forms (e.g.  <a class="reference internal" href="#schema-hhexprate"><span class="std std-ref">HHExpRate</span></a>,  <a class="reference internal" href="#schema-hhsigmoidrate"><span class="std std-ref">HHSigmoidRate</span></a>,  <a class="reference internal" href="#schema-hhexplinearrate"><span class="std std-ref">HHExpLinearRate</span></a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="553c46cf-5d8d-4b8c-a33f-fcd013733949" name="2d277ff9-055b-4a6a-8844-aec1abc3497b" type="radio">
+</input><label class="tabbed-label" for="553c46cf-5d8d-4b8c-a33f-fcd013733949">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rate</p></td>
+<td><p><a class="reference internal" href="#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3c3c17f3-edaf-4c65-a56a-4de2f854871a" name="2d277ff9-055b-4a6a-8844-aec1abc3497b" type="radio">
+</input><label class="tabbed-label" for="3c3c17f3-edaf-4c65-a56a-4de2f854871a">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SEC = 1s</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="cc9248b2-35d4-40a5-a3bc-8dbac16caa5d" name="2d277ff9-055b-4a6a-8844-aec1abc3497b" type="radio">
+</input><label class="tabbed-label" for="cc9248b2-35d4-40a5-a3bc-8dbac16caa5d">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>rf (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rr (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="05b71e34-9bf6-4258-8dc8-246a58aade3e" name="2d277ff9-055b-4a6a-8844-aec1abc3497b" type="radio">
+</input><label class="tabbed-label" for="05b71e34-9bf6-4258-8dc8-246a58aade3e">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rr0</strong> = rate-&gt;r</p>
+</dd>
+<dd><p><strong>rr</strong> = rr0 (exposed as <strong>rr</strong>)</p>
+</dd>
+<dd><p><strong>rf</strong> = 0/SEC (exposed as <strong>rf</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="vhalftransition">
+<span id="schema-vhalftransition"></span><h2>vHalfTransition<a class="headerlink" href="#vhalftransition" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a></p>
+<p><i>Transition which specifies both the forward and reverse rates of transition.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c0ee236c-11ab-4ddf-8f9a-a97736ad99e3" name="16231d61-b468-4d20-b5f1-37c0403732d7" type="radio">
+</input><label class="tabbed-label" for="c0ee236c-11ab-4ddf-8f9a-a97736ad99e3">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>gamma</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>tauMin</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>vHalf</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="258adb5c-07fd-4458-8d2a-d6a51fbf88d9" name="16231d61-b468-4d20-b5f1-37c0403732d7" type="radio">
+</input><label class="tabbed-label" for="258adb5c-07fd-4458-8d2a-d6a51fbf88d9">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>kte = 25.3mV</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c2d36035-94fc-422a-8bab-533dfaf7ee0b" name="16231d61-b468-4d20-b5f1-37c0403732d7" type="radio">
+</input><label class="tabbed-label" for="c2d36035-94fc-422a-8bab-533dfaf7ee0b">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>rf (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rr (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e7cf91a2-5ecd-4a78-bc6e-e7c88450a9a2" name="16231d61-b468-4d20-b5f1-37c0403732d7" type="radio">
+</input><label class="tabbed-label" for="e7cf91a2-5ecd-4a78-bc6e-e7c88450a9a2">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2d110331-890d-415a-80e9-87fbb04bba02" name="16231d61-b468-4d20-b5f1-37c0403732d7" type="radio">
+</input><label class="tabbed-label" for="2d110331-890d-415a-80e9-87fbb04bba02">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rf0</strong> = exp(z * gamma * (v - vHalf) / kte) / tau</p>
+</dd>
+<dd><p><strong>rr0</strong> = exp(-z * (1 - gamma) * (v - vHalf) / kte) / tau</p>
+</dd>
+<dd><p><strong>rf</strong> = 1 / (1/rf0 + tauMin) (exposed as <strong>rf</strong>)</p>
+</dd>
+<dd><p><strong>rr</strong> = 1 / (1/rr0 + tauMin) (exposed as <strong>rr</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="tauinftransition">
+<span id="schema-tauinftransition"></span><h2>tauInfTransition<a class="headerlink" href="#tauinftransition" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a></p>
+<p><i>KS Transition specified in terms of time constant  <span class="xref std std-ref">schema:tau</span> and steady state  <span class="xref std std-ref">schema:inf</span>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="2c94277d-0671-44bf-8035-079f4a2e24df" name="830495cf-de52-41dd-886a-39c835e62e63" type="radio">
+</input><label class="tabbed-label" for="2c94277d-0671-44bf-8035-079f4a2e24df">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>timeCourse</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>steadyState</p></td>
+<td><p><a class="reference internal" href="#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="8e07f5eb-e073-4533-b1be-4e35da5ea05e" name="830495cf-de52-41dd-886a-39c835e62e63" type="radio">
+</input><label class="tabbed-label" for="8e07f5eb-e073-4533-b1be-4e35da5ea05e">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>rf (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>rr (from <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6fae38b9-2ba1-4823-8358-0364813333b6" name="830495cf-de52-41dd-886a-39c835e62e63" type="radio">
+</input><label class="tabbed-label" for="6fae38b9-2ba1-4823-8358-0364813333b6">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>tau</strong> = timeCourse-&gt;t</p>
+</dd>
+<dd><p><strong>inf</strong> = steadyState-&gt;x</p>
+</dd>
+<dd><p><strong>rf</strong> = inf/tau (exposed as <strong>rf</strong>)</p>
+</dd>
+<dd><p><strong>rr</strong> = (1-inf)/tau (exposed as <strong>rr</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="gateks">
+<span id="schema-gateks"></span><h2>gateKS<a class="headerlink" href="#gateks" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a></em></p>
+<p><i>A gate which consists of multiple  <a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a>s and  <a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a>s giving the rates of transition between them.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0b39503e-f71c-4a04-a37c-ded271b41e4c" name="8a7a4408-d6ee-4a63-82d3-45f6b3972206" type="radio">
+</input><label class="tabbed-label" for="0b39503e-f71c-4a04-a37c-ded271b41e4c">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>instances (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ec925142-57a4-4ea5-b9fc-56bc41b51078" name="8a7a4408-d6ee-4a63-82d3-45f6b3972206" type="radio">
+</input><label class="tabbed-label" for="ec925142-57a4-4ea5-b9fc-56bc41b51078">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>states</p></td>
+<td><p><a class="reference internal" href="#schema-ksstate"><span class="std std-ref">KSState</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>transitions</p></td>
+<td><p><a class="reference internal" href="#schema-kstransition"><span class="std std-ref">KSTransition</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>q10Settings</p></td>
+<td><p><a class="reference internal" href="#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a5de3e67-517d-4fa2-9ba8-59529b9604d6" name="8a7a4408-d6ee-4a63-82d3-45f6b3972206" type="radio">
+</input><label class="tabbed-label" for="a5de3e67-517d-4fa2-9ba8-59529b9604d6">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>fcond (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>q (from <a class="reference internal" href="#schema-basegate"><span class="std std-ref">baseGate</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>rateScale</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c33e5e4d-cfba-45cd-b7bd-c2d7a86ca0d5" name="8a7a4408-d6ee-4a63-82d3-45f6b3972206" type="radio">
+</input><label class="tabbed-label" for="c33e5e4d-cfba-45cd-b7bd-c2d7a86ca0d5">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>rateScale</strong> = q10Settings[*]-&gt;q10(reduce method: multiply) (exposed as <strong>rateScale</strong>)</p>
+</dd>
+<dd><p><strong>q</strong> = states[*]-&gt;q(reduce method: add) (exposed as <strong>q</strong>)</p>
+</dd>
+<dd><p><strong>fcond</strong> = q^instances (exposed as <strong>fcond</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs/Schemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Cells.html" title="previous page">Cells</a>
+    <a class='right-next' id="next-link" href="Synapses.html" title="next page">Synapses</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

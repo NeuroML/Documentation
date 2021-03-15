@@ -1,0 +1,2644 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PyNN &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NeuroML v1" href="../NeuroMLv1.html" />
+    <link rel="prev" title="Networks" href="Networks.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../IzhikevichNetworkExample.html">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Specification.html">
+   Specification
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreDimensions.html">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreCompTypes.html">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Channels.html">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Inputs.html">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Software/Software.html">
+   Software and Tools
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyNeuroML.html">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Userdocs/Schemas/PyNN.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Schemas/PyNN.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/Schemas/PyNN.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basepynncell">
+   <em>
+    basePyNNCell
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basepynniafcell">
+   <em>
+    basePyNNIaFCell
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basepynniafcondcell">
+   <em>
+    basePyNNIaFCondCell
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-curr-alpha">
+   IF_curr_alpha
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-curr-exp">
+   IF_curr_exp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-cond-alpha">
+   IF_cond_alpha
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-cond-exp">
+   IF_cond_exp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eif-cond-exp-isfa-ista">
+   EIF_cond_exp_isfa_ista
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eif-cond-alpha-isfa-ista">
+   EIF_cond_alpha_isfa_ista
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hh-cond-exp">
+   HH_cond_exp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basepynnsynapse">
+   <em>
+    basePynnSynapse
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expcondsynapse">
+   expCondSynapse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expcurrsynapse">
+   expCurrSynapse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alphacondsynapse">
+   alphaCondSynapse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alphacurrsynapse">
+   alphaCurrSynapse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikesourcepoisson">
+   SpikeSourcePoisson
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pynn">
+<span id="schema-pynn"></span><h1>PyNN<a class="headerlink" href="#pynn" title="Permalink to this headline">¶</a></h1>
+<p>Original ComponentType definitions: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//PyNN.xml">PyNN.xml</a>.</p>
+<p>Schema against which NeuroML based on these should be valid: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd">NeuroML_v2.1.xsd</a>.</p>
+<p>Generated on 02/03/21 from <a class="reference external" href="https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500">this</a> commit.</p>
+<p>Please file any issues or questions at the <a class="reference external" href="https://github.com/NeuroML/NeuroML2/issues">issue tracker here</a>.</p>
+<div class="section" id="basepynncell">
+<span id="schema-basepynncell"></span><h2><em>basePyNNCell</em><a class="headerlink" href="#basepynncell" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a></em></p>
+<p><i>Base type of any PyNN standard cell model. Note: membrane potential <strong>v</strong> has dimensions voltage, but all other parameters are dimensionless. This is to facilitate translation to and from PyNN scripts in Python, where these parameters have implicit units, see <a class="reference external" href="http://neuralensemble.org/trac/PyNN/wiki/StandardModels">http://neuralensemble.org/trac/PyNN/wiki/StandardModels</a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ccfbbe20-6376-4ba8-b7d9-9588a4b800cc" name="10d1719a-f5e6-4ded-a81a-3c33799adba2" type="radio">
+</input><label class="tabbed-label" for="ccfbbe20-6376-4ba8-b7d9-9588a4b800cc">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>cm</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>i_offset</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau_syn_E</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau_syn_I</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_init</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0c93fdaa-b4ec-435d-8a31-a02da851cba4" name="10d1719a-f5e6-4ded-a81a-3c33799adba2" type="radio">
+</input><label class="tabbed-label" for="0c93fdaa-b4ec-435d-8a31-a02da851cba4">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MSEC = 1ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>MVOLT = 1mV</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>NFARAD = 1nF</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-capacitance"><span class="std std-ref">capacitance</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c0a6c612-dd97-4b5e-b8cd-652cd49cf92d" name="10d1719a-f5e6-4ded-a81a-3c33799adba2" type="radio">
+</input><label class="tabbed-label" for="c0a6c612-dd97-4b5e-b8cd-652cd49cf92d">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>iSyn</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e39d3a9c-434f-4cfb-8ff7-e0f37a043f42" name="10d1719a-f5e6-4ded-a81a-3c33799adba2" type="radio">
+</input><label class="tabbed-label" for="e39d3a9c-434f-4cfb-8ff7-e0f37a043f42">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p>spike_in_E</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p>spike_in_I</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basepynniafcell">
+<span id="schema-basepynniafcell"></span><h2><em>basePyNNIaFCell</em><a class="headerlink" href="#basepynniafcell" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a></em></p>
+<p><i>Base type of any PyNN standard integrate and fire model.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="adcbc567-b234-4715-9839-a690b484d39b" name="83efd2cf-cccf-4471-862c-69748f2df3f0" type="radio">
+</input><label class="tabbed-label" for="adcbc567-b234-4715-9839-a690b484d39b">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>tau_m</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau_refrac</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>v_reset</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_rest</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>v_thresh</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="dc60828a-8031-4cdf-8b6e-8c701b7cb8bf" name="83efd2cf-cccf-4471-862c-69748f2df3f0" type="radio">
+</input><label class="tabbed-label" for="dc60828a-8031-4cdf-8b6e-8c701b7cb8bf">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ba5a873f-d369-4b41-9f8a-3ad2bc9b2b24" name="83efd2cf-cccf-4471-862c-69748f2df3f0" type="radio">
+</input><label class="tabbed-label" for="ba5a873f-d369-4b41-9f8a-3ad2bc9b2b24">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basepynniafcondcell">
+<span id="schema-basepynniafcondcell"></span><h2><em>basePyNNIaFCondCell</em><a class="headerlink" href="#basepynniafcondcell" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a></em></p>
+<p><i>Base type of conductance based PyNN IaF cell models.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="b7e104fa-d1b7-4ac8-b559-69883649f413" name="28e983bf-a53d-4dbe-90c2-1ca40282b1a2" type="radio">
+</input><label class="tabbed-label" for="b7e104fa-d1b7-4ac8-b559-69883649f413">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>e_rev_E</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>e_rev_I</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="79fd87ee-8cc0-4dec-834e-86da39e9f39e" name="28e983bf-a53d-4dbe-90c2-1ca40282b1a2" type="radio">
+</input><label class="tabbed-label" for="79fd87ee-8cc0-4dec-834e-86da39e9f39e">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f476ce2c-e60f-4033-ab95-246e138c6ad8" name="28e983bf-a53d-4dbe-90c2-1ca40282b1a2" type="radio">
+</input><label class="tabbed-label" for="f476ce2c-e60f-4033-ab95-246e138c6ad8">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="if-curr-alpha">
+<span id="schema-if-curr-alpha"></span><h2>IF_curr_alpha<a class="headerlink" href="#if-curr-alpha" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a></em></p>
+<p><i>Leaky integrate and fire model with fixed threshold and alpha-function-shaped post-synaptic current.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="39589cb3-766a-454c-abe0-0bff197eb7a2" name="741d8819-0ecc-4fac-b0bb-6ba1593abe50" type="radio">
+</input><label class="tabbed-label" for="39589cb3-766a-454c-abe0-0bff197eb7a2">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="63fa910d-3fa0-446e-928d-fc6c33cccece" name="741d8819-0ecc-4fac-b0bb-6ba1593abe50" type="radio">
+</input><label class="tabbed-label" for="63fa910d-3fa0-446e-928d-fc6c33cccece">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6b307faf-5a63-4aaf-a684-80c33f37d098" name="741d8819-0ecc-4fac-b0bb-6ba1593abe50" type="radio">
+</input><label class="tabbed-label" for="6b307faf-5a63-4aaf-a684-80c33f37d098">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c5a261f0-cb17-402f-acb1-96900b9065aa" name="741d8819-0ecc-4fac-b0bb-6ba1593abe50" type="radio">
+</input><label class="tabbed-label" for="c5a261f0-cb17-402f-acb1-96900b9065aa">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="06c0e6fe-3c43-4080-b7e6-49f94d754e18" name="741d8819-0ecc-4fac-b0bb-6ba1593abe50" type="radio">
+</input><label class="tabbed-label" for="06c0e6fe-3c43-4080-b7e6-49f94d754e18">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>lastSpikeTime</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dt><i><strong>Regime: refractory (initial)</strong></i></dt><dd><p><i><strong>On Entry</strong></i></p>
+</dd>
+<dd><p>  <strong>lastSpikeTime</strong> = t</p>
+</dd>
+<dd><p>  <strong>v</strong> = v_reset * MVOLT</p>
+</dd>
+<dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN</p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>integrating</strong></p>
+</dd>
+<dt><i><strong>Regime: integrating (initial)</strong></i></dt><dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF v &gt; v_thresh * MVOLT THEN</p>
+</dd>
+<dd><p>  EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>refractory</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>v</strong> /dt = (MVOLT * ((i_offset/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="if-curr-exp">
+<span id="schema-if-curr-exp"></span><h2>IF_curr_exp<a class="headerlink" href="#if-curr-exp" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a></em></p>
+<p><i>Leaky integrate and fire model with fixed threshold and decaying-exponential post-synaptic current.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="9cad8408-f6c4-4a07-bd15-98359071865c" name="e88edde0-c5d5-4d79-af12-0e2ab42e6e91" type="radio">
+</input><label class="tabbed-label" for="9cad8408-f6c4-4a07-bd15-98359071865c">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="4290c51e-cde5-47c0-abbe-579cb83cf832" name="e88edde0-c5d5-4d79-af12-0e2ab42e6e91" type="radio">
+</input><label class="tabbed-label" for="4290c51e-cde5-47c0-abbe-579cb83cf832">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="4760ffd3-1c5b-4f2c-ba73-2c5f9e1ebf37" name="e88edde0-c5d5-4d79-af12-0e2ab42e6e91" type="radio">
+</input><label class="tabbed-label" for="4760ffd3-1c5b-4f2c-ba73-2c5f9e1ebf37">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="492e16bf-8395-43fb-825f-77b7708f7e82" name="e88edde0-c5d5-4d79-af12-0e2ab42e6e91" type="radio">
+</input><label class="tabbed-label" for="492e16bf-8395-43fb-825f-77b7708f7e82">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a6445de2-7593-4bd3-9fde-d739e48f104d" name="e88edde0-c5d5-4d79-af12-0e2ab42e6e91" type="radio">
+</input><label class="tabbed-label" for="a6445de2-7593-4bd3-9fde-d739e48f104d">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>lastSpikeTime</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dt><i><strong>Regime: refractory (initial)</strong></i></dt><dd><p><i><strong>On Entry</strong></i></p>
+</dd>
+<dd><p>  <strong>lastSpikeTime</strong> = t</p>
+</dd>
+<dd><p>  <strong>v</strong> = v_reset * MVOLT</p>
+</dd>
+<dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN</p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>integrating</strong></p>
+</dd>
+<dt><i><strong>Regime: integrating (initial)</strong></i></dt><dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF v &gt; v_thresh * MVOLT THEN</p>
+</dd>
+<dd><p>  EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>refractory</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>v</strong> /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="if-cond-alpha">
+<span id="schema-if-cond-alpha"></span><h2>IF_cond_alpha<a class="headerlink" href="#if-cond-alpha" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a></em></p>
+<p><i>Leaky integrate and fire model with fixed threshold and alpha-function-shaped post-synaptic conductance.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="bb56f712-919f-46c0-b0c1-920af620554c" name="1f6b2ae8-9abc-4dee-a7d6-fecf51d08b63" type="radio">
+</input><label class="tabbed-label" for="bb56f712-919f-46c0-b0c1-920af620554c">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>e_rev_E (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>e_rev_I (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="be203292-765e-4832-bdf8-bc28069bf1b3" name="1f6b2ae8-9abc-4dee-a7d6-fecf51d08b63" type="radio">
+</input><label class="tabbed-label" for="be203292-765e-4832-bdf8-bc28069bf1b3">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="28c20689-cdc1-4d74-8dd9-c65ad0163c74" name="1f6b2ae8-9abc-4dee-a7d6-fecf51d08b63" type="radio">
+</input><label class="tabbed-label" for="28c20689-cdc1-4d74-8dd9-c65ad0163c74">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7d2e8256-69f0-48f7-934a-5b095daf2498" name="1f6b2ae8-9abc-4dee-a7d6-fecf51d08b63" type="radio">
+</input><label class="tabbed-label" for="7d2e8256-69f0-48f7-934a-5b095daf2498">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d81da8aa-8785-45a6-ba4d-06d367538b75" name="1f6b2ae8-9abc-4dee-a7d6-fecf51d08b63" type="radio">
+</input><label class="tabbed-label" for="d81da8aa-8785-45a6-ba4d-06d367538b75">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>lastSpikeTime</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dt><i><strong>Regime: refractory (initial)</strong></i></dt><dd><p><i><strong>On Entry</strong></i></p>
+</dd>
+<dd><p>  <strong>lastSpikeTime</strong> = t</p>
+</dd>
+<dd><p>  <strong>v</strong> = v_reset * MVOLT</p>
+</dd>
+<dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN</p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>integrating</strong></p>
+</dd>
+<dt><i><strong>Regime: integrating (initial)</strong></i></dt><dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF v &gt; v_thresh * MVOLT THEN</p>
+</dd>
+<dd><p>  EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>refractory</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>v</strong> /dt = (MVOLT * (((i_offset) / cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="if-cond-exp">
+<span id="schema-if-cond-exp"></span><h2>IF_cond_exp<a class="headerlink" href="#if-cond-exp" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a></em></p>
+<p><i>Leaky integrate and fire model with fixed threshold and exponentially-decaying post-synaptic conductance.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="36fde9ba-483e-4d43-bc09-b6a63db1a429" name="20d4ce67-e048-4f1e-9e0a-ced92bd08252" type="radio">
+</input><label class="tabbed-label" for="36fde9ba-483e-4d43-bc09-b6a63db1a429">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>e_rev_E (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>e_rev_I (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c31b45f0-30c4-4cfe-9097-c9ecf0af2421" name="20d4ce67-e048-4f1e-9e0a-ced92bd08252" type="radio">
+</input><label class="tabbed-label" for="c31b45f0-30c4-4cfe-9097-c9ecf0af2421">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f22c8915-2c26-499d-8136-2a14770143b0" name="20d4ce67-e048-4f1e-9e0a-ced92bd08252" type="radio">
+</input><label class="tabbed-label" for="f22c8915-2c26-499d-8136-2a14770143b0">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b1349a6e-1f31-4bfa-95b1-b213078c4100" name="20d4ce67-e048-4f1e-9e0a-ced92bd08252" type="radio">
+</input><label class="tabbed-label" for="b1349a6e-1f31-4bfa-95b1-b213078c4100">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="8c4bba02-bf7d-434e-a577-e6cfdae4c0ab" name="20d4ce67-e048-4f1e-9e0a-ced92bd08252" type="radio">
+</input><label class="tabbed-label" for="8c4bba02-bf7d-434e-a577-e6cfdae4c0ab">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>lastSpikeTime</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dt><i><strong>Regime: refractory (initial)</strong></i></dt><dd><p><i><strong>On Entry</strong></i></p>
+</dd>
+<dd><p>  <strong>lastSpikeTime</strong> = t</p>
+</dd>
+<dd><p>  <strong>v</strong> = v_reset * MVOLT</p>
+</dd>
+<dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN</p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>integrating</strong></p>
+</dd>
+<dt><i><strong>Regime: integrating (initial)</strong></i></dt><dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF v &gt; v_thresh * MVOLT THEN</p>
+</dd>
+<dd><p>  EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>refractory</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>v</strong> /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="eif-cond-exp-isfa-ista">
+<span id="schema-eif-cond-exp-isfa-ista"></span><h2>EIF_cond_exp_isfa_ista<a class="headerlink" href="#eif-cond-exp-isfa-ista" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a></em></p>
+<p><i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W (2005) with exponentially-decaying post-synaptic conductance.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="f6495750-f571-4b59-882d-22fcd0615f06" name="8d47e903-7a29-4adb-aa39-0fc6e09f3853" type="radio">
+</input><label class="tabbed-label" for="f6495750-f571-4b59-882d-22fcd0615f06">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>a</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>delta_T</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>e_rev_E (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>e_rev_I (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau_w</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>v_spike</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6063386e-ceb8-41b1-aee1-d0167305f281" name="8d47e903-7a29-4adb-aa39-0fc6e09f3853" type="radio">
+</input><label class="tabbed-label" for="6063386e-ceb8-41b1-aee1-d0167305f281">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>eif_threshold</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ddf3774e-8b74-44d8-9343-7310b15d048b" name="8d47e903-7a29-4adb-aa39-0fc6e09f3853" type="radio">
+</input><label class="tabbed-label" for="ddf3774e-8b74-44d8-9343-7310b15d048b">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="63541cd5-0a58-4f81-bec9-8833570a145e" name="8d47e903-7a29-4adb-aa39-0fc6e09f3853" type="radio">
+</input><label class="tabbed-label" for="63541cd5-0a58-4f81-bec9-8833570a145e">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="60d34c25-81f2-4a22-be74-c77bd1d7550d" name="8d47e903-7a29-4adb-aa39-0fc6e09f3853" type="radio">
+</input><label class="tabbed-label" for="60d34c25-81f2-4a22-be74-c77bd1d7550d">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="46f5e832-b598-496e-b895-a7e302e76ac6" name="8d47e903-7a29-4adb-aa39-0fc6e09f3853" type="radio">
+</input><label class="tabbed-label" for="46f5e832-b598-496e-b895-a7e302e76ac6">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>w</strong>: Dimensionless  (exposed as <strong>w</strong>)</p>
+</dd>
+<dd><p><strong>lastSpikeTime</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dd><p><strong>w</strong> = 0</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dt><i><strong>Conditional Derived Variables</strong></i></dt><dd><p>IF delta_T &gt; 0 THEN</p>
+</dd>
+<dd><p>  <strong>delta_I</strong> = delta_T * exp(((v / MVOLT) - v_thresh) / delta_T)</p>
+</dd>
+<dd><p>IF delta_T = 0 THEN</p>
+</dd>
+<dd><p>  <strong>delta_I</strong> = 0</p>
+</dd>
+<dt><i><strong>Regime: refractory (initial)</strong></i></dt><dd><p><i><strong>On Entry</strong></i></p>
+</dd>
+<dd><p>  <strong>lastSpikeTime</strong> = t</p>
+</dd>
+<dd><p>  <strong>v</strong> = v_reset * MVOLT</p>
+</dd>
+<dd><p>  <strong>w</strong> = w+b</p>
+</dd>
+<dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN</p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>integrating</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>w</strong> /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC</p>
+</dd>
+<dt><i><strong>Regime: integrating (initial)</strong></i></dt><dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF v &gt; eif_threshold * MVOLT THEN</p>
+</dd>
+<dd><p>  EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>refractory</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>v</strong> /dt = (MVOLT * ((-1 * ((v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+<dd><p>  d <strong>w</strong> /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="eif-cond-alpha-isfa-ista">
+<span id="schema-eif-cond-alpha-isfa-ista"></span><h2>EIF_cond_alpha_isfa_ista<a class="headerlink" href="#eif-cond-alpha-isfa-ista" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a></em></p>
+<p><i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W (2005) with alpha-function-shaped post-synaptic conductance.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="6f4ac734-aad2-4390-ba81-82b5492d7010" name="29e1e7a5-0c95-465c-95da-2d6741dffc96" type="radio">
+</input><label class="tabbed-label" for="6f4ac734-aad2-4390-ba81-82b5492d7010">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>a</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>delta_T</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>e_rev_E (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>e_rev_I (from <a class="reference internal" href="#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_m (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_refrac (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>tau_w</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>v_reset (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_rest (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>v_spike</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_thresh (from <a class="reference internal" href="#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="8be8903e-0b94-4bb3-89cf-abba82ea04cd" name="29e1e7a5-0c95-465c-95da-2d6741dffc96" type="radio">
+</input><label class="tabbed-label" for="8be8903e-0b94-4bb3-89cf-abba82ea04cd">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>eif_threshold</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d6abc3ca-b84e-4c32-9044-7244e466e545" name="29e1e7a5-0c95-465c-95da-2d6741dffc96" type="radio">
+</input><label class="tabbed-label" for="d6abc3ca-b84e-4c32-9044-7244e466e545">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="61dfe0d5-9b9f-4787-aa97-06d82702fa3b" name="29e1e7a5-0c95-465c-95da-2d6741dffc96" type="radio">
+</input><label class="tabbed-label" for="61dfe0d5-9b9f-4787-aa97-06d82702fa3b">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0b1306e7-9593-4bf1-94ce-6bc6bf2d94a2" name="29e1e7a5-0c95-465c-95da-2d6741dffc96" type="radio">
+</input><label class="tabbed-label" for="0b1306e7-9593-4bf1-94ce-6bc6bf2d94a2">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="63a2b6cd-7162-40ab-8f85-d8134d5c4b9d" name="29e1e7a5-0c95-465c-95da-2d6741dffc96" type="radio">
+</input><label class="tabbed-label" for="63a2b6cd-7162-40ab-8f85-d8134d5c4b9d">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>w</strong>: Dimensionless  (exposed as <strong>w</strong>)</p>
+</dd>
+<dd><p><strong>lastSpikeTime</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dd><p><strong>w</strong> = 0</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dt><i><strong>Conditional Derived Variables</strong></i></dt><dd><p>IF delta_T &gt; 0 THEN</p>
+</dd>
+<dd><p>  <strong>delta_I</strong> = delta_T * exp(((v / MVOLT) - v_thresh) / delta_T)</p>
+</dd>
+<dd><p>IF delta_T = 0 THEN</p>
+</dd>
+<dd><p>  <strong>delta_I</strong> = 0</p>
+</dd>
+<dt><i><strong>Regime: refractory (initial)</strong></i></dt><dd><p><i><strong>On Entry</strong></i></p>
+</dd>
+<dd><p>  <strong>lastSpikeTime</strong> = t</p>
+</dd>
+<dd><p>  <strong>v</strong> = v_reset * MVOLT</p>
+</dd>
+<dd><p>  <strong>w</strong> = w + b</p>
+</dd>
+<dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF t &gt; lastSpikeTime + (tau_refrac * MSEC) THEN</p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>integrating</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>w</strong> /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC</p>
+</dd>
+<dt><i><strong>Regime: integrating (initial)</strong></i></dt><dd><p><i><strong>On Conditions</strong></i></p>
+</dd>
+<dd><p>  IF v &gt; eif_threshold * MVOLT THEN</p>
+</dd>
+<dd><p>  EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dd><p>  TRANSITION to REGIME <strong>refractory</strong></p>
+</dd>
+<dd><p><i><strong>Time derivatives</strong></i></p>
+</dd>
+<dd><p>  d <strong>v</strong> /dt = (MVOLT * ((-1 * ( (v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+<dd><p>  d <strong>w</strong> /dt = (1/ tau_w) * (a*((v/MVOLT)-v_rest) - w) /MSEC</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="hh-cond-exp">
+<span id="schema-hh-cond-exp"></span><h2>HH_cond_exp<a class="headerlink" href="#hh-cond-exp" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a></em></p>
+<p><i>Single-compartment Hodgkin-Huxley-type neuron with transient sodium and delayed-rectifier potassium currents using the ion channel models from Traub.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="afb8d977-400e-4879-8054-964fd380b373" name="12240acb-7e5d-47f6-8722-431d2178c7eb" type="radio">
+</input><label class="tabbed-label" for="afb8d977-400e-4879-8054-964fd380b373">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>cm (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>e_rev_E</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>e_rev_I</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>e_rev_K</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>e_rev_Na</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>e_rev_leak</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>g_leak</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>gbar_K</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>gbar_Na</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i_offset (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tau_syn_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v_init (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>v_offset</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="45ea93e2-1636-4bf3-a538-e9d8ca6dc0de" name="12240acb-7e5d-47f6-8722-431d2178c7eb" type="radio">
+</input><label class="tabbed-label" for="45ea93e2-1636-4bf3-a538-e9d8ca6dc0de">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>iSyn (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="fe02e308-9412-4582-96a7-a8bcdb2bf281" name="12240acb-7e5d-47f6-8722-431d2178c7eb" type="radio">
+</input><label class="tabbed-label" for="fe02e308-9412-4582-96a7-a8bcdb2bf281">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike_in_E (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike_in_I (from <a class="reference internal" href="#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2afbabec-a40a-4c20-991a-e4ca09e8b81a" name="12240acb-7e5d-47f6-8722-431d2178c7eb" type="radio">
+</input><label class="tabbed-label" for="2afbabec-a40a-4c20-991a-e4ca09e8b81a">
+Attachments</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapses</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="bf7fdaa7-384a-42d0-b5dd-fcc7710ad75d" name="12240acb-7e5d-47f6-8722-431d2178c7eb" type="radio">
+</input><label class="tabbed-label" for="bf7fdaa7-384a-42d0-b5dd-fcc7710ad75d">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>v</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>  (exposed as <strong>v</strong>)</p>
+</dd>
+<dd><p><strong>m</strong>: Dimensionless  (exposed as <strong>m</strong>)</p>
+</dd>
+<dd><p><strong>h</strong>: Dimensionless  (exposed as <strong>h</strong>)</p>
+</dd>
+<dd><p><strong>n</strong>: Dimensionless  (exposed as <strong>n</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>v</strong> = v_init * MVOLT</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapses[*]-&gt;i(reduce method: add) (exposed as <strong>iSyn</strong>)</p>
+</dd>
+<dd><p><strong>iLeak</strong> = g_leak * (e_rev_leak - (v / MVOLT))</p>
+</dd>
+<dd><p><strong>iNa</strong> = gbar_Na * (m * m * m) * h * (e_rev_Na - (v / MVOLT))</p>
+</dd>
+<dd><p><strong>iK</strong> = gbar_K * (n * n * n * n) * (e_rev_K - (v / MVOLT))</p>
+</dd>
+<dd><p><strong>iMemb</strong> = iLeak + iNa + iK + i_offset</p>
+</dd>
+<dd><p><strong>alpham</strong> = 0.32 * (13 - (v / MVOLT) + v_offset) / (exp((13 - (v / MVOLT) + v_offset) / 4.0) - 1)</p>
+</dd>
+<dd><p><strong>betam</strong> = 0.28 * ((v / MVOLT) - v_offset - 40) / (exp(((v / MVOLT) - v_offset - 40) / 5.0) - 1)</p>
+</dd>
+<dd><p><strong>alphah</strong> = 0.128 * exp((17 - (v / MVOLT) + v_offset) / 18.0)</p>
+</dd>
+<dd><p><strong>betah</strong> = 4.0 / (1 + exp((40 - (v / MVOLT) + v_offset) / 5))</p>
+</dd>
+<dd><p><strong>alphan</strong> = 0.032 * (15 - (v / MVOLT) + v_offset) / (exp((15 - (v / MVOLT) + v_offset) / 5) - 1)</p>
+</dd>
+<dd><p><strong>betan</strong> = 0.5 * exp((10 - (v / MVOLT) + v_offset) / 40)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>v</strong> /dt = (MVOLT * (iMemb / cm) / MSEC) + (iSyn / (cm * NFARAD))</p>
+</dd>
+<dd><p>d <strong>m</strong> /dt = (alpham * (1 - m) - betam * m) / MSEC</p>
+</dd>
+<dd><p>d <strong>h</strong> /dt = (alphah * (1 - h) - betah * h) / MSEC</p>
+</dd>
+<dd><p>d <strong>n</strong> /dt = (alphan * (1 - n) - betan * n) / MSEC</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="basepynnsynapse">
+<span id="schema-basepynnsynapse"></span><h2><em>basePynnSynapse</em><a class="headerlink" href="#basepynnsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a></em></p>
+<p><i>Base type for all PyNN synapses. Note, the current <strong>I</strong> produced is dimensionless, but it requires a membrane potential <strong>v</strong> with dimension voltage.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="6a864bdc-718d-444d-9462-ad7f4cc52073" name="5ed94893-5bae-4905-b6da-fa048561006f" type="radio">
+</input><label class="tabbed-label" for="6a864bdc-718d-444d-9462-ad7f4cc52073">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>tau_syn</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="09b16c08-f49a-474a-aeea-53427905210a" name="5ed94893-5bae-4905-b6da-fa048561006f" type="radio">
+</input><label class="tabbed-label" for="09b16c08-f49a-474a-aeea-53427905210a">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MSEC = 1ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>MVOLT = 1mV</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>NAMP = 1nA</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="702f5948-afe3-4994-b810-9b08ecaae09e" name="5ed94893-5bae-4905-b6da-fa048561006f" type="radio">
+</input><label class="tabbed-label" for="702f5948-afe3-4994-b810-9b08ecaae09e">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="99ff5aa0-fa1d-4c15-84c7-1de847652202" name="5ed94893-5bae-4905-b6da-fa048561006f" type="radio">
+</input><label class="tabbed-label" for="99ff5aa0-fa1d-4c15-84c7-1de847652202">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b5a03b2f-2417-48a0-a87a-651315804558" name="5ed94893-5bae-4905-b6da-fa048561006f" type="radio">
+</input><label class="tabbed-label" for="b5a03b2f-2417-48a0-a87a-651315804558">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>in (from <a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="expcondsynapse">
+<span id="schema-expcondsynapse"></span><h2>expCondSynapse<a class="headerlink" href="#expcondsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a></em></p>
+<p><i>Conductance based synapse with instantaneous rise and single exponential decay (with time constant tau_syn).</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="85056807-76b1-494a-8d86-67806e06055a" name="65a152cd-3d3c-4b49-8c5b-1966b630e41a" type="radio">
+</input><label class="tabbed-label" for="85056807-76b1-494a-8d86-67806e06055a">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>e_rev</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn (from <a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="495399da-04c9-49ff-9848-ff2e508df043" name="65a152cd-3d3c-4b49-8c5b-1966b630e41a" type="radio">
+</input><label class="tabbed-label" for="495399da-04c9-49ff-9848-ff2e508df043">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>g</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>i (from <a class="reference internal" href="Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="176a93e3-2471-4142-9b0a-f0dbb3e06ab6" name="65a152cd-3d3c-4b49-8c5b-1966b630e41a" type="radio">
+</input><label class="tabbed-label" for="176a93e3-2471-4142-9b0a-f0dbb3e06ab6">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="9a39174d-8da8-4965-ac1e-c7670f139ecd" name="65a152cd-3d3c-4b49-8c5b-1966b630e41a" type="radio">
+</input><label class="tabbed-label" for="9a39174d-8da8-4965-ac1e-c7670f139ecd">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>in (from <a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="85604a6e-35c0-4217-b66b-5a55a39c1062" name="65a152cd-3d3c-4b49-8c5b-1966b630e41a" type="radio">
+</input><label class="tabbed-label" for="85604a6e-35c0-4217-b66b-5a55a39c1062">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>g</strong>: Dimensionless  (exposed as <strong>g</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dd><p> <strong>g</strong> = g+weight</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>i</strong> = g * (e_rev - (v/MVOLT)) * NAMP (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>g</strong> /dt = -g / (tau_syn*MSEC)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="expcurrsynapse">
+<span id="schema-expcurrsynapse"></span><h2>expCurrSynapse<a class="headerlink" href="#expcurrsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a></em></p>
+<p><i>Current based synapse with instantaneous rise and single exponential decay (with time constant tau_syn).</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="5dc06330-24d0-47b5-8a8d-f7cf65e3b697" name="c756d022-8dec-4b2f-bfff-bde32d03109b" type="radio">
+</input><label class="tabbed-label" for="5dc06330-24d0-47b5-8a8d-f7cf65e3b697">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>tau_syn (from <a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b2e8d22e-4843-40bc-9711-b5524cfa6c7d" name="c756d022-8dec-4b2f-bfff-bde32d03109b" type="radio">
+</input><label class="tabbed-label" for="b2e8d22e-4843-40bc-9711-b5524cfa6c7d">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2e7746fc-ab8c-450c-85b7-ade649d6609e" name="c756d022-8dec-4b2f-bfff-bde32d03109b" type="radio">
+</input><label class="tabbed-label" for="2e7746fc-ab8c-450c-85b7-ade649d6609e">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="12564fe3-6b5f-4c61-9975-e594d5395ead" name="c756d022-8dec-4b2f-bfff-bde32d03109b" type="radio">
+</input><label class="tabbed-label" for="12564fe3-6b5f-4c61-9975-e594d5395ead">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>in (from <a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0e152e2e-54b7-42df-83bc-2cfd8fca8cd9" name="c756d022-8dec-4b2f-bfff-bde32d03109b" type="radio">
+</input><label class="tabbed-label" for="0e152e2e-54b7-42df-83bc-2cfd8fca8cd9">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>I</strong>: Dimensionless</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dd><p> <strong>I</strong> = I + weight</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>i</strong> = I * NAMP (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>I</strong> /dt = -I / (tau_syn*MSEC)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="alphacondsynapse">
+<span id="schema-alphacondsynapse"></span><h2>alphaCondSynapse<a class="headerlink" href="#alphacondsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a></em></p>
+<p><i>Alpha synapse: rise time and decay time are both tau_syn. Conductance based synapse.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="2ab28c66-e6f7-4ac9-874e-890eaae232f1" name="1e1e44a5-6209-4b0b-9427-de94344fcde2" type="radio">
+</input><label class="tabbed-label" for="2ab28c66-e6f7-4ac9-874e-890eaae232f1">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>e_rev</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tau_syn (from <a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0f9d39e1-dcf1-46d5-9830-06d55fab03fe" name="1e1e44a5-6209-4b0b-9427-de94344fcde2" type="radio">
+</input><label class="tabbed-label" for="0f9d39e1-dcf1-46d5-9830-06d55fab03fe">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d41aba74-123a-4ad7-82fb-5b7f3f38acc9" name="1e1e44a5-6209-4b0b-9427-de94344fcde2" type="radio">
+</input><label class="tabbed-label" for="d41aba74-123a-4ad7-82fb-5b7f3f38acc9">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c9c21111-7401-48c2-b802-7daecaa7bd39" name="1e1e44a5-6209-4b0b-9427-de94344fcde2" type="radio">
+</input><label class="tabbed-label" for="c9c21111-7401-48c2-b802-7daecaa7bd39">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>in (from <a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b7143029-9f07-424a-a70c-757c9d19f0c1" name="1e1e44a5-6209-4b0b-9427-de94344fcde2" type="radio">
+</input><label class="tabbed-label" for="b7143029-9f07-424a-a70c-757c9d19f0c1">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>g</strong>: Dimensionless  (exposed as <strong>g</strong>)</p>
+</dd>
+<dd><p><strong>A</strong>: Dimensionless  (exposed as <strong>A</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dd><p> <strong>A</strong> = A + weight</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>i</strong> = g * (e_rev - (v/MVOLT)) * NAMP (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>g</strong> /dt = (2.7182818<em>A - g)/(tau_syn</em>MSEC)</p>
+</dd>
+<dd><p>d <strong>A</strong> /dt = -A /(tau_syn*MSEC)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="alphacurrsynapse">
+<span id="schema-alphacurrsynapse"></span><h2>alphaCurrSynapse<a class="headerlink" href="#alphacurrsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a></em></p>
+<p><i>Alpha synapse: rise time and decay time are both tau_syn. Current based synapse.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="9706f742-f1b9-4c5c-8dba-846335bc1db4" name="8867fb85-4450-410d-bdc4-a4b157c23cbc" type="radio">
+</input><label class="tabbed-label" for="9706f742-f1b9-4c5c-8dba-846335bc1db4">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>tau_syn (from <a class="reference internal" href="#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b03e54fd-c0a6-4615-ac24-e943b27d4ed6" name="8867fb85-4450-410d-bdc4-a4b157c23cbc" type="radio">
+</input><label class="tabbed-label" for="b03e54fd-c0a6-4615-ac24-e943b27d4ed6">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>i (from <a class="reference internal" href="Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="fea38768-d370-4d6a-8100-6bf5e8897413" name="8867fb85-4450-410d-bdc4-a4b157c23cbc" type="radio">
+</input><label class="tabbed-label" for="fea38768-d370-4d6a-8100-6bf5e8897413">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="230a74ad-ef76-4be2-b14d-8f4d7fc004b6" name="8867fb85-4450-410d-bdc4-a4b157c23cbc" type="radio">
+</input><label class="tabbed-label" for="230a74ad-ef76-4be2-b14d-8f4d7fc004b6">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>in (from <a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a>)</em></p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7dd7d6c1-41e9-4a4d-b5c9-e4c2bc845d1b" name="8867fb85-4450-410d-bdc4-a4b157c23cbc" type="radio">
+</input><label class="tabbed-label" for="7dd7d6c1-41e9-4a4d-b5c9-e4c2bc845d1b">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>I</strong>: Dimensionless</p>
+</dd>
+<dd><p><strong>A</strong>: Dimensionless  (exposed as <strong>A</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dd><p> <strong>A</strong> = A + weight</p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>i</strong> = I * NAMP (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>I</strong> /dt = (2.7182818<em>A - I)/(tau_syn</em>MSEC)</p>
+</dd>
+<dd><p>d <strong>A</strong> /dt = -A /(tau_syn*MSEC)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="spikesourcepoisson">
+<span id="schema-spikesourcepoisson"></span><h2>SpikeSourcePoisson<a class="headerlink" href="#spikesourcepoisson" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="Inputs.html#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a></em></p>
+<p><i>Spike source, generating spikes according to a Poisson process.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0d2ffd5c-4ae0-4c91-b166-9ca412f8bd3b" name="35fac1cf-28b8-416d-a304-22270380518c" type="radio">
+</input><label class="tabbed-label" for="0d2ffd5c-4ae0-4c91-b166-9ca412f8bd3b">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>rate</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>start</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b5fb0d8b-1e41-467f-8034-f92e6f988a09" name="35fac1cf-28b8-416d-a304-22270380518c" type="radio">
+</input><label class="tabbed-label" for="b5fb0d8b-1e41-467f-8034-f92e6f988a09">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>end</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6eb8175c-a86b-4290-9bf9-8d192aa9bb52" name="35fac1cf-28b8-416d-a304-22270380518c" type="radio">
+</input><label class="tabbed-label" for="6eb8175c-a86b-4290-9bf9-8d192aa9bb52">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>LONG_TIME = 1e9hour</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>SMALL_TIME = 1e-9ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6c3f241d-eab8-48e1-b13d-ba732a44710a" name="35fac1cf-28b8-416d-a304-22270380518c" type="radio">
+</input><label class="tabbed-label" for="6c3f241d-eab8-48e1-b13d-ba732a44710a">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>isi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>tnextIdeal</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>tnextUsed</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>tsince (from <a class="reference internal" href="Inputs.html#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6188d741-82ab-4002-a184-0a6e6c9e5582" name="35fac1cf-28b8-416d-a304-22270380518c" type="radio">
+</input><label class="tabbed-label" for="6188d741-82ab-4002-a184-0a6e6c9e5582">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike (from <a class="reference internal" href="Inputs.html#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="78716569-c78b-4c12-98a3-a91709abf78a" name="35fac1cf-28b8-416d-a304-22270380518c" type="radio">
+</input><label class="tabbed-label" for="78716569-c78b-4c12-98a3-a91709abf78a">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextIdeal</strong>)</p>
+</dd>
+<dd><p><strong>tnextUsed</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextUsed</strong>)</p>
+</dd>
+<dd><p><strong>isi</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>isi</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>isi</strong> = start - log(random(1))/rate</p>
+</dd>
+<dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong> = isi + H(((isi) - (start+duration))/duration)*LONG_TIME</p>
+</dd>
+<dd><p><strong>tnextUsed</strong> = tnextIdeal</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &gt; tnextUsed THEN</p>
+</dd>
+<dd><p> <strong>isi</strong> = -1 * log(random(1))/rate</p>
+</dd>
+<dd><p> <strong>tnextIdeal</strong> = (tnextIdeal+isi) + H(((tnextIdeal+isi) - (start+duration))/duration)*LONG_TIME</p>
+</dd>
+<dd><p> <strong>tnextUsed</strong> = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnextUsed</strong> /dt = 0</p>
+</dd>
+<dd><p>d <strong>tnextIdeal</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs/Schemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Networks.html" title="previous page">Networks</a>
+    <a class='right-next' id="next-link" href="../NeuroMLv1.html" title="next page">NeuroML v1</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

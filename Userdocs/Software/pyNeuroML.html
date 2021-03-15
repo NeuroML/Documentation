@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyNeuroML &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="libNeuroML" href="libNeuroML.html" />
+    <link rel="prev" title="Software and Tools" href="Software.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../IzhikevichNetworkExample.html">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Specification.html">
+   Specification
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/Channels.html">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/Inputs.html">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Schemas/PyNN.html">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="Software.html">
+   Software and Tools
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Userdocs/Software/pyNeuroML.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Software/pyNeuroML.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/Software/pyNeuroML.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-start">
+   Quick start
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-python-and-the-java-runtime-environment">
+     Install Python and the Java Runtime Environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pyneuroml-with-pip">
+     Install pyNeuroML with pip
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-on-fedora-linux">
+     Installation on Fedora Linux
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-documentation">
+     API documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help">
+   Getting help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development">
+   Development
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pyneuroml">
+<span id="id1"></span><h1>pyNeuroML<a class="headerlink" href="#pyneuroml" title="Permalink to this headline">¶</a></h1>
+<div class="dropdown admonition">
+<p class="admonition-title">Suggested NeuroML tool</p>
+<p>pyNeuroML is the suggested software tool for working with NeuroML.
+It builds on <a class="reference internal" href="jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a>, <a class="reference internal" href="libNeuroML.html#libneuroml"><span class="std std-ref">libNeuroML</span></a>, and <a class="reference internal" href="pyLEMS.html#pylems"><span class="std std-ref">pyLEMS</span></a>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Citation</p>
+<p>Please cite Vella et al. (<span id="id2">[<a class="reference internal" href="../../Reference/zBibliography.html#id11"><span>VCC+14</span></a>]</span>) if you use pyNeuroML.</p>
+</div>
+<p>pyNeuroML is a Python package that allows you to work with NeuroML models using the Python programming language.
+It includes all the API functions provided by <a class="reference internal" href="libNeuroML.html#libneuroml"><span class="std std-ref">libNeuroML</span></a> and <a class="reference internal" href="pyLEMS.html#pylems"><span class="std std-ref">pyLEMS</span></a>, and also wraps all the functions that <a class="reference internal" href="jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a> provides, which can therefore be used from within Python itself.</p>
+<p>With pyNeuroML you can:</p>
+<ul class="simple">
+<li><p><strong>Create</strong> NeuroML models and simulations</p></li>
+<li><p><strong>Validate</strong> NeuroML v1.8.1 and v2.x files</p></li>
+<li><p><strong>Simulate</strong> NeuroML 2 models</p></li>
+<li><p><strong>Export</strong> NeuroML 2 and LEMS files to many formats such as Neuron, Brian, Matlab, etc.</p></li>
+<li><p><strong>Import</strong> other languages into LEMS (e.g. SBML)</p></li>
+<li><p><strong>Visualise</strong> NeuroML models and simulations</p></li>
+</ul>
+<div class="section" id="quick-start">
+<span id="pyneuroml-quickstart"></span><h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-python-and-the-java-runtime-environment">
+<span id="pyneuroml-install-python-and-java"></span><h3>Install Python and the Java Runtime Environment<a class="headerlink" href="#install-python-and-the-java-runtime-environment" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.python.org/">Python</a> is generally pre-installed on all computers nowadays.
+However, if you do not have Python installed on your system, please follow the official <a class="reference external" href="https://www.python.org/downloads/">installation instructions</a> to install Python on your computer.
+A number of Free/Open source Integrated Development Environments (IDEs) are also available that make working with Python (even) easier.
+An example list is <a class="reference external" href="https://opensource.com/resources/python/ides">here</a>.</p>
+<p>Since pyNeuroML wraps around jNeuroML which is written in Java, you will need a Java Runtime Environment (JRE) installed on your system.
+On most Linux systems <a class="reference external" href="https://openjdk.java.net/">Free/Open source OpenJDK runtime environment</a> is already pre-installed.
+You can also install Oracle’s proprietary Java platform from their <a class="reference external" href="https://www.oracle.com/java/technologies/javase-downloads.html">download page</a> if you prefer.
+Please refer to your operating system’s documentation to install a JRE.</p>
+</div>
+<div class="section" id="install-pyneuroml-with-pip">
+<span id="pyneuroml-install-with-pip"></span><h3>Install pyNeuroML with pip<a class="headerlink" href="#install-pyneuroml-with-pip" title="Permalink to this headline">¶</a></h3>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Tip: Use a virtual environment</p>
+<p>While using Python packages, it is suggested to use a virtual environment to isolate the software you install from each other.
+Learn more about using virtual environments in Python <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">here</a>.</p>
+</div>
+<p>The easiest way to install the latest version of pyNeuroML is using the default Python package manager, <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install pyneuroml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-on-fedora-linux">
+<span id="pyneuroml-install-fedora"></span><h3>Installation on Fedora Linux<a class="headerlink" href="#installation-on-fedora-linux" title="Permalink to this headline">¶</a></h3>
+<p>On <a class="reference external" href="https://getfedora.org">Fedora</a> Linux systems, the <a class="reference external" href="https://neuro.fedoraproject.org">NeuroFedora</a> community provides pyNeuroML as a package in their <a class="reference external" href="https://docs.fedoraproject.org/en-US/neurofedora/copr/">extras repository</a> and can be installed using the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo dnf copr enable @neurofedora/neurofedora-extra</span>
+<span class="go">sudo dnf install python3-pyneuroml</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="documentation">
+<span id="pyneuroml-docs"></span><h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>pyNeuroML provides a set of command line utilities along with an API to use from within Python scripts:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">TODO!</p>
+<p>Check that all of these have usage documentation that is viewable using the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag.
+Issue filed: <a class="reference external" href="https://github.com/NeuroML/pyNeuroML/issues/87">https://github.com/NeuroML/pyNeuroML/issues/87</a></p>
+</div>
+<ul class="simple">
+<li><p>pynml</p></li>
+<li><p>pynml-channelanalysis</p></li>
+<li><p>pynml-modchananalysis</p></li>
+<li><p>pynml-plotspikes</p></li>
+<li><p>pynml-povray</p></li>
+<li><p>pynml-sonata</p></li>
+<li><p>pynml-summary</p></li>
+<li><p>pynml-tune</p></li>
+</ul>
+<p>These utilities are self-documented.
+So, to learn how these utilities are to be used, run them with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag.
+For example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml -h</span>
+<span class="go">usage: pynml [-h|--help] [&lt;shared options&gt;] &lt;one of the mutually-exclusive options&gt;</span>
+
+<span class="go">pyNeuroML v0.5.9: Python utilities for NeuroML2</span>
+<span class="go">    libNeuroML v0.2.54</span>
+<span class="go">    jNeuroML v0.10.2</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+
+<span class="go">Shared options:</span>
+<span class="go">  These options can be added to any of the mutually-exclusive options</span>
+
+<span class="go">  -verbose              Verbose output</span>
+<span class="go">  -java_max_memory MAX  Java memory for jNeuroML, e.g. 400M, 2G (used in</span>
+<span class="go">                        -Xmx argument to java)</span>
+<span class="go">  -nogui                Suppress GUI,</span>
+<span class="go">                        i.e. show no plots, just save results</span>
+<span class="go">  &lt;LEMS/NeuroML 2 file&gt;</span>
+<span class="go">                        LEMS/NeuroML 2 file to process</span>
+
+<span class="go">...</span>
+</pre></div>
+</div>
+<div class="section" id="api-documentation">
+<span id="pyneuroml-api-docs"></span><h3>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">TODO!</p>
+<p>Generate and publish API documentation for pyNeuroML.
+Issue filed: <a class="reference external" href="https://github.com/NeuroML/pyNeuroML/issues/86">https://github.com/NeuroML/pyNeuroML/issues/86</a></p>
+</div>
+<p>The pyNeuroML API is also self documented.
+You can use Python’s in-built documentation viewer <code class="docutils literal notranslate"><span class="pre">pydoc</span></code> to view the documentation for any of the package’s modules and their functions:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pydoc pyneuroml</span>
+<span class="go">Help on package pyneuroml:</span>
+
+<span class="go">NAME</span>
+<span class="go">    pyneuroml</span>
+
+<span class="go">PACKAGE CONTENTS</span>
+<span class="go">    analysis (package)</span>
+<span class="go">    lems (package)</span>
+<span class="go">    neuron (package)</span>
+<span class="go">    plot (package)</span>
+<span class="go">    povray (package)</span>
+<span class="go">    pynml</span>
+<span class="go">    swc (package)</span>
+<span class="go">    tune (package)</span>
+
+<span class="go">DATA</span>
+<span class="go">    JNEUROML_VERSION = &#39;0.10.2&#39;</span>
+
+<span class="go">VERSION</span>
+<span class="go">    0.5.9</span>
+
+<span class="go">FILE</span>
+<span class="go">    /usr/lib/python3.9/site-packages/pyneuroml/__init__.py</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pydoc pyneuroml.analysis</span>
+
+<span class="go">Help on package pyneuroml.analysis in pyneuroml:</span>
+
+<span class="go">NAME</span>
+<span class="go">    pyneuroml.analysis</span>
+
+<span class="go">PACKAGE CONTENTS</span>
+<span class="go">    ChannelDensityPlot</span>
+<span class="go">    ChannelHelper</span>
+<span class="go">    NML2ChannelAnalysis</span>
+
+<span class="go">FUNCTIONS</span>
+<span class="go">    analyse_spiketime_vs_dt(nml2_file, target, duration, simulator, cell_v_path, dts, verbose=False, spike_threshold_mV=0, show_plot_already=True, save_figure_to=None, num_of_last_spikes=None)</span>
+
+<span class="go">    generate_current_vs_frequency_curve(nml2_file, cell_id, start_amp_nA=-0.1, end_amp_nA=0.1, step_nA=0.01, custom_amps_nA=[], analysis_duration=1000, analysis_delay=0, pre_zero_pulse=0, post_zero_pulse=0, dt=0.05, temperature=&#39;32degC&#39;, spike_threshold_mV=0.0, plot_voltage_traces=False, plot_if=True, plot_iv=False, xlim_if=None, ylim_if=None, xlim_iv=None, ylim_iv=None, label_xaxis=True, label_yaxis=True, show_volts_label=True, grid=True, font_size=12, if_iv_color=&#39;k&#39;, linewidth=1, bottom_left_spines_only=False, show_plot_already=True, save_voltage_traces_to=None, save_if_figure_to=None, save_iv_figure_to=None, save_if_data_to=None, save_iv_data_to=None, simulator=&#39;jNeuroML&#39;, num_processors=1, include_included=True, title_above_plot=False, return_axes=False, verbose=False)</span>
+
+<span class="go">FILE</span>
+<span class="go">    /usr/lib/python3.9/site-packages/pyneuroml/analysis/__init__.py</span>
+</pre></div>
+</div>
+<p>Most IDEs are able to show you this information as you use them in your Python scripts.</p>
+</div>
+</div>
+<div class="section" id="getting-help">
+<span id="pyneuroml-gethelp"></span><h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<p>For any questions regarding pyNeuroML, please open an issue on the GitHub issue tracker <a class="reference external" href="https://github.com/NeuroML/pyNeuroML/issues">here</a>.
+Any bugs and feature requests can also be filed there.</p>
+<p>You can also use any of the <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html#contact"><span class="std std-ref">communication channels of the NeuroML community</span></a>.</p>
+</div>
+<div class="section" id="development">
+<span id="pyneuroml-development"></span><h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>pyNeuroML is developed on GitHub at <a class="reference external" href="https://github.com/NeuroML/pyNeuroML">https://github.com/NeuroML/pyNeuroML</a> under the <a class="reference external" href="https://github.com/NeuroML/pyNeuroML/blob/master/LICENSE.lesser">LPGL-3.0 license</a>.
+The repository contains the complete source code along with instructions on building/installing pyNeuroML.
+Please follow the instructions there to build pyNeuroML from source.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs/Software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Software.html" title="previous page">Software and Tools</a>
+    <a class='right-next' id="next-link" href="libNeuroML.html" title="next page">libNeuroML</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

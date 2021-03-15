@@ -1,0 +1,1145 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeuroMLCoreCompTypes &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cells" href="Cells.html" />
+    <link rel="prev" title="NeuroMLCoreDimensions" href="NeuroMLCoreDimensions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../IzhikevichNetworkExample.html">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Specification.html">
+   Specification
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreDimensions.html">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Channels.html">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Inputs.html">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="PyNN.html">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Software/Software.html">
+   Software and Tools
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyNeuroML.html">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Userdocs/Schemas/NeuroMLCoreCompTypes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Schemas/NeuroMLCoreCompTypes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/Schemas/NeuroMLCoreCompTypes.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes">
+   notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#annotation">
+   annotation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#property">
+   property
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basestandalone">
+   <em>
+    baseStandalone
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rdf-rdf">
+   rdf_RDF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rdf-description">
+   rdf_Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basebqbiol">
+   <em>
+    baseBqbiol
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-encodes">
+   bqbiol_encodes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-haspart">
+   bqbiol_hasPart
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-hasproperty">
+   bqbiol_hasProperty
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-hasversion">
+   bqbiol_hasVersion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-is">
+   bqbiol_is
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-isdescribedby">
+   bqbiol_isDescribedBy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-isencodedby">
+   bqbiol_isEncodedBy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-ishomologto">
+   bqbiol_isHomologTo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-ispartof">
+   bqbiol_isPartOf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-ispropertyof">
+   bqbiol_isPropertyOf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-isversionof">
+   bqbiol_isVersionOf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-occursin">
+   bqbiol_occursIn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqbiol-hastaxon">
+   bqbiol_hasTaxon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqmodel-is">
+   bqmodel_is
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqmodel-isdescribedby">
+   bqmodel_isDescribedBy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bqmodel-isderivedfrom">
+   bqmodel_isDerivedFrom
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rdf-bag">
+   rdf_Bag
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rdf-li">
+   rdf_li
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#point3dwithdiam">
+   point3DWithDiam
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="neuromlcorecomptypes">
+<span id="schema-neuromlcorecomptypes"></span><h1>NeuroMLCoreCompTypes<a class="headerlink" href="#neuromlcorecomptypes" title="Permalink to this headline">¶</a></h1>
+<p>Original ComponentType definitions: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml">NeuroMLCoreCompTypes.xml</a>.</p>
+<p>Schema against which NeuroML based on these should be valid: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd">NeuroML_v2.1.xsd</a>.</p>
+<p>Generated on 02/03/21 from <a class="reference external" href="https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500">this</a> commit.</p>
+<p>Please file any issues or questions at the <a class="reference external" href="https://github.com/NeuroML/NeuroML2/issues">issue tracker here</a>.</p>
+<div class="section" id="notes">
+<span id="schema-notes"></span><h2>notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p><i>Human readable notes on a Component.</i></p>
+</div>
+<div class="section" id="annotation">
+<span id="schema-annotation"></span><h2>annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">¶</a></h2>
+<p><i>Annotation…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="9d302076-27b8-490a-9d12-1a14f4d4e85a" name="7644af3f-1e2a-47ee-9f1f-75d832d83a6d" type="radio">
+</input><label class="tabbed-label" for="9d302076-27b8-490a-9d12-1a14f4d4e85a">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rdf:RDF</p></td>
+<td><p><a class="reference internal" href="#schema-rdf-rdf"><span class="std std-ref">rdf_RDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f5496296-7450-458f-8146-5ed9c4bc5867" name="7644af3f-1e2a-47ee-9f1f-75d832d83a6d" type="radio">
+</input><label class="tabbed-label" for="f5496296-7450-458f-8146-5ed9c4bc5867">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>property</p></td>
+<td><p><a class="reference internal" href="#schema-property"><span class="std std-ref">property</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="property">
+<span id="schema-property"></span><h2>property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h2>
+<p><i>Property in Annotation…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="69a95972-19c1-4ca9-a78d-507da0b899f9" name="9bfba244-043b-4af0-b41d-03685944c0ea" type="radio">
+</input><label class="tabbed-label" for="69a95972-19c1-4ca9-a78d-507da0b899f9">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>tag</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basestandalone">
+<span id="schema-basestandalone"></span><h2><em>baseStandalone</em><a class="headerlink" href="#basestandalone" title="Permalink to this headline">¶</a></h2>
+<p><i>Base type of any component which will require notes, annotation, etc.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ae72662b-a336-42e2-9cdb-b1ae4a541a67" name="7598bc2c-ae6e-4c12-981c-2347db39a4aa" type="radio">
+</input><label class="tabbed-label" for="ae72662b-a336-42e2-9cdb-b1ae4a541a67">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>notes</p></td>
+<td><p><a class="reference internal" href="#schema-notes"><span class="std std-ref">notes</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>annotation</p></td>
+<td><p><a class="reference internal" href="#schema-annotation"><span class="std std-ref">annotation</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6aa9333b-fd25-48ec-840d-d3fbc707e989" name="7598bc2c-ae6e-4c12-981c-2347db39a4aa" type="radio">
+</input><label class="tabbed-label" for="6aa9333b-fd25-48ec-840d-d3fbc707e989">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>property</p></td>
+<td><p><a class="reference internal" href="#schema-property"><span class="std std-ref">property</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="rdf-rdf">
+<span id="schema-rdf-rdf"></span><h2>rdf_RDF<a class="headerlink" href="#rdf-rdf" title="Permalink to this headline">¶</a></h2>
+<p><i>Work in progress…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="3661c3e0-38c9-48a5-9c42-ef9131771eff" name="faada41a-ff56-413a-9549-8f2bc9348238" type="radio">
+</input><label class="tabbed-label" for="3661c3e0-38c9-48a5-9c42-ef9131771eff">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xmlns:rdf</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="882ddf35-c8d5-4217-afa4-9f8dce48ebb5" name="faada41a-ff56-413a-9549-8f2bc9348238" type="radio">
+</input><label class="tabbed-label" for="882ddf35-c8d5-4217-afa4-9f8dce48ebb5">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rdf:Description</p></td>
+<td><p><a class="reference internal" href="#schema-rdf-description"><span class="std std-ref">rdf_Description</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="rdf-description">
+<span id="schema-rdf-description"></span><h2>rdf_Description<a class="headerlink" href="#rdf-description" title="Permalink to this headline">¶</a></h2>
+<p><i>Work in progress…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="d4344dcd-2059-4f1c-a1bf-36874db11dbb" name="1ea6a03e-a58b-4f2e-b554-aa1aa075ba19" type="radio">
+</input><label class="tabbed-label" for="d4344dcd-2059-4f1c-a1bf-36874db11dbb">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rdf:about</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="794508db-c08a-49db-b4dc-e66d28aade25" name="1ea6a03e-a58b-4f2e-b554-aa1aa075ba19" type="radio">
+</input><label class="tabbed-label" for="794508db-c08a-49db-b4dc-e66d28aade25">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bqbiol:encodes</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-encodes"><span class="std std-ref">bqbiol_encodes</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqbiol:hasPart</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-haspart"><span class="std std-ref">bqbiol_hasPart</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqbiol:hasProperty</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-hasproperty"><span class="std std-ref">bqbiol_hasProperty</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqbiol:hasVersion</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-hasversion"><span class="std std-ref">bqbiol_hasVersion</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqbiol:is</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-is"><span class="std std-ref">bqbiol_is</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqbiol:isDescribedBy</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-isdescribedby"><span class="std std-ref">bqbiol_isDescribedBy</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqbiol:isEncodedBy</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-isencodedby"><span class="std std-ref">bqbiol_isEncodedBy</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqbiol:isHomologTo</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-ishomologto"><span class="std std-ref">bqbiol_isHomologTo</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqbiol:isPartOf</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-ispartof"><span class="std std-ref">bqbiol_isPartOf</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqbiol:isPropertyOf</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-ispropertyof"><span class="std std-ref">bqbiol_isPropertyOf</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqbiol:isVersionOf</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-isversionof"><span class="std std-ref">bqbiol_isVersionOf</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqbiol:occursIn</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-occursin"><span class="std std-ref">bqbiol_occursIn</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqbiol:hasTaxon</p></td>
+<td><p><a class="reference internal" href="#schema-bqbiol-hastaxon"><span class="std std-ref">bqbiol_hasTaxon</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqmodel:is</p></td>
+<td><p><a class="reference internal" href="#schema-bqmodel-is"><span class="std std-ref">bqmodel_is</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bqmodel:isDescribedBy</p></td>
+<td><p><a class="reference internal" href="#schema-bqmodel-isdescribedby"><span class="std std-ref">bqmodel_isDescribedBy</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bqmodel:isDerivedFrom</p></td>
+<td><p><a class="reference internal" href="#schema-bqmodel-isderivedfrom"><span class="std std-ref">bqmodel_isDerivedFrom</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basebqbiol">
+<span id="schema-basebqbiol"></span><h2><em>baseBqbiol</em><a class="headerlink" href="#basebqbiol" title="Permalink to this headline">¶</a></h2>
+<p><i>Work in progress…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="39c7fe25-22ff-402f-9699-2c2f2dcd89f5" name="22e8c8ca-d1fc-4bfe-a33c-e55d09749997" type="radio">
+</input><label class="tabbed-label" for="39c7fe25-22ff-402f-9699-2c2f2dcd89f5">
+Child list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rdf:Bag</p></td>
+<td><p><a class="reference internal" href="#schema-rdf-bag"><span class="std std-ref">rdf_Bag</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="bqbiol-encodes">
+<span id="schema-bqbiol-encodes"></span><h2>bqbiol_encodes<a class="headerlink" href="#bqbiol-encodes" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-haspart">
+<span id="schema-bqbiol-haspart"></span><h2>bqbiol_hasPart<a class="headerlink" href="#bqbiol-haspart" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-hasproperty">
+<span id="schema-bqbiol-hasproperty"></span><h2>bqbiol_hasProperty<a class="headerlink" href="#bqbiol-hasproperty" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-hasversion">
+<span id="schema-bqbiol-hasversion"></span><h2>bqbiol_hasVersion<a class="headerlink" href="#bqbiol-hasversion" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-is">
+<span id="schema-bqbiol-is"></span><h2>bqbiol_is<a class="headerlink" href="#bqbiol-is" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-isdescribedby">
+<span id="schema-bqbiol-isdescribedby"></span><h2>bqbiol_isDescribedBy<a class="headerlink" href="#bqbiol-isdescribedby" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-isencodedby">
+<span id="schema-bqbiol-isencodedby"></span><h2>bqbiol_isEncodedBy<a class="headerlink" href="#bqbiol-isencodedby" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-ishomologto">
+<span id="schema-bqbiol-ishomologto"></span><h2>bqbiol_isHomologTo<a class="headerlink" href="#bqbiol-ishomologto" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-ispartof">
+<span id="schema-bqbiol-ispartof"></span><h2>bqbiol_isPartOf<a class="headerlink" href="#bqbiol-ispartof" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-ispropertyof">
+<span id="schema-bqbiol-ispropertyof"></span><h2>bqbiol_isPropertyOf<a class="headerlink" href="#bqbiol-ispropertyof" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-isversionof">
+<span id="schema-bqbiol-isversionof"></span><h2>bqbiol_isVersionOf<a class="headerlink" href="#bqbiol-isversionof" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="658eec26-4278-4959-a8e3-f051034e8c74" name="067fecb1-4c33-4ac2-8c5b-582e3dd67ab1" type="radio">
+</input><label class="tabbed-label" for="658eec26-4278-4959-a8e3-f051034e8c74">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xmlns:bqbiol</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="bqbiol-occursin">
+<span id="schema-bqbiol-occursin"></span><h2>bqbiol_occursIn<a class="headerlink" href="#bqbiol-occursin" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqbiol-hastaxon">
+<span id="schema-bqbiol-hastaxon"></span><h2>bqbiol_hasTaxon<a class="headerlink" href="#bqbiol-hastaxon" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqmodel-is">
+<span id="schema-bqmodel-is"></span><h2>bqmodel_is<a class="headerlink" href="#bqmodel-is" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="bqmodel-isdescribedby">
+<span id="schema-bqmodel-isdescribedby"></span><h2>bqmodel_isDescribedBy<a class="headerlink" href="#bqmodel-isdescribedby" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ad621a4f-fd37-47bc-b9cd-20f9d5682141" name="57927975-166c-4039-9579-6b62a6df5cce" type="radio">
+</input><label class="tabbed-label" for="ad621a4f-fd37-47bc-b9cd-20f9d5682141">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xmlns:bqmodel</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="bqmodel-isderivedfrom">
+<span id="schema-bqmodel-isderivedfrom"></span><h2>bqmodel_isDerivedFrom<a class="headerlink" href="#bqmodel-isderivedfrom" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a></em></p>
+<p><i>See <a class="reference external" href="http://co.mbine.org/standards/qualifiers">http://co.mbine.org/standards/qualifiers</a>.</i></p>
+</div>
+<div class="section" id="rdf-bag">
+<span id="schema-rdf-bag"></span><h2>rdf_Bag<a class="headerlink" href="#rdf-bag" title="Permalink to this headline">¶</a></h2>
+<p><i>Work in progress…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="3ecde3fb-a04f-4a29-80c0-171b0f3775dd" name="83ee1e91-83a0-46a9-9eef-55002c818a14" type="radio">
+</input><label class="tabbed-label" for="3ecde3fb-a04f-4a29-80c0-171b0f3775dd">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rdf:li</p></td>
+<td><p><span class="xref std std-ref">schema:rdf:li</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="rdf-li">
+<span id="schema-rdf-li"></span><h2>rdf_li<a class="headerlink" href="#rdf-li" title="Permalink to this headline">¶</a></h2>
+<p><i>Annotation…</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="00602e2e-417f-41bc-b312-4fa020836d51" name="6df70a6e-eddc-43f5-bd94-4c3aeca80bae" type="radio">
+</input><label class="tabbed-label" for="00602e2e-417f-41bc-b312-4fa020836d51">
+Text fields</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rdf:resource</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="point3dwithdiam">
+<span id="schema-point3dwithdiam"></span><h2>point3DWithDiam<a class="headerlink" href="#point3dwithdiam" title="Permalink to this headline">¶</a></h2>
+<p><i>Base type for ComponentTypes which specify an ( <strong>x,</strong> <strong>y,</strong> <strong>z</strong> ) coordinate along with a <strong>diameter.</strong> Note: no dimension used in the attributes for these coordinates! These are assumed to have dimension micrometer (10^-6 m). This is due to micrometers being the default option for the majority of neuronal morphology formats, and dimensions are omitted here to facilitate reading and writing of morphologies in NeuroML.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="2d142367-8933-402a-b5ef-ec2c977e2085" name="9272b7fe-472a-4fc4-9dee-234cd1f8239b" type="radio">
+</input><label class="tabbed-label" for="2d142367-8933-402a-b5ef-ec2c977e2085">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>diameter</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>y</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>z</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="849a6177-7362-4a80-831a-dc6e2e0af44b" name="9272b7fe-472a-4fc4-9dee-234cd1f8239b" type="radio">
+</input><label class="tabbed-label" for="849a6177-7362-4a80-831a-dc6e2e0af44b">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>radius</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-length"><span class="std std-ref">length</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>xLength</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-length"><span class="std std-ref">length</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>yLength</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-length"><span class="std std-ref">length</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>zLength</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-length"><span class="std std-ref">length</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0a91de5e-0424-43fb-bb74-a7de09ebd6a2" name="9272b7fe-472a-4fc4-9dee-234cd1f8239b" type="radio">
+</input><label class="tabbed-label" for="0a91de5e-0424-43fb-bb74-a7de09ebd6a2">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MICRON = 1um</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-length"><span class="std std-ref">length</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs/Schemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="NeuroMLCoreDimensions.html" title="previous page">NeuroMLCoreDimensions</a>
+    <a class='right-next' id="next-link" href="Cells.html" title="next page">Cells</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

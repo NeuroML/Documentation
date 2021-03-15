@@ -1,0 +1,2860 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inputs &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Networks" href="Networks.html" />
+    <link rel="prev" title="Synapses" href="Synapses.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../IzhikevichNetworkExample.html">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Specification.html">
+   Specification
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreDimensions.html">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreCompTypes.html">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Channels.html">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="PyNN.html">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Software/Software.html">
+   Software and Tools
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyNeuroML.html">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Userdocs/Schemas/Inputs.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Schemas/Inputs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/Schemas/Inputs.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basepointcurrent">
+   <em>
+    basePointCurrent
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltagedeppointcurrent">
+   <em>
+    baseVoltageDepPointCurrent
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltagedeppointcurrentspiking">
+   <em>
+    baseVoltageDepPointCurrentSpiking
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basepointcurrentdl">
+   <em>
+    basePointCurrentDL
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basevoltagedeppointcurrentdl">
+   <em>
+    baseVoltageDepPointCurrentDL
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basespikesource">
+   <em>
+    baseSpikeSource
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikegenerator">
+   spikeGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikegeneratorrandom">
+   spikeGeneratorRandom
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikegeneratorpoisson">
+   spikeGeneratorPoisson
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikegeneratorrefpoisson">
+   spikeGeneratorRefPoisson
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#poissonfiringsynapse">
+   poissonFiringSynapse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transientpoissonfiringsynapse">
+   transientPoissonFiringSynapse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timedsynapticinput">
+   timedSynapticInput
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pulsegenerator">
+   pulseGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compoundinput">
+   compoundInput
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compoundinputdl">
+   compoundInputDL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pulsegeneratordl">
+   pulseGeneratorDL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sinegenerator">
+   sineGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sinegeneratordl">
+   sineGeneratorDL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rampgenerator">
+   rampGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rampgeneratordl">
+   rampGeneratorDL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#voltageclamp">
+   voltageClamp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#voltageclamptriple">
+   voltageClampTriple
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spikearray">
+   spikeArray
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spike">
+   spike
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="inputs">
+<span id="schema-inputs"></span><h1>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
+<p>Original ComponentType definitions: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Inputs.xml">Inputs.xml</a>.</p>
+<p>Schema against which NeuroML based on these should be valid: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd">NeuroML_v2.1.xsd</a>.</p>
+<p>Generated on 02/03/21 from <a class="reference external" href="https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500">this</a> commit.</p>
+<p>Please file any issues or questions at the <a class="reference external" href="https://github.com/NeuroML/NeuroML2/issues">issue tracker here</a>.</p>
+<div class="section" id="basepointcurrent">
+<span id="schema-basepointcurrent"></span><h2><em>basePointCurrent</em><a class="headerlink" href="#basepointcurrent" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-basestandalone"><span class="std std-ref">baseStandalone</span></a></em></p>
+<p><i>Base type for all ComponentTypes which produce a current <strong>i</strong> (with dimension current).</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="95e0d0f2-1115-47b1-8b4e-28daf8dade2f" name="61651d14-b28f-46e9-9118-48b304877fd2" type="radio">
+</input><label class="tabbed-label" for="95e0d0f2-1115-47b1-8b4e-28daf8dade2f">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>i</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltagedeppointcurrent">
+<span id="schema-basevoltagedeppointcurrent"></span><h2><em>baseVoltageDepPointCurrent</em><a class="headerlink" href="#basevoltagedeppointcurrent" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a></em></p>
+<p><i>Base type for all ComponentTypes which produce a current <strong>i</strong> (with dimension current) and require a membrane potential <strong>v</strong> exposed on the parent Component.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="f1bbd7bd-0758-4d57-9854-533bb0d42864" name="9b1c1bbe-3337-4c51-b09b-58879ef4951b" type="radio">
+</input><label class="tabbed-label" for="f1bbd7bd-0758-4d57-9854-533bb0d42864">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="eb495c50-3399-47cf-9146-cefe17dcd2b6" name="9b1c1bbe-3337-4c51-b09b-58879ef4951b" type="radio">
+</input><label class="tabbed-label" for="eb495c50-3399-47cf-9146-cefe17dcd2b6">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltagedeppointcurrentspiking">
+<span id="schema-basevoltagedeppointcurrentspiking"></span><h2><em>baseVoltageDepPointCurrentSpiking</em><a class="headerlink" href="#basevoltagedeppointcurrentspiking" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a></em></p>
+<p><i>Base type for all ComponentTypes which produce a current <strong>i,</strong> require a membrane potential <strong>v</strong> exposed on the parent and emit spikes (on a port <strong>spike).</strong> The exposed variable <strong>tsince</strong> can be used for plotting the time since the Component has spiked last.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a52f31b1-e67e-4165-ab61-741a72c80f39" name="6703076b-3468-41a3-a27f-7b722591e8a7" type="radio">
+</input><label class="tabbed-label" for="a52f31b1-e67e-4165-ab61-741a72c80f39">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>tsince</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="26817ea5-3d3c-4fa3-966d-adce78b15571" name="6703076b-3468-41a3-a27f-7b722591e8a7" type="radio">
+</input><label class="tabbed-label" for="26817ea5-3d3c-4fa3-966d-adce78b15571">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="70a2eb1b-eb14-41b9-af02-8b6f7680816b" name="6703076b-3468-41a3-a27f-7b722591e8a7" type="radio">
+</input><label class="tabbed-label" for="70a2eb1b-eb14-41b9-af02-8b6f7680816b">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spike</p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basepointcurrentdl">
+<span id="schema-basepointcurrentdl"></span><h2><em>basePointCurrentDL</em><a class="headerlink" href="#basepointcurrentdl" title="Permalink to this headline">¶</a></h2>
+<p><i>Base type for all ComponentTypes which produce a dimensionless current <strong>I.</strong> There will eventually be dimensionless equivalents of all the core current producing ComponentTypes such as  <a class="reference internal" href="#schema-pulsegenerator"><span class="std std-ref">pulseGenerator</span></a>,  <a class="reference internal" href="#schema-sinegenerator"><span class="std std-ref">sineGenerator</span></a> and  <a class="reference internal" href="#schema-rampgenerator"><span class="std std-ref">rampGenerator</span></a>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0e686251-7d2d-4a17-9a8d-3f6f5ceaafb0" name="0da337eb-933d-44a5-a4b8-b2eaad22470f" type="radio">
+</input><label class="tabbed-label" for="0e686251-7d2d-4a17-9a8d-3f6f5ceaafb0">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>I</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basevoltagedeppointcurrentdl">
+<span id="schema-basevoltagedeppointcurrentdl"></span><h2><em>baseVoltageDepPointCurrentDL</em><a class="headerlink" href="#basevoltagedeppointcurrentdl" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a></em></p>
+<p><i>Base type for all ComponentTypes which produce a dimensionless current <strong>I</strong> and require a dimensionless membrane potential <strong>V</strong> exposed on the parent Component.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="8d10839f-3e38-4b81-896a-5df01df68e5b" name="c7d84d9e-4ccd-4950-9b12-aa1477aff7f7" type="radio">
+</input><label class="tabbed-label" for="8d10839f-3e38-4b81-896a-5df01df68e5b">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>I (from <a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f3b04e19-4f4a-4d85-b28d-6e78adea464f" name="c7d84d9e-4ccd-4950-9b12-aa1477aff7f7" type="radio">
+</input><label class="tabbed-label" for="f3b04e19-4f4a-4d85-b28d-6e78adea464f">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>V</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="basespikesource">
+<span id="schema-basespikesource"></span><h2><em>baseSpikeSource</em><a class="headerlink" href="#basespikesource" title="Permalink to this headline">¶</a></h2>
+<p><i>Base for any ComponentType whose main purpose is to emit spikes (on a port <strong>spike).</strong> The exposed variable <strong>tsince</strong> can be used for plotting the time since the Component has spiked last.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="65a495c9-a1e8-41a5-837d-317f8c3cd418" name="38cb9415-eeaf-4e41-8b39-66c3e3af7f01" type="radio">
+</input><label class="tabbed-label" for="65a495c9-a1e8-41a5-837d-317f8c3cd418">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>tsince</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d0a7190e-cc2f-4d23-b7af-094ba2cca139" name="38cb9415-eeaf-4e41-8b39-66c3e3af7f01" type="radio">
+</input><label class="tabbed-label" for="d0a7190e-cc2f-4d23-b7af-094ba2cca139">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spike</p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="spikegenerator">
+<span id="schema-spikegenerator"></span><h2>spikeGenerator<a class="headerlink" href="#spikegenerator" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a></em></p>
+<p><i>Simple generator of spikes at a regular interval set by <strong>period.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c7410ccc-913e-42af-8927-f3e2b5f1d570" name="82e97ae5-fb94-413e-a03e-ae389eb12d5f" type="radio">
+</input><label class="tabbed-label" for="c7410ccc-913e-42af-8927-f3e2b5f1d570">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>period</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3697ad63-f0ee-48ab-a40e-b64c2b0ffb16" name="82e97ae5-fb94-413e-a03e-ae389eb12d5f" type="radio">
+</input><label class="tabbed-label" for="3697ad63-f0ee-48ab-a40e-b64c2b0ffb16">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SMALL_TIME = 1e-9ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="be37334c-f241-4796-bd0c-a011e6f38980" name="82e97ae5-fb94-413e-a03e-ae389eb12d5f" type="radio">
+</input><label class="tabbed-label" for="be37334c-f241-4796-bd0c-a011e6f38980">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>tnext</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>tsince (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="cf60dd24-c6c0-4520-ba42-ade78af5b644" name="82e97ae5-fb94-413e-a03e-ae389eb12d5f" type="radio">
+</input><label class="tabbed-label" for="cf60dd24-c6c0-4520-ba42-ade78af5b644">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="52548825-871d-4476-ae2b-ab915842cfce" name="82e97ae5-fb94-413e-a03e-ae389eb12d5f" type="radio">
+</input><label class="tabbed-label" for="52548825-871d-4476-ae2b-ab915842cfce">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnext</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnext</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>tnext</strong> = period</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF tnext-t &lt; SMALL_TIME THEN</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> <strong>tnext</strong> = tnext+period</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnext</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="spikegeneratorrandom">
+<span id="schema-spikegeneratorrandom"></span><h2>spikeGeneratorRandom<a class="headerlink" href="#spikegeneratorrandom" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a></em></p>
+<p><i>Generator of spikes with a random interspike interval of at least <strong>minISI</strong> and at most <strong>maxISI</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="30a6f440-4d19-4fac-9229-2e58b2a7cda2" name="4448d082-3a60-4a96-8a87-7b41a658d8df" type="radio">
+</input><label class="tabbed-label" for="30a6f440-4d19-4fac-9229-2e58b2a7cda2">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>maxISI</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>minISI</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="697da8bc-0666-482c-abb2-3af6cb8ba20b" name="4448d082-3a60-4a96-8a87-7b41a658d8df" type="radio">
+</input><label class="tabbed-label" for="697da8bc-0666-482c-abb2-3af6cb8ba20b">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MSEC = 1ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0c407edc-f1b3-480c-b3da-5f76deec54ca" name="4448d082-3a60-4a96-8a87-7b41a658d8df" type="radio">
+</input><label class="tabbed-label" for="0c407edc-f1b3-480c-b3da-5f76deec54ca">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>isi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>tnext</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tsince (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0928e6f0-ecdd-4a5b-84ac-0154f1f2686e" name="4448d082-3a60-4a96-8a87-7b41a658d8df" type="radio">
+</input><label class="tabbed-label" for="0928e6f0-ecdd-4a5b-84ac-0154f1f2686e">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2d2ac893-d1fc-4959-94e4-2448b6be218a" name="4448d082-3a60-4a96-8a87-7b41a658d8df" type="radio">
+</input><label class="tabbed-label" for="2d2ac893-d1fc-4959-94e4-2448b6be218a">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnext</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnext</strong>)</p>
+</dd>
+<dd><p><strong>isi</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>isi</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>isi</strong> = minISI + MSEC * random((maxISI - minISI) / MSEC)</p>
+</dd>
+<dd><p><strong>tnext</strong> = isi</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &gt; tnext THEN</p>
+</dd>
+<dd><p> <strong>isi</strong> = minISI + MSEC * random((maxISI - minISI) / MSEC)</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> <strong>tnext</strong> = tnext+isi</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnext</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="spikegeneratorpoisson">
+<span id="schema-spikegeneratorpoisson"></span><h2>spikeGeneratorPoisson<a class="headerlink" href="#spikegeneratorpoisson" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a></em></p>
+<p><i>Generator of spikes whose ISI is distributed according to an exponential pdf with scale 1/_averageRate.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a8fb5d61-78a0-41d6-9dd0-372bef4200a0" name="f0e9e293-6b2f-46a1-a067-02fb67864b4e" type="radio">
+</input><label class="tabbed-label" for="a8fb5d61-78a0-41d6-9dd0-372bef4200a0">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>averageRate</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="01d7673b-ef42-44df-9aec-a33af63a8f84" name="f0e9e293-6b2f-46a1-a067-02fb67864b4e" type="radio">
+</input><label class="tabbed-label" for="01d7673b-ef42-44df-9aec-a33af63a8f84">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SMALL_TIME = 1e-9ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="44fa3a6e-6eb4-4b39-8e9f-7ca6a9baaa8c" name="f0e9e293-6b2f-46a1-a067-02fb67864b4e" type="radio">
+</input><label class="tabbed-label" for="44fa3a6e-6eb4-4b39-8e9f-7ca6a9baaa8c">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>isi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>tnextIdeal</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>tnextUsed</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>tsince (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="27e3aebc-b5cd-434e-95fc-d888dc2027d3" name="f0e9e293-6b2f-46a1-a067-02fb67864b4e" type="radio">
+</input><label class="tabbed-label" for="27e3aebc-b5cd-434e-95fc-d888dc2027d3">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="671499ca-c9a3-486b-b5e8-401259b4207d" name="f0e9e293-6b2f-46a1-a067-02fb67864b4e" type="radio">
+</input><label class="tabbed-label" for="671499ca-c9a3-486b-b5e8-401259b4207d">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextIdeal</strong>)</p>
+</dd>
+<dd><p><strong>tnextUsed</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextUsed</strong>)</p>
+</dd>
+<dd><p><strong>isi</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>isi</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>isi</strong> = -1 * log(random(1)) / averageRate</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong> = isi</p>
+</dd>
+<dd><p><strong>tnextUsed</strong> = isi</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &gt; tnextUsed THEN</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> <strong>isi</strong> = -1 * log(random(1)) / averageRate</p>
+</dd>
+<dd><p> <strong>tnextIdeal</strong> = (tnextIdeal+isi)</p>
+</dd>
+<dd><p> <strong>tnextUsed</strong> = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnextUsed</strong> /dt = 0</p>
+</dd>
+<dd><p>d <strong>tnextIdeal</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="spikegeneratorrefpoisson">
+<span id="schema-spikegeneratorrefpoisson"></span><h2>spikeGeneratorRefPoisson<a class="headerlink" href="#spikegeneratorrefpoisson" title="Permalink to this headline">¶</a></h2>
+<p>extends <a class="reference internal" href="#schema-spikegeneratorpoisson"><span class="std std-ref">spikeGeneratorPoisson</span></a></p>
+<p><i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity) with mean 1/_averageRate.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="880c010b-5b68-435d-acd6-d5df72365211" name="23c1a4bd-7c48-4b04-aded-5451aca7cadc" type="radio">
+</input><label class="tabbed-label" for="880c010b-5b68-435d-acd6-d5df72365211">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>averageRate (from <a class="reference internal" href="#schema-spikegeneratorpoisson"><span class="std std-ref">spikeGeneratorPoisson</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>minimumISI</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c20efb14-54fe-425f-88f2-38ea86644078" name="23c1a4bd-7c48-4b04-aded-5451aca7cadc" type="radio">
+</input><label class="tabbed-label" for="c20efb14-54fe-425f-88f2-38ea86644078">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>averageIsi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="62b1d777-f078-4359-8441-80c74b044ffb" name="23c1a4bd-7c48-4b04-aded-5451aca7cadc" type="radio">
+</input><label class="tabbed-label" for="62b1d777-f078-4359-8441-80c74b044ffb">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>isi (from <a class="reference internal" href="#schema-spikegeneratorpoisson"><span class="std std-ref">spikeGeneratorPoisson</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>tnextIdeal (from <a class="reference internal" href="#schema-spikegeneratorpoisson"><span class="std std-ref">spikeGeneratorPoisson</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tnextUsed (from <a class="reference internal" href="#schema-spikegeneratorpoisson"><span class="std std-ref">spikeGeneratorPoisson</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>tsince (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0f6bc70b-5186-4842-b2b7-241b4d841dd1" name="23c1a4bd-7c48-4b04-aded-5451aca7cadc" type="radio">
+</input><label class="tabbed-label" for="0f6bc70b-5186-4842-b2b7-241b4d841dd1">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e77977cc-ed0a-414e-a2f6-86829bf91801" name="23c1a4bd-7c48-4b04-aded-5451aca7cadc" type="radio">
+</input><label class="tabbed-label" for="e77977cc-ed0a-414e-a2f6-86829bf91801">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextIdeal</strong>)</p>
+</dd>
+<dd><p><strong>tnextUsed</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextUsed</strong>)</p>
+</dd>
+<dd><p><strong>isi</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>isi</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>isi</strong> = minimumISI - (averageIsi-minimumISI) * log(random(1))</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong> = isi</p>
+</dd>
+<dd><p><strong>tnextUsed</strong> = isi</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &gt; tnextUsed THEN</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> <strong>isi</strong> = minimumISI - (averageIsi-minimumISI) * log(random(1))</p>
+</dd>
+<dd><p> <strong>tnextIdeal</strong> = (tnextIdeal+isi)</p>
+</dd>
+<dd><p> <strong>tnextUsed</strong> = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnextUsed</strong> /dt = 0</p>
+</dd>
+<dd><p>d <strong>tnextIdeal</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="poissonfiringsynapse">
+<span id="schema-poissonfiringsynapse"></span><h2>poissonFiringSynapse<a class="headerlink" href="#poissonfiringsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a></em></p>
+<p><i>Poisson spike generator connected to single synapse providing an input current.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0cfae03d-6f16-4e5f-a665-dbd75c8d284d" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="0cfae03d-6f16-4e5f-a665-dbd75c8d284d">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>averageRate</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="c7b2d6c3-a0ff-4b76-a507-00be0bfcb1e8" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="c7b2d6c3-a0ff-4b76-a507-00be0bfcb1e8">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>averageIsi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="eaa98c23-a800-4562-b25a-d9c1f3444ce8" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="eaa98c23-a800-4562-b25a-d9c1f3444ce8">
+Paths</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spikeTarget</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e541f818-a26a-4789-a18f-05003fe5ef92" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="e541f818-a26a-4789-a18f-05003fe5ef92">
+Component References</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapse</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7c2a25df-b6e9-44f5-822f-e4f4be2c62ba" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="7c2a25df-b6e9-44f5-822f-e4f4be2c62ba">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SMALL_TIME = 1e-9ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2b107e81-da8c-4902-8a83-a6349a04d964" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="2b107e81-da8c-4902-8a83-a6349a04d964">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>isi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>tnextIdeal</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>tnextUsed</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tsince (from <a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a26c9922-3cfe-4573-9227-0b523d6c0431" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="a26c9922-3cfe-4573-9227-0b523d6c0431">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0d2ba0e3-2253-4656-8bd9-acc9db9720d9" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="0d2ba0e3-2253-4656-8bd9-acc9db9720d9">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-even"><td><p>spike</p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="914c6f3a-87f0-47fa-92b2-2bccad92825b" name="6feda6c8-6ddd-40e5-b632-28105d93407a" type="radio">
+</input><label class="tabbed-label" for="914c6f3a-87f0-47fa-92b2-2bccad92825b">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Structure</strong></i></dt><dd><p>WITH <strong>this</strong> AS <strong>a</strong></p>
+</dd>
+<dd><p>WITH <strong>spikeTarget</strong> AS <strong>b</strong></p>
+</dd>
+<dd><p>CHILD INSTANCE: <strong>synapse</strong></p>
+</dd>
+<dd><p>EVENT CONNECTION from <strong>a</strong> TO  <strong>b</strong></p>
+</dd>
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextIdeal</strong>)</p>
+</dd>
+<dd><p><strong>tnextUsed</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextUsed</strong>)</p>
+</dd>
+<dd><p><strong>isi</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>isi</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>isi</strong> = - averageIsi * log(random(1))</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong> = isi</p>
+</dd>
+<dd><p><strong>tnextUsed</strong> = isi</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &gt; tnextUsed THEN</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> <strong>isi</strong> = - averageIsi * log(1 - random(1))</p>
+</dd>
+<dd><p> <strong>tnextIdeal</strong> = (tnextIdeal+isi)</p>
+</dd>
+<dd><p> <strong>tnextUsed</strong> = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapse-&gt;i</p>
+</dd>
+<dd><p><strong>i</strong> = weight * iSyn (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnextUsed</strong> /dt = 0</p>
+</dd>
+<dd><p>d <strong>tnextIdeal</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="transientpoissonfiringsynapse">
+<span id="schema-transientpoissonfiringsynapse"></span><h2>transientPoissonFiringSynapse<a class="headerlink" href="#transientpoissonfiringsynapse" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a></em></p>
+<p><i>Poisson spike generator with delay and duration connected to single synapse providing an input current.                        Similar to ComponentType poissonFiringSynapse.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="47535c48-bbee-4a5d-b43d-20d8e5560319" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="47535c48-bbee-4a5d-b43d-20d8e5560319">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>averageRate</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="200a5b87-0ce5-49e5-8874-cdeed9fd748d" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="200a5b87-0ce5-49e5-8874-cdeed9fd748d">
+Derived parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>averageIsi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="13c11250-77cc-46ba-9f65-270155cbf8cd" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="13c11250-77cc-46ba-9f65-270155cbf8cd">
+Paths</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spikeTarget</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ac25d6bc-8976-426f-81a2-c0583639fd30" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="ac25d6bc-8976-426f-81a2-c0583639fd30">
+Component References</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapse</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="1ea63f24-8a10-4ef6-ac85-5ac660afe88a" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="1ea63f24-8a10-4ef6-ac85-5ac660afe88a">
+Constants</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SMALL_TIME = 1e-9ms</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>LONG_TIME = 1e9hour</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="af3db928-ae58-4fa4-9a3f-5aa2fd867812" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="af3db928-ae58-4fa4-9a3f-5aa2fd867812">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>isi</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>tnextIdeal</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>tnextUsed</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>tsince (from <a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2a5890aa-bc9e-45be-a89b-e43cae212b38" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="2a5890aa-bc9e-45be-a89b-e43cae212b38">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="fa9e5637-3e9a-49f4-b74b-e8c6dce1bcbd" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="fa9e5637-3e9a-49f4-b74b-e8c6dce1bcbd">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-even"><td><p>spike</p></td>
+<td><p>Direction: out</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3d551beb-6230-4896-8e0b-43119afcb238" name="fd0488f8-f031-41d3-8382-5049e1116142" type="radio">
+</input><label class="tabbed-label" for="3d551beb-6230-4896-8e0b-43119afcb238">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Structure</strong></i></dt><dd><p>WITH <strong>this</strong> AS <strong>a</strong></p>
+</dd>
+<dd><p>WITH <strong>spikeTarget</strong> AS <strong>b</strong></p>
+</dd>
+<dd><p>CHILD INSTANCE: <strong>synapse</strong></p>
+</dd>
+<dd><p>EVENT CONNECTION from <strong>a</strong> TO  <strong>b</strong></p>
+</dd>
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextIdeal</strong>)</p>
+</dd>
+<dd><p><strong>tnextUsed</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tnextUsed</strong>)</p>
+</dd>
+<dd><p><strong>isi</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>isi</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dd><p><strong>isi</strong> = - averageIsi * log(1 - random(1))  +delay</p>
+</dd>
+<dd><p><strong>tnextIdeal</strong> = isi</p>
+</dd>
+<dd><p><strong>tnextUsed</strong> = isi</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &gt; tnextUsed THEN</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> <strong>isi</strong> = - averageIsi * log(1 - random(1))</p>
+</dd>
+<dd><p> <strong>tnextIdeal</strong> = (tnextIdeal+isi) + H(((t+isi) - (delay+duration))/duration)*LONG_TIME</p>
+</dd>
+<dd><p> <strong>tnextUsed</strong> = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapse-&gt;i</p>
+</dd>
+<dd><p><strong>i</strong> = weight * iSyn (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+<dd><p>d <strong>tnextUsed</strong> /dt = 0</p>
+</dd>
+<dd><p>d <strong>tnextIdeal</strong> /dt = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="timedsynapticinput">
+<span id="schema-timedsynapticinput"></span><h2>timedSynapticInput<a class="headerlink" href="#timedsynapticinput" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a></em></p>
+<p><i>Spike array connected to a single synapse, producing current triggered by each spike in the array.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="1701eb68-75e9-49e7-b4de-540d372110e8" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="1701eb68-75e9-49e7-b4de-540d372110e8">
+Paths</label><div class="tabbed-content docutils">
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spikeTarget</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="0e8211a1-e22b-478b-913b-1a1338dcb1b6" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="0e8211a1-e22b-478b-913b-1a1338dcb1b6">
+Component References</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synapse</p></td>
+<td><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="bf6d0b42-8f99-4a7c-a619-b4e7f9bf5eb4" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="bf6d0b42-8f99-4a7c-a619-b4e7f9bf5eb4">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spikes</p></td>
+<td><p><a class="reference internal" href="#schema-spike"><span class="std std-ref">spike</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="1205e040-3e38-4a33-b9d2-6560fe1b9e62" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="1205e040-3e38-4a33-b9d2-6560fe1b9e62">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>tsince (from <a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7868879d-775c-4226-af54-e1c53bd16821" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="7868879d-775c-4226-af54-e1c53bd16821">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b93376fa-8367-4290-a120-9bdab94c4a49" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="b93376fa-8367-4290-a120-9bdab94c4a49">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike (from <a class="reference internal" href="#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="02c25f45-129c-41de-ab01-63eb23bc2f18" name="b0a12ee0-9286-4b02-bd4c-1aade38121c3" type="radio">
+</input><label class="tabbed-label" for="02c25f45-129c-41de-ab01-63eb23bc2f18">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Structure</strong></i></dt><dd><p>WITH <strong>this</strong> AS <strong>a</strong></p>
+</dd>
+<dd><p>WITH <strong>spikeTarget</strong> AS <strong>b</strong></p>
+</dd>
+<dd><p>CHILD INSTANCE: <strong>synapse</strong></p>
+</dd>
+<dd><p>EVENT CONNECTION from <strong>a</strong> TO  <strong>b</strong></p>
+</dd>
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>iSyn</strong> = synapse-&gt;i</p>
+</dd>
+<dd><p><strong>i</strong> = weight * iSyn (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="pulsegenerator">
+<span id="schema-pulsegenerator"></span><h2>pulseGenerator<a class="headerlink" href="#pulsegenerator" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a></em></p>
+<p><i>Generates a constant current pulse of a certain <strong>amplitude</strong> for a specified <strong>duration</strong> after a <strong>delay.</strong> Scaled by <strong>weight,</strong> if set.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="7537d3ee-1de2-4260-9e37-33c330cea6de" name="33a8e4d1-53c9-4bc6-88c5-5a41ee1f24ce" type="radio">
+</input><label class="tabbed-label" for="7537d3ee-1de2-4260-9e37-33c330cea6de">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>amplitude</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="33144701-1d8d-4a3f-b30a-b9968c2f6c31" name="33a8e4d1-53c9-4bc6-88c5-5a41ee1f24ce" type="radio">
+</input><label class="tabbed-label" for="33144701-1d8d-4a3f-b30a-b9968c2f6c31">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ce56e2d7-5d76-4e56-9a4e-e437da2a850b" name="33a8e4d1-53c9-4bc6-88c5-5a41ee1f24ce" type="radio">
+</input><label class="tabbed-label" for="ce56e2d7-5d76-4e56-9a4e-e437da2a850b">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="376cd09a-5a33-4efd-bba6-69764f3456bb" name="33a8e4d1-53c9-4bc6-88c5-5a41ee1f24ce" type="radio">
+</input><label class="tabbed-label" for="376cd09a-5a33-4efd-bba6-69764f3456bb">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>i</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a>  (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = 0</p>
+</dd>
+<dd><p>IF t &gt;= delay AND t &lt; duration + delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * amplitude</p>
+</dd>
+<dd><p>IF t &gt;= duration + delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="compoundinput">
+<span id="schema-compoundinput"></span><h2>compoundInput<a class="headerlink" href="#compoundinput" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a></em></p>
+<p><i>Generates a current which is the sum of all its child  <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a> elements.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="5f690a10-9b3a-4230-974e-18d9e7d18299" name="5bab35da-6df3-420a-a7de-4a61ba9e7bca" type="radio">
+</input><label class="tabbed-label" for="5f690a10-9b3a-4230-974e-18d9e7d18299">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>currents</p></td>
+<td><p><a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="67be16ec-d865-45d4-b27f-7e92f4b18683" name="5bab35da-6df3-420a-a7de-4a61ba9e7bca" type="radio">
+</input><label class="tabbed-label" for="67be16ec-d865-45d4-b27f-7e92f4b18683">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="5da9e207-2f85-4a27-adcc-a113382d6b5f" name="5bab35da-6df3-420a-a7de-4a61ba9e7bca" type="radio">
+</input><label class="tabbed-label" for="5da9e207-2f85-4a27-adcc-a113382d6b5f">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f736447e-224f-4d9d-89e1-26cfbf69c339" name="5bab35da-6df3-420a-a7de-4a61ba9e7bca" type="radio">
+</input><label class="tabbed-label" for="f736447e-224f-4d9d-89e1-26cfbf69c339">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>i_total</strong> = currents[*]-&gt;i(reduce method: add)</p>
+</dd>
+<dd><p><strong>i</strong> = weight * i_total (exposed as <strong>i</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="compoundinputdl">
+<span id="schema-compoundinputdl"></span><h2>compoundInputDL<a class="headerlink" href="#compoundinputdl" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a></em></p>
+<p><i>Generates a current which is the sum of all its child  <a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a> elements.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="975fb3b6-0057-40e7-823d-d532bbf90891" name="a0925575-b99e-4606-83d4-077d294282c8" type="radio">
+</input><label class="tabbed-label" for="975fb3b6-0057-40e7-823d-d532bbf90891">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>currents</p></td>
+<td><p><a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a0af0cc4-3201-4a23-9ee2-47fc866afea0" name="a0925575-b99e-4606-83d4-077d294282c8" type="radio">
+</input><label class="tabbed-label" for="a0af0cc4-3201-4a23-9ee2-47fc866afea0">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>I (from <a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="66c3010c-620d-4a41-a218-cd017b90544a" name="a0925575-b99e-4606-83d4-077d294282c8" type="radio">
+</input><label class="tabbed-label" for="66c3010c-620d-4a41-a218-cd017b90544a">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7bebd342-3765-4440-8e2e-a083c3e953d8" name="a0925575-b99e-4606-83d4-077d294282c8" type="radio">
+</input><label class="tabbed-label" for="7bebd342-3765-4440-8e2e-a083c3e953d8">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>Derived Variables</strong></i></dt><dd><p><strong>I_total</strong> = currents[*]-&gt;I(reduce method: add)</p>
+</dd>
+<dd><p><strong>I</strong> = weight * I_total (exposed as <strong>I</strong>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="pulsegeneratordl">
+<span id="schema-pulsegeneratordl"></span><h2>pulseGeneratorDL<a class="headerlink" href="#pulsegeneratordl" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a></em></p>
+<p><i>Dimensionless equivalent of  <a class="reference internal" href="#schema-pulsegenerator"><span class="std std-ref">pulseGenerator</span></a>. Generates a constant current pulse of a certain <strong>amplitude</strong> for a specified <strong>duration</strong> after a <strong>delay</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="94c08d94-7675-49c4-b1b0-418d4ccc7391" name="2cfa06bf-ebba-441c-8c5c-dea4c81fd4a8" type="radio">
+</input><label class="tabbed-label" for="94c08d94-7675-49c4-b1b0-418d4ccc7391">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>amplitude</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="75f5a6d3-17a6-4873-a535-487a237b1a6e" name="2cfa06bf-ebba-441c-8c5c-dea4c81fd4a8" type="radio">
+</input><label class="tabbed-label" for="75f5a6d3-17a6-4873-a535-487a237b1a6e">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>I (from <a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="510d606b-0d1b-4c42-8c5e-b84198e94ab5" name="2cfa06bf-ebba-441c-8c5c-dea4c81fd4a8" type="radio">
+</input><label class="tabbed-label" for="510d606b-0d1b-4c42-8c5e-b84198e94ab5">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="26538977-a3fb-4429-86a6-2f01e82faa77" name="2cfa06bf-ebba-441c-8c5c-dea4c81fd4a8" type="radio">
+</input><label class="tabbed-label" for="26538977-a3fb-4429-86a6-2f01e82faa77">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>I</strong>: Dimensionless  (exposed as <strong>I</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = 0</p>
+</dd>
+<dd><p>IF t &gt;= delay AND t &lt; duration + delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = weight * amplitude</p>
+</dd>
+<dd><p>IF t &gt;= duration + delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="sinegenerator">
+<span id="schema-sinegenerator"></span><h2>sineGenerator<a class="headerlink" href="#sinegenerator" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a></em></p>
+<p><i>Generates a sinusoidally varying current after a time <strong>delay,</strong> for a fixed <strong>duration.</strong> The <strong>period</strong> and maximum <strong>amplitude</strong> of the current can be set as well as the <strong>phase</strong> at which to start.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ccae98f1-c20e-4212-a404-4ec89464eca1" name="0cc71e29-c85e-49d5-9a64-a35909aac093" type="radio">
+</input><label class="tabbed-label" for="ccae98f1-c20e-4212-a404-4ec89464eca1">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>amplitude</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>period</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>phase</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="687db050-630e-49ff-bd2e-2f814377a66c" name="0cc71e29-c85e-49d5-9a64-a35909aac093" type="radio">
+</input><label class="tabbed-label" for="687db050-630e-49ff-bd2e-2f814377a66c">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7934fd14-5666-4c09-9b09-6d9fdfb7e03f" name="0cc71e29-c85e-49d5-9a64-a35909aac093" type="radio">
+</input><label class="tabbed-label" for="7934fd14-5666-4c09-9b09-6d9fdfb7e03f">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="ddbdd789-4374-46b6-99b5-74f1eb6f098d" name="0cc71e29-c85e-49d5-9a64-a35909aac093" type="radio">
+</input><label class="tabbed-label" for="ddbdd789-4374-46b6-99b5-74f1eb6f098d">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>i</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a>  (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = 0</p>
+</dd>
+<dd><p>IF t &gt;= delay AND t &lt; duration+delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * amplitude * sin(phase + (2 * 3.14159265 * (t-delay)/period) )</p>
+</dd>
+<dd><p>IF t &gt;= duration+delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="sinegeneratordl">
+<span id="schema-sinegeneratordl"></span><h2>sineGeneratorDL<a class="headerlink" href="#sinegeneratordl" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a></em></p>
+<p><i>Generates a sinusoidally varying current after a time <strong>delay,</strong> for a fixed <strong>duration.</strong> The <strong>period</strong> and maximum <strong>amplitude</strong> of the current can be set as well as the <strong>phase</strong> at which to start.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="5ca59852-b3b8-49ba-9ff8-03f706602779" name="7d0e7bf5-7789-4853-ab0d-e4ff4400490f" type="radio">
+</input><label class="tabbed-label" for="5ca59852-b3b8-49ba-9ff8-03f706602779">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>amplitude</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>period</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>phase</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="383cf3d2-781e-4b86-8241-a89d6790e082" name="7d0e7bf5-7789-4853-ab0d-e4ff4400490f" type="radio">
+</input><label class="tabbed-label" for="383cf3d2-781e-4b86-8241-a89d6790e082">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>I (from <a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="9ddf625c-7602-498c-8674-bef832c8e761" name="7d0e7bf5-7789-4853-ab0d-e4ff4400490f" type="radio">
+</input><label class="tabbed-label" for="9ddf625c-7602-498c-8674-bef832c8e761">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="67e457c4-cf42-4d48-9f41-95aecf594988" name="7d0e7bf5-7789-4853-ab0d-e4ff4400490f" type="radio">
+</input><label class="tabbed-label" for="67e457c4-cf42-4d48-9f41-95aecf594988">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>I</strong>: Dimensionless  (exposed as <strong>I</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = 0</p>
+</dd>
+<dd><p>IF t &gt;= delay AND t &lt; duration+delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = weight * amplitude * sin(phase + (2 * 3.14159265 * (t-delay)/period) )</p>
+</dd>
+<dd><p>IF t &gt;= duration+delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="rampgenerator">
+<span id="schema-rampgenerator"></span><h2>rampGenerator<a class="headerlink" href="#rampgenerator" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a></em></p>
+<p><i>Generates a ramping current after a time <strong>delay,</strong> for a fixed <strong>duration.</strong> During this time the current steadily changes from <strong>startAmplitude</strong> to <strong>finishAmplitude.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="cb584079-a797-48c5-83ff-2c2e626c6deb" name="7546a28e-68d9-4afd-8e05-fb9d557e09af" type="radio">
+</input><label class="tabbed-label" for="cb584079-a797-48c5-83ff-2c2e626c6deb">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>baselineAmplitude</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>finishAmplitude</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>startAmplitude</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="f45236da-bf72-40b2-aef6-a1c7f9f84904" name="7546a28e-68d9-4afd-8e05-fb9d557e09af" type="radio">
+</input><label class="tabbed-label" for="f45236da-bf72-40b2-aef6-a1c7f9f84904">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="9decfceb-6acb-4bab-a599-7e5e8f4e6dd7" name="7546a28e-68d9-4afd-8e05-fb9d557e09af" type="radio">
+</input><label class="tabbed-label" for="9decfceb-6acb-4bab-a599-7e5e8f4e6dd7">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d7d1688f-78dd-4068-8bf1-80df4246214f" name="7546a28e-68d9-4afd-8e05-fb9d557e09af" type="radio">
+</input><label class="tabbed-label" for="d7d1688f-78dd-4068-8bf1-80df4246214f">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>i</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a>  (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>i</strong> = baselineAmplitude</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * baselineAmplitude</p>
+</dd>
+<dd><p>IF t &gt;= delay AND t &lt; duration+delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * (startAmplitude + (finishAmplitude - startAmplitude) * (t - delay) / (duration))</p>
+</dd>
+<dd><p>IF t &gt;= duration+delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * baselineAmplitude</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="rampgeneratordl">
+<span id="schema-rampgeneratordl"></span><h2>rampGeneratorDL<a class="headerlink" href="#rampgeneratordl" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a></em></p>
+<p><i>Generates a ramping current after a time <strong>delay,</strong> for a fixed <strong>duration.</strong> During this time the dimensionless current steadily changes from <strong>startAmplitude</strong> to <strong>finishAmplitude.</strong>.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="918a048e-5fd0-4a8c-bcbf-567706ebaea7" name="a3e6e814-e3ac-4f2f-bb1e-86a700e0a986" type="radio">
+</input><label class="tabbed-label" for="918a048e-5fd0-4a8c-bcbf-567706ebaea7">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>baselineAmplitude</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>finishAmplitude</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-odd"><td><p>startAmplitude</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="7a86937d-7e9a-4611-a6c4-2c7f584d7a8d" name="a3e6e814-e3ac-4f2f-bb1e-86a700e0a986" type="radio">
+</input><label class="tabbed-label" for="7a86937d-7e9a-4611-a6c4-2c7f584d7a8d">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>I (from <a class="reference internal" href="#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a>)</em></p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="9e9e43f3-0986-4fb0-b114-27adebf194ed" name="a3e6e814-e3ac-4f2f-bb1e-86a700e0a986" type="radio">
+</input><label class="tabbed-label" for="9e9e43f3-0986-4fb0-b114-27adebf194ed">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="65acc9ea-d998-4098-88bd-1255145893f4" name="a3e6e814-e3ac-4f2f-bb1e-86a700e0a986" type="radio">
+</input><label class="tabbed-label" for="65acc9ea-d998-4098-88bd-1255145893f4">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>I</strong>: Dimensionless  (exposed as <strong>I</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>I</strong> = baselineAmplitude</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = weight * baselineAmplitude</p>
+</dd>
+<dd><p>IF t &gt;= delay AND t &lt; duration+delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = weight * (startAmplitude + (finishAmplitude - startAmplitude) * (t - delay) / (duration))</p>
+</dd>
+<dd><p>IF t &gt;= duration+delay THEN</p>
+</dd>
+<dd><p> <strong>I</strong> = weight * baselineAmplitude</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="voltageclamp">
+<span id="schema-voltageclamp"></span><h2>voltageClamp<a class="headerlink" href="#voltageclamp" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a></em></p>
+<p><i>Voltage clamp. Applies a variable current <strong>i</strong> to try to keep parent at <strong>targetVoltage.</strong> Not yet fully tested!!! Consider using voltageClampTriple!!</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="31a6ce1f-3883-47f8-b1bc-063e56701d6d" name="e0f3ba0a-5889-4aaf-9247-6672a6359d45" type="radio">
+</input><label class="tabbed-label" for="31a6ce1f-3883-47f8-b1bc-063e56701d6d">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>simpleSeriesResistance</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-resistance"><span class="std std-ref">resistance</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>targetVoltage</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d357a9b1-507f-469d-9d37-ef2e89ed5039" name="e0f3ba0a-5889-4aaf-9247-6672a6359d45" type="radio">
+</input><label class="tabbed-label" for="d357a9b1-507f-469d-9d37-ef2e89ed5039">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="b953609b-617e-4b4e-88c2-03d9b4e67e0f" name="e0f3ba0a-5889-4aaf-9247-6672a6359d45" type="radio">
+</input><label class="tabbed-label" for="b953609b-617e-4b4e-88c2-03d9b4e67e0f">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="51659460-6490-4d7b-b38e-60d807539e4c" name="e0f3ba0a-5889-4aaf-9247-6672a6359d45" type="radio">
+</input><label class="tabbed-label" for="51659460-6490-4d7b-b38e-60d807539e4c">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="a47bd2ee-c647-482a-bd45-a34fbf768ae6" name="e0f3ba0a-5889-4aaf-9247-6672a6359d45" type="radio">
+</input><label class="tabbed-label" for="a47bd2ee-c647-482a-bd45-a34fbf768ae6">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>i</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a>  (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = 0</p>
+</dd>
+<dd><p>IF t &gt;= delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * (targetVoltage - v) / simpleSeriesResistance</p>
+</dd>
+<dd><p>IF t &gt; duration + delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = 0</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="voltageclamptriple">
+<span id="schema-voltageclamptriple"></span><h2>voltageClampTriple<a class="headerlink" href="#voltageclamptriple" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a></em></p>
+<p><i>Voltage clamp with 3 clamp levels. Applies a variable current <strong>i</strong> (through <strong>simpleSeriesResistance)</strong> to try to keep parent cell at <strong>conditioningVoltage</strong> until time <strong>delay,</strong> <strong>testingVoltage</strong> until <strong>delay</strong> + <strong>duration,</strong> and <strong>returnVoltage</strong> afterwards. Only enabled if <strong>active</strong> = 1.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="d6fc5135-eb31-4363-8601-595d0fb1e14a" name="77aa6735-249c-4055-91e5-c6bc79786b4c" type="radio">
+</input><label class="tabbed-label" for="d6fc5135-eb31-4363-8601-595d0fb1e14a">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>active</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p>conditioningVoltage</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>delay</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>duration</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>returnVoltage</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>simpleSeriesResistance</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-resistance"><span class="std std-ref">resistance</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>testingVoltage</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3fd4d1b2-a63b-46b7-90a1-b834c4b50d92" name="77aa6735-249c-4055-91e5-c6bc79786b4c" type="radio">
+</input><label class="tabbed-label" for="3fd4d1b2-a63b-46b7-90a1-b834c4b50d92">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>i (from <a class="reference internal" href="#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d06a3d0c-9294-4834-bad0-cfacac3ef296" name="77aa6735-249c-4055-91e5-c6bc79786b4c" type="radio">
+</input><label class="tabbed-label" for="d06a3d0c-9294-4834-bad0-cfacac3ef296">
+Requirements</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>v (from <a class="reference internal" href="#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="92fd6999-17fe-4359-96c6-0bd102af4e1f" name="77aa6735-249c-4055-91e5-c6bc79786b4c" type="radio">
+</input><label class="tabbed-label" for="92fd6999-17fe-4359-96c6-0bd102af4e1f">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="69eae0a1-d5f6-490c-b92f-73a040062bf7" name="77aa6735-249c-4055-91e5-c6bc79786b4c" type="radio">
+</input><label class="tabbed-label" for="69eae0a1-d5f6-490c-b92f-73a040062bf7">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>i</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a>  (exposed as <strong>i</strong>)</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF active = 1 AND t &lt; delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * (conditioningVoltage - v) / simpleSeriesResistance</p>
+</dd>
+<dd><p>IF active = 1 AND t &gt;= delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * (testingVoltage - v) / simpleSeriesResistance</p>
+</dd>
+<dd><p>IF active = 1 AND t &gt; duration + delay THEN</p>
+</dd>
+<dd><p> <strong>i</strong> = weight * (returnVoltage - v) / simpleSeriesResistance</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="spikearray">
+<span id="schema-spikearray"></span><h2>spikeArray<a class="headerlink" href="#spikearray" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a></em></p>
+<p><i>Set of spike ComponentTypes, each emitting one spike at a certain time. Can be used to feed a predetermined spike train into a cell.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="32eae74d-5345-4cfe-b880-c37a91946d90" name="77f5bf4b-e551-45c6-9a0b-fd9de230cefa" type="radio">
+</input><label class="tabbed-label" for="32eae74d-5345-4cfe-b880-c37a91946d90">
+Children list</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spikes</p></td>
+<td><p><a class="reference internal" href="#schema-spike"><span class="std std-ref">spike</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="e2396e20-3f05-4990-b35c-ec1084b7df99" name="77f5bf4b-e551-45c6-9a0b-fd9de230cefa" type="radio">
+</input><label class="tabbed-label" for="e2396e20-3f05-4990-b35c-ec1084b7df99">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>tsince (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="02460b9d-0068-4215-8689-fc80bda33186" name="77f5bf4b-e551-45c6-9a0b-fd9de230cefa" type="radio">
+</input><label class="tabbed-label" for="02460b9d-0068-4215-8689-fc80bda33186">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>Direction: in</p></td>
+</tr>
+<tr class="row-even"><td><p><em>spike (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="d43b2bfe-460a-4d50-91c2-bb084864fcd1" name="77f5bf4b-e551-45c6-9a0b-fd9de230cefa" type="radio">
+</input><label class="tabbed-label" for="d43b2bfe-460a-4d50-91c2-bb084864fcd1">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dt><i><strong>On Events</strong></i></dt><dd><p>EVENT IN on port: <strong>in</strong></p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="spike">
+<span id="schema-spike"></span><h2>spike<a class="headerlink" href="#spike" title="Permalink to this headline">¶</a></h2>
+<p>extends <em><a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a></em></p>
+<p><i>Emits a single spike at the specified time.</i></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="35a095ac-05f7-4354-a9b8-76ae7c440f0f" name="7e85ff47-c78b-4e19-932f-bc30c8685453" type="radio">
+</input><label class="tabbed-label" for="35a095ac-05f7-4354-a9b8-76ae7c440f0f">
+Parameters</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>time</p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3f3711b5-8e88-45b7-8eae-95239c52ec73" name="7e85ff47-c78b-4e19-932f-bc30c8685453" type="radio">
+</input><label class="tabbed-label" for="3f3711b5-8e88-45b7-8eae-95239c52ec73">
+Exposures</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>spiked</p></td>
+<td><p>Dimensionless</p></td>
+</tr>
+<tr class="row-even"><td><p><em>tsince (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="26af33e4-37f1-4d35-8b13-0544dfa7b652" name="7e85ff47-c78b-4e19-932f-bc30c8685453" type="radio">
+</input><label class="tabbed-label" for="26af33e4-37f1-4d35-8b13-0544dfa7b652">
+Event Ports</label><div class="tabbed-content docutils">
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>spike (from <a class="reference internal" href="#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>)</em></p></td>
+<td><p>Direction: out</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="2e2d49d2-5192-4ec0-ab21-9d3b1fcc0e08" name="7e85ff47-c78b-4e19-932f-bc30c8685453" type="radio">
+</input><label class="tabbed-label" for="2e2d49d2-5192-4ec0-ab21-9d3b1fcc0e08">
+Dynamics</label><div class="tabbed-content docutils">
+<dl class="simple myst">
+<dt><i><strong>Structure</strong></i></dt><dd><p>WITH <strong>this</strong> AS <strong>a</strong></p>
+</dd>
+<dd><p>WITH <strong>parent</strong> AS <strong>b</strong></p>
+</dd>
+<dd><p>EVENT CONNECTION from <strong>a</strong> TO  <strong>b</strong></p>
+</dd>
+<dt><i><strong>State variables</strong></i></dt><dd><p><strong>tsince</strong>: <a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>  (exposed as <strong>tsince</strong>)</p>
+</dd>
+<dd><p><strong>spiked</strong>: Dimensionless  (exposed as <strong>spiked</strong>)</p>
+</dd>
+<dt><i><strong>On Start</strong></i></dt><dd><p><strong>tsince</strong> = 0</p>
+</dd>
+<dt><i><strong>On Conditions</strong></i></dt><dd><p>IF (t &gt;= time) AND (spiked = 0) THEN</p>
+</dd>
+<dd><p> <strong>spiked</strong> = 1</p>
+</dd>
+<dd><p> <strong>tsince</strong> = 0</p>
+</dd>
+<dd><p> EVENT OUT on port <strong>spike</strong></p>
+</dd>
+<dt><i><strong>Time Derivatives</strong></i></dt><dd><p>d <strong>tsince</strong> /dt = 1</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs/Schemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Synapses.html" title="previous page">Synapses</a>
+    <a class='right-next' id="next-link" href="Networks.html" title="next page">Networks</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

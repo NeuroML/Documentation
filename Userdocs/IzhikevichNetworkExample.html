@@ -1,0 +1,934 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A two population network of regular spiking Izhikevich neurons &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interactive two population network example" href="NML2_examples/IzhikevichNetwork.html" />
+    <link rel="prev" title="Interactive single Izhikevich neuron NeuroML example" href="NML2_examples/SingleNeuron.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Specification.html">
+   Specification
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/Channels.html">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/Inputs.html">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Schemas/PyNN.html">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Software/Software.html">
+   Software and Tools
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/pyNeuroML.html">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Software/SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Userdocs/IzhikevichNetworkExample.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/IzhikevichNetworkExample.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/IzhikevichNetworkExample.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#declaring-the-model-in-neuroml">
+   Declaring the model in NeuroML
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-generated-neuroml-model">
+     The generated NeuroML model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-the-model">
+   Simulating the model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-recorded-spike-times">
+   Plotting recorded spike times
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-two-population-network-of-regular-spiking-izhikevich-neurons">
+<h1>A two population network of regular spiking Izhikevich neurons<a class="headerlink" href="#a-two-population-network-of-regular-spiking-izhikevich-neurons" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have defined a cell, let us see how a network of these cells may be declared and simulated.
+We will create a small network of cells, simulate this network, and generate a plot of the spike times of the cells (a raster plot):</p>
+<div class="figure align-center" id="id1">
+<img alt="Spike times of neurons recorded from the simulation" src="../_images/example_izhikevich2007network_sim-spikes.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Spike times of neurons recorded from the simulation.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The Python script used to create the model, simulate it, and generate this plot is below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Create a simple network with two populations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">NeuroMLDocument</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">Izhikevich2007Cell</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">Network</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">ExpOneSynapse</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">Population</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">Projection</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">PulseGenerator</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">ExplicitInput</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">Connection</span>
+<span class="kn">import</span> <span class="nn">neuroml.writers</span> <span class="k">as</span> <span class="nn">writers</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.lems</span> <span class="kn">import</span> <span class="n">LEMSSimulation</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">nml_doc</span> <span class="o">=</span> <span class="n">NeuroMLDocument</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">)</span>
+
+<span class="n">iz0</span> <span class="o">=</span> <span class="n">Izhikevich2007Cell</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;iz2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">izhikevich2007_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iz0</span><span class="p">)</span>
+
+<span class="n">syn0</span> <span class="o">=</span> <span class="n">ExpOneSynapse</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;syn0&quot;</span><span class="p">,</span> <span class="n">gbase</span><span class="o">=</span><span class="s2">&quot;65nS&quot;</span><span class="p">,</span> <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;0mV&quot;</span><span class="p">,</span> <span class="n">tau_decay</span><span class="o">=</span><span class="s2">&quot;3ms&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">exp_one_synapses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">syn0</span><span class="p">)</span>
+
+<span class="n">net</span> <span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+
+<span class="n">size0</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">pop0</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzPop0&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">iz0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size0</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop0</span><span class="p">)</span>
+
+<span class="n">size1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">pop1</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzPop1&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">iz0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size1</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop1</span><span class="p">)</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">Projection</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;proj&#39;</span><span class="p">,</span> <span class="n">presynaptic_population</span><span class="o">=</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                  <span class="n">postsynaptic_population</span><span class="o">=</span><span class="n">pop1</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">synapse</span><span class="o">=</span><span class="n">syn0</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">projections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">921</span><span class="p">)</span>
+<span class="n">prob_connection</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">pre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size0</span><span class="p">):</span>
+    <span class="n">pg</span> <span class="o">=</span> <span class="n">PulseGenerator</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pulseGen_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pre</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;0ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;10000ms&quot;</span><span class="p">,</span>
+        <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> nA&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+    <span class="p">)</span>
+    <span class="n">nml_doc</span><span class="o">.</span><span class="n">pulse_generators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pg</span><span class="p">)</span>
+
+    <span class="n">exp_input</span> <span class="o">=</span> <span class="n">ExplicitInput</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pre</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">explicit_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exp_input</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">prob_connection</span><span class="p">:</span>
+            <span class="n">syn</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">count</span><span class="p">,</span>
+                             <span class="n">pre_cell_id</span><span class="o">=</span><span class="s2">&quot;../</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pre</span><span class="p">),</span>
+                             <span class="n">synapse</span><span class="o">=</span><span class="n">syn0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                             <span class="n">post_cell_id</span><span class="o">=</span><span class="s2">&quot;../</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop1</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">post</span><span class="p">))</span>
+            <span class="n">proj</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">syn</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">nml_file</span> <span class="o">=</span> <span class="s1">&#39;izhikevich2007_network.nml&#39;</span>
+<span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">nml_file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written network file to: &quot;</span> <span class="o">+</span> <span class="n">nml_file</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+
+<span class="n">simulation_id</span> <span class="o">=</span> <span class="s2">&quot;example_izhikevich2007network_sim&quot;</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">simulation_id</span><span class="p">,</span>
+                            <span class="n">duration</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+
+<span class="n">simulation</span><span class="o">.</span><span class="n">create_event_output_file</span><span class="p">(</span>
+    <span class="s2">&quot;pop0&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.spikes.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ID_TIME&#39;</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">pre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size0</span><span class="p">):</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_selection_to_event_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;pop0&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="s1">&#39;IzPop0[</span><span class="si">{}</span><span class="s1">]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pre</span><span class="p">),</span> <span class="s1">&#39;spike&#39;</span><span class="p">)</span>
+
+<span class="n">lems_simulation_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+
+<span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml_neuron</span><span class="p">(</span>
+    <span class="n">lems_simulation_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1"># Load the data from the file and plot the spike times</span>
+<span class="c1"># using the pynml generate_plot utility function.</span>
+<span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.spikes.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+    <span class="s2">&quot;Spike times&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_figure_to</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-spikes.png&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;cell ID&quot;</span><span class="p">,</span>
+    <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>As with the previous example, we will step through this script to see how the various components of the network are declared in NeuroML before running the simulation and generating the plot.</p>
+<div class="section" id="declaring-the-model-in-neuroml">
+<h2>Declaring the model in NeuroML<a class="headerlink" href="#declaring-the-model-in-neuroml" title="Permalink to this headline">¶</a></h2>
+<p>To declare the complete network model, we must again first declare its core entities:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nml_doc</span> <span class="o">=</span> <span class="n">NeuroMLDocument</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">)</span>
+
+<span class="n">iz0</span> <span class="o">=</span> <span class="n">Izhikevich2007Cell</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;iz2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">izhikevich2007_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iz0</span><span class="p">)</span>
+
+<span class="n">syn0</span> <span class="o">=</span> <span class="n">ExpOneSynapse</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;syn0&quot;</span><span class="p">,</span> <span class="n">gbase</span><span class="o">=</span><span class="s2">&quot;65nS&quot;</span><span class="p">,</span> <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;0mV&quot;</span><span class="p">,</span> <span class="n">tau_decay</span><span class="o">=</span><span class="s2">&quot;3ms&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">exp_one_synapses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">syn0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we create a new document, declare the Izhikevich neuron, and also declare the synapse that we are going to use to connect one population of neurons to the other.
+Here we intend to use the <a class="reference external" href="https://www.neuroml.org/NeuroML2CoreTypes/Synapses.html#expOneSynapse">ExpOne Synapse</a>, where the conductance of the synapse increases instantaneously by a constant value <code class="docutils literal notranslate"><span class="pre">gbase</span></code> on receiving a spike, and then decays exponentially with a decay constant <code class="docutils literal notranslate"><span class="pre">tauDecay</span></code>.
+We can now declare our cell populations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+
+<span class="n">size0</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">pop0</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzPop0&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">iz0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size0</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop0</span><span class="p">)</span>
+
+<span class="n">size1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">pop1</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzPop1&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">iz0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size1</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we create projections between the two populations based on some probability of connection.
+To do this, we iterate over each post-synaptic neuron for each pre-synaptic neuron and draw a random number between 0 and 1.
+If the drawn number is less than the required probability of connection, the connection is created.</p>
+<p>While we are iterating over all our pre-synaptic cells here, we also add external inputs to them.
+(This could have been done in a different loop, but it is convenient to also do this here.)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">Projection</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;proj&#39;</span><span class="p">,</span> <span class="n">presynaptic_population</span><span class="o">=</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                  <span class="n">postsynaptic_population</span><span class="o">=</span><span class="n">pop1</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">synapse</span><span class="o">=</span><span class="n">syn0</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">projections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">921</span><span class="p">)</span>
+<span class="n">prob_connection</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">pre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size0</span><span class="p">):</span>
+    <span class="n">pg</span> <span class="o">=</span> <span class="n">PulseGenerator</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pulseGen_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pre</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;0ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;10000ms&quot;</span><span class="p">,</span>
+        <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> nA&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+    <span class="p">)</span>
+    <span class="n">nml_doc</span><span class="o">.</span><span class="n">pulse_generators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pg</span><span class="p">)</span>
+
+    <span class="n">exp_input</span> <span class="o">=</span> <span class="n">ExplicitInput</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pre</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">explicit_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exp_input</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">prob_connection</span><span class="p">:</span>
+            <span class="n">syn</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">count</span><span class="p">,</span>
+                             <span class="n">pre_cell_id</span><span class="o">=</span><span class="s2">&quot;../</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pre</span><span class="p">),</span>
+                             <span class="n">synapse</span><span class="o">=</span><span class="n">syn0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                             <span class="n">post_cell_id</span><span class="o">=</span><span class="s2">&quot;../</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop1</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">post</span><span class="p">))</span>
+            <span class="n">proj</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">syn</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>We can now save and validate our model, as before:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nml_file</span> <span class="o">=</span> <span class="s1">&#39;izhikevich2007_network.nml&#39;</span>
+<span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">nml_file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written network file to: &quot;</span> <span class="o">+</span> <span class="n">nml_file</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="the-generated-neuroml-model">
+<h3>The generated NeuroML model<a class="headerlink" href="#the-generated-neuroml-model" title="Permalink to this headline">¶</a></h3>
+<p>Let us take a look at the generated NeuroML model</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span>  <span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd&quot;</span> <span class="na">id=</span><span class="s">&quot;IzNet&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;expOneSynapse</span> <span class="na">id=</span><span class="s">&quot;syn0&quot;</span> <span class="na">gbase=</span><span class="s">&quot;65nS&quot;</span> <span class="na">erev=</span><span class="s">&quot;0mV&quot;</span> <span class="na">tauDecay=</span><span class="s">&quot;3ms&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;izhikevich2007Cell</span> <span class="na">id=</span><span class="s">&quot;iz2007RS0&quot;</span> <span class="na">C=</span><span class="s">&quot;100pF&quot;</span> <span class="na">v0=</span><span class="s">&quot;-60mV&quot;</span> <span class="na">k=</span><span class="s">&quot;0.7nS_per_mV&quot;</span> <span class="na">vr=</span><span class="s">&quot;-60mV&quot;</span> <span class="na">vt=</span><span class="s">&quot;-40mV&quot;</span> <span class="na">vpeak=</span><span class="s">&quot;35mV&quot;</span> <span class="na">a=</span><span class="s">&quot;0.03per_ms&quot;</span> <span class="na">b=</span><span class="s">&quot;-2nS&quot;</span> <span class="na">c=</span><span class="s">&quot;-50.0mV&quot;</span> <span class="na">d=</span><span class="s">&quot;100pA&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;pulseGenerator</span> <span class="na">id=</span><span class="s">&quot;pulseGen_0&quot;</span> <span class="na">delay=</span><span class="s">&quot;0ms&quot;</span> <span class="na">duration=</span><span class="s">&quot;10000ms&quot;</span> <span class="na">amplitude=</span><span class="s">&quot;0.098292 nA&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;pulseGenerator</span> <span class="na">id=</span><span class="s">&quot;pulseGen_1&quot;</span> <span class="na">delay=</span><span class="s">&quot;0ms&quot;</span> <span class="na">duration=</span><span class="s">&quot;10000ms&quot;</span> <span class="na">amplitude=</span><span class="s">&quot;0.076471 nA&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;pulseGenerator</span> <span class="na">id=</span><span class="s">&quot;pulseGen_2&quot;</span> <span class="na">delay=</span><span class="s">&quot;0ms&quot;</span> <span class="na">duration=</span><span class="s">&quot;10000ms&quot;</span> <span class="na">amplitude=</span><span class="s">&quot;0.033444 nA&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;pulseGenerator</span> <span class="na">id=</span><span class="s">&quot;pulseGen_3&quot;</span> <span class="na">delay=</span><span class="s">&quot;0ms&quot;</span> <span class="na">duration=</span><span class="s">&quot;10000ms&quot;</span> <span class="na">amplitude=</span><span class="s">&quot;0.010134 nA&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;pulseGenerator</span> <span class="na">id=</span><span class="s">&quot;pulseGen_4&quot;</span> <span class="na">delay=</span><span class="s">&quot;0ms&quot;</span> <span class="na">duration=</span><span class="s">&quot;10000ms&quot;</span> <span class="na">amplitude=</span><span class="s">&quot;0.080287 nA&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;network</span> <span class="na">id=</span><span class="s">&quot;IzNet&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;population</span> <span class="na">id=</span><span class="s">&quot;IzPop0&quot;</span> <span class="na">component=</span><span class="s">&quot;iz2007RS0&quot;</span> <span class="na">size=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;population</span> <span class="na">id=</span><span class="s">&quot;IzPop1&quot;</span> <span class="na">component=</span><span class="s">&quot;iz2007RS0&quot;</span> <span class="na">size=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;projection</span> <span class="na">id=</span><span class="s">&quot;proj&quot;</span> <span class="na">presynapticPopulation=</span><span class="s">&quot;IzPop0&quot;</span> <span class="na">postsynapticPopulation=</span><span class="s">&quot;IzPop1&quot;</span> <span class="na">synapse=</span><span class="s">&quot;syn0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;0&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[0]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[0]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[0]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[1]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;2&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[0]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[3]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;3&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[1]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[1]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;4&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[1]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[3]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;5&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[2]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[2]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;6&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[2]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[3]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;7&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[3]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[2]&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;connection</span> <span class="na">id=</span><span class="s">&quot;8&quot;</span> <span class="na">preCellId=</span><span class="s">&quot;../IzPop0[4]&quot;</span> <span class="na">postCellId=</span><span class="s">&quot;../IzPop1[1]&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/projection&gt;</span>
+        <span class="nt">&lt;explicitInput</span> <span class="na">target=</span><span class="s">&quot;IzPop0[0]&quot;</span> <span class="na">input=</span><span class="s">&quot;pulseGen_0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;explicitInput</span> <span class="na">target=</span><span class="s">&quot;IzPop0[1]&quot;</span> <span class="na">input=</span><span class="s">&quot;pulseGen_1&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;explicitInput</span> <span class="na">target=</span><span class="s">&quot;IzPop0[2]&quot;</span> <span class="na">input=</span><span class="s">&quot;pulseGen_2&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;explicitInput</span> <span class="na">target=</span><span class="s">&quot;IzPop0[3]&quot;</span> <span class="na">input=</span><span class="s">&quot;pulseGen_3&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;explicitInput</span> <span class="na">target=</span><span class="s">&quot;IzPop0[4]&quot;</span> <span class="na">input=</span><span class="s">&quot;pulseGen_4&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/network&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>It is easy to see how the model is clearly declared in the NeuroML file.
+Observe how entities are referenced in NeuroML depending on their location in the document architecture.
+Here, <code class="docutils literal notranslate"><span class="pre">population</span></code> and <code class="docutils literal notranslate"><span class="pre">projection</span></code> are at the same level.
+The synaptic connections using the <code class="docutils literal notranslate"><span class="pre">connection</span></code> tag are at the next level.
+So, in the <code class="docutils literal notranslate"><span class="pre">connection</span></code> tags, populations are to be referred to as <code class="docutils literal notranslate"><span class="pre">../</span></code> which indicates the previous level.
+The <code class="docutils literal notranslate"><span class="pre">explicitInput</span></code> tag is at the same level as the <code class="docutils literal notranslate"><span class="pre">population</span></code> and <code class="docutils literal notranslate"><span class="pre">projection</span></code> tags, so we do <em>not</em> need to use <code class="docutils literal notranslate"><span class="pre">../</span></code> here to reference them.</p>
+<p>Another point worth noting here is that because we’ve defined a population of the same components by specifying a size rather than by individually adding components to it, we can refer to the entities of the population using the common <code class="docutils literal notranslate"><span class="pre">[..]</span></code> index operator.</p>
+<!-- TODO: why are the pulseGens not referred to as ../PulseGens? They're at the previous level too. Are they the top level and thus considered to be global? -->
+<p>The advantage of such a declarative format is that we can also easily get information on our model from the NeuroML file.
+pyNeuroML includes the helper <code class="docutils literal notranslate"><span class="pre">pynml-summary</span></code> script:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pynml-summary izhikevich2007_network.nml
+<span class="go">*******************************************************</span>
+<span class="go">* NeuroMLDocument: IzNet</span>
+<span class="go">*</span>
+<span class="go">*   ExpOneSynapse: [&#39;syn0&#39;]</span>
+<span class="go">*   Izhikevich2007Cell: [&#39;iz2007RS0&#39;]</span>
+<span class="go">*   PulseGenerator: [&#39;pulseGen_0&#39;, &#39;pulseGen_1&#39;, &#39;pulseGen_2&#39;, &#39;pulseGen_3&#39;, &#39;pulseGen_4&#39;]</span>
+<span class="go">*</span>
+<span class="go">*  Network: IzNet</span>
+<span class="go">*</span>
+<span class="go">*   10 cells in 2 populations</span>
+<span class="go">*     Population: IzPop0 with 5 components of type iz2007RS0</span>
+<span class="go">*     Population: IzPop1 with 5 components of type iz2007RS0</span>
+<span class="go">*</span>
+<span class="go">*   9 connections in 1 projections</span>
+<span class="go">*     Projection: proj from IzPop0 to IzPop1, synapse: syn0</span>
+<span class="go">*       9 connections: [(Connection 0: 0 -&gt; 0), ...]</span>
+<span class="go">*</span>
+<span class="go">*   0 inputs in 0 input lists</span>
+<span class="go">*</span>
+<span class="go">*******************************************************</span>
+</pre></div>
+</div>
+<!-- TODO: Ask Padraig what's the difference between direct Synapses and projections, and when should they be used? -->
+<p>We can also generate a graphical summary of our model using <code class="docutils literal notranslate"><span class="pre">pynml</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pynml izhikevich2007_network.nml -graph <span class="m">2</span>
+<span class="go">neuromllite &gt;&gt;&gt; Initiating GraphViz handler, level 2, engine: dot, seed: 1234</span>
+<span class="go">Parsing: izhikevich2007_network.nml</span>
+<span class="go">Loaded: izhikevich2007_network.nml as NeuroMLDocument</span>
+<span class="go">....</span>
+</pre></div>
+</div>
+<p>This generates the following model summary diagram:</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IzNet.gv.png"><img alt="Model summary graph generated using pynml and the dot tool." src="../_images/IzNet.gv.png" style="width: 983.5px; height: 125.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">A summary graph of the model generated using pynml and the dot tool.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>In our very simple network here, neurons do not have morphologies and are not distributed in space.
+In later examples, however, we will also see how summary figures of the network that show the morphologies, locations of different layers and neurons, and so on can also be generated using the NeuroML tools.</p>
+</div>
+</div>
+<div class="section" id="simulating-the-model">
+<h2>Simulating the model<a class="headerlink" href="#simulating-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have our model set up, we can proceed to simulating it.
+We create our simulation, and setup the information we want to record from it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">simulation_id</span> <span class="o">=</span> <span class="s2">&quot;example_izhikevich2007network_sim&quot;</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">simulation_id</span><span class="p">,</span>
+                            <span class="n">duration</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+
+<span class="n">simulation</span><span class="o">.</span><span class="n">create_event_output_file</span><span class="p">(</span>
+    <span class="s2">&quot;pop0&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.spikes.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ID_TIME&#39;</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">pre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size0</span><span class="p">):</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_selection_to_event_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;pop0&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="s1">&#39;IzPop0[</span><span class="si">{}</span><span class="s1">]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pre</span><span class="p">),</span> <span class="s1">&#39;spike&#39;</span><span class="p">)</span>
+
+<span class="n">lems_simulation_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The generated LEMS file is here:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Lems&gt;</span>
+    
+    <span class="c">&lt;!-- </span>
+
+<span class="c">        This LEMS file has been automatically generated using PyNeuroML v0.5.9 (libNeuroML v0.2.54)</span>
+
+<span class="c">     --&gt;</span>
+    
+    <span class="c">&lt;!-- Specify which component to run --&gt;</span>
+    <span class="nt">&lt;Target</span> <span class="na">component=</span><span class="s">&quot;example_izhikevich2007network_sim&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- Include core NeuroML2 ComponentType definitions --&gt;</span>
+    <span class="nt">&lt;Include</span> <span class="na">file=</span><span class="s">&quot;Cells.xml&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Include</span> <span class="na">file=</span><span class="s">&quot;Networks.xml&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Include</span> <span class="na">file=</span><span class="s">&quot;Simulation.xml&quot;</span><span class="nt">/&gt;</span>
+    
+    <span class="nt">&lt;Include</span> <span class="na">file=</span><span class="s">&quot;izhikevich2007_network.nml&quot;</span><span class="nt">/&gt;</span>
+   
+    <span class="nt">&lt;Simulation</span> <span class="na">id=</span><span class="s">&quot;example_izhikevich2007network_sim&quot;</span> <span class="na">length=</span><span class="s">&quot;10000ms&quot;</span> <span class="na">step=</span><span class="s">&quot;0.1ms&quot;</span> <span class="na">target=</span><span class="s">&quot;IzNet&quot;</span> <span class="na">seed=</span><span class="s">&quot;123&quot;</span><span class="nt">&gt;</span>  <span class="c">&lt;!-- Note seed: ensures same random numbers used every run --&gt;</span>
+        
+        <span class="nt">&lt;EventOutputFile</span> <span class="na">id=</span><span class="s">&quot;pop0&quot;</span> <span class="na">fileName=</span><span class="s">&quot;example_izhikevich2007network_sim.spikes.dat&quot;</span> <span class="na">format=</span><span class="s">&quot;ID_TIME&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;EventSelection</span> <span class="na">id=</span><span class="s">&quot;0&quot;</span> <span class="na">select=</span><span class="s">&quot;IzPop0[0]&quot;</span> <span class="na">eventPort=</span><span class="s">&quot;spike&quot;</span><span class="nt">/&gt;</span> 
+            <span class="nt">&lt;EventSelection</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span> <span class="na">select=</span><span class="s">&quot;IzPop0[1]&quot;</span> <span class="na">eventPort=</span><span class="s">&quot;spike&quot;</span><span class="nt">/&gt;</span> 
+            <span class="nt">&lt;EventSelection</span> <span class="na">id=</span><span class="s">&quot;2&quot;</span> <span class="na">select=</span><span class="s">&quot;IzPop0[2]&quot;</span> <span class="na">eventPort=</span><span class="s">&quot;spike&quot;</span><span class="nt">/&gt;</span> 
+            <span class="nt">&lt;EventSelection</span> <span class="na">id=</span><span class="s">&quot;3&quot;</span> <span class="na">select=</span><span class="s">&quot;IzPop0[3]&quot;</span> <span class="na">eventPort=</span><span class="s">&quot;spike&quot;</span><span class="nt">/&gt;</span> 
+            <span class="nt">&lt;EventSelection</span> <span class="na">id=</span><span class="s">&quot;4&quot;</span> <span class="na">select=</span><span class="s">&quot;IzPop0[4]&quot;</span> <span class="na">eventPort=</span><span class="s">&quot;spike&quot;</span><span class="nt">/&gt;</span> 
+        <span class="nt">&lt;/EventOutputFile&gt;</span>
+        
+    <span class="nt">&lt;/Simulation&gt;</span>
+
+<span class="nt">&lt;/Lems&gt;</span>
+</pre></div>
+</div>
+<!-- BUG in pynml needs fixing: https://github.com/NeuralEnsemble/libNeuroML/issues/91 -->
+<p>Where we had generated a graphical summary of the model before, we can now also generate graphical summaries of the simulation using <code class="docutils literal notranslate"><span class="pre">jnml</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>jnml LEMS_example_izhikevich2007network_sim.xml -graph
+<span class="go"> jNeuroML v0.10.1</span>
+<span class="go"> (INFO) Reading from: .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.xml</span>
+<span class="go"> (INFO) simCpt: Component(id=example_izhikevich2007network_sim type=Simulation)</span>
+<span class="go"> Writing to: .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.gv</span>
+<span class="go"> Have successfully run command: dot -Tpng  .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.gv -o .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.png</span>
+</pre></div>
+</div>
+<p>Here is the generated summary graph:</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/LEMS_example_izhikevich2007network_sim.png"><img alt="Model summary graph generated using jnml." src="../_images/LEMS_example_izhikevich2007network_sim.png" style="width: 462.5px; height: 760.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">A summary graph of the model generated using jnml.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>It shows a top-down breakdown of the simulation: from the network, to the populations, to the cell types, leading up to the components that these cells are made of (more on Components later).
+Let us add the necessary code to run our simulation, this time using the well known NEURON simulator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml_neuron</span><span class="p">(</span>
+    <span class="n">lems_simulation_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plotting-recorded-spike-times">
+<h2>Plotting recorded spike times<a class="headerlink" href="#plotting-recorded-spike-times" title="Permalink to this headline">¶</a></h2>
+<p>To analyse the outputs from the simulation, we can again plot the information we recorded.
+In the previous example, we had recorded and plotted the membrane potentials from our cell.
+Here, we have recorded the spike times.
+So let us plot them to generate our figure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data from the file and plot the spike times</span>
+<span class="c1"># using the pynml generate_plot utility function.</span>
+<span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.spikes.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+    <span class="s2">&quot;Spike times&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_figure_to</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-spikes.png&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;cell ID&quot;</span><span class="p">,</span>
+    <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Observe how we are using the same <code class="docutils literal notranslate"><span class="pre">generate_plot</span></code> utility function as before: it is general enough to plot different recorded quantities.
+Under the hood, it passes this information to Python’s Matplotlib library.</p>
+<p>This concludes our second example.
+Here, we have seen how to create, simulate, and record from a simple two population network of single compartment point neurons.
+The next section is an interactive notebook that you can use to play with this example.
+After that we will move on to the next example: a single but more detailed multi-compartmental neuron model.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="NML2_examples/SingleNeuron.html" title="previous page">Interactive single Izhikevich neuron NeuroML example</a>
+    <a class='right-next' id="next-link" href="NML2_examples/IzhikevichNetwork.html" title="next page">Interactive two population network example</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

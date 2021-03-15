@@ -1,0 +1,4044 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeuroMLCoreDimensions &#8212; NeuroML Documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NeuroMLCoreCompTypes" href="NeuroMLCoreCompTypes.html" />
+    <link rel="prev" title="NeuroML v2" href="../NeuroMLv2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">NeuroML Documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  User documentation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MissionAndAims.html">
+   Mission and Aims
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../GettingStarted.html">
+   Getting started with NeuroML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SingleNeuronExample.html">
+     Simulating a regular spiking Izhikevich neuron
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/SingleNeuron.html">
+     Interactive single Izhikevich neuron NeuroML example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../IzhikevichNetworkExample.html">
+     A two population network of regular spiking Izhikevich neurons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">
+     Interactive two population network example
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../GettingStartedLEMS.html">
+   NeuroML under the hood: LEMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FindingNeuroMLModels.html">
+   Finding NeuroML models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../VisualisingNeuroMLModels.html">
+   Visualising NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SimulatingNeuroMLModels.html">
+   Simulating NeuroML Models
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Specification.html">
+   Specification
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../NeuroMLv2.html">
+     NeuroML v2
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       NeuroMLCoreDimensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="NeuroMLCoreCompTypes.html">
+       NeuroMLCoreCompTypes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Cells.html">
+       Cells
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Channels.html">
+       Channels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Synapses.html">
+       Synapses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Inputs.html">
+       Inputs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Networks.html">
+       Networks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="PyNN.html">
+       PyNN
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NeuroMLv1.html">
+     NeuroML v1
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Software/Software.html">
+   Software and Tools
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyNeuroML.html">
+     pyNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/libNeuroML.html">
+     libNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/pyLEMS.html">
+     pyLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroMLlite.html">
+     NeuroMLlite
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jNeuroML.html">
+     jNeuroML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/jLEMS.html">
+     jLEMS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/NeuroML_API.html">
+     NeuroML C++ API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/MatLab.html">
+     MatLab NeuroML Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Software/SupportingTools.html">
+     Other supporting tools and resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Guides/Guides.html">
+   Walkthrough guides
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NeuroML events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Events/202103-Harmony.html">
+   March 2021: NeuroML hackathon at HARMONY 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The NeuroML Initiative
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">
+   Getting in touch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Standards.html">
+   Overview of standards in neuroscience
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/History.html">
+   A brief history of NeuroML
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../NeuroMLOrg/Board.html">
+   NeuroML Editorial Board
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">
+     History of the NeuroML Editorial Board
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">
+     Workshop and Meeting reports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">
+   NeuroML Scientific Committee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/Funding.html">
+   Funding and Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroMLOrg/CoC.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">
+   Interaction with other languages and standards
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../Devdocs/Devdocs.html">
+   Overview
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Devdocs/ReleaseProcess.html">
+     Release Process
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/Glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Reference/zBibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Userdocs/Schemas/NeuroMLCoreDimensions.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NeuroML/Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Schemas/NeuroMLCoreDimensions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/NeuroML/Documentation/edit/master/source/Userdocs/Schemas/NeuroMLCoreDimensions.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimensions">
+   Dimensions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#area">
+     area
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capacitance">
+     capacitance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#charge">
+     charge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#charge-per-mole">
+     charge_per_mole
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concentration">
+     concentration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conductance">
+     conductance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conductancedensity">
+     conductanceDensity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conductance-per-voltage">
+     conductance_per_voltage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#current">
+     current
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#currentdensity">
+     currentDensity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schema-dimensions-idealgasconstantdims">
+     idealGasConstantDims
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#length">
+     length
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-time">
+     per_time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-voltage">
+     per_voltage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permeability">
+     permeability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resistance">
+     resistance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resistivity">
+     resistivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rho-factor">
+     rho_factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specificcapacitance">
+     specificCapacitance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#substance">
+     substance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#temperature">
+     temperature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time">
+     time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voltage">
+     voltage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#volume">
+     volume
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#units">
+   Units
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a">
+     A
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-per-m2">
+     A_per_m2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     C
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-per-mol">
+     C_per_mol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f">
+     F
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-per-m2">
+     F_per_m2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hz">
+     Hz
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#j-per-k-per-mol">
+     J_per_K_per_mol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k">
+     K
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m">
+     M
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mohm">
+     Mohm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s">
+     S
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-per-v">
+     S_per_V
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-per-cm2">
+     S_per_cm2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-per-m2">
+     S_per_m2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#v">
+     V
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cm">
+     cm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cm2">
+     cm2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cm3">
+     cm3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cm-per-ms">
+     cm_per_ms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cm-per-s">
+     cm_per_s
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#degc">
+     degC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hour">
+     hour
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kohm">
+     kohm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kohm-cm">
+     kohm_cm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#litre">
+     litre
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     m
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m2">
+     m2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m3">
+     m3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ma-per-cm2">
+     mA_per_cm2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mm">
+     mM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ms">
+     mS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ms-per-cm2">
+     mS_per_cm2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mv">
+     mV
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m-per-s">
+     m_per_s
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#min">
+     min
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mol">
+     mol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mol-per-cm3">
+     mol_per_cm3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mol-per-cm-per-ua-per-ms">
+     mol_per_cm_per_uA_per_ms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mol-per-m3">
+     mol_per_m3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mol-per-m-per-a-per-s">
+     mol_per_m_per_A_per_s
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#na">
+     nA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#na-ms-per-amol">
+     nA_ms_per_amol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nf">
+     nF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ns">
+     nS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ns-per-mv">
+     nS_per_mV
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ohm">
+     ohm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ohm-cm">
+     ohm_cm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ohm-m">
+     ohm_m
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pa">
+     pA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pf">
+     pF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ps">
+     pS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-v">
+     per_V
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-hour">
+     per_hour
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-mv">
+     per_mV
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-min">
+     per_min
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-ms">
+     per_ms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#per-s">
+     per_s
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     s
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ua">
+     uA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ua-per-cm2">
+     uA_per_cm2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uf">
+     uF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uf-per-cm2">
+     uF_per_cm2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#us">
+     uS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#um">
+     um
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#um2">
+     um2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#um3">
+     um3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#um-per-ms">
+     um_per_ms
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="neuromlcoredimensions">
+<span id="schema-neuromlcoredimensions"></span><h1>NeuroMLCoreDimensions<a class="headerlink" href="#neuromlcoredimensions" title="Permalink to this headline">¶</a></h1>
+<p>Original ComponentType definitions: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreDimensions.xml">NeuroMLCoreDimensions.xml</a>.</p>
+<p>Schema against which NeuroML based on these should be valid: <a class="reference external" href="https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd">NeuroML_v2.1.xsd</a>.</p>
+<p>Generated on 02/03/21 from <a class="reference external" href="https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500">this</a> commit.</p>
+<p>Please file any issues or questions at the <a class="reference external" href="https://github.com/NeuroML/NeuroML2/issues">issue tracker here</a>.</p>
+<div class="section" id="dimensions">
+<h2>Dimensions<a class="headerlink" href="#dimensions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="area">
+<span id="schema-dimensions-area"></span><h3>area<a class="headerlink" href="#area" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-cm2"><span class="std std-ref">cm2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-m2"><span class="std std-ref">m2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-um2"><span class="std std-ref">um2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="capacitance">
+<span id="schema-dimensions-capacitance"></span><h3>capacitance<a class="headerlink" href="#capacitance" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>-1</sup> L<sup>-2</sup> T<sup>4</sup> I<sup>2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-f"><span class="std std-ref">F</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-nf"><span class="std std-ref">nF</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-pf"><span class="std std-ref">pF</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-uf"><span class="std std-ref">uF</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="charge">
+<span id="schema-dimensions-charge"></span><h3>charge<a class="headerlink" href="#charge" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">T<sup>1</sup> I<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-c"><span class="std std-ref">C</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="charge-per-mole">
+<span id="schema-dimensions-charge-per-mole"></span><h3>charge_per_mole<a class="headerlink" href="#charge-per-mole" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">T<sup>1</sup> I<sup>1</sup> N<sup>-1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-c-per-mol"><span class="std std-ref">C_per_mol</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-na-ms-per-amol"><span class="std std-ref">nA_ms_per_amol</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concentration">
+<span id="schema-dimensions-concentration"></span><h3>concentration<a class="headerlink" href="#concentration" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>-3</sup> N<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-m"><span class="std std-ref">M</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mm"><span class="std std-ref">mM</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mol-per-cm3"><span class="std std-ref">mol_per_cm3</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mol-per-m3"><span class="std std-ref">mol_per_m3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conductance">
+<span id="schema-dimensions-conductance"></span><h3>conductance<a class="headerlink" href="#conductance" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>-1</sup> L<sup>-2</sup> T<sup>3</sup> I<sup>2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-s"><span class="std std-ref">S</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ms"><span class="std std-ref">mS</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ns"><span class="std std-ref">nS</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ps"><span class="std std-ref">pS</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-us"><span class="std std-ref">uS</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conductancedensity">
+<span id="schema-dimensions-conductancedensity"></span><h3>conductanceDensity<a class="headerlink" href="#conductancedensity" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>-1</sup> L<sup>-4</sup> T<sup>3</sup> I<sup>2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-s-per-cm2"><span class="std std-ref">S_per_cm2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-s-per-m2"><span class="std std-ref">S_per_m2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ms-per-cm2"><span class="std std-ref">mS_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conductance-per-voltage">
+<span id="schema-dimensions-conductance-per-voltage"></span><h3>conductance_per_voltage<a class="headerlink" href="#conductance-per-voltage" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>-2</sup> L<sup>-4</sup> T<sup>6</sup> I<sup>3</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-s-per-v"><span class="std std-ref">S_per_V</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ns-per-mv"><span class="std std-ref">nS_per_mV</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="current">
+<span id="schema-dimensions-current"></span><h3>current<a class="headerlink" href="#current" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">I<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-a"><span class="std std-ref">A</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-na"><span class="std std-ref">nA</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-pa"><span class="std std-ref">pA</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ua"><span class="std std-ref">uA</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="currentdensity">
+<span id="schema-dimensions-currentdensity"></span><h3>currentDensity<a class="headerlink" href="#currentdensity" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>-2</sup> I<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-a-per-m2"><span class="std std-ref">A_per_m2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ma-per-cm2"><span class="std std-ref">mA_per_cm2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ua-per-cm2"><span class="std std-ref">uA_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="schema-dimensions-idealgasconstantdims">
+<span id="idealgasconstantdims"></span><h3>idealGasConstantDims<a class="headerlink" href="#schema-dimensions-idealgasconstantdims" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>1</sup> L<sup>2</sup> T<sup>-2</sup> K<sup>-1</sup> N<sup>-1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-j-per-k-per-mol"><span class="std std-ref">J_per_K_per_mol</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="length">
+<span id="schema-dimensions-length"></span><h3>length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-cm"><span class="std std-ref">cm</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#id1"><span class="std std-ref">m</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-um"><span class="std std-ref">um</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-time">
+<span id="schema-dimensions-per-time"></span><h3>per_time<a class="headerlink" href="#per-time" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">T<sup>-1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-hz"><span class="std std-ref">Hz</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-per-hour"><span class="std std-ref">per_hour</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-per-min"><span class="std std-ref">per_min</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-per-ms"><span class="std std-ref">per_ms</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-per-s"><span class="std std-ref">per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-voltage">
+<span id="schema-dimensions-per-voltage"></span><h3>per_voltage<a class="headerlink" href="#per-voltage" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>-1</sup> L<sup>-2</sup> T<sup>3</sup> I<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-per-v"><span class="std std-ref">per_V</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-per-mv"><span class="std std-ref">per_mV</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="permeability">
+<span id="schema-dimensions-permeability"></span><h3>permeability<a class="headerlink" href="#permeability" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>1</sup> T<sup>-1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-cm-per-ms"><span class="std std-ref">cm_per_ms</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-cm-per-s"><span class="std std-ref">cm_per_s</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-m-per-s"><span class="std std-ref">m_per_s</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-um-per-ms"><span class="std std-ref">um_per_ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resistance">
+<span id="schema-dimensions-resistance"></span><h3>resistance<a class="headerlink" href="#resistance" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>1</sup> L<sup>2</sup> T<sup>-3</sup> I<sup>-2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mohm"><span class="std std-ref">Mohm</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-kohm"><span class="std std-ref">kohm</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ohm"><span class="std std-ref">ohm</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resistivity">
+<span id="schema-dimensions-resistivity"></span><h3>resistivity<a class="headerlink" href="#resistivity" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>2</sup> L<sup>2</sup> T<sup>-3</sup> I<sup>-2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-kohm-cm"><span class="std std-ref">kohm_cm</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ohm-cm"><span class="std std-ref">ohm_cm</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-ohm-m"><span class="std std-ref">ohm_m</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rho-factor">
+<span id="schema-dimensions-rho-factor"></span><h3>rho_factor<a class="headerlink" href="#rho-factor" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>-1</sup> T<sup>-1</sup> I<sup>-1</sup> N<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mol-per-cm-per-ua-per-ms"><span class="std std-ref">mol_per_cm_per_uA_per_ms</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mol-per-m-per-a-per-s"><span class="std std-ref">mol_per_m_per_A_per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="specificcapacitance">
+<span id="schema-dimensions-specificcapacitance"></span><h3>specificCapacitance<a class="headerlink" href="#specificcapacitance" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>-1</sup> L<sup>-4</sup> T<sup>4</sup> I<sup>2</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-f-per-m2"><span class="std std-ref">F_per_m2</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-uf-per-cm2"><span class="std std-ref">uF_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="substance">
+<span id="schema-dimensions-substance"></span><h3>substance<a class="headerlink" href="#substance" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">N<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mol"><span class="std std-ref">mol</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="temperature">
+<span id="schema-dimensions-temperature"></span><h3>temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">K<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-k"><span class="std std-ref">K</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-degc"><span class="std std-ref">degC</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time">
+<span id="schema-dimensions-time"></span><h3>time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">T<sup>1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-hour"><span class="std std-ref">hour</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-min"><span class="std std-ref">min</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#id3"><span class="std std-ref">ms</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#id5"><span class="std std-ref">s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="voltage">
+<span id="schema-dimensions-voltage"></span><h3>voltage<a class="headerlink" href="#voltage" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">M<sup>1</sup> L<sup>2</sup> T<sup>-3</sup> I<sup>-1</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-v"><span class="std std-ref">V</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-mv"><span class="std std-ref">mV</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="volume">
+<span id="schema-dimensions-volume"></span><h3>volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Dimensions</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">L<sup>3</sup></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Units</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-cm3"><span class="std std-ref">cm3</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-litre"><span class="std std-ref">litre</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-m3"><span class="std std-ref">m3</span></a></p></li>
+<li><p class="card-text">Defined unit: <a class="reference internal" href="#schema-units-um3"><span class="std std-ref">um3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="units">
+<h2>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a">
+<span id="schema-units-a"></span><h3>A<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-current"><span class="std std-ref">current</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 A = 1.00e+09 <a class="reference internal" href="#schema-units-na"><span class="std std-ref">nA</span></a></p></li>
+<li><p class="card-text">1 A = 1.00e+12 <a class="reference internal" href="#schema-units-pa"><span class="std std-ref">pA</span></a></p></li>
+<li><p class="card-text">1 A = 1.00e+06 <a class="reference internal" href="#schema-units-ua"><span class="std std-ref">uA</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-per-m2">
+<span id="schema-units-a-per-m2"></span><h3>A_per_m2<a class="headerlink" href="#a-per-m2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-currentdensity"><span class="std std-ref">currentDensity</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 A_per_m2 = 0.1 <a class="reference internal" href="#schema-units-ma-per-cm2"><span class="std std-ref">mA_per_cm2</span></a></p></li>
+<li><p class="card-text">1 A_per_m2 = 100 <a class="reference internal" href="#schema-units-ua-per-cm2"><span class="std std-ref">uA_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c">
+<span id="schema-units-c"></span><h3>C<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-charge"><span class="std std-ref">charge</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-per-mol">
+<span id="schema-units-c-per-mol"></span><h3>C_per_mol<a class="headerlink" href="#c-per-mol" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-charge-per-mole"><span class="std std-ref">charge_per_mole</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 C_per_mol = 1e-06 <a class="reference internal" href="#schema-units-na-ms-per-amol"><span class="std std-ref">nA_ms_per_amol</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f">
+<span id="schema-units-f"></span><h3>F<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-capacitance"><span class="std std-ref">capacitance</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 F = 1.00e+09 <a class="reference internal" href="#schema-units-nf"><span class="std std-ref">nF</span></a></p></li>
+<li><p class="card-text">1 F = 1.00e+12 <a class="reference internal" href="#schema-units-pf"><span class="std std-ref">pF</span></a></p></li>
+<li><p class="card-text">1 F = 1.00e+06 <a class="reference internal" href="#schema-units-uf"><span class="std std-ref">uF</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-per-m2">
+<span id="schema-units-f-per-m2"></span><h3>F_per_m2<a class="headerlink" href="#f-per-m2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-specificcapacitance"><span class="std std-ref">specificCapacitance</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 F_per_m2 = 100 <a class="reference internal" href="#schema-units-uf-per-cm2"><span class="std std-ref">uF_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hz">
+<span id="schema-units-hz"></span><h3>Hz<a class="headerlink" href="#hz" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 Hz = 3600 <a class="reference internal" href="#schema-units-per-hour"><span class="std std-ref">per_hour</span></a></p></li>
+<li><p class="card-text">1 Hz = 60 <a class="reference internal" href="#schema-units-per-min"><span class="std std-ref">per_min</span></a></p></li>
+<li><p class="card-text">1 Hz = 0.001 <a class="reference internal" href="#schema-units-per-ms"><span class="std std-ref">per_ms</span></a></p></li>
+<li><p class="card-text">1 Hz = 1 <a class="reference internal" href="#schema-units-per-s"><span class="std std-ref">per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="j-per-k-per-mol">
+<span id="schema-units-j-per-k-per-mol"></span><h3>J_per_K_per_mol<a class="headerlink" href="#j-per-k-per-mol" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-idealgasconstantdims"><span class="std std-ref">idealGasConstantDims</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="k">
+<span id="schema-units-k"></span><h3>K<a class="headerlink" href="#k" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 K = 0.0036476 <a class="reference internal" href="#schema-units-degc"><span class="std std-ref">degC</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="m">
+<span id="schema-units-m"></span><h3>M<a class="headerlink" href="#m" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></li>
+<li><p class="card-text">Power of 10: 3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 M = 1000 <a class="reference internal" href="#schema-units-mm"><span class="std std-ref">mM</span></a></p></li>
+<li><p class="card-text">1 M = 0.001 <a class="reference internal" href="#schema-units-mol-per-cm3"><span class="std std-ref">mol_per_cm3</span></a></p></li>
+<li><p class="card-text">1 M = 1000 <a class="reference internal" href="#schema-units-mol-per-m3"><span class="std std-ref">mol_per_m3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mohm">
+<span id="schema-units-mohm"></span><h3>Mohm<a class="headerlink" href="#mohm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-resistance"><span class="std std-ref">resistance</span></a></p></li>
+<li><p class="card-text">Power of 10: 6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 Mohm = 1000 <a class="reference internal" href="#schema-units-kohm"><span class="std std-ref">kohm</span></a></p></li>
+<li><p class="card-text">1 Mohm = 1.00e+06 <a class="reference internal" href="#schema-units-ohm"><span class="std std-ref">ohm</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="s">
+<span id="schema-units-s"></span><h3>S<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 S = 1000 <a class="reference internal" href="#schema-units-ms"><span class="std std-ref">mS</span></a></p></li>
+<li><p class="card-text">1 S = 1.00e+09 <a class="reference internal" href="#schema-units-ns"><span class="std std-ref">nS</span></a></p></li>
+<li><p class="card-text">1 S = 1.00e+12 <a class="reference internal" href="#schema-units-ps"><span class="std std-ref">pS</span></a></p></li>
+<li><p class="card-text">1 S = 1.00e+06 <a class="reference internal" href="#schema-units-us"><span class="std std-ref">uS</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="s-per-v">
+<span id="schema-units-s-per-v"></span><h3>S_per_V<a class="headerlink" href="#s-per-v" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance-per-voltage"><span class="std std-ref">conductance_per_voltage</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 S_per_V = 1.00e+06 <a class="reference internal" href="#schema-units-ns-per-mv"><span class="std std-ref">nS_per_mV</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="s-per-cm2">
+<span id="schema-units-s-per-cm2"></span><h3>S_per_cm2<a class="headerlink" href="#s-per-cm2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductancedensity"><span class="std std-ref">conductanceDensity</span></a></p></li>
+<li><p class="card-text">Power of 10: 4</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 S_per_cm2 = 10000 <a class="reference internal" href="#schema-units-s-per-m2"><span class="std std-ref">S_per_m2</span></a></p></li>
+<li><p class="card-text">1 S_per_cm2 = 1000 <a class="reference internal" href="#schema-units-ms-per-cm2"><span class="std std-ref">mS_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="s-per-m2">
+<span id="schema-units-s-per-m2"></span><h3>S_per_m2<a class="headerlink" href="#s-per-m2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductancedensity"><span class="std std-ref">conductanceDensity</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 S_per_m2 = 0.0001 <a class="reference internal" href="#schema-units-s-per-cm2"><span class="std std-ref">S_per_cm2</span></a></p></li>
+<li><p class="card-text">1 S_per_m2 = 0.1 <a class="reference internal" href="#schema-units-ms-per-cm2"><span class="std std-ref">mS_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="v">
+<span id="schema-units-v"></span><h3>V<a class="headerlink" href="#v" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 V = 1000 <a class="reference internal" href="#schema-units-mv"><span class="std std-ref">mV</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cm">
+<span id="schema-units-cm"></span><h3>cm<a class="headerlink" href="#cm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-length"><span class="std std-ref">length</span></a></p></li>
+<li><p class="card-text">Power of 10: -2</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 cm = 0.01 <a class="reference internal" href="#id1"><span class="std std-ref">m</span></a></p></li>
+<li><p class="card-text">1 cm = 10000 <a class="reference internal" href="#schema-units-um"><span class="std std-ref">um</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cm2">
+<span id="schema-units-cm2"></span><h3>cm2<a class="headerlink" href="#cm2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-area"><span class="std std-ref">area</span></a></p></li>
+<li><p class="card-text">Power of 10: -4</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 cm2 = 0.0001 <a class="reference internal" href="#schema-units-m2"><span class="std std-ref">m2</span></a></p></li>
+<li><p class="card-text">1 cm2 = 1.00e+08 <a class="reference internal" href="#schema-units-um2"><span class="std std-ref">um2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cm3">
+<span id="schema-units-cm3"></span><h3>cm3<a class="headerlink" href="#cm3" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-volume"><span class="std std-ref">volume</span></a></p></li>
+<li><p class="card-text">Power of 10: -6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 cm3 = 0.001 <a class="reference internal" href="#schema-units-litre"><span class="std std-ref">litre</span></a></p></li>
+<li><p class="card-text">1 cm3 = 1e-06 <a class="reference internal" href="#schema-units-m3"><span class="std std-ref">m3</span></a></p></li>
+<li><p class="card-text">1 cm3 = 1.00e+12 <a class="reference internal" href="#schema-units-um3"><span class="std std-ref">um3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cm-per-ms">
+<span id="schema-units-cm-per-ms"></span><h3>cm_per_ms<a class="headerlink" href="#cm-per-ms" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-permeability"><span class="std std-ref">permeability</span></a></p></li>
+<li><p class="card-text">Power of 10: 1</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 cm_per_ms = 1000 <a class="reference internal" href="#schema-units-cm-per-s"><span class="std std-ref">cm_per_s</span></a></p></li>
+<li><p class="card-text">1 cm_per_ms = 10 <a class="reference internal" href="#schema-units-m-per-s"><span class="std std-ref">m_per_s</span></a></p></li>
+<li><p class="card-text">1 cm_per_ms = 10000 <a class="reference internal" href="#schema-units-um-per-ms"><span class="std std-ref">um_per_ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cm-per-s">
+<span id="schema-units-cm-per-s"></span><h3>cm_per_s<a class="headerlink" href="#cm-per-s" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-permeability"><span class="std std-ref">permeability</span></a></p></li>
+<li><p class="card-text">Power of 10: -2</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 cm_per_s = 0.001 <a class="reference internal" href="#schema-units-cm-per-ms"><span class="std std-ref">cm_per_ms</span></a></p></li>
+<li><p class="card-text">1 cm_per_s = 0.01 <a class="reference internal" href="#schema-units-m-per-s"><span class="std std-ref">m_per_s</span></a></p></li>
+<li><p class="card-text">1 cm_per_s = 10 <a class="reference internal" href="#schema-units-um-per-ms"><span class="std std-ref">um_per_ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="degc">
+<span id="schema-units-degc"></span><h3>degC<a class="headerlink" href="#degc" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+<li><p class="card-text">Offset: 273.15</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 degC = 274.15 <a class="reference internal" href="#schema-units-k"><span class="std std-ref">K</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hour">
+<span id="schema-units-hour"></span><h3>hour<a class="headerlink" href="#hour" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-time"><span class="std std-ref">time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+<li><p class="card-text">Scale: 3600.0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 hour = 60 <a class="reference internal" href="#schema-units-min"><span class="std std-ref">min</span></a></p></li>
+<li><p class="card-text">1 hour = 3.60e+06 <a class="reference internal" href="#id3"><span class="std std-ref">ms</span></a></p></li>
+<li><p class="card-text">1 hour = 3600 <a class="reference internal" href="#id5"><span class="std std-ref">s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kohm">
+<span id="schema-units-kohm"></span><h3>kohm<a class="headerlink" href="#kohm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-resistance"><span class="std std-ref">resistance</span></a></p></li>
+<li><p class="card-text">Power of 10: 3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 kohm = 0.001 <a class="reference internal" href="#schema-units-mohm"><span class="std std-ref">Mohm</span></a></p></li>
+<li><p class="card-text">1 kohm = 1000 <a class="reference internal" href="#schema-units-ohm"><span class="std std-ref">ohm</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kohm-cm">
+<span id="schema-units-kohm-cm"></span><h3>kohm_cm<a class="headerlink" href="#kohm-cm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-resistivity"><span class="std std-ref">resistivity</span></a></p></li>
+<li><p class="card-text">Power of 10: 1</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 kohm_cm = 1000 <a class="reference internal" href="#schema-units-ohm-cm"><span class="std std-ref">ohm_cm</span></a></p></li>
+<li><p class="card-text">1 kohm_cm = 10 <a class="reference internal" href="#schema-units-ohm-m"><span class="std std-ref">ohm_m</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="litre">
+<span id="schema-units-litre"></span><h3>litre<a class="headerlink" href="#litre" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-volume"><span class="std std-ref">volume</span></a></p></li>
+<li><p class="card-text">Power of 10: -3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 litre = 1000 <a class="reference internal" href="#schema-units-cm3"><span class="std std-ref">cm3</span></a></p></li>
+<li><p class="card-text">1 litre = 0.001 <a class="reference internal" href="#schema-units-m3"><span class="std std-ref">m3</span></a></p></li>
+<li><p class="card-text">1 litre = 1.00e+15 <a class="reference internal" href="#schema-units-um3"><span class="std std-ref">um3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<span id="id2"></span><h3>m<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-length"><span class="std std-ref">length</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 m = 100 <a class="reference internal" href="#schema-units-cm"><span class="std std-ref">cm</span></a></p></li>
+<li><p class="card-text">1 m = 1.00e+06 <a class="reference internal" href="#schema-units-um"><span class="std std-ref">um</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="m2">
+<span id="schema-units-m2"></span><h3>m2<a class="headerlink" href="#m2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-area"><span class="std std-ref">area</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 m2 = 10000 <a class="reference internal" href="#schema-units-cm2"><span class="std std-ref">cm2</span></a></p></li>
+<li><p class="card-text">1 m2 = 1.00e+12 <a class="reference internal" href="#schema-units-um2"><span class="std std-ref">um2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="m3">
+<span id="schema-units-m3"></span><h3>m3<a class="headerlink" href="#m3" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-volume"><span class="std std-ref">volume</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 m3 = 1.00e+06 <a class="reference internal" href="#schema-units-cm3"><span class="std std-ref">cm3</span></a></p></li>
+<li><p class="card-text">1 m3 = 1000 <a class="reference internal" href="#schema-units-litre"><span class="std std-ref">litre</span></a></p></li>
+<li><p class="card-text">1 m3 = 1.00e+18 <a class="reference internal" href="#schema-units-um3"><span class="std std-ref">um3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ma-per-cm2">
+<span id="schema-units-ma-per-cm2"></span><h3>mA_per_cm2<a class="headerlink" href="#ma-per-cm2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-currentdensity"><span class="std std-ref">currentDensity</span></a></p></li>
+<li><p class="card-text">Power of 10: 1</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mA_per_cm2 = 10 <a class="reference internal" href="#schema-units-a-per-m2"><span class="std std-ref">A_per_m2</span></a></p></li>
+<li><p class="card-text">1 mA_per_cm2 = 1000 <a class="reference internal" href="#schema-units-ua-per-cm2"><span class="std std-ref">uA_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mm">
+<span id="schema-units-mm"></span><h3>mM<a class="headerlink" href="#mm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mM = 0.001 <a class="reference internal" href="#schema-units-m"><span class="std std-ref">M</span></a></p></li>
+<li><p class="card-text">1 mM = 1e-06 <a class="reference internal" href="#schema-units-mol-per-cm3"><span class="std std-ref">mol_per_cm3</span></a></p></li>
+<li><p class="card-text">1 mM = 1 <a class="reference internal" href="#schema-units-mol-per-m3"><span class="std std-ref">mol_per_m3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ms">
+<span id="schema-units-ms"></span><h3>mS<a class="headerlink" href="#ms" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></li>
+<li><p class="card-text">Power of 10: -3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mS = 0.001 <a class="reference internal" href="#schema-units-s"><span class="std std-ref">S</span></a></p></li>
+<li><p class="card-text">1 mS = 1.00e+06 <a class="reference internal" href="#schema-units-ns"><span class="std std-ref">nS</span></a></p></li>
+<li><p class="card-text">1 mS = 1.00e+09 <a class="reference internal" href="#schema-units-ps"><span class="std std-ref">pS</span></a></p></li>
+<li><p class="card-text">1 mS = 1000 <a class="reference internal" href="#schema-units-us"><span class="std std-ref">uS</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ms-per-cm2">
+<span id="schema-units-ms-per-cm2"></span><h3>mS_per_cm2<a class="headerlink" href="#ms-per-cm2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductancedensity"><span class="std std-ref">conductanceDensity</span></a></p></li>
+<li><p class="card-text">Power of 10: 1</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mS_per_cm2 = 0.001 <a class="reference internal" href="#schema-units-s-per-cm2"><span class="std std-ref">S_per_cm2</span></a></p></li>
+<li><p class="card-text">1 mS_per_cm2 = 10 <a class="reference internal" href="#schema-units-s-per-m2"><span class="std std-ref">S_per_m2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mv">
+<span id="schema-units-mv"></span><h3>mV<a class="headerlink" href="#mv" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a></p></li>
+<li><p class="card-text">Power of 10: -3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mV = 0.001 <a class="reference internal" href="#schema-units-v"><span class="std std-ref">V</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="m-per-s">
+<span id="schema-units-m-per-s"></span><h3>m_per_s<a class="headerlink" href="#m-per-s" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-permeability"><span class="std std-ref">permeability</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 m_per_s = 0.1 <a class="reference internal" href="#schema-units-cm-per-ms"><span class="std std-ref">cm_per_ms</span></a></p></li>
+<li><p class="card-text">1 m_per_s = 100 <a class="reference internal" href="#schema-units-cm-per-s"><span class="std std-ref">cm_per_s</span></a></p></li>
+<li><p class="card-text">1 m_per_s = 1000 <a class="reference internal" href="#schema-units-um-per-ms"><span class="std std-ref">um_per_ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="min">
+<span id="schema-units-min"></span><h3>min<a class="headerlink" href="#min" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-time"><span class="std std-ref">time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+<li><p class="card-text">Scale: 60.0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 min = 0.016667 <a class="reference internal" href="#schema-units-hour"><span class="std std-ref">hour</span></a></p></li>
+<li><p class="card-text">1 min = 6.00e+04 <a class="reference internal" href="#id3"><span class="std std-ref">ms</span></a></p></li>
+<li><p class="card-text">1 min = 60 <a class="reference internal" href="#id5"><span class="std std-ref">s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mol">
+<span id="schema-units-mol"></span><h3>mol<a class="headerlink" href="#mol" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-substance"><span class="std std-ref">substance</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mol-per-cm3">
+<span id="schema-units-mol-per-cm3"></span><h3>mol_per_cm3<a class="headerlink" href="#mol-per-cm3" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></li>
+<li><p class="card-text">Power of 10: 6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mol_per_cm3 = 1000 <a class="reference internal" href="#schema-units-m"><span class="std std-ref">M</span></a></p></li>
+<li><p class="card-text">1 mol_per_cm3 = 1.00e+06 <a class="reference internal" href="#schema-units-mm"><span class="std std-ref">mM</span></a></p></li>
+<li><p class="card-text">1 mol_per_cm3 = 1.00e+06 <a class="reference internal" href="#schema-units-mol-per-m3"><span class="std std-ref">mol_per_m3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mol-per-cm-per-ua-per-ms">
+<span id="schema-units-mol-per-cm-per-ua-per-ms"></span><h3>mol_per_cm_per_uA_per_ms<a class="headerlink" href="#mol-per-cm-per-ua-per-ms" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-rho-factor"><span class="std std-ref">rho_factor</span></a></p></li>
+<li><p class="card-text">Power of 10: 11</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mol_per_cm_per_uA_per_ms = 1.00e+11 <a class="reference internal" href="#schema-units-mol-per-m-per-a-per-s"><span class="std std-ref">mol_per_m_per_A_per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mol-per-m3">
+<span id="schema-units-mol-per-m3"></span><h3>mol_per_m3<a class="headerlink" href="#mol-per-m3" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mol_per_m3 = 0.001 <a class="reference internal" href="#schema-units-m"><span class="std std-ref">M</span></a></p></li>
+<li><p class="card-text">1 mol_per_m3 = 1 <a class="reference internal" href="#schema-units-mm"><span class="std std-ref">mM</span></a></p></li>
+<li><p class="card-text">1 mol_per_m3 = 1e-06 <a class="reference internal" href="#schema-units-mol-per-cm3"><span class="std std-ref">mol_per_cm3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mol-per-m-per-a-per-s">
+<span id="schema-units-mol-per-m-per-a-per-s"></span><h3>mol_per_m_per_A_per_s<a class="headerlink" href="#mol-per-m-per-a-per-s" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-rho-factor"><span class="std std-ref">rho_factor</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 mol_per_m_per_A_per_s = 1e-11 <a class="reference internal" href="#schema-units-mol-per-cm-per-ua-per-ms"><span class="std std-ref">mol_per_cm_per_uA_per_ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<span id="id4"></span><h3>ms<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-time"><span class="std std-ref">time</span></a></p></li>
+<li><p class="card-text">Power of 10: -3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 ms = 2.7778e-07 <a class="reference internal" href="#schema-units-hour"><span class="std std-ref">hour</span></a></p></li>
+<li><p class="card-text">1 ms = 1.6667e-05 <a class="reference internal" href="#schema-units-min"><span class="std std-ref">min</span></a></p></li>
+<li><p class="card-text">1 ms = 0.001 <a class="reference internal" href="#id5"><span class="std std-ref">s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="na">
+<span id="schema-units-na"></span><h3>nA<a class="headerlink" href="#na" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-current"><span class="std std-ref">current</span></a></p></li>
+<li><p class="card-text">Power of 10: -9</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 nA = 1e-09 <a class="reference internal" href="#schema-units-a"><span class="std std-ref">A</span></a></p></li>
+<li><p class="card-text">1 nA = 1000 <a class="reference internal" href="#schema-units-pa"><span class="std std-ref">pA</span></a></p></li>
+<li><p class="card-text">1 nA = 0.001 <a class="reference internal" href="#schema-units-ua"><span class="std std-ref">uA</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="na-ms-per-amol">
+<span id="schema-units-na-ms-per-amol"></span><h3>nA_ms_per_amol<a class="headerlink" href="#na-ms-per-amol" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-charge-per-mole"><span class="std std-ref">charge_per_mole</span></a></p></li>
+<li><p class="card-text">Power of 10: 6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 nA_ms_per_amol = 1.00e+06 <a class="reference internal" href="#schema-units-c-per-mol"><span class="std std-ref">C_per_mol</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nf">
+<span id="schema-units-nf"></span><h3>nF<a class="headerlink" href="#nf" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-capacitance"><span class="std std-ref">capacitance</span></a></p></li>
+<li><p class="card-text">Power of 10: -9</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 nF = 1e-09 <a class="reference internal" href="#schema-units-f"><span class="std std-ref">F</span></a></p></li>
+<li><p class="card-text">1 nF = 1000 <a class="reference internal" href="#schema-units-pf"><span class="std std-ref">pF</span></a></p></li>
+<li><p class="card-text">1 nF = 0.001 <a class="reference internal" href="#schema-units-uf"><span class="std std-ref">uF</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ns">
+<span id="schema-units-ns"></span><h3>nS<a class="headerlink" href="#ns" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></li>
+<li><p class="card-text">Power of 10: -9</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 nS = 1e-09 <a class="reference internal" href="#schema-units-s"><span class="std std-ref">S</span></a></p></li>
+<li><p class="card-text">1 nS = 1e-06 <a class="reference internal" href="#schema-units-ms"><span class="std std-ref">mS</span></a></p></li>
+<li><p class="card-text">1 nS = 1000 <a class="reference internal" href="#schema-units-ps"><span class="std std-ref">pS</span></a></p></li>
+<li><p class="card-text">1 nS = 0.001 <a class="reference internal" href="#schema-units-us"><span class="std std-ref">uS</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ns-per-mv">
+<span id="schema-units-ns-per-mv"></span><h3>nS_per_mV<a class="headerlink" href="#ns-per-mv" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance-per-voltage"><span class="std std-ref">conductance_per_voltage</span></a></p></li>
+<li><p class="card-text">Power of 10: -6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 nS_per_mV = 1e-06 <a class="reference internal" href="#schema-units-s-per-v"><span class="std std-ref">S_per_V</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ohm">
+<span id="schema-units-ohm"></span><h3>ohm<a class="headerlink" href="#ohm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-resistance"><span class="std std-ref">resistance</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 ohm = 1e-06 <a class="reference internal" href="#schema-units-mohm"><span class="std std-ref">Mohm</span></a></p></li>
+<li><p class="card-text">1 ohm = 0.001 <a class="reference internal" href="#schema-units-kohm"><span class="std std-ref">kohm</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ohm-cm">
+<span id="schema-units-ohm-cm"></span><h3>ohm_cm<a class="headerlink" href="#ohm-cm" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-resistivity"><span class="std std-ref">resistivity</span></a></p></li>
+<li><p class="card-text">Power of 10: -2</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 ohm_cm = 0.001 <a class="reference internal" href="#schema-units-kohm-cm"><span class="std std-ref">kohm_cm</span></a></p></li>
+<li><p class="card-text">1 ohm_cm = 0.01 <a class="reference internal" href="#schema-units-ohm-m"><span class="std std-ref">ohm_m</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ohm-m">
+<span id="schema-units-ohm-m"></span><h3>ohm_m<a class="headerlink" href="#ohm-m" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-resistivity"><span class="std std-ref">resistivity</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 ohm_m = 0.1 <a class="reference internal" href="#schema-units-kohm-cm"><span class="std std-ref">kohm_cm</span></a></p></li>
+<li><p class="card-text">1 ohm_m = 100 <a class="reference internal" href="#schema-units-ohm-cm"><span class="std std-ref">ohm_cm</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pa">
+<span id="schema-units-pa"></span><h3>pA<a class="headerlink" href="#pa" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-current"><span class="std std-ref">current</span></a></p></li>
+<li><p class="card-text">Power of 10: -12</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 pA = 1e-12 <a class="reference internal" href="#schema-units-a"><span class="std std-ref">A</span></a></p></li>
+<li><p class="card-text">1 pA = 0.001 <a class="reference internal" href="#schema-units-na"><span class="std std-ref">nA</span></a></p></li>
+<li><p class="card-text">1 pA = 1e-06 <a class="reference internal" href="#schema-units-ua"><span class="std std-ref">uA</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pf">
+<span id="schema-units-pf"></span><h3>pF<a class="headerlink" href="#pf" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-capacitance"><span class="std std-ref">capacitance</span></a></p></li>
+<li><p class="card-text">Power of 10: -12</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 pF = 1e-12 <a class="reference internal" href="#schema-units-f"><span class="std std-ref">F</span></a></p></li>
+<li><p class="card-text">1 pF = 0.001 <a class="reference internal" href="#schema-units-nf"><span class="std std-ref">nF</span></a></p></li>
+<li><p class="card-text">1 pF = 1e-06 <a class="reference internal" href="#schema-units-uf"><span class="std std-ref">uF</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ps">
+<span id="schema-units-ps"></span><h3>pS<a class="headerlink" href="#ps" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></li>
+<li><p class="card-text">Power of 10: -12</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 pS = 1e-12 <a class="reference internal" href="#schema-units-s"><span class="std std-ref">S</span></a></p></li>
+<li><p class="card-text">1 pS = 1e-09 <a class="reference internal" href="#schema-units-ms"><span class="std std-ref">mS</span></a></p></li>
+<li><p class="card-text">1 pS = 0.001 <a class="reference internal" href="#schema-units-ns"><span class="std std-ref">nS</span></a></p></li>
+<li><p class="card-text">1 pS = 1e-06 <a class="reference internal" href="#schema-units-us"><span class="std std-ref">uS</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-v">
+<span id="schema-units-per-v"></span><h3>per_V<a class="headerlink" href="#per-v" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-voltage"><span class="std std-ref">per_voltage</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 per_V = 0.001 <a class="reference internal" href="#schema-units-per-mv"><span class="std std-ref">per_mV</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-hour">
+<span id="schema-units-per-hour"></span><h3>per_hour<a class="headerlink" href="#per-hour" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+<li><p class="card-text">Scale: 0.00027777777778</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 per_hour = 0.00027778 <a class="reference internal" href="#schema-units-hz"><span class="std std-ref">Hz</span></a></p></li>
+<li><p class="card-text">1 per_hour = 0.016667 <a class="reference internal" href="#schema-units-per-min"><span class="std std-ref">per_min</span></a></p></li>
+<li><p class="card-text">1 per_hour = 2.7778e-07 <a class="reference internal" href="#schema-units-per-ms"><span class="std std-ref">per_ms</span></a></p></li>
+<li><p class="card-text">1 per_hour = 0.00027778 <a class="reference internal" href="#schema-units-per-s"><span class="std std-ref">per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-mv">
+<span id="schema-units-per-mv"></span><h3>per_mV<a class="headerlink" href="#per-mv" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-voltage"><span class="std std-ref">per_voltage</span></a></p></li>
+<li><p class="card-text">Power of 10: 3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 per_mV = 1000 <a class="reference internal" href="#schema-units-per-v"><span class="std std-ref">per_V</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-min">
+<span id="schema-units-per-min"></span><h3>per_min<a class="headerlink" href="#per-min" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+<li><p class="card-text">Scale: 0.01666666667</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 per_min = 0.016667 <a class="reference internal" href="#schema-units-hz"><span class="std std-ref">Hz</span></a></p></li>
+<li><p class="card-text">1 per_min = 60 <a class="reference internal" href="#schema-units-per-hour"><span class="std std-ref">per_hour</span></a></p></li>
+<li><p class="card-text">1 per_min = 1.6667e-05 <a class="reference internal" href="#schema-units-per-ms"><span class="std std-ref">per_ms</span></a></p></li>
+<li><p class="card-text">1 per_min = 0.016667 <a class="reference internal" href="#schema-units-per-s"><span class="std std-ref">per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-ms">
+<span id="schema-units-per-ms"></span><h3>per_ms<a class="headerlink" href="#per-ms" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></li>
+<li><p class="card-text">Power of 10: 3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 per_ms = 1000 <a class="reference internal" href="#schema-units-hz"><span class="std std-ref">Hz</span></a></p></li>
+<li><p class="card-text">1 per_ms = 3.60e+06 <a class="reference internal" href="#schema-units-per-hour"><span class="std std-ref">per_hour</span></a></p></li>
+<li><p class="card-text">1 per_ms = 6.00e+04 <a class="reference internal" href="#schema-units-per-min"><span class="std std-ref">per_min</span></a></p></li>
+<li><p class="card-text">1 per_ms = 1000 <a class="reference internal" href="#schema-units-per-s"><span class="std std-ref">per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="per-s">
+<span id="schema-units-per-s"></span><h3>per_s<a class="headerlink" href="#per-s" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 per_s = 1 <a class="reference internal" href="#schema-units-hz"><span class="std std-ref">Hz</span></a></p></li>
+<li><p class="card-text">1 per_s = 3600 <a class="reference internal" href="#schema-units-per-hour"><span class="std std-ref">per_hour</span></a></p></li>
+<li><p class="card-text">1 per_s = 60 <a class="reference internal" href="#schema-units-per-min"><span class="std std-ref">per_min</span></a></p></li>
+<li><p class="card-text">1 per_s = 0.001 <a class="reference internal" href="#schema-units-per-ms"><span class="std std-ref">per_ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<span id="id6"></span><h3>s<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-time"><span class="std std-ref">time</span></a></p></li>
+<li><p class="card-text">Power of 10: 0</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 s = 0.00027778 <a class="reference internal" href="#schema-units-hour"><span class="std std-ref">hour</span></a></p></li>
+<li><p class="card-text">1 s = 0.016667 <a class="reference internal" href="#schema-units-min"><span class="std std-ref">min</span></a></p></li>
+<li><p class="card-text">1 s = 1000 <a class="reference internal" href="#id3"><span class="std std-ref">ms</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ua">
+<span id="schema-units-ua"></span><h3>uA<a class="headerlink" href="#ua" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-current"><span class="std std-ref">current</span></a></p></li>
+<li><p class="card-text">Power of 10: -6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 uA = 1e-06 <a class="reference internal" href="#schema-units-a"><span class="std std-ref">A</span></a></p></li>
+<li><p class="card-text">1 uA = 1000 <a class="reference internal" href="#schema-units-na"><span class="std std-ref">nA</span></a></p></li>
+<li><p class="card-text">1 uA = 1.00e+06 <a class="reference internal" href="#schema-units-pa"><span class="std std-ref">pA</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ua-per-cm2">
+<span id="schema-units-ua-per-cm2"></span><h3>uA_per_cm2<a class="headerlink" href="#ua-per-cm2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-currentdensity"><span class="std std-ref">currentDensity</span></a></p></li>
+<li><p class="card-text">Power of 10: -2</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 uA_per_cm2 = 0.01 <a class="reference internal" href="#schema-units-a-per-m2"><span class="std std-ref">A_per_m2</span></a></p></li>
+<li><p class="card-text">1 uA_per_cm2 = 0.001 <a class="reference internal" href="#schema-units-ma-per-cm2"><span class="std std-ref">mA_per_cm2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uf">
+<span id="schema-units-uf"></span><h3>uF<a class="headerlink" href="#uf" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-capacitance"><span class="std std-ref">capacitance</span></a></p></li>
+<li><p class="card-text">Power of 10: -6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 uF = 1e-06 <a class="reference internal" href="#schema-units-f"><span class="std std-ref">F</span></a></p></li>
+<li><p class="card-text">1 uF = 1000 <a class="reference internal" href="#schema-units-nf"><span class="std std-ref">nF</span></a></p></li>
+<li><p class="card-text">1 uF = 1.00e+06 <a class="reference internal" href="#schema-units-pf"><span class="std std-ref">pF</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uf-per-cm2">
+<span id="schema-units-uf-per-cm2"></span><h3>uF_per_cm2<a class="headerlink" href="#uf-per-cm2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-specificcapacitance"><span class="std std-ref">specificCapacitance</span></a></p></li>
+<li><p class="card-text">Power of 10: -2</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 uF_per_cm2 = 0.01 <a class="reference internal" href="#schema-units-f-per-m2"><span class="std std-ref">F_per_m2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="us">
+<span id="schema-units-us"></span><h3>uS<a class="headerlink" href="#us" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a></p></li>
+<li><p class="card-text">Power of 10: -6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 uS = 1e-06 <a class="reference internal" href="#schema-units-s"><span class="std std-ref">S</span></a></p></li>
+<li><p class="card-text">1 uS = 0.001 <a class="reference internal" href="#schema-units-ms"><span class="std std-ref">mS</span></a></p></li>
+<li><p class="card-text">1 uS = 1000 <a class="reference internal" href="#schema-units-ns"><span class="std std-ref">nS</span></a></p></li>
+<li><p class="card-text">1 uS = 1.00e+06 <a class="reference internal" href="#schema-units-ps"><span class="std std-ref">pS</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="um">
+<span id="schema-units-um"></span><h3>um<a class="headerlink" href="#um" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-length"><span class="std std-ref">length</span></a></p></li>
+<li><p class="card-text">Power of 10: -6</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 um = 0.0001 <a class="reference internal" href="#schema-units-cm"><span class="std std-ref">cm</span></a></p></li>
+<li><p class="card-text">1 um = 1e-06 <a class="reference internal" href="#id1"><span class="std std-ref">m</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="um2">
+<span id="schema-units-um2"></span><h3>um2<a class="headerlink" href="#um2" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-area"><span class="std std-ref">area</span></a></p></li>
+<li><p class="card-text">Power of 10: -12</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 um2 = 1e-08 <a class="reference internal" href="#schema-units-cm2"><span class="std std-ref">cm2</span></a></p></li>
+<li><p class="card-text">1 um2 = 1e-12 <a class="reference internal" href="#schema-units-m2"><span class="std std-ref">m2</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="um3">
+<span id="schema-units-um3"></span><h3>um3<a class="headerlink" href="#um3" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-volume"><span class="std std-ref">volume</span></a></p></li>
+<li><p class="card-text">Power of 10: -18</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 um3 = 1e-12 <a class="reference internal" href="#schema-units-cm3"><span class="std std-ref">cm3</span></a></p></li>
+<li><p class="card-text">1 um3 = 1e-15 <a class="reference internal" href="#schema-units-litre"><span class="std std-ref">litre</span></a></p></li>
+<li><p class="card-text">1 um3 = 1e-18 <a class="reference internal" href="#schema-units-m3"><span class="std std-ref">m3</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="um-per-ms">
+<span id="schema-units-um-per-ms"></span><h3>um_per_ms<a class="headerlink" href="#um-per-ms" title="Permalink to this headline">¶</a></h3>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Summary</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Dimension: <a class="reference internal" href="#schema-dimensions-permeability"><span class="std std-ref">permeability</span></a></p></li>
+<li><p class="card-text">Power of 10: -3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Conversions</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 um_per_ms = 0.0001 <a class="reference internal" href="#schema-units-cm-per-ms"><span class="std std-ref">cm_per_ms</span></a></p></li>
+<li><p class="card-text">1 um_per_ms = 0.1 <a class="reference internal" href="#schema-units-cm-per-s"><span class="std std-ref">cm_per_s</span></a></p></li>
+<li><p class="card-text">1 um_per_ms = 0.001 <a class="reference internal" href="#schema-units-m-per-s"><span class="std std-ref">m_per_s</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Userdocs/Schemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../NeuroMLv2.html" title="previous page">NeuroML v2</a>
+    <a class='right-next' id="next-link" href="NeuroMLCoreCompTypes.html" title="next page">NeuroMLCoreCompTypes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroML contributors<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
