@@ -76,22 +76,23 @@ Please {ref}`contact <contact>` the NeuroML community for issues and contributio
 ```{admonition} Needs work
 This is our elevator speech. *Why should you use NeuroML?*
 ```
-NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models.
+NeuroML is an {ref}`international, collaborative initiative <missions_and_aims>` to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models.
 NeuroML is:
 
-- modular,
-- standardised,
-- structured.
+- modular
+- standardised
+- structured
 
 which allows you to:
 
-- easily build detailed models of neural systems,
-- easily validate your models,
-- easily visualise your models,
-- easily simulate your models using a variety of simulators,
-- easily analyse your simulations,
+- easily build detailed models of neural systems
+- easily validate your models
+- easily visualise your models
+- easily simulate your models using a variety of simulators
+- easily analyse your simulations
 
-all using a well supported set of tools in the powerful [Python programming language](https://www.python.org).
+all using a {ref}`well supported set of tools <userdocs:software>` in the powerful [Python](https://www.python.org) programming language.
 
-In this documentation, you will find information on using NeuroML, developing with NeuroML, its specifications, and the community that maintains it.
+In this documentation, you will find information on {ref}`using NeuroML <userdocs:getting_started_neuroml>`, {ref}`developing with NeuroML <devdocs:overview>`, its {ref}`specification <userdocs:specification>`, and the {ref}`community <neuromlorg:board>` that maintains it.
+
 For any queries, please contact the NeuroML community using any of our {ref}`communication channels <contact>`.

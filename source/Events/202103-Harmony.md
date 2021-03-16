@@ -34,16 +34,16 @@ The broad focus of each of the sessions (dependent on interests of attendees) is
 (neuromlevents:202103harmony:registration)=
 ## Registration
 
-To take part in the hackathon, please register at http://co.mbine.org/events/HARMONY_2021 for the HARMONY meeting (registration is free).
-You will get sent details to access the agenda on https://harmony2021.sched.com, which will have links to the Zoom sessions for each of the days.
+To take part in the hackathon, please register [here](http://co.mbine.org/events/HARMONY_2021) for the HARMONY meeting (registration is free).
+You will get sent details to access the [agenda](https://harmony2021.sched.com), which will have links to the Zoom sessions for each of the days.
 
 (neuromlevents:202103harmony:prepare)=
 ## Open an issue beforehand!
-While it will be possible to raise and discuss new issues at the hackathons, it will be easier to manage and plan work/discussions if you open an issue with a description of the problem you are trying to address at: https://github.com/NeuroML/NeuroML2/issues.
+While it will be possible to raise and discuss new issues at the hackathons, it will be easier to manage and plan work/discussions if you open an issue with a description of the problem you are trying to address at: [https://github.com/NeuroML/NeuroML2/issues](https://github.com/NeuroML/NeuroML2/issues).
 
 (neuromlevents:202103harmony:slack)=
 ## Slack
-To aid communication with the community during (and after) the meeting, we have a Slack channel for NeuroML related discussions.
+To aid communication with the community during (and after) the meeting, we have a **Slack channel** for NeuroML related discussions.
 Please contact [Padraig Gleeson](mailto:p_DOT_gleeson_AT_ucl.ac.uk) for an invite.
 
 We look forward to working with the community to drive further uptake of NeuroML compliant models and tools!
