@@ -298,5 +298,5 @@ import pyneuroml.pynml
 ...
 
 
-pyneuroml.pynml.generate_nmlgraph(lems_file)
+pyneuroml.pynml.generate_lemsgraph(lems_file)
 ```
