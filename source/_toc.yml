@@ -63,10 +63,10 @@
 
 - part: Developer documentation
   chapters:
-    - file: ./Devdocs/InteractionOtherBits
     - file: ./Devdocs/Devdocs
       sections:
         - file: ./Devdocs/ReleaseProcess
+    - file: ./Devdocs/InteractionOtherBits
 
 - part: Reference
   chapters:
