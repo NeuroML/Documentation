@@ -1,3 +1,4 @@
+(userdocs:gettingstarted:izhikevichnetwork)=
 # A two population network of regular spiking Izhikevich neurons
 
 Now that we have defined a cell, let us see how a network of these cells may be declared and simulated.
@@ -20,6 +21,7 @@ language: python
 As with the previous example, we will step through this script to see how the various components of the network are declared in NeuroML before running the simulation and generating the plot.
 
 
+(userdocs:gettingstarted:izhikevichnetwork:declaring)=
 ## Declaring the model in NeuroML
 
 To declare the complete network model, we must again first declare its core entities:
@@ -128,6 +130,7 @@ A summary graph of the model generated using pynml and the dot tool.
 In our very simple network here, neurons do not have morphologies and are not distributed in space. 
 In later examples, however, we will also see how summary figures of the network that show the morphologies, locations of different layers and neurons, and so on can also be generated using the NeuroML tools.
 
+(userdocs:gettingstarted:izhikevichnetwork:simulating)=
 ## Simulating the model
 
 Now that we have our model set up, we can proceed to simulating it.
@@ -172,6 +175,7 @@ language: python
 lines: 91-93
 ----
 ```
+(userdocs:gettingstarted:izhikevichnetwork:plotting)=
 ## Plotting recorded spike times
 To analyse the outputs from the simulation, we can again plot the information we recorded.
 In the previous example, we had recorded and plotted the membrane potentials from our cell.
