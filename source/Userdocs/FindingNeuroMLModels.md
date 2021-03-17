@@ -1,7 +1,8 @@
 (userdocs:finding_models)=
 # Finding NeuroML models
-```{note}
-Needs introductory text.
+```{admonition} WIP
+:class: warning
+This page is currently a work in progress. Please see the related issue here: https://github.com/NeuroML/Documentation/issues/38
 ```
 
 **NeuroML-DB: NeuroML Database**
