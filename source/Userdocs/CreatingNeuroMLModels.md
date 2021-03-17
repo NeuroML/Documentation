@@ -64,7 +64,7 @@ This step is optional, but recommended.
 ```
 
 - Install the [Open Source Brain Model validation framework](https://github.com/OpenSourceBrain/osb-model-validation) (OMV) - test on your local machine on standard examples (example: [Hay et al.](https://github.com/OpenSourceBrain/L5bPyrCellHayEtAl2011))
-- Add OMV tests to native code ([example][https://github.com/OpenSourceBrain/GranCellSolinasEtAl10/blob/master/NEURON/.test.nrnpy.omt]), e.g. test the spike times of cell when simple current pulse applied
+- Add OMV tests to native code ([example](https://github.com/OpenSourceBrain/GranCellSolinasEtAl10/blob/master/NEURON/.test.nrnpy.omt)), e.g. test the spike times of cell when simple current pulse applied
 - Add OMV tests for NeuroML version, reusing the Model Emergent Property (`*.mep`) file ([example](https://github.com/mbezaire/ca1/blob/development/NeuroML2/cells/tests/.test.sca.jnmlnrn.omt))
 
 (userdocs:creating_models:converting_conductance:compare_multi_comp)=
