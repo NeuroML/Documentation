@@ -1,6 +1,11 @@
 (userdocs:getting_started_lems)=
 # NeuroML under the hood: LEMS
 
+```{admonition} WIP
+:class: warning
+This document is a work in progress. Please see the related ticket here: https://github.com/NeuroML/Documentation/issues/37
+```
+
 In LEMS, **ComponentType** elements which specify **Parameter**s, **StateVariable**s and their **Dynamics** and **Structure** can be defined as templates for model elements.
 For example, the definition of the Izhikevich cell component type that we have been using in NeuroML, in LEMS is below:
 ```{code-block} xml

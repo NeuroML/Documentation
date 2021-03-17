@@ -14,7 +14,6 @@
       - file: ./Userdocs/NML2_examples/SingleNeuron.ipynb
       - file: ./Userdocs/IzhikevichNetworkExample
       - file: ./Userdocs/NML2_examples/IzhikevichNetwork.ipynb
-    - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/FindingNeuroMLModels
     - file: ./Userdocs/ValidatingNeuroMLModels
     - file: ./Userdocs/VisualisingNeuroMLModels
@@ -32,6 +31,7 @@
             - file: ./Userdocs/Schemas/Networks
             - file: ./Userdocs/Schemas/PyNN
         - file: ./Userdocs/NeuroMLv1.md
+    - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/pyNeuroML
