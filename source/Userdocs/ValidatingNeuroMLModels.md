@@ -3,5 +3,5 @@
 
 ```{admonition} WIP
 :class: warning
-This document is a work in progress. Ticket: https://github.com/NeuroML/Documentation/issues/36
+This document is a work in progress. Please see the related ticket here: https://github.com/NeuroML/Documentation/issues/36
 ```
