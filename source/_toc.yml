@@ -16,6 +16,7 @@
       - file: ./Userdocs/NML2_examples/IzhikevichNetwork.ipynb
     - file: ./Userdocs/GettingStartedLEMS
     - file: ./Userdocs/FindingNeuroMLModels
+    - file: ./Userdocs/ValidatingNeuroMLModels
     - file: ./Userdocs/VisualisingNeuroMLModels
     - file: ./Userdocs/SimulatingNeuroMLModels
     - file: ./Userdocs/Specification
