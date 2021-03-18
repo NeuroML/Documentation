@@ -44,6 +44,7 @@
         - file: ./Userdocs/Software/NeuroML_API
         - file: ./Userdocs/Software/MatLab
         - file: ./Userdocs/Software/SupportingTools
+    - file: ./Userdocs/FAQ
 
 - part: NeuroML events
   chapters:
