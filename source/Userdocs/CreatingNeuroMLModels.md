@@ -16,7 +16,16 @@ Please see the {ref}`Getting Started with NeuroML section <userdocs:getting_star
 :class: warning
 This section needs improvements, verfication, and re-writing to make it easier to follow.
 Related issue: https://github.com/NeuroML/Documentation/issues/31
+
 ```
+```{figure} ../images/osb-conversion.png
+:alt: Schamatic of process of converting models to NeuroML
+:align: center
+:width: 60 %
+
+Procedures and tools to convert models from native formats to NeuroML and PyNN (Taken from Gleeson et al. 2019 {cite}`Gleeson2019`)
+```
+
 
 (userdocs:creating_models:converting_conductance:github)=
 ### Share original model code in GitHub repo
