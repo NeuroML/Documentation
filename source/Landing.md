@@ -74,7 +74,7 @@ Please {ref}`contact <contact>` the NeuroML community for issues and contributio
 <br />
 
 ```{admonition} Needs work
-This is our elevator speech. *Why should you use NeuroML?*
+This is our elevator pitch. *Why should you use NeuroML?*
 ```
 NeuroML is an {ref}`international, collaborative initiative <missions_and_aims>` to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models.
 NeuroML is:

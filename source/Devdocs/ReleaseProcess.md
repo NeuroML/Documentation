@@ -14,42 +14,29 @@ and these are merged to **master** branches on a new major release, e.g. move fr
 
 These are the steps required for a new release of the NeuroML development tools.
 
-- Tag previous development versions of individual repos
-- Increment all version numbers - to distinguish release from previous development version
-- Commit all work in development branches
-- Test all development branches - rerun Travis-CI at least once
-- Recheck all READMEs & docs
-- Run & check test.py in NeuroML2 repo
-- Check through issues for closed & easily closable ones
-- Update milestones: [https://github.com/NeuroML/NeuroML2/issues](https://github.com/NeuroML/NeuroML2/issues)
-- Update HISTORY.md in NeuroML2
-- libNeuroML
-   - Update README
-   - Retest
-   - Merge to master
-   - Tag release
-	 - Release to pip
-   - Check [https://libneuroml.readthedocs.org/en/latest/install.html](https://libneuroml.readthedocs.org/en/latest/install.html)
-- pylems
-   - Update README
-   - Merge to master
-	 - Tag release
-	 - Release to pip
-- pyNeuroML
-    - Update Readme
-    - Release to pip
-- Java repositories ({ref}`jNeuroML <jNeuroML>`, org.neuroml.* etc.)
-	 - Merge development to master
-- Tag releases
-     - `git checkout master ; git pull; git tag -a 'NMLv2beta4' -m 'Version for NeuroML v2 beta 4 release';git tag; git push --tags; git checkout development`
-- Rebuild jNeuroML & commit to nC
-- Regenerate Cells.xml etc. on nml website & commit
-- Update docs on [http://www.neuroml.org](https://www.neuroml.org)
-- Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases)
-- Test on Windows...
-- Release & make doi on zenodo(?)
-- ANNOUNCE
-- Increment version numbers in all
-- New milestone in issues
-- Update version used in neuroConstruct
-- New release neuroConstruct
+| Task | Version this was last done |
+| --- | --- |
+| Tag previous development versions of individual repos | v2.0 |
+| Increment all version numbers - to distinguish release from previous development version | v2.0 |
+| Commit all work in development branches | v2.0 |
+| Test all development branches - rerun Travis-CI at least once | v2.0 |
+| Recheck all READMEs & docs | v2.0 |
+| Run & check test.py in NeuroML2 repo | v2.0 |
+| Check through issues for closed & easily closable ones | v2.0 |
+| Update milestones: [https://github.com/NeuroML/NeuroML2/issues](https://github.com/NeuroML/NeuroML2/issues) | v2.0 |
+| Update HISTORY.md in NeuroML2 | v2.0 |
+| libNeuroML:  Update README; Retest; Merge to master; Tag release; Release to pip; Check [installation docs](https://libneuroml.readthedocs.org/en/latest/install.html) | v2.0 |
+| pylems: Update README; Merge to master; Tag release; Release to pip | v2.0 |
+| pyNeuroML: Update Readme; Release to pip | v2.0 |
+| Java repositories ({ref}`jNeuroML <jNeuroML>`, org.neuroml.* etc.): Merge development to master; Tag releases: `git checkout master ; git pull; git tag -a 'NMLv2beta4' -m 'Version for NeuroML v2 beta 4 release';git tag; git push --tags; git checkout development` | v2.0 |
+| Rebuild jNeuroML & commit to nC | v2.0 |
+| Regenerate Cells.xml etc. on nml website & commit | v2.0 |
+| Update docs on [http://www.neuroml.org](https://www.neuroml.org) | v2.0 |
+| Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.0 |
+| Test on Windows... | v2.0 |
+| Release & make doi on zenodo(?) | v2.0 |
+| ANNOUNCE | v2.0 |
+| Increment version numbers in all | v2.0 |
+| New milestone in issues | v2.0 |
+| Update version used in neuroConstruct | v2.0 |
+| New release neuroConstruct | v2.0 |
