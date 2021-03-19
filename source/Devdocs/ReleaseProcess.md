@@ -16,11 +16,11 @@ These are the steps required for a new release of the NeuroML development tools.
 
 | Task | Version this was last done |
 | --- | --- |
-| Tag previous development versions of individual repos | v2.0 |
-| Increment all version numbers - to distinguish release from previous development version | v2.0 |
-| Commit all work in development branches | v2.0 |
-| Test all development branches - rerun Travis-CI at least once | v2.0 |
-| Recheck all READMEs & docs | v2.0 |
+| Tag previous development versions of individual repos | v2.1 |
+| Increment all version numbers - to distinguish release from previous development version | v2.1 |
+| Commit all work in development branches | v2.1 |
+| Test all development branches - rerun Travis-CI at least once | v2.1 |
+| Recheck all READMEs & docs | v2.1 |
 | Run & check test.py in NeuroML2 repo | v2.0 |
 | Check through issues for closed & easily closable ones | v2.0 |
 | Update milestones: [https://github.com/NeuroML/NeuroML2/issues](https://github.com/NeuroML/NeuroML2/issues) | v2.0 |
