@@ -38,5 +38,5 @@ These are the steps required for a new release of the NeuroML development tools.
 | ANNOUNCE (mailing list, Twitter) | v2.0 |
 | Increment version numbers in all development branches | v2.0 |
 | New milestone in issues | v2.1 |
-| Update version used in neuroConstruct | v2.0 |
+| Update version used in [neuroConstruct](https://github.com/NeuralEnsemble/neuroConstruct) | v2.1 |
 | New release of neuroConstruct | v2.0 |
