@@ -24,17 +24,13 @@ Both `pynml` (provided by {ref}`pyNeuroML <pyneuroml>`) and `jnml` (provided by 
 Usage:
 
 # For NeuroML 2
-pynml <NML file> -validate
-jnml <NML file> -validate
+jnml -validate <NML file(s)>
+pynml <NML file(s)> -validate
 
 # For NeuroML 1 (deprecated)
-pynml <NML file> -validatev1
-jnml <NML file> -validatev1
+jnml -validatev1 <NML file>
+pynml <NML file(s)> -validatev1
 ```
-
-Please note that this will validate only the included NeuroML file, against the NeuroML 2 schema.
-If these files include other NeuroML 2 files, they will not be taken into consideration.
-To validate NeuroML 2 files **recursively** (i.e., by taking the included files into account also), one must currently use the Python API as documented next.
 
 (userdocs:validating_models:python)=
 ## Using the Python API
@@ -52,8 +48,7 @@ validate_neuroml2(nml_filename)
 ```
 Similarly, the `validate_neuroml1` function can be used to validate NeuroML v1 files.
 
-Like `pynml`, this only validates single NeuroML 2 files, and does not process included files.
-To validate a NeuroML 2 file and all the files it includes, you can use the `read_neuroml2_file` function:
+If you are loading NeuroML files into your Python script, the `read_neuroml2_file` function also includes validation:
 
 ```{code-block} python
 
