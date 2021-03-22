@@ -25,14 +25,14 @@ These are the steps required for a new release of the NeuroML development tools.
 | Check through issues for closed & easily closable ones | v2.1 |
 | Update NeuroML [milestones](https://github.com/NeuroML/NeuroML2/milestones) | v2.1 |
 | Update HISTORY.md in NeuroML2 | v2.1 |
-| libNeuroML:  Update README; Retest; Merge to master; Tag release; Release to pip; Check [installation docs](https://libneuroml.readthedocs.org/en/latest/install.html) | v2.0 |
+| libNeuroML:  Update README; Retest; Merge to master; Tag release; Release to pip; Check [installation docs](https://libneuroml.readthedocs.org/en/latest/install.html) | v2.1 |
 | pylems: Update README; Merge to master; Tag release; Release to pip | v2.1 |
-| pyNeuroML: Update Readme; Tag release; Release to pip | v2.0 |
-| Java repositories ({ref}`jNeuroML <jNeuroML>`, org.neuroml.* etc.): Merge development to master; Tag releases | v2.0 |
+| pyNeuroML: Update Readme; Tag release; Release to pip | v2.1 |
+| Java repositories ({ref}`jNeuroML <jNeuroML>`, org.neuroml.* etc.): Merge development to master; Tag releases | v2.1 |
 | Rebuild jNeuroML & commit to [jNeuroMLJar](https://sourceforge.net/p/neuroml/code/HEAD/tree/jNeuroMLJar/) | v2.1 |
 | Regenerate Cells.xml etc. on nml website & commit | v2.1 |
 | Update docs on [http://www.neuroml.org](https://www.neuroml.org) | v2.1 |
-| Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.0 |
+| Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.1 |
 | Test on Windows... | v2.0 |
 | Release & make doi on zenodo(?) | v2.0 |
 | ANNOUNCE (mailing list, Twitter) | v2.0 |
