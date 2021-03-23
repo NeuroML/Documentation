@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreDimensions.xml](https://github.c
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -66,6 +66,8 @@ Units
 ^^^
 
 - Defined unit: {ref}`schema:units:C`
+
+- Defined unit: {ref}`schema:units:e`
 
 ```
 
@@ -522,6 +524,12 @@ Summary
 
 
 
+----
+Conversions
+^^^
+
+- 1 C = 6.24e+18 {ref}`schema:units:e`
+
 ```
 
 (schema:units:C_per_mol)=
@@ -633,7 +641,7 @@ Summary
 Conversions
 ^^^
 
-- 1 K = 0.0036476 {ref}`schema:units:degC`
+- 1 K = -272.15 {ref}`schema:units:degC`
 
 ```
 
@@ -898,6 +906,27 @@ Conversions
 ^^^
 
 - 1 degC = 274.15 {ref}`schema:units:K`
+
+```
+
+(schema:units:e)=
+### e
+
+```{panels}
+Summary
+^^^
+- Dimension: {ref}`schema:dimensions:charge`
+- Power of 10: 0
+
+
+- Scale: 1.602176634e-19
+
+
+----
+Conversions
+^^^
+
+- 1 e = 1.6022e-19 {ref}`schema:units:C`
 
 ```
 

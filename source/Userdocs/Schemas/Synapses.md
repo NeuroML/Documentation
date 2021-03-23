@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6e4643d0eaa7246982b351a01e28856eeb320500) commit.
+Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -26,7 +26,7 @@ extends *{ref}`schema:basepointcurrent`*
 <i>Base type for all synapses, i.e. ComponentTypes which produce a current (dimension current) and change Dynamics in response to an incoming event.</i>
 
 
-[Bioportal entry for Computational Neuroscience Ontology related to baseSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000009)
+[Bioportal entry for Computational Neuroscience Ontology related to baseSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000009)
 
 
 ````{tabbed} Exposures
@@ -108,7 +108,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 <i>Base type for all synapses, i.e. ComponentTypes which produce a dimensionless current and change Dynamics in response to an incoming event.</i>
 
 
-[Bioportal entry for Computational Neuroscience Ontology related to baseSynapseDL.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000009)
+[Bioportal entry for Computational Neuroscience Ontology related to baseSynapseDL.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000009)
 
 
 ````{tabbed} Exposures
@@ -271,7 +271,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 <i>Synapse model which exposes a conductance **g** in addition to producing a current. Not necessarily ohmic!!</i>
 
 
-[Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000027)
+[Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000027)
 
 
 ````{tabbed} Parameters
@@ -330,7 +330,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 <i>Synapse model suited for a sum of two expTwoSynapses which exposes a conductance **g** in addition to producing a current. Not necessarily ohmic!!</i>
 
 
-[Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapseTwo.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000027)
+[Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapseTwo.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000027)
 
 
 ````{tabbed} Parameters
@@ -1406,7 +1406,7 @@ extends {ref}`schema:exptwosynapse`
 <i>Spike timing dependent plasticity mechanism,  NOTE: EXAMPLE NOT YET WORKING!!!!</i>
 
 
-[Bioportal entry for Computational Neuroscience Ontology related to stdpSynapse.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:cno_0000034)
+[Bioportal entry for Computational Neuroscience Ontology related to stdpSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000034)
 
 
 ````{tabbed} Parameters
