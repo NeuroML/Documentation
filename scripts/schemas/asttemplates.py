@@ -194,7 +194,7 @@ comp = env.from_string(textwrap.dedent(
     <i>{{ comp_type.description }}</i>
 
     {% if cno is not none %}
-    [Bioportal entry for Computational Neuroscience Ontology related to {{ comp_type.name }}.](http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno:{{ cno}})
+    [Bioportal entry for Computational Neuroscience Ontology related to {{ comp_type.name }}.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid={{ cno}})
     {% endif %}
     """
 ))

@@ -10,6 +10,20 @@ This page is currently a work in progress. Please see the related issue here: ht
 
 Please see the {ref}`Getting Started with NeuroML section <userdocs:getting_started_neuroml>` for quick examples on how you can use {ref}`pyNeuroML <pyneuroml>` to create NeuroML models and run them.
 
+
+(userdocs:creating_models:from_neuron)=
+## Converting models from NEURON to NeuroML
+
+Model simulations written using the NEURON simulator can be converted to NeuroML using the {ref}`pyNeuroML <pyneuroml>` API:
+
+```{code-block} python
+from pyneuroml.neuron import export_to_neuroml2
+..
+..
+
+export_to_neuroml2("test.hoc", "test.morphonly.cell.nml", includeBiophysicalProperties=False)
+```
+
 (userdocs:creating_models:converting_conductance)=
 ## Converting conductance based cell models to NeuroML
 ```{admonition} Needs improvements

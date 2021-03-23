@@ -12,6 +12,7 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 from datetime import date
 from decimal import Decimal
 from decimal import getcontext
+import math
 from lems.model.model import Model
 import requests
 import tempfile
@@ -39,7 +40,7 @@ GitHubCompSourcesRaw = "https://raw.githubusercontent.com/NeuroML/NeuroML2/maste
 nml_version = "2.1"
 nml_branch = "master"
 nml_date = date.today().strftime("%d/%m/%y")
-nml_commit = "6e4643d0eaa7246982b351a01e28856eeb320500"
+nml_commit = "ec9d81a59ca05189c89bf48cf3ea06241c917eb5"
 
 
 def format_description(text):
@@ -214,15 +215,23 @@ def main(srcdir, destdir):
                 unit.factors = []
                 for unit2 in units:
                     if unit.symbol != unit2.symbol and unit.dimension == unit2.dimension:
-                        factor1 = model.get_numeric_value("1%s" % unit.symbol.replace("__", ""), unit.dimension)
-                        factor2 = model.get_numeric_value("1%s" % unit2.symbol.replace("__", ""), unit2.dimension)
-                        conversion = float(Decimal(factor1) / Decimal(factor2))
+
+                        si_val = model.get_numeric_value("1%s" % unit.symbol.replace("__", ""), unit.dimension)
+                        unit_val = ((Decimal(si_val)/Decimal(math.pow(10, unit2.power))) / Decimal(unit2.scale)) - Decimal(unit2.offset)
+                        conversion = float(unit_val)
+
+                        # to catch 60.0001 etc.
+                        if conversion >1 and int(conversion) != conversion:
+                            if conversion - int(conversion) < 0.001:
+                                conversion = int(conversion)
+
                         if conversion > 10000:
-                            conversion = '{:.2e}'.format(conversion)
+                            conversion = '%.2e' % conversion
                         else:
-                            conversion = '{}'.format(conversion)
+                            conversion = '%s' % conversion
                         if conversion.endswith('.0'):
                             conversion = conversion[:-2]
+
                         unit.factors.append([conversion, unit2.symbol])
 
             print(asttemplates.unit.render(comp_definition=comp_definition,
