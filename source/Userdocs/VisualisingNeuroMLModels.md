@@ -94,6 +94,34 @@ This generates the following image showing different views of the network :
 
 Graphical view of the Auditory Cortex model generated with pynml
 ```
+
+You can also generate graphical representations that can be viewed with the [Persistence of Vision Raytracer (POV-Ray)](http://povray.org/) tool using the `pynml-povray` tool.
+For example:
+
+```{code-block} console
+pynml-povray MediumNet.net.nml -scalez 8
+povray Antialias=On Antialias_Depth=10 Antialias_Threshold=0.1 Output_to_File=y Output_File_Type=N Output_File_Name=Acnet-medium.povray +W1200 +H900 MediumNet.net.nml.pov
+
+```
+generates this image:
+
+```{figure} ../images/Acnet-medium.povray.png
+:alt: Graphical view of the Auditory Cortex model generated with pynml-povray and POV-Ray
+:align: center
+:scale: 50 %
+
+Graphical view of the Auditory Cortex model generated with pynml-povray and POV-Ray
+```
+
+
+You can also use POV-Ray interactively.
+Please refer to the [official website](http://povray.org/download/) for more information on installing and using POV-Ray.
+On Fedora Linux systems, you can install it from the Fedora repositories using `dnf`:
+
+```{code-block} console
+sudo dnf install povray
+```
+
 (userdoc:visualising_models:png:pyNeuroML)=
 ### Using pyNeuroML
 
