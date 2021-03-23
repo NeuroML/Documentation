@@ -1,6 +1,11 @@
 (userdocs:neuromlv2)=
 # NeuroML v2
 
+```{admonition} Needs review
+:class: warning
+This page needs review. Please see this issue: https://github.com/NeuroML/Documentation/issues/45
+```
+
 The current NeuroML schema is version 2.1, and can be seen [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 The following figure, taken from Cannon et al. 2014 ({cite}`Cannon2014`) shows some of the elements defined in the NeuroML schema version 2.1.
 
