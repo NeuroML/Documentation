@@ -3,7 +3,7 @@
 
 ```{admonition} Work in progress
 :class: note
-This page is a work in progress. Please see
+This page is a work in progress. Please see https://github.com/NeuroML/Documentation/issues/13
 ```
 
 ```{admonition} Validate NeuroML 2 files before using them.
