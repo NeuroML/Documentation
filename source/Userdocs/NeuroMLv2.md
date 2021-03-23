@@ -148,7 +148,7 @@ The behaviour should be the same and should be tested against the reference LEMS
 
 The second point above means that if an application does support LEMS, it can automatically parse (and generate code for) a wide range of NeuroML 2 cells, channels and synapses, including any new ComponentType derived from these, without having to natively know anything about channels, cell models, etc.
 
-```{admonition} jNeuroML pynml handle both LEMS and NeuroML 2.
+```{admonition} jnml and pynml handle both LEMS and NeuroML 2.
 :class: tip
 {ref}`jNeuroML <jneuroML>` and {ref}`pynml <pyneuroml>` handle both LEMS and NeuroML 2.
 They bundle jLEMS together with the LEMS definitions for NeuroML 2 ComponentTypes, and can simulate any LEMS model as well as many NeuroML 2 models.
