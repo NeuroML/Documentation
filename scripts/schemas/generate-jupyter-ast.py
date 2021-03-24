@@ -14,8 +14,8 @@ from decimal import Decimal
 from decimal import getcontext
 import math
 from lems.model.model import Model
-import requests
 import tempfile
+import subprocess
 import asttemplates
 
 # To display correct conversion values, we limit the precision context to 2
@@ -31,16 +31,18 @@ getcontext().prec = 5
 comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes"]
 
 comp_types = {}
+comp_type_examples = {}
 comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
 
 GitHubCompSources = "https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/"
 GitHubCompSourcesRaw = "https://raw.githubusercontent.com/NeuroML/NeuroML2/master/NeuroML2CoreTypes/"
+GitHubRepo = "https://github.com/NeuroML/NeuroML2.git"
 nml_version = "2.1"
 nml_branch = "master"
 nml_date = date.today().strftime("%d/%m/%y")
-nml_commit = "ec9d81a59ca05189c89bf48cf3ea06241c917eb5"
+nml_commit = ""
 
 
 def format_description(text):
@@ -150,19 +152,21 @@ def main(srcdir, destdir):
 
     # If not defined or empty, download a new copy to a temporary directory
     if not srcdir or src == "":
-        print("No src directory specified. Downloading files to a temporary directory..")
+        print("No src directory specified. Cloning NeuroML2 repo")
         tempdir = tempfile.TemporaryDirectory()
         tmpsrcdir = tempdir.name
         print("Temporariy directory: {}".format(tmpsrcdir))
-        for comp_definition in comp_definitions:
-            url = GitHubCompSourcesRaw + comp_definition + ".xml"
-            srcfile = tmpsrcdir + "/" + comp_definition + ".xml"
-            print("Downloading {} to {}".format(url, srcfile))
-            with open(srcfile, 'wb') as f:
-                response = requests.get(url)
-                f.write(response.content)
+        clone_command = ["git", "clone", "--depth", "1", GitHubRepo, tmpsrcdir]
+        subprocess.run(clone_command)
+        tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
     else:
         tmpsrcdir = srcdir
+
+    # Get current commit
+    commit_command = ["git", "log", "-1", "--pretty=format:%H"]
+    output = subprocess.run(commit_command, capture_output=True,
+                            cwd=tmpsrcdir, text=True)
+    nml_commit = output.stdout
 
     # read the downloaded files
     get_component_types(tmpsrcdir)
