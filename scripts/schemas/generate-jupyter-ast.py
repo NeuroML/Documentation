@@ -221,11 +221,11 @@ def main(srcdir, destdir):
                     if unit.symbol != unit2.symbol and unit.dimension == unit2.dimension:
 
                         si_val = model.get_numeric_value("1%s" % unit.symbol.replace("__", ""), unit.dimension)
-                        unit_val = ((Decimal(si_val)/Decimal(math.pow(10, unit2.power))) / Decimal(unit2.scale)) - Decimal(unit2.offset)
+                        unit_val = ((Decimal(si_val) / Decimal(math.pow(10, unit2.power))) / Decimal(unit2.scale)) - Decimal(unit2.offset)
                         conversion = float(unit_val)
 
                         # to catch 60.0001 etc.
-                        if conversion >1 and int(conversion) != conversion:
+                        if conversion > 1 and int(conversion) != conversion:
                             if conversion - int(conversion) < 0.001:
                                 conversion = int(conversion)
 
