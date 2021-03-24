@@ -31,6 +31,9 @@ Examples of files using the NeuroML 2 schema are here:
 - [Some synapse models (single/double exponential conductances, NMDA-R synapse)](https://github.com/NeuroML/NeuroML2/tree/master/examples/NML2_SynapseTypes.nml)
 - [A network of cells positioned in 3D](https://github.com/NeuroML/NeuroML2/tree/master/examples/NML2_InstanceBasedNetwork.nml)
 - [A full NeuroML network model description with cells, channels, populations and networks](https://github.com/NeuroML/NeuroML2/tree/master/examples/NML2_FullNeuroML.nml)
+
+
+
 (userdocs:specification:lemsdefs)=
 ## Defining dynamics in LEMS
 
@@ -46,8 +49,23 @@ LEMS is an XML based language with interpreter originally developed by Robert Ca
 **ComponentType** (**ComponentClass** was briefly used as a name for these) elements which specify **Parameter**s, **StateVariable**s and their **Dynamics** and **Structure** can be defined as templates for model elements (e.g. HH ion channels, abstract cells, etc.).
 **Components** are instances of these with specific values of **Parameters** (e.g. HH squid axon Na+ channel, I&F cell with threshold -60mV, etc.).
 
-Every entity defined in the NeuroML schema has a corresponding definition of its dynamics in LEMS, called a **ComponentType**.
-These can be seen here:
+```{figure} ../images/lems-neuroml2.png
+:alt: Figure showing relationship between LEMS and NeuroML2
+:scale: 60 %
+
+This image (from Blundell et al. 2018 ({cite}`Blundell2018`)) shows the usage of LEMS **ComponentTypes** and **Components** in NeuroML.
+Elements in NeuroML v2 are **Components** which have a corresponding structural and mathematical definition in LEMS **ComponentTypes**.
+```
+
+In the figure, examples are shown of the (truncated) XML representations of: 
+
+- (blue) a network containing two populations of integrate-and-fire cells connected by a single projection between them; 
+- (green) a spiking neuron model as described by Izhikevich (2003);
+- (yellow) a conductance based synapse with a single exponential decay waveform.
+
+On the right the definition of the structure and dynamics of these elements in the LEMS language is shown.
+Each element has a corresponding **ComponentType** definition, describing the parameters (as well as their dimensions, not shown) and the dynamics in terms of the state variables, the time derivative of these, any derived variables, and the behavior when certain conditions are met or (spiking) events are received.
+The standard set of **ComponentType** definitions for the core NeuroML2 elements are contained in a curated set of files (below) though users are free to define their own ComponentTypes to extend the scope of the language.
 
 - {ref}`Dimensions/units allowed <schema:neuromlcoredimensions>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/NeuroMLCoreDimensions.xml?view=markup))
 - {ref}`Cell models <schema:cells>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Cells.xml?view=markup))
@@ -56,23 +74,6 @@ These can be seen here:
 - {ref}`Synapse models <schema:synapses>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Synapses.xml?view=markup))
 - {ref}`Mapping of PyNN cells & synapses <schema:pynn>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/PyNN.xml?view=markup))
 
-The figure below illustrates some of these.
-```{figure} ../images/lems-neuroml2.png
-:alt: Figure showing relationship between LEMS and NeuroML2
-:align: center
-:scale: 60 %
-
-This image (adapted from Vella et al. 2014 ({cite}`Vella2014`)) shows the usage of LEMS **ComponentTypes** and **Components** in NeuroML.
-Elements in NeuroML v2 are **Components** which have a corresponding structural and mathematical definition in LEMS **ComponentTypes**.
-A number of examples of **ComponentTypes** in LEMS are shown.
-A **ComponentType** [izhikevichCell](http://www.neuroml.org/NeuroML2CoreTypes/Cells.html#izhikevichCell) is defined in LEMS, and its parameters are specified as **a**, **b**, **c**, **d**, and **thresh**.
-The Dynamics of the **ComponentType** defines the state variables **v** and **U**.
-LEMS specifies how these vary with time.
-Conditions such as when the membrane potential crosses firing threshold are also defined using **OnConditions**.
-Shortened examples of a synapse ([expTwoSynapse](http://www.neuroml.org/NeuroML2CoreTypes/Synapses.html#expTwoSynapse)) and an ion channel model ([ionChannelHH](http://www.neuroml.org/NeuroML2CoreTypes/Channels.html#ionChannelHH)) are also shown.
-Instances of LEMS **ComponentTypes** can be created by specifying the values for each of the parameters.
-These instances are usually contained in NeuroML XML files.
-```
 
 
 Here, for example, the `izhikevichCell` is defined in the [NeuroML schema](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.1.xsd) as a valid NeuroML cell type which may occur either 0 or more times in a NeuroML document:
