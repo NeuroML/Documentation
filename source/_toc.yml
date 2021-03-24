@@ -32,6 +32,7 @@
             - file: ./Userdocs/Schemas/Networks
             - file: ./Userdocs/Schemas/PyNN
         - file: ./Userdocs/NeuroMLv1.md
+    - file: ./Userdocs/ExtendingNeuroMLv2WithLEMS.md
     - file: ./Userdocs/Software/Software
       sections:
         - file: ./Userdocs/Software/pyNeuroML
