@@ -8,7 +8,7 @@ Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroM
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
+Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -308,6 +308,13 @@ synapses, {ref}`schema:basesynapse`
 : &emsp; d **v** /dt = (MVOLT * ((i_offset/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<IF_curr_alpha id="IF_curr_alpha" cm="1.0" i_offset="0.9" tau_m="20.0" tau_refrac="10.0" tau_syn_E="0.5" tau_syn_I="0.5" v_init="-65" v_reset="-62.0" v_rest="-65.0" v_thresh="-52.0"/>
+```
+````
+
 (schema:if_curr_exp)=
 
 ## IF_curr_exp
@@ -422,6 +429,13 @@ synapses, {ref}`schema:basesynapse`
 : &emsp;&emsp;TRANSITION to REGIME **refractory**
 : <i>**Time derivatives**</i>
 : &emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<IF_curr_exp id="IF_curr_exp" cm="1.0" i_offset="1.0" tau_m="20.0" tau_refrac="8.0" tau_syn_E="5.0" tau_syn_I="5.0" v_init="-65" v_reset="-70.0" v_rest="-65.0" v_thresh="-50.0"/>
+```
 ````
 
 (schema:if_cond_alpha)=
@@ -542,6 +556,16 @@ synapses, {ref}`schema:basesynapse`
 : &emsp; d **v** /dt = (MVOLT * (((i_offset) / cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<IF_cond_alpha id="IF_cond_alpha" cm="1.0" e_rev_E="0.0" e_rev_I="-70.0" i_offset="0.9" tau_m="20.0" tau_refrac="5.0" tau_syn_E="0.3" tau_syn_I="0.5" v_init="-65" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0"/>
+```
+```{code-block} xml
+<IF_cond_alpha id="silent_cell" cm="1.0" e_rev_E="0.0" e_rev_I="-70.0" i_offset="0" tau_m="20.0" tau_refrac="5.0" tau_syn_E="5" tau_syn_I="10" v_init="-65" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0"/>
+```
+````
+
 (schema:if_cond_exp)=
 
 ## IF_cond_exp
@@ -658,6 +682,13 @@ synapses, {ref}`schema:basesynapse`
 : &emsp;&emsp;TRANSITION to REGIME **refractory**
 : <i>**Time derivatives**</i>
 : &emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<IF_cond_exp id="IF_cond_exp" cm="1.0" e_rev_E="0.0" e_rev_I="-70.0" i_offset="1.0" tau_m="20.0" tau_refrac="5.0" tau_syn_E="5.0" tau_syn_I="5.0" v_init="-65" v_reset="-68.0" v_rest="-65.0" v_thresh="-52.0"/>
+```
 ````
 
 (schema:eif_cond_exp_isfa_ista)=
@@ -806,6 +837,13 @@ synapses, {ref}`schema:basesynapse`
 : &emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<EIF_cond_exp_isfa_ista id="EIF_cond_exp_isfa_ista" a="0.0" b="0.0805" cm="0.281" delta_T="2.0" e_rev_E="0.0" e_rev_I="-80.0" i_offset="0.6" tau_m="9.3667" tau_refrac="5" tau_syn_E="5.0" tau_syn_I="5.0" tau_w="144.0" v_init="-65" v_reset="-68.0" v_rest="-70.6" v_spike="-40.0" v_thresh="-52.0"/>
+```
+````
+
 (schema:eif_cond_alpha_isfa_ista)=
 
 ## EIF_cond_alpha_isfa_ista
@@ -952,6 +990,13 @@ synapses, {ref}`schema:basesynapse`
 : &emsp; d **w** /dt = (1/ tau_w) * (a*((v/MVOLT)-v_rest) - w) /MSEC
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<EIF_cond_alpha_isfa_ista id="EIF_cond_alpha_isfa_ista" a="0.0" b="0.0805" cm="0.281" delta_T="0" e_rev_E="0.0" e_rev_I="-80.0" i_offset="0.6" tau_m="9.3667" tau_refrac="5" tau_syn_E="5.0" tau_syn_I="5.0" tau_w="144.0" v_init="-65" v_reset="-68.0" v_rest="-70.6" v_spike="-40.0" v_thresh="-52.0"/>
+```
+````
+
 (schema:hh_cond_exp)=
 
 ## HH_cond_exp
@@ -1076,6 +1121,13 @@ synapses, {ref}`schema:basesynapse`
     : d **n** /dt = (alphan * (1 - n) - betan * n) / MSEC
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<HH_cond_exp id="HH_cond_exp" cm="0.2" e_rev_E="0.0" e_rev_I="-80.0" e_rev_K="-90.0" e_rev_Na="50.0" e_rev_leak="-65.0" g_leak="0.01" gbar_K="6.0" gbar_Na="20.0" i_offset="0.2" tau_syn_E="0.2" tau_syn_I="2.0" v_init="-65" v_offset="-63.0"/>
+```
 ````
 
 (schema:basepynnsynapse)=
@@ -1242,6 +1294,13 @@ g,Dimensionless
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<expCondSynapse id="syn1" tau_syn="5" e_rev="0"/>
+```
+````
+
 (schema:expcurrsynapse)=
 
 ## expCurrSynapse
@@ -1335,6 +1394,13 @@ extends *{ref}`schema:basepynnsynapse`*
     : d **I** /dt = -I / (tau_syn*MSEC)
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<expCurrSynapse id="syn3" tau_syn="5"/>
+```
 ````
 
 (schema:alphacondsynapse)=
@@ -1437,6 +1503,13 @@ g,Dimensionless
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<alphaCondSynapse id="syn2" tau_syn="5" e_rev="0"/>
+```
+````
+
 (schema:alphacurrsynapse)=
 
 ## alphaCurrSynapse
@@ -1533,6 +1606,13 @@ A,{ref}`schema:dimensions:current`
     : d **A** /dt = -A /(tau_syn*MSEC)
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<alphaCurrSynapse id="syn4" tau_syn="5"/>
+```
 ````
 
 (schema:spikesourcepoisson)=
@@ -1655,4 +1735,14 @@ in,Direction: in
     : d **tnextIdeal** /dt = 0
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<SpikeSourcePoisson id="spikes1" start="50ms" duration="400ms" rate="50Hz"/>
+```
+```{code-block} xml
+<SpikeSourcePoisson id="spikes2" start="50ms" duration="300ms" rate="80Hz"/>
+```
 ````

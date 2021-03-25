@@ -8,7 +8,7 @@ Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/Neur
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
+Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -304,6 +304,13 @@ tnext,{ref}`schema:dimensions:time`
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<spikeGenerator id="spikeGenRegular" period="20 ms"/>
+```
+````
+
 (schema:spikegeneratorrandom)=
 
 ## spikeGeneratorRandom
@@ -406,6 +413,13 @@ tnext,{ref}`schema:dimensions:time`
     : d **tnext** /dt = 0
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<spikeGeneratorRandom id="spikeGenRandom" minISI="10 ms" maxISI="30 ms"/>
+```
 ````
 
 (schema:spikegeneratorpoisson)=
@@ -516,6 +530,13 @@ tnextUsed,{ref}`schema:dimensions:time`
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<spikeGeneratorPoisson id="spikeGenPoisson" averageRate="50 Hz"/>
+```
+````
+
 (schema:spikegeneratorrefpoisson)=
 
 ## spikeGeneratorRefPoisson
@@ -623,6 +644,13 @@ averageIsi,{ref}`schema:dimensions:time`
     : d **tnextIdeal** /dt = 0
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<spikeGeneratorRefPoisson id="spikeGenRefPoisson" averageRate="50 Hz" minimumISI="10 ms"/>
+```
 ````
 
 (schema:poissonfiringsynapse)=
@@ -786,6 +814,13 @@ spike,Direction: out
     : d **tnextIdeal** /dt = 0
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<poissonFiringSynapse id="poissonFiringSyn" averageRate="10 Hz" synapse="synInput" spikeTarget="./synInput"/>
+```
 ````
 
 (schema:transientpoissonfiringsynapse)=
@@ -954,6 +989,16 @@ spike,Direction: out
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<transientPoissonFiringSynapse id="transPoissonFiringSyn" delay="50ms" duration="50ms" averageRate="300 Hz" synapse="synInputFast" spikeTarget="./synInputFast"/>
+```
+```{code-block} xml
+<transientPoissonFiringSynapse id="transPoissonFiringSyn2" delay="50ms" duration="500ms" averageRate="10 Hz" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo"/>
+```
+````
+
 (schema:timedsynapticinput)=
 
 ## timedSynapticInput
@@ -1079,6 +1124,30 @@ in,Direction: in
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<timedSynapticInput id="synTrain" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo">
+        <spike id="0" time="2 ms"/>
+        <spike id="1" time="15 ms"/>
+        <spike id="2" time="27 ms"/>
+        <spike id="3" time="40 ms"/>
+        <spike id="4" time="45 ms"/>
+        <spike id="5" time="50 ms"/>
+        <spike id="6" time="52 ms"/>
+        <spike id="7" time="54 ms"/>
+        <spike id="8" time="54.5 ms"/>
+        <spike id="9" time="54.6 ms"/>
+        <spike id="10" time="54.7 ms"/>
+        <spike id="11" time="54.8 ms"/>
+        <spike id="12" time="54.9 ms"/>
+        <spike id="13" time="55 ms"/>
+        <spike id="14" time="55.1 ms"/>
+        <spike id="15" time="55.2 ms"/>
+    </timedSynapticInput>
+```
+````
+
 (schema:pulsegenerator)=
 
 ## pulseGenerator
@@ -1169,6 +1238,49 @@ in,Direction: in
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.08nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="20ms" duration="100ms" amplitude="0.2nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen3" delay="30ms" duration="100ms" amplitude="0.18nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.3nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="100ms" duration="100ms" amplitude="0.4nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen0" delay="50ms" duration="200ms" amplitude="1 nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0020nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen3" delay="700ms" duration="200ms" amplitude="0.0010nA"/>
+```
+````
+
 (schema:compoundinput)=
 
 ## compoundInput
@@ -1244,6 +1356,17 @@ in,Direction: in
 
 
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<compoundInput id="ci0">
+        <pulseGenerator id="pg1" delay="50ms" duration="200ms" amplitude=".8 nA"/>
+        <pulseGenerator id="pg2" delay="100ms" duration="100ms" amplitude=".4 nA"/>
+        <sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
+    </compoundInput>
+```
 ````
 
 (schema:compoundinputdl)=
@@ -1505,6 +1628,13 @@ in,Direction: in
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<sineGenerator id="sg0" phase="0" delay="50ms" duration="200ms" amplitude="1.4nA" period="50ms"/>
+```
+````
+
 (schema:sinegeneratordl)=
 
 ## sineGeneratorDL
@@ -1689,6 +1819,13 @@ in,Direction: in
 
 
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<rampGenerator id="rg0" delay="50ms" duration="200ms" startAmplitude="0.5nA" finishAmplitude="4nA" baselineAmplitude="0nA"/>
+```
 ````
 
 (schema:rampgeneratordl)=
@@ -1990,6 +2127,13 @@ in,Direction: in
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<voltageClampTriple id="vClamp0" active="1" delay="50ms" duration="200ms" conditioningVoltage="-70mV" testingVoltage="-50mV" returnVoltage="-70mV" simpleSeriesResistance="1e6ohm"/>
+```
+````
+
 (schema:spikearray)=
 
 ## spikeArray
@@ -2072,6 +2216,19 @@ in,Direction: in
     : d **tsince** /dt = 1
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<spikeArray id="spkArr">
+      <spike id="0" time="50 ms"/>
+      <spike id="1" time="100 ms"/>
+      <spike id="2" time="150 ms"/>
+      <spike id="3" time="155 ms"/>
+      <spike id="4" time="250 ms"/>
+    </spikeArray>
+```
 ````
 
 (schema:spike)=

@@ -8,7 +8,7 @@ Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
+Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -41,6 +41,236 @@ continuousProjection, {ref}`schema:continuousprojection`
 explicitInputs, {ref}`schema:explicitinput`
 inputs, {ref}`schema:inputlist`
 
+```
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<network id="net1">
+        <population id="hhpop" component="hhcell" size="1"/>
+        <explicitInput target="hhpop[0]" input="pulseGen1"/>
+    </network>
+```
+```{code-block} xml
+<network id="SegmentConnectionsNetwork">
+        <population id="popA" type="populationList" component="dendCell" size="1">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="popB" type="populationList" component="dendCell" size="1">
+            <instance id="0">
+                <location x="100" y="100" z="100"/>
+            </instance>
+        </population>
+        <projection id="proj0" presynapticPopulation="popA" postsynapticPopulation="popB" synapse="syn1">
+            <connection id="0" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../popB/0/dendCell" postSegmentId="1" postFractionAlong="1"/>
+            <connection id="1" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.1" postCellId="../popB/0/dendCell" postSegmentId="2" postFractionAlong="0.9"/>
+        </projection>
+    </network>
+```
+```{code-block} xml
+<network id="netAll">
+        <population component="IF_curr_alpha" id="pop_IF_curr_alpha" size="1"/>
+        <population component="IF_curr_exp" id="pop_IF_curr_exp" size="1"/>
+        <population component="IF_cond_alpha" id="pop_IF_cond_alpha" size="1"/>
+        <population component="IF_cond_exp" id="pop_IF_cond_exp" size="1"/>
+        <population component="EIF_cond_exp_isfa_ista" id="pop_EIF_cond_exp_isfa_ista" size="1"/>
+        <population component="EIF_cond_alpha_isfa_ista" id="pop_EIF_cond_alpha_isfa_ista" size="1"/>
+        <population component="HH_cond_exp" id="pop_HH_cond_exp" size="1"/>
+    
+        <population component="silent_cell" id="pop_target" size="4"/>
+         
+        <population component="spikes1" id="pop_spikes1" size="1"/>
+        <population component="spikes2" id="pop_spikes2" size="1"/>
+       
+        <projection id="proj0" presynapticPopulation="pop_EIF_cond_exp_isfa_ista" postsynapticPopulation="pop_target" synapse="syn1">
+            <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista[0]" postCellId="../pop_target[0]" weight="0.01" delay="10ms"/>
+        </projection>
+        
+        <projection id="proj1" presynapticPopulation="pop_EIF_cond_alpha_isfa_ista" postsynapticPopulation="pop_target" synapse="syn2">
+            <connectionWD id="0" preCellId="../pop_EIF_cond_alpha_isfa_ista[0]" postCellId="../pop_target[1]" weight="0.005" delay="20ms"/>
+        </projection>
+        
+        <projection id="proj2" presynapticPopulation="pop_IF_curr_alpha" postsynapticPopulation="pop_target" synapse="syn3">
+            <connectionWD id="0" preCellId="../pop_IF_curr_alpha[0]" postCellId="../pop_target[2]" weight="1" delay="30ms"/>
+        </projection>
+        
+        <projection id="proj3" presynapticPopulation="pop_IF_cond_exp" postsynapticPopulation="pop_target" synapse="syn4">
+            <connectionWD id="0" preCellId="../pop_IF_cond_exp[0]" postCellId="../pop_target[3]" weight="0.5" delay="40ms"/>
+        </projection>
+        
+    </network>
+```
+```{code-block} xml
+<network id="MultiCompCellNetwork">
+        <population id="pop0" type="populationList" component="MultiCompCell">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+            <instance id="1">
+                <location x="30" y="0" z="0"/>
+            </instance>
+            <instance id="2">
+                <location x="60" y="0" z="0"/>
+            </instance>
+        </population>
+        <projection id="projAMPA" presynapticPopulation="pop0" postsynapticPopulation="pop0" synapse="AMPA">
+            <connection id="0" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+            <connection id="1" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.3"/>
+            
+            <connection id="2" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+            <connection id="3" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="1" postFractionAlong="0.5"/>
+            <connection id="4" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.25"/>
+        </projection>
+        <projection id="projNMDA" presynapticPopulation="pop0" postsynapticPopulation="pop0" synapse="NMDA">
+            <connection id="0" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+            <connection id="1" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.5"/>
+            
+            <connection id="2" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
+            <connection id="3" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="1" postFractionAlong="0.5"/>
+            <connection id="4" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.25"/>
+        </projection>
+        <inputList id="stimInput1" component="pulseGen2" population="pop0">
+            <input id="0" target="../pop0/0/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
+        </inputList>
+        <inputList id="stimInput2" component="pulseGen3" population="pop0">
+            <input id="1" target="../pop0/2/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
+        </inputList>
+        
+    </network>
+```
+```{code-block} xml
+<network id="InstanceBasedNetwork">
+        <population id="iafCells" type="populationList" component="iaf" size="3">
+            <instance id="0">
+                <location x="120" y="230" z="567"/>
+            </instance>
+            <instance id="1">
+                <location x="270" y="450" z="56"/>
+            </instance>
+            <instance id="2">
+                <location x="54" y="234" z="89"/>
+            </instance>
+        </population>
+        <projection id="internal1" presynapticPopulation="iafCells" postsynapticPopulation="iafCells" synapse="syn1">
+            <!--TODO: Fix! want to define synapse in here, so that multiple synapses per connection can be defined  
+            <synapseComponent component="syn1"/>-->
+            
+            <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/1/iaf"/>
+        </projection>
+        <projection id="internal2" presynapticPopulation="iafCells" postsynapticPopulation="iafCells" synapse="syn2">
+            <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/2/iaf"/>
+        </projection>
+        <inputList id="stimInput" component="pulseGen1" population="iafCells">
+            
+            <input id="0" target="../iafCells/0/iaf" destination="synapses"/>
+        </inputList>
+        
+    </network>
+```
+```{code-block} xml
+<network id="net1">
+        <population id="iafPop1" component="iaf" size="1"/>
+        <population id="iafPop2" component="iaf" size="1"/>
+        
+        <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
+            <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
+        </electricalProjection>
+        
+        <explicitInput target="iafPop1[0]" input="pulseGen1" destination="synapses"/>
+        <explicitInput target="iafPop2[0]" input="pulseGen2" destination="synapses"/>
+        
+    </network>
+```
+```{code-block} xml
+<network id="net1">
+        <population id="iafPop1" component="iaf" size="1" type="populationList">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        
+        <population id="iafPop2" component="iaf" size="1" type="populationList">
+            <instance id="0">
+                <location x="100" y="0" z="0"/>
+            </instance>
+        </population>
+ 
+        <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
+            <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
+        </electricalProjection>
+        
+        
+        <inputList id="i1" component="pulseGen1" population="iafPop1">
+            <input id="0" target="../iafPop1/0/iaf" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="i2" component="pulseGen2" population="iafPop2">
+            <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
+        </inputList>
+        
+    </network>
+```
+```{code-block} xml
+<network id="PyrCellNet">   
+    
+        
+        <population id="Population1" component="PyrCell" extracellularProperties="extracellular" size="9"> 
+        </population>
+        <projection id="Proj1" presynapticPopulation="Population1" postsynapticPopulation="Population1" synapse="AMPA">
+           
+        </projection>
+    </network>
+```
+```{code-block} xml
+<network id="net2">
+        
+        <population id="hhPop1" component="hhcell" size="1" type="populationList">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="hhPop2" component="hhcell" size="1" type="populationList">
+            <instance id="0">
+                <location x="100" y="0" z="0"/>
+            </instance>
+        </population>
+  
+        
+        <continuousProjection id="testGradedConn" presynapticPopulation="hhPop1" postsynapticPopulation="hhPop2">
+            <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
+        </continuousProjection>
+        
+        <inputList id="i1" component="pulseGen1" population="hhPop1">
+            <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
+        </inputList>
+        
+    </network>
+```
+```{code-block} xml
+<network id="net1">
+        <population id="iafPop1" component="iaf" size="1"/>
+        <population id="iafPop2" component="iaf" size="1"/>
+        <population id="iafPop3" component="iaf" size="1"/>
+   
+        <continuousProjection id="testLinearGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
+            <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
+        </continuousProjection>
+        
+        <continuousProjection id="testGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop3">
+            <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent2" postComponent="gs2"/>
+        </continuousProjection>
+        
+        <explicitInput target="iafPop1[0]" input="pulseGen1" destination="synapses"/>
+        <explicitInput target="iafPop1[0]" input="pulseGen2" destination="synapses"/>
+        <explicitInput target="iafPop1[0]" input="pulseGen3" destination="synapses"/>
+        
+    </network>
 ```
 ````
 
