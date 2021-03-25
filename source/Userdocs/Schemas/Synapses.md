@@ -49,6 +49,19 @@ in,Direction: in
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseSynapse
+
+variable = BaseSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:basevoltagedepsynapse)=
 
 ## *baseVoltageDepSynapse*
@@ -92,6 +105,19 @@ v,{ref}`schema:dimensions:voltage`
 *in (from {ref}`schema:basesynapse`)*,Direction: in
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseVoltageDepSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseVoltageDepSynapse
+
+variable = BaseVoltageDepSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:basesynapsedl)=
@@ -164,6 +190,19 @@ extends *{ref}`schema:basesynapse`*
 *in (from {ref}`schema:basesynapse`)*,Direction: in
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCurrentBasedSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseCurrentBasedSynapse
+
+variable = BaseCurrentBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:alphacurrentsynapse)=
@@ -257,6 +296,19 @@ tau,{ref}`schema:dimensions:time`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCurrentSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import AlphaCurrentSynapse
+
+variable = AlphaCurrentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau=None, ibase=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:baseconductancebasedsynapse)=
 
 ## *baseConductanceBasedSynapse*
@@ -314,6 +366,19 @@ g,{ref}`schema:dimensions:conductance`
 *in (from {ref}`schema:basesynapse`)*,Direction: in
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseConductanceBasedSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseConductanceBasedSynapse
+
+variable = BaseConductanceBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:baseconductancebasedsynapsetwo)=
@@ -374,6 +439,19 @@ g,{ref}`schema:dimensions:conductance`
 *in (from {ref}`schema:basesynapse`)*,Direction: in
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseConductanceBasedSynapseTwo" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseConductanceBasedSynapseTwo
+
+variable = BaseConductanceBasedSynapseTwo(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:exponesynapse)=
@@ -477,6 +555,16 @@ tauDecay,{ref}`schema:dimensions:time`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpOneSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ExpOneSynapse
+
+variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
@@ -492,6 +580,7 @@ tauDecay,{ref}`schema:dimensions:time`
 ```{code-block} xml
 <expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
 ```
+
 ````
 
 (schema:alphasynapse)=
@@ -598,12 +687,23 @@ tau,{ref}`schema:dimensions:time`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import AlphaSynapse
+
+variable = AlphaSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <alphaSynapse id="synalpha" gbase="0.5nS" erev="0mV" tau="2ms">
         <notes>An alpha synapse with time for rise equal to decay.</notes>
     </alphaSynapse>
 ```
+
 ````
 
 (schema:exptwosynapse)=
@@ -724,6 +824,16 @@ waveformFactor,Dimensionless
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpTwoSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ExpTwoSynapse
+
+variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <expTwoSynapse id="SimpleSynapse" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms">
@@ -742,6 +852,7 @@ waveformFactor,Dimensionless
 ```{code-block} xml
 <expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
 ```
+
 ````
 
 (schema:expthreesynapse)=
@@ -870,6 +981,16 @@ waveformFactor2,Dimensionless
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpThreeSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ExpThreeSynapse
+
+variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, tau_decay1=None, tau_decay2=None, tau_rise=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
@@ -879,6 +1000,7 @@ waveformFactor2,Dimensionless
 ```{code-block} xml
 <expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
 ```
+
 ````
 
 (schema:baseblockmechanism)=
@@ -1336,6 +1458,16 @@ relay,Direction: out
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BlockingPlasticSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BlockingPlasticSynapse
+
+variable = BlockingPlasticSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, plasticity_mechanism=None, block_mechanism=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <blockingPlasticSynapse id="stpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
@@ -1375,6 +1507,7 @@ relay,Direction: out
         <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2mM" scalingConc="1.9205441817997078mM" scalingVolt="0.016129032258064516V"/>
     </blockingPlasticSynapse>
 ```
+
 ````
 
 (schema:doublesynapse)=
@@ -1495,12 +1628,23 @@ relay,Direction: out
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DoubleSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import DoubleSynapse
+
+variable = DoubleSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse1=None, synapse2=None, synapse1_path=None, synapse2_path=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <doubleSynapse id="AMPA_NMDA" synapse1="AMPA" synapse1Path="./AMPA" synapse2="NMDA" synapse2Path="./NMDA">
         <notes>A single "synapse" which contains both AMPA and NMDA. It is planned that the need for extra synapse1Path/synapse2Path attributes can be removed in later versions.</notes>
     </doubleSynapse>
 ```
+
 ````
 
 (schema:stdpsynapse)=
@@ -1720,6 +1864,16 @@ v,{ref}`schema:dimensions:voltage`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GapJunction" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import GapJunction
+
+variable = GapJunction(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <gapJunction id="gj1" conductance="10pS"/>
@@ -1727,6 +1881,7 @@ v,{ref}`schema:dimensions:voltage`
 ```{code-block} xml
 <gapJunction id="gj1" conductance="10pS"/>
 ```
+
 ````
 
 (schema:basegradedsynapse)=
@@ -1830,6 +1985,16 @@ v,{ref}`schema:dimensions:voltage`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SilentSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import SilentSynapse
+
+variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <silentSynapse id="silent1"/>
@@ -1840,6 +2005,7 @@ v,{ref}`schema:dimensions:voltage`
 ```{code-block} xml
 <silentSynapse id="silent2"/>
 ```
+
 ````
 
 (schema:lineargradedsynapse)=
@@ -1918,10 +2084,21 @@ v,{ref}`schema:dimensions:voltage`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=LinearGradedSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import LinearGradedSynapse
+
+variable = LinearGradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <linearGradedSynapse id="gs1" conductance="5pS"/>
 ```
+
 ````
 
 (schema:gradedsynapse)=
@@ -2036,6 +2213,16 @@ v,{ref}`schema:dimensions:voltage`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GradedSynapse" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import GradedSynapse
+
+variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, delta=None, Vth=None, k=None, erev=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
@@ -2043,4 +2230,5 @@ v,{ref}`schema:dimensions:voltage`
 ```{code-block} xml
 <gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
 ```
+
 ````

@@ -1050,6 +1050,19 @@ TENDEGREES = 10K, {ref}`schema:dimensions:temperature`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Q10ConductanceScaling" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Q10ConductanceScaling
+
+variable = Q10ConductanceScaling(q10_factor=None, experimental_temp=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:baseconductancescalingcadependent)=
 
 ## *baseConductanceScalingCaDependent*
@@ -1447,6 +1460,19 @@ tau,{ref}`schema:dimensions:time`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHInstantaneous" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import GateHHInstantaneous
+
+variable = GateHHInstantaneous(neuro_lex_id=None, id=None, instances=None, notes=None, steady_state=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:gatehhratestau)=
 
 ## gateHHratesTau
@@ -1831,6 +1857,19 @@ rateScale,Dimensionless
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractional" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import GateFractional
+
+variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, sub_gates=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:subgate)=
 
 ## subGate
@@ -2149,6 +2188,16 @@ gates, {ref}`schema:gate`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelHH" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IonChannelHH
+
+variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <ionChannelHH id="passiveChan" conductance="10pS">
@@ -2197,6 +2246,7 @@ gates, {ref}`schema:gate`
 ```{code-block} xml
 <ionChannelHH xmlns:xi="http://www.w3.org/2001/XInclude" id="pas" conductance="10pS"/>
 ```
+
 ````
 
 (schema:ionchannel)=
@@ -2267,6 +2317,19 @@ extends {ref}`schema:ionchannelhh`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannel" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IonChannel
+
+variable = IonChannel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, extensiontype_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:ionchannelvshift)=
 
 ## ionChannelVShift
@@ -2320,6 +2383,19 @@ species,
 *v (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:voltage`
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelVShift" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IonChannelVShift
+
+variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, v_shift=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:ksstate)=
@@ -2413,6 +2489,19 @@ extends {ref}`schema:ksstate`
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ClosedState" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ClosedState
+
+variable = ClosedState(neuro_lex_id=None, id=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:openstate)=
 
 ## openState
@@ -2447,6 +2536,19 @@ extends {ref}`schema:ksstate`
 *q (from {ref}`schema:ksstate`)*,Dimensionless
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=OpenState" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import OpenState
+
+variable = OpenState(neuro_lex_id=None, id=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:ionchannelks)=
@@ -2529,6 +2631,19 @@ gates, {ref}`schema:gateks`
     
 
 
+
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelKS" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IonChannelKS
+
+variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, species=None, conductance=None, gate_kses=None, **kwargs_)
+```
 
 
 
@@ -2623,6 +2738,19 @@ SEC = 1s, {ref}`schema:dimensions:time`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ForwardTransition" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ForwardTransition
+
+variable = ForwardTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:reversetransition)=
 
 ## reverseTransition
@@ -2685,6 +2813,19 @@ SEC = 1s, {ref}`schema:dimensions:time`
     
 
 
+
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ReverseTransition" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ReverseTransition
+
+variable = ReverseTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, **kwargs_)
+```
 
 
 
@@ -2831,6 +2972,19 @@ steadyState, {ref}`schema:basevoltagedepvariable`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TauInfTransition" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import TauInfTransition
+
+variable = TauInfTransition(neuro_lex_id=None, id=None, from_=None, to=None, steady_state=None, time_course=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:gateks)=
 
 ## gateKS
@@ -2896,6 +3050,19 @@ rateScale,Dimensionless
     
 
 
+
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateKS" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import GateKS
+
+variable = GateKS(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, closed_states=None, open_states=None, forward_transition=None, reverse_transition=None, tau_inf_transition=None, **kwargs_)
+```
 
 
 
