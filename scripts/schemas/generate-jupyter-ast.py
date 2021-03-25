@@ -14,9 +14,15 @@ from decimal import Decimal
 from decimal import getcontext
 import math
 from lems.model.model import Model
-import requests
 import tempfile
+import subprocess
 import asttemplates
+# lxml supports recursive searching which the python xml module does not seem
+# to include
+import lxml.etree as ET
+import os
+import re
+
 
 # To display correct conversion values, we limit the precision context to 2
 # places (required by Hz). Higher precisions, such as the default machine
@@ -29,18 +35,19 @@ getcontext().prec = 5
 
 # Main worker bits start here
 comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes"]
-
 comp_types = {}
+comp_type_examples = {}
 comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
 
 GitHubCompSources = "https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/"
 GitHubCompSourcesRaw = "https://raw.githubusercontent.com/NeuroML/NeuroML2/master/NeuroML2CoreTypes/"
+GitHubRepo = "https://github.com/NeuroML/NeuroML2.git"
 nml_version = "2.1"
 nml_branch = "master"
 nml_date = date.today().strftime("%d/%m/%y")
-nml_commit = "ec9d81a59ca05189c89bf48cf3ea06241c917eb5"
+nml_commit = ""
 
 
 def format_description(text):
@@ -72,6 +79,53 @@ def format_description(text):
 
         text2 = text2 + word + " "
     return text2.rstrip()
+
+
+def get_comp_examples(srcdir):
+    """Get examples for component types
+
+    :param srcdir: directory where examples are
+    :type srcdir: string
+    :returns: TODO
+    """
+    for comp_type in comp_types.keys():
+        comp_type_examples[comp_type] = []
+
+    example_files = os.listdir(srcdir)
+    for f in example_files:
+        if ".nml" in f:
+            #  print("Processing example file: {}".format(f))
+            srcfile = srcdir + "/" + f
+            fh = open(srcfile, 'r')
+
+            # Replace xmlns bits, we can't do it using lxml
+            # So we need to read the file, do some regular expression
+            # substitutions, and then start the XML bits
+            data = fh.read()
+            data = re.sub('xmlns=".*"', '', data)
+            data = re.sub('xmlns:xsi=".*"', '', data)
+            data = re.sub('xsi:schemaLocation=".*"', '', data)
+            # Remove comment lines
+            data = re.sub('<!--.*-->', '', data)
+            # Strip empty lines
+            data = os.linesep.join([s for s in data.splitlines() if s])
+
+            root = ET.fromstring(bytes(data, 'utf-8'))
+            namespaces = root.nsmap
+
+            for comp_type in comp_types.keys():
+                #  print("looking for comp_type {}".format(comp_type))
+                # To find recursively, we have to use the XPath system:
+                # https://stackoverflow.com/a/2723968/375067
+                # Gotta use namespaces:
+                # https://stackoverflow.com/a/28700661/375067
+                for example in root.findall(comp_type, namespaces=namespaces):
+                    comp_type_examples[comp_type].append(
+                        ET.tostring(example, pretty_print=True,
+                                    encoding="unicode", with_comments="False"
+                                    )
+                    )
+    #  print(comp_type_examples)
 
 
 def get_component_types(srcdir):
@@ -150,22 +204,29 @@ def main(srcdir, destdir):
 
     # If not defined or empty, download a new copy to a temporary directory
     if not srcdir or src == "":
-        print("No src directory specified. Downloading files to a temporary directory..")
+        print("No src directory specified. Cloning NeuroML2 repo")
         tempdir = tempfile.TemporaryDirectory()
         tmpsrcdir = tempdir.name
         print("Temporariy directory: {}".format(tmpsrcdir))
-        for comp_definition in comp_definitions:
-            url = GitHubCompSourcesRaw + comp_definition + ".xml"
-            srcfile = tmpsrcdir + "/" + comp_definition + ".xml"
-            print("Downloading {} to {}".format(url, srcfile))
-            with open(srcfile, 'wb') as f:
-                response = requests.get(url)
-                f.write(response.content)
+        clone_command = ["git", "clone", "--depth", "1", GitHubRepo, tmpsrcdir]
+        subprocess.run(clone_command)
     else:
         tmpsrcdir = srcdir
 
+    exampledir = tmpsrcdir + "/examples/"
+    tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
+
+    # Get current commit
+    commit_command = ["git", "log", "-1", "--pretty=format:%H"]
+    output = subprocess.run(commit_command, capture_output=True,
+                            cwd=tmpsrcdir, text=True)
+    nml_commit = output.stdout
+
     # read the downloaded files
     get_component_types(tmpsrcdir)
+
+    # get examples
+    get_comp_examples(exampledir)
 
     if not destdir or destdir == "":
         destdir = "."
@@ -217,11 +278,11 @@ def main(srcdir, destdir):
                     if unit.symbol != unit2.symbol and unit.dimension == unit2.dimension:
 
                         si_val = model.get_numeric_value("1%s" % unit.symbol.replace("__", ""), unit.dimension)
-                        unit_val = ((Decimal(si_val)/Decimal(math.pow(10, unit2.power))) / Decimal(unit2.scale)) - Decimal(unit2.offset)
+                        unit_val = ((Decimal(si_val) / Decimal(math.pow(10, unit2.power))) / Decimal(unit2.scale)) - Decimal(unit2.offset)
                         conversion = float(unit_val)
 
                         # to catch 60.0001 etc.
-                        if conversion >1 and int(conversion) != conversion:
+                        if conversion > 1 and int(conversion) != conversion:
                             if conversion - int(conversion) < 0.001:
                                 conversion = int(conversion)
 
@@ -382,6 +443,14 @@ def main(srcdir, destdir):
             if comp_type.dynamics and comp_type.dynamics.has_content():
                 print(asttemplates.dynamics.render(title="Dynamics",
                                                    comp_type=comp_type), file=ast_doc)
+
+            # Examples
+            print("Checking for {}".format(comp_type.name))
+            if len(comp_type_examples[comp_type.name]) > 0:
+                print(asttemplates.examples.render(
+                    title="Usage", comp_type=comp_type,
+                    lemsexamples=comp_type_examples[comp_type.name]), file=ast_doc)
+
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
 

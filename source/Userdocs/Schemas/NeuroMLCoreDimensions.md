@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreDimensions.xml](https://github.c
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
+Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 

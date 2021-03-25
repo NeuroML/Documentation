@@ -1,11 +1,12 @@
 (userdocs:finding_models)=
-# Finding NeuroML models
+# Finding and sharing NeuroML models
 ```{admonition} WIP
 :class: warning
 This page is currently a work in progress. Please see the related issue here: https://github.com/NeuroML/Documentation/issues/38
 ```
 
-**NeuroML-DB: NeuroML Database**
+(userdocs:finding_models:neuromldb)=
+## NeuroML-DB: NeuroML Database
 
 [https://neuroml-db.org/](https://neuroml-db.org/)
 
@@ -16,11 +17,16 @@ In particular, the NeuroML database allows for efficient searches over the compo
 
 NeuroML-DB.org is developed and maintained by the [ICON Lab](https://iconlab.asu.edu/) at [Arizona State University](https://asu.edu/).
 
-**Open Source Brain (v1)**
+To submit your NeuroML model to neuroml-db.org, please see the information on [this page](https://neuroml-db.org/about).
+
+(userdocs:finding_models:osbv1)=
+## Open Source Brain (v1)
 
 [https://www.opensourcebrain.org](https://www.opensourcebrain.org)
 
 Open Source Brain is a platform for sharing, viewing, analyzing, and simulating standardized models from different brain regions and species.
+
+To add your NeuroML model to Open Source Brain, please see the information on [this page](https://www.opensourcebrain.org/docs#Creating_Your_Own_Project).
 
 (userdocs:finding_models:others)=
 ## Other related projects

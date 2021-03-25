@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 23/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/ec9d81a59ca05189c89bf48cf3ea06241c917eb5) commit.
+Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -476,6 +476,24 @@ tauDecay,{ref}`schema:dimensions:time`
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
+        <notes>A simple monoexponential synapse.</notes>
+    </expOneSynapse>
+```
+```{code-block} xml
+<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
+```
+```{code-block} xml
+<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
+```
+```{code-block} xml
+<expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
+```
+````
+
 (schema:alphasynapse)=
 
 ## alphaSynapse
@@ -577,6 +595,15 @@ tau,{ref}`schema:dimensions:time`
     : d **A** /dt = -A / tau
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<alphaSynapse id="synalpha" gbase="0.5nS" erev="0mV" tau="2ms">
+        <notes>An alpha synapse with time for rise equal to decay.</notes>
+    </alphaSynapse>
+```
 ````
 
 (schema:exptwosynapse)=
@@ -694,6 +721,27 @@ waveformFactor,Dimensionless
     : d **B** /dt = -B / tauDecay
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<expTwoSynapse id="SimpleSynapse" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms">
+        <notes>A biexponential synapse.</notes>
+    </expTwoSynapse>
+```
+```{code-block} xml
+<expTwoSynapse id="AMPA" tauRise="3e-5s" tauDecay="0.5e-3s" gbase=".3nS" erev="0V"/>
+```
+```{code-block} xml
+<expTwoSynapse id="synInput" gbase="8nS" erev="20mV" tauRise="1ms" tauDecay="5ms"/>
+```
+```{code-block} xml
+<expTwoSynapse id="synInputFast" gbase="1nS" erev="20mV" tauRise="0.2ms" tauDecay="1ms"/>
+```
+```{code-block} xml
+<expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
+```
 ````
 
 (schema:expthreesynapse)=
@@ -819,6 +867,18 @@ waveformFactor2,Dimensionless
     : d **C** /dt = -C / tauDecay2
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
+        <notes>A synapse consisting of one rise and two decay time courses.</notes>
+    </expThreeSynapse>
+```
+```{code-block} xml
+<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
+```
 ````
 
 (schema:baseblockmechanism)=
@@ -1275,6 +1335,48 @@ relay,Direction: out
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<blockingPlasticSynapse id="stpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
+        <notes>A biexponential synapse exhibiting STD.</notes>
+        <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="stpSynDepFac" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
+        <notes>A biexponential synapse with short term depression
+            and facilitation.</notes>
+        <plasticityMechanism type="tsodyksMarkramDepFacMechanism" initReleaseProb="0.5" tauRec="120 ms" tauFac="10 ms"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="blockStpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
+        <notes>A biexponential blocking synapse, with STD.</notes>
+        <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
+        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="blockStpSynDepFac" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
+        <notes>A biexponential blocking synapse with short term
+            depression and facilitation.</notes>
+        <plasticityMechanism type="tsodyksMarkramDepFacMechanism" initReleaseProb="0.5" tauRec="120 ms" tauFac="10 ms"/>
+        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="NMDA" gbase="0.5nS" erev="0mV" tauRise="2ms" tauDecay="8ms">
+        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="NMDA" gbase=".8nS" tauRise="1e-3s" tauDecay="13.3333e-3s" erev="0V">
+        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2mM" scalingConc="1.9205441817997078mM" scalingVolt="0.016129032258064516V"/>
+    </blockingPlasticSynapse>
+```
+````
+
 (schema:doublesynapse)=
 
 ## doubleSynapse
@@ -1390,6 +1492,15 @@ relay,Direction: out
 
 
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<doubleSynapse id="AMPA_NMDA" synapse1="AMPA" synapse1Path="./AMPA" synapse2="NMDA" synapse2Path="./NMDA">
+        <notes>A single "synapse" which contains both AMPA and NMDA. It is planned that the need for extra synapse1Path/synapse2Path attributes can be removed in later versions.</notes>
+    </doubleSynapse>
+```
 ````
 
 (schema:stdpsynapse)=
@@ -1608,6 +1719,16 @@ v,{ref}`schema:dimensions:voltage`
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<gapJunction id="gj1" conductance="10pS"/>
+```
+```{code-block} xml
+<gapJunction id="gj1" conductance="10pS"/>
+```
+````
+
 (schema:basegradedsynapse)=
 
 ## *baseGradedSynapse*
@@ -1708,6 +1829,19 @@ v,{ref}`schema:dimensions:voltage`
 
 ````
 
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<silentSynapse id="silent1"/>
+```
+```{code-block} xml
+<silentSynapse id="silent1"/>
+```
+```{code-block} xml
+<silentSynapse id="silent2"/>
+```
+````
+
 (schema:lineargradedsynapse)=
 
 ## linearGradedSynapse
@@ -1781,6 +1915,13 @@ v,{ref}`schema:dimensions:voltage`
 
 
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<linearGradedSynapse id="gs1" conductance="5pS"/>
+```
 ````
 
 (schema:gradedsynapse)=
@@ -1892,4 +2033,14 @@ v,{ref}`schema:dimensions:voltage`
     : d **s** /dt = s_rate
     
 
+````
+
+````{tabbed} Usage
+*XML examples*
+```{code-block} xml
+<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
+```
+```{code-block} xml
+<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
+```
 ````
