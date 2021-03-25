@@ -49,17 +49,16 @@ LEMS is an XML based language with interpreter originally developed by Robert Ca
 **ComponentType** (**ComponentClass** was briefly used as a name for these) elements which specify **Parameter**s, **StateVariable**s and their **Dynamics** and **Structure** can be defined as templates for model elements (e.g. HH ion channels, abstract cells, etc.).
 **Components** are instances of these with specific values of **Parameters** (e.g. HH squid axon Na+ channel, I&F cell with threshold -60mV, etc.).
 
-```{figure} ../images/lems-neuroml2.png
+```{figure} ../images/NeuroML2_LEMS_Overview_web.svg
 :alt: Figure showing relationship between LEMS and NeuroML2
-:scale: 60 %
 
 This image (from Blundell et al. 2018 ({cite}`Blundell2018`)) shows the usage of LEMS **ComponentTypes** and **Components** in NeuroML.
 Elements in NeuroML v2 are **Components** which have a corresponding structural and mathematical definition in LEMS **ComponentTypes**.
 ```
 
-In the figure, examples are shown of the (truncated) XML representations of: 
+In the figure, examples are shown of the (truncated) XML representations of:
 
-- (blue) a network containing two populations of integrate-and-fire cells connected by a single projection between them; 
+- (blue) a network containing two populations of integrate-and-fire cells connected by a single projection between them;
 - (green) a spiking neuron model as described by Izhikevich (2003);
 - (yellow) a conductance based synapse with a single exponential decay waveform.
 
