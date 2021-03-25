@@ -479,3 +479,16 @@ dynamics = env.from_string(textwrap.dedent(
     ````
     """
 ))
+
+examples = env.from_string(textwrap.dedent(
+    """
+    ````{tabbed} {{ title }}
+    *XML examples*
+    {% for e in lemsexamples -%}
+    ```{code-block} xml
+    {{ e|trim }}
+    ```
+    {% endfor -%}
+    ````
+    """
+))

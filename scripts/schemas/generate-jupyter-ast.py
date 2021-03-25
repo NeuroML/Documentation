@@ -17,6 +17,12 @@ from lems.model.model import Model
 import tempfile
 import subprocess
 import asttemplates
+# lxml supports recursive searching which the python xml module does not seem
+# to include
+import lxml.etree as ET
+import os
+import re
+
 
 # To display correct conversion values, we limit the precision context to 2
 # places (required by Hz). Higher precisions, such as the default machine
@@ -29,7 +35,6 @@ getcontext().prec = 5
 
 # Main worker bits start here
 comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes"]
-
 comp_types = {}
 comp_type_examples = {}
 comp_type_src = {}
@@ -74,6 +79,53 @@ def format_description(text):
 
         text2 = text2 + word + " "
     return text2.rstrip()
+
+
+def get_comp_examples(srcdir):
+    """Get examples for component types
+
+    :param srcdir: directory where examples are
+    :type srcdir: string
+    :returns: TODO
+    """
+    for comp_type in comp_types.keys():
+        comp_type_examples[comp_type] = []
+
+    example_files = os.listdir(srcdir)
+    for f in example_files:
+        if ".nml" in f:
+            #  print("Processing example file: {}".format(f))
+            srcfile = srcdir + "/" + f
+            fh = open(srcfile, 'r')
+
+            # Replace xmlns bits, we can't do it using lxml
+            # So we need to read the file, do some regular expression
+            # substitutions, and then start the XML bits
+            data = fh.read()
+            data = re.sub('xmlns=".*"', '', data)
+            data = re.sub('xmlns:xsi=".*"', '', data)
+            data = re.sub('xsi:schemaLocation=".*"', '', data)
+            # Remove comment lines
+            data = re.sub('<!--.*-->', '', data)
+            # Strip empty lines
+            data = os.linesep.join([s for s in data.splitlines() if s])
+
+            root = ET.fromstring(bytes(data, 'utf-8'))
+            namespaces = root.nsmap
+
+            for comp_type in comp_types.keys():
+                #  print("looking for comp_type {}".format(comp_type))
+                # To find recursively, we have to use the XPath system:
+                # https://stackoverflow.com/a/2723968/375067
+                # Gotta use namespaces:
+                # https://stackoverflow.com/a/28700661/375067
+                for example in root.findall(comp_type, namespaces=namespaces):
+                    comp_type_examples[comp_type].append(
+                        ET.tostring(example, pretty_print=True,
+                                    encoding="unicode", with_comments="False"
+                                    )
+                    )
+    #  print(comp_type_examples)
 
 
 def get_component_types(srcdir):
@@ -158,9 +210,11 @@ def main(srcdir, destdir):
         print("Temporariy directory: {}".format(tmpsrcdir))
         clone_command = ["git", "clone", "--depth", "1", GitHubRepo, tmpsrcdir]
         subprocess.run(clone_command)
-        tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
     else:
         tmpsrcdir = srcdir
+
+    exampledir = tmpsrcdir + "/examples/"
+    tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
 
     # Get current commit
     commit_command = ["git", "log", "-1", "--pretty=format:%H"]
@@ -170,6 +224,9 @@ def main(srcdir, destdir):
 
     # read the downloaded files
     get_component_types(tmpsrcdir)
+
+    # get examples
+    get_comp_examples(exampledir)
 
     if not destdir or destdir == "":
         destdir = "."
@@ -386,6 +443,14 @@ def main(srcdir, destdir):
             if comp_type.dynamics and comp_type.dynamics.has_content():
                 print(asttemplates.dynamics.render(title="Dynamics",
                                                    comp_type=comp_type), file=ast_doc)
+
+            # Examples
+            print("Checking for {}".format(comp_type.name))
+            if len(comp_type_examples[comp_type.name]) > 0:
+                print(asttemplates.examples.render(
+                    title="Usage", comp_type=comp_type,
+                    lemsexamples=comp_type_examples[comp_type.name]), file=ast_doc)
+
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
 
