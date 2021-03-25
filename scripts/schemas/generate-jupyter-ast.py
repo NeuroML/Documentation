@@ -22,6 +22,8 @@ import asttemplates
 import lxml.etree as ET
 import os
 import re
+import neuroml
+import inspect
 
 
 # To display correct conversion values, we limit the precision context to 2
@@ -37,6 +39,7 @@ getcontext().prec = 5
 comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes"]
 comp_types = {}
 comp_type_examples = {}
+comp_type_py_api = {}
 comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
@@ -79,6 +82,28 @@ def format_description(text):
 
         text2 = text2 + word + " "
     return text2.rstrip()
+
+
+def get_libneuroml_signatures():
+    """Get signatures for component types from libNeuroML
+    """
+    # Initialise
+    all_py_classes = inspect.getmembers(neuroml, inspect.isclass)
+    class_dict = {key: val for key, val in all_py_classes}
+
+    for comp_type in comp_types.keys():
+        # Component Types in the XML definitions use camel case but the Python
+        # API also capitalises the first letter.
+
+        # Built in methods change the whole string, but we only need to
+        # capitalise the first one
+        comp_type_upper = comp_type[0].capitalize() + comp_type[1:]
+        try:
+            class_sig = class_dict[comp_type_upper]
+            constructor_sig = inspect.signature(class_sig)
+            comp_type_py_api[comp_type] = [comp_type_upper, str(constructor_sig)]
+        except KeyError:
+            comp_type_py_api[comp_type] = None
 
 
 def get_comp_examples(srcdir):
@@ -227,6 +252,9 @@ def main(srcdir, destdir):
 
     # get examples
     get_comp_examples(exampledir)
+
+    # get python signatures
+    get_libneuroml_signatures()
 
     if not destdir or destdir == "":
         destdir = "."
@@ -446,10 +474,11 @@ def main(srcdir, destdir):
 
             # Examples
             print("Checking for {}".format(comp_type.name))
-            if len(comp_type_examples[comp_type.name]) > 0:
+            if comp_type_py_api[comp_type.name] or len(comp_type_examples[comp_type.name]) > 0:
                 print(asttemplates.examples.render(
                     title="Usage", comp_type=comp_type,
-                    lemsexamples=comp_type_examples[comp_type.name]), file=ast_doc)
+                    lemsexamples=comp_type_examples[comp_type.name],
+                    pysig=comp_type_py_api[comp_type.name]), file=ast_doc)
 
         ast_doc.close()
         print("Finished processing {}".format(fullpath))

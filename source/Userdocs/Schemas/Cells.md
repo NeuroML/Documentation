@@ -27,6 +27,19 @@ extends *{ref}`schema:basestandalone`*
 
 
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseCell
+
+variable = BaseCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:basespikingcell)=
 
 ## *baseSpikingCell*
@@ -256,6 +269,19 @@ vShift = 0mV, {ref}`schema:dimensions:voltage`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelPopulation" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelPopulation
+
+variable = ChannelPopulation(neuro_lex_id=None, id=None, ion_channel=None, number=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:channelpopulationnernst)=
 
 ## channelPopulationNernst
@@ -469,6 +495,19 @@ inhomogeneousValue, {ref}`schema:inhomogeneousvalue`
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VariableParameter" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import VariableParameter
+
+variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_value=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:inhomogeneousvalue)=
 
 ## inhomogeneousValue
@@ -486,6 +525,19 @@ inhomogeneousValue, {ref}`schema:inhomogeneousvalue`
 
 inhomogeneousParameter,
 value,
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InhomogeneousValue" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import InhomogeneousValue
+
+variable = InhomogeneousValue(inhomogeneous_parameters=None, value=None, **kwargs_)
+```
+
+
 
 ````
 
@@ -586,6 +638,19 @@ ZERO_CURR_DENS = 0 A_per_m2, {ref}`schema:dimensions:currentDensity`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniform" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityNonUniform
+
+variable = ChannelDensityNonUniform(neuro_lex_id=None, id=None, ion_channel=None, erev=None, ion=None, variable_parameters=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:channeldensitynonuniformnernst)=
 
 ## channelDensityNonUniformNernst
@@ -673,6 +738,19 @@ ZERO_CURR_DENS = 0 A_per_m2, {ref}`schema:dimensions:currentDensity`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformNernst" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityNonUniformNernst
+
+variable = ChannelDensityNonUniformNernst(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:channeldensitynonuniformghk)=
 
 ## channelDensityNonUniformGHK
@@ -755,6 +833,19 @@ ZERO_CURR_DENS = 0 A_per_m2, {ref}`schema:dimensions:currentDensity`
     
 
 
+
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformGHK" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityNonUniformGHK
+
+variable = ChannelDensityNonUniformGHK(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, **kwargs_)
+```
 
 
 
@@ -851,6 +942,19 @@ vShift = 0mV, {ref}`schema:dimensions:voltage`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensity" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensity
+
+variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:channeldensityvshift)=
 
 ## channelDensityVShift
@@ -906,6 +1010,19 @@ ion,
 *v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityVShift" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityVShift
+
+variable = ChannelDensityVShift(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, v_shift=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:channeldensitynernst)=
@@ -1012,6 +1129,19 @@ temperature,{ref}`schema:dimensions:temperature`
 : &emsp; **iDensity** = gDensity \* (erev - v) &emsp;(exposed as **iDensity**)
 : IF caConcExt &lt;= 0 THEN
 : &emsp; **iDensity** = 0 &emsp;(exposed as **iDensity**)
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernst" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityNernst
+
+variable = ChannelDensityNernst(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, **kwargs_)
+```
+
 
 
 ````
@@ -1124,6 +1254,19 @@ temperature,{ref}`schema:dimensions:temperature`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernstCa2" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityNernstCa2
+
+variable = ChannelDensityNernstCa2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:channeldensityghk)=
 
 ## channelDensityGHK
@@ -1220,6 +1363,19 @@ temperature,{ref}`schema:dimensions:temperature`
 : &emsp; **iDensity** = -1 \* channelf \* permeability \* zCa \* F \* K \* v \* ( caConc - (caConcExt \* expKv) ) / (1 - expKv) &emsp;(exposed as **iDensity**)
 : IF caConcExt &lt;= 0 THEN
 : &emsp; **iDensity** = 0 &emsp;(exposed as **iDensity**)
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityGHK" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityGHK
+
+variable = ChannelDensityGHK(neuro_lex_id=None, id=None, ion_channel=None, permeability=None, segment_groups='all', segments=None, ion=None, **kwargs_)
+```
+
 
 
 ````
@@ -1329,6 +1485,19 @@ temperature,{ref}`schema:dimensions:temperature`
 : &emsp; **iDensity** = gDensity \* pOpen &emsp;(exposed as **iDensity**)
 : IF ca_conc_ext &lt;= 0 THEN
 : &emsp; **iDensity** = 0 &emsp;(exposed as **iDensity**)
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityGHK2" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import ChannelDensityGHK2
+
+variable = ChannelDensityGHK2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, **kwargs_)
+```
+
 
 
 ````
@@ -1765,6 +1934,19 @@ surfaceArea,{ref}`schema:dimensions:area`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Segment" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Segment
+
+variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=None, distal=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:segmentgroup)=
 
 ## segmentGroup
@@ -1810,6 +1992,19 @@ inhomogeneousParameter, {ref}`schema:inhomogeneousparameter`
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SegmentGroup" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import SegmentGroup
+
+variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None, annotation=None, members=None, includes=None, paths=None, sub_trees=None, inhomogeneous_parameters=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:member)=
 
 ## member
@@ -1826,6 +2021,19 @@ inhomogeneousParameter, {ref}`schema:inhomogeneousparameter`
 :width: 100%
 
 segment,
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Member" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Member
+
+variable = Member(segments=None, **kwargs_)
+```
+
+
 
 ````
 
@@ -1888,6 +2096,16 @@ segmentGroup,
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Include" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Include
+
+variable = Include(segment_groups=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <include href="NML2_SingleCompHHCell.nml"/>
@@ -1901,6 +2119,7 @@ segmentGroup,
 ```{code-block} xml
 <include href="NML2_SingleCompHHCell.nml"/>
 ```
+
 ````
 
 (schema:path)=
@@ -1925,6 +2144,19 @@ to, {ref}`schema:to`
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Path" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Path
+
+variable = Path(from_=None, to=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:subtree)=
 
 ## subTree
@@ -1944,6 +2176,19 @@ to, {ref}`schema:to`
 from, {ref}`schema:from`
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SubTree" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import SubTree
+
+variable = SubTree(from_=None, to=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:inhomogeneousparameter)=
@@ -1975,6 +2220,19 @@ proximal, {ref}`schema:proximalproperties`
 distal, {ref}`schema:distalproperties`
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InhomogeneousParameter" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import InhomogeneousParameter
+
+variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, metric=None, proximal=None, distal=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:proximalproperties)=
@@ -2038,6 +2296,16 @@ segmentGroups, {ref}`schema:segmentgroup`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Morphology" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Morphology
+
+variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, segments=None, segment_groups=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <morphology id="NeuroMorpho_PyrCell123">  
@@ -2049,6 +2317,7 @@ segmentGroups, {ref}`schema:segmentgroup`
         
     </morphology>
 ```
+
 ````
 
 (schema:specificcapacitance)=
@@ -2109,6 +2378,19 @@ specCap,{ref}`schema:dimensions:specificCapacitance`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpecificCapacitance" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import SpecificCapacitance
+
+variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:initmembpotential)=
 
 ## initMembPotential
@@ -2130,6 +2412,19 @@ value,{ref}`schema:dimensions:voltage`
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InitMembPotential" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import InitMembPotential
+
+variable = InitMembPotential(value=None, segment_groups='all', segments=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:spikethresh)=
 
 ## spikeThresh
@@ -2149,6 +2444,19 @@ value,{ref}`schema:dimensions:voltage`
 value,{ref}`schema:dimensions:voltage`
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeThresh" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import SpikeThresh
+
+variable = SpikeThresh(value=None, segment_groups='all', segments=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:membraneproperties)=
@@ -2227,6 +2535,19 @@ surfaceArea,{ref}`schema:dimensions:area`
     
 
 
+
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import MembraneProperties
+
+variable = MembraneProperties(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, extensiontype_=None, **kwargs_)
+```
 
 
 
@@ -2322,6 +2643,19 @@ surfaceArea,{ref}`schema:dimensions:area`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties2CaPools" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import MembraneProperties2CaPools
+
+variable = MembraneProperties2CaPools(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, channel_density_nernst_ca2s=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:biophysicalproperties)=
 
 ## biophysicalProperties
@@ -2374,6 +2708,16 @@ totSpecCap,{ref}`schema:dimensions:specificCapacitance`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BiophysicalProperties
+
+variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties=None, intracellular_properties=None, extracellular_properties=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <biophysicalProperties id="PyrCellChanDist">
@@ -2393,6 +2737,7 @@ totSpecCap,{ref}`schema:dimensions:specificCapacitance`
         </intracellularProperties>
     </biophysicalProperties>
 ```
+
 ````
 
 (schema:biophysicalproperties2capools)=
@@ -2446,6 +2791,19 @@ totSpecCap,{ref}`schema:dimensions:specificCapacitance`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties2CaPools" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BiophysicalProperties2CaPools
+
+variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties2_ca_pools=None, intracellular_properties2_ca_pools=None, extracellular_properties=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:intracellularproperties)=
 
 ## intracellularProperties
@@ -2494,6 +2852,19 @@ caConcExt,{ref}`schema:dimensions:concentration`
     
 
 
+
+
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IntracellularProperties
+
+variable = IntracellularProperties(species=None, resistivities=None, extensiontype_=None, **kwargs_)
+```
 
 
 
@@ -2560,6 +2931,19 @@ caConcExt2,{ref}`schema:dimensions:concentration`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties2CaPools" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IntracellularProperties2CaPools
+
+variable = IntracellularProperties2CaPools(species=None, resistivities=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:resistivity)=
 
 ## resistivity
@@ -2586,6 +2970,19 @@ value,{ref}`schema:dimensions:resistivity`
 :width: 100%
 
 segmentGroup,
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Resistivity" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Resistivity
+
+variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs_)
+```
+
+
 
 ````
 
@@ -2778,6 +3175,19 @@ iCa,{ref}`schema:dimensions:current`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DecayingPoolConcentrationModel" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import DecayingPoolConcentrationModel
+
+variable = DecayingPoolConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, shell_thickness=None, extensiontype_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:fixedfactorconcentrationmodel)=
 
 ## fixedFactorConcentrationModel
@@ -2875,6 +3285,19 @@ surfaceArea,{ref}`schema:dimensions:area`
 <i>**Time Derivatives**</i>
     : d **concentration** /dt = (iCa/surfaceArea) * rho - ((concentration - restingConc) / decayConstant)
     
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FixedFactorConcentrationModel" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import FixedFactorConcentrationModel
+
+variable = FixedFactorConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, rho=None, **kwargs_)
+```
+
+
 
 ````
 
@@ -3054,6 +3477,19 @@ extConcentration,{ref}`schema:dimensions:concentration`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Species" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Species
+
+variable = Species(value=None, segment_groups='all', segments=None, id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:cell)=
 
 ## cell
@@ -3185,6 +3621,16 @@ synapses, {ref}`schema:basepointcurrent`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Cell
+
+variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <cell id="hhcell">
@@ -3486,6 +3932,7 @@ synapses, {ref}`schema:basepointcurrent`
         </biophysicalProperties>
     </cell>
 ```
+
 ````
 
 (schema:cell2capools)=
@@ -3623,6 +4070,19 @@ synapses, {ref}`schema:basepointcurrent`
 
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell2CaPools" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Cell2CaPools
+
+variable = Cell2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, biophysical_properties2_ca_pools=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:basecellmembpotcap)=
 
 ## *baseCellMembPotCap*
@@ -3668,6 +4128,19 @@ iSyn,{ref}`schema:dimensions:current`
 *spike (from {ref}`schema:basespikingcell`)*,Direction: out
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCellMembPotCap" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import BaseCellMembPotCap
+
+variable = BaseCellMembPotCap(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 ````
 
 (schema:baseiaf)=
@@ -3804,10 +4277,21 @@ tau,{ref}`schema:dimensions:time`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IafTauCell
+
+variable = IafTauCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <iafTauCell id="iafTau" leakReversal="-50mV" thresh="-55mV" reset="-70mV" tau="30ms"/>
 ```
+
 ````
 
 (schema:iaftaurefcell)=
@@ -3904,10 +4388,21 @@ refract,{ref}`schema:dimensions:time`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauRefCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IafTauRefCell
+
+variable = IafTauRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, refract=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <iafTauRefCell id="iafTauRef" leakReversal="-50mV" thresh="-55mV" reset="-70mV" tau="30ms" refract="5ms"/>
 ```
+
 ````
 
 (schema:baseiafcapcell)=
@@ -4066,6 +4561,16 @@ synapses, {ref}`schema:basepointcurrent`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IafCell
+
+variable = IafCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, extensiontype_=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <iafCell id="iaf" leakReversal="-60mV" thresh="-55mV" reset="-62mV" C="1.0nF" leakConductance="0.05uS"/>
@@ -4082,6 +4587,7 @@ synapses, {ref}`schema:basepointcurrent`
 ```{code-block} xml
 <iafCell id="iaf" leakReversal="-50mV" thresh="-55mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS"/>
 ```
+
 ````
 
 (schema:iafrefcell)=
@@ -4197,10 +4703,21 @@ synapses, {ref}`schema:basepointcurrent`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafRefCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IafRefCell
+
+variable = IafRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, refract=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <iafRefCell id="iafRef" leakReversal="-50mV" thresh="-55mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS" refract="5ms"/>
 ```
+
 ````
 
 (schema:izhikevichcell)=
@@ -4324,10 +4841,21 @@ synapses, {ref}`schema:basepointcurrentdl`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IzhikevichCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import IzhikevichCell
+
+variable = IzhikevichCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, v0=None, thresh=None, a=None, b=None, c=None, d=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <izhikevichCell id="izBurst" v0="-70mV" thresh="30mV" a="0.02" b="0.2" c="-50.0" d="2"/>
 ```
+
 ````
 
 (schema:izhikevich2007cell)=
@@ -4447,10 +4975,21 @@ synapses, {ref}`schema:basepointcurrent`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Izhikevich2007Cell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Izhikevich2007Cell
+
+variable = Izhikevich2007Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, v0=None, k=None, vr=None, vt=None, vpeak=None, a=None, b=None, c=None, d=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <izhikevich2007Cell id="iz2007RS" v0="-60mV" C="100 pF" k="0.7 nS_per_mV" vr="-60 mV" vt="-40 mV" vpeak="35 mV" a="0.03 per_ms" b="-2 nS" c="-50 mV" d="100 pA"/>
 ```
+
 ````
 
 (schema:adexiafcell)=
@@ -4578,10 +5117,21 @@ synapses, {ref}`schema:basepointcurrent`
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AdExIaFCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import AdExIaFCell
+
+variable = AdExIaFCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, g_l=None, EL=None, reset=None, VT=None, thresh=None, del_t=None, tauw=None, refract=None, a=None, b=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <adExIaFCell id="adExBurst" C="281pF" gL="30nS" EL="-70.6mV" reset="-48.5mV" VT="-50.4mV" thresh="-40.4mV" refract="0ms" delT="2mV" tauw="40ms" a="4nS" b="0.08nA"/>
 ```
+
 ````
 
 (schema:fitzhughnagumocell)=
@@ -4665,10 +5215,21 @@ W,Dimensionless
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FitzHughNagumoCell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import FitzHughNagumoCell
+
+variable = FitzHughNagumoCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, I=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <fitzHughNagumoCell id="fn1" I="0.8"/>
 ```
+
 ````
 
 (schema:pinskyrinzelca3cell)=
@@ -4855,8 +5416,19 @@ sd,Dimensionless
 ````
 
 ````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PinskyRinzelCA3Cell" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import PinskyRinzelCA3Cell
+
+variable = PinskyRinzelCA3Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, i_soma=None, i_dend=None, gc=None, g_ls=None, g_ld=None, g_na=None, g_kdr=None, g_ca=None, g_kahp=None, g_kc=None, g_nmda=None, g_ampa=None, e_na=None, e_ca=None, e_k=None, e_l=None, qd0=None, pp=None, alphac=None, betac=None, cm=None, **kwargs_)
+```
+
+
+
 *XML examples*
 ```{code-block} xml
 <pinskyRinzelCA3Cell id="pr2A" iSoma="0.75 uA_per_cm2" iDend="0 uA_per_cm2" gc="2.1 mS_per_cm2" qd0="0" gLs="0.1 mS_per_cm2" gLd="0.1 mS_per_cm2" gNa="30 mS_per_cm2" gKdr="15 mS_per_cm2" gCa="10 mS_per_cm2" gKahp="0.8 mS_per_cm2" gKC="15 mS_per_cm2" eNa="60 mV" eCa="80 mV" eK="-75 mV" eL="-60 mV" pp="0.5" cm="3 uF_per_cm2" alphac="2" betac="0.1" gNmda="0 mS_per_cm2" gAmpa="0 mS_per_cm2"/>
 ```
+
 ````

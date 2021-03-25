@@ -54,6 +54,19 @@ property, {ref}`schema:property`
 ```
 ````
 
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Annotation" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Annotation
+
+variable = Annotation(anytypeobjs_=None, **kwargs_)
+```
+
+
+
+````
+
 (schema:property)=
 
 ## property
@@ -71,6 +84,19 @@ property, {ref}`schema:property`
 
 tag,
 value,
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Property" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Property
+
+variable = Property(tag=None, value=None, **kwargs_)
+```
+
+
 
 ````
 
@@ -541,4 +567,17 @@ zLength,{ref}`schema:dimensions:length`
 MICRON = 1um, {ref}`schema:dimensions:length`
 
 ```
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Point3DWithDiam" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Point3DWithDiam
+
+variable = Point3DWithDiam(x=None, y=None, z=None, diameter=None, **kwargs_)
+```
+
+
+
 ````
