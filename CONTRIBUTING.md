@@ -47,3 +47,13 @@ This will import the HTML files built by `jupyter-book` to the `gh-pages` branch
 More information on this can be found in the [official documentation](https://jupyterbook.org/publish/gh-pages.html).
 
 A helper script `./build-helper.sh` is present in the repository to assist with these steps.
+
+
+## Updating schema pages
+
+The schema pages are generated using the script provide in the scripts/schemas directory.
+This uses a copy of the NeuroML2 repository to parse the XML core type definitions to generate the myAST docs using Jinja templates.
+It also goes through the examples to extract XML example snippets.
+Finally, it inspects the libNeuroML Python API to include constructor definitions where they are available.
+
+Please remember to commit the newly generated schema doc files after running the script.
