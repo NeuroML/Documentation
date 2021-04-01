@@ -58,3 +58,7 @@ parse:
     - smartquotes
     - substitution
   myst_url_schemes          : [mailto, http, https]
+
+sphinx:
+  config:
+    pygments_style: "tango"

@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.co
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -22,6 +22,23 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>Human readable notes on a Component.</i>
 
 
+
+````{tabbed} Usage
+
+
+
+*XML examples*
+```{code-block} xml
+<notes>An alpha synapse with time for rise equal to decay.</notes>
+```
+```{code-block} xml
+<notes>A simple monoexponential synapse.</notes>
+```
+```{code-block} xml
+<notes>A biexponential synapse.</notes>
+```
+
+````
 
 (schema:annotation)=
 
@@ -65,6 +82,22 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 
 
+*XML examples*
+```{code-block} xml
+<annotation xmlns:xi="http://www.w3.org/2001/XInclude">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+              <rdf:Description rdf:about="HippoCA1Cell">
+                <bqbiol:is>
+                  <rdf:Bag>
+                    
+                    <rdf:li rdf:resource="urn:miriam:neurondb:258"/>
+                  </rdf:Bag>
+                </bqbiol:is>
+              </rdf:Description>
+            </rdf:RDF>
+        </annotation>
+```
+
 ````
 
 (schema:property)=
@@ -97,6 +130,11 @@ variable = Property(tag=None, value=None, **kwargs_)
 ```
 
 
+
+*XML examples*
+```{code-block} xml
+<property tag="numberInternalDivisions" value="9"/>
+```
 
 ````
 
