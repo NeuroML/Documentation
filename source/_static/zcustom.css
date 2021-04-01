@@ -1,0 +1,7 @@
+/* Wrap code blocks */
+pre, .highlight-python, .highlight-xml, .highlight {
+    white-space : pre-wrap !important; /*for Mozilla*/
+    word-wrap: break-word !important; /*for IE*/
+    overflow: visible !important;
+    overflow-x: visible !important;
+}
