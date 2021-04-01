@@ -473,7 +473,11 @@ def main(srcdir, destdir):
                                                    comp_type=comp_type), file=ast_doc)
 
             # Examples
-            print("Checking for {}".format(comp_type.name))
+            print("{} has: ".format(comp_type.name))
+            if comp_type_py_api[comp_type.name]:
+                print("\t1 Py def")
+            if len(comp_type_examples[comp_type.name]) > 0:
+                print("\t{} XML examples".format(len(comp_type_examples[comp_type.name])))
             if comp_type_py_api[comp_type.name] or len(comp_type_examples[comp_type.name]) > 0:
                 print(asttemplates.examples.render(
                     title="Usage", comp_type=comp_type,
