@@ -1,3 +1,4 @@
+(neuromlorg:funding)=
 # Funding and Acknowledgements
 
 The NeuroML effort has been made possible by funding from research councils in the UK, EU, and the USA.
