@@ -8,7 +8,7 @@ Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/Neur
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 25/03/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -1336,36 +1336,6 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 ```{code-block} xml
 <pulseGenerator id="pulseGen3" delay="30ms" duration="100ms" amplitude="0.18nA"/>
 ```
-```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.3nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="100ms" duration="100ms" amplitude="0.4nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen0" delay="50ms" duration="200ms" amplitude="1 nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0032nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0032nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0020nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen3" delay="700ms" duration="200ms" amplitude="0.0010nA"/>
-```
 
 ````
 
@@ -1767,6 +1737,9 @@ variable = SineGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 *XML examples*
 ```{code-block} xml
 <sineGenerator id="sg0" phase="0" delay="50ms" duration="200ms" amplitude="1.4nA" period="50ms"/>
+```
+```{code-block} xml
+<sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
 ```
 
 ````
@@ -2543,5 +2516,16 @@ variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
 ```
 
 
+
+*XML examples*
+```{code-block} xml
+<spike id="0" time="50 ms"/>
+```
+```{code-block} xml
+<spike id="1" time="100 ms"/>
+```
+```{code-block} xml
+<spike id="2" time="150 ms"/>
+```
 
 ````
