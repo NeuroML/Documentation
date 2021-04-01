@@ -106,11 +106,13 @@ def get_libneuroml_signatures():
             comp_type_py_api[comp_type] = None
 
 
-def get_comp_examples(srcdir):
+def get_comp_examples(srcdir, examples_max=3):
     """Get examples for component types
 
     :param srcdir: directory where examples are
     :type srcdir: string
+    :param examples_max: maximum number of examples to store
+    :type examples_max: int
     :returns: TODO
     """
     for comp_type in comp_types.keys():
@@ -119,7 +121,7 @@ def get_comp_examples(srcdir):
     example_files = os.listdir(srcdir)
     for f in example_files:
         if ".nml" in f:
-            #  print("Processing example file: {}".format(f))
+            print("Processing example file: {}".format(f))
             srcfile = srcdir + "/" + f
             fh = open(srcfile, 'r')
 
@@ -144,12 +146,19 @@ def get_comp_examples(srcdir):
                 # https://stackoverflow.com/a/2723968/375067
                 # Gotta use namespaces:
                 # https://stackoverflow.com/a/28700661/375067
-                for example in root.findall(comp_type, namespaces=namespaces):
-                    comp_type_examples[comp_type].append(
-                        ET.tostring(example, pretty_print=True,
-                                    encoding="unicode", with_comments="False"
-                                    )
-                    )
+                examples = root.findall(".//" + comp_type, namespaces=namespaces)
+                """
+                if len(examples) == 0:
+                    print("Found no XML examples for {}".format(comp_type))
+                """
+                # Let's only keep the first 5 examples
+                for example in examples:
+                    if len(comp_type_examples[comp_type]) < examples_max:
+                        comp_type_examples[comp_type].append(
+                            ET.tostring(example, pretty_print=True,
+                                        encoding="unicode", with_comments="False"
+                                        )
+                        )
     #  print(comp_type_examples)
 
 
@@ -473,11 +482,14 @@ def main(srcdir, destdir):
                                                    comp_type=comp_type), file=ast_doc)
 
             # Examples
+            """
             print("{} has: ".format(comp_type.name))
             if comp_type_py_api[comp_type.name]:
                 print("\t1 Py def")
             if len(comp_type_examples[comp_type.name]) > 0:
                 print("\t{} XML examples".format(len(comp_type_examples[comp_type.name])))
+
+            """
             if comp_type_py_api[comp_type.name] or len(comp_type_examples[comp_type.name]) > 0:
                 print(asttemplates.examples.render(
                     title="Usage", comp_type=comp_type,
