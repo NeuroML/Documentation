@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -31,20 +31,22 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ $Direction: in
 
 ```
 ````
@@ -79,30 +81,33 @@ extends *{ref}`schema:basesynapse`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -139,20 +144,22 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*I (from {ref}`schema:basepointcurrentdl`)*,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrentdl`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*V (from {ref}`schema:basevoltagedeppointcurrentdl`)*,Dimensionless
+**V**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrentdl`)* $Dimensionless
 
 ```
 ````
@@ -174,20 +181,22 @@ extends *{ref}`schema:basesynapse`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -222,31 +231,34 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-ibase,{ref}`schema:dimensions:current`
-tau,{ref}`schema:dimensions:time`
+**ibase**$ Baseline current increase after receiving a spike ${ref}`schema:dimensions:current`
+**tau**$ Time course for rise and decay ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -328,42 +340,46 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
-gbase,{ref}`schema:dimensions:conductance`
+**erev**$ Reversal potential of the synapse ${ref}`schema:dimensions:voltage`
+**gbase**$ Baseline conductance, generally the maximum conductance following a single spike ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-g,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -400,43 +416,47 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
-gbase1,{ref}`schema:dimensions:conductance`
-gbase2,{ref}`schema:dimensions:conductance`
+**erev**$ Reversal potential of the synapse ${ref}`schema:dimensions:voltage`
+**gbase1**$ Baseline conductance 1 ${ref}`schema:dimensions:conductance`
+**gbase2**$ Baseline conductance 2 ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-g,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -471,43 +491,47 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*erev (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:voltage`
-*gbase (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-tauDecay,{ref}`schema:dimensions:time`
+**erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:voltage`
+**gbase**$ Baseline conductance, generally the maximum conductance following a single spike *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**tauDecay**$ Time course of decay ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*g (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -597,43 +621,47 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*erev (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:voltage`
-*gbase (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-tau,{ref}`schema:dimensions:time`
+**erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:voltage`
+**gbase**$ Baseline conductance, generally the maximum conductance following a single spike *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**tau**$ Time course of rise/decay ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*g (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -720,55 +748,60 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*erev (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:voltage`
-*gbase (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-tauDecay,{ref}`schema:dimensions:time`
-tauRise,{ref}`schema:dimensions:time`
+**erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:voltage`
+**gbase**$ Baseline conductance, generally the maximum conductance following a single spike *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**tauDecay**$  ${ref}`schema:dimensions:time`
+**tauRise**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-peakTime,{ref}`schema:dimensions:time`
-waveformFactor,Dimensionless
+**peakTime**$  ${ref}`schema:dimensions:time`
+**waveformFactor**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*g (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -863,59 +896,64 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*erev (from {ref}`schema:baseconductancebasedsynapsetwo`)*,{ref}`schema:dimensions:voltage`
-*gbase1 (from {ref}`schema:baseconductancebasedsynapsetwo`)*,{ref}`schema:dimensions:conductance`
-*gbase2 (from {ref}`schema:baseconductancebasedsynapsetwo`)*,{ref}`schema:dimensions:conductance`
-tauDecay1,{ref}`schema:dimensions:time`
-tauDecay2,{ref}`schema:dimensions:time`
-tauRise,{ref}`schema:dimensions:time`
+**erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapsetwo`)* ${ref}`schema:dimensions:voltage`
+**gbase1**$ Baseline conductance 1 *(from {ref}`schema:baseconductancebasedsynapsetwo`)* ${ref}`schema:dimensions:conductance`
+**gbase2**$ Baseline conductance 2 *(from {ref}`schema:baseconductancebasedsynapsetwo`)* ${ref}`schema:dimensions:conductance`
+**tauDecay1**$  ${ref}`schema:dimensions:time`
+**tauDecay2**$  ${ref}`schema:dimensions:time`
+**tauRise**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-peakTime1,{ref}`schema:dimensions:time`
-peakTime2,{ref}`schema:dimensions:time`
-waveformFactor1,Dimensionless
-waveformFactor2,Dimensionless
+**peakTime1**$  ${ref}`schema:dimensions:time`
+**peakTime2**$  ${ref}`schema:dimensions:time`
+**waveformFactor1**$  $Dimensionless
+**waveformFactor2**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*g (from {ref}`schema:baseconductancebasedsynapsetwo`)*,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapsetwo`)* ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1007,10 +1045,11 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-blockFactor,Dimensionless
+**blockFactor**$  $Dimensionless
 
 ```
 ````
@@ -1032,12 +1071,13 @@ extends *{ref}`schema:baseblockmechanism`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-blockConcentration,{ref}`schema:dimensions:concentration`
-scalingConc,{ref}`schema:dimensions:concentration`
-scalingVolt,{ref}`schema:dimensions:voltage`
+**blockConcentration**$  ${ref}`schema:dimensions:concentration`
+**scalingConc**$  ${ref}`schema:dimensions:concentration`
+**scalingVolt**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1046,26 +1086,28 @@ scalingVolt,{ref}`schema:dimensions:voltage`
 ```{csv-table}
 :width: 100%
 
-species,
+**species**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*blockFactor (from {ref}`schema:baseblockmechanism`)*,Dimensionless
+**blockFactor**$  *(from {ref}`schema:baseblockmechanism`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1102,20 +1144,22 @@ v,{ref}`schema:dimensions:voltage`
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-plasticityFactor,Dimensionless
+**plasticityFactor**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ This is where the plasticity mechanism receives spike events from the parent synapse.$Direction: in
 
 ```
 ````
@@ -1137,31 +1181,34 @@ extends *{ref}`schema:baseplasticitymechanism`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-initReleaseProb,Dimensionless
-tauRec,{ref}`schema:dimensions:time`
+**initReleaseProb**$  $Dimensionless
+**tauRec**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*plasticityFactor (from {ref}`schema:baseplasticitymechanism`)*,Dimensionless
+**plasticityFactor**$  *(from {ref}`schema:baseplasticitymechanism`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:baseplasticitymechanism`)*,Direction: in
+**in**$ This is where the plasticity mechanism receives spike events from the parent synapse. *(from {ref}`schema:baseplasticitymechanism`)*$Direction: in
 
 ```
 ````
@@ -1233,32 +1280,35 @@ extends *{ref}`schema:baseplasticitymechanism`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-initReleaseProb,Dimensionless
-tauFac,{ref}`schema:dimensions:time`
-tauRec,{ref}`schema:dimensions:time`
+**initReleaseProb**$  $Dimensionless
+**tauFac**$  ${ref}`schema:dimensions:time`
+**tauRec**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*plasticityFactor (from {ref}`schema:baseplasticitymechanism`)*,Dimensionless
+**plasticityFactor**$  *(from {ref}`schema:baseplasticitymechanism`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:baseplasticitymechanism`)*,Direction: in
+**in**$ This is where the plasticity mechanism receives spike events from the parent synapse. *(from {ref}`schema:baseplasticitymechanism`)*$Direction: in
 
 ```
 ````
@@ -1333,67 +1383,73 @@ extends {ref}`schema:exptwosynapse`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*erev (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:voltage`
-*gbase (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*tauDecay (from {ref}`schema:exptwosynapse`)*,{ref}`schema:dimensions:time`
-*tauRise (from {ref}`schema:exptwosynapse`)*,{ref}`schema:dimensions:time`
+**erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:voltage`
+**gbase**$ Baseline conductance, generally the maximum conductance following a single spike *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**tauDecay**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
+**tauRise**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*peakTime (from {ref}`schema:exptwosynapse`)*,{ref}`schema:dimensions:time`
-*waveformFactor (from {ref}`schema:exptwosynapse`)*,Dimensionless
+**peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
+**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-plasticityMechanisms, {ref}`schema:baseplasticitymechanism`
-blockMechanisms, {ref}`schema:baseblockmechanism`
+**plasticityMechanisms**$  $ {ref}`schema:baseplasticitymechanism`
+**blockMechanisms**$  $ {ref}`schema:baseblockmechanism`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*g (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
-relay,Direction: out
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+**relay**$ Used to relay incoming spikes to child plasticity mechanism$Direction: out
 
 ```
 ````
@@ -1502,49 +1558,53 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```{csv-table}
 :width: 100%
 
-synapse1Path,
-synapse2Path,
+**synapse1Path**
+**synapse2Path**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse1, {ref}`schema:basesynapse`
-synapse2, {ref}`schema:basesynapse`
+**synapse1**$  $ {ref}`schema:basesynapse`
+**synapse2**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
-relay,Direction: out
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+**relay**$ Used to relay incoming spikes to child mechanisms$Direction: out
 
 ```
 ````
@@ -1639,69 +1699,75 @@ extends {ref}`schema:exptwosynapse`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*erev (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:voltage`
-*gbase (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*tauDecay (from {ref}`schema:exptwosynapse`)*,{ref}`schema:dimensions:time`
-*tauRise (from {ref}`schema:exptwosynapse`)*,{ref}`schema:dimensions:time`
+**erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:voltage`
+**gbase**$ Baseline conductance, generally the maximum conductance following a single spike *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**tauDecay**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
+**tauRise**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*peakTime (from {ref}`schema:exptwosynapse`)*,{ref}`schema:dimensions:time`
-*waveformFactor (from {ref}`schema:exptwosynapse`)*,Dimensionless
+**peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
+**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-tsinceRate = 1, Dimensionless
-longTime = 1000s, {ref}`schema:dimensions:time`
+**tsinceRate** = 1$  $ Dimensionless
+**longTime** = 1000s$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-M,Dimensionless
-P,Dimensionless
-*g (from {ref}`schema:baseconductancebasedsynapse`)*,{ref}`schema:dimensions:conductance`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
-tsince,{ref}`schema:dimensions:time`
+**M**$  $Dimensionless
+**P**$  $Dimensionless
+**g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**tsince**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1778,40 +1844,44 @@ extends *{ref}`schema:basesynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-conductance,{ref}`schema:dimensions:conductance`
+**conductance**$  ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1874,20 +1944,22 @@ extends *{ref}`schema:basesynapse`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1909,30 +1981,33 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1998,40 +2073,44 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-conductance,{ref}`schema:dimensions:conductance`
+**conductance**$  ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -2091,46 +2170,50 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-Vth,{ref}`schema:dimensions:voltage`
-conductance,{ref}`schema:dimensions:conductance`
-delta,{ref}`schema:dimensions:voltage`
-erev,{ref}`schema:dimensions:voltage`
-k,{ref}`schema:dimensions:per_time`
+**Vth**$ The half-activation voltage of the synapse ${ref}`schema:dimensions:voltage`
+**conductance**$  ${ref}`schema:dimensions:conductance`
+**delta**$ Slope of the activation curve ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the synapse ${ref}`schema:dimensions:voltage`
+**k**$ Rate constant for transmitter-receptor dissociation rate ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
-inf,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**inf**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````

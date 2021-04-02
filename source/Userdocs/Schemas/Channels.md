@@ -8,7 +8,7 @@ Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -25,20 +25,22 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-r,{ref}`schema:dimensions:per_time`
+**r**$  ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -60,21 +62,23 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*r (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:per_time`
+**r**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-*v (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**v**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -96,32 +100,35 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-midpoint,{ref}`schema:dimensions:voltage`
-rate,{ref}`schema:dimensions:per_time`
-scale,{ref}`schema:dimensions:voltage`
+**midpoint**$  ${ref}`schema:dimensions:voltage`
+**rate**$  ${ref}`schema:dimensions:per_time`
+**scale**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*r (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:per_time`
+**r**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -143,32 +150,35 @@ extends *{ref}`schema:basehhrate`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*midpoint (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:voltage`
-*rate (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:per_time`
-*scale (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:voltage`
+**midpoint**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:voltage`
+**rate**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:per_time`
+**scale**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*r (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:per_time`
+**r**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -209,32 +219,35 @@ extends *{ref}`schema:basehhrate`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*midpoint (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:voltage`
-*rate (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:per_time`
-*scale (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:voltage`
+**midpoint**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:voltage`
+**rate**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:per_time`
+**scale**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*r (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:per_time`
+**r**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -275,32 +288,35 @@ extends *{ref}`schema:basehhrate`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*midpoint (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:voltage`
-*rate (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:per_time`
-*scale (from {ref}`schema:basehhrate`)*,{ref}`schema:dimensions:voltage`
+**midpoint**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:voltage`
+**rate**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:per_time`
+**scale**$  *(from {ref}`schema:basehhrate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*r (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:per_time`
+**r**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeprate`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedeprate`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -343,20 +359,22 @@ extends *{ref}`schema:basehhrate`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-x,Dimensionless
+**x**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -378,21 +396,23 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*x (from {ref}`schema:basevoltagedepvariable`)*,Dimensionless
+**x**$  *(from {ref}`schema:basevoltagedepvariable`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-*v (from {ref}`schema:basevoltagedepvariable`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**v**$  *(from {ref}`schema:basevoltagedepvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -414,32 +434,35 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-midpoint,{ref}`schema:dimensions:voltage`
-rate,Dimensionless
-scale,{ref}`schema:dimensions:voltage`
+**midpoint**$  ${ref}`schema:dimensions:voltage`
+**rate**$  $Dimensionless
+**scale**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*x (from {ref}`schema:basevoltagedepvariable`)*,Dimensionless
+**x**$  *(from {ref}`schema:basevoltagedepvariable`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepvariable`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedepvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -461,32 +484,35 @@ extends *{ref}`schema:basehhvariable`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*midpoint (from {ref}`schema:basehhvariable`)*,{ref}`schema:dimensions:voltage`
-*rate (from {ref}`schema:basehhvariable`)*,Dimensionless
-*scale (from {ref}`schema:basehhvariable`)*,{ref}`schema:dimensions:voltage`
+**midpoint**$  *(from {ref}`schema:basehhvariable`)* ${ref}`schema:dimensions:voltage`
+**rate**$  *(from {ref}`schema:basehhvariable`)* $Dimensionless
+**scale**$  *(from {ref}`schema:basehhvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*x (from {ref}`schema:basevoltagedepvariable`)*,Dimensionless
+**x**$  *(from {ref}`schema:basevoltagedepvariable`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepvariable`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedepvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -527,32 +553,35 @@ extends *{ref}`schema:basehhvariable`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*midpoint (from {ref}`schema:basehhvariable`)*,{ref}`schema:dimensions:voltage`
-*rate (from {ref}`schema:basehhvariable`)*,Dimensionless
-*scale (from {ref}`schema:basehhvariable`)*,{ref}`schema:dimensions:voltage`
+**midpoint**$  *(from {ref}`schema:basehhvariable`)* ${ref}`schema:dimensions:voltage`
+**rate**$  *(from {ref}`schema:basehhvariable`)* $Dimensionless
+**scale**$  *(from {ref}`schema:basehhvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*x (from {ref}`schema:basevoltagedepvariable`)*,Dimensionless
+**x**$  *(from {ref}`schema:basevoltagedepvariable`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepvariable`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedepvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -593,32 +622,35 @@ extends *{ref}`schema:basehhvariable`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*midpoint (from {ref}`schema:basehhvariable`)*,{ref}`schema:dimensions:voltage`
-*rate (from {ref}`schema:basehhvariable`)*,Dimensionless
-*scale (from {ref}`schema:basehhvariable`)*,{ref}`schema:dimensions:voltage`
+**midpoint**$  *(from {ref}`schema:basehhvariable`)* ${ref}`schema:dimensions:voltage`
+**rate**$  *(from {ref}`schema:basehhvariable`)* $Dimensionless
+**scale**$  *(from {ref}`schema:basehhvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*x (from {ref}`schema:basevoltagedepvariable`)*,Dimensionless
+**x**$  *(from {ref}`schema:basevoltagedepvariable`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepvariable`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedepvariable`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -656,20 +688,22 @@ extends *{ref}`schema:basehhvariable`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-t,{ref}`schema:dimensions:time`
+**t**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -691,21 +725,23 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*t (from {ref}`schema:basevoltagedeptime`)*,{ref}`schema:dimensions:time`
+**t**$  *(from {ref}`schema:basevoltagedeptime`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-*v (from {ref}`schema:basevoltagedeptime`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**v**$  *(from {ref}`schema:basevoltagedeptime`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -727,30 +763,33 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-tau,{ref}`schema:dimensions:time`
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*t (from {ref}`schema:basevoltagedeptime`)*,{ref}`schema:dimensions:time`
+**t**$  *(from {ref}`schema:basevoltagedeptime`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeptime`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basevoltagedeptime`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -787,20 +826,22 @@ tau,{ref}`schema:dimensions:time`
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-q10,Dimensionless
+**q10**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-temperature,{ref}`schema:dimensions:temperature`
+**temperature**$  ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -822,30 +863,33 @@ extends *{ref}`schema:baseq10settings`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-fixedQ10,Dimensionless
+**fixedQ10**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*q10 (from {ref}`schema:baseq10settings`)*,Dimensionless
+**q10**$  *(from {ref}`schema:baseq10settings`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*temperature (from {ref}`schema:baseq10settings`)*,{ref}`schema:dimensions:temperature`
+**temperature**$  *(from {ref}`schema:baseq10settings`)* ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -886,41 +930,45 @@ extends *{ref}`schema:baseq10settings`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-experimentalTemp,{ref}`schema:dimensions:temperature`
-q10Factor,Dimensionless
+**experimentalTemp**$  ${ref}`schema:dimensions:temperature`
+**q10Factor**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-TENDEGREES = 10K, {ref}`schema:dimensions:temperature`
+**TENDEGREES** = 10K$  $ {ref}`schema:dimensions:temperature`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*q10 (from {ref}`schema:baseq10settings`)*,Dimensionless
+**q10**$  *(from {ref}`schema:baseq10settings`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*temperature (from {ref}`schema:baseq10settings`)*,{ref}`schema:dimensions:temperature`
+**temperature**$  *(from {ref}`schema:baseq10settings`)* ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -957,20 +1005,22 @@ TENDEGREES = 10K, {ref}`schema:dimensions:temperature`
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-factor,Dimensionless
+**factor**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-temperature,{ref}`schema:dimensions:temperature`
+**temperature**$  ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -992,41 +1042,45 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-experimentalTemp,{ref}`schema:dimensions:temperature`
-q10Factor,Dimensionless
+**experimentalTemp**$  ${ref}`schema:dimensions:temperature`
+**q10Factor**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-TENDEGREES = 10K, {ref}`schema:dimensions:temperature`
+**TENDEGREES** = 10K$  $ {ref}`schema:dimensions:temperature`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*factor (from {ref}`schema:baseconductancescaling`)*,Dimensionless
+**factor**$  *(from {ref}`schema:baseconductancescaling`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*temperature (from {ref}`schema:baseconductancescaling`)*,{ref}`schema:dimensions:temperature`
+**temperature**$  *(from {ref}`schema:baseconductancescaling`)* ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -1080,21 +1134,23 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*factor (from {ref}`schema:baseconductancescaling`)*,Dimensionless
+**factor**$  *(from {ref}`schema:baseconductancescaling`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-*temperature (from {ref}`schema:baseconductancescaling`)*,{ref}`schema:dimensions:temperature`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**temperature**$  *(from {ref}`schema:baseconductancescaling`)* ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -1112,31 +1168,34 @@ caConc,{ref}`schema:dimensions:concentration`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-instances,Dimensionless
+**instances**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-notes, {ref}`schema:notes`
+**notes**$  $ {ref}`schema:notes`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-fcond,Dimensionless
-q,Dimensionless
+**fcond**$  $Dimensionless
+**q**$  $Dimensionless
 
 ```
 ````
@@ -1158,21 +1217,23 @@ extends *{ref}`schema:basegate`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
@@ -1194,47 +1255,51 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-forwardRate, {ref}`schema:basevoltagedeprate`
-reverseRate, {ref}`schema:basevoltagedeprate`
+**forwardRate**$  $ {ref}`schema:basevoltagedeprate`
+**reverseRate**$  $ {ref}`schema:basevoltagedeprate`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-q10Settings, {ref}`schema:baseq10settings`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-alpha,{ref}`schema:dimensions:per_time`
-beta,{ref}`schema:dimensions:per_time`
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-inf,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**alpha**$  ${ref}`schema:dimensions:per_time`
+**beta**$  ${ref}`schema:dimensions:per_time`
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**inf**$  $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1323,45 +1388,49 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-timeCourse, {ref}`schema:basevoltagedeptime`
-steadyState, {ref}`schema:basevoltagedepvariable`
+**timeCourse**$  $ {ref}`schema:basevoltagedeptime`
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-q10Settings, {ref}`schema:baseq10settings`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-inf,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**inf**$  $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1423,43 +1492,47 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-steadyState, {ref}`schema:basevoltagedepvariable`
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SEC = 1 s, {ref}`schema:dimensions:time`
+**SEC** = 1 s$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-inf,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**inf**$  $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1516,48 +1589,52 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-forwardRate, {ref}`schema:basevoltagedeprate`
-reverseRate, {ref}`schema:basevoltagedeprate`
-timeCourse, {ref}`schema:basevoltagedeptime`
+**forwardRate**$  $ {ref}`schema:basevoltagedeprate`
+**reverseRate**$  $ {ref}`schema:basevoltagedeprate`
+**timeCourse**$  $ {ref}`schema:basevoltagedeptime`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-q10Settings, {ref}`schema:baseq10settings`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-alpha,{ref}`schema:dimensions:per_time`
-beta,{ref}`schema:dimensions:per_time`
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-inf,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**alpha**$  ${ref}`schema:dimensions:per_time`
+**beta**$  ${ref}`schema:dimensions:per_time`
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**inf**$  $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1621,48 +1698,52 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-forwardRate, {ref}`schema:basevoltagedeprate`
-reverseRate, {ref}`schema:basevoltagedeprate`
-steadyState, {ref}`schema:basevoltagedepvariable`
+**forwardRate**$  $ {ref}`schema:basevoltagedeprate`
+**reverseRate**$  $ {ref}`schema:basevoltagedeprate`
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-q10Settings, {ref}`schema:baseq10settings`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-alpha,{ref}`schema:dimensions:per_time`
-beta,{ref}`schema:dimensions:per_time`
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-inf,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**alpha**$  ${ref}`schema:dimensions:per_time`
+**beta**$  ${ref}`schema:dimensions:per_time`
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**inf**$  $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1725,49 +1806,53 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-forwardRate, {ref}`schema:basevoltagedeprate`
-reverseRate, {ref}`schema:basevoltagedeprate`
-timeCourse, {ref}`schema:basevoltagedeptime`
-steadyState, {ref}`schema:basevoltagedepvariable`
+**forwardRate**$  $ {ref}`schema:basevoltagedeprate`
+**reverseRate**$  $ {ref}`schema:basevoltagedeprate`
+**timeCourse**$  $ {ref}`schema:basevoltagedeptime`
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-q10Settings, {ref}`schema:baseq10settings`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-alpha,{ref}`schema:dimensions:per_time`
-beta,{ref}`schema:dimensions:per_time`
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-inf,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**alpha**$  ${ref}`schema:dimensions:per_time`
+**beta**$  ${ref}`schema:dimensions:per_time`
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**inf**$  $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1831,33 +1916,36 @@ extends {ref}`schema:gate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-q10Settings, {ref}`schema:baseq10settings`
-subGate, {ref}`schema:subgate`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
+**subGate**$  $ {ref}`schema:subgate`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
 
 ```
 ````
@@ -1909,45 +1997,49 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-fractionalConductance,Dimensionless
+**fractionalConductance**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-notes, {ref}`schema:notes`
-timeCourse, {ref}`schema:basevoltagedeptime`
-steadyState, {ref}`schema:basevoltagedepvariable`
+**notes**$  $ {ref}`schema:notes`
+**timeCourse**$  $ {ref}`schema:basevoltagedeptime`
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-inf,Dimensionless
-q,Dimensionless
-qfrac,Dimensionless
-tau,{ref}`schema:dimensions:time`
+**inf**$  $Dimensionless
+**q**$  $Dimensionless
+**qfrac**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-rateScale,Dimensionless
+**rateScale**$  $Dimensionless
 
 ```
 ````
@@ -2004,10 +2096,11 @@ rateScale,Dimensionless
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-conductance,{ref}`schema:dimensions:conductance`
+**conductance**$  ${ref}`schema:dimensions:conductance`
 
 ```
 ````
@@ -2016,38 +2109,41 @@ conductance,{ref}`schema:dimensions:conductance`
 ```{csv-table}
 :width: 100%
 
-neuroLexId,
+**neuroLexId**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-notes, {ref}`schema:notes`
-annotation, {ref}`schema:annotation`
+**notes**$  $ {ref}`schema:notes`
+**annotation**$  $ {ref}`schema:annotation`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-fopen,Dimensionless
-g,{ref}`schema:dimensions:conductance`
+**fopen**$  $Dimensionless
+**g**$  ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2069,10 +2165,11 @@ extends {ref}`schema:ionchannel`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*conductance (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**conductance**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
@@ -2081,27 +2178,29 @@ extends {ref}`schema:ionchannel`
 ```{csv-table}
 :width: 100%
 
-species,
+**species**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fopen (from {ref}`schema:baseionchannel`)*,Dimensionless
-*g (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**fopen**$  *(from {ref}`schema:baseionchannel`)* $Dimensionless
+**g**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2143,10 +2242,11 @@ extends *{ref}`schema:baseionchannel`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*conductance (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**conductance**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
@@ -2155,38 +2255,41 @@ extends *{ref}`schema:baseionchannel`*
 ```{csv-table}
 :width: 100%
 
-species,
+**species**
 
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-conductanceScaling, {ref}`schema:baseconductancescaling`
-gates, {ref}`schema:gate`
+**conductanceScaling**$  $ {ref}`schema:baseconductancescaling`
+**gates**$  $ {ref}`schema:gate`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fopen (from {ref}`schema:baseionchannel`)*,Dimensionless
-*g (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**fopen**$  *(from {ref}`schema:baseionchannel`)* $Dimensionless
+**g**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2272,31 +2375,34 @@ extends {ref}`schema:ionchannelhh`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*conductance (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**conductance**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fopen (from {ref}`schema:baseionchannel`)*,Dimensionless
-*g (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**fopen**$  *(from {ref}`schema:baseionchannel`)* $Dimensionless
+**g**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2353,11 +2459,12 @@ extends {ref}`schema:ionchannel`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*conductance (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
-vShift,{ref}`schema:dimensions:voltage`
+**conductance**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
+**vShift**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2366,27 +2473,29 @@ vShift,{ref}`schema:dimensions:voltage`
 ```{csv-table}
 :width: 100%
 
-species,
+**species**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fopen (from {ref}`schema:baseionchannel`)*,Dimensionless
-*g (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**fopen**$  *(from {ref}`schema:baseionchannel`)* $Dimensionless
+**g**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2417,21 +2526,23 @@ variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None,
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-relativeConductance,Dimensionless
+**relativeConductance**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-occupancy,Dimensionless
-q,Dimensionless
+**occupancy**$  $Dimensionless
+**q**$  $Dimensionless
 
 ```
 ````
@@ -2476,21 +2587,23 @@ extends {ref}`schema:ksstate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*relativeConductance (from {ref}`schema:ksstate`)*,Dimensionless
+**relativeConductance**$  *(from {ref}`schema:ksstate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*occupancy (from {ref}`schema:ksstate`)*,Dimensionless
-*q (from {ref}`schema:ksstate`)*,Dimensionless
+**occupancy**$  *(from {ref}`schema:ksstate`)* $Dimensionless
+**q**$  *(from {ref}`schema:ksstate`)* $Dimensionless
 
 ```
 ````
@@ -2525,21 +2638,23 @@ extends {ref}`schema:ksstate`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*relativeConductance (from {ref}`schema:ksstate`)*,Dimensionless
+**relativeConductance**$  *(from {ref}`schema:ksstate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*occupancy (from {ref}`schema:ksstate`)*,Dimensionless
-*q (from {ref}`schema:ksstate`)*,Dimensionless
+**occupancy**$  *(from {ref}`schema:ksstate`)* $Dimensionless
+**q**$  *(from {ref}`schema:ksstate`)* $Dimensionless
 
 ```
 ````
@@ -2574,10 +2689,11 @@ extends *{ref}`schema:baseionchannel`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*conductance (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**conductance**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
@@ -2586,38 +2702,41 @@ extends *{ref}`schema:baseionchannel`*
 ```{csv-table}
 :width: 100%
 
-species,
+**species**
 
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-conductanceScaling, {ref}`schema:baseconductancescaling`
-gates, {ref}`schema:gateks`
+**conductanceScaling**$  $ {ref}`schema:baseconductancescaling`
+**gates**$  $ {ref}`schema:gateks`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fopen (from {ref}`schema:baseionchannel`)*,Dimensionless
-*g (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:conductance`
+**fopen**$  *(from {ref}`schema:baseionchannel`)* $Dimensionless
+**g**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:conductance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:baseionchannel`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2668,11 +2787,12 @@ variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-rf,{ref}`schema:dimensions:per_time`
-rr,{ref}`schema:dimensions:per_time`
+**rf**$  ${ref}`schema:dimensions:per_time`
+**rr**$  ${ref}`schema:dimensions:per_time`
 
 ```
 ````
@@ -2694,31 +2814,34 @@ extends {ref}`schema:kstransition`
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rate, {ref}`schema:basehhrate`
+**rate**$  $ {ref}`schema:basehhrate`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SEC = 1s, {ref}`schema:dimensions:time`
+**SEC** = 1s$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*rf (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
-*rr (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
+**rf**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
+**rr**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
@@ -2774,31 +2897,34 @@ extends {ref}`schema:kstransition`
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rate, {ref}`schema:basehhrate`
+**rate**$  $ {ref}`schema:basehhrate`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SEC = 1s, {ref}`schema:dimensions:time`
+**SEC** = 1s$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*rf (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
-*rr (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
+**rf**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
+**rr**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
@@ -2854,45 +2980,49 @@ extends {ref}`schema:kstransition`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-gamma,Dimensionless
-tau,{ref}`schema:dimensions:time`
-tauMin,{ref}`schema:dimensions:time`
-vHalf,{ref}`schema:dimensions:voltage`
-z,Dimensionless
+**gamma**$  $Dimensionless
+**tau**$  ${ref}`schema:dimensions:time`
+**tauMin**$  ${ref}`schema:dimensions:time`
+**vHalf**$  ${ref}`schema:dimensions:voltage`
+**z**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-kte = 25.3mV, {ref}`schema:dimensions:voltage`
+**kte** = 25.3mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*rf (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
-*rr (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
+**rf**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
+**rr**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2936,22 +3066,24 @@ extends {ref}`schema:kstransition`
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-timeCourse, {ref}`schema:basevoltagedeptime`
-steadyState, {ref}`schema:basevoltagedepvariable`
+**timeCourse**$  $ {ref}`schema:basevoltagedeptime`
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*rf (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
-*rr (from {ref}`schema:kstransition`)*,{ref}`schema:dimensions:per_time`
+**rf**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
+**rr**$  *(from {ref}`schema:kstransition`)* ${ref}`schema:dimensions:per_time`
 
 ```
 ````
@@ -3008,34 +3140,37 @@ extends *{ref}`schema:basegate`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*instances (from {ref}`schema:basegate`)*,Dimensionless
+**instances**$  *(from {ref}`schema:basegate`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-states, {ref}`schema:ksstate`
-transitions, {ref}`schema:kstransition`
-q10Settings, {ref}`schema:baseq10settings`
+**states**$  $ {ref}`schema:ksstate`
+**transitions**$  $ {ref}`schema:kstransition`
+**q10Settings**$  $ {ref}`schema:baseq10settings`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*fcond (from {ref}`schema:basegate`)*,Dimensionless
-*q (from {ref}`schema:basegate`)*,Dimensionless
-rateScale,Dimensionless
+**fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+**rateScale**$  $Dimensionless
 
 ```
 ````

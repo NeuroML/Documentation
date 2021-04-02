@@ -8,7 +8,7 @@ Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/Neuro
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -57,10 +57,11 @@ extends *{ref}`schema:basecell`*
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-spike,Direction: out
+**spike**$ Spike event$Direction: out
 
 ```
 ````
@@ -82,20 +83,22 @@ extends *{ref}`schema:basespikingcell`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$ Membrane potential ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -117,20 +120,22 @@ extends *{ref}`schema:basespikingcell`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-V,Dimensionless
+**V**$ Membrane potential $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -152,30 +157,33 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-ionChannel, {ref}`schema:baseionchannel`
+**ionChannel**$  $ {ref}`schema:baseionchannel`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -197,11 +205,12 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
-number,Dimensionless
+**erev**$  ${ref}`schema:dimensions:voltage`
+**number**$  $Dimensionless
 
 ```
 ````
@@ -210,36 +219,39 @@ number,Dimensionless
 ```{csv-table}
 :width: 100%
 
-ion,
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-vShift = 0mV, {ref}`schema:dimensions:voltage`
+**vShift** = 0mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -304,10 +316,11 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-number,Dimensionless
+**number**$  $Dimensionless
 
 ```
 ````
@@ -316,43 +329,46 @@ number,Dimensionless
 ```{csv-table}
 :width: 100%
 
-ion,
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-R = 8.3144621 J_per_K_per_mol, {ref}`schema:dimensions:idealGasConstantDims`
-zCa = 2, Dimensionless
-F = 96485.3 C_per_mol, {ref}`schema:dimensions:charge_per_mole`
-vShift = 0mV, {ref}`schema:dimensions:voltage`
+**R** = 8.3144621 J_per_K_per_mol$  $ {ref}`schema:dimensions:idealGasConstantDims`
+**zCa** = 2$  $ Dimensionless
+**F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
+**vShift** = 0mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**erev**$  ${ref}`schema:dimensions:voltage`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-caConcExt,{ref}`schema:dimensions:concentration`
-temperature,{ref}`schema:dimensions:temperature`
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  ${ref}`schema:dimensions:concentration`
+**temperature**$  ${ref}`schema:dimensions:temperature`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -396,30 +412,33 @@ temperature,{ref}`schema:dimensions:temperature`
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-ionChannel, {ref}`schema:baseionchannel`
+**ionChannel**$  $ {ref}`schema:baseionchannel`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iDensity,{ref}`schema:dimensions:currentDensity`
+**iDensity**$  ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -441,31 +460,34 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-condDensity,{ref}`schema:dimensions:conductanceDensity`
+**condDensity**$  ${ref}`schema:dimensions:conductanceDensity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-gDensity,{ref}`schema:dimensions:conductanceDensity`
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**gDensity**$  ${ref}`schema:dimensions:conductanceDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -485,17 +507,18 @@ gDensity,{ref}`schema:dimensions:conductanceDensity`
 ```{csv-table}
 :width: 100%
 
-parameter,
-segmentGroup,
+**parameter**
+**segmentGroup**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-inhomogeneousValue, {ref}`schema:inhomogeneousvalue`
+**inhomogeneousValue**$  $ {ref}`schema:inhomogeneousvalue`
 
 ```
 ````
@@ -535,8 +558,8 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 ```{csv-table}
 :width: 100%
 
-inhomogeneousParameter,
-value,
+**inhomogeneousParameter**
+**value**
 
 ````
 
@@ -575,10 +598,11 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
+**erev**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -587,47 +611,51 @@ erev,{ref}`schema:dimensions:voltage`
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-variableParameter, {ref}`schema:variableparameter`
+**variableParameter**$  $ {ref}`schema:variableparameter`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-ZERO_CURR_DENS = 0 A_per_m2, {ref}`schema:dimensions:currentDensity`
+**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -696,47 +724,51 @@ extends *{ref}`schema:basechanneldensity`*
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-variableParameter, {ref}`schema:variableparameter`
+**variableParameter**$  $ {ref}`schema:variableparameter`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-ZERO_CURR_DENS = 0 A_per_m2, {ref}`schema:dimensions:currentDensity`
+**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -796,47 +828,51 @@ extends *{ref}`schema:basechanneldensity`*
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-variableParameter, {ref}`schema:variableparameter`
+**variableParameter**$  $ {ref}`schema:variableparameter`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-ZERO_CURR_DENS = 0 A_per_m2, {ref}`schema:dimensions:currentDensity`
+**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -894,11 +930,12 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*condDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-erev,{ref}`schema:dimensions:voltage`
+**condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**erev**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -907,38 +944,41 @@ erev,{ref}`schema:dimensions:voltage`
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-vShift = 0mV, {ref}`schema:dimensions:voltage`
+**vShift** = 0mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*gDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1009,12 +1049,13 @@ extends {ref}`schema:channeldensity`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*condDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-*erev (from {ref}`schema:channeldensity`)*,{ref}`schema:dimensions:voltage`
-vShift,{ref}`schema:dimensions:voltage`
+**condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**erev**$  *(from {ref}`schema:channeldensity`)* ${ref}`schema:dimensions:voltage`
+**vShift**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1023,28 +1064,30 @@ vShift,{ref}`schema:dimensions:voltage`
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*gDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1079,10 +1122,11 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*condDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
+**condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 
 ```
 ````
@@ -1091,44 +1135,47 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-R = 8.3144621 J_per_K_per_mol, {ref}`schema:dimensions:idealGasConstantDims`
-zCa = 2, Dimensionless
-F = 96485.3 C_per_mol, {ref}`schema:dimensions:charge_per_mole`
+**R** = 8.3144621 J_per_K_per_mol$  $ {ref}`schema:dimensions:idealGasConstantDims`
+**zCa** = 2$  $ Dimensionless
+**F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
-*gDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**erev**$  ${ref}`schema:dimensions:voltage`
+**gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-caConcExt,{ref}`schema:dimensions:concentration`
-temperature,{ref}`schema:dimensions:temperature`
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  ${ref}`schema:dimensions:concentration`
+**temperature**$  ${ref}`schema:dimensions:temperature`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1200,10 +1247,11 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*condDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
+**condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 
 ```
 ````
@@ -1212,44 +1260,47 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-R = 8.3144621 J_per_K_per_mol, {ref}`schema:dimensions:idealGasConstantDims`
-zCa = 2, Dimensionless
-F = 96485.3 C_per_mol, {ref}`schema:dimensions:charge_per_mole`
+**R** = 8.3144621 J_per_K_per_mol$  $ {ref}`schema:dimensions:idealGasConstantDims`
+**zCa** = 2$  $ Dimensionless
+**F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-erev,{ref}`schema:dimensions:voltage`
-*gDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**erev**$  ${ref}`schema:dimensions:voltage`
+**gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc2,{ref}`schema:dimensions:concentration`
-caConcExt2,{ref}`schema:dimensions:concentration`
-temperature,{ref}`schema:dimensions:temperature`
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**caConc2**$  ${ref}`schema:dimensions:concentration`
+**caConcExt2**$  ${ref}`schema:dimensions:concentration`
+**temperature**$  ${ref}`schema:dimensions:temperature`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1321,10 +1372,11 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-permeability,{ref}`schema:dimensions:permeability`
+**permeability**$  ${ref}`schema:dimensions:permeability`
 
 ```
 ````
@@ -1333,42 +1385,45 @@ permeability,{ref}`schema:dimensions:permeability`
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-R = 8.3144621 J_per_K_per_mol, {ref}`schema:dimensions:idealGasConstantDims`
-zCa = 2, Dimensionless
-F = 96485.3 C_per_mol, {ref}`schema:dimensions:charge_per_mole`
+**R** = 8.3144621 J_per_K_per_mol$  $ {ref}`schema:dimensions:idealGasConstantDims`
+**zCa** = 2$  $ Dimensionless
+**F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-caConcExt,{ref}`schema:dimensions:concentration`
-temperature,{ref}`schema:dimensions:temperature`
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  ${ref}`schema:dimensions:concentration`
+**temperature**$  ${ref}`schema:dimensions:temperature`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1434,10 +1489,11 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*condDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
+**condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 
 ```
 ````
@@ -1446,43 +1502,46 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
-ion,
+**segmentGroup**
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-VOLT_SCALE = 1 mV, {ref}`schema:dimensions:voltage`
-CONC_SCALE = 1 mM, {ref}`schema:dimensions:concentration`
-TEMP_SCALE = 1 K, {ref}`schema:dimensions:temperature`
+**VOLT_SCALE** = 1 mV$  $ {ref}`schema:dimensions:voltage`
+**CONC_SCALE** = 1 mM$  $ {ref}`schema:dimensions:concentration`
+**TEMP_SCALE** = 1 K$  $ {ref}`schema:dimensions:temperature`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*gDensity (from {ref}`schema:basechanneldensitycond`)*,{ref}`schema:dimensions:conductanceDensity`
-*iDensity (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:currentDensity`
+**gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
+**iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-caConcExt,{ref}`schema:dimensions:concentration`
-temperature,{ref}`schema:dimensions:temperature`
-*v (from {ref}`schema:basechanneldensity`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  ${ref}`schema:dimensions:concentration`
+**temperature**$  ${ref}`schema:dimensions:temperature`
+**v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1556,54 +1615,59 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-thresh,{ref}`schema:dimensions:voltage`
-v0,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**thresh**$  ${ref}`schema:dimensions:voltage`
+**v0**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-populations, {ref}`schema:basechannelpopulation`
+**populations**$  $ {ref}`schema:basechannelpopulation`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -1676,57 +1740,62 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-thresh,{ref}`schema:dimensions:voltage`
-v0,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**thresh**$  ${ref}`schema:dimensions:voltage`
+**v0**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-populations, {ref}`schema:basechannelpopulation`
-concentrationModels, {ref}`schema:concentrationmodel`
+**populations**$  $ {ref}`schema:basechannelpopulation`
+**concentrationModels**$  $ {ref}`schema:concentrationmodel`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-iCa,{ref}`schema:dimensions:current`
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**iCa**$  ${ref}`schema:dimensions:current`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -1801,26 +1870,28 @@ extends {ref}`schema:point3dwithdiam`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*diameter (from {ref}`schema:point3dwithdiam`)*,Dimensionless
-*x (from {ref}`schema:point3dwithdiam`)*,Dimensionless
-*y (from {ref}`schema:point3dwithdiam`)*,Dimensionless
-*z (from {ref}`schema:point3dwithdiam`)*,Dimensionless
+**diameter**$ Diameter at point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**x**$ x coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**y**$ y coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**z**$ z coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*radius (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
-*xLength (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
-*yLength (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
-*zLength (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
+**radius**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**xLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**yLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**zLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -1859,26 +1930,28 @@ extends {ref}`schema:point3dwithdiam`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*diameter (from {ref}`schema:point3dwithdiam`)*,Dimensionless
-*x (from {ref}`schema:point3dwithdiam`)*,Dimensionless
-*y (from {ref}`schema:point3dwithdiam`)*,Dimensionless
-*z (from {ref}`schema:point3dwithdiam`)*,Dimensionless
+**diameter**$ Diameter at point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**x**$ x coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**y**$ y coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**z**$ z coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*radius (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
-*xLength (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
-*yLength (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
-*zLength (from {ref}`schema:point3dwithdiam`)*,{ref}`schema:dimensions:length`
+**radius**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**xLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**yLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**zLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -1915,8 +1988,8 @@ extends {ref}`schema:point3dwithdiam`
 ```{csv-table}
 :width: 100%
 
-segment,
-fractionAlong,
+**segment**
+**fractionAlong**
 
 ````
 
@@ -1952,40 +2025,43 @@ fractionAlong,
 ```{csv-table}
 :width: 100%
 
-name,
+**name**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-parent, {ref}`schema:parent`
-distal, {ref}`schema:distal`
-proximal, {ref}`schema:proximal`
+**parent**$  $ {ref}`schema:parent`
+**distal**$  $ {ref}`schema:distal`
+**proximal**$  $ {ref}`schema:proximal`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-LEN = 1m, {ref}`schema:dimensions:length`
+**LEN** = 1m$  $ {ref}`schema:dimensions:length`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-length,{ref}`schema:dimensions:length`
-radDist,{ref}`schema:dimensions:length`
-surfaceArea,{ref}`schema:dimensions:area`
+**length**$  ${ref}`schema:dimensions:length`
+**radDist**$  ${ref}`schema:dimensions:length`
+**surfaceArea**$  ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -2073,32 +2149,34 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 ```{csv-table}
 :width: 100%
 
-neuroLexId,
+**neuroLexId**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-notes, {ref}`schema:notes`
-annotation, {ref}`schema:annotation`
+**notes**$  $ {ref}`schema:notes`
+**annotation**$  $ {ref}`schema:annotation`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-property, {ref}`schema:property`
-members, {ref}`schema:member`
-paths, {ref}`schema:path`
-subTrees, {ref}`schema:subtree`
-includes, {ref}`schema:include`
-inhomogeneousParameter, {ref}`schema:inhomogeneousparameter`
+**property**$  $ {ref}`schema:property`
+**members**$  $ {ref}`schema:member`
+**paths**$  $ {ref}`schema:path`
+**subTrees**$  $ {ref}`schema:subtree`
+**includes**$  $ {ref}`schema:include`
+**inhomogeneousParameter**$  $ {ref}`schema:inhomogeneousparameter`
 
 ```
 ````
@@ -2149,7 +2227,7 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 ```{csv-table}
 :width: 100%
 
-segment,
+**segment**
 
 ````
 
@@ -2192,7 +2270,7 @@ variable = Member(segments=None, **kwargs_)
 ```{csv-table}
 :width: 100%
 
-segment,
+**segment**
 
 ````
 
@@ -2225,7 +2303,7 @@ segment,
 ```{csv-table}
 :width: 100%
 
-segment,
+**segment**
 
 ````
 
@@ -2255,8 +2333,8 @@ segment,
 ```{csv-table}
 :width: 100%
 
-href,
-segmentGroup,
+**href**
+**segmentGroup**
 
 ````
 
@@ -2297,11 +2375,12 @@ variable = Include(segment_groups=None, **kwargs_)
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-from, {ref}`schema:from`
-to, {ref}`schema:to`
+**from**$  $ {ref}`schema:from`
+**to**$  $ {ref}`schema:to`
 
 ```
 ````
@@ -2340,10 +2419,11 @@ variable = Path(from_=None, to=None, **kwargs_)
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-from, {ref}`schema:from`
+**from**$  $ {ref}`schema:from`
 
 ```
 ````
@@ -2383,18 +2463,19 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 ```{csv-table}
 :width: 100%
 
-variable,
-metric,
+**variable**
+**metric**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-proximal, {ref}`schema:proximalproperties`
-distal, {ref}`schema:distalproperties`
+**proximal**$  $ {ref}`schema:proximalproperties`
+**distal**$  $ {ref}`schema:distalproperties`
 
 ```
 ````
@@ -2438,7 +2519,7 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 ```{csv-table}
 :width: 100%
 
-translationStart,
+**translationStart**
 
 ````
 
@@ -2457,7 +2538,7 @@ translationStart,
 ```{csv-table}
 :width: 100%
 
-normalizationEnd,
+**normalizationEnd**
 
 ````
 
@@ -2474,11 +2555,12 @@ normalizationEnd,
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-segments, {ref}`schema:segment`
-segmentGroups, {ref}`schema:segmentgroup`
+**segments**$  $ {ref}`schema:segment`
+**segmentGroups**$  $ {ref}`schema:segmentgroup`
 
 ```
 ````
@@ -2604,10 +2686,11 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-value,{ref}`schema:dimensions:specificCapacitance`
+**value**$  ${ref}`schema:dimensions:specificCapacitance`
 
 ```
 ````
@@ -2616,16 +2699,17 @@ value,{ref}`schema:dimensions:specificCapacitance`
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
+**segmentGroup**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-specCap,{ref}`schema:dimensions:specificCapacitance`
+**specCap**$  ${ref}`schema:dimensions:specificCapacitance`
 
 ```
 ````
@@ -2686,10 +2770,11 @@ variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-value,{ref}`schema:dimensions:voltage`
+**value**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2728,10 +2813,11 @@ variable = InitMembPotential(value=None, segment_groups='all', segments=None, **
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-value,{ref}`schema:dimensions:voltage`
+**value**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -2770,45 +2856,49 @@ variable = SpikeThresh(value=None, segment_groups='all', segments=None, **kwargs
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-initMembPotential, {ref}`schema:initmembpotential`
-spikeThresh, {ref}`schema:spikethresh`
+**initMembPotential**$  $ {ref}`schema:initmembpotential`
+**spikeThresh**$  $ {ref}`schema:spikethresh`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-specificCapacitances, {ref}`schema:specificcapacitance`
-populations, {ref}`schema:basechannelpopulation`
-channelDensities, {ref}`schema:basechanneldensity`
+**specificCapacitances**$  $ {ref}`schema:specificcapacitance`
+**populations**$  $ {ref}`schema:basechannelpopulation`
+**channelDensities**$  $ {ref}`schema:basechanneldensity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iCa,{ref}`schema:dimensions:current`
-totChanCurrent,{ref}`schema:dimensions:current`
-totSpecCap,{ref}`schema:dimensions:specificCapacitance`
+**iCa**$  ${ref}`schema:dimensions:current`
+**totChanCurrent**$  ${ref}`schema:dimensions:current`
+**totSpecCap**$  ${ref}`schema:dimensions:specificCapacitance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-surfaceArea,{ref}`schema:dimensions:area`
+**surfaceArea**$  ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -2902,47 +2992,51 @@ extends {ref}`schema:membraneproperties`
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-initMembPotential, {ref}`schema:initmembpotential`
-spikeThresh, {ref}`schema:spikethresh`
+**initMembPotential**$  $ {ref}`schema:initmembpotential`
+**spikeThresh**$  $ {ref}`schema:spikethresh`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-specificCapacitances, {ref}`schema:specificcapacitance`
-populations, {ref}`schema:basechannelpopulation`
-channelDensities, {ref}`schema:basechanneldensity`
+**specificCapacitances**$  $ {ref}`schema:specificcapacitance`
+**populations**$  $ {ref}`schema:basechannelpopulation`
+**channelDensities**$  $ {ref}`schema:basechanneldensity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iCa (from {ref}`schema:membraneproperties`)*,{ref}`schema:dimensions:current`
-iCa2,{ref}`schema:dimensions:current`
-*totChanCurrent (from {ref}`schema:membraneproperties`)*,{ref}`schema:dimensions:current`
-*totSpecCap (from {ref}`schema:membraneproperties`)*,{ref}`schema:dimensions:specificCapacitance`
+**iCa**$  *(from {ref}`schema:membraneproperties`)* ${ref}`schema:dimensions:current`
+**iCa2**$  ${ref}`schema:dimensions:current`
+**totChanCurrent**$  *(from {ref}`schema:membraneproperties`)* ${ref}`schema:dimensions:current`
+**totSpecCap**$  *(from {ref}`schema:membraneproperties`)* ${ref}`schema:dimensions:specificCapacitance`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-surfaceArea,{ref}`schema:dimensions:area`
-*surfaceArea (from {ref}`schema:membraneproperties`)*,{ref}`schema:dimensions:area`
+**surfaceArea**$  ${ref}`schema:dimensions:area`
+**surfaceArea**$  *(from {ref}`schema:membraneproperties`)* ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -3001,21 +3095,23 @@ variable = MembraneProperties2CaPools(channel_populations=None, channel_densitie
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-membraneProperties, {ref}`schema:membraneproperties`
-intracellularProperties, {ref}`schema:intracellularproperties`
+**membraneProperties**$  $ {ref}`schema:membraneproperties`
+**intracellularProperties**$  $ {ref}`schema:intracellularproperties`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-totSpecCap,{ref}`schema:dimensions:specificCapacitance`
+**totSpecCap**$  ${ref}`schema:dimensions:specificCapacitance`
 
 ```
 ````
@@ -3115,21 +3211,23 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-membraneProperties2CaPools, {ref}`schema:membraneproperties2capools`
-intracellularProperties2CaPools, {ref}`schema:intracellularproperties2capools`
+**membraneProperties2CaPools**$  $ {ref}`schema:membraneproperties2capools`
+**intracellularProperties2CaPools**$  $ {ref}`schema:intracellularproperties2capools`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-totSpecCap,{ref}`schema:dimensions:specificCapacitance`
+**totSpecCap**$  ${ref}`schema:dimensions:specificCapacitance`
 
 ```
 ````
@@ -3179,22 +3277,24 @@ variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-resistivity, {ref}`schema:resistivity`
-speciesList, {ref}`schema:species`
+**resistivity**$  $ {ref}`schema:resistivity`
+**speciesList**$  $ {ref}`schema:species`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-caConcExt,{ref}`schema:dimensions:concentration`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  ${ref}`schema:dimensions:concentration`
 
 ```
 ````
@@ -3266,24 +3366,26 @@ extends {ref}`schema:intracellularproperties`
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-speciesList, {ref}`schema:species`
-resistivity, {ref}`schema:resistivity`
+**speciesList**$  $ {ref}`schema:species`
+**resistivity**$  $ {ref}`schema:resistivity`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*caConc (from {ref}`schema:intracellularproperties`)*,{ref}`schema:dimensions:concentration`
-caConc2,{ref}`schema:dimensions:concentration`
-*caConcExt (from {ref}`schema:intracellularproperties`)*,{ref}`schema:dimensions:concentration`
-caConcExt2,{ref}`schema:dimensions:concentration`
+**caConc**$  *(from {ref}`schema:intracellularproperties`)* ${ref}`schema:dimensions:concentration`
+**caConc2**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  *(from {ref}`schema:intracellularproperties`)* ${ref}`schema:dimensions:concentration`
+**caConcExt2**$  ${ref}`schema:dimensions:concentration`
 
 ```
 ````
@@ -3336,10 +3438,11 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-value,{ref}`schema:dimensions:resistivity`
+**value**$  ${ref}`schema:dimensions:resistivity`
 
 ```
 ````
@@ -3348,7 +3451,7 @@ value,{ref}`schema:dimensions:resistivity`
 ```{csv-table}
 :width: 100%
 
-segmentGroup,
+**segmentGroup**
 
 ````
 
@@ -3391,29 +3494,31 @@ variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs
 ```{csv-table}
 :width: 100%
 
-ion,
+**ion**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-concentration,{ref}`schema:dimensions:concentration`
-extConcentration,{ref}`schema:dimensions:concentration`
+**concentration**$  ${ref}`schema:dimensions:concentration`
+**extConcentration**$  ${ref}`schema:dimensions:concentration`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-initialConcentration,{ref}`schema:dimensions:concentration`
-initialExtConcentration,{ref}`schema:dimensions:concentration`
-surfaceArea,{ref}`schema:dimensions:area`
+**initialConcentration**$  ${ref}`schema:dimensions:concentration`
+**initialExtConcentration**$  ${ref}`schema:dimensions:concentration`
+**surfaceArea**$  ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -3464,12 +3569,13 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-decayConstant,{ref}`schema:dimensions:time`
-restingConc,{ref}`schema:dimensions:concentration`
-shellThickness,{ref}`schema:dimensions:length`
+**decayConstant**$  ${ref}`schema:dimensions:time`
+**restingConc**$  ${ref}`schema:dimensions:concentration`
+**shellThickness**$  ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -3478,42 +3584,45 @@ shellThickness,{ref}`schema:dimensions:length`
 ```{csv-table}
 :width: 100%
 
-ion,
+**ion**
 
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-Faraday = 96485.3C_per_mol, {ref}`schema:dimensions:charge_per_mole`
-AREA_SCALE = 1m2, {ref}`schema:dimensions:area`
-LENGTH_SCALE = 1m, {ref}`schema:dimensions:length`
+**Faraday** = 96485.3C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
+**AREA_SCALE** = 1m2$  $ {ref}`schema:dimensions:area`
+**LENGTH_SCALE** = 1m$  $ {ref}`schema:dimensions:length`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*concentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*extConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
+**concentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**extConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iCa,{ref}`schema:dimensions:current`
-*initialConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*initialExtConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*surfaceArea (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:area`
+**iCa**$  ${ref}`schema:dimensions:current`
+**initialConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**initialExtConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**surfaceArea**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -3595,12 +3704,13 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-decayConstant,{ref}`schema:dimensions:time`
-restingConc,{ref}`schema:dimensions:concentration`
-rho,{ref}`schema:dimensions:rho_factor`
+**decayConstant**$  ${ref}`schema:dimensions:time`
+**restingConc**$  ${ref}`schema:dimensions:concentration`
+**rho**$  ${ref}`schema:dimensions:rho_factor`
 
 ```
 ````
@@ -3609,31 +3719,33 @@ rho,{ref}`schema:dimensions:rho_factor`
 ```{csv-table}
 :width: 100%
 
-ion,
+**ion**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*concentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*extConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
+**concentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**extConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iCa,{ref}`schema:dimensions:current`
-*initialConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*initialExtConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-surfaceArea,{ref}`schema:dimensions:area`
-*surfaceArea (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:area`
+**iCa**$  ${ref}`schema:dimensions:current`
+**initialConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**initialExtConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**surfaceArea**$  ${ref}`schema:dimensions:area`
+**surfaceArea**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -3708,12 +3820,13 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-beta,{ref}`schema:dimensions:per_time`
-phi,{ref}`schema:dimensions:rho_factor`
-restingConc,{ref}`schema:dimensions:concentration`
+**beta**$  ${ref}`schema:dimensions:per_time`
+**phi**$  ${ref}`schema:dimensions:rho_factor`
+**restingConc**$  ${ref}`schema:dimensions:concentration`
 
 ```
 ````
@@ -3722,31 +3835,33 @@ restingConc,{ref}`schema:dimensions:concentration`
 ```{csv-table}
 :width: 100%
 
-species,
+**species**
 
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*concentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*extConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
+**concentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**extConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iCa,{ref}`schema:dimensions:current`
-*initialConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-*initialExtConcentration (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:concentration`
-surfaceArea,{ref}`schema:dimensions:area`
-*surfaceArea (from {ref}`schema:concentrationmodel`)*,{ref}`schema:dimensions:area`
+**iCa**$  ${ref}`schema:dimensions:current`
+**initialConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**initialExtConcentration**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:concentration`
+**surfaceArea**$  ${ref}`schema:dimensions:area`
+**surfaceArea**$  *(from {ref}`schema:concentrationmodel`)* ${ref}`schema:dimensions:area`
 
 ```
 ````
@@ -3804,11 +3919,12 @@ surfaceArea,{ref}`schema:dimensions:area`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-initialConcentration,{ref}`schema:dimensions:concentration`
-initialExtConcentration,{ref}`schema:dimensions:concentration`
+**initialConcentration**$  ${ref}`schema:dimensions:concentration`
+**initialExtConcentration**$  ${ref}`schema:dimensions:concentration`
 
 ```
 ````
@@ -3817,28 +3933,30 @@ initialExtConcentration,{ref}`schema:dimensions:concentration`
 ```{csv-table}
 :width: 100%
 
-ion,
-segmentGroup,
+**ion**
+**segmentGroup**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-concentrationModel, {ref}`schema:concentrationmodel`
+**concentrationModel**$  $ {ref}`schema:concentrationmodel`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-concentration,{ref}`schema:dimensions:concentration`
-extConcentration,{ref}`schema:dimensions:concentration`
+**concentration**$  ${ref}`schema:dimensions:concentration`
+**extConcentration**$  ${ref}`schema:dimensions:concentration`
 
 ```
 ````
@@ -3899,55 +4017,59 @@ extends *{ref}`schema:basecellmembpot`*
 ```{csv-table}
 :width: 100%
 
-neuroLexId,
+**neuroLexId**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-morphology, {ref}`schema:morphology`
-biophysicalProperties, {ref}`schema:biophysicalproperties`
+**morphology**$  $ {ref}`schema:morphology`
+**biophysicalProperties**$  $ {ref}`schema:biophysicalproperties`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-caConc,{ref}`schema:dimensions:concentration`
-caConcExt,{ref}`schema:dimensions:concentration`
-iCa,{ref}`schema:dimensions:current`
-iChannels,{ref}`schema:dimensions:current`
-iSyn,{ref}`schema:dimensions:current`
-spiking,Dimensionless
-surfaceArea,{ref}`schema:dimensions:area`
-totSpecCap,{ref}`schema:dimensions:specificCapacitance`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  ${ref}`schema:dimensions:concentration`
+**iCa**$  ${ref}`schema:dimensions:current`
+**iChannels**$  ${ref}`schema:dimensions:current`
+**iSyn**$  ${ref}`schema:dimensions:current`
+**spiking**$  $Dimensionless
+**surfaceArea**$  ${ref}`schema:dimensions:area`
+**totSpecCap**$  ${ref}`schema:dimensions:specificCapacitance`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -4157,57 +4279,61 @@ extends {ref}`schema:cell`
 ```{csv-table}
 :width: 100%
 
-neuroLexId,
+**neuroLexId**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-biophysicalProperties2CaPools, {ref}`schema:biophysicalproperties2capools`
+**biophysicalProperties2CaPools**$  $ {ref}`schema:biophysicalproperties2capools`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*caConc (from {ref}`schema:cell`)*,{ref}`schema:dimensions:concentration`
-caConc2,{ref}`schema:dimensions:concentration`
-*caConcExt (from {ref}`schema:cell`)*,{ref}`schema:dimensions:concentration`
-caConcExt2,{ref}`schema:dimensions:concentration`
-*iCa (from {ref}`schema:cell`)*,{ref}`schema:dimensions:current`
-iCa2,{ref}`schema:dimensions:current`
-*iChannels (from {ref}`schema:cell`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:cell`)*,{ref}`schema:dimensions:current`
-*spiking (from {ref}`schema:cell`)*,Dimensionless
-*surfaceArea (from {ref}`schema:cell`)*,{ref}`schema:dimensions:area`
-*totSpecCap (from {ref}`schema:cell`)*,{ref}`schema:dimensions:specificCapacitance`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**caConc**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:concentration`
+**caConc2**$  ${ref}`schema:dimensions:concentration`
+**caConcExt**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:concentration`
+**caConcExt2**$  ${ref}`schema:dimensions:concentration`
+**iCa**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:current`
+**iCa2**$  ${ref}`schema:dimensions:current`
+**iChannels**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:current`
+**iSyn**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:current`
+**spiking**$  *(from {ref}`schema:cell`)* $Dimensionless
+**surfaceArea**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:area`
+**totSpecCap**$  *(from {ref}`schema:cell`)* ${ref}`schema:dimensions:specificCapacitance`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -4303,32 +4429,35 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-C,{ref}`schema:dimensions:capacitance`
+**C**$ Total capacitance of the cell membrane ${ref}`schema:dimensions:capacitance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iMemb,{ref}`schema:dimensions:current`
-iSyn,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iMemb**$ Total current crossing the cell membrane ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -4363,31 +4492,34 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-reset,{ref}`schema:dimensions:voltage`
-thresh,{ref}`schema:dimensions:voltage`
+**reset**$ The value the membrane potential is reset to on spiking ${ref}`schema:dimensions:voltage`
+**thresh**$ The membrane potential at which to emit a spiking event and reset voltage ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -4409,33 +4541,36 @@ extends *{ref}`schema:baseiaf`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-leakReversal,{ref}`schema:dimensions:voltage`
-*reset (from {ref}`schema:baseiaf`)*,{ref}`schema:dimensions:voltage`
-tau,{ref}`schema:dimensions:time`
-*thresh (from {ref}`schema:baseiaf`)*,{ref}`schema:dimensions:voltage`
+**leakReversal**$  ${ref}`schema:dimensions:voltage`
+**reset**$ The value the membrane potential is reset to on spiking *(from {ref}`schema:baseiaf`)* ${ref}`schema:dimensions:voltage`
+**tau**$  ${ref}`schema:dimensions:time`
+**thresh**$ The membrane potential at which to emit a spiking event and reset voltage *(from {ref}`schema:baseiaf`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -4514,34 +4649,37 @@ extends {ref}`schema:iaftaucell`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*leakReversal (from {ref}`schema:iaftaucell`)*,{ref}`schema:dimensions:voltage`
-refract,{ref}`schema:dimensions:time`
-*reset (from {ref}`schema:baseiaf`)*,{ref}`schema:dimensions:voltage`
-*tau (from {ref}`schema:iaftaucell`)*,{ref}`schema:dimensions:time`
-*thresh (from {ref}`schema:baseiaf`)*,{ref}`schema:dimensions:voltage`
+**leakReversal**$  *(from {ref}`schema:iaftaucell`)* ${ref}`schema:dimensions:voltage`
+**refract**$  ${ref}`schema:dimensions:time`
+**reset**$ The value the membrane potential is reset to on spiking *(from {ref}`schema:baseiaf`)* ${ref}`schema:dimensions:voltage`
+**tau**$  *(from {ref}`schema:iaftaucell`)* ${ref}`schema:dimensions:time`
+**thresh**$ The membrane potential at which to emit a spiking event and reset voltage *(from {ref}`schema:baseiaf`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -4625,34 +4763,37 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-reset,{ref}`schema:dimensions:voltage`
-thresh,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**reset**$  ${ref}`schema:dimensions:voltage`
+**thresh**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -4674,46 +4815,50 @@ extends *{ref}`schema:baseiafcapcell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-leakConductance,{ref}`schema:dimensions:conductance`
-leakReversal,{ref}`schema:dimensions:voltage`
-*reset (from {ref}`schema:baseiafcapcell`)*,{ref}`schema:dimensions:voltage`
-*thresh (from {ref}`schema:baseiafcapcell`)*,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**leakConductance**$  ${ref}`schema:dimensions:conductance`
+**leakReversal**$  ${ref}`schema:dimensions:voltage`
+**reset**$  *(from {ref}`schema:baseiafcapcell`)* ${ref}`schema:dimensions:voltage`
+**thresh**$  *(from {ref}`schema:baseiafcapcell`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -4804,47 +4949,51 @@ extends {ref}`schema:iafcell`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-*leakConductance (from {ref}`schema:iafcell`)*,{ref}`schema:dimensions:conductance`
-*leakReversal (from {ref}`schema:iafcell`)*,{ref}`schema:dimensions:voltage`
-refract,{ref}`schema:dimensions:time`
-*reset (from {ref}`schema:baseiafcapcell`)*,{ref}`schema:dimensions:voltage`
-*thresh (from {ref}`schema:baseiafcapcell`)*,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**leakConductance**$  *(from {ref}`schema:iafcell`)* ${ref}`schema:dimensions:conductance`
+**leakReversal**$  *(from {ref}`schema:iafcell`)* ${ref}`schema:dimensions:voltage`
+**refract**$  ${ref}`schema:dimensions:time`
+**reset**$  *(from {ref}`schema:baseiafcapcell`)* ${ref}`schema:dimensions:voltage`
+**thresh**$  *(from {ref}`schema:baseiafcapcell`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -4934,57 +5083,62 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-a,Dimensionless
-b,Dimensionless
-c,Dimensionless
-d,Dimensionless
-thresh,{ref}`schema:dimensions:voltage`
-v0,{ref}`schema:dimensions:voltage`
+**a**$  $Dimensionless
+**b**$  $Dimensionless
+**c**$  $Dimensionless
+**d**$  $Dimensionless
+**thresh**$  ${ref}`schema:dimensions:voltage`
+**v0**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-MSEC = 1ms, {ref}`schema:dimensions:time`
-MVOLT = 1mV, {ref}`schema:dimensions:voltage`
+**MSEC** = 1ms$  $ {ref}`schema:dimensions:time`
+**MVOLT** = 1mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-U,Dimensionless
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**U**$  $Dimensionless
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrentdl`
+**synapses**$  $ {ref}`schema:basepointcurrentdl`
 
 ```
 ````
@@ -5072,52 +5226,56 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-a,{ref}`schema:dimensions:per_time`
-b,{ref}`schema:dimensions:conductance`
-c,{ref}`schema:dimensions:voltage`
-d,{ref}`schema:dimensions:current`
-k,{ref}`schema:dimensions:conductance_per_voltage`
-v0,{ref}`schema:dimensions:voltage`
-vpeak,{ref}`schema:dimensions:voltage`
-vr,{ref}`schema:dimensions:voltage`
-vt,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**a**$  ${ref}`schema:dimensions:per_time`
+**b**$  ${ref}`schema:dimensions:conductance`
+**c**$  ${ref}`schema:dimensions:voltage`
+**d**$  ${ref}`schema:dimensions:current`
+**k**$  ${ref}`schema:dimensions:conductance_per_voltage`
+**v0**$  ${ref}`schema:dimensions:voltage`
+**vpeak**$  ${ref}`schema:dimensions:voltage`
+**vr**$  ${ref}`schema:dimensions:voltage`
+**vt**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-u,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**u**$  ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -5206,53 +5364,57 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*C (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:capacitance`
-EL,{ref}`schema:dimensions:voltage`
-VT,{ref}`schema:dimensions:voltage`
-a,{ref}`schema:dimensions:conductance`
-b,{ref}`schema:dimensions:current`
-delT,{ref}`schema:dimensions:voltage`
-gL,{ref}`schema:dimensions:conductance`
-refract,{ref}`schema:dimensions:time`
-reset,{ref}`schema:dimensions:voltage`
-tauw,{ref}`schema:dimensions:time`
-thresh,{ref}`schema:dimensions:voltage`
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**EL**$  ${ref}`schema:dimensions:voltage`
+**VT**$  ${ref}`schema:dimensions:voltage`
+**a**$  ${ref}`schema:dimensions:conductance`
+**b**$  ${ref}`schema:dimensions:current`
+**delT**$  ${ref}`schema:dimensions:voltage`
+**gL**$  ${ref}`schema:dimensions:conductance`
+**refract**$  ${ref}`schema:dimensions:time`
+**reset**$  ${ref}`schema:dimensions:voltage`
+**tauw**$  ${ref}`schema:dimensions:time`
+**thresh**$  ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iMemb (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*iSyn (from {ref}`schema:basecellmembpotcap`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
-w,{ref}`schema:dimensions:current`
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
+**w**$  ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basepointcurrent`
+**synapses**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -5348,41 +5510,45 @@ extends *{ref}`schema:basecellmembpotdl`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-I,Dimensionless
+**I**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SEC = 1s, {ref}`schema:dimensions:time`
+**SEC** = 1s$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*V (from {ref}`schema:basecellmembpotdl`)*,Dimensionless
-W,Dimensionless
+**V**$ Membrane potential *(from {ref}`schema:basecellmembpotdl`)* $Dimensionless
+**W**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
@@ -5446,76 +5612,80 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-alphac,Dimensionless
-betac,Dimensionless
-cm,{ref}`schema:dimensions:specificCapacitance`
-eCa,{ref}`schema:dimensions:voltage`
-eK,{ref}`schema:dimensions:voltage`
-eL,{ref}`schema:dimensions:voltage`
-eNa,{ref}`schema:dimensions:voltage`
-gAmpa,{ref}`schema:dimensions:conductanceDensity`
-gCa,{ref}`schema:dimensions:conductanceDensity`
-gKC,{ref}`schema:dimensions:conductanceDensity`
-gKahp,{ref}`schema:dimensions:conductanceDensity`
-gKdr,{ref}`schema:dimensions:conductanceDensity`
-gLd,{ref}`schema:dimensions:conductanceDensity`
-gLs,{ref}`schema:dimensions:conductanceDensity`
-gNa,{ref}`schema:dimensions:conductanceDensity`
-gNmda,{ref}`schema:dimensions:conductanceDensity`
-gc,{ref}`schema:dimensions:conductanceDensity`
-iDend,{ref}`schema:dimensions:currentDensity`
-iSoma,{ref}`schema:dimensions:currentDensity`
-pp,Dimensionless
-qd0,Dimensionless
+**alphac**$  $Dimensionless
+**betac**$  $Dimensionless
+**cm**$  ${ref}`schema:dimensions:specificCapacitance`
+**eCa**$  ${ref}`schema:dimensions:voltage`
+**eK**$  ${ref}`schema:dimensions:voltage`
+**eL**$  ${ref}`schema:dimensions:voltage`
+**eNa**$  ${ref}`schema:dimensions:voltage`
+**gAmpa**$  ${ref}`schema:dimensions:conductanceDensity`
+**gCa**$  ${ref}`schema:dimensions:conductanceDensity`
+**gKC**$  ${ref}`schema:dimensions:conductanceDensity`
+**gKahp**$  ${ref}`schema:dimensions:conductanceDensity`
+**gKdr**$  ${ref}`schema:dimensions:conductanceDensity`
+**gLd**$  ${ref}`schema:dimensions:conductanceDensity`
+**gLs**$  ${ref}`schema:dimensions:conductanceDensity`
+**gNa**$  ${ref}`schema:dimensions:conductanceDensity`
+**gNmda**$  ${ref}`schema:dimensions:conductanceDensity`
+**gc**$  ${ref}`schema:dimensions:conductanceDensity`
+**iDend**$  ${ref}`schema:dimensions:currentDensity`
+**iSoma**$  ${ref}`schema:dimensions:currentDensity`
+**pp**$  $Dimensionless
+**qd0**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-MSEC = 1 ms, {ref}`schema:dimensions:time`
-MVOLT = 1 mV, {ref}`schema:dimensions:voltage`
-UAMP_PER_CM2 = 1 uA_per_cm2, {ref}`schema:dimensions:currentDensity`
-Smax = 125.0, Dimensionless
-Vsyn = 60.0 mV, {ref}`schema:dimensions:voltage`
-betaqd = 0.001, Dimensionless
+**MSEC** = 1 ms$  $ {ref}`schema:dimensions:time`
+**MVOLT** = 1 mV$  $ {ref}`schema:dimensions:voltage`
+**UAMP_PER_CM2** = 1 uA_per_cm2$  $ {ref}`schema:dimensions:currentDensity`
+**Smax** = 125.0$  $ Dimensionless
+**Vsyn** = 60.0 mV$  $ {ref}`schema:dimensions:voltage`
+**betaqd** = 0.001$  $ Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-Cad,Dimensionless
-ICad,{ref}`schema:dimensions:currentDensity`
-Si,Dimensionless
-Vd,{ref}`schema:dimensions:voltage`
-Vs,{ref}`schema:dimensions:voltage`
-Wi,Dimensionless
-cd,Dimensionless
-hs,Dimensionless
-ns,Dimensionless
-qd,Dimensionless
-sd,Dimensionless
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**Cad**$  $Dimensionless
+**ICad**$  ${ref}`schema:dimensions:currentDensity`
+**Si**$  $Dimensionless
+**Vd**$  ${ref}`schema:dimensions:voltage`
+**Vs**$  ${ref}`schema:dimensions:voltage`
+**Wi**$  $Dimensionless
+**cd**$  $Dimensionless
+**hs**$  $Dimensionless
+**ns**$  $Dimensionless
+**qd**$  $Dimensionless
+**sd**$  $Dimensionless
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 
 ```
 ````
