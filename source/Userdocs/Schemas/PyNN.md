@@ -772,7 +772,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W (2005) with exponentially-decaying post-synaptic conductance.</i>
+<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W ( 2005 ) with exponentially-decaying post-synaptic conductance.</i>
 
 
 
@@ -941,7 +941,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W (2005) with alpha-function-shaped post-synaptic conductance.</i>
+<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W ( 2005 ) with alpha-function-shaped post-synaptic conductance.</i>
 
 
 
@@ -1343,7 +1343,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>Conductance based synapse with instantaneous rise and single exponential decay (with time constant tau_syn).</i>
+<i>Conductance based synapse with instantaneous rise and single exponential decay ( with time constant tau_syn ).</i>
 
 
 
@@ -1462,7 +1462,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>Current based synapse with instantaneous rise and single exponential decay (with time constant tau_syn).</i>
+<i>Current based synapse with instantaneous rise and single exponential decay ( with time constant tau_syn ).</i>
 
 
 

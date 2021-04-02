@@ -23,7 +23,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all synapses, i.e. ComponentTypes which produce a current (dimension current) and change Dynamics in response to an incoming event.</i>
+<i>Base type for all synapses, i.e. ComponentTypes which produce a current ( dimension current ) and change Dynamics in response to an incoming event.</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000009)
@@ -485,7 +485,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model whose conductance rises instantaneously by (_gbase * **weight)** on receiving an event, and which decays exponentially to zero with time course **tauDecay**.</i>
+<i>Ohmic synapse model whose conductance rises instantaneously by ( **gbase** * **weight** ) on receiving an event, and which decays exponentially to zero with time course **tauDecay**.</i>
 
 
 
@@ -615,7 +615,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model where rise time and decay time are both **tau.** Max conductance reached during this time (assuming zero conductance before) is **gbase** * **weight.**.</i>
+<i>Ohmic synapse model where rise time and decay time are both **tau.** Max conductance reached during this time ( assuming zero conductance before ) is **gbase** * **weight.**.</i>
 
 
 
@@ -742,7 +742,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of **tauRise** and a decay time of **tauDecay.** Max conductance reached during this time (assuming zero conductance before) is **gbase** * **weight.**.</i>
+<i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of **tauRise** and a decay time of **tauDecay.** Max conductance reached during this time ( assuming zero conductance before ) is **gbase** * **weight.**.</i>
 
 
 
@@ -1039,7 +1039,7 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 
 
-<i>Base of any ComponentType which produces a varying scaling (or blockage) of synaptic strength of magnitude **scaling**.</i>
+<i>Base of any ComponentType which produces a varying scaling ( or blockage ) of synaptic strength of magnitude **scaling**.</i>
 
 
 
@@ -1377,7 +1377,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>Biexponential synapse that allows for     optional block and plasticity     mechanisms, which can be expressed as     child elements.</i>
+<i>Biexponential synapse that allows for optional block and plasticity mechanisms, which can be expressed as child elements.</i>
 
 
 
@@ -1550,7 +1550,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>Synapse consisting of two independent synaptic mechanisms (e.g. AMPA-R and NMDA-R), which can be easily colocated in connections.</i>
+<i>Synapse consisting of two independent synaptic mechanisms ( e.g. AMPA-R and NMDA-R ), which can be easily colocated in connections.</i>
 
 
 
@@ -1691,7 +1691,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>Spike timing dependent plasticity mechanism,  NOTE: EXAMPLE NOT YET WORKING!!!!</i>
+<i>Spike timing dependent plasticity mechanism, NOTE: EXAMPLE NOT YET WORKING!!!!</i>
 
 
 [Bioportal entry for Computational Neuroscience Ontology related to stdpSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000034)

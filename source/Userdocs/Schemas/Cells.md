@@ -454,7 +454,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Base type for distributed conductances on an area of a cell producing a (not necessarily ohmic) current.</i>
+<i>Base type for distributed conductances on an area of a cell producing a ( not necessarily ohmic ) current.</i>
 
 
 
@@ -1241,7 +1241,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>This component is similar to the original component type  {ref}`schema:channeldensitynernst` but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool (ca2). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
+<i>This component is similar to the original component type  {ref}`schema:channeldensitynernst` but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool ( ca2 ). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1483,7 +1483,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity.** Modified version of Jaffe et al. 1994 (used also in Lawrence et al. 2006). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
+<i>Time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity.** Modified version of Jaffe et al. 1994 ( used also in Lawrence et al. 2006 ). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1734,7 +1734,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>TEMPORARY: Point cell with conductances and Ca concentration  info. Not yet fully tested!!!</i>
+<i>TEMPORARY: Point cell with conductances and Ca concentration info. Not yet fully tested!!!</i>
 
 
 
@@ -2017,7 +2017,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>A segment defines the smallest unit within a possibly branching structure ( {ref}`schema:morphology`), such as a dendrite or axon. The shape is given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. If  {ref}`schema:proximal` is missing, the proximal point is assumed to be the  {ref}`schema:distal` point of the parent.  {ref}`schema:parent` specifies the parent segment. The first segment (no  {ref}`schema:parent`) usually represents the soma. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
+<i>A segment defines the smallest unit within a possibly branching structure (  {ref}`schema:morphology` ), such as a dendrite or axon. The shape is given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. If  {ref}`schema:proximal` is missing, the proximal point is assumed to be the  {ref}`schema:distal` point of the parent.  {ref}`schema:parent` specifies the parent segment. The first segment ( no  {ref}`schema:parent` ) usually represents the soma. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
 
 
 
@@ -3486,7 +3486,7 @@ variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs
 
 
 
-<i>Base for any model of an **ion** concentration which changes with time. Internal (_concentration) and external (_extConcentration) values for the concentration of the ion are given.</i>
+<i>Base for any model of an **ion** concentration which changes with time. Internal ( **concentration** ) and external ( **extConcentration** ) values for the concentration of the ion are given.</i>
 
 
 
@@ -3563,7 +3563,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>Model of an intracellular buffering mechanism for **ion** (currently hard Coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** The ion is assumed to occupy a shell inside the membrane of thickness **shellThickness.**.</i>
+<i>Model of an intracellular buffering mechanism for **ion** ( currently hard Coded to be calcium, due to requirement for **iCa** ) which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** The ion is assumed to occupy a shell inside the membrane of thickness **shellThickness.**.</i>
 
 
 
@@ -3698,7 +3698,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** A fixed factor **rho** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change.</i>
+<i>Model of buffering of concentration of an ion ( currently hard coded to be calcium, due to requirement for **iCa** ) which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** A fixed factor **rho** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change.</i>
 
 
 
@@ -3814,7 +3814,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>Model of buffering of concentration of an ion (currently hard coded to be calcium, due to requirement for **iCa)** which has a baseline level **restingConc** and tends to this value with time course 1 / **beta.** A fixed factor **phi** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change. Not recommended for use in models other than Traub et al. 2005!</i>
+<i>Model of buffering of concentration of an ion ( currently hard coded to be calcium, due to requirement for **iCa** ) which has a baseline level **restingConc** and tends to this value with time course 1 / **beta.** A fixed factor **phi** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change. Not recommended for use in models other than Traub et al. 2005!</i>
 
 
 
@@ -4423,7 +4423,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Any cell with a membrane potential **v** with voltage units and a membrane capacitance **C.** Also defines exposed value **iSyn** for current due to external synapses and **iMemb** for total transmembrane current (usually channel currents plus **iSyn)**.</i>
+<i>Any cell with a membrane potential **v** with voltage units and a membrane capacitance **C.** Also defines exposed value **iSyn** for current due to external synapses and **iMemb** for total transmembrane current ( usually channel currents plus **iSyn** ).</i>
 
 
 
@@ -4943,7 +4943,7 @@ extends {ref}`schema:iafcell`
 
 
 
-<i>Integrate and fire cell  with capacitance **C,** **leakConductance,** **leakReversal** and refractory period **refract**.</i>
+<i>Integrate and fire cell with capacitance **C,** **leakConductance,** **leakReversal** and refractory period **refract**.</i>
 
 
 
@@ -5358,7 +5358,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Model based on Brette R and Gerstner W (2005) Adaptive Exponential Integrate-and-Fire Model as an Effective Description of Neuronal Activity. J Neurophysiol 94:3637-3642.</i>
+<i>Model based on Brette R and Gerstner W ( 2005 ) Adaptive Exponential Integrate-and-Fire Model as an Effective Description of Neuronal Activity. J Neurophysiol 94:3637-3642.</i>
 
 
 
@@ -5504,7 +5504,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 
 
 
-<i>Simple dimensionless model of spiking cell from FitzHugh and Nagumo. Superseded by **fitzHughNagumo1969Cell** (See https://github.com/NeuroML/NeuroML2/issues/42).</i>
+<i>Simple dimensionless model of spiking cell from FitzHugh and Nagumo. Superseded by **fitzHughNagumo1969Cell** ( See https://github.com/NeuroML/NeuroML2/issues/42 ).</i>
 
 
 

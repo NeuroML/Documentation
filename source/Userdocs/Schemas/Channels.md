@@ -144,7 +144,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 
-<i>Exponential form for rate equation (Q: Should these be renamed hhExpRate, etc?).</i>
+<i>Exponential form for rate equation ( Q: Should these be renamed hhExpRate, etc? ).</i>
 
 
 
@@ -353,7 +353,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 
-<i>Base ComponentType for voltage dependent variable  **x,** which depends on **v.** Can be used for inf/steady state of rate variable.</i>
+<i>Base ComponentType for voltage dependent variable **x,** which depends on **v.** Can be used for inf/steady state of rate variable.</i>
 
 
 
@@ -682,7 +682,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
-<i>Base ComponentType for voltage dependent ComponentType producing value **t** with dimension time (e.g. for time course of rate variable). Note: time course would not normally be fit to exp/sigmoid etc.</i>
+<i>Base ComponentType for voltage dependent ComponentType producing value **t** with dimension time ( e.g. for time course of rate variable ). Note: time course would not normally be fit to exp/sigmoid etc.</i>
 
 
 
@@ -719,7 +719,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 
 
-<i>Base type for voltage and calcium concentration dependent ComponentType producing value **t** with dimension time (e.g. for time course of rate variable).</i>
+<i>Base type for voltage and calcium concentration dependent ComponentType producing value **t** with dimension time ( e.g. for time course of rate variable ).</i>
 
 
 
@@ -1128,7 +1128,7 @@ extends *{ref}`schema:baseconductancescaling`*
 
 
 
-<i>Base ComponentType for a scaling to apply to a gate's conductance which depends on Ca concentration. Usually a generic expression of **caConc** (so no standard, non-base form here).</i>
+<i>Base ComponentType for a scaling to apply to a gate's conductance which depends on Ca concentration. Usually a generic expression of **caConc** ( so no standard, non-base form here ).</i>
 
 
 
@@ -2808,7 +2808,7 @@ extends {ref}`schema:kstransition`
 
 
 
-<i>A forward only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** (type  {ref}`schema:basehhrate`) which follows one of the standard Hodgkin Huxley forms (e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate`.</i>
+<i>A forward only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** ( type  {ref}`schema:basehhrate` ) which follows one of the standard Hodgkin Huxley forms ( e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate`.</i>
 
 
 
@@ -2891,7 +2891,7 @@ extends {ref}`schema:kstransition`
 
 
 
-<i>A reverse only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** (type  {ref}`schema:basehhrate`) which follows one of the standard Hodgkin Huxley forms (e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate`.</i>
+<i>A reverse only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** ( type  {ref}`schema:basehhrate` ) which follows one of the standard Hodgkin Huxley forms ( e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate`.</i>
 
 
 

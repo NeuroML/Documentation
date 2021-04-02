@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** (with dimension current).</i>
+<i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ).</i>
 
 
 
@@ -49,7 +49,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** (with dimension current) and require a membrane potential **v** exposed on the parent Component.</i>
+<i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ) and require a membrane potential **v** exposed on the parent Component.</i>
 
 
 
@@ -86,7 +86,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
+<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes ( on a port **spike** ). The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
@@ -190,7 +190,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Base for any ComponentType whose main purpose is to emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
+<i>Base for any ComponentType whose main purpose is to emit spikes ( on a port **spike** ). The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
@@ -604,7 +604,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 
 
-<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity) with mean 1/_averageRate.</i>
+<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity ) with mean 1/_averageRate.</i>
 
 
 
@@ -923,7 +923,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Poisson spike generator with delay and duration connected to single synapse providing an input current.                        Similar to ComponentType poissonFiringSynapse.</i>
+<i>Poisson spike generator with delay and duration connected to single synapse providing an input current. Similar to ComponentType poissonFiringSynapse.</i>
 
 
 
@@ -2267,7 +2267,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** (through **simpleSeriesResistance)** to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
+<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** ( through **simpleSeriesResistance** ) to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
 
 
 

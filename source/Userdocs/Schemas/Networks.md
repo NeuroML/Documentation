@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s (either directly between components of the populations or via synapses).</i>
+<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s ( either directly between components of the populations or via synapses ).</i>
 
 
 
@@ -129,7 +129,7 @@ extends {ref}`schema:network`
 
 
 
-<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s (either directly between components of the populations or via synapses), and an explicit temperature.</i>
+<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s ( either directly between components of the populations or via synapses ), and an explicit temperature.</i>
 
 
 
@@ -155,7 +155,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>A population of cells (anything which extends  {ref}`schema:basecell`).</i>
+<i>A population of cells ( anything which extends  {ref}`schema:basecell` ).</i>
 
 
 
@@ -292,7 +292,7 @@ extends *{ref}`schema:basepopulation`*
 
 
 
-<i>Specifies a single instance of a component in a population (placed at  {ref}`schema:location`).</i>
+<i>Specifies a single instance of a component in a population ( placed at  {ref}`schema:location` ).</i>
 
 
 
@@ -1224,7 +1224,7 @@ variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_populati
 
 
 
-<i>An explicit input (anything which extends  {ref}`schema:basepointcurrent`) to a target cell in a population.</i>
+<i>An explicit input ( anything which extends  {ref}`schema:basepointcurrent` ) to a target cell in a population.</i>
 
 
 
