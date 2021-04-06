@@ -68,7 +68,15 @@ def format_description(text):
     :returns: converted string
 
     """
-    words = text.split(" ")
+    # Add spaces after these so we correctly split "(_gbase" type constructs
+    puncts = ["(", ",", ";"]
+    for punct in puncts:
+        text = text.replace(punct, punct + " ")
+    # Add spaces before these
+    for punct in [")"]:
+        text = text.replace(punct, " " + punct)
+
+    words = text.split()
     text2 = ""
     for word in words:
         if len(word) > 0:

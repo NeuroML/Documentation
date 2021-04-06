@@ -8,7 +8,7 @@ Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroM
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -29,49 +29,53 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-cm,Dimensionless
-i_offset,Dimensionless
-tau_syn_E,Dimensionless
-tau_syn_I,Dimensionless
-v_init,Dimensionless
+**cm**$  $Dimensionless
+**i_offset**$  $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell $Dimensionless
+**v_init**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-MSEC = 1ms, {ref}`schema:dimensions:time`
-MVOLT = 1mV, {ref}`schema:dimensions:voltage`
-NFARAD = 1nF, {ref}`schema:dimensions:capacitance`
+**MSEC** = 1ms$  $ {ref}`schema:dimensions:time`
+**MVOLT** = 1mV$  $ {ref}`schema:dimensions:voltage`
+**NFARAD** = 1nF$  $ {ref}`schema:dimensions:capacitance`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-iSyn,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-spike_in_E,Direction: in
-spike_in_I,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$ $Direction: in
+**spike_in_I**$ $Direction: in
 
 ```
 ````
@@ -93,42 +97,45 @@ extends *{ref}`schema:basepynncell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-tau_m,Dimensionless
-tau_refrac,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-v_reset,Dimensionless
-v_rest,Dimensionless
-v_thresh,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  $Dimensionless
+**tau_refrac**$  $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  $Dimensionless
+**v_rest**$  $Dimensionless
+**v_thresh**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
@@ -150,44 +157,47 @@ extends *{ref}`schema:basepynniafcell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-e_rev_E,Dimensionless
-e_rev_I,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**e_rev_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell $Dimensionless
+**e_rev_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
@@ -209,52 +219,56 @@ extends *{ref}`schema:basepynniafcell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -343,52 +357,56 @@ extends *{ref}`schema:basepynniafcell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -477,54 +495,58 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-*e_rev_E (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*e_rev_I (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**e_rev_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**e_rev_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -616,54 +638,58 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-*e_rev_E (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*e_rev_I (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**e_rev_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**e_rev_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -746,76 +772,81 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W (2005) with exponentially-decaying post-synaptic conductance.</i>
+<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W ( 2005 ) with exponentially-decaying post-synaptic conductance.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-a,Dimensionless
-b,Dimensionless
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-delta_T,Dimensionless
-*e_rev_E (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*e_rev_I (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-tau_w,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-v_spike,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**a**$  $Dimensionless
+**b**$  $Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**delta_T**$  $Dimensionless
+**e_rev_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**e_rev_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_w**$  $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_spike**$  $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-eif_threshold,Dimensionless
+**eif_threshold**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
-w,Dimensionless
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
+**w**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -910,76 +941,81 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W (2005) with alpha-function-shaped post-synaptic conductance.</i>
+<i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W ( 2005 ) with alpha-function-shaped post-synaptic conductance.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-a,Dimensionless
-b,Dimensionless
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-delta_T,Dimensionless
-*e_rev_E (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*e_rev_I (from {ref}`schema:basepynniafcondcell`)*,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_m (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_refrac (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-tau_w,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_reset (from {ref}`schema:basepynniafcell`)*,Dimensionless
-*v_rest (from {ref}`schema:basepynniafcell`)*,Dimensionless
-v_spike,Dimensionless
-*v_thresh (from {ref}`schema:basepynniafcell`)*,Dimensionless
+**a**$  $Dimensionless
+**b**$  $Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**delta_T**$  $Dimensionless
+**e_rev_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**e_rev_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynniafcondcell`)* $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_m**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_refrac**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_w**$  $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_reset**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_rest**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
+**v_spike**$  $Dimensionless
+**v_thresh**$  *(from {ref}`schema:basepynniafcell`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-eif_threshold,Dimensionless
+**eif_threshold**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
-w,Dimensionless
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
+**w**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -1080,59 +1116,63 @@ extends *{ref}`schema:basepynncell`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*cm (from {ref}`schema:basepynncell`)*,Dimensionless
-e_rev_E,Dimensionless
-e_rev_I,Dimensionless
-e_rev_K,Dimensionless
-e_rev_Na,Dimensionless
-e_rev_leak,Dimensionless
-g_leak,Dimensionless
-gbar_K,Dimensionless
-gbar_Na,Dimensionless
-*i_offset (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_E (from {ref}`schema:basepynncell`)*,Dimensionless
-*tau_syn_I (from {ref}`schema:basepynncell`)*,Dimensionless
-*v_init (from {ref}`schema:basepynncell`)*,Dimensionless
-v_offset,Dimensionless
+**cm**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**e_rev_E**$  $Dimensionless
+**e_rev_I**$  $Dimensionless
+**e_rev_K**$  $Dimensionless
+**e_rev_Na**$  $Dimensionless
+**e_rev_leak**$  $Dimensionless
+**g_leak**$  $Dimensionless
+**gbar_K**$  $Dimensionless
+**gbar_Na**$  $Dimensionless
+**i_offset**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_E**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**tau_syn_I**$ This parameter is never used in the NeuroML2 description of this cell! Any synapse producing a current can be placed on this cell *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_init**$  *(from {ref}`schema:basepynncell`)* $Dimensionless
+**v_offset**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-h,Dimensionless
-*iSyn (from {ref}`schema:basepynncell`)*,{ref}`schema:dimensions:current`
-m,Dimensionless
-n,Dimensionless
-*v (from {ref}`schema:basecellmembpot`)*,{ref}`schema:dimensions:voltage`
+**h**$  $Dimensionless
+**iSyn**$  *(from {ref}`schema:basepynncell`)* ${ref}`schema:dimensions:current`
+**m**$  $Dimensionless
+**n**$  $Dimensionless
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikingcell`)*,Direction: out
-*spike_in_E (from {ref}`schema:basepynncell`)*,Direction: in
-*spike_in_I (from {ref}`schema:basepynncell`)*,Direction: in
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+**spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+**spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 
 ```
 ````
 
 ````{tabbed} Attachments
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapses, {ref}`schema:basesynapse`
+**synapses**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -1224,52 +1264,57 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-tau_syn,Dimensionless
+**tau_syn**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-MSEC = 1ms, {ref}`schema:dimensions:time`
-MVOLT = 1mV, {ref}`schema:dimensions:voltage`
-NAMP = 1nA, {ref}`schema:dimensions:current`
+**MSEC** = 1ms$  $ {ref}`schema:dimensions:time`
+**MVOLT** = 1mV$  $ {ref}`schema:dimensions:voltage`
+**NAMP** = 1nA$  $ {ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1298,48 +1343,52 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>Conductance based synapse with instantaneous rise and single exponential decay (with time constant tau_syn).</i>
+<i>Conductance based synapse with instantaneous rise and single exponential decay ( with time constant tau_syn ).</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-e_rev,Dimensionless
-*tau_syn (from {ref}`schema:basepynnsynapse`)*,Dimensionless
+**e_rev**$  $Dimensionless
+**tau_syn**$  *(from {ref}`schema:basepynnsynapse`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-g,Dimensionless
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**g**$  $Dimensionless
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1413,46 +1462,50 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>Current based synapse with instantaneous rise and single exponential decay (with time constant tau_syn).</i>
+<i>Current based synapse with instantaneous rise and single exponential decay ( with time constant tau_syn ).</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*tau_syn (from {ref}`schema:basepynnsynapse`)*,Dimensionless
+**tau_syn**$  *(from {ref}`schema:basepynnsynapse`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1532,43 +1585,47 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-e_rev,Dimensionless
-*tau_syn (from {ref}`schema:basepynnsynapse`)*,Dimensionless
+**e_rev**$  $Dimensionless
+**tau_syn**$  *(from {ref}`schema:basepynnsynapse`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-A,Dimensionless
-g,Dimensionless
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**A**$  $Dimensionless
+**g**$  $Dimensionless
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1650,41 +1707,45 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*tau_syn (from {ref}`schema:basepynnsynapse`)*,Dimensionless
+**tau_syn**$  *(from {ref}`schema:basepynnsynapse`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-A,{ref}`schema:dimensions:current`
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**A**$  ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedepsynapse`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedepsynapse`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*in (from {ref}`schema:basesynapse`)*,Direction: in
+**in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
 
 ```
 ````
@@ -1766,57 +1827,62 @@ extends *{ref}`schema:basespikesource`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-duration,{ref}`schema:dimensions:time`
-rate,{ref}`schema:dimensions:per_time`
-start,{ref}`schema:dimensions:time`
+**duration**$  ${ref}`schema:dimensions:time`
+**rate**$  ${ref}`schema:dimensions:per_time`
+**start**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-end,{ref}`schema:dimensions:time`
+**end**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-LONG_TIME = 1e9hour, {ref}`schema:dimensions:time`
-SMALL_TIME = 1e-9ms, {ref}`schema:dimensions:time`
+**LONG_TIME** = 1e9hour$  $ {ref}`schema:dimensions:time`
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-isi,{ref}`schema:dimensions:time`
-tnextIdeal,{ref}`schema:dimensions:time`
-tnextUsed,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**isi**$  ${ref}`schema:dimensions:time`
+**tnextIdeal**$  ${ref}`schema:dimensions:time`
+**tnextUsed**$  ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**in**$ $Direction: in
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````

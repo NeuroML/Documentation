@@ -8,7 +8,7 @@ Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/Neur
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,16 +23,17 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** (with dimension current).</i>
+<i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ).</i>
 
 
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-i,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -48,26 +49,28 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** (with dimension current) and require a membrane potential **v** exposed on the parent Component.</i>
+<i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ) and require a membrane potential **v** exposed on the parent Component.</i>
 
 
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-v,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -83,37 +86,40 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
+<i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes ( on a port **spike** ). The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
-tsince,{ref}`schema:dimensions:time`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**tsince**$ Time since the last spike was emitted ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-spike,Direction: out
+**spike**$ Port on which spikes are emitted$Direction: out
 
 ```
 ````
@@ -131,10 +137,11 @@ spike,Direction: out
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-I,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType $Dimensionless
 
 ```
 ````
@@ -156,20 +163,22 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*I (from {ref}`schema:basepointcurrentdl`)*,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrentdl`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-V,Dimensionless
+**V**$ The current may vary with the voltage exposed by the ComponentType on which this is placed $Dimensionless
 
 ```
 ````
@@ -181,26 +190,28 @@ V,Dimensionless
 
 
 
-<i>Base for any ComponentType whose main purpose is to emit spikes (on a port **spike).** The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
+<i>Base for any ComponentType whose main purpose is to emit spikes ( on a port **spike** ). The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-tsince,{ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-spike,Direction: out
+**spike**$ Port on which spikes are emitted$Direction: out
 
 ```
 ````
@@ -222,41 +233,45 @@ extends *{ref}`schema:basespikesource`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-period,{ref}`schema:dimensions:time`
+**period**$ Time between spikes. First spike will be emitted after this time. ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SMALL_TIME = 1e-9ms, {ref}`schema:dimensions:time`
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-tnext,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**tnext**$ When the next spike should ideally be emitted (dt permitting) ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````
@@ -339,43 +354,47 @@ extends *{ref}`schema:basespikesource`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-maxISI,{ref}`schema:dimensions:time`
-minISI,{ref}`schema:dimensions:time`
+**maxISI**$ Maximum interspike interval ${ref}`schema:dimensions:time`
+**minISI**$ Minimum interspike interval ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-MSEC = 1ms, {ref}`schema:dimensions:time`
+**MSEC** = 1ms$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-isi,{ref}`schema:dimensions:time`
-tnext,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**isi**$ The interval until the next spike ${ref}`schema:dimensions:time`
+**tnext**$ When the next spike should ideally be emitted (dt permitting) ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````
@@ -461,43 +480,47 @@ extends *{ref}`schema:basespikesource`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-averageRate,{ref}`schema:dimensions:per_time`
+**averageRate**$  ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SMALL_TIME = 1e-9ms, {ref}`schema:dimensions:time`
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-isi,{ref}`schema:dimensions:time`
-tnextIdeal,{ref}`schema:dimensions:time`
-tnextUsed,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**isi**$  ${ref}`schema:dimensions:time`
+**tnextIdeal**$  ${ref}`schema:dimensions:time`
+**tnextUsed**$  ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````
@@ -581,50 +604,54 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 
 
-<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity) with mean 1/_averageRate.</i>
+<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity ) with mean 1/_averageRate.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*averageRate (from {ref}`schema:spikegeneratorpoisson`)*,{ref}`schema:dimensions:per_time`
-minimumISI,{ref}`schema:dimensions:time`
+**averageRate**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:per_time`
+**minimumISI**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-averageIsi,{ref}`schema:dimensions:time`
+**averageIsi**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*isi (from {ref}`schema:spikegeneratorpoisson`)*,{ref}`schema:dimensions:time`
-*tnextIdeal (from {ref}`schema:spikegeneratorpoisson`)*,{ref}`schema:dimensions:time`
-*tnextUsed (from {ref}`schema:spikegeneratorpoisson`)*,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**isi**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
+**tnextIdeal**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
+**tnextUsed**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````
@@ -714,20 +741,22 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-averageRate,{ref}`schema:dimensions:per_time`
+**averageRate**$  ${ref}`schema:dimensions:per_time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-averageIsi,{ref}`schema:dimensions:time`
+**averageIsi**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -736,62 +765,67 @@ averageIsi,{ref}`schema:dimensions:time`
 ```{csv-table}
 :width: 100%
 
-spikeTarget,
+**spikeTarget**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:basesynapse`
+**synapse**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SMALL_TIME = 1e-9ms, {ref}`schema:dimensions:time`
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
-isi,{ref}`schema:dimensions:time`
-tnextIdeal,{ref}`schema:dimensions:time`
-tnextUsed,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basevoltagedeppointcurrentspiking`)*,{ref}`schema:dimensions:time`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**isi**$  ${ref}`schema:dimensions:time`
+**tnextIdeal**$  ${ref}`schema:dimensions:time`
+**tnextUsed**$  ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
-spike,Direction: out
-*spike (from {ref}`schema:basevoltagedeppointcurrentspiking`)*,Direction: out
+**in**$ Note this is not used here. Will be removed in future$Direction: in
+**spike**$ Port on which spikes are emitted$Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)*$Direction: out
 
 ```
 ````
@@ -889,28 +923,30 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Poisson spike generator with delay and duration connected to single synapse providing an input current.                        Similar to ComponentType poissonFiringSynapse.</i>
+<i>Poisson spike generator with delay and duration connected to single synapse providing an input current. Similar to ComponentType poissonFiringSynapse.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-averageRate,{ref}`schema:dimensions:per_time`
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
+**averageRate**$  ${ref}`schema:dimensions:per_time`
+**delay**$  ${ref}`schema:dimensions:time`
+**duration**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-averageIsi,{ref}`schema:dimensions:time`
+**averageIsi**$  ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -919,63 +955,68 @@ averageIsi,{ref}`schema:dimensions:time`
 ```{csv-table}
 :width: 100%
 
-spikeTarget,
+**spikeTarget**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:basesynapse`
+**synapse**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-SMALL_TIME = 1e-9ms, {ref}`schema:dimensions:time`
-LONG_TIME = 1e9hour, {ref}`schema:dimensions:time`
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
+**LONG_TIME** = 1e9hour$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
-isi,{ref}`schema:dimensions:time`
-tnextIdeal,{ref}`schema:dimensions:time`
-tnextUsed,{ref}`schema:dimensions:time`
-*tsince (from {ref}`schema:basevoltagedeppointcurrentspiking`)*,{ref}`schema:dimensions:time`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**isi**$  ${ref}`schema:dimensions:time`
+**tnextIdeal**$  ${ref}`schema:dimensions:time`
+**tnextUsed**$  ${ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
-spike,Direction: out
-*spike (from {ref}`schema:basevoltagedeppointcurrentspiking`)*,Direction: out
+**in**$ Note this is not used here. Will be removed in future$Direction: in
+**spike**$ Port on which spikes are emitted$Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)*$Direction: out
 
 ```
 ````
@@ -1084,58 +1125,63 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```{csv-table}
 :width: 100%
 
-spikeTarget,
+**spikeTarget**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:basesynapse`
+**synapse**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-spikes, {ref}`schema:spike`
+**spikes**$  $ {ref}`schema:spike`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
-*tsince (from {ref}`schema:basevoltagedeppointcurrentspiking`)*,{ref}`schema:dimensions:time`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
-*spike (from {ref}`schema:basevoltagedeppointcurrentspiking`)*,Direction: out
+**in**$ This will receive events from the children$Direction: in
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)*$Direction: out
 
 ```
 ````
@@ -1242,32 +1288,35 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-amplitude,{ref}`schema:dimensions:current`
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
+**amplitude**$ Amplitude of current pulse ${ref}`schema:dimensions:current`
+**delay**$ Delay before change in current. Current is zero  prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for holding current at amplitude. Current is zero after delay + duration. ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ Note this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -1356,30 +1405,33 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-currents, {ref}`schema:basepointcurrent`
+**currents**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ Note this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -1455,30 +1507,33 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-currents, {ref}`schema:basepointcurrentdl`
+**currents**$  $ {ref}`schema:basepointcurrentdl`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*I (from {ref}`schema:basepointcurrentdl`)*,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrentdl`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ Note this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -1545,32 +1600,35 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-amplitude,Dimensionless
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
+**amplitude**$ Amplitude of current pulse $Dimensionless
+**delay**$ Delay before change in current. Current is zero  prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for holding current at amplitude. Current is zero after delay + duration. ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*I (from {ref}`schema:basepointcurrentdl`)*,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrentdl`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ Note this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -1648,34 +1706,37 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-amplitude,{ref}`schema:dimensions:current`
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
-period,{ref}`schema:dimensions:time`
-phase,Dimensionless
+**amplitude**$  ${ref}`schema:dimensions:current`
+**delay**$  ${ref}`schema:dimensions:time`
+**duration**$  ${ref}`schema:dimensions:time`
+**period**$  ${ref}`schema:dimensions:time`
+**phase**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ $Direction: in
 
 ```
 ````
@@ -1761,34 +1822,37 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-amplitude,Dimensionless
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
-period,{ref}`schema:dimensions:time`
-phase,Dimensionless
+**amplitude**$  $Dimensionless
+**delay**$  ${ref}`schema:dimensions:time`
+**duration**$  ${ref}`schema:dimensions:time`
+**period**$  ${ref}`schema:dimensions:time`
+**phase**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*I (from {ref}`schema:basepointcurrentdl`)*,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrentdl`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ $Direction: in
 
 ```
 ````
@@ -1866,34 +1930,37 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-baselineAmplitude,{ref}`schema:dimensions:current`
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
-finishAmplitude,{ref}`schema:dimensions:current`
-startAmplitude,{ref}`schema:dimensions:current`
+**baselineAmplitude**$  ${ref}`schema:dimensions:current`
+**delay**$  ${ref}`schema:dimensions:time`
+**duration**$  ${ref}`schema:dimensions:time`
+**finishAmplitude**$  ${ref}`schema:dimensions:current`
+**startAmplitude**$  ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ $Direction: in
 
 ```
 ````
@@ -1978,34 +2045,37 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-baselineAmplitude,Dimensionless
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
-finishAmplitude,Dimensionless
-startAmplitude,Dimensionless
+**baselineAmplitude**$  $Dimensionless
+**delay**$  ${ref}`schema:dimensions:time`
+**duration**$  ${ref}`schema:dimensions:time`
+**finishAmplitude**$  $Dimensionless
+**startAmplitude**$  $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*I (from {ref}`schema:basepointcurrentdl`)*,Dimensionless
+**I**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrentdl`)* $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ $Direction: in
 
 ```
 ````
@@ -2085,43 +2155,47 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
-simpleSeriesResistance,{ref}`schema:dimensions:resistance`
-targetVoltage,{ref}`schema:dimensions:voltage`
+**delay**$ Delay before change in current. Current is zero  prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for attempting to keep parent at targetVoltage. Current is zero after delay + duration. ${ref}`schema:dimensions:time`
+**simpleSeriesResistance**$ Current will be calculated by the difference in voltage between the target and parent, divided by this value ${ref}`schema:dimensions:resistance`
+**targetVoltage**$ Current will be applied to try to get parent to this target voltage ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ Note this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -2193,52 +2267,56 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** (through **simpleSeriesResistance)** to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
+<i>Voltage clamp with 3 clamp levels. Applies a variable current **i** ( through **simpleSeriesResistance** ) to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-active,Dimensionless
-conditioningVoltage,{ref}`schema:dimensions:voltage`
-delay,{ref}`schema:dimensions:time`
-duration,{ref}`schema:dimensions:time`
-returnVoltage,{ref}`schema:dimensions:voltage`
-simpleSeriesResistance,{ref}`schema:dimensions:resistance`
-testingVoltage,{ref}`schema:dimensions:voltage`
+**active**$ Whether the voltage clamp is active (1) or inactive (0). $Dimensionless
+**conditioningVoltage**$ Target voltage before time delay ${ref}`schema:dimensions:voltage`
+**delay**$ Delay before switching from conditioningVoltage to testingVoltage. ${ref}`schema:dimensions:time`
+**duration**$ Duration to hold at testingVoltage. ${ref}`schema:dimensions:time`
+**returnVoltage**$ Target voltage after time duration ${ref}`schema:dimensions:voltage`
+**simpleSeriesResistance**$ Current will be calculated by the difference in voltage between the target and parent, divided by this value ${ref}`schema:dimensions:resistance`
+**testingVoltage**$ Target voltage between times delay and delay + duration ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*i (from {ref}`schema:basepointcurrent`)*,{ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
 
 ````{tabbed} Requirements
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*v (from {ref}`schema:basevoltagedeppointcurrent`)*,{ref}`schema:dimensions:voltage`
+**v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
+**in**$ Note this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -2321,31 +2399,34 @@ extends *{ref}`schema:basespikesource`*
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-spikes, {ref}`schema:spike`
+**spikes**$  $ {ref}`schema:spike`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-in,Direction: in
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**in**$ This will receive events from the children$Direction: in
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````
@@ -2429,31 +2510,34 @@ extends *{ref}`schema:basespikesource`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-time,{ref}`schema:dimensions:time`
+**time**$ Time at which to emit one spike event ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Exposures
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-spiked,Dimensionless
-*tsince (from {ref}`schema:basespikesource`)*,{ref}`schema:dimensions:time`
+**spiked**$ 0 signals not yet spiked, 1 signals has spiked $Dimensionless
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
 ````
 
 ````{tabbed} Event Ports
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-*spike (from {ref}`schema:basespikesource`)*,Direction: out
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
 
 ```
 ````

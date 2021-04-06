@@ -8,7 +8,7 @@ Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,23 +23,24 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s (either directly between components of the populations or via synapses).</i>
+<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s ( either directly between components of the populations or via synapses ).</i>
 
 
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-regions, {ref}`schema:region`
-populations, {ref}`schema:basepopulation`
-projections, {ref}`schema:projection`
-synapticConnections, {ref}`schema:explicitconnection`
-electricalProjection, {ref}`schema:electricalprojection`
-continuousProjection, {ref}`schema:continuousprojection`
-explicitInputs, {ref}`schema:explicitinput`
-inputs, {ref}`schema:inputlist`
+**regions**$  $ {ref}`schema:region`
+**populations**$  $ {ref}`schema:basepopulation`
+**projections**$  $ {ref}`schema:projection`
+**synapticConnections**$  $ {ref}`schema:explicitconnection`
+**electricalProjection**$  $ {ref}`schema:electricalprojection`
+**continuousProjection**$  $ {ref}`schema:continuousprojection`
+**explicitInputs**$  $ {ref}`schema:explicitinput`
+**inputs**$  $ {ref}`schema:inputlist`
 
 ```
 ````
@@ -128,16 +129,17 @@ extends {ref}`schema:network`
 
 
 
-<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s (either directly between components of the populations or via synapses), and an explicit temperature.</i>
+<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s ( either directly between components of the populations or via synapses ), and an explicit temperature.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-temperature,{ref}`schema:dimensions:temperature`
+**temperature**$  ${ref}`schema:dimensions:temperature`
 
 ```
 ````
@@ -153,37 +155,40 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>A population of cells (anything which extends  {ref}`schema:basecell`).</i>
+<i>A population of cells ( anything which extends  {ref}`schema:basecell` ).</i>
 
 
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-component, {ref}`schema:basecell`
+**component**$  $ {ref}`schema:basecell`
 
 ```
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-notes, {ref}`schema:notes`
-annotation, {ref}`schema:annotation`
+**notes**$  $ {ref}`schema:notes`
+**annotation**$  $ {ref}`schema:annotation`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-property, {ref}`schema:property`
+**property**$  $ {ref}`schema:property`
 
 ```
 ````
@@ -205,10 +210,11 @@ extends *{ref}`schema:basepopulation`*
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-size,Dimensionless
+**size**$ Number of instances of this Component to create when the population is instantiated $Dimensionless
 
 ```
 ````
@@ -264,16 +270,17 @@ extends *{ref}`schema:basepopulation`*
 ```{csv-table}
 :width: 100%
 
-size,
+**size**
 
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-instances, {ref}`schema:instance`
+**instances**$  $ {ref}`schema:instance`
 
 ```
 ````
@@ -285,16 +292,17 @@ instances, {ref}`schema:instance`
 
 
 
-<i>Specifies a single instance of a component in a population (placed at  {ref}`schema:location`).</i>
+<i>Specifies a single instance of a component in a population ( placed at  {ref}`schema:location` ).</i>
 
 
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-location, {ref}`schema:location`
+**location**$  $ {ref}`schema:location`
 
 ```
 ````
@@ -342,12 +350,13 @@ variable = Instance(id=None, i=None, j=None, k=None, location=None, **kwargs_)
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-x,Dimensionless
-y,Dimensionless
-z,Dimensionless
+**x**$  $Dimensionless
+**y**$  $Dimensionless
+**z**$  $Dimensionless
 
 ```
 ````
@@ -389,10 +398,11 @@ variable = Location(x=None, y=None, z=None, **kwargs_)
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rectangularExtent, {ref}`schema:rectangularextent`
+**rectangularExtent**$  $ {ref}`schema:rectangularextent`
 
 ```
 ````
@@ -423,15 +433,16 @@ variable = Region(neuro_lex_id=None, id=None, spaces=None, anytypeobjs_=None, **
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-xLength,Dimensionless
-xStart,Dimensionless
-yLength,Dimensionless
-yStart,Dimensionless
-zLength,Dimensionless
-zStart,Dimensionless
+**xLength**$  $Dimensionless
+**xStart**$  $Dimensionless
+**yLength**$  $Dimensionless
+**yStart**$  $Dimensionless
+**zLength**$  $Dimensionless
+**zStart**$  $Dimensionless
 
 ```
 ````
@@ -451,28 +462,30 @@ zStart,Dimensionless
 ```{csv-table}
 :width: 100%
 
-presynapticPopulation,
-postsynapticPopulation,
+**presynapticPopulation**
+**postsynapticPopulation**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:basesynapse`
+**synapse**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-connections, {ref}`schema:connection`
-connectionsWD, {ref}`schema:connectionwd`
+**connections**$  $ {ref}`schema:connection`
+**connectionsWD**$  $ {ref}`schema:connectionwd`
 
 ```
 ````
@@ -523,7 +536,7 @@ variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, p
 ```{csv-table}
 :width: 100%
 
-targetPort,
+**targetPort**
 
 ````
 
@@ -531,8 +544,8 @@ targetPort,
 ```{csv-table}
 :width: 100%
 
-from,
-to,
+**from**
+**to**
 
 ````
 
@@ -551,11 +564,11 @@ to,
 ```{csv-table}
 :width: 100%
 
-destination,
-preFractionAlong,
-postFractionAlong,
-preSegmentId,
-postSegmentId,
+**destination**
+**preFractionAlong**
+**postFractionAlong**
+**preSegmentId**
+**postSegmentId**
 
 ````
 
@@ -563,8 +576,8 @@ postSegmentId,
 ```{csv-table}
 :width: 100%
 
-preCellId,
-postCellId,
+**preCellId**
+**postCellId**
 
 ````
 
@@ -611,7 +624,7 @@ extends {ref}`schema:explicitconnection`
 ```{csv-table}
 :width: 100%
 
-destination,
+**destination**
 
 ````
 
@@ -619,17 +632,18 @@ destination,
 ```{csv-table}
 :width: 100%
 
-from,
-to,
+**from**
+**to**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:basesynapse`
+**synapse**$  $ {ref}`schema:basesynapse`
 
 ```
 ````
@@ -664,11 +678,12 @@ extends {ref}`schema:synapticconnection`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-delay,{ref}`schema:dimensions:time`
-weight,Dimensionless
+**delay**$  ${ref}`schema:dimensions:time`
+**weight**$  $Dimensionless
 
 ```
 ````
@@ -677,8 +692,8 @@ weight,Dimensionless
 ```{csv-table}
 :width: 100%
 
-from,
-to,
+**from**
+**to**
 
 ````
 
@@ -699,11 +714,12 @@ extends {ref}`schema:connection`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-delay,{ref}`schema:dimensions:time`
-weight,Dimensionless
+**delay**$  ${ref}`schema:dimensions:time`
+**weight**$  $Dimensionless
 
 ```
 ````
@@ -712,11 +728,11 @@ weight,Dimensionless
 ```{csv-table}
 :width: 100%
 
-destination,
-preFractionAlong,
-postFractionAlong,
-preSegmentId,
-postSegmentId,
+**destination**
+**preFractionAlong**
+**postFractionAlong**
+**preSegmentId**
+**postSegmentId**
 
 ````
 
@@ -724,8 +740,8 @@ postSegmentId,
 ```{csv-table}
 :width: 100%
 
-preCellId,
-postCellId,
+**preCellId**
+**postCellId**
 
 ````
 
@@ -766,10 +782,11 @@ variable = ConnectionWD(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segmen
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:gapjunction`
+**synapse**$  $ {ref}`schema:gapjunction`
 
 ```
 ````
@@ -807,10 +824,10 @@ variable = ElectricalConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_s
 ```{csv-table}
 :width: 100%
 
-preFractionAlong,
-postFractionAlong,
-preSegment,
-postSegment,
+**preFractionAlong**
+**postFractionAlong**
+**preSegment**
+**postSegment**
 
 ````
 
@@ -818,17 +835,18 @@ postSegment,
 ```{csv-table}
 :width: 100%
 
-preCell,
-postCell,
+**preCell**
+**postCell**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-synapse, {ref}`schema:gapjunction`
+**synapse**$  $ {ref}`schema:gapjunction`
 
 ```
 ````
@@ -868,10 +886,11 @@ extends {ref}`schema:electricalconnectioninstance`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-weight,Dimensionless
+**weight**$  $Dimensionless
 
 ```
 ````
@@ -880,10 +899,10 @@ weight,Dimensionless
 ```{csv-table}
 :width: 100%
 
-preFractionAlong,
-postFractionAlong,
-preSegment,
-postSegment,
+**preFractionAlong**
+**postFractionAlong**
+**preSegment**
+**postSegment**
 
 ````
 
@@ -891,8 +910,8 @@ postSegment,
 ```{csv-table}
 :width: 100%
 
-preCell,
-postCell,
+**preCell**
+**postCell**
 
 ````
 
@@ -922,22 +941,24 @@ variable = ElectricalConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=No
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-presynapticPopulation, {ref}`schema:population`
-postsynapticPopulation, {ref}`schema:population`
+**presynapticPopulation**$  $ {ref}`schema:population`
+**postsynapticPopulation**$  $ {ref}`schema:population`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-connections, {ref}`schema:electricalconnection`
-connectionInstances, {ref}`schema:electricalconnectioninstance`
+**connections**$  $ {ref}`schema:electricalconnection`
+**connectionInstances**$  $ {ref}`schema:electricalconnectioninstance`
 
 ```
 ````
@@ -980,11 +1001,12 @@ variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_populati
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-preComponent, {ref}`schema:basegradedsynapse`
-postComponent, {ref}`schema:basegradedsynapse`
+**preComponent**$  $ {ref}`schema:basegradedsynapse`
+**postComponent**$  $ {ref}`schema:basegradedsynapse`
 
 ```
 ````
@@ -1025,10 +1047,10 @@ variable = ContinuousConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_s
 ```{csv-table}
 :width: 100%
 
-preFractionAlong,
-postFractionAlong,
-preSegment,
-postSegment,
+**preFractionAlong**
+**postFractionAlong**
+**preSegment**
+**postSegment**
 
 ````
 
@@ -1036,18 +1058,19 @@ postSegment,
 ```{csv-table}
 :width: 100%
 
-preCell,
-postCell,
+**preCell**
+**postCell**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-preComponent, {ref}`schema:basegradedsynapse`
-postComponent, {ref}`schema:basegradedsynapse`
+**preComponent**$  $ {ref}`schema:basegradedsynapse`
+**postComponent**$  $ {ref}`schema:basegradedsynapse`
 
 ```
 ````
@@ -1082,10 +1105,11 @@ extends {ref}`schema:continuousconnectioninstance`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-weight,Dimensionless
+**weight**$  $Dimensionless
 
 ```
 ````
@@ -1094,10 +1118,10 @@ weight,Dimensionless
 ```{csv-table}
 :width: 100%
 
-preFractionAlong,
-postFractionAlong,
-preSegment,
-postSegment,
+**preFractionAlong**
+**postFractionAlong**
+**preSegment**
+**postSegment**
 
 ````
 
@@ -1105,8 +1129,8 @@ postSegment,
 ```{csv-table}
 :width: 100%
 
-preCell,
-postCell,
+**preCell**
+**postCell**
 
 ````
 
@@ -1141,22 +1165,24 @@ variable = ContinuousConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=No
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-presynapticPopulation, {ref}`schema:population`
-postsynapticPopulation, {ref}`schema:population`
+**presynapticPopulation**$  $ {ref}`schema:population`
+**postsynapticPopulation**$  $ {ref}`schema:population`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-connections, {ref}`schema:continuousconnection`
-connectionInstances, {ref}`schema:continuousconnectioninstance`
+**connections**$  $ {ref}`schema:continuousconnection`
+**connectionInstances**$  $ {ref}`schema:continuousconnectioninstance`
 
 ```
 ````
@@ -1198,7 +1224,7 @@ variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_populati
 
 
 
-<i>An explicit input (anything which extends  {ref}`schema:basepointcurrent`) to a target cell in a population.</i>
+<i>An explicit input ( anything which extends  {ref}`schema:basepointcurrent` ) to a target cell in a population.</i>
 
 
 
@@ -1206,9 +1232,9 @@ variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_populati
 ```{csv-table}
 :width: 100%
 
-destination,
-sourcePort,
-targetPort,
+**destination**
+**sourcePort**
+**targetPort**
 
 ````
 
@@ -1216,16 +1242,17 @@ targetPort,
 ```{csv-table}
 :width: 100%
 
-target,
+**target**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-input, {ref}`schema:basepointcurrent`
+**input**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
@@ -1269,26 +1296,28 @@ variable = ExplicitInput(target=None, input=None, destination=None, **kwargs_)
 ```{csv-table}
 :width: 100%
 
-population,
+**population**
 
 ````
 
 ````{tabbed} Component References
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-component, {ref}`schema:basepointcurrent`
+**component**$  $ {ref}`schema:basepointcurrent`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-inputs, {ref}`schema:input`
+**inputs**$  $ {ref}`schema:input`
 
 ```
 ````
@@ -1339,9 +1368,9 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
 ```{csv-table}
 :width: 100%
 
-segmentId,
-fractionAlong,
-destination,
+**segmentId**
+**fractionAlong**
+**destination**
 
 ````
 
@@ -1349,7 +1378,7 @@ destination,
 ```{csv-table}
 :width: 100%
 
-target,
+**target**
 
 ````
 
@@ -1394,10 +1423,11 @@ extends {ref}`schema:input`
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-weight,Dimensionless
+**weight**$  $Dimensionless
 
 ```
 ````
@@ -1406,7 +1436,7 @@ weight,Dimensionless
 ```{csv-table}
 :width: 100%
 
-destination,
+**destination**
 
 ````
 
@@ -1414,7 +1444,7 @@ destination,
 ```{csv-table}
 :width: 100%
 
-target,
+**target**
 
 ````
 

@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.co
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -53,20 +53,22 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rdf:RDF, {ref}`schema:rdf_rdf`
+**rdf:RDF**$  $ {ref}`schema:rdf_rdf`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-property, {ref}`schema:property`
+**property**$  $ {ref}`schema:property`
 
 ```
 ````
@@ -115,8 +117,8 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 ```{csv-table}
 :width: 100%
 
-tag,
-value,
+**tag**
+**value**
 
 ````
 
@@ -151,21 +153,23 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-notes, {ref}`schema:notes`
-annotation, {ref}`schema:annotation`
+**notes**$  $ {ref}`schema:notes`
+**annotation**$  $ {ref}`schema:annotation`
 
 ```
 ````
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-property, {ref}`schema:property`
+**property**$  $ {ref}`schema:property`
 
 ```
 ````
@@ -185,16 +189,17 @@ property, {ref}`schema:property`
 ```{csv-table}
 :width: 100%
 
-xmlns:rdf,
+**xmlns:rdf**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rdf:Description, {ref}`schema:rdf_description`
+**rdf:Description**$  $ {ref}`schema:rdf_description`
 
 ```
 ````
@@ -214,31 +219,32 @@ rdf:Description, {ref}`schema:rdf_description`
 ```{csv-table}
 :width: 100%
 
-rdf:about,
+**rdf:about**
 
 ````
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-bqbiol:encodes, {ref}`schema:bqbiol_encodes`
-bqbiol:hasPart, {ref}`schema:bqbiol_haspart`
-bqbiol:hasProperty, {ref}`schema:bqbiol_hasproperty`
-bqbiol:hasVersion, {ref}`schema:bqbiol_hasversion`
-bqbiol:is, {ref}`schema:bqbiol_is`
-bqbiol:isDescribedBy, {ref}`schema:bqbiol_isdescribedby`
-bqbiol:isEncodedBy, {ref}`schema:bqbiol_isencodedby`
-bqbiol:isHomologTo, {ref}`schema:bqbiol_ishomologto`
-bqbiol:isPartOf, {ref}`schema:bqbiol_ispartof`
-bqbiol:isPropertyOf, {ref}`schema:bqbiol_ispropertyof`
-bqbiol:isVersionOf, {ref}`schema:bqbiol_isversionof`
-bqbiol:occursIn, {ref}`schema:bqbiol_occursin`
-bqbiol:hasTaxon, {ref}`schema:bqbiol_hastaxon`
-bqmodel:is, {ref}`schema:bqmodel_is`
-bqmodel:isDescribedBy, {ref}`schema:bqmodel_isdescribedby`
-bqmodel:isDerivedFrom, {ref}`schema:bqmodel_isderivedfrom`
+**bqbiol:encodes**$  $ {ref}`schema:bqbiol_encodes`
+**bqbiol:hasPart**$  $ {ref}`schema:bqbiol_haspart`
+**bqbiol:hasProperty**$  $ {ref}`schema:bqbiol_hasproperty`
+**bqbiol:hasVersion**$  $ {ref}`schema:bqbiol_hasversion`
+**bqbiol:is**$  $ {ref}`schema:bqbiol_is`
+**bqbiol:isDescribedBy**$  $ {ref}`schema:bqbiol_isdescribedby`
+**bqbiol:isEncodedBy**$  $ {ref}`schema:bqbiol_isencodedby`
+**bqbiol:isHomologTo**$  $ {ref}`schema:bqbiol_ishomologto`
+**bqbiol:isPartOf**$  $ {ref}`schema:bqbiol_ispartof`
+**bqbiol:isPropertyOf**$  $ {ref}`schema:bqbiol_ispropertyof`
+**bqbiol:isVersionOf**$  $ {ref}`schema:bqbiol_isversionof`
+**bqbiol:occursIn**$  $ {ref}`schema:bqbiol_occursin`
+**bqbiol:hasTaxon**$  $ {ref}`schema:bqbiol_hastaxon`
+**bqmodel:is**$  $ {ref}`schema:bqmodel_is`
+**bqmodel:isDescribedBy**$  $ {ref}`schema:bqmodel_isdescribedby`
+**bqmodel:isDerivedFrom**$  $ {ref}`schema:bqmodel_isderivedfrom`
 
 ```
 ````
@@ -256,10 +262,11 @@ bqmodel:isDerivedFrom, {ref}`schema:bqmodel_isderivedfrom`
 
 ````{tabbed} Child list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rdf:Bag, {ref}`schema:rdf_bag`
+**rdf:Bag**$  $ {ref}`schema:rdf_bag`
 
 ```
 ````
@@ -433,7 +440,7 @@ extends *{ref}`schema:basebqbiol`*
 ```{csv-table}
 :width: 100%
 
-xmlns:bqbiol,
+**xmlns:bqbiol**
 
 ````
 
@@ -501,7 +508,7 @@ extends *{ref}`schema:basebqbiol`*
 ```{csv-table}
 :width: 100%
 
-xmlns:bqmodel,
+**xmlns:bqmodel**
 
 ````
 
@@ -533,10 +540,11 @@ extends *{ref}`schema:basebqbiol`*
 
 ````{tabbed} Children list
 ```{csv-table}
-:widths: 8, 2
+:widths: 1, 7, 2
 :width: 100%
+:delim: $
 
-rdf:li, {ref}`schema:rdf:li`
+**rdf:li**$  $ {ref}`schema:rdf:li`
 
 ```
 ````
@@ -556,7 +564,7 @@ rdf:li, {ref}`schema:rdf:li`
 ```{csv-table}
 :width: 100%
 
-rdf:resource,
+**rdf:resource**
 
 ````
 
@@ -567,42 +575,45 @@ rdf:resource,
 
 
 
-<i>Base type for ComponentTypes which specify an ( **x,** **y,** **z** ) coordinate along with a **diameter.** Note: no dimension used in the attributes for these coordinates! These are assumed to have dimension micrometer (10^-6 m). This is due to micrometers being the default option for the majority of neuronal morphology formats, and dimensions are omitted here to facilitate reading and writing of morphologies in NeuroML.</i>
+<i>Base type for ComponentTypes which specify an ( **x,** **y,** **z** ) coordinate along with a **diameter.** Note: no dimension used in the attributes for these coordinates! These are assumed to have dimension micrometer ( 10^-6 m ). This is due to micrometers being the default option for the majority of neuronal morphology formats, and dimensions are omitted here to facilitate reading and writing of morphologies in NeuroML.</i>
 
 
 
 ````{tabbed} Parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-diameter,Dimensionless
-x,Dimensionless
-y,Dimensionless
-z,Dimensionless
+**diameter**$ Diameter at point. Note: no dimension used, see note above! $Dimensionless
+**x**$ x coordinate of point. Note: no dimension used, see note above! $Dimensionless
+**y**$ y coordinate of point. Note: no dimension used, see note above! $Dimensionless
+**z**$ z coordinate of point. Note: no dimension used, see note above! $Dimensionless
 
 ```
 ````
 
 ````{tabbed} Derived parameters
 ```{csv-table}
-:widths: 8, 2
-:width: 100%
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-radius,{ref}`schema:dimensions:length`
-xLength,{ref}`schema:dimensions:length`
-yLength,{ref}`schema:dimensions:length`
-zLength,{ref}`schema:dimensions:length`
+**radius**$  ${ref}`schema:dimensions:length`
+**xLength**$  ${ref}`schema:dimensions:length`
+**yLength**$  ${ref}`schema:dimensions:length`
+**zLength**$  ${ref}`schema:dimensions:length`
 
 ```
 ````
 
 ````{tabbed} Constants
 ```{csv-table}
-:widths: 8, 2
+:widths: 3, 5, 2
 :width: 100%
+:delim: $
 
-MICRON = 1um, {ref}`schema:dimensions:length`
+**MICRON** = 1um$  $ {ref}`schema:dimensions:length`
 
 ```
 ````

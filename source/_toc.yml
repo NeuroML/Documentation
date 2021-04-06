@@ -61,6 +61,7 @@
         - file: ./NeuroMLOrg/BoardMeetingReports
     - file: ./NeuroMLOrg/ScientificCommittee
     - file: ./NeuroMLOrg/Funding
+    - file: ./NeuroMLOrg/Contributors
     - file: ./NeuroMLOrg/CoC
 
 - part: Developer documentation

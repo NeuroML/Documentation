@@ -207,7 +207,7 @@ misc1c = env.from_string(textwrap.dedent(
     :width: 100%
 
     {% for text in textlist -%}
-    {{ text.name }},
+    **{{ text.name }}**
     {% endfor %}
     ````
     """
@@ -218,11 +218,12 @@ misc2c = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}
-    :widths: 8, 2
+    :widths: 1, 7, 2
     :width: 100%
+    :delim: $
 
     {% for entry in textlist -%}
-    {{ entry.name }}, {ref}`schema:{{ entry.type | lower }}`
+    **{{ entry.name }}**$ {{ entry.description if entry.description }} $ {ref}`schema:{{ entry.type | lower }}`
     {% endfor %}
     ```
     ````
@@ -234,11 +235,12 @@ constants = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}
-    :widths: 8, 2
+    :widths: 3, 5, 2
     :width: 100%
+    :delim: $
 
     {% for entry in textlist -%}
-    {{ entry.name }} = {{ entry.value }}, {{ "{ref}`schema:dimensions:%s`" | format(entry.dimension) if entry.dimension != "none" else "Dimensionless" }}
+    **{{ entry.name }}** = {{ entry.value }}$ {{ entry.description if entry.description }} $ {{ "{ref}`schema:dimensions:%s`" | format(entry.dimension) if entry.dimension != "none" else "Dimensionless" }}
     {% endfor %}
     ```
     ````
@@ -251,19 +253,22 @@ params = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}
-    :widths: 8, 2
-    :width: 100%
+    :widths: 1, 7, 2
+    :width: 100 %
+    :delim: $
 
     {% for entry in keysort -%}
+    {# inherited parameters, which we print first #}
     {%- if entries[entry] != comp_type.name -%}
-    *{{ entry.name }} (from {ref}`schema:{{ entries[entry] | lower }}`)*,
+    **{{ entry.name }}**$ {{ entry.description if entry.description }} *(from {ref}`schema:{{ entries[entry] | lower }}`)* $
     {%-if entry.dimension -%}
     {{ "{ref}`schema:dimensions:%s`" | format(entry.dimension) if entry.dimension != "none" else "Dimensionless"}}
     {% else -%}
     Dimensionless
     {% endif -%}
-    {% else -%}
-    {{ entry.name }},
+    {# Not an inherited parameter #}
+    {%- else -%}
+    **{{ entry.name }}**$ {{ entry.description if entry.description }} $
     {%-if entry.dimension -%}
     {{ "{ref}`schema:dimensions:%s`" | format(entry.dimension) if entry.dimension != "none" else "Dimensionless" }}
     {% else -%}
@@ -287,14 +292,15 @@ eventPorts = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}
-    :widths: 8, 2
-    :width: 100%
+    :widths: 1, 7, 2
+    :width: 100 %
+    :delim: $
 
     {% for entry in keysort -%}
     {%- if entries[entry] != comp_type.name -%}
-    *{{ entry.name }} (from {ref}`schema:{{ entries[entry] | lower }}`)*,
+    **{{ entry.name }}**$ {{ entry.description if entry.description }} *(from {ref}`schema:{{ entries[entry] | lower }}`)*$
     {%- else -%}
-    {{ entry.name }},
+    **{{ entry.name }}**$ {{ entry.description if entry.description }}$
     {%- endif -%}
     Direction: {{ entry.direction }}
     {% endfor %}
