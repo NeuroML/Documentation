@@ -12,3 +12,4 @@ x86_64/
 *.dat
 *nrn.py
 __pycache__
+/regen.sh
