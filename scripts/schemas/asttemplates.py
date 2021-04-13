@@ -67,7 +67,7 @@ def format_math(expr):
     expr2 = expr2.replace(".geq.", "&gt;=")
     expr2 = expr2.replace(".lt.", "&lt;")
     expr2 = expr2.replace(".leq.", "&lt;=")
-    expr2 = expr2.replace(".and.", "<i>AND</i>")
+    expr2 = expr2.replace(".and.", "AND")
     expr2 = expr2.replace(".eq.", "=")
     expr2 = expr2.replace(".neq.", "!=")
 
@@ -336,17 +336,17 @@ dynamics = env.from_string(textwrap.dedent(
     comp_type.structure.event_connections|length) > 0 %}
     <i>**Structure**</i>
     {%- for w in comp_type.structure.withs %}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;<i>WITH</i> **{{ w.instance }}** <i>AS</i> **{{ w.as_ }}**
+    : WITH **{{ w.instance }}** AS **{{ w.as_ }}**
     {%- endfor -%}
     {% for ci in comp_type.structure.child_instances %}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;<i>CHILD INSTANCE</i>: **{{ ci.component}}**
+    : CHILD INSTANCE: **{{ ci.component}}**
     {%- endfor -%}
     {% for mi in comp_type.structure.multi_instantiates %}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;<i>INSTANTIATE</i>: **{{ mi.number }}** <i>COMPONENTS OF TYPE</i> **{{ mi.component }}**
+    : INSTANTIATE: **{{ mi.number }}** COMPONENTS OF TYPE **{{ mi.component }}**
     {%- endfor -%}
     {% for ec in comp_type.structure.event_connections %}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;<i>EVENT CONNECTION</i> from **{{ ec.from_ }}** <i>TO</i>  **{{ ec.to }}** {{ "<i>RECEIVER</i>: %s" | format(ec.receiver) if ec.receiver }} {{ "<i>TARGET PORT</i>: %s" | format(ec.target_port) if ec.target_port }} {{ "<i>DELAY</i>: %s" | format(ec.delay) if ec.delay }}
-    {{ "<br/>&nbsp;&nbsp;&nbsp;&nbsp;<i>ASSIGN</i>: %s = %s" | format(ec.assign.property, ec.assign.value) if ec.assign }}
+    : EVENT CONNECTION from **{{ ec.from_ }}** TO  **{{ ec.to }}** {{ "RECEIVER: %s" | format(ec.receiver) if ec.receiver }} {{ "TARGET PORT: %s" | format(ec.target_port) if ec.target_port }} {{ "DELAY: %s" | format(ec.delay) if ec.delay }}
+    {{ ": ASSIGN: %s = %s" | format(ec.assign.property, ec.assign.value) if ec.assign }}
     {%- endfor %}
 
     {% endif %}
@@ -354,7 +354,7 @@ dynamics = env.from_string(textwrap.dedent(
     {% if comp_type.dynamics.state_variables|length > 0 %}
     <i>**State Variables**</i>
     {% for v in comp_type.dynamics.state_variables -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;**{{ v.name }}**: {{ "{ref}`schema:dimensions:%s`" | format(v.dimension) if v.dimension != "none" else "Dimensionless" }} {{ "&emsp;(exposed as **%s**)"|format(v.exposure) if v.exposure }}
+    : **{{ v.name }}**: {{ "{ref}`schema:dimensions:%s`" | format(v.dimension) if v.dimension != "none" else "Dimensionless" }} {{ "&emsp;(exposed as **%s**)"|format(v.exposure) if v.exposure }}
     {% endfor %}
     {% endif %}
 
@@ -375,7 +375,7 @@ dynamics = env.from_string(textwrap.dedent(
 
     {%- for ac in eh.actions -%}
     {%- if ac|get_lems_type == "StateAssignment" -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;**{{ ac.variable }}** = {{ ac.value }}
+    : **{{ ac.variable }}** = {{ ac.value }}
     {% endif -%}
 
     {%- endfor -%}
@@ -385,34 +385,37 @@ dynamics = env.from_string(textwrap.dedent(
     {%- if ns.oc_printed == "no" -%}
     {% set ns.oc_printed = "yes" %}
 
+
     <i>**On Conditions**</i>
     {% endif %}
-    &nbsp;&nbsp;&nbsp;&nbsp;<i>IF [</i> {{ eh.test|format_math }}
-    <i>] THEN:</i>
+    : IF {{ eh.test|format_math }} THEN
     {% for ac in eh.actions %}
     {%- if ac|get_lems_type == "StateAssignment" -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &emsp;**{{ ac.variable }}** = {{ ac.value }}
+    : &emsp;&emsp;&emsp;**{{ ac.variable }}** = {{ ac.value }}
     {% endif -%}
     {%- if ac|get_lems_type == "EventOut" -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;<i>EVENT OUT</i> on port **{{ ac.port }}**
+    : EVENT OUT on port: **{{ ac.port }}**
     {% endif -%}
     {%- endfor -%}
     {% endif -%}
+
     {% if eh|get_lems_type == "OnEvent" %}
     {%- if ns.oe_printed == "no" -%}
     {% set ns.oe_printed = "yes" %}
+
     <i>**On Events**</i>
     {% endif %}
-    &nbsp;&nbsp;&nbsp;&nbsp;<i>EVENT IN</i> on port: **{{ eh.port }}**
+    : EVENT IN on port: **{{ eh.port }}**
     {% for ac in eh.actions %}
     {%- if ac|get_lems_type == "StateAssignment" -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&emsp;**{{ ac.variable }}** = {{ ac.value }}
+    : &emsp;&emsp;&emsp;**{{ ac.variable }}** = {{ ac.value }}
     {% endif -%}
     {%- if ac|get_lems_type == "EventOut" -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&emsp;<i>EVENT OUT</i> on port: **{{ ac.port }}**
+    : EVENT OUT on port: **{{ ac.port }}**
     {% endif -%}
     {%- endfor -%}
     {% endif -%}
+
     {% endfor %}
     {% endif %}
 
@@ -420,7 +423,7 @@ dynamics = env.from_string(textwrap.dedent(
 
     <i>**Derived Variables**</i>
         {% for dv in comp_type.dynamics.derived_variables -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;**{{ dv.name }}** =&nbsp;
+    : **{{ dv.name }}** =&nbsp;
             {%- if dv.value is none -%}
     {{ dv.select|replace('/', '->') }}{{ "(reduce method: %s)"| format(dv.reduce) if dv.reduce }}
             {%- else -%}
@@ -435,9 +438,9 @@ dynamics = env.from_string(textwrap.dedent(
         {% for cdv in comp_type.dynamics.conditional_derived_variables -%}
             {%- for case in cdv.cases -%}
                 {%- if case.condition %}
-    : <i>IF [ </i> {{ case.condition|format_math }} <i> ] THEN</i>
+    : IF {{ case.condition|format_math }} THEN
                 {%- else %}
-    : <i>OTHERWISE</i>
+    : OTHERWISE
                 {%- endif %}
     : &emsp; **{{ cdv.name }}** = {{ case.value|replace("*", "\*") }} {{ "&emsp;(exposed as **%s**)"|format(cdv.exposure) if cdv.exposure }}
             {%- endfor %}
@@ -447,7 +450,7 @@ dynamics = env.from_string(textwrap.dedent(
     {% if comp_type.dynamics.time_derivatives|length > 0 %}
     <i>**Time Derivatives**</i>
         {% for td in comp_type.dynamics.time_derivatives -%}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;d **{{ td.variable }}** /dt = {{ td.value }}
+    : d **{{ td.variable }}** /dt = {{ td.value }}
         {% endfor %}
     {% endif %}
 
@@ -474,16 +477,16 @@ dynamics = env.from_string(textwrap.dedent(
                         {%- set ns.oc_printed = "yes" %}
     : <i>**On Conditions**</i>
                     {%- endif %}
-    : &emsp; <i>IF [</i> {{ eh.test|format_math }} <i> ] THEN</i>
+    : &emsp; IF {{ eh.test|format_math }} THEN
                     {%- for ac in eh.actions %}
                         {%- if ac|get_lems_type == "StateAssignment" %}
     : &emsp;&emsp;**{{ ac.variable }}** = {{ ac.value|replace("*", "\*")  }}
                         {%- endif %}
                         {%- if ac|get_lems_type == "EventOut" %}
-    : &emsp;&emsp;<i>EVENT OUT</i> on port **{{ ac.port }}**
+    : &emsp;&emsp;EVENT OUT on port: **{{ ac.port }}**
                         {%- endif %}
                         {%- if ac|get_lems_type == "Transition" %}
-    : &emsp;&emsp;<i>TRANSITION</i> to <i>REGIME</i> **{{ ac.regime }}**
+    : &emsp;&emsp;TRANSITION to REGIME **{{ ac.regime }}**
                         {%- endif %}
                     {%- endfor %}
                 {%- endif -%}
