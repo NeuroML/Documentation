@@ -394,7 +394,7 @@ dynamics = env.from_string(textwrap.dedent(
     : &emsp;&emsp;&emsp;**{{ ac.variable }}** = {{ ac.value }}
     {% endif -%}
     {%- if ac|get_lems_type == "EventOut" -%}
-    : EVENT OUT on port: **{{ ac.port }}**
+    : &emsp;&emsp;&emsp;EVENT OUT on port: **{{ ac.port }}**
     {% endif -%}
     {%- endfor -%}
     {% endif -%}
@@ -411,7 +411,7 @@ dynamics = env.from_string(textwrap.dedent(
     : &emsp;&emsp;&emsp;**{{ ac.variable }}** = {{ ac.value }}
     {% endif -%}
     {%- if ac|get_lems_type == "EventOut" -%}
-    : EVENT OUT on port: **{{ ac.port }}**
+    : &emsp;&emsp;&emsp;EVENT OUT on port: **{{ ac.port }}**
     {% endif -%}
     {%- endfor -%}
     {% endif -%}
@@ -468,7 +468,7 @@ dynamics = env.from_string(textwrap.dedent(
                     {%- endif %}
                     {%- for ac in eh.actions -%}
                         {%- if ac|get_lems_type == "StateAssignment" %}
-    : &emsp; **{{ ac.variable }}** = {{ ac.value|replace("*", "\*")  }}
+    : &emsp;&emsp; **{{ ac.variable }}** = {{ ac.value|replace("*", "\*")  }}
                         {%- endif %}
                     {%- endfor -%}
                 {%- endif -%}
@@ -477,24 +477,24 @@ dynamics = env.from_string(textwrap.dedent(
                         {%- set ns.oc_printed = "yes" %}
     : <i>**On Conditions**</i>
                     {%- endif %}
-    : &emsp; IF {{ eh.test|format_math }} THEN
+    : &emsp;&emsp; IF {{ eh.test|format_math }} THEN
                     {%- for ac in eh.actions %}
                         {%- if ac|get_lems_type == "StateAssignment" %}
-    : &emsp;&emsp;**{{ ac.variable }}** = {{ ac.value|replace("*", "\*")  }}
+    : &emsp;&emsp;&emsp;&emsp;**{{ ac.variable }}** = {{ ac.value|replace("*", "\*")  }}
                         {%- endif %}
                         {%- if ac|get_lems_type == "EventOut" %}
-    : &emsp;&emsp;EVENT OUT on port: **{{ ac.port }}**
+    : &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **{{ ac.port }}**
                         {%- endif %}
                         {%- if ac|get_lems_type == "Transition" %}
-    : &emsp;&emsp;TRANSITION to REGIME **{{ ac.regime }}**
+    : &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **{{ ac.regime }}**
                         {%- endif %}
                     {%- endfor %}
                 {%- endif -%}
             {%- endfor -%}
             {%- if rg.time_derivatives|length > 0 %}
-    : <i>**Time derivatives**</i>
+    : <i>**Time Derivatives**</i>
                 {%- for td in rg.time_derivatives %}
-    : &emsp; d **{{ td.variable }}** /dt = {{ td.value }}
+    : &emsp;&emsp; d **{{ td.variable }}** /dt = {{ td.value }}
                 {%- endfor %}
             {%- endif %}
         {%- endfor %}
