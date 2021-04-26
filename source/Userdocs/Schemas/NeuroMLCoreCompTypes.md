@@ -119,8 +119,8 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 :width: 100%
 :delim: $
 
-**tag**$ 
-**value**$ 
+**tag**$ Name of the property
+**value**$ Value of the property
 
 ````
 

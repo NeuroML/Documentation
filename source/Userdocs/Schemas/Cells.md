@@ -221,7 +221,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100%
 :delim: $
 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -333,7 +333,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100%
 :delim: $
 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -622,7 +622,7 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **segmentGroup**$ 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -737,7 +737,7 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **segmentGroup**$ 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -843,7 +843,7 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **segmentGroup**$ 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1635,7 +1635,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Simple model of a conductance based cell, with no separate  {ref}`schema:morphology` element, just an absolute capacitance **C,** and a set of channel **populations.** Note: use of  {ref}`schema:cell` is generally preferable, even for a single compartment cell.</i>
+<i>Simple model of a conductance based cell, with no separate  {ref}`schema:morphology` element, just an absolute capacitance **C,** and a set of channel **populations.** Note: use of  {ref}`schema:cell` is generally preferable ( and more widely supported ), even for a single compartment cell.</i>
 
 
 
@@ -1760,7 +1760,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>TEMPORARY: Point cell with conductances and Ca concentration info. Not yet fully tested!!!</i>
+<i>TEMPORARY: Point cell with conductances and Ca concentration info. Not yet fully tested!!! TODO: Remove in favour of  {ref}`schema:cell`.</i>
 
 
 
@@ -1890,7 +1890,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point in a  {ref}`schema:segment` furthest from the soma.</i>
+<i>Point on a  {ref}`schema:segment` furthest from the soma. Should always be present in the description of a  {ref}`schema:segment`, unlike  {ref}`schema:proximal`.</i>
 
 
 
@@ -1950,7 +1950,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point in a  {ref}`schema:segment` closest to the soma. Note, if the proximal point is equal to the  {ref}`schema:distal` point of the parent  {ref}`schema:segment`, proximal can be omitted.</i>
+<i>Point on a  {ref}`schema:segment` closest to the soma. Note, the proximal point can be omitted, and in this case is defined as being the point **fractionAlong** between the proximal and  {ref}`schema:distal` point of the  {ref}`schema:parent`, i.e. if **fractionAlong** = 1 ( as it is by default ) it will be the **distal** on the parent, or if **fractionAlong** = 0, it will be the proximal point. If between 0 and 1, it is the linear interpolation between the two points.</i>
 
 
 
@@ -2006,7 +2006,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Specifies the  {ref}`schema:segment` which is this segment's parent.</i>
+<i>Specifies the id of the **segment** which is this segment's parent.</i>
 
 
 
@@ -2016,8 +2016,8 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100%
 :delim: $
 
-**segment**$ 
-**fractionAlong**$ 
+**segment**$ The id of the parent segment
+**fractionAlong**$ The fraction along the the parent segment at which this segment is attached. For usage see _proximal_
 
 ````
 
@@ -2045,7 +2045,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>A segment defines the smallest unit within a possibly branching structure (  {ref}`schema:morphology` ), such as a dendrite or axon. The shape is given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. If  {ref}`schema:proximal` is missing, the proximal point is assumed to be the  {ref}`schema:distal` point of the parent.  {ref}`schema:parent` specifies the parent segment. The first segment ( no  {ref}`schema:parent` ) usually represents the soma. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
+<i>A segment defines the smallest unit within a possibly branching structure (  {ref}`schema:morphology` ), such as a dendrite or axon. Its **id** should be a nonnegative integer ( usually soma/root = 0 ). Its end points are given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. The  {ref}`schema:proximal` point can be omitted, usually because it is the same as a point on the  {ref}`schema:parent` segment, see  {ref}`schema:proximal` for details.  {ref}`schema:parent` specifies the parent segment. The first segment of a  {ref}`schema:cell` ( with no  {ref}`schema:parent` ) usually represents the soma. The shape is normally a cylinder ( radii of the  {ref}`schema:proximal` and  {ref}`schema:distal` equal, but positions different ) or a conical frustum ( radii and positions different ). If the x, y, x positions of the  {ref}`schema:proximal` and  {ref}`schema:distal` are equal, the segment can be interpreted as a sphere, and in this case the radii of these points must be equal. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
 
 
 
@@ -2055,7 +2055,7 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100%
 :delim: $
 
-**name**$ 
+**name**$ An optional name for the segment. Convenient for providing a suitable variable name for generated code, e.g. soma, dend0
 
 ````
 
@@ -2172,7 +2172,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 
 
-<i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology`.</i>
+<i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology`, e.g. soma_group, dendrite_group, axon_group. While a name is useful to describe the group, the **neuroLexId** attribute can be used to explicitly specify the meaning of the group, e.g. sao1044911821 for 'Neuronal Cell Body', sao1211023249 for 'Dendrite'. The  {ref}`schema:segment`s in this group can be specified as: a list of individual  {ref}`schema:member` segments; a  {ref}`schema:path`, all of the segments along which should be included; a  {ref}`schema:subtree` of the  {ref}`schema:cell` to include; other segmentGroups to  {ref}`schema:include` ( so all segments from those get included here ). An  {ref}`schema:inhomogeneousparameter` can be defined on the region of the cell specified by this group ( see  {ref}`schema:variableparameter` for usage ).</i>
 
 
 
@@ -2182,7 +2182,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 :width: 100%
 :delim: $
 
-**neuroLexId**$ 
+**neuroLexId**$ An id string for pointing to an entry in the NeuroLex ontology. Use of this attribute is a shorthand for a full         RDF based reference to the MIRIAM Resource urn:miriam:neurolex, with an bqbiol:is qualifier.
 
 ````
 
@@ -2260,7 +2260,7 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 
 
-<i>A single identified  {ref}`schema:segment` which is part of the  {ref}`schema:segmentgroup`.</i>
+<i>A single identified **segment** which is part of the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2305,7 +2305,7 @@ variable = Member(segments=None, **kwargs_)
 
 
 
-<i>Specifies which  {ref}`schema:segment` distal from which to calculate the  {ref}`schema:segmentgroup`.</i>
+<i>In a  {ref}`schema:path` or  {ref}`schema:subtree`, specifies which **segment** ( inclusive ) from which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2340,7 +2340,7 @@ variable = Member(segments=None, **kwargs_)
 
 
 
-<i>Specifies which  {ref}`schema:segment` up to which to calculate the  {ref}`schema:segmentgroup`.</i>
+<i>In a  {ref}`schema:path`, specifies which **segment** ( inclusive ) up to which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2372,7 +2372,7 @@ variable = Member(segments=None, **kwargs_)
 
 
 
-<i>Include all members of another  {ref}`schema:segmentgroup` in this.</i>
+<i>Include all members of another  {ref}`schema:segmentgroup` in this group.</i>
 
 
 
@@ -2382,7 +2382,7 @@ variable = Member(segments=None, **kwargs_)
 :width: 100%
 :delim: $
 
-**href**$ 
+**href**$ TODO: fix this!!! This is needed here, since include is used to include external nml files!!
 **segmentGroup**$ 
 
 ````
@@ -2418,7 +2418,7 @@ variable = Include(segment_groups=None, **kwargs_)
 
 
 
-<i>Include all the segments between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive.</i>
+<i>Include all the  {ref}`schema:segment`s between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive.</i>
 
 
 
@@ -2462,7 +2462,7 @@ variable = Path(from_=None, to=None, **kwargs_)
 
 
 
-<i>Include all the segments distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup`.</i>
+<i>Include all the  {ref}`schema:segment`s distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2504,7 +2504,7 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 
 
 
-<i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup`.</i>
+<i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup` ( see  {ref}`schema:variableparameter` for usage ).</i>
 
 
 
