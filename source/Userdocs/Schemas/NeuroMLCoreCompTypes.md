@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.co
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/44b6a2115c4c3dcbf0842d89c2c83ad3cc351a12) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -19,7 +19,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>Human readable notes on a Component.</i>
+<i>Human readable notes/description for a Component.</i>
 
 
 
@@ -47,7 +47,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>Annotation...</i>
+<i>A structured annotation containing metadata, specifically RDF or  {ref}`schema:property` elements.</i>
 
 
 
@@ -109,7 +109,7 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 
 
-<i>Property in Annotation...</i>
+<i>A property ( a **tag** and **value** pair ), which can be on any  {ref}`schema:basestandalone` either as a direct child, or within an  {ref}`schema:annotation`. Generally something which helps the visual display or facilitates simulation of a Component, but is not a core physiological property. Common examples include: **numberInternalDivisions,** equivalent of nseg in NEURON; **radius,** for a radius to use in graphical displays for abstract cells ( i.e. without defined morphologies ); **color,** the color to use for a  {ref}`schema:population` or  {ref}`schema:populationlist` of cells; **recommended_dt_ms,** the recommended timestep to use for simulating a  {ref}`schema:network`, **recommended_duration_ms** the recommended duration to use when running a  {ref}`schema:network`.</i>
 
 
 
@@ -119,7 +119,7 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 :width: 100%
 :delim: $
 
-**tag**$ Name of the property
+**tag**$ 
 **value**$ 
 
 ````
@@ -149,7 +149,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Base type of any component which will require notes, annotation, etc.</i>
+<i>Base type of any Component which can have  {ref}`schema:notes`,  {ref}`schema:annotation`, or a  {ref}`schema:property` list.</i>
 
 
 
@@ -183,7 +183,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Work in progress...</i>
+<i>Structured block in an  {ref}`schema:annotation` based on RDF. See https://github.com/OpenSourceBrain/OSB_API/blob/master/python/examples/grancelllayer.xml.</i>
 
 
 
@@ -215,7 +215,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Work in progress...</i>
+<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
 
@@ -262,7 +262,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Work in progress...</i>
+<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
 
@@ -544,7 +544,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>Work in progress...</i>
+<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
 
@@ -566,7 +566,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>Annotation...</i>
+<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
 
@@ -597,10 +597,10 @@ extends *{ref}`schema:basebqbiol`*
 :width: 100 %
 :delim: $
 
-**diameter**$ Diameter at point. Note: no dimension used, see note above! $Dimensionless
-**x**$ x coordinate of point. Note: no dimension used, see note above! $Dimensionless
-**y**$ y coordinate of point. Note: no dimension used, see note above! $Dimensionless
-**z**$ z coordinate of point. Note: no dimension used, see note above! $Dimensionless
+**diameter**$ Diameter of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
+**x**$ x coordinate of the point. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
+**y**$ y coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
+**z**$ z coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
 
 ```
 ````
@@ -611,10 +611,10 @@ extends *{ref}`schema:basebqbiol`*
 :width: 100 %
 :delim: $
 
-**radius**$  ${ref}`schema:dimensions:length`
-**xLength**$  ${ref}`schema:dimensions:length`
-**yLength**$  ${ref}`schema:dimensions:length`
-**zLength**$  ${ref}`schema:dimensions:length`
+**radius**$ A dimensional quantity given by half the _diameter. ${ref}`schema:dimensions:length`
+**xLength**$ A version of _x with dimension length. ${ref}`schema:dimensions:length`
+**yLength**$ A version of _y with dimension length. ${ref}`schema:dimensions:length`
+**zLength**$ A version of _z with dimension length. ${ref}`schema:dimensions:length`
 
 ```
 ````

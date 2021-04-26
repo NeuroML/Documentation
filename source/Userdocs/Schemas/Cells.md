@@ -8,7 +8,7 @@ Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/Neuro
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/44b6a2115c4c3dcbf0842d89c2c83ad3cc351a12) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type of any cell which can be used in a population.</i>
+<i>Base type of any cell ( e.g. point neuron like  {ref}`schema:izhikevich2007cell`, or a morphologically detailed  {ref}`schema:cell` with  {ref}`schema:segment`s ) which can be used in a  {ref}`schema:population`.</i>
 
 
 
@@ -77,7 +77,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a membrane potential **v** with voltage units.</i>
+<i>Any spiking cell which has a membrane potential **v** with units of voltage ( as opposed to a dimensionless membrane potential used in  {ref}`schema:basecellmembpotdl` ).</i>
 
 
 
@@ -114,7 +114,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a dimensioness membrane potential, **V.**.</i>
+<i>Any spiking cell which has a dimensioness membrane potential, **V** ( as opposed to a membrane potential units of voltage,  {ref}`schema:basecellmembpot` ).</i>
 
 
 
@@ -151,7 +151,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for any current produced by a population of channels, all of type **ionChannel**.</i>
+<i>Base type for any current produced by a population of channels, all of which are of type **ionChannel**.</i>
 
 
 
@@ -172,7 +172,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -199,7 +199,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of **number** ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.**.</i>
+<i>Population of a **number** of ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.** Note that active membrane currents are more frequently specified as a density over an area of the  {ref}`schema:cell` using  {ref}`schema:channeldensity`.</i>
 
 
 
@@ -209,8 +209,8 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
-**number**$  $Dimensionless
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
+**number**$ The number of channels present. This will be multiplied by the time varying conductance of the individual ion channel (which extends _baseIonChannel_) to produce the total conductance $Dimensionless
 
 ```
 ````
@@ -242,7 +242,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -312,7 +312,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of channels with a time varying reversal potential **erev** determined by Nernst equation. Hard coded for Ca only!</i>
+<i>Population of a **number** of channels with a time varying reversal potential **erev** determined by Nernst equation. Note: hard coded for Ca only!</i>
 
 
 
@@ -322,7 +322,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**number**$  $Dimensionless
+**number**$ The number of channels present. This will be multiplied by the time varying conductance of the individual ion channel (which extends _baseIonChannel_) to produce the total conductance $Dimensionless
 
 ```
 ````
@@ -357,8 +357,8 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**erev**$ The reversal potential of the current produced, calculated from _caConcExt and _caConc ${ref}`schema:dimensions:voltage`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -369,9 +369,9 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**caConc**$  ${ref}`schema:dimensions:concentration`
-**caConcExt**$  ${ref}`schema:dimensions:concentration`
-**temperature**$  ${ref}`schema:dimensions:temperature`
+**caConc**$ The internal Ca2+ concentration, as calculated/exposed by the parent Component ${ref}`schema:dimensions:concentration`
+**caConcExt**$ The external Ca2+ concentration, as calculated/exposed by the parent Component ${ref}`schema:dimensions:concentration`
+**temperature**$ The temperature to use in the calculation of _erev. Note this is generally exposed by a _networkWithTemperature_. ${ref}`schema:dimensions:temperature`
 **v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
@@ -410,7 +410,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Base type for current distributed on an area of a cell.</i>
+<i>Base type for a current of density **iDensity** distributed on an area of a  {ref}`schema:cell`, flowing through the specified **ionChannel.** Instances of this ( normally  {ref}`schema:channeldensity` ) are specified in the  {ref}`schema:membraneproperties` of the  {ref}`schema:cell`.</i>
 
 
 
@@ -503,7 +503,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a parameter which can vary its value across a **segmentGroup**.</i>
+<i>Specifies a **parameter** ( e.g. condDensity ) which can vary its value across a **segmentGroup.** The value is calculated from **value** attribute of the  {ref}`schema:inhomogeneousvalue` subelement. This element is normally a child of  {ref}`schema:channeldensitynonuniform`,  {ref}`schema:channeldensitynonuniformnernst` or  {ref}`schema:channeldensitynonuniformghk` and is used to calculate the value of the conductance, etc. which will vary on different parts of the cell. The **segmentGroup** specified here needs to define an  {ref}`schema:inhomogeneousparameter` ( referenced from **inhomogeneousParameter** in the  {ref}`schema:inhomogeneousvalue` ), which calculates a **variable** ( e.g. p ) varying across the cell ( e.g. based on the path length from soma ), which is then used in the **value** attribute of the  {ref}`schema:inhomogeneousvalue` ( so for example condDensity = f( p ) ).</i>
 
 
 
@@ -556,7 +556,7 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 
 
 
-<i>Specifies the value of a  {ref}`schema:variableparameter`.</i>
+<i>Specifies the **value** of an **inhomogeneousParameter.** For usage see  {ref}`schema:variableparameter`.</i>
 
 
 
@@ -600,7 +600,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying ohmic conductance density, which is distributed on a region of the cell. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
+<i>Specifies a time varying ohmic conductance density, which is distributed on a region of the **cell.** The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -610,7 +610,7 @@ extends *{ref}`schema:basechanneldensity`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -726,7 +726,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
+<i>Specifies a time varying conductance density, which is distributed on a region of the **cell,** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -832,7 +832,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
+<i>Specifies a time varying conductance density, which is distributed on a region of the **cell,** and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -938,7 +938,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the cell with fixed reversal potential **erev** producing a current density **iDensity**.</i>
+<i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the **cell** ( specified in  {ref}`schema:membraneproperties` ) with fixed reversal potential **erev** producing a current density **iDensity**.</i>
 
 
 
@@ -949,7 +949,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 :delim: $
 
 **condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -960,8 +960,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensity is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1070,7 +1070,7 @@ extends {ref}`schema:channeldensity`
 :delim: $
 
 **condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
-**erev**$  *(from {ref}`schema:channeldensity`)* ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced *(from {ref}`schema:channeldensity`)* ${ref}`schema:dimensions:voltage`
 **vShift**$  ${ref}`schema:dimensions:voltage`
 
 ```
@@ -1082,8 +1082,8 @@ extends {ref}`schema:channeldensity`
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensity is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1134,7 +1134,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
+<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the **cell,** producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1155,8 +1155,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityNernst is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1179,7 +1179,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced, calculated from caConcExt and caConc ${ref}`schema:dimensions:voltage`
 **gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 **iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
@@ -1282,8 +1282,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityNernstCa2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1306,7 +1306,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
 **gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 **iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
@@ -1409,8 +1409,8 @@ extends *{ref}`schema:basechanneldensity`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1528,8 +1528,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1635,7 +1635,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Simple model of a conductance based cell, with no separate morphology element, just an absolute capacitance **C,** and a set of channel populations.</i>
+<i>Simple model of a conductance based cell, with no separate  {ref}`schema:morphology` element, just an absolute capacitance **C,** and a set of channel **populations.** Note: use of  {ref}`schema:cell` is generally preferable, even for a single compartment cell.</i>
 
 
 
@@ -1646,8 +1646,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 :delim: $
 
 **C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
-**thresh**$  ${ref}`schema:dimensions:voltage`
-**v0**$  ${ref}`schema:dimensions:voltage`
+**thresh**$ The voltage threshold above which the cell is considered to be _spiking ${ref}`schema:dimensions:voltage`
+**v0**$ The initial membrane potential of the cell ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1771,8 +1771,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 :delim: $
 
 **C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
-**thresh**$  ${ref}`schema:dimensions:voltage`
-**v0**$  ${ref}`schema:dimensions:voltage`
+**thresh**$ The voltage threshold above which the cell is considered to be _spiking ${ref}`schema:dimensions:voltage`
+**v0**$ The initial membrane potential of the cell ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1890,7 +1890,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point furthest from the soma in a segment.</i>
+<i>Point in a  {ref}`schema:segment` furthest from the soma.</i>
 
 
 
@@ -1900,10 +1900,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**diameter**$ Diameter at point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**x**$ x coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**y**$ y coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**z**$ z coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**diameter**$ Diameter of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**x**$ x coordinate of the point. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**y**$ y coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**z**$ z coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
 
 ```
 ````
@@ -1914,10 +1914,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**radius**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**xLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**yLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**zLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**radius**$ A dimensional quantity given by half the _diameter. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**xLength**$ A version of _x with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**yLength**$ A version of _y with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**zLength**$ A version of _z with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -1950,7 +1950,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point closest to the soma in a segment. Note, if the proximal point is equal to the distal point of the parent segment, proximal can be omitted.</i>
+<i>Point in a  {ref}`schema:segment` closest to the soma. Note, if the proximal point is equal to the  {ref}`schema:distal` point of the parent  {ref}`schema:segment`, proximal can be omitted.</i>
 
 
 
@@ -1960,10 +1960,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**diameter**$ Diameter at point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**x**$ x coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**y**$ y coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**z**$ z coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**diameter**$ Diameter of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**x**$ x coordinate of the point. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**y**$ y coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**z**$ z coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
 
 ```
 ````
@@ -1974,10 +1974,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**radius**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**xLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**yLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**zLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**radius**$ A dimensional quantity given by half the _diameter. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**xLength**$ A version of _x with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**yLength**$ A version of _y with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**zLength**$ A version of _z with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -2006,7 +2006,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Specifies the segment which is this segment's parent.</i>
+<i>Specifies the  {ref}`schema:segment` which is this segment's parent.</i>
 
 
 
