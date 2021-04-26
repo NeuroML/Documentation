@@ -8,7 +8,7 @@ Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroM
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -277,7 +277,7 @@ extends *{ref}`schema:basepynniafcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
 
@@ -307,19 +307,19 @@ extends *{ref}`schema:basepynniafcell`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = v_reset \* MVOLT
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = v_reset \* MVOLT
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
+: &emsp;&emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; v_thresh * MVOLT THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (MVOLT * ((i_offset/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
+: &emsp;&emsp; IF v &gt; v_thresh * MVOLT THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (MVOLT * ((i_offset/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
 ````
 
 ````{tabbed} Usage
@@ -415,7 +415,7 @@ extends *{ref}`schema:basepynniafcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
 
@@ -445,19 +445,19 @@ extends *{ref}`schema:basepynniafcell`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = v_reset \* MVOLT
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = v_reset \* MVOLT
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
+: &emsp;&emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; v_thresh * MVOLT THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
+: &emsp;&emsp; IF v &gt; v_thresh * MVOLT THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
 ````
 
 ````{tabbed} Usage
@@ -555,7 +555,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
 
@@ -585,19 +585,19 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = v_reset \* MVOLT
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = v_reset \* MVOLT
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
+: &emsp;&emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; v_thresh * MVOLT THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (MVOLT * (((i_offset) / cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
+: &emsp;&emsp; IF v &gt; v_thresh * MVOLT THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset) / cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
 ````
 
 ````{tabbed} Usage
@@ -698,7 +698,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
 
@@ -728,19 +728,19 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = v_reset \* MVOLT
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = v_reset \* MVOLT
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
+: &emsp;&emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; v_thresh * MVOLT THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
+: &emsp;&emsp; IF v &gt; v_thresh * MVOLT THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
 ````
 
 ````{tabbed} Usage
@@ -855,7 +855,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **w**: Dimensionless &emsp;(exposed as **w**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
@@ -893,23 +893,23 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = v_reset \* MVOLT
-: &emsp; **w** = w+b
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = v_reset \* MVOLT
+: &emsp;&emsp; **w** = w+b
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
-: <i>**Time derivatives**</i>
-: &emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
+: &emsp;&emsp; IF t &gt; lastSpikeTime + (tau_refrac*MSEC) THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; eif_threshold * MVOLT THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (MVOLT * ((-1 * ((v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))
-: &emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
+: &emsp;&emsp; IF v &gt; eif_threshold * MVOLT THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (MVOLT * ((-1 * ((v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))
+: &emsp;&emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
 ````
 
 ````{tabbed} Usage
@@ -1024,7 +1024,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **w**: Dimensionless &emsp;(exposed as **w**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
@@ -1062,23 +1062,23 @@ extends *{ref}`schema:basepynniafcondcell`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = v_reset \* MVOLT
-: &emsp; **w** = w + b
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = v_reset \* MVOLT
+: &emsp;&emsp; **w** = w + b
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + (tau_refrac * MSEC) THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
-: <i>**Time derivatives**</i>
-: &emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
+: &emsp;&emsp; IF t &gt; lastSpikeTime + (tau_refrac * MSEC) THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; eif_threshold * MVOLT THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (MVOLT * ((-1 * ( (v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))
-: &emsp; d **w** /dt = (1/ tau_w) * (a*((v/MVOLT)-v_rest) - w) /MSEC
+: &emsp;&emsp; IF v &gt; eif_threshold * MVOLT THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (MVOLT * ((-1 * ( (v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))
+: &emsp;&emsp; d **w** /dt = (1/ tau_w) * (a*((v/MVOLT)-v_rest) - w) /MSEC
 ````
 
 ````{tabbed} Usage
@@ -1181,7 +1181,7 @@ extends *{ref}`schema:basepynncell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **m**: Dimensionless &emsp;(exposed as **m**)
 : **h**: Dimensionless &emsp;(exposed as **h**)
@@ -1359,6 +1359,17 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1397,7 +1408,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **g**: Dimensionless &emsp;(exposed as **g**)
 
 
@@ -1413,7 +1424,7 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**g** = g+weight
+: &emsp;&emsp;&emsp;**g** = g+weight
 
 
 
@@ -1477,6 +1488,17 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1514,7 +1536,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **I**: Dimensionless 
 
 
@@ -1530,7 +1552,7 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**I** = I + weight
+: &emsp;&emsp;&emsp;**I** = I + weight
 
 
 
@@ -1595,6 +1617,17 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1634,7 +1667,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **g**: Dimensionless &emsp;(exposed as **g**)
 : **A**: Dimensionless &emsp;(exposed as **A**)
 
@@ -1651,7 +1684,7 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + weight
+: &emsp;&emsp;&emsp;**A** = A + weight
 
 
 
@@ -1716,6 +1749,17 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1754,7 +1798,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **I**: Dimensionless 
 : **A**: Dimensionless &emsp;(exposed as **A**)
 
@@ -1771,7 +1815,7 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + weight
+: &emsp;&emsp;&emsp;**A** = A + weight
 
 
 
@@ -1891,7 +1935,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnextIdeal**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextIdeal**)
 : **tnextUsed**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextUsed**)
@@ -1916,11 +1960,11 @@ extends *{ref}`schema:basespikesource`*
 <i>**On Conditions**</i>
 
 : IF t &gt; tnextUsed THEN
-: &emsp;**isi** = -1 * log(random(1))/rate
-: &emsp;**tnextIdeal** = (tnextIdeal+isi) + H(((tnextIdeal+isi) - (start+duration))/duration)*LONG_TIME
-: &emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
-: &emsp;**tsince** = 0
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**isi** = -1 * log(random(1))/rate
+: &emsp;&emsp;&emsp;**tnextIdeal** = (tnextIdeal+isi) + H(((tnextIdeal+isi) - (start+duration))/duration)*LONG_TIME
+: &emsp;&emsp;&emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 

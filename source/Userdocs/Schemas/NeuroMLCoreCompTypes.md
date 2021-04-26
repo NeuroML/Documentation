@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.co
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -115,10 +115,12 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**tag**
-**value**
+**tag**$ Name of the property
+**value**$ 
 
 ````
 
@@ -187,9 +189,11 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**xmlns:rdf**
+**xmlns:rdf**$ 
 
 ````
 
@@ -217,9 +221,11 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**rdf:about**
+**rdf:about**$ 
 
 ````
 
@@ -438,9 +444,11 @@ extends *{ref}`schema:basebqbiol`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**xmlns:bqbiol**
+**xmlns:bqbiol**$ 
 
 ````
 
@@ -506,9 +514,11 @@ extends *{ref}`schema:basebqbiol`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**xmlns:bqmodel**
+**xmlns:bqmodel**$ 
 
 ````
 
@@ -562,9 +572,11 @@ extends *{ref}`schema:basebqbiol`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**rdf:resource**
+**rdf:resource**$ 
 
 ````
 

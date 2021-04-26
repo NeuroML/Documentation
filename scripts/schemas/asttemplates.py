@@ -204,10 +204,12 @@ misc1c = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}
+    :widths: 1, 7
     :width: 100%
+    :delim: $
 
     {% for text in textlist -%}
-    **{{ text.name }}**
+    **{{ text.name }}**$ {{ text.description if text.description }}
     {% endfor %}
     ````
     """

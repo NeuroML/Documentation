@@ -8,7 +8,7 @@ Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/Neur
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -280,7 +280,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnext**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnext**)
 
@@ -301,9 +301,9 @@ extends *{ref}`schema:basespikesource`*
 <i>**On Conditions**</i>
 
 : IF tnext-t &lt; SMALL_TIME THEN
-: &emsp;**tsince** = 0
-: &emsp;**tnext** = tnext+period
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**tnext** = tnext+period
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -403,7 +403,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnext**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnext**)
 : **isi**: {ref}`schema:dimensions:time` &emsp;(exposed as **isi**)
@@ -426,10 +426,10 @@ extends *{ref}`schema:basespikesource`*
 <i>**On Conditions**</i>
 
 : IF t &gt; tnext THEN
-: &emsp;**isi** = minISI + MSEC * random((maxISI - minISI) / MSEC)
-: &emsp;**tsince** = 0
-: &emsp;**tnext** = tnext+isi
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**isi** = minISI + MSEC * random((maxISI - minISI) / MSEC)
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**tnext** = tnext+isi
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -529,7 +529,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnextIdeal**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextIdeal**)
 : **tnextUsed**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextUsed**)
@@ -554,11 +554,11 @@ extends *{ref}`schema:basespikesource`*
 <i>**On Conditions**</i>
 
 : IF t &gt; tnextUsed THEN
-: &emsp;**tsince** = 0
-: &emsp;**isi** = -1 * log(random(1)) / averageRate
-: &emsp;**tnextIdeal** = (tnextIdeal+isi)
-: &emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**isi** = -1 * log(random(1)) / averageRate
+: &emsp;&emsp;&emsp;**tnextIdeal** = (tnextIdeal+isi)
+: &emsp;&emsp;&emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -660,7 +660,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnextIdeal**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextIdeal**)
 : **tnextUsed**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextUsed**)
@@ -685,11 +685,11 @@ extends {ref}`schema:spikegeneratorpoisson`
 <i>**On Conditions**</i>
 
 : IF t &gt; tnextUsed THEN
-: &emsp;**tsince** = 0
-: &emsp;**isi** = minimumISI - (averageIsi-minimumISI) * log(random(1))
-: &emsp;**tnextIdeal** = (tnextIdeal+isi)
-: &emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**isi** = minimumISI - (averageIsi-minimumISI) * log(random(1))
+: &emsp;&emsp;&emsp;**tnextIdeal** = (tnextIdeal+isi)
+: &emsp;&emsp;&emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -763,9 +763,11 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````{tabbed} Paths
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**spikeTarget**
+**spikeTarget**$ 
 
 ````
 
@@ -787,6 +789,17 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :delim: $
 
 **SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -842,7 +855,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnextIdeal**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextIdeal**)
 : **tnextUsed**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextUsed**)
@@ -867,11 +880,11 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 <i>**On Conditions**</i>
 
 : IF t &gt; tnextUsed THEN
-: &emsp;**tsince** = 0
-: &emsp;**isi** = - averageIsi * log(1 - random(1))
-: &emsp;**tnextIdeal** = (tnextIdeal+isi)
-: &emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**isi** = - averageIsi * log(1 - random(1))
+: &emsp;&emsp;&emsp;**tnextIdeal** = (tnextIdeal+isi)
+: &emsp;&emsp;&emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -953,9 +966,11 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````{tabbed} Paths
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**spikeTarget**
+**spikeTarget**$ 
 
 ````
 
@@ -978,6 +993,17 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 **SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
 **LONG_TIME** = 1e9hour$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -1033,7 +1059,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **tnextIdeal**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextIdeal**)
 : **tnextUsed**: {ref}`schema:dimensions:time` &emsp;(exposed as **tnextUsed**)
@@ -1058,11 +1084,11 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 <i>**On Conditions**</i>
 
 : IF t &gt; tnextUsed THEN
-: &emsp;**tsince** = 0
-: &emsp;**isi** = - averageIsi * log(1 - random(1))
-: &emsp;**tnextIdeal** = (tnextIdeal+isi) + H(((t+isi) - (delay+duration))/duration)*LONG_TIME
-: &emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**isi** = - averageIsi * log(1 - random(1))
+: &emsp;&emsp;&emsp;**tnextIdeal** = (tnextIdeal+isi) + H(((t+isi) - (delay+duration))/duration)*LONG_TIME
+: &emsp;&emsp;&emsp;**tnextUsed** = tnextIdeal*H( (tnextIdeal-t)/t ) + (t+SMALL_TIME)*H( (t-tnextIdeal)/t )
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -1123,9 +1149,11 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````{tabbed} Paths
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**spikeTarget**
+**spikeTarget**$ 
 
 ````
 
@@ -1147,6 +1175,17 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :delim: $
 
 **spikes**$  $ {ref}`schema:spike`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -1198,7 +1237,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 
 
@@ -1214,8 +1253,8 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**tsince** = 0
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -1299,6 +1338,17 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1325,7 +1375,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **i**: {ref}`schema:dimensions:current` &emsp;(exposed as **i**)
 
 
@@ -1347,13 +1397,13 @@ extends *{ref}`schema:basepointcurrent`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**i** = 0
+: &emsp;&emsp;&emsp;**i** = 0
 
 : IF t &gt;= delay AND t &lt; duration + delay THEN
-: &emsp;**i** = weight * amplitude
+: &emsp;&emsp;&emsp;**i** = weight * amplitude
 
 : IF t &gt;= duration + delay THEN
-: &emsp;**i** = 0
+: &emsp;&emsp;&emsp;**i** = 0
 
 
 
@@ -1377,13 +1427,13 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 
 *XML examples*
 ```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.08nA"/>
+<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.3nA"/>
 ```
 ```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="20ms" duration="100ms" amplitude="0.2nA"/>
+<pulseGenerator id="pulseGen2" delay="100ms" duration="100ms" amplitude="0.4nA"/>
 ```
 ```{code-block} xml
-<pulseGenerator id="pulseGen3" delay="30ms" duration="100ms" amplitude="0.18nA"/>
+<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
 ```
 
 ````
@@ -1410,6 +1460,17 @@ extends *{ref}`schema:basepointcurrent`*
 :delim: $
 
 **currents**$  $ {ref}`schema:basepointcurrent`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -1516,6 +1577,17 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1611,6 +1683,17 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1637,7 +1720,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **I**: Dimensionless &emsp;(exposed as **I**)
 
 
@@ -1659,13 +1742,13 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**I** = 0
+: &emsp;&emsp;&emsp;**I** = 0
 
 : IF t &gt;= delay AND t &lt; duration + delay THEN
-: &emsp;**I** = weight * amplitude
+: &emsp;&emsp;&emsp;**I** = weight * amplitude
 
 : IF t &gt;= duration + delay THEN
-: &emsp;**I** = 0
+: &emsp;&emsp;&emsp;**I** = 0
 
 
 
@@ -1719,6 +1802,17 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1745,7 +1839,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **i**: {ref}`schema:dimensions:current` &emsp;(exposed as **i**)
 
 
@@ -1767,13 +1861,13 @@ extends *{ref}`schema:basepointcurrent`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**i** = 0
+: &emsp;&emsp;&emsp;**i** = 0
 
 : IF t &gt;= delay AND t &lt; duration+delay THEN
-: &emsp;**i** = weight * amplitude * sin(phase + (2 * 3.14159265 * (t-delay)/period) )
+: &emsp;&emsp;&emsp;**i** = weight * amplitude * sin(phase + (2 * 3.14159265 * (t-delay)/period) )
 
 : IF t &gt;= duration+delay THEN
-: &emsp;**i** = 0
+: &emsp;&emsp;&emsp;**i** = 0
 
 
 
@@ -1835,6 +1929,17 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1861,7 +1966,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **I**: Dimensionless &emsp;(exposed as **I**)
 
 
@@ -1883,13 +1988,13 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**I** = 0
+: &emsp;&emsp;&emsp;**I** = 0
 
 : IF t &gt;= delay AND t &lt; duration+delay THEN
-: &emsp;**I** = weight * amplitude * sin(phase + (2 * 3.14159265 * (t-delay)/period) )
+: &emsp;&emsp;&emsp;**I** = weight * amplitude * sin(phase + (2 * 3.14159265 * (t-delay)/period) )
 
 : IF t &gt;= duration+delay THEN
-: &emsp;**I** = 0
+: &emsp;&emsp;&emsp;**I** = 0
 
 
 
@@ -1943,6 +2048,17 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1969,7 +2085,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **i**: {ref}`schema:dimensions:current` &emsp;(exposed as **i**)
 
 
@@ -1993,13 +2109,13 @@ extends *{ref}`schema:basepointcurrent`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**i** = weight * baselineAmplitude
+: &emsp;&emsp;&emsp;**i** = weight * baselineAmplitude
 
 : IF t &gt;= delay AND t &lt; duration+delay THEN
-: &emsp;**i** = weight * (startAmplitude + (finishAmplitude - startAmplitude) * (t - delay) / (duration))
+: &emsp;&emsp;&emsp;**i** = weight * (startAmplitude + (finishAmplitude - startAmplitude) * (t - delay) / (duration))
 
 : IF t &gt;= duration+delay THEN
-: &emsp;**i** = weight * baselineAmplitude
+: &emsp;&emsp;&emsp;**i** = weight * baselineAmplitude
 
 
 
@@ -2058,6 +2174,17 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -2084,7 +2211,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **I**: Dimensionless &emsp;(exposed as **I**)
 
 
@@ -2108,13 +2235,13 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**I** = weight * baselineAmplitude
+: &emsp;&emsp;&emsp;**I** = weight * baselineAmplitude
 
 : IF t &gt;= delay AND t &lt; duration+delay THEN
-: &emsp;**I** = weight * (startAmplitude + (finishAmplitude - startAmplitude) * (t - delay) / (duration))
+: &emsp;&emsp;&emsp;**I** = weight * (startAmplitude + (finishAmplitude - startAmplitude) * (t - delay) / (duration))
 
 : IF t &gt;= duration+delay THEN
-: &emsp;**I** = weight * baselineAmplitude
+: &emsp;&emsp;&emsp;**I** = weight * baselineAmplitude
 
 
 
@@ -2167,6 +2294,17 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -2204,7 +2342,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **i**: {ref}`schema:dimensions:current` &emsp;(exposed as **i**)
 
 
@@ -2226,13 +2364,13 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>**On Conditions**</i>
 
 : IF t &lt; delay THEN
-: &emsp;**i** = 0
+: &emsp;&emsp;&emsp;**i** = 0
 
 : IF t &gt;= delay THEN
-: &emsp;**i** = weight * (targetVoltage - v) / simpleSeriesResistance
+: &emsp;&emsp;&emsp;**i** = weight * (targetVoltage - v) / simpleSeriesResistance
 
 : IF t &gt; duration + delay THEN
-: &emsp;**i** = 0
+: &emsp;&emsp;&emsp;**i** = 0
 
 
 
@@ -2288,6 +2426,17 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -2325,7 +2474,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **i**: {ref}`schema:dimensions:current` &emsp;(exposed as **i**)
 
 
@@ -2347,13 +2496,13 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>**On Conditions**</i>
 
 : IF active = 1 AND t &lt; delay THEN
-: &emsp;**i** = weight * (conditioningVoltage - v) / simpleSeriesResistance
+: &emsp;&emsp;&emsp;**i** = weight * (conditioningVoltage - v) / simpleSeriesResistance
 
 : IF active = 1 AND t &gt;= delay THEN
-: &emsp;**i** = weight * (testingVoltage - v) / simpleSeriesResistance
+: &emsp;&emsp;&emsp;**i** = weight * (testingVoltage - v) / simpleSeriesResistance
 
 : IF active = 1 AND t &gt; duration + delay THEN
-: &emsp;**i** = weight * (returnVoltage - v) / simpleSeriesResistance
+: &emsp;&emsp;&emsp;**i** = weight * (returnVoltage - v) / simpleSeriesResistance
 
 
 
@@ -2435,7 +2584,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 
 
@@ -2453,8 +2602,8 @@ extends *{ref}`schema:basespikesource`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**tsince** = 0
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -2553,7 +2702,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
 : **spiked**: Dimensionless &emsp;(exposed as **spiked**)
 
@@ -2573,9 +2722,9 @@ extends *{ref}`schema:basespikesource`*
 <i>**On Conditions**</i>
 
 : IF (t &gt;= time) AND (spiked = 0) THEN
-: &emsp;**spiked** = 1
-: &emsp;**tsince** = 0
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**spiked** = 1
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 

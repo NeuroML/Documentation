@@ -8,7 +8,7 @@ Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/Neuro
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -217,9 +217,11 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**ion**
+**ion**$ 
 
 ````
 
@@ -327,9 +329,11 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**ion**
+**ion**$ 
 
 ````
 
@@ -505,10 +509,12 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**parameter**
-**segmentGroup**
+**parameter**$ 
+**segmentGroup**$ 
 
 ````
 
@@ -556,10 +562,12 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**inhomogeneousParameter**
-**value**
+**inhomogeneousParameter**$ 
+**value**$ 
 
 ````
 
@@ -609,10 +617,12 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -722,10 +732,12 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -826,10 +838,12 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -942,10 +956,12 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -1021,13 +1037,13 @@ variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_den
 
 *XML examples*
 ```{code-block} xml
+<channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>
+```
+```{code-block} xml
 <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
 ```
 ```{code-block} xml
 <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-```
-```{code-block} xml
-<channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
 ```
 
 ````
@@ -1062,10 +1078,12 @@ extends {ref}`schema:channeldensity`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -1133,10 +1151,12 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -1258,10 +1278,12 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -1383,10 +1405,12 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -1500,10 +1524,12 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
-**ion**
+**segmentGroup**$ 
+**ion**$ 
 
 ````
 
@@ -1676,7 +1702,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **spiking**: Dimensionless 
 
@@ -1697,11 +1723,11 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh AND spiking &lt; 0.5 THEN
-: &emsp;**spiking** = 1
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**spiking** = 1
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 : IF v &lt; thresh THEN
-: &emsp;**spiking** = 0
+: &emsp;&emsp;&emsp;**spiking** = 0
 
 
 
@@ -1804,7 +1830,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **spiking**: Dimensionless 
 
@@ -1825,11 +1851,11 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh AND spiking &lt; 0.5 THEN
-: &emsp;**spiking** = 1
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**spiking** = 1
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 : IF v &lt; thresh THEN
-: &emsp;**spiking** = 0
+: &emsp;&emsp;&emsp;**spiking** = 0
 
 
 
@@ -1902,13 +1928,13 @@ extends {ref}`schema:point3dwithdiam`
 
 *XML examples*
 ```{code-block} xml
-<distal x="0" y="0" z="0" diameter="17.841242"/>
-```
-```{code-block} xml
 <distal x="10" y="0" z="0" diameter="10"/>
 ```
 ```{code-block} xml
 <distal x="20" y="0" z="0" diameter="3"/>
+```
+```{code-block} xml
+<distal x="30" y="0" z="0" diameter="1"/>
 ```
 
 ````
@@ -1962,13 +1988,13 @@ extends {ref}`schema:point3dwithdiam`
 
 *XML examples*
 ```{code-block} xml
-<proximal x="0" y="0" z="0" diameter="17.841242"/>
-```
-```{code-block} xml
 <proximal x="0" y="0" z="0" diameter="10"/>
 ```
 ```{code-block} xml
 <proximal x="10" y="0" z="0" diameter="3"/>
+```
+```{code-block} xml
+<proximal translationStart="0"/>
 ```
 
 ````
@@ -1986,10 +2012,12 @@ extends {ref}`schema:point3dwithdiam`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segment**
-**fractionAlong**
+**segment**$ 
+**fractionAlong**$ 
 
 ````
 
@@ -2005,7 +2033,7 @@ extends {ref}`schema:point3dwithdiam`
 <parent segment="1"/>
 ```
 ```{code-block} xml
-<parent segment="2" fractionAlong="0.5"/>
+<parent segment="0"/>
 ```
 
 ````
@@ -2023,9 +2051,11 @@ extends {ref}`schema:point3dwithdiam`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**name**
+**name**$ 
 
 ````
 
@@ -2111,12 +2141,6 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 *XML examples*
 ```{code-block} xml
-<segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
-            </segment>
-```
-```{code-block} xml
 <segment id="0" name="Soma">    
                 
                 <proximal x="0" y="0" z="0" diameter="10"/>
@@ -2129,6 +2153,13 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
                 
                 <proximal x="10" y="0" z="0" diameter="3"/> 
                 <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+```
+```{code-block} xml
+<segment id="2" name="MainDendrite2">
+                <parent segment="1"/>
+                
+                <distal x="30" y="0" z="0" diameter="1"/>
             </segment>
 ```
 
@@ -2147,9 +2178,11 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**neuroLexId**
+**neuroLexId**$ 
 
 ````
 
@@ -2194,19 +2227,27 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 *XML examples*
 ```{code-block} xml
-<segmentGroup id="soma_group">
-                <member segment="0"/>
-            </segmentGroup>
-```
-```{code-block} xml
 <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
                 <member segment="0"/>
             </segmentGroup>
 ```
 ```{code-block} xml
-<segmentGroup id="thick_dendrites">
+<segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
                 <member segment="1"/>
                 <member segment="2"/>
+                
+                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
+ 
+                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
+                        <proximal translationStart="0"/>
+                        <distal normalizationEnd="1"/>
+                </inhomogeneousParameter>
+                
+            </segmentGroup>
+```
+```{code-block} xml
+<segmentGroup id="soma_group" neuroLexId="sao1044911821">    
+                <member segment="0"/>
             </segmentGroup>
 ```
 
@@ -2225,9 +2266,11 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segment**
+**segment**$ 
 
 ````
 
@@ -2247,10 +2290,10 @@ variable = Member(segments=None, **kwargs_)
 <member segment="0"/>
 ```
 ```{code-block} xml
-<member segment="0"/>
+<member segment="1"/>
 ```
 ```{code-block} xml
-<member segment="1"/>
+<member segment="2"/>
 ```
 
 ````
@@ -2268,9 +2311,11 @@ variable = Member(segments=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segment**
+**segment**$ 
 
 ````
 
@@ -2301,9 +2346,11 @@ variable = Member(segments=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segment**
+**segment**$ 
 
 ````
 
@@ -2331,10 +2378,12 @@ variable = Member(segments=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**href**
-**segmentGroup**
+**href**$ 
+**segmentGroup**$ 
 
 ````
 
@@ -2351,13 +2400,13 @@ variable = Include(segment_groups=None, **kwargs_)
 
 *XML examples*
 ```{code-block} xml
+<include href="NML2_SimpleIonChannel.nml"/>
+```
+```{code-block} xml
 <include segmentGroup="thick_dendrites"/>
 ```
 ```{code-block} xml
 <include segmentGroup="spines"/>
-```
-```{code-block} xml
-<include href="NML2_SingleCompHHCell.nml"/>
 ```
 
 ````
@@ -2461,10 +2510,12 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**variable**
-**metric**
+**variable**$ 
+**metric**$ 
 
 ````
 
@@ -2517,9 +2568,11 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**translationStart**
+**translationStart**$ 
 
 ````
 
@@ -2536,9 +2589,11 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**normalizationEnd**
+**normalizationEnd**$ 
 
 ````
 
@@ -2578,13 +2633,39 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 *XML examples*
 ```{code-block} xml
-<morphology id="morph1">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
+<morphology id="SimpleCell_Morphology">
+            
+            <segment id="0" name="Soma">    
+                
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
             </segment>
-            <segmentGroup id="soma_group">
+            <segment id="1" name="MainDendrite1">
+                <parent segment="0"/>
+                
+                <proximal x="10" y="0" z="0" diameter="3"/> 
+                <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+            <segment id="2" name="MainDendrite2">
+                <parent segment="1"/>
+                
+                <distal x="30" y="0" z="0" diameter="1"/>
+            </segment>
+            
+            <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
                 <member segment="0"/>
+            </segmentGroup>
+            <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
+                <member segment="1"/>
+                <member segment="2"/>
+                
+                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
+ 
+                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
+                        <proximal translationStart="0"/>
+                        <distal normalizationEnd="1"/>
+                </inhomogeneousParameter>
+                
             </segmentGroup>
         </morphology>
 ```
@@ -2645,30 +2726,14 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
         </morphology>
 ```
 ```{code-block} xml
-<morphology id="CellWithDends_morphology">
-            <segment id="0" name="Soma">
-                
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
-            </segment>
-            <segment id="1" name="Dendrite1">
-                <parent segment="0"/>
-                <distal x="20" y="0" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="Dendrite2">
-                <parent segment="1"/>
-                <distal x="30" y="0" z="0" diameter="1"/>
-            </segment>
+<morphology id="NeuroMorpho_PyrCell123">  
+        <segment id="0" name="Soma">
             
-            
-            <segmentGroup id="soma_group"> 
-                <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group">
-                <member segment="1"/>
-                <member segment="2"/>
-            </segmentGroup>
-        </morphology>
+            <proximal x="0" y="0" z="0" diameter="10"/>
+            <distal x="10" y="0" z="0" diameter="10"/>
+        </segment>
+        
+    </morphology>
 ```
 
 ````
@@ -2697,9 +2762,11 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
+**segmentGroup**$ 
 
 ````
 
@@ -2746,13 +2813,13 @@ variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, 
 
 *XML examples*
 ```{code-block} xml
-<specificCapacitance value="1.0 uF_per_cm2"/>
-```
-```{code-block} xml
-<specificCapacitance value="1.0 uF_per_cm2"/>
-```
-```{code-block} xml
 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+```
+```{code-block} xml
+<specificCapacitance value="1.0 uF_per_cm2"/>
+```
+```{code-block} xml
+<specificCapacitance xmlns:xi="http://www.w3.org/2001/XInclude" segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
 ```
 
 ````
@@ -2942,34 +3009,34 @@ variable = MembraneProperties(channel_populations=None, channel_densities=None, 
 *XML examples*
 ```{code-block} xml
 <membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
-            </membraneProperties>
-```
-```{code-block} xml
-<membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
-            </membraneProperties>
-```
-```{code-block} xml
-<membraneProperties>
                 <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
                     <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
                         <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
                     </variableParameter>
                 </channelDensityNonUniform>
                 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+            </membraneProperties>
+```
+```{code-block} xml
+<membraneProperties> 
+        
+            
+            <channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>  
+            <!-- Ions present inside the cell. Note: a fixed reversal potential is specified here  
+            <reversalPotential species="na" value="50mV"/>
+            <reversalPotential species="k" value="-77mV"/>-->
+            
+        </membraneProperties>
+```
+```{code-block} xml
+<membraneProperties>
+                        
+                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
+                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65mV"/>
             </membraneProperties>
 ```
 
@@ -3148,20 +3215,37 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 
 *XML examples*
 ```{code-block} xml
-<biophysicalProperties id="bioPhys1">
+<biophysicalProperties id="biophys">
             <membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
+                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
+                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
+                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
+                    </variableParameter>
+                </channelDensityNonUniform>
+                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
             </membraneProperties>
             <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   
+                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
         </biophysicalProperties>
+```
+```{code-block} xml
+<biophysicalProperties id="PyrCellChanDist">
+        <membraneProperties> 
+        
+            
+            <channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>  
+            <!-- Ions present inside the cell. Note: a fixed reversal potential is specified here  
+            <reversalPotential species="na" value="50mV"/>
+            <reversalPotential species="k" value="-77mV"/>-->
+            
+        </membraneProperties>
+        <intracellularProperties>  
+            <resistivity value="0.1 kohm_cm"/>  
+            <!-- REMOVED UNTIL WE CHECK HOW THE USAGE OF LEMS IMPACTS THIS...
+            <biochemistry reactionScheme="InternalCaDynamics"/>  Ref to earlier pathway -->
+        </intracellularProperties>
+    </biophysicalProperties>
 ```
 ```{code-block} xml
 <biophysicalProperties id="bioPhys1">
@@ -3177,21 +3261,6 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
             </membraneProperties>
             <intracellularProperties>
                 <resistivity value="100 kohm_cm"/>   
-            </intracellularProperties>
-        </biophysicalProperties>
-```
-```{code-block} xml
-<biophysicalProperties id="biophys">
-            <membraneProperties>
-                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
-                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
-                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
-                    </variableParameter>
-                </channelDensityNonUniform>
-                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
-            </membraneProperties>
-            <intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
         </biophysicalProperties>
 ```
@@ -3333,17 +3402,19 @@ variable = IntracellularProperties(species=None, resistivities=None, extensionty
 *XML examples*
 ```{code-block} xml
 <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   
+                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
+```
+```{code-block} xml
+<intracellularProperties>  
+            <resistivity value="0.1 kohm_cm"/>  
+            <!-- REMOVED UNTIL WE CHECK HOW THE USAGE OF LEMS IMPACTS THIS...
+            <biochemistry reactionScheme="InternalCaDynamics"/>  Ref to earlier pathway -->
+        </intracellularProperties>
 ```
 ```{code-block} xml
 <intracellularProperties>
                 <resistivity value="100 kohm_cm"/>   
-            </intracellularProperties>
-```
-```{code-block} xml
-<intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
 ```
 
@@ -3449,9 +3520,11 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**segmentGroup**
+**segmentGroup**$ 
 
 ````
 
@@ -3468,13 +3541,13 @@ variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs
 
 *XML examples*
 ```{code-block} xml
-<resistivity value="0.03 kohm_cm"/>
-```
-```{code-block} xml
-<resistivity value="100 kohm_cm"/>
+<resistivity value="0.1 kohm_cm"/>
 ```
 ```{code-block} xml
 <resistivity value="0.1 kohm_cm"/>
+```
+```{code-block} xml
+<resistivity value="100 kohm_cm"/>
 ```
 
 ````
@@ -3492,9 +3565,11 @@ variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**ion**
+**ion**$ 
 
 ````
 
@@ -3527,7 +3602,7 @@ variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **concentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **concentration**)
 : **extConcentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **extConcentration**)
 
@@ -3582,9 +3657,11 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**ion**
+**ion**$ 
 
 ````
 
@@ -3631,7 +3708,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **concentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **concentration**)
 : **extConcentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **extConcentration**)
 
@@ -3652,7 +3729,7 @@ extends {ref}`schema:concentrationmodel`
 <i>**On Conditions**</i>
 
 : IF concentration &lt; 0 THEN
-: &emsp;**concentration** = 0
+: &emsp;&emsp;&emsp;**concentration** = 0
 
 
 
@@ -3717,9 +3794,11 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**ion**
+**ion**$ 
 
 ````
 
@@ -3754,7 +3833,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **concentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **concentration**)
 : **extConcentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **extConcentration**)
 
@@ -3775,7 +3854,7 @@ extends {ref}`schema:concentrationmodel`
 <i>**On Conditions**</i>
 
 : IF concentration &lt; 0 THEN
-: &emsp;**concentration** = 0
+: &emsp;&emsp;&emsp;**concentration** = 0
 
 
 
@@ -3833,9 +3912,11 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**species**
+**species**$ 
 
 ````
 
@@ -3870,7 +3951,7 @@ extends {ref}`schema:concentrationmodel`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **concentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **concentration**)
 : **extConcentration**: {ref}`schema:dimensions:concentration` &emsp;(exposed as **extConcentration**)
 
@@ -3891,7 +3972,7 @@ extends {ref}`schema:concentrationmodel`
 <i>**On Conditions**</i>
 
 : IF concentration &lt; 0 THEN
-: &emsp;**concentration** = 0
+: &emsp;&emsp;&emsp;**concentration** = 0
 
 
 
@@ -3931,10 +4012,12 @@ extends {ref}`schema:concentrationmodel`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**ion**
-**segmentGroup**
+**ion**$ 
+**segmentGroup**$ 
 
 ````
 
@@ -4015,9 +4098,11 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**neuroLexId**
+**neuroLexId**$ 
 
 ````
 
@@ -4078,7 +4163,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **spiking**: Dimensionless &emsp;(exposed as **spiking**)
 
@@ -4099,11 +4184,11 @@ extends *{ref}`schema:basecellmembpot`*
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh AND spiking &lt; 0.5 THEN
-: &emsp;**spiking** = 1
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**spiking** = 1
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 : IF v &lt; thresh THEN
-: &emsp;**spiking** = 0
+: &emsp;&emsp;&emsp;**spiking** = 0
 
 
 
@@ -4145,28 +4230,54 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
 
 *XML examples*
 ```{code-block} xml
-<cell id="hhcell">
-        <morphology id="morph1">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
+<cell id="SimpleCell">
+        <morphology id="SimpleCell_Morphology">
+            
+            <segment id="0" name="Soma">    
+                
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
             </segment>
-            <segmentGroup id="soma_group">
+            <segment id="1" name="MainDendrite1">
+                <parent segment="0"/>
+                
+                <proximal x="10" y="0" z="0" diameter="3"/> 
+                <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+            <segment id="2" name="MainDendrite2">
+                <parent segment="1"/>
+                
+                <distal x="30" y="0" z="0" diameter="1"/>
+            </segment>
+            
+            <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
                 <member segment="0"/>
             </segmentGroup>
+            <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
+                <member segment="1"/>
+                <member segment="2"/>
+                
+                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
+ 
+                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
+                        <proximal translationStart="0"/>
+                        <distal normalizationEnd="1"/>
+                </inhomogeneousParameter>
+                
+            </segmentGroup>
         </morphology>
-        <biophysicalProperties id="bioPhys1">
+        
+        <biophysicalProperties id="biophys">
             <membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
+                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
+                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
+                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
+                    </variableParameter>
+                </channelDensityNonUniform>
+                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
             </membraneProperties>
             <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   
+                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
@@ -4230,32 +4341,7 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
     </cell>
 ```
 ```{code-block} xml
-<cell id="dendCell">
-        <morphology id="CellWithDends_morphology">
-            <segment id="0" name="Soma">
-                
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
-            </segment>
-            <segment id="1" name="Dendrite1">
-                <parent segment="0"/>
-                <distal x="20" y="0" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="Dendrite2">
-                <parent segment="1"/>
-                <distal x="30" y="0" z="0" diameter="1"/>
-            </segment>
-            
-            
-            <segmentGroup id="soma_group"> 
-                <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group">
-                <member segment="1"/>
-                <member segment="2"/>
-            </segmentGroup>
-        </morphology>
-    </cell>
+<cell id="PyrCell" morphology="NeuroMorpho_PyrCell123" biophysicalProperties="PyrCellChanDist"/>
 ```
 
 ````
@@ -4277,9 +4363,11 @@ extends {ref}`schema:cell`
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**neuroLexId**
+**neuroLexId**$ 
 
 ````
 
@@ -4342,7 +4430,7 @@ extends {ref}`schema:cell`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **spiking**: Dimensionless &emsp;(exposed as **spiking**)
 
@@ -4363,11 +4451,11 @@ extends {ref}`schema:cell`
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh AND spiking &lt; 0.5 THEN
-: &emsp;**spiking** = 1
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**spiking** = 1
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 : IF v &lt; thresh THEN
-: &emsp;**spiking** = 0
+: &emsp;&emsp;&emsp;**spiking** = 0
 
 
 
@@ -4579,7 +4667,7 @@ extends *{ref}`schema:baseiaf`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 
 
@@ -4598,8 +4686,8 @@ extends *{ref}`schema:baseiaf`*
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh THEN
-: &emsp;**v** = reset
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**v** = reset
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -4688,7 +4776,7 @@ extends {ref}`schema:iaftaucell`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
 
@@ -4713,19 +4801,19 @@ extends {ref}`schema:iaftaucell`
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = reset
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = reset
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + refract THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
+: &emsp;&emsp; IF t &gt; lastSpikeTime + refract THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; thresh THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = (leakReversal - v) / tau
+: &emsp;&emsp; IF v &gt; thresh THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = (leakReversal - v) / tau
 ````
 
 ````{tabbed} Usage
@@ -4867,7 +4955,7 @@ extends *{ref}`schema:baseiafcapcell`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 
 
@@ -4886,8 +4974,8 @@ extends *{ref}`schema:baseiafcapcell`*
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh THEN
-: &emsp;**v** = reset
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**v** = reset
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -5002,7 +5090,7 @@ extends {ref}`schema:iafcell`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
 
@@ -5033,19 +5121,19 @@ extends {ref}`schema:iafcell`
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = reset
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = reset
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + refract THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
+: &emsp;&emsp; IF t &gt; lastSpikeTime + refract THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; thresh THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = iMemb / C
+: &emsp;&emsp; IF v &gt; thresh THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = iMemb / C
 ````
 
 ````{tabbed} Usage
@@ -5147,7 +5235,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **U**: Dimensionless &emsp;(exposed as **U**)
 
@@ -5168,9 +5256,9 @@ extends *{ref}`schema:basecellmembpot`*
 <i>**On Conditions**</i>
 
 : IF v &gt; thresh THEN
-: &emsp;**v** = c * MVOLT
-: &emsp;**U** = U + d
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**v** = c * MVOLT
+: &emsp;&emsp;&emsp;**U** = U + d
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -5284,7 +5372,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **u**: {ref}`schema:dimensions:current` &emsp;(exposed as **u**)
 
@@ -5305,9 +5393,9 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>**On Conditions**</i>
 
 : IF v &gt; vpeak THEN
-: &emsp;**v** = c
-: &emsp;**u** = u + d
-: &emsp;EVENT OUT on port **spike**
+: &emsp;&emsp;&emsp;**v** = c
+: &emsp;&emsp;&emsp;**u** = u + d
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
 
 
 
@@ -5423,7 +5511,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
 : **w**: {ref}`schema:dimensions:current` &emsp;(exposed as **w**)
 : **lastSpikeTime**: {ref}`schema:dimensions:time` 
@@ -5456,23 +5544,23 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 <i>**Regime: refractory (initial)**</i>
 : <i>**On Entry**</i>
-: &emsp; **lastSpikeTime** = t
-: &emsp; **v** = reset
-: &emsp; **w** = w + b
+: &emsp;&emsp; **lastSpikeTime** = t
+: &emsp;&emsp; **v** = reset
+: &emsp;&emsp; **w** = w + b
 : <i>**On Conditions**</i>
-: &emsp; IF t &gt; lastSpikeTime + refract THEN
-: &emsp;&emsp;TRANSITION to REGIME **integrating**
-: <i>**Time derivatives**</i>
-: &emsp; d **w** /dt = (a * (v - EL) - w) / tauw
+: &emsp;&emsp; IF t &gt; lastSpikeTime + refract THEN
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **integrating**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **w** /dt = (a * (v - EL) - w) / tauw
 
 <i>**Regime: integrating (initial)**</i>
 : <i>**On Conditions**</i>
-: &emsp; IF v &gt; thresh THEN
-: &emsp;&emsp;EVENT OUT on port **spike**
-: &emsp;&emsp;TRANSITION to REGIME **refractory**
-: <i>**Time derivatives**</i>
-: &emsp; d **v** /dt = iMemb / C
-: &emsp; d **w** /dt = (a * (v - EL) - w) / tauw
+: &emsp;&emsp; IF v &gt; thresh THEN
+: &emsp;&emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+: &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
+: <i>**Time Derivatives**</i>
+: &emsp;&emsp; d **v** /dt = iMemb / C
+: &emsp;&emsp; d **w** /dt = (a * (v - EL) - w) / tauw
 ````
 
 ````{tabbed} Usage
@@ -5557,7 +5645,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **V**: Dimensionless &emsp;(exposed as **V**)
 : **W**: Dimensionless &emsp;(exposed as **W**)
 
@@ -5694,7 +5782,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **Vs**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **Vs**)
 : **Vd**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **Vd**)
 : **Cad**: Dimensionless &emsp;(exposed as **Cad**)

@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 02/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/dda624b705adeb399adb497087ed48c9fe2abe22) commit.
+Generated on 26/04/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -241,6 +241,17 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -267,7 +278,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **I**: {ref}`schema:dimensions:current` 
 : **J**: {ref}`schema:dimensions:current` 
 
@@ -287,7 +298,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**J** = J + weight * ibase
+: &emsp;&emsp;&emsp;**J** = J + weight * ibase
 
 
 
@@ -502,6 +513,17 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -540,7 +562,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **g**: {ref}`schema:dimensions:conductance` &emsp;(exposed as **g**)
 
 
@@ -558,7 +580,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**g** = g + (weight * gbase)
+: &emsp;&emsp;&emsp;**g** = g + (weight * gbase)
 
 
 
@@ -591,15 +613,15 @@ variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
+<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
+```
+```{code-block} xml
+<expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
+```
+```{code-block} xml
 <expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
         <notes>A simple monoexponential synapse.</notes>
     </expOneSynapse>
-```
-```{code-block} xml
-<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
-```
-```{code-block} xml
-<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 
 ````
@@ -628,6 +650,17 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 **erev**$ Reversal potential of the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:voltage`
 **gbase**$ Baseline conductance, generally the maximum conductance following a single spike *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
 **tau**$ Time course of rise/decay ${ref}`schema:dimensions:time`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -670,7 +703,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **g**: {ref}`schema:dimensions:conductance` &emsp;(exposed as **g**)
 : **A**: {ref}`schema:dimensions:conductance` 
 
@@ -690,7 +723,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + (gbase*weight)
+: &emsp;&emsp;&emsp;**A** = A + (gbase*weight)
 
 
 
@@ -772,6 +805,17 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -810,7 +854,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **A**: Dimensionless 
 : **B**: Dimensionless 
 
@@ -830,8 +874,8 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + (weight * waveformFactor)
-: &emsp;**B** = B + (weight * waveformFactor)
+: &emsp;&emsp;&emsp;**A** = A + (weight * waveformFactor)
+: &emsp;&emsp;&emsp;**B** = B + (weight * waveformFactor)
 
 
 
@@ -866,15 +910,13 @@ variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<expTwoSynapse id="SimpleSynapse" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms">
-        <notes>A biexponential synapse.</notes>
-    </expTwoSynapse>
-```
-```{code-block} xml
-<expTwoSynapse id="AMPA" tauRise="3e-5s" tauDecay="0.5e-3s" gbase=".3nS" erev="0V"/>
+<expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
 ```
 ```{code-block} xml
 <expTwoSynapse id="synInput" gbase="8nS" erev="20mV" tauRise="1ms" tauDecay="5ms"/>
+```
+```{code-block} xml
+<expTwoSynapse id="synInputFast" gbase="1nS" erev="20mV" tauRise="0.2ms" tauDecay="1ms"/>
 ```
 
 ````
@@ -924,6 +966,17 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -962,7 +1015,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **A**: Dimensionless 
 : **B**: Dimensionless 
 : **C**: Dimensionless 
@@ -984,9 +1037,9 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + (gbase1*weight * waveformFactor1 + gbase2*weight*waveformFactor2 )/(gbase1+gbase2)
-: &emsp;**B** = B + (weight * waveformFactor1)
-: &emsp;**C** = C + (weight * waveformFactor2)
+: &emsp;&emsp;&emsp;**A** = A + (gbase1*weight * waveformFactor1 + gbase2*weight*waveformFactor2 )/(gbase1+gbase2)
+: &emsp;&emsp;&emsp;**B** = B + (weight * waveformFactor1)
+: &emsp;&emsp;&emsp;**C** = C + (weight * waveformFactor2)
 
 
 
@@ -1022,12 +1075,12 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 *XML examples*
 ```{code-block} xml
+<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
+```
+```{code-block} xml
 <expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
         <notes>A synapse consisting of one rise and two decay time courses.</notes>
     </expThreeSynapse>
-```
-```{code-block} xml
-<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
 ```
 
 ````
@@ -1084,9 +1137,11 @@ extends *{ref}`schema:baseblockmechanism`*
 
 ````{tabbed} Text fields
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**species**
+**species**$ 
 
 ````
 
@@ -1224,7 +1279,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **R**: Dimensionless 
 
 
@@ -1242,7 +1297,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**R** = R * (1 - U)
+: &emsp;&emsp;&emsp;**R** = R * (1 - U)
 
 
 
@@ -1324,7 +1379,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **R**: Dimensionless 
 : **U**: Dimensionless 
 
@@ -1344,8 +1399,8 @@ extends *{ref}`schema:baseplasticitymechanism`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**R** = R * (1 - U)
-: &emsp;**U** = U + initReleaseProb * (1 - U)
+: &emsp;&emsp;&emsp;**R** = R * (1 - U)
+: &emsp;&emsp;&emsp;**U** = U + initReleaseProb * (1 - U)
 
 
 
@@ -1419,6 +1474,17 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1458,7 +1524,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **A**: Dimensionless 
 : **B**: Dimensionless 
 
@@ -1478,9 +1544,9 @@ extends {ref}`schema:exptwosynapse`
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + (weight * plasticityFactor * waveformFactor)
-: &emsp;**B** = B + (weight * plasticityFactor * waveformFactor)
-: &emsp;EVENT OUT on port **relay**
+: &emsp;&emsp;&emsp;**A** = A + (weight * plasticityFactor * waveformFactor)
+: &emsp;&emsp;&emsp;**B** = B + (weight * plasticityFactor * waveformFactor)
+: &emsp;&emsp;&emsp;EVENT OUT on port: **relay**
 
 
 
@@ -1556,10 +1622,12 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 ````{tabbed} Paths
 ```{csv-table}
+:widths: 1, 7
 :width: 100%
+:delim: $
 
-**synapse1Path**
-**synapse2Path**
+**synapse1Path**$ 
+**synapse2Path**$ 
 
 ````
 
@@ -1571,6 +1639,17 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 **synapse1**$  $ {ref}`schema:basesynapse`
 **synapse2**$  $ {ref}`schema:basesynapse`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -1625,7 +1704,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **weightFactor**: Dimensionless 
 
 
@@ -1641,8 +1720,8 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**weightFactor** = weight
-: &emsp;EVENT OUT on port **relay**
+: &emsp;&emsp;&emsp;**weightFactor** = weight
+: &emsp;&emsp;&emsp;EVENT OUT on port: **relay**
 
 
 
@@ -1776,7 +1855,7 @@ extends {ref}`schema:exptwosynapse`
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **A**: Dimensionless 
 : **B**: Dimensionless 
 : **M**: Dimensionless &emsp;(exposed as **M**)
@@ -1802,9 +1881,9 @@ extends {ref}`schema:exptwosynapse`
 <i>**On Events**</i>
 
 : EVENT IN on port: **in**
-: &emsp;**A** = A + waveformFactor
-: &emsp;**B** = B + waveformFactor
-: &emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;**A** = A + waveformFactor
+: &emsp;&emsp;&emsp;**B** = B + waveformFactor
+: &emsp;&emsp;&emsp;**tsince** = 0
 
 
 
@@ -1849,6 +1928,17 @@ extends *{ref}`schema:basesynapse`*
 :delim: $
 
 **conductance**$  ${ref}`schema:dimensions:conductance`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -1979,6 +2069,17 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -2048,10 +2149,10 @@ variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <silentSynapse id="silent1"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent1"/>
+<silentSynapse id="silent2"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent2"/>
+<silentSynapse id="silent1"/>
 ```
 
 ````
@@ -2078,6 +2179,17 @@ extends *{ref}`schema:basegradedsynapse`*
 :delim: $
 
 **conductance**$  ${ref}`schema:dimensions:conductance`
+
+```
+````
+
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
 
 ```
 ````
@@ -2183,6 +2295,17 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
+````{tabbed} Properties
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**weight** (default: 1)$  $ Dimensionless
+
+```
+````
+
 ````{tabbed} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
@@ -2222,7 +2345,7 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 
-<i>**State variables**</i>
+<i>**State Variables**</i>
 : **s**: Dimensionless 
 
 
@@ -2239,7 +2362,7 @@ extends *{ref}`schema:basegradedsynapse`*
 <i>**On Conditions**</i>
 
 : IF (1-inf) &lt; 1e-4 THEN
-: &emsp;**s** = inf
+: &emsp;&emsp;&emsp;**s** = inf
 
 
 
@@ -2281,10 +2404,10 @@ variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
 ```
 ```{code-block} xml
-<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
 ```
 
 ````
