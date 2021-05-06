@@ -460,6 +460,10 @@ def main(srcdir, destdir):
                 print(asttemplates.constants.render(title="Constants",
                                                     textlist=comp_type.constants), file=ast_doc)
 
+            if len(comp_type.properties) > 0:
+                print(asttemplates.properties.render(title="Properties",
+                                                    textlist=comp_type.properties), file=ast_doc)
+
             if len(exposures) > 0:
                 keysort = sorted(exposures, key=lambda entry: entry.name)
                 print(asttemplates.exposures.render(title="Exposures",

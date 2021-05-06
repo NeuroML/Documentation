@@ -33,10 +33,10 @@ These are the steps required for a new release of the NeuroML development tools.
 | Regenerate Cells.xml etc. on nml website & commit | v2.1 |
 | Update docs on [http://www.neuroml.org](https://www.neuroml.org) | v2.1 |
 | Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.1 |
-| Test on Windows... | v2.0 |
-| Release & make doi on zenodo(?) | v2.0 |
-| ANNOUNCE (mailing list, Twitter) | v2.0 |
-| Increment version numbers in all development branches | v2.0 |
+| ANNOUNCE (mailing list, Twitter) | v2.1 |
+| Increment version numbers in all development branches | v2.1 |
+| DOI on [Zenodo](https://doi.org/10.5281/zenodo.4627568) | v2.1 |
 | New milestone in issues | v2.1 |
 | Update version used in [neuroConstruct](https://github.com/NeuralEnsemble/neuroConstruct) | v2.1 |
 | New release of neuroConstruct | v2.0 |
+| Test toolchain on Windows... | v2.0 |

@@ -9,7 +9,7 @@ We've briefly seen the XML representation of NeuroML models and simulations in t
 Here, we dive a little deeper into the underlying details of NeuroML.
 
 XML itself does not define a set of standard tags: any tags may be used as long as the resultant document is [well-formed](https://en.wikipedia.org/wiki/Well-formed_document).
-Therefore, NeuroML defines a standard set of XML elements (tags, attributes) that may be used in NeuroML documents: the NeuroML [XML Schema Definition](https://en.wikipedia.org/wiki/XML_Schema_(W3C)).
+Therefore, NeuroML defines a standard set of XML elements (the tags and attributes which specify the model and parameters, e.g. `<iafCell id="iaf" leakReversal="-60mV"...>`) that may be used in NeuroML documents: the NeuroML [XML Schema Definition](https://en.wikipedia.org/wiki/XML_Schema_(W3C)).
 This is referred to as the NeuroML *schema* or the NeuroML *specification*.
 
 As the wiki page says:
@@ -23,7 +23,7 @@ A valid NeuroML model is said to adhere to the NeuroML schema.
 
 ```{admonition} Purpose of the NeuroML specification/schema.
 :class: note
-The NeuroML schema/specification defines the structure of a valid NeuroML document.
+The NeuroML schema/specification defines the structure of a valid NeuroML document. The {ref}`core NeuroML tools <userdocs:software>` adhere to this specification and can read/write/interpret the language correctly.
 ```
 
 In the next section, we learn more about the NeuroML 2 schema, and see how the dynamics of the NeuroML 2 entities are defined in LEMS.

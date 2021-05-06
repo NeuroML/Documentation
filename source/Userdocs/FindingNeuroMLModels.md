@@ -48,12 +48,12 @@ Needs introductory text.
 ```
 
 (userdocs:finding_models:NeuroMorpho)=
-## NeuroMorpho.org
+## NeuroMorpho.Org
 
 
 [NeuroMorpho.Org](https://neuromorpho.org) is a database of digitally reconstructed neurons. This resource can be used to retrieve reconstructed neuronal morphologies of multiple cell types from a number of species. The database can be browsed by neuron type, brain area, species, contributing lab, or cells can be searched for according to various morphometric criteria or the associated metadata.
 
-There is a utility present on the site to view the cells in 3D (based on Robert Cannon's Cvapp), which can alos save the morphologies in NeuroML 2 format.
+There is a utility present on the site to view the cells in 3D (based on Robert Cannon's Cvapp), which can also save the morphologies in NeuroML 2 format.
 
 A tutorial on getting data from NeuroMorpho.Org in NeuroML format can be found [here](https://github.com/NeuralEnsemble/NeuroinformaticsTutorial/blob/master/Exercises/Exercise1_NeuroMorpho_to_OSB.md).
 
