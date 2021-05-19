@@ -2,7 +2,7 @@ name: Test build pull requests
 
 on:
   pull_request:
-    branches: [ master, development ]
+    branches: [ main, master, development ]
 
 jobs:
   build:
