@@ -1,5 +1,5 @@
 (userdocs:supporting)=
-# Other supporting tools and resources
+# Tools and resources with NeuroML support
 
 ```{admonition} Please help us keep this page up to date.
 :class: note
@@ -22,12 +22,14 @@ other applications, libraries and databases which support NeuroML 2 and LEMS.
 
 [NetPyNE] is a Python package to facilitate the development, simulation, parallelization, analysis, and optimization of biological neuronal networks using the NEURON simulator. NetPyNE can import from and export to NeuroML. NetPyNE also provides a web based [Graphical User Interface](https://github.com/MetaCell/NetPyNE-UI/wiki).
 
+More information on running NeuroML models in NetPyNE can be found {ref}`here <userdocs:simulating_models:netpyne>`.
+
 (userdocs:supporting:apps:neuroconstruct)=
-### neuroConstruct 
+### neuroConstruct
 
 ![Neuroconstruct logo](../../images/tools/neuroconstruct.png)
 
-[neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the NEURON, GENESIS, PSICS and PyNN platforms and also provides import/export support for MorphML, ChannelML and NetworkML. A detailed description of the current support for NeuroML in neuroConstruct is avaliable [here](http://www.neuroconstruct.org/docs/neuroml.html).
+[neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the [NEURON], [GENESIS], [PSICS] and [PyNN] platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks. More info on the support for NeuroML in neuroConstruct is available [here](http://www.neuroconstruct.org/docs/neuroml.html).
 
 
 (userdocs:supporting:apps:neuron)=
@@ -35,28 +37,57 @@ other applications, libraries and databases which support NeuroML 2 and LEMS.
 
 ![NEURON logo](../../images/tools/neuron.png)
 
-The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. Full NEURON simulations can be generated from NeuroML model components by [neuroConstruct]. {ref}`jNeuroML <jneuroml>` can also be used to convert NeuroML2/LEMS models to NEURON.
+The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. NEURON simulations can be generated from NeuroML model components by [neuroConstruct].
+
+{ref}`jNeuroML <jneuroml>` can also be used to convert NeuroML2/LEMS models to NEURON. More information on running NeuroML models in NEURON can be found {ref}`here <userdocs:simulating_models:neuron>`.
+
+
 
 (userdocs:supporting:apps:genesis)=
 ### GENESIS
 
 ![GENESIS logo](../../images/tools/genesis.png)
 
-[GENESIS] is a commonly used neuronal simulation environment and is also a main target platform for the NeuroML specifications. Full GENESIS simulations can be generated from NeuroML model components by [neuroConstruct].
+[GENESIS] is a commonly used neuronal simulation environment and was a main target platform for the NeuroMLv1 specifications. Full GENESIS simulations can be generated from NeuroMLv1 model components by [neuroConstruct].
+
+Due to the lack of active development of GENESIS, support for mapping to GENESIS in NeuroMLv2 has been deprecated in favour of {ref}`MOOSE <userdocs:supporting:apps:moose>`.
 
 (userdocs:supporting:apps:moose)=
 ### MOOSE
 
 ![MOOSE logo](../../images/tools/moose.jpg)
 
-[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core, and scripts for that environment are largely compatible with MOOSE. The latest version of [neuroConstruct] can be used to generate executable scripts for MOOSE based on NeuroML model components.
+[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core, and scripts for that environment are largely compatible with MOOSE.
+
+More information on running NeuroML models in MOOSE can be found {ref}`here <userdocs:simulating_models:moose>`.
 
 (userdocs:supporting:apps:pynn)=
 ### PyNN
 
 ![PyNN logo](../../images/tools/pynn.png)
 
-[PyNN] is a Python package for simulator independent specification of neuronal network models. Model code can be developed using the PyNN API and then run using NEURON, NEST, PCSIM, Brian or MOOSE. The developed model also can be stored as a NeuroML document using code that is currently in the testing phase. The latest version of neuroConstruct can be used to generate executable scripts for PyNN based simulators based on NeuroML components, although the majority of multicompartmental conductance based models which are available in neuroConstruct are outside the current scope of the PyNN API.
+[PyNN] is a Python package for simulator independent specification of neuronal network models. Model code can be developed using the PyNN API and then run using [NEURON], [NEST] or [Brian]. The developed model also can be stored as a NeuroML document. The latest version of [neuroConstruct] can be used to generate executable scripts for PyNN based simulators based on NeuroML components, although the majority of multicompartmental conductance based models which are available in neuroConstruct are outside the current scope of the PyNN API.
+
+More info on the latest support for running NeuroML models in PyNN and vice versa can be found [here](https://github.com/NeuroML/NeuroML2/issues/73).
+
+(userdocs:supporting:apps:openworm)=
+### OpenWorm
+
+![OpenWorm logo](../../images/tools/openworm.png)
+
+The [OpenWorm] project aims to create a simulation platform to build digital <i>in-silico</i> living systems, starting with a <i>C. elegans</i> virtual organism simulation. The simulations and associated tools are being developed in a fully open source manner. NeuroML is being used for the description of the 302 neurons in the worm's nervous system, both for morphological description of the cells and their electrical properties.
+
+The [c302 subproject](https://github.com/openworm/c302) in OpenWorm has the latest developments in the NeuroML version of the worm nervous system.
+
+ Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see [Geppetto](#geppetto)).
+
+(userdocs:supporting:apps:lfpy)=
+### LFPy
+
+![LFPy logo](../../images/tools/lfpy.png)
+
+[LFPy] is a Python package for calculation of extracellular potentials from multicompartment neuron models. It relies on the NEURON simulator and uses the Python interface it provides. LFPy provides a set of easy to use Python classes for setting up the model, running simulations and calculating the extracellular potentials arising from activity in the model neuron. Initial support for loading of NeuroML morphologies has been added.
+
 
 (userdocs:supporting:apps:neuronland)=
 ### NeuronLand
@@ -70,14 +101,16 @@ The [NEURON] simulation environment is one of the main target platforms for a st
 
 ![CX3D logo](../../images/tools/cx3d.png)
 
-[CX3D] is a tool for simulating the growth of cortex in 3D.
+[CX3D] is a tool for simulating the growth of cortex in 3D. There was a preliminary implementation of export of generated networks to NeuroML in CX3D.
 
 (userdocs:supporting:apps:trees)=
 ### TREES toolbox
 
 ![Trees logo](../../images/tools/trees.png)
 
-The [TREES toolbox] is an application in MATLAB which allows: automatic reconstruction of neuronal branching from microscopy image stacks and generation of synthetic axonal and dendritic trees; visualisation, editing and analysis of neuronal trees; comparison of branching patterns between neurons; and investigation of how dendritic and axonal branching depends on local optimization of total wiring and conduction distance. The latest version of the TREES toolbox includes basic functionality for exporting cells in NeuroML v1.x Level 1 (MorphML) or as a NeuroML v2alpha morphology file.
+The [TREES toolbox] is an application in MATLAB which allows: automatic reconstruction of neuronal branching from microscopy image stacks and generation of synthetic axonal and dendritic trees; visualisation, editing and analysis of neuronal trees; comparison of branching patterns between neurons; and investigation of how dendritic and axonal branching depends on local optimization of total wiring and conduction distance.
+
+The latest version of the TREES toolbox includes basic functionality for exporting cells in NeuroML v1.x Level 1 (MorphML) or as a NeuroML v2alpha morphology file.
 
 (userdocs:supporting:apps:trackem)=
 ### TrakEM2
@@ -93,19 +126,6 @@ The [TREES toolbox] is an application in MATLAB which allows: automatic reconstr
 
 [Neuronvisio] is a Graphical User Interface for NEURON simulator environment with 3D capabilities. Neuronvisio makes easy to select and investigate sections' properties, it offers easy integration with matplotlib for the plotting the results. It can save the geometry using NeuroML and the simulation results in a customised and extensible HDF5 format; the results can then be reload in the software and analysed at a later stage, without re-running the simulation.
 
-(userdocs:supporting:apps:openworm)=
-### OpenWorm
-
-![OpenWorm logo](../../images/tools/openworm.png)
-
-The [OpenWorm] project aims to create a simulation platform to build digital in-silico living systems, starting with a C. elegans virtual organism simulation. The simulations and associated tools are being developed in a fully open source manner. NeuroML is being used for the description of the 302 neurons in the worm's nervous system, both for morphological description of the cells and their electrical properties. Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see Geppetto).
-
-(userdocs:supporting:apps:lfpy)=
-### LFPy
-
-![LFPy logo](../../images/tools/lfpy.png)
-
-[LFPy] is a Python package for calculation of extracellular potentials from multicompartment neuron models. It relies on the NEURON simulator and uses the Python interface it provides. LFPy provides a set of easy to use Python classes for setting up the model, running simulations and calculating the extracellular potentials arising from activity in the model neuron. Initial support for loading of NeuroML morphologies has been added.
 
 (userdocs:supporting:apps:catmaid)=
 ### CATMAID
@@ -126,10 +146,14 @@ The [OpenWorm] project aims to create a simulation platform to build digital in-
 
 ![Geppetto logo](../../images/tools/geppetto.png)
 
-[Geppetto] is a web-based multi-algorithm, multi-scale simulation platform designed to support the simulation of complex biological systems and their surrounding environment. It is open source and is being developed as part of the OpenWorm project to create an in-silico model of the nematode C. elegans. It has had inbuilt support for NeuroML 2/LEMS from the start, and is suitable for many other types of neuronal models.
+[Geppetto] is a web-based multi-algorithm, multi-scale simulation platform designed to support the simulation of complex biological systems and their surrounding environment. It is open source and is being developed as part of the [OpenWorm project](#openworm) to create an _in-silico_ model of the nematode _C. elegans_. It has had inbuilt support for NeuroML 2/LEMS from the start, and is suitable for many other types of neuronal models.
 
 (userdocs:supporting:other)=
 ## Other/legacy tools
+
+```{admonition} Older applications
+Note: many of the applications listed below are no longer in active development or links no longer work.
+```
 
 (userdocs:supporting:other:psics)=
 ### PSICS
@@ -139,8 +163,7 @@ The latest version of [neuroConstruct] can be used to generate executable script
 (userdocs:supporting:other:wbc)=
 ### Whole Brain Catalogue
 
-The [Whole Brain Catalog] is a graphical interface that allows multiscale neuroscience data to be visualised relative to a 3D brain atlas.
-Data being visualised is annotated with links out to further information resources.
+The [Whole Brain Catalog] was a graphical interface that allowed multiscale neuroscience data to be visualised relative to a 3D brain atlas.
 
 (userdocs:supporting:other:pcsim)=
 ### PCSIM
@@ -149,7 +172,7 @@ Data being visualised is annotated with links out to further information resourc
 (userdocs:supporting:other:neuromantic)=
 ### Neuromantic
 [Neuromantic] is a freeware tool for neuronal reconstruction (similar in some ways to part of Neurolucida's functionality).
-Neuromantic mainly uses SWC/Cvapp format, but the latest version can import and export MorphML
+Neuromantic mainly uses SWC/Cvapp format, but the latest version can import and export MorphML.
 
 (userdocs:supporting:other:neurospaces)=
 ### Neurospaces/ GENESIS 3
@@ -198,7 +221,7 @@ It provides a user-friendly interface, which can be used to both create and edit
 
 (userdocs:supporting:other:moogli)=
 ### Moogli
-[Moogli] (a sister project of MOOSE) is a simulator independent OpenGL based visualization tool for neural simulations.
+[Moogli] (a sister project of [MOOSE](#moose)) is a simulator independent OpenGL based visualization tool for neural simulations.
 Moogli can visualize morphology of single/multiple neurons or network of neurons, and can also visualize activity in these cells.
 Loading of morphologies in MorphML and NeuroML formats is supported.
 
@@ -214,20 +237,22 @@ Loading of morphologies in MorphML and NeuroML formats is supported.
 [CX3D]: http://www.ini.uzh.ch/~amw/seco/cx3d/
 [Neuromantic]: https://sourceforge.net/projects/neuromantic/
 [Neurospaces/ GENESIS 3]: http://neurospaces.sourceforge.net/
-[SplitNeuron]: #
-[Whole Brain Catalogue]: #
+[SplitNeuron]: https://sourceforge.net/projects/splitneuron/
+[Whole Brain Catalog]: https://twitter.com/braincatalog
 [NeurAnim]: https://sourceforge.net/projects/neuranim/
 [CNrun]: http://johnhommer.com/academic/code/cnrun/
 [Trees toolbox]: https://github.com/cuntzlab/treestoolbox
 [TrakEM2]: http://www.ini.uzh.ch/~acardona/trakem2.html
-[Neuronvisio]: http://mattions.github.com/neuronvisio/
+[Neuronvisio]: http://neuronvisio.org/
 [OpenWorm]: http://openworm.org/
 [NeuGen]: https://durus.gcsc.uni-frankfurt.de/~neugen/
 [LFPy]: https://lfpy.readthedocs.io/en/latest/
 [morphforge]: https://github.com/mikehulluk/morphforge
 [NeuroTranslate]: https://github.com/nathanjordan/NeuroTranslate
-[Moogli]: #
+[Moogli]: https://moose.ncbs.res.in/readthedocs/user/py/graphics/index_graphics.html
 [CATMAID]: https://catmaid.readthedocs.io/en/stable/
 [Myokit]: http://myokit.org/
 [Neurovisio]: http://neuronvisio.org/
 [Geppetto]: http://www.geppetto.org/
+[NEST]: https://nest-simulator.org/
+[Brian]: https://briansimulator.org/
