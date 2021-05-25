@@ -64,7 +64,10 @@ In the left of the figure, examples are shown of the (truncated) XML representat
 - (yellow) a {ref}`conductance based synapse <schema:expOneSynapse>` with a single exponential decay waveform.
 
 On the right the definition of the structure and dynamics of these elements in the LEMS language is shown.
-Each element has a corresponding **ComponentType** definition, describing the parameters (as well as their dimensions, not shown) and the dynamics in terms of the state variables, the time derivative of these, any derived variables, and the behavior when certain conditions are met or (spiking) events are received.
+Each element has a corresponding **ComponentType** definition, describing the parameters (as well as their dimensions, not shown) and the dynamics in terms of the state variables, the time derivative of these, any derived variables, and the behaviour when certain conditions are met or (spiking) events are received.
+
+(userdocs:neuromlv2inlems)=
+### NeuroML 2 Component Type definitions in LEMS
 
 The standard set of **ComponentType** definitions for the core NeuroML2 elements are contained in a curated set of files (below) though users are {ref}`free to define their own ComponentTypes to extend the scope of the language <userdocs:extending>`.
 
