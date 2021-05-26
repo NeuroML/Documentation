@@ -32,7 +32,18 @@ A discussion on the steps required for sharing your own models on OSB, with a vi
 ## Using jNeuroML/pyNeuroML
 
 {ref}`jLEMS <jlems>` is the reference implementation of the LEMS language in Java, and can be used to simulate single compartment models written in NeuroML/LEMS.
-It is included in both {ref}`jNeuroML <jneuroml>` and {ref}`pyNeuroML <pyNeuroML>`, and can be used as shown:
+It is included in both {ref}`jNeuroML <jneuroml>` and {ref}`pyNeuroML <pyNeuroML>`.
+
+```{figure} ../images/pynml_jnml.svg
+:alt: jNeuroML and pyNeuroML
+:align: center
+:width: 500px
+
+Relationship between {ref}`jLEMS <jlems>`,  {ref}`jNeuroML <jneuroml>` and {ref}`pyNeuroML <pyNeuroML>`.
+
+```
+
+{ref}`jNeuroML <jneuroml>` and {ref}`pyNeuroML <pyNeuroML>` can be used at the command line as follows:
 
 ```{code-block} console
 # Simulate the model using jNeuroML

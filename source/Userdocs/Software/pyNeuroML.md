@@ -23,6 +23,15 @@ With pyNeuroML you can:
 - **Import** other languages into LEMS (e.g. SBML)
 - **Visualise** NeuroML models and simulations
 
+```{figure} ../../images/pynml_jnml.svg
+:alt: jNeuroML and pyNeuroML
+:align: center
+:width: 500px
+
+Relationship between {ref}`jLEMS <jlems>`, {ref}`jNeuroML <jneuroml>`, the {ref}`NeuroML 2 LEMS definitions <userdocs:neuromlv2>`, {ref}`libNeuroML <libNeuroML>`, {ref}`pyLEMS <pylems>` and {ref}`pyNeuroML <pyNeuroML>`.
+
+```
+
 (pyneuroml:quickstart)=
 ## Quick start
 
