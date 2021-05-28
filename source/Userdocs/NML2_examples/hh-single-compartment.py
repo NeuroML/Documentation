@@ -144,7 +144,7 @@ morph = Morphology(id="hh_cell_morph")
 seg = Segment(id="0", name="soma", notes="Soma segment")
 # We want a diameter such that area is 1000 micro meter^2
 # surface area of a sphere is 4pi r^2 = 4pi diam^2
-diam = math.sqrt(1000/math.pi)
+diam = math.sqrt(1000 / math.pi)
 proximal = distal = Point3DWithDiam(x="0", y="0", z="0", diameter=str(diam))
 seg.proximal = proximal
 seg.distal = distal
