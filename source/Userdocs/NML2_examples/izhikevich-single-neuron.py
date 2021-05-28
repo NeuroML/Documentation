@@ -19,21 +19,21 @@ import numpy as np
 
 
 # Create a new NeuroML model document
-nml_doc = NeuroMLDocument(id="IzSingleNeuron")
+nml_doc = NeuroMLDocument(id="IzhSingleNeuron")
 
-# Define the Izhikevich cell and add it to the model
-iz0 = Izhikevich2007Cell(
-    id="iz2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
+# Define the Izhikevich cell and add it to the model in the document
+izh0 = Izhikevich2007Cell(
+    id="izh2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
     vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
-nml_doc.izhikevich2007_cells.append(iz0)
+nml_doc.izhikevich2007_cells.append(izh0)
 
 # Create a network and add it to the model
-net = Network(id="IzNet")
+net = Network(id="IzhNet")
 nml_doc.networks.append(net)
 
 # Create a population of defined cells and add it to the model
 size0 = 1
-pop0 = Population(id="IzPop0", component=iz0.id, size=size0)
+pop0 = Population(id="IzhPop0", component=izh0.id, size=size0)
 net.populations.append(pop0)
 
 # Define an external stimulus and add it to the model
@@ -53,6 +53,10 @@ print("Written network file to: " + nml_file)
 # Validate the NeuroML model against the NeuroML schema
 validate_neuroml2(nml_file)
 
+################################################################################
+## The NeuroML file has now been created and validated. The rest of the code
+## involves writing a LEMS simulation file to run the model
+
 # Create a simulation instance of the model
 simulation_id = "example-single-izhikevich2007cell-sim"
 simulation = LEMSSimulation(sim_id=simulation_id,
@@ -65,7 +69,7 @@ simulation.include_neuroml2_file(nml_file)
 simulation.create_output_file(
     "output0", "%s.v.dat" % simulation_id
 )
-simulation.add_column_to_output_file("output0", 'IzPop0[0]', 'IzPop0[0]/v')
+simulation.add_column_to_output_file("output0", 'IzhPop0[0]', 'IzhPop0[0]/v')
 
 # Save the simulation to a file
 lems_simulation_file = simulation.save_to_file()

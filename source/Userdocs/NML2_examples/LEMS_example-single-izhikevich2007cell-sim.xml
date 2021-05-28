@@ -16,10 +16,10 @@
     
     <Include file="izhikevich2007_single_cell_network.nml"/>
    
-    <Simulation id="example-single-izhikevich2007cell-sim" length="1000ms" step="0.1ms" target="IzNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="example-single-izhikevich2007cell-sim" length="1000ms" step="0.1ms" target="IzhNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
         
         <OutputFile id="output0" fileName="example-single-izhikevich2007cell-sim.v.dat">
-            <OutputColumn id="IzPop0[0]" quantity="IzPop0[0]/v"/> 
+            <OutputColumn id="IzhPop0[0]" quantity="IzhPop0[0]/v"/> 
         </OutputFile>
         
     </Simulation>
