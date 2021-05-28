@@ -43,6 +43,9 @@ nml_doc = NeuroMLDocument(id="HH_single_complartment",
 nml_fn = "HH_single_compartment_example.nml"
 
 # Define a cell
+# TODO: missing from Schema docs
+# TODO: pyNeuroML docs say that this should only be used if morphology is
+# defined outside the cell---so is this usage wrong?
 hh_cell = Cell(id="hh_cell", notes="A single compartment HH cell")
 nml_doc.cells.append(hh_cell)
 
