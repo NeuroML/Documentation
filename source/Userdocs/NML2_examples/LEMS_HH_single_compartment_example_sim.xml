@@ -1,0 +1,27 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.5.11 (libNeuroML v0.2.55)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="HH_single_compartment_example_sim"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="HH_single_compartment_example.nml"/>
+   
+    <Simulation id="HH_single_compartment_example_sim" length="300ms" step="0.01ms" target="single_hh_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <OutputFile id="output0" fileName="HH_single_compartment_example_sim.v.dat">
+            <OutputColumn id="pop0[0]" quantity="pop0[0]/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>
