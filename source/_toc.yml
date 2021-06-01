@@ -48,6 +48,8 @@
 
 - part: NeuroML events
   chapters:
+    # Latest first
+    - file: ./Events/202107-CNS2021
     - file: ./Events/202103-Harmony
 
 - part: The NeuroML Initiative
