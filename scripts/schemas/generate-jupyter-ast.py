@@ -159,6 +159,10 @@ def get_comp_examples(srcdir, examples_max=3):
                 if len(examples) == 0:
                     print("Found no XML examples for {}".format(comp_type))
                 """
+                # Sort by length so that we take the 5 longest examples
+                # Also sort so that the order remains the same when using
+                # different Python versions etc.
+                examples.sort(key=len, reverse=True)
                 # Let's only keep the first 5 examples
                 for example in examples:
                     if len(comp_type_examples[comp_type]) < examples_max:
