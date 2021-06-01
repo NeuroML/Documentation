@@ -200,7 +200,7 @@ comp = env.from_string(textwrap.dedent(
 ))
 
 
-misc1c = env.from_string(textwrap.dedent(
+misc2c = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}
@@ -216,7 +216,7 @@ misc1c = env.from_string(textwrap.dedent(
 
 ))
 
-misc2c = env.from_string(textwrap.dedent(
+misc3c = env.from_string(textwrap.dedent(
     """
     ````{tabbed} {{ title }}
     ```{csv-table}

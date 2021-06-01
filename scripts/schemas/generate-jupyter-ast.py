@@ -435,13 +435,13 @@ def main(srcdir, destdir):
                                                  keysort=keysort), file=ast_doc)
 
             if len(comp_type.texts) > 0:  # TODO: Check if Text elements are inherited...
-                print(asttemplates.misc1c.render(title="Text fields",
+                print(asttemplates.misc2c.render(title="Text fields",
                                                  textlist=comp_type.texts), file=ast_doc)
             if len(comp_type.paths) > 0:  # TODO: Check if Path elements are inherited...
-                print(asttemplates.misc1c.render(title="Paths",
+                print(asttemplates.misc2c.render(title="Paths",
                                                  textlist=comp_type.paths), file=ast_doc)
             if len(comp_type.component_references) > 0:
-                print(asttemplates.misc2c.render(title="Component References",
+                print(asttemplates.misc3c.render(title="Component References",
                                                  textlist=comp_type.component_references), file=ast_doc)
 
             if len(comp_type.children) > 0:
@@ -454,10 +454,10 @@ def main(srcdir, destdir):
                         childrenlist.append(child_or_children)
 
                 if len(childlist) > 0:
-                    print(asttemplates.misc2c.render(title="Child list",
+                    print(asttemplates.misc3c.render(title="Child list",
                                                      textlist=childlist), file=ast_doc)
                 if len(childrenlist) > 0:
-                    print(asttemplates.misc2c.render(title="Children list",
+                    print(asttemplates.misc3c.render(title="Children list",
                                                      textlist=childrenlist), file=ast_doc)
 
             if len(comp_type.constants) > 0:
@@ -490,7 +490,7 @@ def main(srcdir, destdir):
                                                      keysort=keysort), file=ast_doc)
 
             if len(comp_type.attachments) > 0:
-                print(asttemplates.misc2c.render(title="Attachments",
+                print(asttemplates.misc3c.render(title="Attachments",
                                                  textlist=comp_type.attachments), file=ast_doc)
 
             if comp_type.dynamics and comp_type.dynamics.has_content():
