@@ -8,7 +8,7 @@ Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 06/05/21 from [this](https://github.com/NeuroML/NeuroML2/commit/f186fdc0c7e7d6ad7fcab3b5f31639244541c2b6) commit.
+Generated on 01/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/f186fdc0c7e7d6ad7fcab3b5f31639244541c2b6) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -613,15 +613,15 @@ variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
+<expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
+        <notes>A simple monoexponential synapse.</notes>
+    </expOneSynapse>
+```
+```{code-block} xml
 <expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 ```{code-block} xml
 <expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
-```
-```{code-block} xml
-<expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
-        <notes>A simple monoexponential synapse.</notes>
-    </expOneSynapse>
 ```
 
 ````
@@ -910,13 +910,15 @@ variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
+<expTwoSynapse id="SimpleSynapse" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms">
+        <notes>A biexponential synapse.</notes>
+    </expTwoSynapse>
+```
+```{code-block} xml
+<expTwoSynapse id="AMPA" tauRise="3e-5s" tauDecay="0.5e-3s" gbase=".3nS" erev="0V"/>
 ```
 ```{code-block} xml
 <expTwoSynapse id="synInput" gbase="8nS" erev="20mV" tauRise="1ms" tauDecay="5ms"/>
-```
-```{code-block} xml
-<expTwoSynapse id="synInputFast" gbase="1nS" erev="20mV" tauRise="0.2ms" tauDecay="1ms"/>
 ```
 
 ````
@@ -1075,12 +1077,12 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 *XML examples*
 ```{code-block} xml
-<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
-```
-```{code-block} xml
 <expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
         <notes>A synapse consisting of one rise and two decay time courses.</notes>
     </expThreeSynapse>
+```
+```{code-block} xml
+<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
 ```
 
 ````
@@ -1583,23 +1585,24 @@ variable = BlockingPlasticSynapse(neuro_lex_id=None, id=None, metaid=None, notes
 
 *XML examples*
 ```{code-block} xml
-<blockingPlasticSynapse id="stpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
-        <notes>A biexponential synapse exhibiting STD.</notes>
-        <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
-    </blockingPlasticSynapse>
-```
-```{code-block} xml
-<blockingPlasticSynapse id="stpSynDepFac" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
-        <notes>A biexponential synapse with short term depression
-            and facilitation.</notes>
-        <plasticityMechanism type="tsodyksMarkramDepFacMechanism" initReleaseProb="0.5" tauRec="120 ms" tauFac="10 ms"/>
-    </blockingPlasticSynapse>
-```
-```{code-block} xml
 <blockingPlasticSynapse id="blockStpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
         <notes>A biexponential blocking synapse, with STD.</notes>
         <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
         <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="blockStpSynDepFac" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
+        <notes>A biexponential blocking synapse with short term
+            depression and facilitation.</notes>
+        <plasticityMechanism type="tsodyksMarkramDepFacMechanism" initReleaseProb="0.5" tauRec="120 ms" tauFac="10 ms"/>
+        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+    </blockingPlasticSynapse>
+```
+```{code-block} xml
+<blockingPlasticSynapse id="stpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
+        <notes>A biexponential synapse exhibiting STD.</notes>
+        <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
     </blockingPlasticSynapse>
 ```
 
@@ -2149,10 +2152,10 @@ variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <silentSynapse id="silent1"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent2"/>
+<silentSynapse id="silent1"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent1"/>
+<silentSynapse id="silent2"/>
 ```
 
 ````
@@ -2404,10 +2407,10 @@ variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
 ```
 ```{code-block} xml
-<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
 ```
 
 ````
