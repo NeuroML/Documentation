@@ -466,7 +466,7 @@ def main(srcdir, destdir):
 
             if len(comp_type.properties) > 0:
                 print(asttemplates.properties.render(title="Properties",
-                                                    textlist=comp_type.properties), file=ast_doc)
+                                                     textlist=comp_type.properties), file=ast_doc)
 
             if len(exposures) > 0:
                 keysort = sorted(exposures, key=lambda entry: entry.name)
