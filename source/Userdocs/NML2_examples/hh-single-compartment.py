@@ -25,120 +25,95 @@ from neuroml import Resistivity
 from neuroml import Morphology, Segment, Point3DWithDiam
 from neuroml import Network, Population
 from neuroml import PulseGenerator, ExplicitInput
+from neuroml.writers import NeuroMLWriter
 import numpy as np
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
 
 
-# TODO: Draw ascii diagram showing the full hierarchy
-# TODO: Ask Padraig how to modularise the code: should one go bottom up: define
-# rates, then gates, then channels, then cell, network and so on. OR, should
-# one create the network first, then cells, and go top-down? OR is there a
-# better way: define everything you need first, and then put it together? The
-# third seems best tbh.
+def main():
+    """Main function """
 
-# Create the nml document
-nml_doc = NeuroMLDocument(id="HH_single_complartment",
-                          notes="Single compartment cell with HH channels")
-nml_fn = "HH_single_compartment_example.nml"
+    # TODO: Draw ascii diagram showing the full hierarchy
+    # TODO: Ask Padraig how to modularise the code: should one go bottom up: define
+    # rates, then gates, then channels, then cell, network and so on. OR, should
+    # one create the network first, then cells, and go top-down? OR is there a
+    # better way: define everything you need first, and then put it together? The
+    # third seems best tbh.
 
-# Define a cell
-# TODO: missing from Schema docs
-# TODO: pyNeuroML docs say that this should only be used if morphology is
-# defined outside the cell---so is this usage wrong?
-hh_cell = Cell(id="hh_cell", notes="A single compartment HH cell")
-nml_doc.cells.append(hh_cell)
+    # Create the nml document
+    nml_doc = NeuroMLDocument(id="HH_single_complartment",
+                              notes="Single compartment cell with HH channels")
+    nml_fn = "HH_single_compartment_example.nml"
 
-# Define its biophysical properties
-bio_prop = BiophysicalProperties(id="hh_b_prop")
-#  notes="Biophysical properties for HH cell")
+    # Define a cell
+    # TODO: missing from Schema docs
+    # TODO: pyNeuroML docs say that this should only be used if morphology is
+    # defined outside the cell---so is this usage wrong?
+    hh_cell = Cell(id="hh_cell", notes="A single compartment HH cell")
+    nml_doc.cells.append(hh_cell)
 
-# Membrane properties are a type of biophysical properties
-mem_prop = MembraneProperties()
-# Add membrane properties to the biophysical properties
-bio_prop.membrane_properties = mem_prop
+    # Define its biophysical properties
+    bio_prop = BiophysicalProperties(id="hh_b_prop")
+    #  notes="Biophysical properties for HH cell")
 
-# Append to cell
-hh_cell.biophysical_properties = bio_prop
+    # Membrane properties are a type of biophysical properties
+    mem_prop = MembraneProperties()
+    # Add membrane properties to the biophysical properties
+    bio_prop.membrane_properties = mem_prop
 
-# Define ion channels
-# Na channel
-na_channel = IonChannelHH(id="na_channel", notes="Sodium channel for HH cell",
-                          conductance="10pS", species="na")
-gate_m = GateHHRates(id="na_m", instances="3", notes="m gate for na channel")
-# TODO~: Ask Padraig: how does one know that HHExpRate etc are to be used as a
-# type, and is not a class itself like all the other constructs? In the
-# documentation, they're all listed in the same way.
-m_forward_rate = HHRate(type="HHExpLinearRate", rate="1per_ms",
-                        midpoint="-40mV", scale="10mV")
-m_reverse_rate = HHRate(type="HHExpRate", rate="4per_ms", midpoint="-65mV",
-                        scale="-18mV")
-gate_m.forward_rate = m_forward_rate
-gate_m.reverse_rate = m_reverse_rate
-na_channel.gate_hh_rates.append(gate_m)
+    # Append to cell
+    hh_cell.biophysical_properties = bio_prop
 
-gate_h = GateHHRates(id="na_h", instances="1", notes="h gate for na channel")
-h_forward_rate = HHRate(type="HHExpRate", rate="0.07per_ms",
-                        midpoint="-65mV", scale="-20mV")
-h_reverse_rate = HHRate(type="HHSigmoidRate", rate="1per_ms", midpoint="-35mV",
-                        scale="10mV")
-gate_h.forward_rate = h_forward_rate
-gate_h.reverse_rate = h_reverse_rate
-na_channel.gate_hh_rates.append(gate_h)
+    # Channel density for Na channel
+    # Create na channel file and include it in our main document
+    nml_doc.includes.append(create_na_channel())
+    na_channel_density = ChannelDensity(
+        id="na_channels", cond_density="120.0 mS_per_cm2", erev="50.0 mV",
+        ion="na", ion_channel="na_channel"
+    )
+    mem_prop.channel_densities.append(na_channel_density)
 
-# Channel density for Na channel
-na_channel_density = ChannelDensity(
-    id="na_channels", cond_density="120.0 mS_per_cm2", erev="50.0 mV",
-    ion="na", ion_channel="na_channel"
-)
-nml_doc.ion_channel.append(na_channel)
-mem_prop.channel_densities.append(na_channel_density)
+    # Channel density for k channel
+    nml_doc.includes.append(create_k_channel())
+    k_channel_density = ChannelDensity(id="k_channels",
+                                       cond_density="360 S_per_m2",
+                                       erev="-77mV", ion="k",
+                                       ion_channel="k_channel")
+    mem_prop.channel_densities.append(k_channel_density)
 
-# K channel
-k_channel = IonChannelHH(id="k_channel", notes="Potassium channel for HH cell",
-                         conductance="10pS", species="k")
-gate_n = GateHHRates(id="k_n", instances="4", notes="n gate for k channel")
-n_forward_rate = HHRate(type="HHExpLinearRate", rate="0.1per_ms",
-                        midpoint="-55mV", scale="10mV")
-n_reverse_rate = HHRate(type="HHExpRate", rate="0.125per_ms", midpoint="-65mV",
-                        scale="-80mV")
-gate_n.forward_rate = n_forward_rate
-gate_n.reverse_rate = n_reverse_rate
-k_channel.gate_hh_rates.append(gate_n)
+    # Leak channel
+    # Can also be split out into a different file
+    leak_channel = IonChannelHH(id="leak_channel", conductance="10pS",
+                                notes="Leak conductance")
+    leak_channel_density = ChannelDensity(id="leak_channels",
+                                          cond_density="3.0 S_per_m2",
+                                          erev="-54.3mV", ion="non_specific",
+                                          ion_channel="leak_channel")
+    nml_doc.ion_channel.append(leak_channel)
+    mem_prop.channel_densities.append(leak_channel_density)
 
-# Channel density for k channel
-k_channel_density = ChannelDensity(id="k_channels",
-                                   cond_density="360 S_per_m2",
-                                   erev="-77mV", ion="k",
-                                   ion_channel="k_channel")
-nml_doc.ion_channel.append(k_channel)
-mem_prop.channel_densities.append(k_channel_density)
+    # Other membrane properties
+    # TODO: why are these lists? Can a membrane have more than one threshold?
+    mem_prop.spike_threshes.append(SpikeThresh(value="-20mV"))
+    mem_prop.specific_capacitances.append(
+        SpecificCapacitance(value="1.0 uF_per_cm2")
+    )
+    mem_prop.init_memb_potentials.append(InitMembPotential(value="-65mV"))
 
-# Leak channel
-leak_channel = IonChannelHH(id="leak_channel", conductance="10pS",
-                            notes="Leak conductance")
-leak_channel_density = ChannelDensity(id="leak_channels",
-                                      cond_density="3.0 S_per_m2",
-                                      erev="-54.3mV", ion="non_specific",
-                                      ion_channel="leak_channel")
-nml_doc.ion_channel.append(leak_channel)
-mem_prop.channel_densities.append(leak_channel_density)
+    intra_prop = IntracellularProperties()
+    intra_prop.resistivities.append(Resistivity(value="0.03 kohm_cm"))
 
-# Other membrane properties
-# TODO: why are these lists? Can a membrane have more than one threshold?
-mem_prop.spike_threshes.append(SpikeThresh(value="-20mV"))
-mem_prop.specific_capacitances.append(
-    SpecificCapacitance(value="1.0 uF_per_cm2")
-)
-mem_prop.init_memb_potentials.append(InitMembPotential(value="-65mV"))
+    # Add to biological properties
+    bio_prop.intracellular_properties = intra_prop
 
-intra_prop = IntracellularProperties()
-intra_prop.resistivities.append(Resistivity(value="0.03 kohm_cm"))
+    # Already validates also
 
-# Add to biological properties
-bio_prop.intracellular_properties = intra_prop
+    #  pynml.write_neuroml2_file(nml2_doc=nml_doc, nml2_file_name=nml_fn, validate=True)
+    NeuroMLWriter.write(nml_doc, nml_fn)
 
 
+    """
 # Morphology
 # TODO: libNeuroML says Morphology has "notes", but LEMS doesn't seem to like
 # it.
@@ -174,11 +149,10 @@ net = Network(id="single_hh_cell_network",
 net.populations.append(pop)
 net.explicit_inputs.append(exp_input)
 nml_doc.networks.append(net)
-# Already validates also
-pynml.write_neuroml2_file(nml2_doc=nml_doc,
-                          nml2_file_name=nml_fn, validate=True)
+    """
 
 
+    """
 # Simulation bits
 sim_id = "HH_single_compartment_example_sim"
 simulation = LEMSSimulation(sim_id=sim_id, duration=300, dt=0.01,
@@ -209,3 +183,80 @@ pynml.generate_plot(
     save_figure_to=sim_id + "-v.png",
     xaxis="time (s)", yaxis="membrane potential (V)"
 )
+    """
+
+
+def create_na_channel():
+    """Create the Na channel.
+
+    This will create the Na channel and save it to a file.
+    It will also validate this file.
+
+    returns: name of the created file
+    """
+    na_channel = IonChannelHH(id="na_channel", notes="Sodium channel for HH cell",
+                              conductance="10pS", species="na")
+    gate_m = GateHHRates(id="na_m", instances="3", notes="m gate for na channel")
+
+    # TODO~: Ask Padraig: how does one know that HHExpRate etc are to be used as a
+    # type, and is not a class itself like all the other constructs? In the
+    # documentation, they're all listed in the same way.
+
+    m_forward_rate = HHRate(type="HHExpLinearRate", rate="1per_ms",
+                            midpoint="-40mV", scale="10mV")
+    m_reverse_rate = HHRate(type="HHExpRate", rate="4per_ms", midpoint="-65mV",
+                            scale="-18mV")
+    gate_m.forward_rate = m_forward_rate
+    gate_m.reverse_rate = m_reverse_rate
+    na_channel.gate_hh_rates.append(gate_m)
+
+    gate_h = GateHHRates(id="na_h", instances="1", notes="h gate for na channel")
+    h_forward_rate = HHRate(type="HHExpRate", rate="0.07per_ms",
+                            midpoint="-65mV", scale="-20mV")
+    h_reverse_rate = HHRate(type="HHSigmoidRate", rate="1per_ms", midpoint="-35mV",
+                            scale="10mV")
+    gate_h.forward_rate = h_forward_rate
+    gate_h.reverse_rate = h_reverse_rate
+    na_channel.gate_hh_rates.append(gate_h)
+
+    na_channel_doc = NeuroMLDocument(id="na_channel",
+                                     notes="Na channel for HH neuron")
+    na_channel_fn = "HH_example_na_channel.nml"
+    na_channel_doc.ion_channel_hhs.append(na_channel)
+
+    pynml.write_neuroml2_file(nml2_doc=na_channel_doc,
+                              nml2_file_name=na_channel_fn, validate=True)
+
+    return na_channel_doc
+
+
+def create_k_channel():
+    """Create the K channel
+
+    :returns: name of the K channel file
+
+    """
+    k_channel = IonChannelHH(id="k_channel", notes="Potassium channel for HH cell",
+                             conductance="10pS", species="k")
+    gate_n = GateHHRates(id="k_n", instances="4", notes="n gate for k channel")
+    n_forward_rate = HHRate(type="HHExpLinearRate", rate="0.1per_ms",
+                            midpoint="-55mV", scale="10mV")
+    n_reverse_rate = HHRate(type="HHExpRate", rate="0.125per_ms", midpoint="-65mV",
+                            scale="-80mV")
+    gate_n.forward_rate = n_forward_rate
+    gate_n.reverse_rate = n_reverse_rate
+    k_channel.gate_hh_rates.append(gate_n)
+
+    k_channel_doc = NeuroMLDocument(id="k_channel",
+                                    notes="k channel for HH neuron")
+    k_channel_fn = "HH_example_k_channel.nml"
+    k_channel_doc.ion_channel_hhs.append(k_channel)
+
+    pynml.write_neuroml2_file(nml2_doc=k_channel_doc,
+                              nml2_file_name=k_channel_fn, validate=True)
+
+    return k_channel_fn
+
+
+if __name__ == "__main__":
+    main()
