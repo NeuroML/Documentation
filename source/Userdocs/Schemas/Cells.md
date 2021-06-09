@@ -4145,8 +4145,8 @@ extends *{ref}`schema:basecellmembpot`*
 :width: 100%
 :delim: $
 
-**morphology**$  $ {ref}`schema:morphology`
-**biophysicalProperties**$  $ {ref}`schema:biophysicalproperties`
+**morphology**$ Should only be used if morphology element is outside the cell. This points to the id of the morphology. $ {ref}`schema:morphology`
+**biophysicalProperties**$ Should only be used if biophysicalProperties element is outside the cell.  This points to the id of the biophysicalProperties $ {ref}`schema:biophysicalproperties`
 
 ```
 ````
