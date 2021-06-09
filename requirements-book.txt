@@ -1,5 +1,5 @@
 # To build the docs using jupyter-book
-jupyter-book
+jupyter-book>=0.11
 matplotlib
 numpy
 ghp-import
