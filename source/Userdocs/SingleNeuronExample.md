@@ -32,9 +32,9 @@ lines: 21, 22
 ```
 
 Next, all entities that we want to use in the model must be defined.
-The NeuroML specification includes many standard entities, and it is possible to also define new entities that may not already be included in the NeuroML specification.
+The {ref}`NeuroML specification <userdocs:neuromlv2>` includes many standard entities, and it is possible to also define new entities that may not already be included in the NeuroML specification.
 We will look at the pre-defined entities, and how NeuroML may be extended later when we look at the {ref}`NeuroML standard <userdocs:specification>` in detail.
-For now, we limit ourselves to defining a new `Izhikevich2007Cell`.
+For now, we limit ourselves to defining a new `Izhikevich2007Cell` (definition of this {ref}`here <schema:izhikevich2007Cell>`).
 The Izhikevich neuron model can take sets of parameters to show different types of spiking behaviour.
 Here, we define an instance of the general Izhikevich cell using parameters that exhibit regular spiking.
 Once defined, we add this to our `NeuroMLDocument`.
@@ -64,7 +64,7 @@ lines: 39-46
 ```
 This completes our model.
 It includes a single network, with one population of one neuron that is driven by one pulse generator.
-At this point, we can save our model to a file and validate it to check if it conforms to the NeuroML schema (more on this later).
+At this point, we can save our model to a file and validate it to check if it conforms to the NeuroML schema (more on this {ref}`later <userdocs:validating_models>`).
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
@@ -86,11 +86,13 @@ Each entity between chevrons is a *tag*: `<..>`, and each tag may have multiple 
 For example `<neuroml ..>` is a tag, that contains the `id` attribute with value `NML2_SimpleIonChannel`.
 
 ```{admonition} XML Tutorial
-For details on XML, consider skimming through [this tutorial](https://www.w3schools.com/xml/).
+For details on XML, have a look through [this tutorial](https://www.w3schools.com/xml/).
 ```
-```{admonition} Is this XML valid?
+```{admonition} Is this XML well-formed?
 :class: tip
-Is the XML shown above valid? See for yourself. Copy the NeuroML file listed above and validate is using an [online XML validator](https://www.w3schools.com/xml/xml_validator.asp).
+A NeuroML file needs to be both 1) well-formed, as in complies with the general rules of the XML language syntax, and 2) valid, i.e. contains the expected NeuroML specific tags/attributes.
+
+Is the XML shown above well-formed? See for yourself. Copy the NeuroML file listed above and check it using an [online XML syntax checker](https://www.w3schools.com/xml/xml_validator.asp).
 ```
 
 Let us step through this file to understand the different constructs used in it.
@@ -146,7 +148,7 @@ lines: 2-7
 ----
 ```
 
-The cell, is defined in the `izhikevichCell` tag, which has a number of attributes:
+The cell, is defined in the `izhikevich2007Cell` tag, which has a number of attributes (see {ref}`here <schema:izhikevich2007Cell>` for more):
 - `id`: the name that we want to give to this cell. To refer to it later, for example,
 - `v0`: the initial membrane potential for the cell,
 - `C`: the leak conductance,
@@ -200,11 +202,11 @@ They should use the Python tools as demonstrated here.
 
 ## Simulating the model
 
-Until now, we have declared the model.
+Until now, we have just declared the model.
 We have not, however, included any information related to the simulation of this model.
 The same model may be instantiated many times with different random seeds and so on to give rise to different simulations and behaviours.
-In NeuroML, the information required to simulate the model is provided using [LEMS](http://lems.github.io/LEMS/index.html).
-We will not go into the details of LEMS.
+In NeuroML, the information required to simulate the model is provided using {ref}`LEMS <userdocs:specification:lemsdefs>`.
+We will not go into the details of LEMS just yet.
 We will limit ourselves to the bits necessary to simulate our Izhikevich neuron only.
 
 The following lines of code instantiate a new simulation with certain simulation parameters: `duration`, `dt`, `simulation_seed`.
@@ -216,7 +218,7 @@ Finally, like we had saved our NeuroML model to a file, we also save our LEMS do
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 56-71
+lines: 60-75
 ----
 ```
 The generated LEMS file is shown below:
@@ -233,15 +235,15 @@ We also note that our NeuroML model has been "included" in the LEMS file, so tha
 Like NeuroML, *users are not expected to write the LEMS XML component by hand*.
 They should continue to use the NeuroML Python tools.
 
-Finally, pyNeuroML also includes functions that allow you to run the simulation from the Python script itself:
+Finally, {ref}`pyNeuroML <pyNeuroML>` also includes functions that allow you to run the simulation from the Python script itself:
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 73-76
+lines: 77-80
 ----
 ```
 
-Here, we are running our simulation using the jLEMS simulator.
+Here, we are running our simulation using the {ref}`jNeuroML <jNeuroML>` simulator, which is bundled with {ref}`pyNeuroML <pyNeuroML>`.
 Since NeuroML is a well defined standard, models defined in NeuroML can also be run using other {ref}`supported simulators <userdocs:simulators>`.
 
 ## Plotting the recorded membrane potential
@@ -252,7 +254,7 @@ The last few lines of code shows how the membrane potential plot at the top of t
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 78-86
+lines: 82-90
 ----
 ```
 
