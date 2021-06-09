@@ -21,6 +21,7 @@ from neuroml import SpikeThresh
 from neuroml import SpecificCapacitance
 from neuroml import InitMembPotential
 from neuroml import IntracellularProperties
+from neuroml import IncludeType
 from neuroml import Resistivity
 from neuroml import Morphology, Segment, Point3DWithDiam
 from neuroml import Network, Population
@@ -67,7 +68,7 @@ def main():
 
     # Channel density for Na channel
     # Create na channel file and include it in our main document
-    nml_doc.includes.append(create_na_channel())
+    nml_doc.includes.append(IncludeType(href=create_na_channel()))
     na_channel_density = ChannelDensity(
         id="na_channels", cond_density="120.0 mS_per_cm2", erev="50.0 mV",
         ion="na", ion_channel="na_channel"
@@ -75,7 +76,7 @@ def main():
     mem_prop.channel_densities.append(na_channel_density)
 
     # Channel density for k channel
-    nml_doc.includes.append(create_k_channel())
+    nml_doc.includes.append(IncludeType(href=create_k_channel()))
     k_channel_density = ChannelDensity(id="k_channels",
                                        cond_density="360 S_per_m2",
                                        erev="-77mV", ion="k",
