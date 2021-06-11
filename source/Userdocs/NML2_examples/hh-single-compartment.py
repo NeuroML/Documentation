@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Creating a Hodgkin-Huxley, single compartment cell, in NeuroML
+Create a network with a single HH cell, and simulate it.
 
-File: HH.py
+File: hh-single-compartment.py
 
 Copyright 2021 NeuroML contributors
 Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
@@ -27,61 +27,66 @@ from neuroml import Morphology, Segment, Point3DWithDiam
 from neuroml import Network, Population
 from neuroml import PulseGenerator, ExplicitInput
 from neuroml.writers import NeuroMLWriter
+from neuroml.utils import validate_neuroml2
 import numpy as np
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
 
 
 def main():
-    """Main function """
+    """Main function
 
-    # TODO: Draw ascii diagram showing the full hierarchy
-    # TODO: Ask Padraig how to modularise the code: should one go bottom up: define
-    # rates, then gates, then channels, then cell, network and so on. OR, should
-    # one create the network first, then cells, and go top-down? OR is there a
-    # better way: define everything you need first, and then put it together? The
-    # third seems best tbh.
-
+    Include the NeuroML model into a LEMS simulation file, run it, plot some
+    data.
+    """
     # Create the nml document
-    nml_doc = NeuroMLDocument(id="HH_single_complartment",
-                              notes="Single compartment cell with HH channels")
+    nml_doc = NeuroMLDocument(id="HH_single_compartment",
+                              notes="Example of a single compartment cell with HH channels")
     nml_fn = "HH_single_compartment_example.nml"
 
-    # Include our cell
+    # Create a network, and include it
     nml_doc.includes.append(IncludeType(href=create_network()))
+    # Write the NeuroML file
     NeuroMLWriter.write(nml_doc, nml_fn)
+    # Validate the file
+    validate_neuroml2(nml_fn)
 
     # Simulation bits
     sim_id = "HH_single_compartment_example_sim"
     simulation = LEMSSimulation(sim_id=sim_id, duration=300, dt=0.01,
                                 simulation_seed=123)
-    simulation.assign_simulation_target("single_hh_cell_network")
+    # Include the NeuroML model file
     simulation.include_neuroml2_file(nml_fn)
+    # Assign target for the simulation
+    simulation.assign_simulation_target("single_hh_cell_network")
 
-    # Recording bits
+    # Recording information from the simulation
     simulation.create_output_file(id="output0", file_name=sim_id + ".v.dat")
     simulation.add_column_to_output_file("output0", column_id="pop0[0]",
                                          quantity="pop0[0]/v")
-    # TODO: what is `fopen`? Probably "fraction open"
-    # TODO: how do I recored channel currents?
 
+    # TODO: record more information: channel currents
+
+    # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
 
-    # Run the simulation using the jNeuroML simulator
+    # Run the simulation using the default jNeuroML simulator
     pynml.run_lems_with_jneuroml(
         sim_file, max_memory="2G", nogui=True, plot=False
     )
+    # Plot the data
     plot_data(sim_id)
 
 
 def plot_data(sim_id):
-    """Plot the sim data
+    """Plot the sim data.
+
+    Load the data from the file and plot the graph for the membrane potential
+    using the pynml generate_plot utility function.
 
     :sim_id: ID of simulaton
 
     """
-    # Load the data from the file and plot the graph for the membrane potential
-    # using the pynml generate_plot utility function.
     data_array = np.loadtxt(sim_id + ".v.dat")
     pynml.generate_plot(
         [data_array[:, 0]], [data_array[:, 1]],
@@ -103,7 +108,7 @@ def create_na_channel():
                               conductance="10pS", species="na")
     gate_m = GateHHRates(id="na_m", instances="3", notes="m gate for na channel")
 
-    # TODO~: Ask Padraig: how does one know that HHExpRate etc are to be used as a
+    # TODO: Ask Padraig: how does one know that HHExpRate etc are to be used as a
     # type, and is not a class itself like all the other constructs? In the
     # documentation, they're all listed in the same way.
 
@@ -138,8 +143,10 @@ def create_na_channel():
 def create_k_channel():
     """Create the K channel
 
-    :returns: name of the K channel file
+    This will create the K channel and save it to a file.
+    It will also validate this file.
 
+    :returns: name of the K channel file
     """
     k_channel = IonChannelHH(id="k_channel", notes="Potassium channel for HH cell",
                              conductance="10pS", species="k")
@@ -166,8 +173,10 @@ def create_k_channel():
 def create_leak_channel():
     """Create a leak channel
 
-    :returns: name of leak channel nml file
+    This will create the leak channel and save it to a file.
+    It will also validate this file.
 
+    :returns: name of leak channel nml file
     """
     leak_channel = IonChannelHH(id="leak_channel", conductance="10pS",
                                 notes="Leak conductance")
@@ -183,10 +192,9 @@ def create_leak_channel():
 
 
 def create_cell():
-    """Create the cell
+    """Create the cell.
 
     :returns: name of the cell nml file
-
     """
     # Create the nml file and add the ion channels
     hh_cell_doc = NeuroMLDocument(id="cell",
@@ -273,7 +281,6 @@ def create_network():
     """Create the network
 
     :returns: name of network nml file
-
     """
     net_doc = NeuroMLDocument(id="network",
                               notes="HH cell network")
@@ -300,7 +307,6 @@ def create_network():
 
     pynml.write_neuroml2_file(nml2_doc=net_doc,
                               nml2_file_name=net_doc_fn, validate=True)
-
     return net_doc_fn
 
 

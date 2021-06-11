@@ -15,6 +15,11 @@
     <Include file="Simulation.xml"/>
     
     <Include file="HH_single_compartment_example.nml"/>
+    <Include file="HH_example_net.nml"/>
+    <Include file="HH_example_cell.nml"/>
+    <Include file="HH_example_na_channel.nml"/>
+    <Include file="HH_example_k_channel.nml"/>
+    <Include file="HH_example_leak_channel.nml"/>
    
     <Simulation id="HH_single_compartment_example_sim" length="300ms" step="0.01ms" target="single_hh_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
         

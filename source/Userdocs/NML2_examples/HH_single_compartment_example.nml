@@ -1,18 +1,4 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="HH_single_complartment">
-    <notes>Single compartment cell with HH channels</notes>
-    <include id="na_channel">
-        <notes>Na channel for HH neuron</notes>
-        <ionChannelHH id="na_channel" species="na" conductance="10pS">
-            <notes>Sodium channel for HH cell</notes>
-            <gateHHrates id="na_m" instances="3">
-                <notes>m gate for na channel</notes>
-                <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-                <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
-            </gateHHrates>
-            <gateHHrates id="na_h" instances="1">
-                <notes>h gate for na channel</notes>
-                <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
-                <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
-            </gateHHrates>
-        </ionChannelHH>
-    </include>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="HH_single_compartment">
+    <notes>Example of a single compartment cell with HH channels</notes>
+    <include href="HH_example_net.nml"/>
+</neuroml>
