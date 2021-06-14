@@ -8,7 +8,7 @@ Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/Ne
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 06/05/21 from [this](https://github.com/NeuroML/NeuroML2/commit/f186fdc0c7e7d6ad7fcab3b5f31639244541c2b6) commit.
+Generated on 01/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/f186fdc0c7e7d6ad7fcab3b5f31639244541c2b6) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -1363,9 +1363,9 @@ extends {ref}`schema:gate`
         </gateHHrates>
 ```
 ```{code-block} xml
-<gateHHrates id="n" instances="4">
-            <forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
+<gateHHrates id="m" instances="3">
+            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
         </gateHHrates>
 ```
 
@@ -2335,16 +2335,31 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 *XML examples*
 ```{code-block} xml
-<ionChannelHH id="HH_Na" conductance="10pS" species="na">  
-        
+<ionChannelHH id="NaConductance" conductance="10pS" species="na">
+        <gateHHrates id="m" instances="3">
+            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+        </gateHHrates>
+        <gateHHrates id="h" instances="1">
+            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
+            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
+        </gateHHrates>
     </ionChannelHH>
 ```
 ```{code-block} xml
 <ionChannelHH xmlns:xi="http://www.w3.org/2001/XInclude" id="pas" conductance="10pS"/>
 ```
 ```{code-block} xml
-<ionChannelHH id="passiveChan" conductance="10pS">
-        <notes>Leak conductance</notes>
+<ionChannelHH id="naChan" conductance="10pS" species="na">
+        <notes>Na channel</notes>
+        <gateHHrates id="m" instances="3">
+            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+        </gateHHrates>
+        <gateHHrates id="h" instances="1">
+            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
+            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
+        </gateHHrates>
     </ionChannelHH>
 ```
 
