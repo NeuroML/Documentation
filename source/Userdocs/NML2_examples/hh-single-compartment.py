@@ -282,7 +282,6 @@ def create_network():
     pulsegen = PulseGenerator(id="pg", notes="Simple pulse generator",
                               delay="100ms", duration="100ms", amplitude="0.08nA")
 
-    # the docs)
     exp_input = ExplicitInput(target="pop0[0]", input="pg")
 
     net = Network(id="single_hh_cell_network",
