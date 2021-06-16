@@ -26,8 +26,6 @@ from neuroml import Resistivity
 from neuroml import Morphology, Segment, Point3DWithDiam
 from neuroml import Network, Population
 from neuroml import PulseGenerator, ExplicitInput
-from neuroml.writers import NeuroMLWriter
-from neuroml.utils import validate_neuroml2
 import numpy as np
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
@@ -39,24 +37,12 @@ def main():
     Include the NeuroML model into a LEMS simulation file, run it, plot some
     data.
     """
-    # Create the nml document
-    nml_doc = NeuroMLDocument(id="HH_single_compartment",
-                              notes="Example of a single compartment cell with HH channels")
-    nml_fn = "HH_single_compartment_example.nml"
-
-    # Create a network, and include it
-    nml_doc.includes.append(IncludeType(href=create_network()))
-    # Write the NeuroML file
-    NeuroMLWriter.write(nml_doc, nml_fn)
-    # Validate the file
-    validate_neuroml2(nml_fn)
-
     # Simulation bits
     sim_id = "HH_single_compartment_example_sim"
     simulation = LEMSSimulation(sim_id=sim_id, duration=300, dt=0.01,
                                 simulation_seed=123)
     # Include the NeuroML model file
-    simulation.include_neuroml2_file(nml_fn)
+    simulation.include_neuroml2_file(create_network())
     # Assign target for the simulation
     simulation.assign_simulation_target("single_hh_cell_network")
 

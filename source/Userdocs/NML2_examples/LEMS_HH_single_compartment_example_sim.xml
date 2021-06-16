@@ -14,7 +14,6 @@
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
     
-    <Include file="HH_single_compartment_example.nml"/>
     <Include file="HH_example_net.nml"/>
     <Include file="HH_example_cell.nml"/>
     <Include file="HH_example_na_channel.nml"/>
