@@ -1,79 +1,71 @@
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-- file: Landing
-  numbered: false
-  title: ""
-
-- part: User documentation
-  chapters:
-    - file: ./Userdocs/MissionAndAims
-    - file: ./Userdocs/GettingStarted
+format: jb-book
+root: Landing
+title: ''
+parts:
+  - caption: User documentation
+    chapters:
+    - file: Userdocs/MissionAndAims
+    - file: Userdocs/GettingStarted
       sections:
-      - file: ./Userdocs/SingleNeuronExample
-      - file: ./Userdocs/NML2_examples/SingleNeuron.ipynb
-      - file: ./Userdocs/IzhikevichNetworkExample
-      - file: ./Userdocs/NML2_examples/IzhikevichNetwork.ipynb
-    - file: ./Userdocs/FindingNeuroMLModels
-    - file: ./Userdocs/CreatingNeuroMLModels
-    - file: ./Userdocs/ValidatingNeuroMLModels
-    - file: ./Userdocs/VisualisingNeuroMLModels
-    - file: ./Userdocs/SimulatingNeuroMLModels
-    - file: ./Userdocs/Specification
+      - file: Userdocs/SingleNeuronExample
+      - file: Userdocs/NML2_examples/SingleNeuron.ipynb
+      - file: Userdocs/IzhikevichNetworkExample
+      - file: Userdocs/NML2_examples/IzhikevichNetwork.ipynb
+    - file: Userdocs/FindingNeuroMLModels
+    - file: Userdocs/CreatingNeuroMLModels
+    - file: Userdocs/ValidatingNeuroMLModels
+    - file: Userdocs/VisualisingNeuroMLModels
+    - file: Userdocs/SimulatingNeuroMLModels
+    - file: Userdocs/Specification
       sections:
-        - file: ./Userdocs/NeuroMLv2.md
+        - file: Userdocs/NeuroMLv2
           sections:
-            - file: ./Userdocs/Schemas/NeuroMLCoreDimensions
-            - file: ./Userdocs/Schemas/NeuroMLCoreCompTypes
-            - file: ./Userdocs/Schemas/Cells
-            - file: ./Userdocs/Schemas/Channels
-            - file: ./Userdocs/Schemas/Synapses
-            - file: ./Userdocs/Schemas/Inputs
-            - file: ./Userdocs/Schemas/Networks
-            - file: ./Userdocs/Schemas/PyNN
-        - file: ./Userdocs/NeuroMLv1.md
-    - file: ./Userdocs/ExtendingNeuroMLv2WithLEMS.md
-    - file: ./Userdocs/Software/Software
+            - file: Userdocs/Schemas/NeuroMLCoreDimensions
+            - file: Userdocs/Schemas/NeuroMLCoreCompTypes
+            - file: Userdocs/Schemas/Cells
+            - file: Userdocs/Schemas/Channels
+            - file: Userdocs/Schemas/Synapses
+            - file: Userdocs/Schemas/Inputs
+            - file: Userdocs/Schemas/Networks
+            - file: Userdocs/Schemas/PyNN
+        - file: Userdocs/NeuroMLv1
+    - file: Userdocs/ExtendingNeuroMLv2WithLEMS
+    - file: Userdocs/Software/Software
       sections:
-        - file: ./Userdocs/Software/pyNeuroML
-        - file: ./Userdocs/Software/libNeuroML
-        - file: ./Userdocs/Software/pyLEMS
-        - file: ./Userdocs/Software/NeuroMLlite
-        - file: ./Userdocs/Software/jNeuroML
-        - file: ./Userdocs/Software/jLEMS
-        - file: ./Userdocs/Software/NeuroML_API
-        - file: ./Userdocs/Software/MatLab
-        - file: ./Userdocs/Software/SupportingTools
-    - file: ./Userdocs/FAQ
-
-- part: NeuroML events
-  chapters:
-    # Latest first
-    - file: ./Events/202107-CNS2021
-    - file: ./Events/202103-Harmony
-
-- part: The NeuroML Initiative
-  chapters:
-    - file: ./NeuroMLOrg/CommunicationChannels
-    - file: ./NeuroMLOrg/Standards
-    - file: ./NeuroMLOrg/History
-    - file: ./NeuroMLOrg/Board
-      sections:
-        - file: ./NeuroMLOrg/BoardHistory
-        - file: ./NeuroMLOrg/BoardMeetingReports
-    - file: ./NeuroMLOrg/ScientificCommittee
-    - file: ./NeuroMLOrg/Funding
-    - file: ./NeuroMLOrg/Contributors
-    - file: ./NeuroMLOrg/CoC
-
-- part: Developer documentation
-  chapters:
-    - file: ./Devdocs/Devdocs
-      sections:
-        - file: ./Devdocs/ReleaseProcess
-    - file: ./Devdocs/InteractionOtherBits
-
-- part: Reference
-  chapters:
-    - file: ./Reference/Glossary
-    - file: ./Reference/zBibliography
+        - file: Userdocs/Software/pyNeuroML
+        - file: Userdocs/Software/libNeuroML
+        - file: Userdocs/Software/pyLEMS
+        - file: Userdocs/Software/NeuroMLlite
+        - file: Userdocs/Software/jNeuroML
+        - file: Userdocs/Software/jLEMS
+        - file: Userdocs/Software/NeuroML_API
+        - file: Userdocs/Software/MatLab
+        - file: Userdocs/Software/SupportingTools
+    - file: Userdocs/FAQ
+  - caption: NeuroML events
+    chapters:
+      - file: Events/202107-CNS2021
+      - file: Events/202103-Harmony
+  - caption: The NeuroML Initiative
+    chapters:
+      - file: NeuroMLOrg/CommunicationChannels
+      - file: NeuroMLOrg/Standards
+      - file: NeuroMLOrg/History
+      - file: NeuroMLOrg/Board
+        sections:
+          - file: NeuroMLOrg/BoardHistory
+          - file: NeuroMLOrg/BoardMeetingReports
+      - file: NeuroMLOrg/ScientificCommittee
+      - file: NeuroMLOrg/Funding
+      - file: NeuroMLOrg/Contributors
+      - file: NeuroMLOrg/CoC
+  - caption: Developer documentation
+    chapters:
+      - file: Devdocs/Devdocs
+        sections:
+          - file: Devdocs/ReleaseProcess
+      - file: Devdocs/InteractionOtherBits
+  - caption: Reference
+    chapters:
+    - file: Reference/Glossary
+    - file: Reference/zBibliography
