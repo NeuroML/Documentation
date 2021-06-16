@@ -4,4 +4,6 @@ pre, .highlight-python, .highlight-xml, .highlight {
     word-wrap: break-word !important; /*for IE*/
     overflow: visible !important;
     overflow-x: visible !important;
+    overflow-y: auto !important;
+    max-height: 30em !important;
 }
