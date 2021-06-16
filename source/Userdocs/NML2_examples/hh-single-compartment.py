@@ -65,8 +65,6 @@ def main():
     simulation.add_column_to_output_file("output0", column_id="pop0[0]",
                                          quantity="pop0[0]/v")
 
-    # TODO: record more information: channel currents
-
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
 
@@ -107,10 +105,6 @@ def create_na_channel():
     na_channel = IonChannelHH(id="na_channel", notes="Sodium channel for HH cell",
                               conductance="10pS", species="na")
     gate_m = GateHHRates(id="na_m", instances="3", notes="m gate for na channel")
-
-    # TODO: Ask Padraig: how does one know that HHExpRate etc are to be used as a
-    # type, and is not a class itself like all the other constructs? In the
-    # documentation, they're all listed in the same way.
 
     m_forward_rate = HHRate(type="HHExpLinearRate", rate="1per_ms",
                             midpoint="-40mV", scale="10mV")
@@ -241,7 +235,6 @@ def create_cell():
     mem_prop.channel_densities.append(leak_channel_density)
 
     # Other membrane properties
-    # TODO: why are these lists? Can a membrane have more than one threshold?
     mem_prop.spike_threshes.append(SpikeThresh(value="-20mV"))
     mem_prop.specific_capacitances.append(
         SpecificCapacitance(value="1.0 uF_per_cm2")
@@ -255,8 +248,6 @@ def create_cell():
     bio_prop.intracellular_properties = intra_prop
 
     # Morphology
-    # TODO: libNeuroML says Morphology has "notes", but LEMS doesn't seem to like
-    # it.
     morph = Morphology(id="hh_cell_morph")
     #  notes="Simple morphology for the HH cell")
     seg = Segment(id="0", name="soma", notes="Soma segment")
@@ -266,8 +257,6 @@ def create_cell():
     proximal = distal = Point3DWithDiam(x="0", y="0", z="0", diameter=str(diam))
     seg.proximal = proximal
     seg.distal = distal
-    # TODO: why do we need to add both segments and segment groups? When should
-    # segment_groups be used, and for what?
     morph.segments.append(seg)
     hh_cell.morphology = morph
 
@@ -293,8 +282,6 @@ def create_network():
     pulsegen = PulseGenerator(id="pg", notes="Simple pulse generator",
                               delay="100ms", duration="100ms", amplitude="0.08nA")
 
-    # TODO: why do we need an ExplicitInput? Why not directly connect to pulsegen?
-    # TODO: what is the difference between target and destination (not explained in
     # the docs)
     exp_input = ExplicitInput(target="pop0[0]", input="pg")
 
