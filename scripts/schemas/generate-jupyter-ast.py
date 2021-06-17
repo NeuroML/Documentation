@@ -297,7 +297,7 @@ def main(srcdir, destdir):
         """Page header"""
         print(asttemplates.page_header.render(
             comp_definition=comp_definition,
-            comp_description=model.description,
+            comp_description=format_description(model.description),
             GitHubCompSources=GitHubCompSources,
             nml_version=nml_version, nml_branch=nml_branch,
             nml_date=nml_date,
