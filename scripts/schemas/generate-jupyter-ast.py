@@ -68,6 +68,8 @@ def format_description(text):
     :returns: converted string
 
     """
+    if not text or len(text) == 0:
+        return ""
     # Add spaces after these so we correctly split "(_gbase" type constructs
     puncts = ["(", ",", ";"]
     for punct in puncts:
