@@ -116,11 +116,11 @@ def get_libneuroml_signatures():
             comp_type_py_api[comp_type] = None
 
 
-def get_comp_examples(srcdir, examples_max=3):
+def get_comp_examples(srcdirs, examples_max=3):
     """Get examples for component types
 
-    :param srcdir: directory where examples are
-    :type srcdir: string
+    :param srcdirs: directores where examples are
+    :type srcdir: list(str)
     :param examples_max: maximum number of examples to store
     :type examples_max: int
     :returns: TODO
@@ -128,51 +128,56 @@ def get_comp_examples(srcdir, examples_max=3):
     for comp_type in comp_types.keys():
         comp_type_examples[comp_type] = []
 
-    example_files = os.listdir(srcdir)
-    for f in example_files:
-        if ".nml" in f:
-            print("Processing example file: {}".format(f))
-            srcfile = srcdir + "/" + f
-            fh = open(srcfile, 'r')
+    for srcdir in srcdirs:
+        example_files = os.listdir(srcdir)
+        for f in example_files:
+            if ".nml" in f or ".xml" in f:
+                srcfile = srcdir + "/" + f
+                print("Processing example file: {}".format(srcfile))
+                fh = open(srcfile, 'r')
 
-            # Replace xmlns bits, we can't do it using lxml
-            # So we need to read the file, do some regular expression
-            # substitutions, and then start the XML bits
-            data = fh.read()
-            data = re.sub('xmlns=".*"', '', data)
-            data = re.sub('xmlns:xsi=".*"', '', data)
-            data = re.sub('xsi:schemaLocation=".*"', '', data)
-            # Remove comment lines
-            data = re.sub('<!--.*-->', '', data)
-            # Strip empty lines
-            data = os.linesep.join([s for s in data.splitlines() if s])
+                # Replace xmlns bits, we can't do it using lxml
+                # So we need to read the file, do some regular expression
+                # substitutions, and then start the XML bits
+                data = fh.read()
+                data = re.sub('xmlns=".*"', '', data)
+                data = re.sub('xmlns:xsi=".*"', '', data)
+                data = re.sub('xsi:schemaLocation=".*"', '', data)
+                # Remove comment lines
+                data = re.sub('<!--.*-->', '', data)
+                # Strip empty lines
+                data = os.linesep.join([s for s in data.splitlines() if s])
 
-            root = ET.fromstring(bytes(data, 'utf-8'))
-            namespaces = root.nsmap
+                try:
+                    root = ET.fromstring(bytes(data, 'utf-8'))
+                except ET.XMLSyntaxError as e:
+                    print(f"Could not parse file {srcfile}: {e}")
+                    continue
+                namespaces = root.nsmap
 
-            for comp_type in comp_types.keys():
-                #  print("looking for comp_type {}".format(comp_type))
-                # To find recursively, we have to use the XPath system:
-                # https://stackoverflow.com/a/2723968/375067
-                # Gotta use namespaces:
-                # https://stackoverflow.com/a/28700661/375067
-                examples = root.findall(".//" + comp_type, namespaces=namespaces)
-                """
-                if len(examples) == 0:
-                    print("Found no XML examples for {}".format(comp_type))
-                """
-                # Sort by length so that we take the 5 longest examples
-                # Also sort so that the order remains the same when using
-                # different Python versions etc.
-                examples.sort(key=len, reverse=True)
-                # Let's only keep the first 5 examples
-                for example in examples:
-                    if len(comp_type_examples[comp_type]) < examples_max:
-                        comp_type_examples[comp_type].append(
-                            ET.tostring(example, pretty_print=True,
-                                        encoding="unicode", with_comments="False"
-                                        )
-                        )
+                for comp_type in comp_types.keys():
+                    #  print("looking for comp_type {}".format(comp_type))
+                    # To find recursively, we have to use the XPath system:
+                    # https://stackoverflow.com/a/2723968/375067
+                    # Gotta use namespaces:
+                    # https://stackoverflow.com/a/28700661/375067
+                    examples = root.findall(".//" + comp_type, namespaces=namespaces)
+                    """
+                    if len(examples) == 0:
+                        print("Found no XML examples for {}".format(comp_type))
+                    """
+                    # Sort by length so that we take the 5 longest examples
+                    # Also sort so that the order remains the same when using
+                    # different Python versions etc.
+                    examples.sort(key=len, reverse=True)
+                    # Let's only keep the first 5 examples
+                    for example in examples:
+                        if len(comp_type_examples[comp_type]) < examples_max:
+                            comp_type_examples[comp_type].append(
+                                ET.tostring(example, pretty_print=True,
+                                            encoding="unicode", with_comments="False"
+                                            )
+                            )
     #  print(comp_type_examples)
 
 
