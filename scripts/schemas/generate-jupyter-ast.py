@@ -360,8 +360,11 @@ def main(srcdir, destdir):
                 cno = comp_type.description.split(" ")[-1]
                 comp_type.description = comp_type.description.replace(cno, "")
             comp_type.description = format_description(comp_type.description)
-            if comp_type.description[-1] not in "!.":
-                comp_type.description += "."
+            if len(comp_type.description) > 0:
+                if comp_type.description[-1] not in "!.":
+                    comp_type.description += "."
+            else:
+                comp_type.description = ""
             print(asttemplates.comp.render(comp_definition=comp_definition,
                                            comp_type=comp_type, cno=cno),
                   file=ast_doc)
