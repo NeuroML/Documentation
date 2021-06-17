@@ -84,7 +84,7 @@ page_header = env.from_string(textwrap.dedent(
     (schema:{{ comp_definition|lower }})=
     # {{ comp_definition }}
 
-    {% if comp_description is not none -%}
+    {% if comp_description and comp_description | length > 0 -%}
         *{{- comp_description -}}*
     {%- endif %}
 
