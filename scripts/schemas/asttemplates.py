@@ -99,6 +99,7 @@ page_header = env.from_string(textwrap.dedent(
 
 dimension = env.from_string(textwrap.dedent(
     """
+    (schema:dimensions:*)=
     ## Dimensions
     {% for dim in dimensions %}
     (schema:dimensions:{{ dim.name }})=
