@@ -36,7 +36,7 @@ import inspect
 getcontext().prec = 5
 
 # Main worker bits start here
-comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes"]
+comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes", "Simulation"]
 comp_types = {}
 comp_type_examples = {}
 comp_type_py_api = {}
@@ -266,7 +266,14 @@ def main(srcdir, destdir):
     else:
         tmpsrcdir = srcdir
 
-    exampledir = tmpsrcdir + "/examples/"
+    # TODO: add LEMS examples
+    # We can't do this at the moment, because the LEMS python bits are in
+    # pyneuroml, while we point to the libNeuroML docs for the NeuroML2 usage
+    # examples. pyneuroml does not currently have docs on RTD, and some more
+    # work will be required to tell our templates when an example is NeuroML
+    # and when it is LEMS so it can point to the correct docs.
+    #  exampledirs = [tmpsrcdir + "/examples/", tmpsrcdir + "/LEMSexamples/"]
+    exampledirs = [tmpsrcdir + "/examples/"]
     tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
 
     # Get current commit
@@ -279,7 +286,7 @@ def main(srcdir, destdir):
     get_component_types(tmpsrcdir)
 
     # get examples
-    get_comp_examples(exampledir)
+    get_comp_examples(exampledirs)
 
     # get python signatures
     get_libneuroml_signatures()
