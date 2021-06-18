@@ -8,7 +8,7 @@ Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.co
 
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 
-Generated on 01/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/f186fdc0c7e7d6ad7fcab3b5f31639244541c2b6) commit.
+Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -119,8 +119,8 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 :width: 100%
 :delim: $
 
-**tag**$ Name of the property
-**value**$ Value of the property
+**tag**$ 
+**value**$ 
 
 ````
 
@@ -597,10 +597,10 @@ extends *{ref}`schema:basebqbiol`*
 :width: 100 %
 :delim: $
 
-**diameter**$ Diameter of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
-**x**$ x coordinate of the point. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
-**y**$ y coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
-**z**$ z coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. $Dimensionless
+**diameter**$ Diameter at point. Note: no dimension used, see note above! $Dimensionless
+**x**$ x coordinate of point. Note: no dimension used, see note above! $Dimensionless
+**y**$ y coordinate of point. Note: no dimension used, see note above! $Dimensionless
+**z**$ z coordinate of point. Note: no dimension used, see note above! $Dimensionless
 
 ```
 ````
@@ -611,10 +611,10 @@ extends *{ref}`schema:basebqbiol`*
 :width: 100 %
 :delim: $
 
-**radius**$ A dimensional quantity given by half the _diameter. ${ref}`schema:dimensions:length`
-**xLength**$ A version of _x with dimension length. ${ref}`schema:dimensions:length`
-**yLength**$ A version of _y with dimension length. ${ref}`schema:dimensions:length`
-**zLength**$ A version of _z with dimension length. ${ref}`schema:dimensions:length`
+**radius**$  ${ref}`schema:dimensions:length`
+**xLength**$  ${ref}`schema:dimensions:length`
+**yLength**$  ${ref}`schema:dimensions:length`
+**zLength**$  ${ref}`schema:dimensions:length`
 
 ```
 ````

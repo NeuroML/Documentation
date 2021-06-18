@@ -36,7 +36,7 @@ import inspect
 getcontext().prec = 5
 
 # Main worker bits start here
-comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes"]
+comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes", "Simulation"]
 comp_types = {}
 comp_type_examples = {}
 comp_type_py_api = {}
@@ -68,6 +68,8 @@ def format_description(text):
     :returns: converted string
 
     """
+    if not text or len(text) == 0:
+        return ""
     # Add spaces after these so we correctly split "(_gbase" type constructs
     puncts = ["(", ",", ";"]
     for punct in puncts:
@@ -114,11 +116,11 @@ def get_libneuroml_signatures():
             comp_type_py_api[comp_type] = None
 
 
-def get_comp_examples(srcdir, examples_max=3):
+def get_comp_examples(srcdirs, examples_max=3):
     """Get examples for component types
 
-    :param srcdir: directory where examples are
-    :type srcdir: string
+    :param srcdirs: directores where examples are
+    :type srcdir: list(str)
     :param examples_max: maximum number of examples to store
     :type examples_max: int
     :returns: TODO
@@ -126,51 +128,56 @@ def get_comp_examples(srcdir, examples_max=3):
     for comp_type in comp_types.keys():
         comp_type_examples[comp_type] = []
 
-    example_files = os.listdir(srcdir)
-    for f in example_files:
-        if ".nml" in f:
-            print("Processing example file: {}".format(f))
-            srcfile = srcdir + "/" + f
-            fh = open(srcfile, 'r')
+    for srcdir in srcdirs:
+        example_files = os.listdir(srcdir)
+        for f in example_files:
+            if ".nml" in f or ".xml" in f:
+                srcfile = srcdir + "/" + f
+                print("Processing example file: {}".format(srcfile))
+                fh = open(srcfile, 'r')
 
-            # Replace xmlns bits, we can't do it using lxml
-            # So we need to read the file, do some regular expression
-            # substitutions, and then start the XML bits
-            data = fh.read()
-            data = re.sub('xmlns=".*"', '', data)
-            data = re.sub('xmlns:xsi=".*"', '', data)
-            data = re.sub('xsi:schemaLocation=".*"', '', data)
-            # Remove comment lines
-            data = re.sub('<!--.*-->', '', data)
-            # Strip empty lines
-            data = os.linesep.join([s for s in data.splitlines() if s])
+                # Replace xmlns bits, we can't do it using lxml
+                # So we need to read the file, do some regular expression
+                # substitutions, and then start the XML bits
+                data = fh.read()
+                data = re.sub('xmlns=".*"', '', data)
+                data = re.sub('xmlns:xsi=".*"', '', data)
+                data = re.sub('xsi:schemaLocation=".*"', '', data)
+                # Remove comment lines
+                data = re.sub('<!--.*-->', '', data)
+                # Strip empty lines
+                data = os.linesep.join([s for s in data.splitlines() if s])
 
-            root = ET.fromstring(bytes(data, 'utf-8'))
-            namespaces = root.nsmap
+                try:
+                    root = ET.fromstring(bytes(data, 'utf-8'))
+                except ET.XMLSyntaxError as e:
+                    print(f"Could not parse file {srcfile}: {e}")
+                    continue
+                namespaces = root.nsmap
 
-            for comp_type in comp_types.keys():
-                #  print("looking for comp_type {}".format(comp_type))
-                # To find recursively, we have to use the XPath system:
-                # https://stackoverflow.com/a/2723968/375067
-                # Gotta use namespaces:
-                # https://stackoverflow.com/a/28700661/375067
-                examples = root.findall(".//" + comp_type, namespaces=namespaces)
-                """
-                if len(examples) == 0:
-                    print("Found no XML examples for {}".format(comp_type))
-                """
-                # Sort by length so that we take the 5 longest examples
-                # Also sort so that the order remains the same when using
-                # different Python versions etc.
-                examples.sort(key=len, reverse=True)
-                # Let's only keep the first 5 examples
-                for example in examples:
-                    if len(comp_type_examples[comp_type]) < examples_max:
-                        comp_type_examples[comp_type].append(
-                            ET.tostring(example, pretty_print=True,
-                                        encoding="unicode", with_comments="False"
-                                        )
-                        )
+                for comp_type in comp_types.keys():
+                    #  print("looking for comp_type {}".format(comp_type))
+                    # To find recursively, we have to use the XPath system:
+                    # https://stackoverflow.com/a/2723968/375067
+                    # Gotta use namespaces:
+                    # https://stackoverflow.com/a/28700661/375067
+                    examples = root.findall(".//" + comp_type, namespaces=namespaces)
+                    """
+                    if len(examples) == 0:
+                        print("Found no XML examples for {}".format(comp_type))
+                    """
+                    # Sort by length so that we take the 5 longest examples
+                    # Also sort so that the order remains the same when using
+                    # different Python versions etc.
+                    examples.sort(key=len, reverse=True)
+                    # Let's only keep the first 5 examples
+                    for example in examples:
+                        if len(comp_type_examples[comp_type]) < examples_max:
+                            comp_type_examples[comp_type].append(
+                                ET.tostring(example, pretty_print=True,
+                                            encoding="unicode", with_comments="False"
+                                            )
+                            )
     #  print(comp_type_examples)
 
 
@@ -259,7 +266,14 @@ def main(srcdir, destdir):
     else:
         tmpsrcdir = srcdir
 
-    exampledir = tmpsrcdir + "/examples/"
+    # TODO: add LEMS examples
+    # We can't do this at the moment, because the LEMS python bits are in
+    # pyneuroml, while we point to the libNeuroML docs for the NeuroML2 usage
+    # examples. pyneuroml does not currently have docs on RTD, and some more
+    # work will be required to tell our templates when an example is NeuroML
+    # and when it is LEMS so it can point to the correct docs.
+    #  exampledirs = [tmpsrcdir + "/examples/", tmpsrcdir + "/LEMSexamples/"]
+    exampledirs = [tmpsrcdir + "/examples/"]
     tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
 
     # Get current commit
@@ -272,7 +286,7 @@ def main(srcdir, destdir):
     get_component_types(tmpsrcdir)
 
     # get examples
-    get_comp_examples(exampledir)
+    get_comp_examples(exampledirs)
 
     # get python signatures
     get_libneuroml_signatures()
@@ -295,7 +309,7 @@ def main(srcdir, destdir):
         """Page header"""
         print(asttemplates.page_header.render(
             comp_definition=comp_definition,
-            comp_description=model.description,
+            comp_description=format_description(model.description),
             GitHubCompSources=GitHubCompSources,
             nml_version=nml_version, nml_branch=nml_branch,
             nml_date=nml_date,
@@ -358,8 +372,11 @@ def main(srcdir, destdir):
                 cno = comp_type.description.split(" ")[-1]
                 comp_type.description = comp_type.description.replace(cno, "")
             comp_type.description = format_description(comp_type.description)
-            if comp_type.description[-1] not in "!.":
-                comp_type.description += "."
+            if len(comp_type.description) > 0:
+                if comp_type.description[-1] not in "!.":
+                    comp_type.description += "."
+            else:
+                comp_type.description = ""
             print(asttemplates.comp.render(comp_definition=comp_definition,
                                            comp_type=comp_type, cno=cno),
                   file=ast_doc)

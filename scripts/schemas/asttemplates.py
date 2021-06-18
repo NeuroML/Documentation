@@ -84,9 +84,9 @@ page_header = env.from_string(textwrap.dedent(
     (schema:{{ comp_definition|lower }})=
     # {{ comp_definition }}
 
-    {% if comp_description is not none %}
-        *{{ comp_description }}*
-    {% endif %}
+    {% if comp_description and comp_description | length > 0 -%}
+        *{{- comp_description -}}*
+    {%- endif %}
 
     Original ComponentType definitions: [{{ comp_definition }}.xml]({{ GitHubCompSources }}/{{ comp_definition }}.xml).
 
@@ -99,6 +99,7 @@ page_header = env.from_string(textwrap.dedent(
 
 dimension = env.from_string(textwrap.dedent(
     """
+    (schema:dimensions:*)=
     ## Dimensions
     {% for dim in dimensions %}
     (schema:dimensions:{{ dim.name }})=
