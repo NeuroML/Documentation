@@ -44,7 +44,7 @@ language: python
 lines: 24-28
 ----
 ```
-Now that the neuron has been defined, we declare a network with a population of these neurons to create a network.
+Now that the neuron has been defined, we declare a {ref}`network <schema:network>` with a {ref}`population <schema:population>` of these neurons to create a network.
 Here, our model includes one network which includes only one population, which in turn only consists of a single neuron.
 Once the network, its populations, and their neurons have been declared, we again them to our model:
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
@@ -54,8 +54,8 @@ lines: 30-37
 ----
 ```
 To record the membrane potential of the neuron, we must give it some external input that makes it spike.
-As with the neuron, we create and add a pulse generator to our network.
-We then connect it to our neuron, the `target`.
+As with the neuron, we create and add a {ref}`pulse generator <schema:pulsegenerator>` to our network.
+We then connect it to our neuron, the `target` using an {ref}`explicit input <schema:explicitinput>`.
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python

@@ -31,9 +31,10 @@ language: python
 lines: 22-30
 ----
 ```
-Here, we create a new document, declare the Izhikevich neuron, and also declare the synapse that we are going to use to connect one population of neurons to the other.
-Here we intend to use the [ExpOne Synapse](https://www.neuroml.org/NeuroML2CoreTypes/Synapses.html#expOneSynapse), where the conductance of the synapse increases instantaneously by a constant value `gbase` on receiving a spike, and then decays exponentially with a decay constant `tauDecay`.
-We can now declare our cell populations:
+Here, we create a new document, declare the {ref}`Izhikevich neuron<schema:izhikevich2007Cell>`, and also declare the synapse that we are going to use to connect one population of neurons to the other.
+Here we intend to use the {ref}`ExpOne Synapse<schema:exponesynapse>`, where the conductance of the synapse increases instantaneously by a constant value `gbase` on receiving a spike, and then decays exponentially with a decay constant `tauDecay`.
+
+We can now declare our {ref}`network <schema:network>` with 2 {ref}`populations <schema:population>` of these cells:
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
@@ -41,12 +42,12 @@ lines: 32-41
 ----
 ```
 
-Next, we create projections between the two populations based on some probability of connection.
+Next, we create {ref}`projections <schema:projection>` between the two populations based on some probability of connection.
 To do this, we iterate over each post-synaptic neuron for each pre-synaptic neuron and draw a random number between 0 and 1.
 If the drawn number is less than the required probability of connection, the connection is created.
 
-While we are iterating over all our pre-synaptic cells here, we also add external inputs to them.
-(This could have been done in a different loop, but it is convenient to also do this here.)
+While we are iterating over all our pre-synaptic cells here, we also add external inputs to them using {ref}`ExplicitInputs <schema:explicitinput>`
+(this could have been done in a different loop, but it is convenient to also do this here).
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
@@ -73,10 +74,10 @@ language: xml
 
 It is easy to see how the model is clearly declared in the NeuroML file.
 Observe how entities are referenced in NeuroML depending on their location in the document architecture.
-Here, `population` and `projection` are at the same level.
-The synaptic connections using the `connection` tag are at the next level.
-So, in the `connection` tags, populations are to be referred to as `../` which indicates the previous level.
-The `explicitInput` tag is at the same level as the `population` and `projection` tags, so we do *not* need to use `../` here to reference them.
+Here, {ref}`population <schema:population>` and {ref}`projection <schema:projection>` are at the same level.
+The synaptic connections using the {ref}`connection <schema:connection>` tag are at the next level.
+So, in the {ref}`connection <schema:connection>` tags, populations are to be referred to as `../` which indicates the previous level.
+The {ref}`explicitinput <schema:explicitinput>` tag is at the same level as the {ref}`population <schema:population>` and {ref}`projection <schema:projection>` tags, so we do *not* need to use `../` here to reference them.
 
 Another point worth noting here is that because we've defined a population of the same components by specifying a size rather than by individually adding components to it, we can refer to the entities of the population using the common `[..]` index operator.
 <!-- TODO: why are the pulseGens not referred to as ../PulseGens? They're at the previous level too. Are they the top level and thus considered to be global? -->
@@ -99,11 +100,18 @@ $ pynml-summary izhikevich2007_network.nml
 *     Population: IzPop0 with 5 components of type iz2007RS0
 *     Population: IzPop1 with 5 components of type iz2007RS0
 *
-*   9 connections in 1 projections
+*   20 connections in 1 projections
 *     Projection: proj from IzPop0 to IzPop1, synapse: syn0
-*       9 connections: [(Connection 0: 0 -> 0), ...]
+*       20 connections: [(Connection 0: 0 -> 0), ...]
 *
 *   0 inputs in 0 input lists
+*
+*   5 explicit inputs (outside of input lists)
+*     Explicit Input of type pulseGen_0 to IzPop0(cell 0), destination: unspecified
+*     Explicit Input of type pulseGen_1 to IzPop0(cell 1), destination: unspecified
+*     Explicit Input of type pulseGen_2 to IzPop0(cell 2), destination: unspecified
+*     Explicit Input of type pulseGen_3 to IzPop0(cell 3), destination: unspecified
+*     Explicit Input of type pulseGen_4 to IzPop0(cell 4), destination: unspecified
 *
 *******************************************************
 
@@ -127,7 +135,7 @@ This generates the following model summary diagram:
 
 A summary graph of the model generated using pynml and the dot tool.
 ```
-In our very simple network here, neurons do not have morphologies and are not distributed in space. 
+In our very simple network here, neurons do not have morphologies and are not distributed in space.
 In later examples, however, we will also see how summary figures of the network that show the morphologies, locations of different layers and neurons, and so on can also be generated using the NeuroML tools.
 
 (userdocs:gettingstarted:izhikevichnetwork:simulating)=
