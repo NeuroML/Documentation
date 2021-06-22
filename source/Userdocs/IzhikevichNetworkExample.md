@@ -9,7 +9,7 @@ We will create a small network of cells, simulate this network, and generate a p
 :alt: Spike times of neurons recorded from the simulation
 :align: center
 
-Spike times of neurons recorded from the simulation.
+Spike times of neurons in 2 populations recorded from the simulation.
 ```
 
 The Python script used to create the model, simulate it, and generate this plot is below:
@@ -34,11 +34,11 @@ lines: 22-30
 Here, we create a new document, declare the {ref}`Izhikevich neuron<schema:izhikevich2007Cell>`, and also declare the synapse that we are going to use to connect one population of neurons to the other.
 Here we intend to use the {ref}`ExpOne Synapse<schema:exponesynapse>`, where the conductance of the synapse increases instantaneously by a constant value `gbase` on receiving a spike, and then decays exponentially with a decay constant `tauDecay`.
 
-We can now declare our {ref}`network <schema:network>` with 2 {ref}`populations <schema:population>` of these cells:
+We can now declare our {ref}`network <schema:network>` with 2 {ref}`populations <schema:population>` of these cells. Note: setting a color as a  {ref}`property <schema:property>` is optional, but is used in soem other tools like generating graphs below.
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 32-41
+lines: 32-43
 ----
 ```
 
@@ -51,7 +51,7 @@ While we are iterating over all our pre-synaptic cells here, we also add externa
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 43-67
+lines: 46-70
 ----
 ```
 We can now save and validate our model, as before:
@@ -60,7 +60,7 @@ We can now save and validate our model, as before:
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 69-73
+lines: 72-76
 ----
 ```
 ### The generated NeuroML model
@@ -83,7 +83,7 @@ Another point worth noting here is that because we've defined a population of th
 <!-- TODO: why are the pulseGens not referred to as ../PulseGens? They're at the previous level too. Are they the top level and thus considered to be global? -->
 
 The advantage of such a declarative format is that we can also easily get information on our model from the NeuroML file.
-pyNeuroML includes the helper `pynml-summary` script:
+{ref}`pyNeuroML <pyNeuroML>` includes the helper `pynml-summary` script:
 
 ```{code-block} console
 $ pynml-summary izhikevich2007_network.nml
@@ -118,13 +118,9 @@ $ pynml-summary izhikevich2007_network.nml
 ```
 <!-- TODO: Ask Padraig what's the difference between direct Synapses and projections, and when should they be used? -->
 
-We can also generate a graphical summary of our model using `pynml`:
+We can also generate a graphical summary of our model using `pynml` from {ref}`pyNeuroML <pyNeuroML>`:
 ```{code-block} console
-$ pynml izhikevich2007_network.nml -graph 2
-neuromllite >>> Initiating GraphViz handler, level 2, engine: dot, seed: 1234
-Parsing: izhikevich2007_network.nml
-Loaded: izhikevich2007_network.nml as NeuroMLDocument
-....
+$ pynml izhikevich2007_network.nml -graph 3
 ```
 
 This generates the following model summary diagram:
@@ -135,6 +131,21 @@ This generates the following model summary diagram:
 
 A summary graph of the model generated using pynml and the dot tool.
 ```
+
+
+Other options for `pynml` produce other views, e.g individual connections:
+```{code-block} console
+$ pynml izhikevich2007_network.nml -graph -1
+```
+
+```{figure} ../Userdocs/NML2_examples/IzNet-1.gv.png
+:alt: Model summary graph showing individual connections between cells in the populations.
+:align: center
+:scale: 70%
+
+Model summary graph showing individual connections between cells in the populations.
+```
+
 In our very simple network here, neurons do not have morphologies and are not distributed in space.
 In later examples, however, we will also see how summary figures of the network that show the morphologies, locations of different layers and neurons, and so on can also be generated using the NeuroML tools.
 
@@ -146,7 +157,7 @@ We create our simulation, and setup the information we want to record from it.
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 75-89
+lines: 78-98
 ----
 ```
 The generated LEMS file is here:
@@ -157,30 +168,25 @@ language: xml
 ```
 
 <!-- BUG in pynml needs fixing: https://github.com/NeuralEnsemble/libNeuroML/issues/91 -->
-Where we had generated a graphical summary of the model before, we can now also generate graphical summaries of the simulation using `jnml`:
+Where we had generated a graphical summary of the model before, we can now also generate graphical summaries of the simulation using `pynml` and the `-lems-graph` option. This dives deeper into the LEMS definition of the cells, showing more of the underlying dynamics of the components:
 ```{code-block} console
-$ jnml LEMS_example_izhikevich2007network_sim.xml -graph
- jNeuroML v0.10.1
- (INFO) Reading from: .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.xml
- (INFO) simCpt: Component(id=example_izhikevich2007network_sim type=Simulation)
- Writing to: .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.gv
- Have successfully run command: dot -Tpng  .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.gv -o .../NeuroML-Documentation/source/Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.png
+$ pynml LEMS_example_izhikevich2007network_sim.xml -lems-graph
 ```
 
 Here is the generated summary graph:
 ```{figure} ../Userdocs/NML2_examples/LEMS_example_izhikevich2007network_sim.png
-:alt: Model summary graph generated using jnml.
+:alt: Model summary graph generated using pynml.
 :align: center
 :scale: 50%
 
-A summary graph of the model generated using jnml.
+A summary graph of the model generated using pynml -lems-graph.
 ```
 It shows a top-down breakdown of the simulation: from the network, to the populations, to the cell types, leading up to the components that these cells are made of (more on Components later).
 Let us add the necessary code to run our simulation, this time using the well known NEURON simulator:
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 91-93
+lines: 100-102
 ----
 ```
 (userdocs:gettingstarted:izhikevichnetwork:plotting)=
@@ -192,14 +198,14 @@ So let us plot them to generate our figure:
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 95-104
+lines: 104-119
 ----
 ```
 Observe how we are using the same `generate_plot` utility function as before: it is general enough to plot different recorded quantities.
-Under the hood, it passes this information to Python's Matplotlib library.
+Under the hood, it passes this information to Python's Matplotlib library. This produces the rasterplot shown at the top of the page.
 
 
 This concludes our second example.
 Here, we have seen how to create, simulate, and record from a simple two population network of single compartment point neurons.
 The next section is an interactive notebook that you can use to play with this example.
-After that we will move on to the next example: a single but more detailed multi-compartmental neuron model.
+After that we will move on to the next example: a neuron model using Hodgkin Huxley style ion channels.
