@@ -3,9 +3,6 @@
 
 *A model description language for computational neuroscience.*
 
-```{admonition} **Note:** The NeuroML documentation is currently being restructured and significantly updated.
-Please {ref}`contact <contact>` the NeuroML community for any issues you find and contribution opportunities.
-```
 <!-- be careful with the indentation -->
 
 <div id="carousel-neuroml" class="carousel slide" data-ride="carousel">
