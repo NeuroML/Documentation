@@ -12,12 +12,12 @@ from neuroml import Projection
 from neuroml import PulseGenerator
 from neuroml import ExplicitInput
 from neuroml import Connection
+from neuroml import Property
 import neuroml.writers as writers
 import random
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
 import numpy as np
-
 
 nml_doc = NeuroMLDocument(id="IzNet")
 
@@ -34,23 +34,26 @@ nml_doc.networks.append(net)
 
 size0 = 5
 pop0 = Population(id="IzPop0", component=iz0.id, size=size0)
+# Set optional color property. Note: used later when generating graphs etc.
+pop0.properties.append(Property(tag='color', value='0 0 .8'))
 net.populations.append(pop0)
 
 size1 = 5
 pop1 = Population(id="IzPop1", component=iz0.id, size=size1)
+pop1.properties.append(Property(tag='color', value='.8 0 0'))
 net.populations.append(pop1)
 
 proj = Projection(id='proj', presynaptic_population=pop0.id,
                   postsynaptic_population=pop1.id, synapse=syn0.id)
 net.projections.append(proj)
 
-random.seed(921)
-prob_connection = 0.5
+random.seed(123)
+prob_connection = 0.8
 count = 0
 for pre in range(0, size0):
     pg = PulseGenerator(
-        id="pulseGen_%i" % pre, delay="0ms", duration="10000ms",
-        amplitude="%f nA" % (0.1 * random.random())
+        id="pg_%i" % pre, delay="0ms", duration="10000ms",
+        amplitude="%f nA" % (0.1 + 0.1 * random.random())
     )
     nml_doc.pulse_generators.append(pg)
 
@@ -74,17 +77,23 @@ pynml.validate_neuroml2(nml_file)
 
 simulation_id = "example_izhikevich2007network_sim"
 simulation = LEMSSimulation(sim_id=simulation_id,
-                            duration=10000, dt=0.1, simulation_seed=123)
+                            duration=1000, dt=0.1, simulation_seed=123)
 simulation.assign_simulation_target(net.id)
 simulation.include_neuroml2_file(nml_file)
 
 simulation.create_event_output_file(
-    "pop0", "%s.spikes.dat" % simulation_id, format='ID_TIME'
+    "pop0", "%s.0.spikes.dat" % simulation_id, format='ID_TIME'
 )
-
 for pre in range(0, size0):
     simulation.add_selection_to_event_output_file(
         "pop0", pre, 'IzPop0[{}]'.format(pre), 'spike')
+
+simulation.create_event_output_file(
+    "pop1", "%s.1.spikes.dat" % simulation_id, format='ID_TIME'
+)
+for pre in range(0, size1):
+    simulation.add_selection_to_event_output_file(
+        "pop1", pre, 'IzPop1[{}]'.format(pre), 'spike')
 
 lems_simulation_file = simulation.save_to_file()
 
@@ -94,11 +103,17 @@ pynml.run_lems_with_jneuroml_neuron(
 
 # Load the data from the file and plot the spike times
 # using the pynml generate_plot utility function.
-data_array = np.loadtxt("%s.spikes.dat" % simulation_id)
+data_array_0 = np.loadtxt("%s.0.spikes.dat" % simulation_id)
+data_array_1 = np.loadtxt("%s.1.spikes.dat" % simulation_id)
+times_0 = data_array_0[:,1]
+times_1 = data_array_1[:,1]
+ids_0 = data_array_0[:,0]
+ids_1 = [id+size0 for id in data_array_1[:,0]]
 pynml.generate_plot(
-    [data_array[:, 1]], [data_array[:, 0]],
+    [times_0,times_1], [ids_0,ids_1],
     "Spike times", show_plot_already=False,
     save_figure_to="%s-spikes.png" % simulation_id,
     xaxis="time (s)", yaxis="cell ID",
-    linestyles='', linewidths='0', markers=['.'],
+    colors=['b','r'],
+    linewidths=['0','0'], markers=['.','.'],
 )

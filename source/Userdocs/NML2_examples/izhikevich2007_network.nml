@@ -1,29 +1,44 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.2.xsd" id="IzNet">
     <expOneSynapse id="syn0" gbase="65nS" erev="0mV" tauDecay="3ms"/>
     <izhikevich2007Cell id="iz2007RS0" C="100pF" v0="-60mV" k="0.7nS_per_mV" vr="-60mV" vt="-40mV" vpeak="35mV" a="0.03per_ms" b="-2nS" c="-50.0mV" d="100pA"/>
-    <pulseGenerator id="pulseGen_0" delay="0ms" duration="10000ms" amplitude="0.098292 nA"/>
-    <pulseGenerator id="pulseGen_1" delay="0ms" duration="10000ms" amplitude="0.076471 nA"/>
-    <pulseGenerator id="pulseGen_2" delay="0ms" duration="10000ms" amplitude="0.033444 nA"/>
-    <pulseGenerator id="pulseGen_3" delay="0ms" duration="10000ms" amplitude="0.010134 nA"/>
-    <pulseGenerator id="pulseGen_4" delay="0ms" duration="10000ms" amplitude="0.080287 nA"/>
+    <pulseGenerator id="pg_0" delay="0ms" duration="10000ms" amplitude="0.105236 nA"/>
+    <pulseGenerator id="pg_1" delay="0ms" duration="10000ms" amplitude="0.153620 nA"/>
+    <pulseGenerator id="pg_2" delay="0ms" duration="10000ms" amplitude="0.124516 nA"/>
+    <pulseGenerator id="pg_3" delay="0ms" duration="10000ms" amplitude="0.131546 nA"/>
+    <pulseGenerator id="pg_4" delay="0ms" duration="10000ms" amplitude="0.102124 nA"/>
     <network id="IzNet">
-        <population id="IzPop0" component="iz2007RS0" size="5"/>
-        <population id="IzPop1" component="iz2007RS0" size="5"/>
+        <population id="IzPop0" component="iz2007RS0" size="5">
+            <property tag="color" value="0 0 .8"/>
+        </population>
+        <population id="IzPop1" component="iz2007RS0" size="5">
+            <property tag="color" value=".8 0 0"/>
+        </population>
         <projection id="proj" presynapticPopulation="IzPop0" postsynapticPopulation="IzPop1" synapse="syn0">
             <connection id="0" preCellId="../IzPop0[0]" postCellId="../IzPop1[0]"/>
             <connection id="1" preCellId="../IzPop0[0]" postCellId="../IzPop1[1]"/>
-            <connection id="2" preCellId="../IzPop0[0]" postCellId="../IzPop1[3]"/>
-            <connection id="3" preCellId="../IzPop0[1]" postCellId="../IzPop1[1]"/>
-            <connection id="4" preCellId="../IzPop0[1]" postCellId="../IzPop1[3]"/>
-            <connection id="5" preCellId="../IzPop0[2]" postCellId="../IzPop1[2]"/>
-            <connection id="6" preCellId="../IzPop0[2]" postCellId="../IzPop1[3]"/>
-            <connection id="7" preCellId="../IzPop0[3]" postCellId="../IzPop1[2]"/>
-            <connection id="8" preCellId="../IzPop0[4]" postCellId="../IzPop1[1]"/>
+            <connection id="2" preCellId="../IzPop0[0]" postCellId="../IzPop1[2]"/>
+            <connection id="3" preCellId="../IzPop0[0]" postCellId="../IzPop1[4]"/>
+            <connection id="4" preCellId="../IzPop0[1]" postCellId="../IzPop1[0]"/>
+            <connection id="5" preCellId="../IzPop0[1]" postCellId="../IzPop1[2]"/>
+            <connection id="6" preCellId="../IzPop0[1]" postCellId="../IzPop1[3]"/>
+            <connection id="7" preCellId="../IzPop0[1]" postCellId="../IzPop1[4]"/>
+            <connection id="8" preCellId="../IzPop0[2]" postCellId="../IzPop1[0]"/>
+            <connection id="9" preCellId="../IzPop0[2]" postCellId="../IzPop1[1]"/>
+            <connection id="10" preCellId="../IzPop0[2]" postCellId="../IzPop1[2]"/>
+            <connection id="11" preCellId="../IzPop0[2]" postCellId="../IzPop1[3]"/>
+            <connection id="12" preCellId="../IzPop0[2]" postCellId="../IzPop1[4]"/>
+            <connection id="13" preCellId="../IzPop0[3]" postCellId="../IzPop1[0]"/>
+            <connection id="14" preCellId="../IzPop0[3]" postCellId="../IzPop1[2]"/>
+            <connection id="15" preCellId="../IzPop0[3]" postCellId="../IzPop1[3]"/>
+            <connection id="16" preCellId="../IzPop0[3]" postCellId="../IzPop1[4]"/>
+            <connection id="17" preCellId="../IzPop0[4]" postCellId="../IzPop1[1]"/>
+            <connection id="18" preCellId="../IzPop0[4]" postCellId="../IzPop1[2]"/>
+            <connection id="19" preCellId="../IzPop0[4]" postCellId="../IzPop1[4]"/>
         </projection>
-        <explicitInput target="IzPop0[0]" input="pulseGen_0"/>
-        <explicitInput target="IzPop0[1]" input="pulseGen_1"/>
-        <explicitInput target="IzPop0[2]" input="pulseGen_2"/>
-        <explicitInput target="IzPop0[3]" input="pulseGen_3"/>
-        <explicitInput target="IzPop0[4]" input="pulseGen_4"/>
+        <explicitInput target="IzPop0[0]" input="pg_0"/>
+        <explicitInput target="IzPop0[1]" input="pg_1"/>
+        <explicitInput target="IzPop0[2]" input="pg_2"/>
+        <explicitInput target="IzPop0[3]" input="pg_3"/>
+        <explicitInput target="IzPop0[4]" input="pg_4"/>
     </network>
 </neuroml>
