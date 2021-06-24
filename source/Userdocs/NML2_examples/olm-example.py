@@ -14,24 +14,55 @@ from CellBuilder import (create_cell, add_segment, add_channel_density,
                          set_init_memb_potential, set_resistivity,
                          set_specific_capacitance, get_seg_group_by_id)
 from pyneuroml import pynml
+from pyneuroml.lems import LEMSSimulation
 
 
 def main():
-    """Main worker function. """
-    nml_doc = NeuroMLDocument(id="oml_example", notes="Example of a multi-compartmental OLM cell")
+    """Main function
+
+    Include the NeuroML model into a LEMS simulation file, run it, plot some
+    data.
+    """
+    # Simulation bits
+    sim_id = "olm_example_sim"
+    simulation = LEMSSimulation(sim_id=sim_id, duration=300, dt=0.01, simulation_seed=123)
+    # Include the NeuroML model file
+    simulation.include_neuroml2_file(create_olm_network())
+    # Assign target for the simulation
+    simulation.assign_simulation_target("single_olm_cell_network")
+
+    # Recording information from the simulation
+    """
+
+    simulation.create_output_file(id="output0", file_name=sim_id + ".dat")
+    simulation.add_column_to_output_file("output0", column_id="pop0[0]/v", quantity="pop0[0]/v")
+    simulation.add_column_to_output_file("output0", column_id="pop0[0]/iChannels", quantity="pop0[0]/iChannels")
+    simulation.add_column_to_output_file("output0", column_id="pop0[0]/na/iDensity", quantity="pop0[0]/hh_b_prop/membraneProperties/na_channels/iDensity/")
+    simulation.add_column_to_output_file("output0", column_id="pop0[0]/k/iDensity", quantity="pop0[0]/hh_b_prop/membraneProperties/k_channels/iDensity/")
+    """
+
+    # Save LEMS simulation to file
+    sim_file = simulation.save_to_file()
+
+    # Run the simulation using the default jNeuroML simulator
+    pynml.run_lems_with_jneuroml_neuron(sim_file, max_memory="2G", nogui=True, plot=False)
+    """
+    # Plot the data
+    plot_data(sim_id)
+    """
 
 
-def create_network():
+def create_olm_network():
     """Create the network
 
     :returns: name of network nml file
     """
     net_doc = NeuroMLDocument(id="network",
                               notes="OLM cell network")
-    net_doc_fn = "OLM_example_net.nml"
-    net_doc.includes.append(IncludeType(href=create_cell()))
+    net_doc_fn = "olm_example_net.nml"
+    net_doc.includes.append(IncludeType(href=create_olm_cell()))
     # Create a population: convenient to create many cells of the same type
-    pop = Population(id="pop0", notes="A population for our cell", component="hh_cell", size=1)
+    pop = Population(id="pop0", notes="A population for our cell", component="olm", size=1)
     # Input
     pulsegen = PulseGenerator(id="pg", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
 
@@ -225,7 +256,8 @@ def create_olm_cell():
 
     nml_cell_doc.cells.append(cell)
     pynml.write_neuroml2_file(nml_cell_doc, nml_cell_file, True, True)
+    return nml_cell_file
+
 
 if __name__ == "__main__":
-    #  main()
-    create_olm_cell()
+    main()
