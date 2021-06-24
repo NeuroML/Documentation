@@ -44,11 +44,13 @@ comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
 
-GitHubCompSources = "https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/"
-GitHubCompSourcesRaw = "https://raw.githubusercontent.com/NeuroML/NeuroML2/master/NeuroML2CoreTypes/"
+nml_branch = "documentation_update"
+nml_version = "2.2"
+GitHubCompSources = ("https://github.com/NeuroML/NeuroML2/blob/" + nml_branch +
+                     "/NeuroML2CoreTypes/")
+GitHubCompSourcesRaw = ("https://raw.githubusercontent.com/NeuroML/NeuroML2/" +
+                        nml_branch + "/NeuroML2CoreTypes/")
 GitHubRepo = "https://github.com/NeuroML/NeuroML2.git"
-nml_version = "2.1"
-nml_branch = "master"
 nml_date = date.today().strftime("%d/%m/%y")
 nml_commit = ""
 
