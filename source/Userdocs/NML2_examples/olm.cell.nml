@@ -51,25 +51,39 @@
                 <member segment="6"/>
                 <member segment="7"/>
             </segmentGroup>
-            <segmentGroup id="soma_0">
+            <segmentGroup neuroLexId="GO:0043025" id="soma_group">
+                <notes>Default soma segment group for the cell</notes>
+                <property tag="color" value="0 0 0.8"/>
                 <member segment="0"/>
                 <member segment="1"/>
             </segmentGroup>
-            <segmentGroup id="axon_0">
+            <segmentGroup neuroLexId="GO:0030424" id="axon_group">
+                <notes>Default axon segment group for the cell</notes>
+                <property tag="color" value="0 0.8 0"/>
                 <member segment="2"/>
                 <member segment="3"/>
             </segmentGroup>
-            <segmentGroup id="dend_0">
+            <segmentGroup neuroLexId="GO:0030425" id="dendrite_group">
+                <notes>Default dendrite segment group for the cell</notes>
+                <property tag="color" value="0.8 0 0"/>
                 <member segment="4"/>
                 <member segment="5"/>
-            </segmentGroup>
-            <segmentGroup id="dend_1">
                 <member segment="6"/>
                 <member segment="7"/>
             </segmentGroup>
-            <segmentGroup id="dendrite_group">
+            <segmentGroup neuroLexId="GO:0043025" id="soma_0">
+                <member segment="0"/>
+                <member segment="1"/>
+            </segmentGroup>
+            <segmentGroup neuroLexId="GO:0030424" id="axon_0">
+                <member segment="2"/>
+                <member segment="3"/>
+            </segmentGroup>
+            <segmentGroup neuroLexId="GO:0030425" id="dend_0">
                 <member segment="4"/>
                 <member segment="5"/>
+            </segmentGroup>
+            <segmentGroup neuroLexId="GO:0030425" id="dend_1">
                 <member segment="6"/>
                 <member segment="7"/>
             </segmentGroup>

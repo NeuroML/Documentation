@@ -9,10 +9,10 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
 from neuroml import (NeuroMLDocument, IncludeType, Population, PulseGenerator,
-                     ExplicitInput, Network, SegmentGroup, Member)
+                     ExplicitInput, Network, SegmentGroup, Member, Property)
 from CellBuilder import (create_cell, add_segment, add_channel_density,
                          set_init_memb_potential, set_resistivity,
-                         set_specific_capacitance)
+                         set_specific_capacitance, get_seg_group_by_id)
 from pyneuroml import pynml
 
 
@@ -118,13 +118,14 @@ def create_olm_cell():
                            fraction_along=0.0,
                            group="dend_1")
 
-    # Add a segment group for all dendrites
-    den_seg_group = SegmentGroup(id="dendrite_group")
-    cell.morphology.segment_groups.append(den_seg_group)
-    den_seg_group.members.append(Member(segments=dend_0_0.id))
-    den_seg_group.members.append(Member(segments=dend_0_1.id))
-    den_seg_group.members.append(Member(segments=dend_1_0.id))
-    den_seg_group.members.append(Member(segments=dend_1_1.id))
+    den_seg_group = get_seg_group_by_id("dendrite_group", cell)
+    den_seg_group.properties.append(Property(tag="color", value="0.8 0 0"))
+
+    ax_seg_group = get_seg_group_by_id("axon_group", cell)
+    ax_seg_group.properties.append(Property(tag="color", value="0 0.8 0"))
+
+    soma_seg_group = get_seg_group_by_id("soma_group", cell)
+    soma_seg_group.properties.append(Property(tag="color", value="0 0 0.8"))
 
     # Other cell properties
     set_init_memb_potential(cell, "-67mV")
