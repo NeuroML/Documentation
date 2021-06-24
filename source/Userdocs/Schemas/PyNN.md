@@ -2,15 +2,17 @@
 (schema:pynn)=
 # PyNN
 
-*A number of ComponentType description of PyNN standard cells. All of the cells extend  {ref}`schema:basepynncell`, and the synapses extend  {ref}`schema:basepynnsynapse`.*
+**A number of ComponentType description of PyNN standard cells. All of the cells extend  {ref}`schema:basepynncell`, and the synapses extend  {ref}`schema:basepynnsynapse`.**
+
+---
+
 
 Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//PyNN.xml).
-
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-
 Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
-
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
+
+---
 
 (schema:basepynncell)=
 

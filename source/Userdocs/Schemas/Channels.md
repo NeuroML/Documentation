@@ -2,15 +2,17 @@
 (schema:channels)=
 # Channels
 
-*Defines voltage ( and concentration ) gated ion channel models. Ion channels will generally extend  {ref}`schema:baseionchannel`. The most commonly used voltage dependent gate will extend  {ref}`schema:basegate`.*
+**Defines voltage ( and concentration ) gated ion channel models. Ion channels will generally extend  {ref}`schema:baseionchannel`. The most commonly used voltage dependent gate will extend  {ref}`schema:basegate`.**
+
+---
+
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Channels.xml).
-
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-
 Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
-
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
+
+---
 
 (schema:basevoltagedeprate)=
 
