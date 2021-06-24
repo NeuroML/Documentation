@@ -4,11 +4,11 @@
 
 *Network descriptions in NeuroML 2. Describes  {ref}`schema:network` elements containing  {ref}`schema:population`s*
 
-Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Networks.xml).
+Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Networks.xml).
 
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
 
-Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
+Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -58,6 +58,31 @@ variable = Network(neuro_lex_id=None, id=None, metaid=None, notes=None, properti
 
 *XML examples*
 ```{code-block} xml
+<network id="net1">
+        <population id="hhpop" component="hhcell" size="1"/>
+        <explicitInput target="hhpop[0]" input="pulseGen1"/>
+    </network>
+```
+```{code-block} xml
+<network id="SegmentConnectionsNetwork">
+        <population id="popA" type="populationList" component="dendCell" size="1">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="popB" type="populationList" component="dendCell" size="1">
+            <instance id="0">
+                <location x="100" y="100" z="100"/>
+            </instance>
+        </population>
+        <projection id="proj0" presynapticPopulation="popA" postsynapticPopulation="popB" synapse="syn1">
+            <connection id="0" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../popB/0/dendCell" postSegmentId="1" postFractionAlong="1"/>
+            <connection id="1" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.1" postCellId="../popB/0/dendCell" postSegmentId="2" postFractionAlong="0.9"/>
+        </projection>
+    </network>
+```
+```{code-block} xml
 <network id="netAll">
         <population component="IF_curr_alpha" id="pop_IF_curr_alpha" size="1"/>
         <population component="IF_curr_exp" id="pop_IF_curr_exp" size="1"/>
@@ -87,74 +112,6 @@ variable = Network(neuro_lex_id=None, id=None, metaid=None, notes=None, properti
         <projection id="proj3" presynapticPopulation="pop_IF_cond_exp" postsynapticPopulation="pop_target" synapse="syn4">
             <connectionWD id="0" preCellId="../pop_IF_cond_exp[0]" postCellId="../pop_target[3]" weight="0.5" delay="40ms"/>
         </projection>
-        
-    </network>
-```
-```{code-block} xml
-<network id="net1">
-        <population id="iafPop1" component="iaf" size="1" type="populationList">
-            <instance id="0">
-                <location x="0" y="0" z="0"/>
-            </instance>
-        </population>
-        
-        
-        <population id="iafPop2" component="iaf" size="1" type="populationList">
-            <instance id="0">
-                <location x="100" y="0" z="0"/>
-            </instance>
-        </population>
- 
-        <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
-        </electricalProjection>
-        
-        
-        <inputList id="i1" component="pulseGen1" population="iafPop1">
-            <input id="0" target="../iafPop1/0/iaf" destination="synapses"/>
-        </inputList>
-        
-        <inputList id="i2" component="pulseGen2" population="iafPop2">
-            <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
-        </inputList>
-        
-    </network>
-```
-```{code-block} xml
-<network id="MultiCompCellNetwork">
-        <population id="pop0" type="populationList" component="MultiCompCell">
-            <instance id="0">
-                <location x="0" y="0" z="0"/>
-            </instance>
-            <instance id="1">
-                <location x="30" y="0" z="0"/>
-            </instance>
-            <instance id="2">
-                <location x="60" y="0" z="0"/>
-            </instance>
-        </population>
-        <projection id="projAMPA" presynapticPopulation="pop0" postsynapticPopulation="pop0" synapse="AMPA">
-            <connection id="0" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-            <connection id="1" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.3"/>
-            
-            <connection id="2" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-            <connection id="3" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="1" postFractionAlong="0.5"/>
-            <connection id="4" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.25"/>
-        </projection>
-        <projection id="projNMDA" presynapticPopulation="pop0" postsynapticPopulation="pop0" synapse="NMDA">
-            <connection id="0" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-            <connection id="1" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.5"/>
-            
-            <connection id="2" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-            <connection id="3" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="1" postFractionAlong="0.5"/>
-            <connection id="4" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.25"/>
-        </projection>
-        <inputList id="stimInput1" component="pulseGen2" population="pop0">
-            <input id="0" target="../pop0/0/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
-        </inputList>
-        <inputList id="stimInput2" component="pulseGen3" population="pop0">
-            <input id="1" target="../pop0/2/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
-        </inputList>
         
     </network>
 ```
@@ -275,13 +232,21 @@ variable = Population(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 *XML examples*
 ```{code-block} xml
-<population component="IF_curr_alpha" id="pop_IF_curr_alpha" size="1"/>
+<population id="hhpop" component="hhcell" size="1"/>
 ```
 ```{code-block} xml
-<population component="IF_curr_exp" id="pop_IF_curr_exp" size="1"/>
+<population id="popA" type="populationList" component="dendCell" size="1">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+        </population>
 ```
 ```{code-block} xml
-<population component="IF_cond_alpha" id="pop_IF_cond_alpha" size="1"/>
+<population id="popB" type="populationList" component="dendCell" size="1">
+            <instance id="0">
+                <location x="100" y="100" z="100"/>
+            </instance>
+        </population>
 ```
 
 ````
@@ -363,7 +328,7 @@ variable = Instance(id=None, i=None, j=None, k=None, location=None, **kwargs_)
 ```
 ```{code-block} xml
 <instance id="0">
-                <location x="100" y="0" z="0"/>
+                <location x="100" y="100" z="100"/>
             </instance>
 ```
 ```{code-block} xml
@@ -414,7 +379,7 @@ variable = Location(x=None, y=None, z=None, **kwargs_)
 <location x="0" y="0" z="0"/>
 ```
 ```{code-block} xml
-<location x="100" y="0" z="0"/>
+<location x="100" y="100" z="100"/>
 ```
 ```{code-block} xml
 <location x="0" y="0" z="0"/>
@@ -542,6 +507,12 @@ variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, p
 
 *XML examples*
 ```{code-block} xml
+<projection id="proj0" presynapticPopulation="popA" postsynapticPopulation="popB" synapse="syn1">
+            <connection id="0" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../popB/0/dendCell" postSegmentId="1" postFractionAlong="1"/>
+            <connection id="1" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.1" postCellId="../popB/0/dendCell" postSegmentId="2" postFractionAlong="0.9"/>
+        </projection>
+```
+```{code-block} xml
 <projection id="proj0" presynapticPopulation="pop_EIF_cond_exp_isfa_ista" postsynapticPopulation="pop_target" synapse="syn1">
             <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista[0]" postCellId="../pop_target[0]" weight="0.01" delay="10ms"/>
         </projection>
@@ -549,11 +520,6 @@ variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, p
 ```{code-block} xml
 <projection id="proj1" presynapticPopulation="pop_EIF_cond_alpha_isfa_ista" postsynapticPopulation="pop_target" synapse="syn2">
             <connectionWD id="0" preCellId="../pop_EIF_cond_alpha_isfa_ista[0]" postCellId="../pop_target[1]" weight="0.005" delay="20ms"/>
-        </projection>
-```
-```{code-block} xml
-<projection id="proj2" presynapticPopulation="pop_IF_curr_alpha" postsynapticPopulation="pop_target" synapse="syn3">
-            <connectionWD id="0" preCellId="../pop_IF_curr_alpha[0]" postCellId="../pop_target[2]" weight="1" delay="30ms"/>
         </projection>
 ```
 
@@ -640,13 +606,13 @@ variable = Connection(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segment_
 
 *XML examples*
 ```{code-block} xml
+<connection id="0" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../popB/0/dendCell" postSegmentId="1" postFractionAlong="1"/>
+```
+```{code-block} xml
+<connection id="1" preCellId="../popA/0/dendCell" preSegmentId="0" preFractionAlong="0.1" postCellId="../popB/0/dendCell" postSegmentId="2" postFractionAlong="0.9"/>
+```
+```{code-block} xml
 <connection id="0" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
-```
-```{code-block} xml
-<connection id="1" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="3" postFractionAlong="0.3"/>
-```
-```{code-block} xml
-<connection id="2" preCellId="../pop0/2/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
 ```
 
 ````
@@ -1041,12 +1007,12 @@ variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_populati
 *XML examples*
 ```{code-block} xml
 <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
+            <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
         </electricalProjection>
 ```
 ```{code-block} xml
 <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
+            <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
         </electricalProjection>
 ```
 
@@ -1346,13 +1312,13 @@ variable = ExplicitInput(target=None, input=None, destination=None, **kwargs_)
 
 *XML examples*
 ```{code-block} xml
+<explicitInput target="hhpop[0]" input="pulseGen1"/>
+```
+```{code-block} xml
 <explicitInput target="iafPop1[0]" input="pulseGen1" destination="synapses"/>
 ```
 ```{code-block} xml
 <explicitInput target="iafPop2[0]" input="pulseGen2" destination="synapses"/>
-```
-```{code-block} xml
-<explicitInput target="hhpop[0]" input="pulseGen1"/>
 ```
 
 ````
@@ -1413,18 +1379,19 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
 
 *XML examples*
 ```{code-block} xml
-<inputList id="i1" component="pulseGen1" population="iafPop1">
-            <input id="0" target="../iafPop1/0/iaf" destination="synapses"/>
-        </inputList>
-```
-```{code-block} xml
-<inputList id="i2" component="pulseGen2" population="iafPop2">
-            <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
-        </inputList>
-```
-```{code-block} xml
 <inputList id="stimInput1" component="pulseGen2" population="pop0">
             <input id="0" target="../pop0/0/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
+        </inputList>
+```
+```{code-block} xml
+<inputList id="stimInput2" component="pulseGen3" population="pop0">
+            <input id="1" target="../pop0/2/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
+        </inputList>
+```
+```{code-block} xml
+<inputList id="stimInput" component="pulseGen1" population="iafCells">
+            
+            <input id="0" target="../iafCells/0/iaf" destination="synapses"/>
         </inputList>
 ```
 
@@ -1476,13 +1443,13 @@ variable = Input(id=None, target=None, destination=None, segment_id=None, fracti
 
 *XML examples*
 ```{code-block} xml
-<input id="0" target="../iafPop1/0/iaf" destination="synapses"/>
-```
-```{code-block} xml
-<input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
-```
-```{code-block} xml
 <input id="0" target="../pop0/0/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
+```
+```{code-block} xml
+<input id="1" target="../pop0/2/MultiCompCell" segmentId="0" fractionAlong="0.5" destination="synapses"/>
+```
+```{code-block} xml
+<input id="0" target="../iafCells/0/iaf" destination="synapses"/>
 ```
 
 ````

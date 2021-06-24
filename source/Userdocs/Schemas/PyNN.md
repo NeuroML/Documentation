@@ -4,11 +4,11 @@
 
 *A number of ComponentType description of PyNN standard cells. All of the cells extend  {ref}`schema:basepynncell`, and the synapses extend  {ref}`schema:basepynnsynapse`.*
 
-Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//PyNN.xml).
+Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//PyNN.xml).
 
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
 
-Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
+Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -1292,7 +1292,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1377,7 +1377,7 @@ extends *{ref}`schema:basepynnsynapse`*
 :delim: $
 
 **g**$  $Dimensionless
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1505,7 +1505,7 @@ extends *{ref}`schema:basepynnsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1636,7 +1636,7 @@ extends *{ref}`schema:basepynnsynapse`*
 
 **A**$  $Dimensionless
 **g**$  $Dimensionless
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1767,7 +1767,7 @@ extends *{ref}`schema:basepynnsynapse`*
 :delim: $
 
 **A**$  ${ref}`schema:dimensions:current`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````

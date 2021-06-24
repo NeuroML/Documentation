@@ -4,11 +4,11 @@
 
 *A number of synaptic ComponentTypes for use in NeuroML 2 documents. These generally extend the  {ref}`schema:basesynapse` ComponentType.*
 
-Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
+Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Synapses.xml).
 
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
 
-Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
+Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -35,7 +35,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -85,7 +85,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -159,7 +159,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 :width: 100 %
 :delim: $
 
-**V**$ The current may vary with the dimensionless voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrentdl`)* $Dimensionless
+**V**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrentdl`)* $Dimensionless
 
 ```
 ````
@@ -185,7 +185,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -258,7 +258,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -368,7 +368,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -445,7 +445,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -531,7 +531,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -621,7 +621,7 @@ variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 ```{code-block} xml
-<expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
+<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 
 ````
@@ -672,7 +672,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -823,7 +823,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -986,7 +986,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapsetwo`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1494,7 +1494,7 @@ extends {ref}`schema:exptwosynapse`
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1663,7 +1663,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1826,7 +1826,7 @@ extends {ref}`schema:exptwosynapse`
 **M**$  $Dimensionless
 **P**$  $Dimensionless
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **tsince**$  ${ref}`schema:dimensions:time`
 
 ```
@@ -1952,7 +1952,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2041,7 +2041,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2089,7 +2089,7 @@ extends *{ref}`schema:basegradedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2203,7 +2203,7 @@ extends *{ref}`schema:basegradedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2315,7 +2315,7 @@ extends *{ref}`schema:basegradedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **inf**$  $Dimensionless
 **tau**$  ${ref}`schema:dimensions:time`
 

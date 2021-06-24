@@ -4,11 +4,11 @@
 
 
 
-Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
+Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
 
-Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
+Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -19,7 +19,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>Human readable notes/description for a Component.</i>
+<i>Human readable notes on a Component.</i>
 
 
 
@@ -47,7 +47,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>A structured annotation containing metadata, specifically RDF or  {ref}`schema:property` elements.</i>
+<i>Annotation...</i>
 
 
 
@@ -109,7 +109,7 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 
 
-<i>A property ( a **tag** and **value** pair ), which can be on any  {ref}`schema:basestandalone` either as a direct child, or within an  {ref}`schema:annotation`. Generally something which helps the visual display or facilitates simulation of a Component, but is not a core physiological property. Common examples include: **numberInternalDivisions,** equivalent of nseg in NEURON; **radius,** for a radius to use in graphical displays for abstract cells ( i.e. without defined morphologies ); **color,** the color to use for a  {ref}`schema:population` or  {ref}`schema:populationlist` of cells; **recommended_dt_ms,** the recommended timestep to use for simulating a  {ref}`schema:network`, **recommended_duration_ms** the recommended duration to use when running a  {ref}`schema:network`.</i>
+<i>Property in Annotation...</i>
 
 
 
@@ -149,7 +149,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Base type of any Component which can have  {ref}`schema:notes`,  {ref}`schema:annotation`, or a  {ref}`schema:property` list.</i>
+<i>Base type of any component which will require notes, annotation, etc.</i>
 
 
 
@@ -183,7 +183,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Structured block in an  {ref}`schema:annotation` based on RDF. See https://github.com/OpenSourceBrain/OSB_API/blob/master/python/examples/grancelllayer.xml.</i>
+<i>Work in progress...</i>
 
 
 
@@ -215,7 +215,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
+<i>Work in progress...</i>
 
 
 
@@ -262,7 +262,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 
 
-<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
+<i>Work in progress...</i>
 
 
 
@@ -544,7 +544,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
+<i>Work in progress...</i>
 
 
 
@@ -566,7 +566,7 @@ extends *{ref}`schema:basebqbiol`*
 
 
 
-<i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
+<i>Annotation...</i>
 
 
 

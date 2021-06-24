@@ -4,11 +4,11 @@
 
 *Defines voltage ( and concentration ) gated ion channel models. Ion channels will generally extend  {ref}`schema:baseionchannel`. The most commonly used voltage dependent gate will extend  {ref}`schema:basegate`.*
 
-Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Channels.xml).
+Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Channels.xml).
 
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
 
-Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
+Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -1363,9 +1363,9 @@ extends {ref}`schema:gate`
         </gateHHrates>
 ```
 ```{code-block} xml
-<gateHHrates id="m" instances="3">
-            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+<gateHHrates id="n" instances="4">
+            <forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
         </gateHHrates>
 ```
 
@@ -2335,7 +2335,8 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 *XML examples*
 ```{code-block} xml
-<ionChannelHH id="NaConductance" conductance="10pS" species="na">
+<ionChannelHH id="naChan" conductance="10pS" species="na">
+        <notes>Na channel</notes>
         <gateHHrates id="m" instances="3">
             <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
             <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
@@ -2347,19 +2348,17 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
     </ionChannelHH>
 ```
 ```{code-block} xml
-<ionChannelHH xmlns:xi="http://www.w3.org/2001/XInclude" id="pas" conductance="10pS"/>
+<ionChannelHH id="passiveChan" conductance="10pS">
+        <notes>Leak conductance</notes>
+    </ionChannelHH>
 ```
 ```{code-block} xml
-<ionChannelHH id="naChan" conductance="10pS" species="na">
-        <notes>Na channel</notes>
-        <gateHHrates id="m" instances="3">
-            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+<ionChannelHH id="kChan" conductance="10pS" species="k">
+        <gateHHrates id="n" instances="4">
+            <forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
         </gateHHrates>
-        <gateHHrates id="h" instances="1">
-            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
-            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
-        </gateHHrates>
+            
     </ionChannelHH>
 ```
 

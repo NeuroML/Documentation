@@ -4,11 +4,11 @@
 
 *Defines both abstract cell models ( e.g.  {ref}`schema:izhikevichcell`, adaptive exponential integrate and fire cell,  {ref}`schema:adexiafcell` ), point conductance based cell models (  {ref}`schema:pointcellcondbased`,  {ref}`schema:pointcellcondbasedca` ) and cells models (  {ref}`schema:cell` ) which specify the  {ref}`schema:morphology` ( containing  {ref}`schema:segment`s ) and  {ref}`schema:biophysicalproperties` separately.*
 
-Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Cells.xml).
+Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Cells.xml).
 
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.1.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
 
-Generated on 17/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/1d8324c6b04b2aa901b5937dc691c077a6059b88) commit.
+Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
 
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
@@ -23,7 +23,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type of any cell ( e.g. point neuron like  {ref}`schema:izhikevich2007cell`, or a morphologically detailed  {ref}`schema:cell` with  {ref}`schema:segment`s ) which can be used in a  {ref}`schema:population`.</i>
+<i>Base type of any cell which can be used in a population.</i>
 
 
 
@@ -77,7 +77,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a membrane potential **v** with units of voltage.</i>
+<i>Any spiking cell which has a membrane potential **v** with voltage units.</i>
 
 
 
@@ -151,7 +151,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for any current produced by a population of channels, all of type **ionChannel.**.</i>
+<i>Base type for any current produced by a population of channels, all of type **ionChannel**.</i>
 
 
 
@@ -172,7 +172,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -199,7 +199,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of a **number** of ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.** Note that active membrane currents are more frequently specified as a density over an area of the  {ref}`schema:cell` using  {ref}`schema:channeldensity`.</i>
+<i>Population of **number** ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.**.</i>
 
 
 
@@ -242,7 +242,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -312,7 +312,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of channels with a time varying reversal potential **erev** determined by Nernst equation. Note: hard coded for Ca only!</i>
+<i>Population of channels with a time varying reversal potential **erev** determined by Nernst equation. Hard coded for Ca only!</i>
 
 
 
@@ -358,7 +358,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :delim: $
 
 **erev**$  ${ref}`schema:dimensions:voltage`
-**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -410,7 +410,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Base type for a current of density **iDensity** distributed on an area of a  {ref}`schema:cell`, flowing through the specified **ionChannel.** Instances of this ( normally  {ref}`schema:channeldensity` ) are specified in the  {ref}`schema:membraneproperties` of the  {ref}`schema:cell`.</i>
+<i>Base type for current distributed on an area of a cell.</i>
 
 
 
@@ -1890,7 +1890,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point furthest from the soma/root in a  {ref}`schema:segment`. See also  {ref}`schema:proximal`.</i>
+<i>Point furthest from the soma in a segment.</i>
 
 
 
@@ -1928,13 +1928,13 @@ extends {ref}`schema:point3dwithdiam`
 
 *XML examples*
 ```{code-block} xml
+<distal x="0" y="0" z="0" diameter="17.841242"/>
+```
+```{code-block} xml
 <distal x="10" y="0" z="0" diameter="10"/>
 ```
 ```{code-block} xml
 <distal x="20" y="0" z="0" diameter="3"/>
-```
-```{code-block} xml
-<distal x="30" y="0" z="0" diameter="1"/>
 ```
 
 ````
@@ -1950,7 +1950,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point closest to the soma in a  {ref}`schema:segment`. Note: if the proximal point is equal to the  {ref}`schema:distal` point of the  {ref}`schema:parent`  {ref}`schema:segment`, proximal can be omitted.</i>
+<i>Point closest to the soma in a segment. Note, if the proximal point is equal to the distal point of the parent segment, proximal can be omitted.</i>
 
 
 
@@ -1988,13 +1988,13 @@ extends {ref}`schema:point3dwithdiam`
 
 *XML examples*
 ```{code-block} xml
+<proximal x="0" y="0" z="0" diameter="17.841242"/>
+```
+```{code-block} xml
 <proximal x="0" y="0" z="0" diameter="10"/>
 ```
 ```{code-block} xml
 <proximal x="10" y="0" z="0" diameter="3"/>
-```
-```{code-block} xml
-<proximal translationStart="0"/>
 ```
 
 ````
@@ -2006,7 +2006,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Specifies the  {ref}`schema:segment` which is this segment's parent. The **fractionAlong** specifies where it is connected, usually 1 ( the default value ), meaning the  {ref}`schema:distal` point of the parent, or 0, meaning the  {ref}`schema:proximal` point. If it is between these, a linear interpolation between the 2 points should be used.</i>
+<i>Specifies the segment which is this segment's parent.</i>
 
 
 
@@ -2033,7 +2033,7 @@ extends {ref}`schema:point3dwithdiam`
 <parent segment="1"/>
 ```
 ```{code-block} xml
-<parent segment="0"/>
+<parent segment="2" fractionAlong="0.5"/>
 ```
 
 ````
@@ -2141,6 +2141,12 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 *XML examples*
 ```{code-block} xml
+<segment id="0" name="soma">
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
+                <distal x="0" y="0" z="0" diameter="17.841242"/>
+            </segment>
+```
+```{code-block} xml
 <segment id="1" name="MainDendrite1">
                 <parent segment="0"/>
                 
@@ -2149,17 +2155,11 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
             </segment>
 ```
 ```{code-block} xml
-<segment id="0" name="Soma">    
+<segment id="3" name="Spine">
                 
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
-            </segment>
-```
-```{code-block} xml
-<segment id="2" name="MainDendrite2">
-                <parent segment="1"/>
-                
-                <distal x="30" y="0" z="0" diameter="1"/>
+                <parent segment="2" fractionAlong="0.5"/>
+                <proximal x="25" y="0" z="0" diameter="0.2"/>
+                <distal x="25" y="1" z="0" diameter="0.2"/>
             </segment>
 ```
 
@@ -2227,29 +2227,21 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 *XML examples*
 ```{code-block} xml
-<segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
-                <member segment="1"/>
-                <member segment="2"/>
-                
-                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
- 
-                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
-                        <proximal translationStart="0"/>
-                        <distal normalizationEnd="1"/>
-                </inhomogeneousParameter>
-                
-            </segmentGroup>
-```
-```{code-block} xml
-<segmentGroup id="soma_group" neuroLexId="sao1044911821">    
+<segmentGroup id="soma_group">
                 <member segment="0"/>
             </segmentGroup>
 ```
 ```{code-block} xml
-<segmentGroup id="dendSec2" neuroLexId="sao864921383">   
-                <property tag="numberInternalDivisions" value="9"/>
+<segmentGroup id="thick_dendrites">
+                <member segment="1"/>
                 <member segment="2"/>
-                <member segment="3"/>
+            </segmentGroup>
+```
+```{code-block} xml
+<segmentGroup id="dendrite_group" neuroLexId="sao1211023249">     
+                <include segmentGroup="thick_dendrites"/>
+                <include segmentGroup="spines"/>
+                
             </segmentGroup>
 ```
 
@@ -2292,10 +2284,10 @@ variable = Member(segments=None, **kwargs_)
 <member segment="0"/>
 ```
 ```{code-block} xml
-<member segment="1"/>
+<member segment="0"/>
 ```
 ```{code-block} xml
-<member segment="2"/>
+<member segment="1"/>
 ```
 
 ````
@@ -2402,13 +2394,13 @@ variable = Include(segment_groups=None, **kwargs_)
 
 *XML examples*
 ```{code-block} xml
-<include href="NML2_SimpleIonChannel.nml"/>
+<include segmentGroup="thick_dendrites"/>
+```
+```{code-block} xml
+<include segmentGroup="spines"/>
 ```
 ```{code-block} xml
 <include href="NML2_SingleCompHHCell.nml"/>
-```
-```{code-block} xml
-<include segmentGroup="soma"/>
 ```
 
 ````
@@ -2635,88 +2627,13 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 *XML examples*
 ```{code-block} xml
-<morphology id="SimpleCell_Morphology">
-            
-            <segment id="0" name="Soma">    
-                
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
+<morphology id="morph1">
+            <segment id="0" name="soma">
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
+                <distal x="0" y="0" z="0" diameter="17.841242"/>
             </segment>
-            <segment id="1" name="MainDendrite1">
-                <parent segment="0"/>
-                
-                <proximal x="10" y="0" z="0" diameter="3"/> 
-                <distal x="20" y="0" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="MainDendrite2">
-                <parent segment="1"/>
-                
-                <distal x="30" y="0" z="0" diameter="1"/>
-            </segment>
-            
-            <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
+            <segmentGroup id="soma_group">
                 <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
-                <member segment="1"/>
-                <member segment="2"/>
-                
-                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
- 
-                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
-                        <proximal translationStart="0"/>
-                        <distal normalizationEnd="1"/>
-                </inhomogeneousParameter>
-                
-            </segmentGroup>
-        </morphology>
-```
-```{code-block} xml
-<morphology id="MultiCompCell_morphology">
-            <segment id="0" name="Soma">
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="0" y="10" z="0" diameter="10"/>
-            </segment>
-            <segment id="1" name="Dendrite1">
-                <parent segment="0"/>
-                <proximal x="0" y="10" z="0" diameter="3"/>
-                <distal x="0" y="20" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="Dendrite2a">
-                <parent segment="1"/>
-                <proximal x="0" y="20" z="0" diameter="3"/>
-                <distal x="0" y="30" z="0" diameter="2.5"/>
-            </segment>
-            
-            <segment id="3" name="Dendrite2b">
-                <parent segment="2"/>
-                <distal x="0" y="50" z="0" diameter="1.5"/>
-            </segment>
-            
-            
-            <segmentGroup id="soma" neuroLexId="sao864921383">    <!--
-                This group contains an unbranched set of segments, and all of the segmentGroups marked with
-                neuroLexId = sao864921383 form a non-overlapping set of all of the segments. 
-                These segmentGroups correspond to the 'cables' of NeuroML v1.8.1. -->
-                <member segment="0"/>
-            </segmentGroup>
-            
-            <segmentGroup id="dendSec1" neuroLexId="sao864921383">   
-                <member segment="1"/>
-            </segmentGroup>
-            
-            <segmentGroup id="dendSec2" neuroLexId="sao864921383">   
-                <property tag="numberInternalDivisions" value="9"/>
-                <member segment="2"/>
-                <member segment="3"/>
-            </segmentGroup>
-            
-            <segmentGroup id="soma_group"> 
-                <include segmentGroup="soma"/>
-            </segmentGroup>
-           <segmentGroup id="dendrite_group">  
-                <include segmentGroup="dendSec1"/>
-                <include segmentGroup="dendSec2"/>
             </segmentGroup>
         </morphology>
 ```
@@ -2774,6 +2691,32 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
                 </subTree>
             </segmentGroup>
             
+        </morphology>
+```
+```{code-block} xml
+<morphology id="CellWithDends_morphology">
+            <segment id="0" name="Soma">
+                
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
+            </segment>
+            <segment id="1" name="Dendrite1">
+                <parent segment="0"/>
+                <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+            <segment id="2" name="Dendrite2">
+                <parent segment="1"/>
+                <distal x="30" y="0" z="0" diameter="1"/>
+            </segment>
+            
+            
+            <segmentGroup id="soma_group"> 
+                <member segment="0"/>
+            </segmentGroup>
+            <segmentGroup id="dendrite_group">
+                <member segment="1"/>
+                <member segment="2"/>
+            </segmentGroup>
         </morphology>
 ```
 
@@ -2854,13 +2797,13 @@ variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, 
 
 *XML examples*
 ```{code-block} xml
-<specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+<specificCapacitance value="1.0 uF_per_cm2"/>
 ```
 ```{code-block} xml
 <specificCapacitance value="1.0 uF_per_cm2"/>
 ```
 ```{code-block} xml
-<specificCapacitance xmlns:xi="http://www.w3.org/2001/XInclude" segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+<specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
 ```
 
 ````
@@ -3050,12 +2993,13 @@ variable = MembraneProperties(channel_populations=None, channel_densities=None, 
 *XML examples*
 ```{code-block} xml
 <membraneProperties>
-                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
-                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
-                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
-                    </variableParameter>
-                </channelDensityNonUniform>
-                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+                        
+                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
+                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65mV"/>
             </membraneProperties>
 ```
 ```{code-block} xml
@@ -3070,12 +3014,13 @@ variable = MembraneProperties(channel_populations=None, channel_densities=None, 
             </membraneProperties>
 ```
 ```{code-block} xml
-<membraneProperties xmlns:xi="http://www.w3.org/2001/XInclude"> 
-                <channelPopulation id="naChansDend" ionChannel="NaConductance" segment="2" number="120000" erev="50mV" ion="na"/>   
-                <channelDensity id="pasChans" ionChannel="pas" condDensity="3.0 S_per_m2" erev="-70mV" ion="non_specific"/> 
-                <channelDensity id="naChansSoma" ionChannel="NaConductance" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" erev="50mV" ion="na"/>
+<membraneProperties>
+                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
+                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
+                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
+                    </variableParameter>
+                </channelDensityNonUniform>
                 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
-                <specificCapacitance segmentGroup="dendrite_group" value="2.0 uF_per_cm2"/>
             </membraneProperties>
 ```
 
@@ -3254,17 +3199,18 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 
 *XML examples*
 ```{code-block} xml
-<biophysicalProperties id="biophys">
+<biophysicalProperties id="bioPhys1">
             <membraneProperties>
-                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
-                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
-                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
-                    </variableParameter>
-                </channelDensityNonUniform>
-                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+                        
+                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
+                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65mV"/>
             </membraneProperties>
             <intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
+                <resistivity value="0.03 kohm_cm"/>   
             </intracellularProperties>
         </biophysicalProperties>
 ```
@@ -3286,13 +3232,14 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
         </biophysicalProperties>
 ```
 ```{code-block} xml
-<biophysicalProperties xmlns:xi="http://www.w3.org/2001/XInclude" id="bio_cell">
-            <membraneProperties> 
-                <channelPopulation id="naChansDend" ionChannel="NaConductance" segment="2" number="120000" erev="50mV" ion="na"/>   
-                <channelDensity id="pasChans" ionChannel="pas" condDensity="3.0 S_per_m2" erev="-70mV" ion="non_specific"/> 
-                <channelDensity id="naChansSoma" ionChannel="NaConductance" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" erev="50mV" ion="na"/>
+<biophysicalProperties id="biophys">
+            <membraneProperties>
+                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
+                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
+                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
+                    </variableParameter>
+                </channelDensityNonUniform>
                 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
-                <specificCapacitance segmentGroup="dendrite_group" value="2.0 uF_per_cm2"/>
             </membraneProperties>
             <intracellularProperties>
                 <resistivity value="0.1 kohm_cm"/>  
@@ -3437,7 +3384,7 @@ variable = IntracellularProperties(species=None, resistivities=None, extensionty
 *XML examples*
 ```{code-block} xml
 <intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
+                <resistivity value="0.03 kohm_cm"/>   
             </intracellularProperties>
 ```
 ```{code-block} xml
@@ -3446,7 +3393,7 @@ variable = IntracellularProperties(species=None, resistivities=None, extensionty
             </intracellularProperties>
 ```
 ```{code-block} xml
-<intracellularProperties xmlns:xi="http://www.w3.org/2001/XInclude">
+<intracellularProperties>
                 <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
 ```
@@ -3574,13 +3521,13 @@ variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs
 
 *XML examples*
 ```{code-block} xml
-<resistivity value="0.1 kohm_cm"/>
+<resistivity value="0.03 kohm_cm"/>
 ```
 ```{code-block} xml
 <resistivity value="100 kohm_cm"/>
 ```
 ```{code-block} xml
-<resistivity xmlns:xi="http://www.w3.org/2001/XInclude" value="0.1 kohm_cm"/>
+<resistivity value="0.1 kohm_cm"/>
 ```
 
 ````
@@ -4263,110 +4210,17 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
 
 *XML examples*
 ```{code-block} xml
-<cell id="SimpleCell">
-        <morphology id="SimpleCell_Morphology">
-            
-            <segment id="0" name="Soma">    
-                
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
+<cell id="hhcell">
+        <morphology id="morph1">
+            <segment id="0" name="soma">
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
+                <distal x="0" y="0" z="0" diameter="17.841242"/>
             </segment>
-            <segment id="1" name="MainDendrite1">
-                <parent segment="0"/>
-                
-                <proximal x="10" y="0" z="0" diameter="3"/> 
-                <distal x="20" y="0" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="MainDendrite2">
-                <parent segment="1"/>
-                
-                <distal x="30" y="0" z="0" diameter="1"/>
-            </segment>
-            
-            <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
+            <segmentGroup id="soma_group">
                 <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
-                <member segment="1"/>
-                <member segment="2"/>
-                
-                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
- 
-                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
-                        <proximal translationStart="0"/>
-                        <distal normalizationEnd="1"/>
-                </inhomogeneousParameter>
-                
-            </segmentGroup>
-        </morphology>
-        
-        <biophysicalProperties id="biophys">
-            <membraneProperties>
-                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
-                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
-                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
-                    </variableParameter>
-                </channelDensityNonUniform>
-                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
-            </membraneProperties>
-            <intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
-            </intracellularProperties>
-        </biophysicalProperties>
-    </cell>
-```
-```{code-block} xml
-<cell id="MultiCompCell">
-        <notes>Multicompartmental cell</notes>
-        <morphology id="MultiCompCell_morphology">
-            <segment id="0" name="Soma">
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="0" y="10" z="0" diameter="10"/>
-            </segment>
-            <segment id="1" name="Dendrite1">
-                <parent segment="0"/>
-                <proximal x="0" y="10" z="0" diameter="3"/>
-                <distal x="0" y="20" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="Dendrite2a">
-                <parent segment="1"/>
-                <proximal x="0" y="20" z="0" diameter="3"/>
-                <distal x="0" y="30" z="0" diameter="2.5"/>
-            </segment>
-            
-            <segment id="3" name="Dendrite2b">
-                <parent segment="2"/>
-                <distal x="0" y="50" z="0" diameter="1.5"/>
-            </segment>
-            
-            
-            <segmentGroup id="soma" neuroLexId="sao864921383">    <!--
-                This group contains an unbranched set of segments, and all of the segmentGroups marked with
-                neuroLexId = sao864921383 form a non-overlapping set of all of the segments. 
-                These segmentGroups correspond to the 'cables' of NeuroML v1.8.1. -->
-                <member segment="0"/>
-            </segmentGroup>
-            
-            <segmentGroup id="dendSec1" neuroLexId="sao864921383">   
-                <member segment="1"/>
-            </segmentGroup>
-            
-            <segmentGroup id="dendSec2" neuroLexId="sao864921383">   
-                <property tag="numberInternalDivisions" value="9"/>
-                <member segment="2"/>
-                <member segment="3"/>
-            </segmentGroup>
-            
-            <segmentGroup id="soma_group"> 
-                <include segmentGroup="soma"/>
-            </segmentGroup>
-           <segmentGroup id="dendrite_group">  
-                <include segmentGroup="dendSec1"/>
-                <include segmentGroup="dendSec2"/>
             </segmentGroup>
         </morphology>
         <biophysicalProperties id="bioPhys1">
-            
             <membraneProperties>
                         
                 <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
@@ -4377,7 +4231,7 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
                 <initMembPotential value="-65mV"/>
             </membraneProperties>
             <intracellularProperties>
-                <resistivity value="100 kohm_cm"/>   
+                <resistivity value="0.03 kohm_cm"/>   
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
@@ -4437,6 +4291,34 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
                 </subTree>
             </segmentGroup>
             
+        </morphology>
+    </cell>
+```
+```{code-block} xml
+<cell id="dendCell">
+        <morphology id="CellWithDends_morphology">
+            <segment id="0" name="Soma">
+                
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
+            </segment>
+            <segment id="1" name="Dendrite1">
+                <parent segment="0"/>
+                <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+            <segment id="2" name="Dendrite2">
+                <parent segment="1"/>
+                <distal x="30" y="0" z="0" diameter="1"/>
+            </segment>
+            
+            
+            <segmentGroup id="soma_group"> 
+                <member segment="0"/>
+            </segmentGroup>
+            <segmentGroup id="dendrite_group">
+                <member segment="1"/>
+                <member segment="2"/>
+            </segmentGroup>
         </morphology>
     </cell>
 ```
@@ -5106,7 +4988,7 @@ variable = IafCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properti
 
 *XML examples*
 ```{code-block} xml
-<iafCell id="iaf" leakReversal="-50mV" thresh="-55mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS"/>
+<iafCell id="iaf" leakReversal="-60mV" thresh="-55mV" reset="-62mV" C="1.0nF" leakConductance="0.05uS"/>
 ```
 ```{code-block} xml
 <iafCell id="iaf" leakConductance="0.2nS" leakReversal="-70mV" thresh="-55mV" reset="-70mV" C="3.2pF"/>
