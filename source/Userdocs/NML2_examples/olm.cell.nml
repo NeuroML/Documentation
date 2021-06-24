@@ -8,38 +8,38 @@
         <morphology id="morphology">
             <segment id="0" name="Seg0_soma_0">
                 <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="10.0"/>
-                <distal x="0.000000e+00" y="1.000000e+00" z="0.000000e+00" diameter="10.0"/>
+                <distal x="0.000000e+00" y="1.000000e+01" z="0.000000e+00" diameter="10.0"/>
             </segment>
             <segment id="1" name="Seg1_soma_0">
                 <parent segment="0"/>
-                <distal x="0.000000e+00" y="2.000000e+00" z="0.000000e+00" diameter="10.0"/>
+                <distal x="0.000000e+00" y="2.000000e+01" z="0.000000e+00" diameter="10.0"/>
             </segment>
             <segment id="2" name="Seg1_axon_0">
                 <parent segment="0" fractionAlong="0.0"/>
                 <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="1.5"/>
-                <distal x="0.000000e+00" y="-7.500000e+00" z="0.000000e+00" diameter="1.5"/>
+                <distal x="0.000000e+00" y="-7.500000e+01" z="0.000000e+00" diameter="1.5"/>
             </segment>
             <segment id="3" name="Seg1_axon_0">
                 <parent segment="2"/>
-                <distal x="0.000000e+00" y="-1.500000e+00" z="0.000000e+00" diameter="1.5"/>
+                <distal x="0.000000e+00" y="-1.500000e+02" z="0.000000e+00" diameter="1.5"/>
             </segment>
             <segment id="4" name="Seg0_dend_0">
                 <parent segment="1" fractionAlong="0.0"/>
-                <proximal x="0.000000e+00" y="2.000000e+00" z="0.000000e+00" diameter="3.0"/>
-                <distal x="1.000000e+00" y="1.200000e+00" z="0.000000e+00" diameter="3.0"/>
+                <proximal x="0.000000e+00" y="2.000000e+01" z="0.000000e+00" diameter="3.0"/>
+                <distal x="1.000000e+02" y="1.200000e+02" z="0.000000e+00" diameter="3.0"/>
             </segment>
             <segment id="5" name="Seg0_dend_1">
                 <parent segment="1"/>
-                <proximal x="0.000000e+00" y="2.000000e+00" z="0.000000e+00" diameter="3.0"/>
-                <distal x="-1.000000e+00" y="1.200000e+00" z="0.000000e+00" diameter="3.0"/>
+                <proximal x="0.000000e+00" y="2.000000e+01" z="0.000000e+00" diameter="3.0"/>
+                <distal x="-1.000000e+02" y="1.200000e+02" z="0.000000e+00" diameter="3.0"/>
             </segment>
             <segment id="6" name="Seg1_dend_0">
                 <parent segment="4" fractionAlong="0.0"/>
-                <distal x="1.770000e+00" y="1.970000e+00" z="0.000000e+00" diameter="3.0"/>
+                <distal x="1.770000e+02" y="1.970000e+02" z="0.000000e+00" diameter="3.0"/>
             </segment>
             <segment id="7" name="Seg1_dend_1">
                 <parent segment="5" fractionAlong="0.0"/>
-                <distal x="-1.770000e+00" y="1.970000e+00" z="0.000000e+00" diameter="3.0"/>
+                <distal x="-1.770000e+02" y="1.970000e+02" z="0.000000e+00" diameter="3.0"/>
             </segment>
             <segmentGroup id="all">
                 <member segment="0"/>
