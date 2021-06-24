@@ -7,3 +7,10 @@ pre, .highlight-python, .highlight-xml, .highlight {
     overflow-y: auto !important;
     max-height: 30em !important;
 }
+
+/* For highlights in search results
+ * https://github.com/executablebooks/jupyter-book/issues/1244#issuecomment-867181414
+ */
+dt:target, span.highlighted {
+    background-color: #fbe54e;
+}
