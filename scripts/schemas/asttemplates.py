@@ -85,16 +85,18 @@ page_header = env.from_string(textwrap.dedent(
     # {{ comp_definition }}
 
     {% if comp_description and comp_description | length > 0 -%}
-        *{{- comp_description -}}*
+        **{{- comp_description -}}**
+
+    ---
     {%- endif %}
 
+
     Original ComponentType definitions: [{{ comp_definition }}.xml]({{ GitHubCompSources }}/{{ comp_definition }}.xml).
-
     Schema against which NeuroML based on these should be valid: [NeuroML_v{{ nml_version }}.xsd](https://github.com/NeuroML/NeuroML2/tree/{{ nml_branch }}/Schemas/NeuroML2/NeuroML_v{{ nml_version }}.xsd).
-
     Generated on {{ nml_date }} from [this](https://github.com/NeuroML/NeuroML2/commit/{{ nml_commit }}) commit.
-
     Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
+
+    ---
     """))
 
 dimension = env.from_string(textwrap.dedent(
