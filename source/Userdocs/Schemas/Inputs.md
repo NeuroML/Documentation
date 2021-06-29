@@ -2,7 +2,7 @@
 (schema:inputs)=
 # Inputs
 
-**A number of ComponentTypes for providing spiking and current inputs to other ComponentTypes**
+**A number of ComponentTypes for providing spiking ( e.g.  {ref}`schema:spikegeneratorpoisson`,  {ref}`schema:spikearray` ) and current inputs ( e.g.  {ref}`schema:pulsegenerator`,  {ref}`schema:voltageclamp`,  {ref}`schema:timedsynapticinput`,  {ref}`schema:poissonfiringsynapse` ) to other ComponentTypes**
 
 ---
 
