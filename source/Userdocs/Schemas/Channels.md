@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Channels.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
+Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -2337,6 +2337,14 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 *XML examples*
 ```{code-block} xml
+<ionChannelHH id="HH_Na" conductance="10pS" species="na">  
+        
+    </ionChannelHH>
+```
+```{code-block} xml
+<ionChannelHH xmlns:xi="http://www.w3.org/2001/XInclude" id="pas" conductance="10pS"/>
+```
+```{code-block} xml
 <ionChannelHH id="naChan" conductance="10pS" species="na">
         <notes>Na channel</notes>
         <gateHHrates id="m" instances="3">
@@ -2347,20 +2355,6 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
             <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
             <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
         </gateHHrates>
-    </ionChannelHH>
-```
-```{code-block} xml
-<ionChannelHH id="passiveChan" conductance="10pS">
-        <notes>Leak conductance</notes>
-    </ionChannelHH>
-```
-```{code-block} xml
-<ionChannelHH id="kChan" conductance="10pS" species="k">
-        <gateHHrates id="n" instances="4">
-            <forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
-        </gateHHrates>
-            
     </ionChannelHH>
 ```
 

@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Cells.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
+Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -25,7 +25,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Base type of any cell which can be used in a population.</i>
+<i>Base type of any cell ( e.g. point neuron like  {ref}`schema:izhikevich2007cell`, or a morphologically detailed  {ref}`schema:cell` with  {ref}`schema:segment`s ) which can be used in a  {ref}`schema:population`.</i>
 
 
 
@@ -79,7 +79,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a membrane potential **v** with voltage units.</i>
+<i>Any spiking cell which has a membrane potential **v** with units of voltage ( as opposed to a dimensionless membrane potential used in  {ref}`schema:basecellmembpotdl` ).</i>
 
 
 
@@ -116,7 +116,7 @@ extends *{ref}`schema:basespikingcell`*
 
 
 
-<i>Any spiking cell which has a dimensioness membrane potential, **V.**.</i>
+<i>Any spiking cell which has a dimensioness membrane potential, **V** ( as opposed to a membrane potential units of voltage,  {ref}`schema:basecellmembpot` ).</i>
 
 
 
@@ -153,7 +153,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for any current produced by a population of channels, all of type **ionChannel**.</i>
+<i>Base type for any current produced by a population of channels, all of which are of type **ionChannel**.</i>
 
 
 
@@ -174,7 +174,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -201,7 +201,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of **number** ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.**.</i>
+<i>Population of a **number** of ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.** Note that active membrane currents are more frequently specified as a density over an area of the  {ref}`schema:cell` using  {ref}`schema:channeldensity`.</i>
 
 
 
@@ -211,8 +211,8 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
-**number**$  $Dimensionless
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
+**number**$ The number of channels present. This will be multiplied by the time varying conductance of the individual ion channel (which extends _baseIonChannel_) to produce the total conductance $Dimensionless
 
 ```
 ````
@@ -223,7 +223,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100%
 :delim: $
 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -244,7 +244,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -314,7 +314,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Population of channels with a time varying reversal potential **erev** determined by Nernst equation. Hard coded for Ca only!</i>
+<i>Population of a **number** of channels with a time varying reversal potential **erev** determined by Nernst equation. Note: hard coded for Ca only!</i>
 
 
 
@@ -324,7 +324,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**number**$  $Dimensionless
+**number**$ The number of channels present. This will be multiplied by the time varying conductance of the individual ion channel (which extends _baseIonChannel_) to produce the total conductance $Dimensionless
 
 ```
 ````
@@ -335,7 +335,7 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100%
 :delim: $
 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -359,8 +359,8 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**erev**$ The reversal potential of the current produced, calculated from _caConcExt and _caConc ${ref}`schema:dimensions:voltage`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -371,9 +371,9 @@ extends *{ref}`schema:basechannelpopulation`*
 :width: 100 %
 :delim: $
 
-**caConc**$  ${ref}`schema:dimensions:concentration`
-**caConcExt**$  ${ref}`schema:dimensions:concentration`
-**temperature**$  ${ref}`schema:dimensions:temperature`
+**caConc**$ The internal Ca2+ concentration, as calculated/exposed by the parent Component ${ref}`schema:dimensions:concentration`
+**caConcExt**$ The external Ca2+ concentration, as calculated/exposed by the parent Component ${ref}`schema:dimensions:concentration`
+**temperature**$ The temperature to use in the calculation of _erev. Note this is generally exposed by a _networkWithTemperature_. ${ref}`schema:dimensions:temperature`
 **v**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrent`)* ${ref}`schema:dimensions:voltage`
 
 ```
@@ -412,7 +412,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 
-<i>Base type for current distributed on an area of a cell.</i>
+<i>Base type for a current of density **iDensity** distributed on an area of a  {ref}`schema:cell`, flowing through the specified **ionChannel.** Instances of this ( normally  {ref}`schema:channeldensity` ) are specified in the  {ref}`schema:membraneproperties` of the  {ref}`schema:cell`.</i>
 
 
 
@@ -505,7 +505,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a parameter which can vary its value across a **segmentGroup**.</i>
+<i>Specifies a **parameter** ( e.g. condDensity ) which can vary its value across a **segmentGroup.** The value is calculated from **value** attribute of the  {ref}`schema:inhomogeneousvalue` subelement. This element is normally a child of  {ref}`schema:channeldensitynonuniform`,  {ref}`schema:channeldensitynonuniformnernst` or  {ref}`schema:channeldensitynonuniformghk` and is used to calculate the value of the conductance, etc. which will vary on different parts of the cell. The **segmentGroup** specified here needs to define an  {ref}`schema:inhomogeneousparameter` ( referenced from **inhomogeneousParameter** in the  {ref}`schema:inhomogeneousvalue` ), which calculates a **variable** ( e.g. p ) varying across the cell ( e.g. based on the path length from soma ), which is then used in the **value** attribute of the  {ref}`schema:inhomogeneousvalue` ( so for example condDensity = f( p ) ).</i>
 
 
 
@@ -558,7 +558,7 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 
 
 
-<i>Specifies the value of a  {ref}`schema:variableparameter`.</i>
+<i>Specifies the **value** of an **inhomogeneousParameter.** For usage see  {ref}`schema:variableparameter`.</i>
 
 
 
@@ -602,7 +602,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying ohmic conductance density, which is distributed on a region of the cell. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
+<i>Specifies a time varying ohmic conductance density, which is distributed on a region of the **cell.** The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -612,7 +612,7 @@ extends *{ref}`schema:basechanneldensity`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -624,7 +624,7 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **segmentGroup**$ 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -728,7 +728,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
+<i>Specifies a time varying conductance density, which is distributed on a region of the **cell,** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -739,7 +739,7 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **segmentGroup**$ 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -834,7 +834,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
-<i>Specifies a time varying conductance density, which is distributed on a region of the cell, and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
+<i>Specifies a time varying conductance density, which is distributed on a region of the **cell,** and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
 
@@ -845,7 +845,7 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **segmentGroup**$ 
-**ion**$ 
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -940,7 +940,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the cell with fixed reversal potential **erev** producing a current density **iDensity**.</i>
+<i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the **cell** ( specified in  {ref}`schema:membraneproperties` ) with fixed reversal potential **erev** producing a current density **iDensity**.</i>
 
 
 
@@ -951,7 +951,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 :delim: $
 
 **condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -962,8 +962,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensity is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1039,13 +1039,13 @@ variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_den
 
 *XML examples*
 ```{code-block} xml
+<channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>
+```
+```{code-block} xml
 <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
 ```
 ```{code-block} xml
 <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-```
-```{code-block} xml
-<channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
 ```
 
 ````
@@ -1072,7 +1072,7 @@ extends {ref}`schema:channeldensity`
 :delim: $
 
 **condDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
-**erev**$  *(from {ref}`schema:channeldensity`)* ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced *(from {ref}`schema:channeldensity`)* ${ref}`schema:dimensions:voltage`
 **vShift**$  ${ref}`schema:dimensions:voltage`
 
 ```
@@ -1084,8 +1084,8 @@ extends {ref}`schema:channeldensity`
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensity is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1136,7 +1136,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 
 
-<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
+<i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the **cell,** producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
 
@@ -1157,8 +1157,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityNernst is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1181,7 +1181,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced, calculated from caConcExt and caConc ${ref}`schema:dimensions:voltage`
 **gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 **iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
@@ -1284,8 +1284,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityNernstCa2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1308,7 +1308,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100 %
 :delim: $
 
-**erev**$  ${ref}`schema:dimensions:voltage`
+**erev**$ The reversal potential of the current produced ${ref}`schema:dimensions:voltage`
 **gDensity**$  *(from {ref}`schema:basechanneldensitycond`)* ${ref}`schema:dimensions:conductanceDensity`
 **iDensity**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:currentDensity`
 
@@ -1411,8 +1411,8 @@ extends *{ref}`schema:basechanneldensity`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1530,8 +1530,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 :width: 100%
 :delim: $
 
-**segmentGroup**$ 
-**ion**$ 
+**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
 
 ````
 
@@ -1637,7 +1637,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>Simple model of a conductance based cell, with no separate morphology element, just an absolute capacitance **C,** and a set of channel populations.</i>
+<i>Simple model of a conductance based cell, with no separate  {ref}`schema:morphology` element, just an absolute capacitance **C,** and a set of channel **populations.** Note: use of  {ref}`schema:cell` is generally preferable ( and more widely supported ), even for a single compartment cell.</i>
 
 
 
@@ -1648,8 +1648,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 :delim: $
 
 **C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
-**thresh**$  ${ref}`schema:dimensions:voltage`
-**v0**$  ${ref}`schema:dimensions:voltage`
+**thresh**$ The voltage threshold above which the cell is considered to be _spiking ${ref}`schema:dimensions:voltage`
+**v0**$ The initial membrane potential of the cell ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1762,7 +1762,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 
 
-<i>TEMPORARY: Point cell with conductances and Ca concentration info. Not yet fully tested!!!</i>
+<i>TEMPORARY: Point cell with conductances and Ca concentration info. Not yet fully tested!!! TODO: Remove in favour of  {ref}`schema:cell`.</i>
 
 
 
@@ -1773,8 +1773,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 :delim: $
 
 **C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
-**thresh**$  ${ref}`schema:dimensions:voltage`
-**v0**$  ${ref}`schema:dimensions:voltage`
+**thresh**$ The voltage threshold above which the cell is considered to be _spiking ${ref}`schema:dimensions:voltage`
+**v0**$ The initial membrane potential of the cell ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -1892,7 +1892,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point furthest from the soma in a segment.</i>
+<i>Point on a  {ref}`schema:segment` furthest from the soma. Should always be present in the description of a  {ref}`schema:segment`, unlike  {ref}`schema:proximal`.</i>
 
 
 
@@ -1902,10 +1902,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**diameter**$ Diameter at point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**x**$ x coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**y**$ y coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**z**$ z coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**diameter**$ Diameter of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**x**$ x coordinate of the point. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**y**$ y coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**z**$ z coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
 
 ```
 ````
@@ -1916,10 +1916,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**radius**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**xLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**yLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**zLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**radius**$ A dimensional quantity given by half the _diameter. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**xLength**$ A version of _x with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**yLength**$ A version of _y with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**zLength**$ A version of _z with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -1930,13 +1930,13 @@ extends {ref}`schema:point3dwithdiam`
 
 *XML examples*
 ```{code-block} xml
-<distal x="0" y="0" z="0" diameter="17.841242"/>
-```
-```{code-block} xml
 <distal x="10" y="0" z="0" diameter="10"/>
 ```
 ```{code-block} xml
 <distal x="20" y="0" z="0" diameter="3"/>
+```
+```{code-block} xml
+<distal x="30" y="0" z="0" diameter="1"/>
 ```
 
 ````
@@ -1952,7 +1952,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Point closest to the soma in a segment. Note, if the proximal point is equal to the distal point of the parent segment, proximal can be omitted.</i>
+<i>Point on a  {ref}`schema:segment` closest to the soma. Note, the proximal point can be omitted, and in this case is defined as being the point **fractionAlong** between the proximal and  {ref}`schema:distal` point of the  {ref}`schema:parent`, i.e. if **fractionAlong** = 1 ( as it is by default ) it will be the **distal** on the parent, or if **fractionAlong** = 0, it will be the proximal point. If between 0 and 1, it is the linear interpolation between the two points.</i>
 
 
 
@@ -1962,10 +1962,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**diameter**$ Diameter at point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**x**$ x coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**y**$ y coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
-**z**$ z coordinate of point. Note: no dimension used, see note above! *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**diameter**$ Diameter of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**x**$ x coordinate of the point. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**y**$ y coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
+**z**$ z coordinate of the ppoint. Note: no dimension used, see description of _point3DWithDiam_ for details. *(from {ref}`schema:point3dwithdiam`)* $Dimensionless
 
 ```
 ````
@@ -1976,10 +1976,10 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100 %
 :delim: $
 
-**radius**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**xLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**yLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
-**zLength**$  *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**radius**$ A dimensional quantity given by half the _diameter. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**xLength**$ A version of _x with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**yLength**$ A version of _y with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
+**zLength**$ A version of _z with dimension length. *(from {ref}`schema:point3dwithdiam`)* ${ref}`schema:dimensions:length`
 
 ```
 ````
@@ -1990,13 +1990,13 @@ extends {ref}`schema:point3dwithdiam`
 
 *XML examples*
 ```{code-block} xml
-<proximal x="0" y="0" z="0" diameter="17.841242"/>
-```
-```{code-block} xml
 <proximal x="0" y="0" z="0" diameter="10"/>
 ```
 ```{code-block} xml
 <proximal x="10" y="0" z="0" diameter="3"/>
+```
+```{code-block} xml
+<proximal translationStart="0"/>
 ```
 
 ````
@@ -2008,7 +2008,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>Specifies the segment which is this segment's parent.</i>
+<i>Specifies the  {ref}`schema:segment` which is this segment's parent. The **fractionAlong** specifies where it is connected, usually 1 ( the default value ), meaning the  {ref}`schema:distal` point of the parent, or 0, meaning the  {ref}`schema:proximal` point. If it is between these, a linear interpolation between the 2 points should be used.</i>
 
 
 
@@ -2018,8 +2018,8 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100%
 :delim: $
 
-**segment**$ 
-**fractionAlong**$ 
+**segment**$ The id of the parent segment
+**fractionAlong**$ The fraction along the the parent segment at which this segment is attached. For usage see _proximal_
 
 ````
 
@@ -2035,7 +2035,7 @@ extends {ref}`schema:point3dwithdiam`
 <parent segment="1"/>
 ```
 ```{code-block} xml
-<parent segment="2" fractionAlong="0.5"/>
+<parent segment="0"/>
 ```
 
 ````
@@ -2047,7 +2047,7 @@ extends {ref}`schema:point3dwithdiam`
 
 
 
-<i>A segment defines the smallest unit within a possibly branching structure (  {ref}`schema:morphology` ), such as a dendrite or axon. The shape is given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. If  {ref}`schema:proximal` is missing, the proximal point is assumed to be the  {ref}`schema:distal` point of the parent.  {ref}`schema:parent` specifies the parent segment. The first segment ( no  {ref}`schema:parent` ) usually represents the soma. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
+<i>A segment defines the smallest unit within a possibly branching structure (  {ref}`schema:morphology` ), such as a dendrite or axon. Its **id** should be a nonnegative integer ( usually soma/root = 0 ). Its end points are given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. The  {ref}`schema:proximal` point can be omitted, usually because it is the same as a point on the  {ref}`schema:parent` segment, see  {ref}`schema:proximal` for details.  {ref}`schema:parent` specifies the parent segment. The first segment of a  {ref}`schema:cell` ( with no  {ref}`schema:parent` ) usually represents the soma. The shape is normally a cylinder ( radii of the  {ref}`schema:proximal` and  {ref}`schema:distal` equal, but positions different ) or a conical frustum ( radii and positions different ). If the x, y, x positions of the  {ref}`schema:proximal` and  {ref}`schema:distal` are equal, the segment can be interpreted as a sphere, and in this case the radii of these points must be equal. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
 
 
 
@@ -2057,7 +2057,7 @@ extends {ref}`schema:point3dwithdiam`
 :width: 100%
 :delim: $
 
-**name**$ 
+**name**$ An optional name for the segment. Convenient for providing a suitable variable name for generated code, e.g. soma, dend0
 
 ````
 
@@ -2143,12 +2143,6 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 *XML examples*
 ```{code-block} xml
-<segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
-            </segment>
-```
-```{code-block} xml
 <segment id="1" name="MainDendrite1">
                 <parent segment="0"/>
                 
@@ -2157,11 +2151,17 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
             </segment>
 ```
 ```{code-block} xml
-<segment id="3" name="Spine">
+<segment id="0" name="Soma">    
                 
-                <parent segment="2" fractionAlong="0.5"/>
-                <proximal x="25" y="0" z="0" diameter="0.2"/>
-                <distal x="25" y="1" z="0" diameter="0.2"/>
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
+            </segment>
+```
+```{code-block} xml
+<segment id="2" name="MainDendrite2">
+                <parent segment="1"/>
+                
+                <distal x="30" y="0" z="0" diameter="1"/>
             </segment>
 ```
 
@@ -2174,7 +2174,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 
 
-<i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology`.</i>
+<i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology`, e.g. soma_group, dendrite_group, axon_group. While a name is useful to describe the group, the **neuroLexId** attribute can be used to explicitly specify the meaning of the group, e.g. sao1044911821 for 'Neuronal Cell Body', sao1211023249 for 'Dendrite'. The  {ref}`schema:segment`s in this group can be specified as: a list of individual  {ref}`schema:member` segments; a  {ref}`schema:path`, all of the segments along which should be included; a  {ref}`schema:subtree` of the  {ref}`schema:cell` to include; other segmentGroups to  {ref}`schema:include` ( so all segments from those get included here ). An  {ref}`schema:inhomogeneousparameter` can be defined on the region of the cell specified by this group ( see  {ref}`schema:variableparameter` for usage ).</i>
 
 
 
@@ -2184,7 +2184,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 :width: 100%
 :delim: $
 
-**neuroLexId**$ 
+**neuroLexId**$ An id string for pointing to an entry in the NeuroLex ontology. Use of this attribute is a shorthand for a full         RDF based reference to the MIRIAM Resource urn:miriam:neurolex, with an bqbiol:is qualifier.
 
 ````
 
@@ -2229,7 +2229,21 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 *XML examples*
 ```{code-block} xml
-<segmentGroup id="soma_group">
+<segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
+                <member segment="1"/>
+                <member segment="2"/>
+                
+                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
+ 
+                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
+                        <proximal translationStart="0"/>
+                        <distal normalizationEnd="1"/>
+                </inhomogeneousParameter>
+                
+            </segmentGroup>
+```
+```{code-block} xml
+<segmentGroup id="soma_group" neuroLexId="sao1044911821">    
                 <member segment="0"/>
             </segmentGroup>
 ```
@@ -2237,13 +2251,6 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 <segmentGroup id="thick_dendrites">
                 <member segment="1"/>
                 <member segment="2"/>
-            </segmentGroup>
-```
-```{code-block} xml
-<segmentGroup id="dendrite_group" neuroLexId="sao1211023249">     
-                <include segmentGroup="thick_dendrites"/>
-                <include segmentGroup="spines"/>
-                
             </segmentGroup>
 ```
 
@@ -2256,7 +2263,7 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 
 
-<i>A single identified  {ref}`schema:segment` which is part of the  {ref}`schema:segmentgroup`.</i>
+<i>A single identified **segment** which is part of the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2286,10 +2293,10 @@ variable = Member(segments=None, **kwargs_)
 <member segment="0"/>
 ```
 ```{code-block} xml
-<member segment="0"/>
+<member segment="1"/>
 ```
 ```{code-block} xml
-<member segment="1"/>
+<member segment="2"/>
 ```
 
 ````
@@ -2301,7 +2308,7 @@ variable = Member(segments=None, **kwargs_)
 
 
 
-<i>Specifies which  {ref}`schema:segment` distal from which to calculate the  {ref}`schema:segmentgroup`.</i>
+<i>In a  {ref}`schema:path` or  {ref}`schema:subtree`, specifies which **segment** ( inclusive ) from which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2336,7 +2343,7 @@ variable = Member(segments=None, **kwargs_)
 
 
 
-<i>Specifies which  {ref}`schema:segment` up to which to calculate the  {ref}`schema:segmentgroup`.</i>
+<i>In a  {ref}`schema:path`, specifies which **segment** ( inclusive ) up to which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2368,7 +2375,7 @@ variable = Member(segments=None, **kwargs_)
 
 
 
-<i>Include all members of another  {ref}`schema:segmentgroup` in this.</i>
+<i>Include all members of another  {ref}`schema:segmentgroup` in this group.</i>
 
 
 
@@ -2378,7 +2385,7 @@ variable = Member(segments=None, **kwargs_)
 :width: 100%
 :delim: $
 
-**href**$ 
+**href**$ TODO: fix this!!! This is needed here, since include is used to include external nml files!!
 **segmentGroup**$ 
 
 ````
@@ -2396,13 +2403,13 @@ variable = Include(segment_groups=None, **kwargs_)
 
 *XML examples*
 ```{code-block} xml
+<include href="NML2_SimpleIonChannel.nml"/>
+```
+```{code-block} xml
 <include segmentGroup="thick_dendrites"/>
 ```
 ```{code-block} xml
 <include segmentGroup="spines"/>
-```
-```{code-block} xml
-<include href="NML2_SingleCompHHCell.nml"/>
 ```
 
 ````
@@ -2414,7 +2421,7 @@ variable = Include(segment_groups=None, **kwargs_)
 
 
 
-<i>Include all the segments between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive.</i>
+<i>Include all the  {ref}`schema:segment`s between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive.</i>
 
 
 
@@ -2458,7 +2465,7 @@ variable = Path(from_=None, to=None, **kwargs_)
 
 
 
-<i>Include all the segments distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup`.</i>
+<i>Include all the  {ref}`schema:segment`s distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup`.</i>
 
 
 
@@ -2500,7 +2507,7 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 
 
 
-<i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup`.</i>
+<i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup` ( see  {ref}`schema:variableparameter` for usage ).</i>
 
 
 
@@ -2629,13 +2636,39 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 *XML examples*
 ```{code-block} xml
-<morphology id="morph1">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
+<morphology id="SimpleCell_Morphology">
+            
+            <segment id="0" name="Soma">    
+                
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
             </segment>
-            <segmentGroup id="soma_group">
+            <segment id="1" name="MainDendrite1">
+                <parent segment="0"/>
+                
+                <proximal x="10" y="0" z="0" diameter="3"/> 
+                <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+            <segment id="2" name="MainDendrite2">
+                <parent segment="1"/>
+                
+                <distal x="30" y="0" z="0" diameter="1"/>
+            </segment>
+            
+            <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
                 <member segment="0"/>
+            </segmentGroup>
+            <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
+                <member segment="1"/>
+                <member segment="2"/>
+                
+                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
+ 
+                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
+                        <proximal translationStart="0"/>
+                        <distal normalizationEnd="1"/>
+                </inhomogeneousParameter>
+                
             </segmentGroup>
         </morphology>
 ```
@@ -2696,30 +2729,14 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
         </morphology>
 ```
 ```{code-block} xml
-<morphology id="CellWithDends_morphology">
-            <segment id="0" name="Soma">
-                
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
-            </segment>
-            <segment id="1" name="Dendrite1">
-                <parent segment="0"/>
-                <distal x="20" y="0" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="Dendrite2">
-                <parent segment="1"/>
-                <distal x="30" y="0" z="0" diameter="1"/>
-            </segment>
+<morphology id="NeuroMorpho_PyrCell123">  
+        <segment id="0" name="Soma">
             
-            
-            <segmentGroup id="soma_group"> 
-                <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group">
-                <member segment="1"/>
-                <member segment="2"/>
-            </segmentGroup>
-        </morphology>
+            <proximal x="0" y="0" z="0" diameter="10"/>
+            <distal x="10" y="0" z="0" diameter="10"/>
+        </segment>
+        
+    </morphology>
 ```
 
 ````
@@ -2792,20 +2809,20 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 ```{code-block} python
 from neuroml import SpecificCapacitance
 
-variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = SpecificCapacitance(value=None, segment_groups='all', **kwargs_)
 ```
 
 
 
 *XML examples*
 ```{code-block} xml
-<specificCapacitance value="1.0 uF_per_cm2"/>
-```
-```{code-block} xml
-<specificCapacitance value="1.0 uF_per_cm2"/>
-```
-```{code-block} xml
 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+```
+```{code-block} xml
+<specificCapacitance value="1.0 uF_per_cm2"/>
+```
+```{code-block} xml
+<specificCapacitance xmlns:xi="http://www.w3.org/2001/XInclude" segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
 ```
 
 ````
@@ -2838,7 +2855,7 @@ variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, 
 ```{code-block} python
 from neuroml import InitMembPotential
 
-variable = InitMembPotential(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = InitMembPotential(value=None, segment_groups='all', **kwargs_)
 ```
 
 
@@ -2881,7 +2898,7 @@ variable = InitMembPotential(value=None, segment_groups='all', segments=None, **
 ```{code-block} python
 from neuroml import SpikeThresh
 
-variable = SpikeThresh(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 ```
 
 
@@ -2995,34 +3012,34 @@ variable = MembraneProperties(channel_populations=None, channel_densities=None, 
 *XML examples*
 ```{code-block} xml
 <membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
-            </membraneProperties>
-```
-```{code-block} xml
-<membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
-            </membraneProperties>
-```
-```{code-block} xml
-<membraneProperties>
                 <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
                     <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
                         <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
                     </variableParameter>
                 </channelDensityNonUniform>
                 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
+            </membraneProperties>
+```
+```{code-block} xml
+<membraneProperties> 
+        
+            
+            <channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>  
+            <!-- Ions present inside the cell. Note: a fixed reversal potential is specified here  
+            <reversalPotential species="na" value="50mV"/>
+            <reversalPotential species="k" value="-77mV"/>-->
+            
+        </membraneProperties>
+```
+```{code-block} xml
+<membraneProperties>
+                        
+                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
+                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65mV"/>
             </membraneProperties>
 ```
 
@@ -3201,20 +3218,37 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 
 *XML examples*
 ```{code-block} xml
-<biophysicalProperties id="bioPhys1">
+<biophysicalProperties id="biophys">
             <membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
+                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
+                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
+                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
+                    </variableParameter>
+                </channelDensityNonUniform>
+                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
             </membraneProperties>
             <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   
+                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
         </biophysicalProperties>
+```
+```{code-block} xml
+<biophysicalProperties id="PyrCellChanDist">
+        <membraneProperties> 
+        
+            
+            <channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>  
+            <!-- Ions present inside the cell. Note: a fixed reversal potential is specified here  
+            <reversalPotential species="na" value="50mV"/>
+            <reversalPotential species="k" value="-77mV"/>-->
+            
+        </membraneProperties>
+        <intracellularProperties>  
+            <resistivity value="0.1 kohm_cm"/>  
+            <!-- REMOVED UNTIL WE CHECK HOW THE USAGE OF LEMS IMPACTS THIS...
+            <biochemistry reactionScheme="InternalCaDynamics"/>  Ref to earlier pathway -->
+        </intracellularProperties>
+    </biophysicalProperties>
 ```
 ```{code-block} xml
 <biophysicalProperties id="bioPhys1">
@@ -3230,21 +3264,6 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
             </membraneProperties>
             <intracellularProperties>
                 <resistivity value="100 kohm_cm"/>   
-            </intracellularProperties>
-        </biophysicalProperties>
-```
-```{code-block} xml
-<biophysicalProperties id="biophys">
-            <membraneProperties>
-                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
-                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
-                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
-                    </variableParameter>
-                </channelDensityNonUniform>
-                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
-            </membraneProperties>
-            <intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
         </biophysicalProperties>
 ```
@@ -3386,17 +3405,19 @@ variable = IntracellularProperties(species=None, resistivities=None, extensionty
 *XML examples*
 ```{code-block} xml
 <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   
+                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
+```
+```{code-block} xml
+<intracellularProperties>  
+            <resistivity value="0.1 kohm_cm"/>  
+            <!-- REMOVED UNTIL WE CHECK HOW THE USAGE OF LEMS IMPACTS THIS...
+            <biochemistry reactionScheme="InternalCaDynamics"/>  Ref to earlier pathway -->
+        </intracellularProperties>
 ```
 ```{code-block} xml
 <intracellularProperties>
                 <resistivity value="100 kohm_cm"/>   
-            </intracellularProperties>
-```
-```{code-block} xml
-<intracellularProperties>
-                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
 ```
 
@@ -3516,20 +3537,20 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 ```{code-block} python
 from neuroml import Resistivity
 
-variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 ```
 
 
 
 *XML examples*
 ```{code-block} xml
-<resistivity value="0.03 kohm_cm"/>
-```
-```{code-block} xml
-<resistivity value="100 kohm_cm"/>
+<resistivity value="0.1 kohm_cm"/>
 ```
 ```{code-block} xml
 <resistivity value="0.1 kohm_cm"/>
+```
+```{code-block} xml
+<resistivity value="100 kohm_cm"/>
 ```
 
 ````
@@ -4056,7 +4077,7 @@ extends {ref}`schema:concentrationmodel`
 ```{code-block} python
 from neuroml import Species
 
-variable = Species(value=None, segment_groups='all', segments=None, id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, **kwargs_)
+variable = Species(id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, segment_groups='all', **kwargs_)
 ```
 
 
@@ -4094,8 +4115,8 @@ extends *{ref}`schema:basecellmembpot`*
 :width: 100%
 :delim: $
 
-**morphology**$  $ {ref}`schema:morphology`
-**biophysicalProperties**$  $ {ref}`schema:biophysicalproperties`
+**morphology**$ Should only be used if morphology element is outside the cell. This points to the id of the morphology. $ {ref}`schema:morphology`
+**biophysicalProperties**$ Should only be used if biophysicalProperties element is outside the cell.  This points to the id of the biophysicalProperties $ {ref}`schema:biophysicalproperties`
 
 ```
 ````
@@ -4212,28 +4233,54 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
 
 *XML examples*
 ```{code-block} xml
-<cell id="hhcell">
-        <morphology id="morph1">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> 
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
+<cell id="SimpleCell">
+        <morphology id="SimpleCell_Morphology">
+            
+            <segment id="0" name="Soma">    
+                
+                <proximal x="0" y="0" z="0" diameter="10"/>
+                <distal x="10" y="0" z="0" diameter="10"/>
             </segment>
-            <segmentGroup id="soma_group">
+            <segment id="1" name="MainDendrite1">
+                <parent segment="0"/>
+                
+                <proximal x="10" y="0" z="0" diameter="3"/> 
+                <distal x="20" y="0" z="0" diameter="3"/>
+            </segment>
+            <segment id="2" name="MainDendrite2">
+                <parent segment="1"/>
+                
+                <distal x="30" y="0" z="0" diameter="1"/>
+            </segment>
+            
+            <segmentGroup id="soma_group" neuroLexId="sao1044911821">    
                 <member segment="0"/>
             </segmentGroup>
+            <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">
+                <member segment="1"/>
+                <member segment="2"/>
+                
+                <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
+ 
+                <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
+                        <proximal translationStart="0"/>
+                        <distal normalizationEnd="1"/>
+                </inhomogeneousParameter>
+                
+            </segmentGroup>
         </morphology>
-        <biophysicalProperties id="bioPhys1">
+        
+        <biophysicalProperties id="biophys">
             <membraneProperties>
-                        
-                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
-                <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
+                <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
+                    <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
+                        <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
+                    </variableParameter>
+                </channelDensityNonUniform>
+                <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
             </membraneProperties>
             <intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   
+                <resistivity value="0.1 kohm_cm"/>  
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
@@ -4297,32 +4344,7 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
     </cell>
 ```
 ```{code-block} xml
-<cell id="dendCell">
-        <morphology id="CellWithDends_morphology">
-            <segment id="0" name="Soma">
-                
-                <proximal x="0" y="0" z="0" diameter="10"/>
-                <distal x="10" y="0" z="0" diameter="10"/>
-            </segment>
-            <segment id="1" name="Dendrite1">
-                <parent segment="0"/>
-                <distal x="20" y="0" z="0" diameter="3"/>
-            </segment>
-            <segment id="2" name="Dendrite2">
-                <parent segment="1"/>
-                <distal x="30" y="0" z="0" diameter="1"/>
-            </segment>
-            
-            
-            <segmentGroup id="soma_group"> 
-                <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group">
-                <member segment="1"/>
-                <member segment="2"/>
-            </segmentGroup>
-        </morphology>
-    </cell>
+<cell id="PyrCell" morphology="NeuroMorpho_PyrCell123" biophysicalProperties="PyrCellChanDist"/>
 ```
 
 ````
