@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Synapses.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
+Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -37,7 +37,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -87,7 +87,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -161,7 +161,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 :width: 100 %
 :delim: $
 
-**V**$ The current may vary with the voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrentdl`)* $Dimensionless
+**V**$ The current may vary with the dimensionless voltage exposed by the ComponentType on which this is placed *(from {ref}`schema:basevoltagedeppointcurrentdl`)* $Dimensionless
 
 ```
 ````
@@ -187,7 +187,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -260,7 +260,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -370,7 +370,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -447,7 +447,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -533,7 +533,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -615,15 +615,15 @@ variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
+<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
+```
+```{code-block} xml
+<expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
+```
+```{code-block} xml
 <expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
         <notes>A simple monoexponential synapse.</notes>
     </expOneSynapse>
-```
-```{code-block} xml
-<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
-```
-```{code-block} xml
-<expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 
 ````
@@ -674,7 +674,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -825,7 +825,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -912,15 +912,13 @@ variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<expTwoSynapse id="SimpleSynapse" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms">
-        <notes>A biexponential synapse.</notes>
-    </expTwoSynapse>
-```
-```{code-block} xml
-<expTwoSynapse id="AMPA" tauRise="3e-5s" tauDecay="0.5e-3s" gbase=".3nS" erev="0V"/>
+<expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
 ```
 ```{code-block} xml
 <expTwoSynapse id="synInput" gbase="8nS" erev="20mV" tauRise="1ms" tauDecay="5ms"/>
+```
+```{code-block} xml
+<expTwoSynapse id="synInputFast" gbase="1nS" erev="20mV" tauRise="0.2ms" tauDecay="1ms"/>
 ```
 
 ````
@@ -988,7 +986,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapsetwo`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1079,12 +1077,12 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 *XML examples*
 ```{code-block} xml
+<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
+```
+```{code-block} xml
 <expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
         <notes>A synapse consisting of one rise and two decay time courses.</notes>
     </expThreeSynapse>
-```
-```{code-block} xml
-<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
 ```
 
 ````
@@ -1496,7 +1494,7 @@ extends {ref}`schema:exptwosynapse`
 :delim: $
 
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1665,7 +1663,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1828,7 +1826,7 @@ extends {ref}`schema:exptwosynapse`
 **M**$  $Dimensionless
 **P**$  $Dimensionless
 **g**$ Time varying conductance through the synapse *(from {ref}`schema:baseconductancebasedsynapse`)* ${ref}`schema:dimensions:conductance`
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **tsince**$  ${ref}`schema:dimensions:time`
 
 ```
@@ -1954,7 +1952,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2043,7 +2041,7 @@ extends *{ref}`schema:basesynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2091,7 +2089,7 @@ extends *{ref}`schema:basegradedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2154,10 +2152,10 @@ variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <silentSynapse id="silent1"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent1"/>
+<silentSynapse id="silent2"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent2"/>
+<silentSynapse id="silent1"/>
 ```
 
 ````
@@ -2205,7 +2203,7 @@ extends *{ref}`schema:basegradedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2317,7 +2315,7 @@ extends *{ref}`schema:basegradedsynapse`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **inf**$  $Dimensionless
 **tau**$  ${ref}`schema:dimensions:time`
 
@@ -2409,10 +2407,10 @@ variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
 ```
 ```{code-block} xml
-<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
 ```
 
 ````
