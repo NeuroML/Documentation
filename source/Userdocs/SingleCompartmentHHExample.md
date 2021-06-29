@@ -193,13 +193,31 @@ However, if required, this can be easily done:
 ```{code-block} console
 pynml -validate HH_*nml
 ```
-Next, we can visualise our model using the information noted in the {ref}`visualising NeuroML models <userdocs:visualising_models>` page:
+Next, we can visualise our model using the information noted in the {ref}`visualising NeuroML models <userdocs:visualising_models>` page (including the `-v` verbose option for more information on the cell):
 ```{code-block} console
-pynml-summary HH_example_net.nml
+pynml-summary HH_example_net.nml -v
 *******************************************************
 * NeuroMLDocument: network
 *
+*  IonChannelHH: ['k_channel', 'leak_channel', 'na_channel']
 *  PulseGenerator: ['pg']
+*
+*  Cell: hh_cell
+*    <Segment|0|soma>
+*      Parent segment: None (root segment)
+*      (0.0, 0.0, 0.0), diam 17.841241161527712um -> (0.0, 0.0, 0.0), diam 17.841241161527712um; seg length: 0.0 um
+*      Surface area: 1000.0 um2, volume: 2973.5401935879518 um3
+*    Total length of 1 segment: 0.0 um; total area: 1000.0 um2
+*
+*    Channel density: na_channels on all;       conductance of 120.0 mS_per_cm2 through ion chan na_channel with ion na, erev: 50.0 mV
+*      Channel is on <Segment|0|soma>,  total conductance: 1200.0 S_per_m2 x 1e-09 m2 = 1.2000000000000002e-06 S (1200000.0000000002 pS)
+*    Channel density: k_channels on all;        conductance of 360 S_per_m2 through ion chan k_channel with ion k, erev: -77mV
+*      Channel is on <Segment|0|soma>,  total conductance: 360.0 S_per_m2 x 1e-09 m2 = 3.6000000000000005e-07 S (360000.00000000006 pS)
+*    Channel density: leak_channels on all;     conductance of 3.0 S_per_m2 through ion chan leak_channel with ion non_specific, erev: -54.3mV
+*      Channel is on <Segment|0|soma>,  total conductance: 3.0 S_per_m2 x 1e-09 m2 = 3.0000000000000004e-09 S (3000.0000000000005 pS)
+*
+*    Specific capacitance on all: 1.0 uF_per_cm2
+*      Capacitance of <Segment|0|soma>, total capacitance: 0.01 F_per_m2 x 1e-09 m2 = 1.0000000000000001e-11 F (10.000000000000002 pF)
 *
 *  Network: single_hh_cell_network
 *
