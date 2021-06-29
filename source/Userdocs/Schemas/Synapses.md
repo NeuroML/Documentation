@@ -2,7 +2,7 @@
 (schema:synapses)=
 # Synapses
 
-**A number of synaptic ComponentTypes for use in NeuroML 2 documents. These generally extend the  {ref}`schema:basesynapse` ComponentType.**
+**A number of synaptic ComponentTypes for use in NeuroML 2 documents, e.g.  {ref}`schema:exponesynapse`,  {ref}`schema:exptwosynapse`,  {ref}`schema:blockingplasticsynapse`. These extend the  {ref}`schema:basesynapse` ComponentType. Also defined continuously transmitting synapses, e.g.  {ref}`schema:gapjunction` and  {ref}`schema:gradedsynapse`.**
 
 ---
 

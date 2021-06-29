@@ -2,7 +2,7 @@
 (schema:networks)=
 # Networks
 
-**Network descriptions in NeuroML 2. Describes  {ref}`schema:network` elements containing  {ref}`schema:population`s**
+**Network descriptions in NeuroML 2. Describes  {ref}`schema:network` elements containing  {ref}`schema:population`s ( potentially specifying a list of cell  {ref}`schema:location`s ),  {ref}`schema:projection`s ( lists of  {ref}`schema:connection`s ) and  {ref}`schema:input`s.**
 
 ---
 
@@ -1365,7 +1365,7 @@ variable = ExplicitInput(target=None, input=None, destination=None, **kwargs_)
 
 
 
-<i>An explicit list of inputs. Not yet stable...</i>
+<i>An explicit list of  {ref}`schema:input`s to a **population.**.</i>
 
 
 
@@ -1439,7 +1439,7 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
 
 
 
-<i>Specifies input lists.</i>
+<i>Specifies a single input to a **target,** optionally giving the **segmentId** ( default 0 ) and **fractionAlong** the segment ( default 0.5 ).</i>
 
 
 
@@ -1449,8 +1449,8 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
 :width: 100%
 :delim: $
 
-**segmentId**$ 
-**fractionAlong**$ 
+**segmentId**$ Optional specification of the segment to target, default 0
+**fractionAlong**$ Optional specification of the fraction along the specified segment, default 0.5
 **destination**$ 
 
 ````

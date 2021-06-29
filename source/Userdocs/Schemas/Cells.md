@@ -2,7 +2,7 @@
 (schema:cells)=
 # Cells
 
-**Defines both abstract cell models ( e.g.  {ref}`schema:izhikevichcell`, adaptive exponential integrate and fire cell,  {ref}`schema:adexiafcell` ), point conductance based cell models (  {ref}`schema:pointcellcondbased`,  {ref}`schema:pointcellcondbasedca` ) and cells models (  {ref}`schema:cell` ) which specify the  {ref}`schema:morphology` ( containing  {ref}`schema:segment`s ) and  {ref}`schema:biophysicalproperties` separately.**
+**Defines both abstract cell models ( e.g.  {ref}`schema:izhikevichcell`, adaptive exponential integrate and fire cell,  {ref}`schema:adexiafcell` ), point conductance based cell models (  {ref}`schema:pointcellcondbased`,  {ref}`schema:pointcellcondbasedca` ) and cells models (  {ref}`schema:cell` ), which specify the  {ref}`schema:morphology` ( containing  {ref}`schema:segment`s ) and  {ref}`schema:biophysicalproperties` separately.**
 
 ---
 
