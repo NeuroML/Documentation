@@ -9,7 +9,8 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
 from neuroml import (NeuroMLDocument, IncludeType, Population, PulseGenerator,
-                     ExplicitInput, Network, SegmentGroup, Member, Property)
+                     ExplicitInput, Network, SegmentGroup, Member, Property,
+                     Include)
 from CellBuilder import (create_cell, add_segment, add_channel_density,
                          set_init_memb_potential, set_resistivity,
                          set_specific_capacitance, get_seg_group_by_id)
@@ -169,19 +170,14 @@ def create_olm_cell():
                          group="axon_0")
 
     # Add 2 dendrite segments
+
     diam = 3.0
     dend_0_0 = add_segment(cell,
                            prox=[0.0, 20, 0.0, diam],
                            dist=[100, 120, 0.0, diam],
                            name="Seg0_dend_0",
                            parent=soma_1,
-                           fraction_along=0.0,
-                           group="dend_0")
-    dend_0_1 = add_segment(cell,
-                           prox=[0.0, 20, 0.0, diam],
-                           dist=[-100, 120, 0.0, diam],
-                           name="Seg0_dend_1",
-                           parent=soma_1,
+                           fraction_along=1,
                            group="dend_0")
 
     dend_1_0 = add_segment(cell,
@@ -189,23 +185,42 @@ def create_olm_cell():
                            dist=[177, 197, 0.0, diam],
                            name="Seg1_dend_0",
                            parent=dend_0_0,
-                           fraction_along=0.0,
+                           fraction_along=1,
+                           group="dend_0")
+
+
+
+    dend_0_1 = add_segment(cell,
+                           prox=[0.0, 20, 0.0, diam],
+                           dist=[-100, 120, 0.0, diam],
+                           name="Seg0_dend_1",
+                           parent=soma_1,
+                           fraction_along=1,
                            group="dend_1")
     dend_1_1 = add_segment(cell,
                            prox=None,
                            dist=[-177, 197, 0.0, diam],
                            name="Seg1_dend_1",
                            parent=dend_0_1,
-                           fraction_along=0.0,
+                           fraction_along=1,
                            group="dend_1")
 
+    for section_name in ["soma_0","axon_0","dend_0","dend_1"]:
+        section_group = get_seg_group_by_id(section_name, cell)
+        section_group.neuro_lex_id = 'sao864921383'
+
     den_seg_group = get_seg_group_by_id("dendrite_group", cell)
+    den_seg_group.includes.append(Include(segment_groups="dend_0"))
+    den_seg_group.includes.append(Include(segment_groups="dend_1"))
     den_seg_group.properties.append(Property(tag="color", value="0.8 0 0"))
 
     ax_seg_group = get_seg_group_by_id("axon_group", cell)
+    ax_seg_group.includes.append(Include(segment_groups="axon_0"))
     ax_seg_group.properties.append(Property(tag="color", value="0 0.8 0"))
 
     soma_seg_group = get_seg_group_by_id("soma_group", cell)
+    soma_seg_group.includes.append(Include(segment_groups="soma_0"))
+
     soma_seg_group.properties.append(Property(tag="color", value="0 0 0.8"))
 
     # Other cell properties
@@ -230,7 +245,7 @@ def create_olm_cell():
                         ion_chan_def_file="olm-example/HCNolm.channel.nml",
                         erev="-32.9mV",
                         ion="h",
-                        group="soma_0")
+                        group="soma_group")
     # Kdrfast_soma
     add_channel_density(cell, nml_cell_doc,
                         cd_id="Kdrfast_soma",
@@ -239,7 +254,7 @@ def create_olm_cell():
                         ion_chan_def_file="olm-example/Kdrfast.channel.nml",
                         erev="-77mV",
                         ion="k",
-                        group="soma_0")
+                        group="soma_group")
     # Kdrfast_dendrite
     add_channel_density(cell, nml_cell_doc,
                         cd_id="Kdrfast_dendrite",
@@ -257,7 +272,7 @@ def create_olm_cell():
                         ion_chan_def_file="olm-example/Kdrfast.channel.nml",
                         erev="-77mV",
                         ion="k",
-                        group="axon_0")
+                        group="axon_group")
     # KvAolm_soma
     add_channel_density(cell, nml_cell_doc,
                         cd_id="KvAolm_soma",
@@ -266,7 +281,7 @@ def create_olm_cell():
                         ion_chan_def_file="olm-example/KvAolm.channel.nml",
                         erev="-77mV",
                         ion="k",
-                        group="soma_0")
+                        group="soma_group")
     # KvAolm_dendrite
     add_channel_density(cell, nml_cell_doc,
                         cd_id="KvAolm_dendrite",
@@ -284,7 +299,7 @@ def create_olm_cell():
                         ion_chan_def_file="olm-example/Nav.channel.nml",
                         erev="50mV",
                         ion="na",
-                        group="soma_0")
+                        group="soma_group")
     # Nav_dendrite
     add_channel_density(cell, nml_cell_doc,
                         cd_id="Nav_dendrite",
@@ -302,7 +317,7 @@ def create_olm_cell():
                         ion_chan_def_file="olm-example/Nav.channel.nml",
                         erev="50mV",
                         ion="na",
-                        group="axon_0")
+                        group="axon_group")
 
     nml_cell_doc.cells.append(cell)
     pynml.write_neuroml2_file(nml_cell_doc, nml_cell_file, True, True)
