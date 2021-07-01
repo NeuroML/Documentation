@@ -2,14 +2,15 @@
 """
 Multi-compartmental OLM cell example
 
-File:
+File: olm-example.py
 
 Copyright 2021 NeuroML contributors
 Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
-from neuroml import (NeuroMLDocument, IncludeType, Population, PulseGenerator,
-                     ExplicitInput, Network, SegmentGroup, Member, Property)
+from neuroml import (NeuroMLDocument, IncludeType, Population, Instance,
+                     Location, PulseGenerator, ExplicitInput, Network,
+                     SegmentGroup, Member, Property)
 from CellBuilder import (create_cell, add_segment, add_channel_density,
                          set_init_memb_potential, set_resistivity,
                          set_specific_capacitance, get_seg_group_by_id)
@@ -96,7 +97,10 @@ def create_olm_network():
     net_doc_fn = "olm_example_net.nml"
     net_doc.includes.append(IncludeType(href=create_olm_cell()))
     # Create a population: convenient to create many cells of the same type
-    pop = Population(id="pop0", notes="A population for our cell", component="olm", size=1)
+    pop = Population(id="pop0", notes="A population for our cell",
+                     component="olm", size=1, type="populationList")
+    pop.instances.append(Instance(id="1", location=Location(x="0.0", y="0.0", z="0.0")))
+
     # Input
     pulsegen = PulseGenerator(id="pg_olm", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
 
