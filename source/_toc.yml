@@ -13,6 +13,7 @@ parts:
       - file: Userdocs/NML2_examples/IzhikevichNetwork.ipynb
       - file: Userdocs/SingleCompartmentHHExample
       - file: Userdocs/NML2_examples/HH_single_compartment.ipynb
+      - file: Userdocs/MultiCompartmentOLMexample
     - file: Userdocs/FindingNeuroMLModels
     - file: Userdocs/CreatingNeuroMLModels
     - file: Userdocs/ValidatingNeuroMLModels
