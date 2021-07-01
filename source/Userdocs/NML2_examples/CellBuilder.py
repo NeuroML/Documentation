@@ -10,13 +10,20 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 
 
 from typing import List
-from neuroml import (Cell, Morphology, MembraneProperties,  # noqa
+from neuroml import (Cell, Morphology, MembraneProperties,  # type: ignore  # noqa
                      IntracellularProperties, BiophysicalProperties, Segment,
                      SegmentGroup, Point3DWithDiam, SegmentParent, Member,
                      InitMembPotential, Resistivity, SpecificCapacitance,
                      NeuroMLDocument, IncludeType, ChannelDensity,
                      )
-from pyneuroml.pynml import print_function
+from pyneuroml.pynml import print_function  # type: ignore
+
+
+neuro_lex_ids = {
+    'axon': "GO:0030424",
+    'dend': "GO:0030425",
+    'soma': "GO:0043025",
+}
 
 
 def create_cell(cell_id):
@@ -28,11 +35,14 @@ def create_cell(cell_id):
     - BiophysicalProperties: "biophys"
     - MembraneProperties
     - IntracellularProperties
-    - SegmentGroup: "all"
+    - SegmentGroups: "all", "soma_group", "dendrite_group", "axon_group" which
+      can be used to include all, soma, dendrite, and axon segments
+      respectively.
 
     Note that since this cell does not currently include a segment in its
     morphology, it is *not* a valid NeuroML construct. Use the `add_segment`
-    function to add segments.
+    function to add segments. `add_segment` will also populate the default
+    segment groups this creates.
 
     :param cell_id: id of the cell
     :type cell_id: str
@@ -49,7 +59,19 @@ def create_cell(cell_id):
         membrane_properties=membrane_properties)
 
     seg_group_all = SegmentGroup(id='all')
+    seg_group_soma = SegmentGroup(id='soma_group',
+                                  neuro_lex_id=neuro_lex_ids["soma"],
+                                  notes="Default soma segment group for the cell")
+    seg_group_axon = SegmentGroup(id='axon_group',
+                                  neuro_lex_id=neuro_lex_ids["axon"],
+                                  notes="Default axon segment group for the cell")
+    seg_group_dend = SegmentGroup(id='dendrite_group',
+                                  neuro_lex_id=neuro_lex_ids["dend"],
+                                  notes="Default dendrite segment group for the cell")
     cell.morphology.segment_groups.append(seg_group_all)
+    cell.morphology.segment_groups.append(seg_group_soma)
+    cell.morphology.segment_groups.append(seg_group_axon)
+    cell.morphology.segment_groups.append(seg_group_dend)
 
     return cell
 
@@ -57,6 +79,14 @@ def create_cell(cell_id):
 def add_segment(cell, prox, dist, name=None, parent=None, fraction_along=1.0, group=None):
     # type: (Cell, List[float], List[float], str, SegmentParent, float, SegmentGroup) -> Segment
     """Add a segment to the cell.
+
+    Convention: use axon_, soma_, dend_ prefixes for axon, soma, and dendrite
+    segments respectivey. This will allow this function to add the correct
+    neurolex IDs to the group.
+
+    The created segment is also added to the default segment groups that were
+    created by the `create_cell` function: "all", "dendrite_group",
+    "soma_group", "axon_group" if the convention is followed.
 
     :param cell: cell to add segment to
     :type cell: Cell
@@ -97,25 +127,35 @@ def add_segment(cell, prox, dist, name=None, parent=None, fraction_along=1.0, gr
 
     if group:
         seg_group = None
-        for sg in cell.morphology.segment_groups:
-            if sg.id == group:
-                seg_group = sg
-            if sg.id == 'all':
-                seg_group_all = sg
+        seg_group = get_seg_group_by_id(group, cell)
+        seg_group_all = get_seg_group_by_id("all", cell)
+        seg_group_default = None
+        neuro_lex_id = None
+
+        if "axon_" in group:
+            neuro_lex_id = neuro_lex_ids["axon"]  # See http://amigo.geneontology.org/amigo/term/GO:0030424
+            seg_group_default = get_seg_group_by_id("axon_group", cell)
+        if "soma_" in group:
+            neuro_lex_id = neuro_lex_ids["soma"]
+            seg_group_default = get_seg_group_by_id("soma_group", cell)
+        if "dend_" in group:
+            neuro_lex_id = neuro_lex_ids["dend"]
+            seg_group_default = get_seg_group_by_id("dendrite_group", cell)
 
         if seg_group is None:
-            neuro_lex_id = None
-            if group == "axon_group":
-                neuro_lex_id = "GO:0030424"  # See http://amigo.geneontology.org/amigo/term/GO:0030424
-            if group == "soma_group":
-                neuro_lex_id = "GO:0043025"
-            if group == "dendrite_group":
-                neuro_lex_id = "GO:0030425"
-
             seg_group = SegmentGroup(id=group, neuro_lex_id=neuro_lex_id)
             cell.morphology.segment_groups.append(seg_group)
 
         seg_group.members.append(Member(segments=segment.id))
+        # Ideally, these higher level segment groups should just include other
+        # segment groups using Include, which would result in smaller NML
+        # files. However, because these default segment groups are defined
+        # first, they are printed in the NML file before the new segments and their
+        # groups. The jnml validator does not like this.
+        # TODO: clarify if the order of definition is important, or if the jnml
+        # validator needs to be updated to manage this use case.
+        if seg_group_default:
+            seg_group_default.members.append(Member(segments=segment.id))
 
     seg_group_all.members.append(Member(segments=segment.id))
 
@@ -124,7 +164,7 @@ def add_segment(cell, prox, dist, name=None, parent=None, fraction_along=1.0, gr
 
 
 def set_init_memb_potential(cell, v, group="all"):
-    # type (Cell, str, str)
+    # type: (Cell, str, str) -> None
     """Set the initial membrane potential of the cell.
 
     :param cell: cell to modify
@@ -139,7 +179,7 @@ def set_init_memb_potential(cell, v, group="all"):
 
 
 def set_resistivity(cell, resistivity, group="all"):
-    # type (Cell, str, str)
+    # type: (Cell, str, str) -> None
     """Set the resistivity of the cell
 
     :param cell: cell to modfify
@@ -152,7 +192,7 @@ def set_resistivity(cell, resistivity, group="all"):
 
 
 def set_specific_capacitance(cell, spec_cap, group="all"):
-    # type (Cell, str, str)
+    # type: (Cell, str, str) -> None
     """Set the specific capacitance for the cell.
 
     :param cell: cell to set specific capacitance for
@@ -166,7 +206,7 @@ def set_specific_capacitance(cell, spec_cap, group="all"):
 
 
 def add_channel_density(cell, nml_cell_doc, cd_id, cond_density, ion_channel, ion_chan_def_file="", erev="0.0 mV", ion="non_specific", group="all"):
-    # type (Cell, NeuroMLDocument, str, str, str, str, str, str, str)
+    # type: (Cell, NeuroMLDocument, str, str, str, str, str, str, str) -> None
     """Add channel density.
 
     :param cell: cell to be modified
@@ -200,3 +240,46 @@ def add_channel_density(cell, nml_cell_doc, cd_id, cond_density, ion_channel, io
     if len(ion_chan_def_file) > 0:
         if IncludeType(ion_chan_def_file) not in nml_cell_doc.includes:
             nml_cell_doc.includes.append(IncludeType(ion_chan_def_file))
+
+
+def get_seg_group_by_id(sg_id, cell):
+    # type (str, Cell) -> SegmentGroup
+    """Return the SegmentGroup object for the specified segment group id.
+
+    :param sg_id: id of segment group to find
+    :type sg_id: str
+    :param cell: cell to look for segment group in
+    :type cell: Cell
+    :returns: SegmentGroup object of specified ID or None if not found
+
+    """
+    if not sg_id or not cell:
+        print_function("Please specify both a segment group id and a Cell")
+        return None
+
+    for sg in cell.morphology.segment_groups:
+        if sg.id == sg_id:
+            return sg
+
+    return None
+
+
+def get_seg_group_by_id_substring(sg_id_substring, cell):
+    # type (str, Cell) -> list
+    """Return segment groups that include the specified substring.
+
+    :param sg_id_substring: substring to match
+    :type sg_id_substring: str
+    :param cell: cell to look for segment group in
+    :type cell: Cell
+    :returns: list of SegmentGroups whose IDs include the given substring
+
+    """
+    sg_group_list = []
+    if not sg_id_substring or not cell:
+        print_function("Please specify both a segment group id and a Cell")
+        return None
+    for sg in cell.morphology.segment_groups:
+        if sg_id_substring in sg.id:
+            sg_group_list.append(sg)
+    return sg_group_list

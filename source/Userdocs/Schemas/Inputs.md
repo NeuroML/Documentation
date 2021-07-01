@@ -2,14 +2,14 @@
 (schema:inputs)=
 # Inputs
 
-**A number of ComponentTypes for providing spiking and current inputs to other ComponentTypes**
+**A number of ComponentTypes for providing spiking ( e.g.  {ref}`schema:spikegeneratorpoisson`,  {ref}`schema:spikearray` ) and current inputs ( e.g.  {ref}`schema:pulsegenerator`,  {ref}`schema:voltageclamp`,  {ref}`schema:timedsynapticinput`,  {ref}`schema:poissonfiringsynapse` ) to other ComponentTypes**
 
 ---
 
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 24/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/df98ff09e9b4a38073d8e73c0bd465bbb9acd05a) commit.
+Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -35,7 +35,7 @@ extends *{ref}`schema:basestandalone`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -51,7 +51,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ) and require a membrane potential **v** exposed on the parent Component.</i>
+<i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ) and require a voltage **v** exposed on the parent Component, which would often be the membrane potential of a Component extending  {ref}`schema:basecellmembpot`.</i>
 
 
 
@@ -61,7 +61,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -98,7 +98,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **tsince**$ Time since the last spike was emitted ${ref}`schema:dimensions:time`
 
 ```
@@ -133,7 +133,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
-<i>Base type for all ComponentTypes which produce a dimensionless current **I.** There will eventually be dimensionless equivalents of all the core current producing ComponentTypes such as  {ref}`schema:pulsegenerator`,  {ref}`schema:sinegenerator` and  {ref}`schema:rampgenerator`.</i>
+<i>Base type for all ComponentTypes which produce a dimensionless current **I.** There are many dimensionless equivalents of all the core current producing ComponentTypes such as  {ref}`schema:pulsegenerator` /  {ref}`schema:pulsegeneratordl`,  {ref}`schema:sinegenerator` /  {ref}`schema:sinegeneratordl` and  {ref}`schema:rampgenerator` /  {ref}`schema:rampgeneratordl`.</i>
 
 
 
@@ -180,7 +180,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 :width: 100 %
 :delim: $
 
-**V**$ The current may vary with the voltage exposed by the ComponentType on which this is placed $Dimensionless
+**V**$ The current may vary with the dimensionless voltage exposed by the ComponentType on which this is placed $Dimensionless
 
 ```
 ````
@@ -229,7 +229,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Simple generator of spikes at a regular interval set by **period.**.</i>
+<i>Simple generator of spikes at a regular interval set by **period**.</i>
 
 
 
@@ -239,7 +239,7 @@ extends *{ref}`schema:basespikesource`*
 :width: 100 %
 :delim: $
 
-**period**$ Time between spikes. First spike will be emitted after this time. ${ref}`schema:dimensions:time`
+**period**$ Time between spikes. The first spike will be emitted after this time. ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -302,7 +302,7 @@ extends *{ref}`schema:basespikesource`*
 
 <i>**On Conditions**</i>
 
-: IF tnext-t &lt; SMALL_TIME THEN
+: IF tnext - t &lt; SMALL_TIME THEN
 : &emsp;&emsp;&emsp;**tsince** = 0
 : &emsp;&emsp;&emsp;**tnext** = tnext+period
 : &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
@@ -476,7 +476,7 @@ extends *{ref}`schema:basespikesource`*
 
 
 
-<i>Generator of spikes whose ISI is distributed according to an exponential pdf with scale 1/_averageRate.</i>
+<i>Generator of spikes whose ISI is distributed according to an exponential PDF with scale: 1 / **averageRate**.</i>
 
 
 
@@ -486,7 +486,7 @@ extends *{ref}`schema:basespikesource`*
 :width: 100 %
 :delim: $
 
-**averageRate**$  ${ref}`schema:dimensions:per_time`
+**averageRate**$ The average rate at which spikes are emitted ${ref}`schema:dimensions:per_time`
 
 ```
 ````
@@ -508,9 +508,9 @@ extends *{ref}`schema:basespikesource`*
 :width: 100 %
 :delim: $
 
-**isi**$  ${ref}`schema:dimensions:time`
-**tnextIdeal**$  ${ref}`schema:dimensions:time`
-**tnextUsed**$  ${ref}`schema:dimensions:time`
+**isi**$ The interval until the next spike ${ref}`schema:dimensions:time`
+**tnextIdeal**$ This is the ideal/perfect next spike time, based on a newly generated isi, but dt precision will mean that it's usually slightly later than this ${ref}`schema:dimensions:time`
+**tnextUsed**$ This is the next spike time for practical purposes, ensuring that it's later than the current time ${ref}`schema:dimensions:time`
 **tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
@@ -606,7 +606,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 
 
-<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [_minimumISI, +infinity ) with mean 1/_averageRate.</i>
+<i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [ **minimumISI,** +infinity ) with mean: 1 / **averageRate**.</i>
 
 
 
@@ -616,8 +616,8 @@ extends {ref}`schema:spikegeneratorpoisson`
 :width: 100 %
 :delim: $
 
-**averageRate**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:per_time`
-**minimumISI**$  ${ref}`schema:dimensions:time`
+**averageRate**$ The average rate at which spikes are emitted *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:per_time`
+**minimumISI**$ The minimum interspike interval ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -628,7 +628,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 :width: 100 %
 :delim: $
 
-**averageIsi**$  ${ref}`schema:dimensions:time`
+**averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -639,9 +639,9 @@ extends {ref}`schema:spikegeneratorpoisson`
 :width: 100 %
 :delim: $
 
-**isi**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
-**tnextIdeal**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
-**tnextUsed**$  *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
+**isi**$ The interval until the next spike *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
+**tnextIdeal**$ This is the ideal/perfect next spike time, based on a newly generated isi, but dt precision will mean that it's usually slightly later than this *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
+**tnextUsed**$ This is the next spike time for practical purposes, ensuring that it's later than the current time *(from {ref}`schema:spikegeneratorpoisson`)* ${ref}`schema:dimensions:time`
 **tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
 
 ```
@@ -737,7 +737,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Poisson spike generator connected to single synapse providing an input current.</i>
+<i>Poisson spike generator firing at **averageRate,** which is connected to single **synapse** that is triggered every time a spike is generated, producing an input current. See also  {ref}`schema:transientpoissonfiringsynapse`.</i>
 
 
 
@@ -747,7 +747,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :width: 100 %
 :delim: $
 
-**averageRate**$  ${ref}`schema:dimensions:per_time`
+**averageRate**$ The average rate at which spikes are emitted ${ref}`schema:dimensions:per_time`
 
 ```
 ````
@@ -758,7 +758,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :width: 100 %
 :delim: $
 
-**averageIsi**$  ${ref}`schema:dimensions:time`
+**averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -769,7 +769,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :width: 100%
 :delim: $
 
-**spikeTarget**$ 
+**spikeTarget**$ The target of the spikes, i.e. the synapse
 
 ````
 
@@ -812,8 +812,8 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
-**isi**$  ${ref}`schema:dimensions:time`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**isi**$ The interval until the next spike ${ref}`schema:dimensions:time`
 **tnextIdeal**$  ${ref}`schema:dimensions:time`
 **tnextUsed**$  ${ref}`schema:dimensions:time`
 **tsince**$ Time since the last spike was emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)* ${ref}`schema:dimensions:time`
@@ -938,7 +938,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Poisson spike generator with delay and duration connected to single synapse providing an input current. Similar to ComponentType poissonFiringSynapse.</i>
+<i>Poisson spike generator firing at **averageRate** after a **delay** and for a **duration,** connected to single **synapse** that is triggered every time a spike is generated, providing an input current. Similar to ComponentType  {ref}`schema:poissonfiringsynapse`.</i>
 
 
 
@@ -1016,7 +1016,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **isi**$  ${ref}`schema:dimensions:time`
 **tnextIdeal**$  ${ref}`schema:dimensions:time`
 **tnextUsed**$  ${ref}`schema:dimensions:time`
@@ -1145,7 +1145,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 
 
-<i>Spike array connected to a single synapse, producing current triggered by each spike in the array.</i>
+<i>Spike array connected to a single **synapse,** producing a current triggered by each  {ref}`schema:spike` in the array.</i>
 
 
 
@@ -1198,7 +1198,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 **tsince**$ Time since the last spike was emitted *(from {ref}`schema:basevoltagedeppointcurrentspiking`)* ${ref}`schema:dimensions:time`
 
 ```
@@ -1312,6 +1312,238 @@ variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=Non
 
 ````
 
+(schema:spikearray)=
+
+## spikeArray
+
+
+
+
+extends *{ref}`schema:basespikesource`*
+
+
+
+<i>Set of spike ComponentTypes, each emitting one spike at a certain time. Can be used to feed a predetermined spike train into a cell.</i>
+
+
+
+````{tabbed} Children list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**spikes**$  $ {ref}`schema:spike`
+
+```
+````
+
+````{tabbed} Exposures
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
+
+```
+````
+
+````{tabbed} Event Ports
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**in**$ This will receive events from the children$Direction: in
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
+
+```
+````
+
+````{tabbed} Dynamics
+
+
+
+<i>**State Variables**</i>
+: **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
+
+
+
+
+
+
+
+
+
+<i>**On Start**</i>
+: **tsince** = 0
+
+
+<i>**On Events**</i>
+
+: EVENT IN on port: **in**
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+
+
+
+
+
+
+
+
+<i>**Time Derivatives**</i>
+    : d **tsince** /dt = 1
+    
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import SpikeArray
+
+variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, spikes=None, **kwargs_)
+```
+
+
+
+*XML examples*
+```{code-block} xml
+<spikeArray id="spkArr">
+      <spike id="0" time="50 ms"/>
+      <spike id="1" time="100 ms"/>
+      <spike id="2" time="150 ms"/>
+      <spike id="3" time="155 ms"/>
+      <spike id="4" time="250 ms"/>
+    </spikeArray>
+```
+
+````
+
+(schema:spike)=
+
+## spike
+
+
+
+
+extends *{ref}`schema:basespikesource`*
+
+
+
+<i>Emits a single spike at the specified **time**.</i>
+
+
+
+````{tabbed} Parameters
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**time**$ Time at which to emit one spike event ${ref}`schema:dimensions:time`
+
+```
+````
+
+````{tabbed} Exposures
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**spiked**$ 0 signals not yet spiked, 1 signals has spiked $Dimensionless
+**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
+
+```
+````
+
+````{tabbed} Event Ports
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
+
+```
+````
+
+````{tabbed} Dynamics
+
+<i>**Structure**</i>
+: WITH **this** AS **a**
+: WITH **parent** AS **b**
+: EVENT CONNECTION from **a** TO  **b**   
+
+
+
+
+
+<i>**State Variables**</i>
+: **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
+: **spiked**: Dimensionless &emsp;(exposed as **spiked**)
+
+
+
+
+
+
+
+
+
+<i>**On Start**</i>
+: **tsince** = 0
+
+
+
+<i>**On Conditions**</i>
+
+: IF (t &gt;= time) AND (spiked = 0) THEN
+: &emsp;&emsp;&emsp;**spiked** = 1
+: &emsp;&emsp;&emsp;**tsince** = 0
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+
+
+
+
+
+
+
+
+<i>**Time Derivatives**</i>
+    : d **tsince** /dt = 1
+    
+
+````
+
+````{tabbed} Usage
+
+*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Spike" target="_blank">libNeuroML API</a>*
+```{code-block} python
+from neuroml import Spike
+
+variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
+```
+
+
+
+*XML examples*
+```{code-block} xml
+<spike id="0" time="50 ms"/>
+```
+```{code-block} xml
+<spike id="1" time="100 ms"/>
+```
+```{code-block} xml
+<spike id="2" time="150 ms"/>
+```
+
+````
+
 (schema:pulsegenerator)=
 
 ## pulseGenerator
@@ -1357,7 +1589,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1368,7 +1600,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**in**$ Note this is not used here. Will be removed in future$Direction: in
+**in**$ Note: this is not used here. Will be removed in future$Direction: in
 
 ```
 ````
@@ -1429,13 +1661,13 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 
 *XML examples*
 ```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.08nA"/>
+<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.3nA"/>
 ```
 ```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="20ms" duration="100ms" amplitude="0.2nA"/>
+<pulseGenerator id="pulseGen2" delay="100ms" duration="100ms" amplitude="0.4nA"/>
 ```
 ```{code-block} xml
-<pulseGenerator id="pulseGen3" delay="30ms" duration="100ms" amplitude="0.18nA"/>
+<pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
 ```
 
 ````
@@ -1451,7 +1683,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrent` elements.</i>
+<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrent` element, e.g. can be a combination of  {ref}`schema:pulsegenerator`,  {ref}`schema:sinegenerator` elements producing a single **i.** Scaled by **weight,** if set.</i>
 
 
 
@@ -1483,7 +1715,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1564,7 +1796,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrentdl` elements.</i>
+<i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrentdl` elements, e.g. can be a combination of  {ref}`schema:pulsegeneratordl`,  {ref}`schema:sinegeneratordl` elements producing a single **i.** Scaled by **weight,** if set.</i>
 
 
 
@@ -1668,7 +1900,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Dimensionless equivalent of  {ref}`schema:pulsegenerator`. Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay**.</i>
+<i>Dimensionless equivalent of  {ref}`schema:pulsegenerator`. Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay.** Scaled by **weight,** if set.</i>
 
 
 
@@ -1785,7 +2017,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start.</i>
+<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start. Scaled by **weight,** if set.</i>
 
 
 
@@ -1795,11 +2027,11 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**amplitude**$  ${ref}`schema:dimensions:current`
-**delay**$  ${ref}`schema:dimensions:time`
-**duration**$  ${ref}`schema:dimensions:time`
-**period**$  ${ref}`schema:dimensions:time`
-**phase**$  $Dimensionless
+**amplitude**$ Maximum amplitude of current ${ref}`schema:dimensions:current`
+**delay**$ Delay before change in current. Current is zero  prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for holding current at amplitude. Current is zero after delay + duration. ${ref}`schema:dimensions:time`
+**period**$ Time period of oscillation ${ref}`schema:dimensions:time`
+**phase**$ Phase (between 0 and 2*pi) at which to start the varying current (i.e. at time given by delay) $Dimensionless
 
 ```
 ````
@@ -1821,7 +2053,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -1912,7 +2144,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start.</i>
+<i>Dimensionless equivalent of  {ref}`schema:sinegenerator`. Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start. Scaled by **weight,** if set.</i>
 
 
 
@@ -1922,11 +2154,11 @@ extends *{ref}`schema:basepointcurrentdl`*
 :width: 100 %
 :delim: $
 
-**amplitude**$  $Dimensionless
-**delay**$  ${ref}`schema:dimensions:time`
-**duration**$  ${ref}`schema:dimensions:time`
-**period**$  ${ref}`schema:dimensions:time`
-**phase**$  $Dimensionless
+**amplitude**$ Maximum amplitude of current $Dimensionless
+**delay**$ Delay before change in current. Current is zero  prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for holding current at amplitude. Current is zero after delay + duration. ${ref}`schema:dimensions:time`
+**period**$ Time period of oscillation ${ref}`schema:dimensions:time`
+**phase**$ Phase (between 0 and 2*pi) at which to start the varying current (i.e. at time given by delay) $Dimensionless
 
 ```
 ````
@@ -2031,7 +2263,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
-<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the current steadily changes from **startAmplitude** to **finishAmplitude.**.</i>
+<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the current steadily changes from **startAmplitude** to **finishAmplitude.** Scaled by **weight,** if set.</i>
 
 
 
@@ -2041,11 +2273,11 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**baselineAmplitude**$  ${ref}`schema:dimensions:current`
-**delay**$  ${ref}`schema:dimensions:time`
-**duration**$  ${ref}`schema:dimensions:time`
-**finishAmplitude**$  ${ref}`schema:dimensions:current`
-**startAmplitude**$  ${ref}`schema:dimensions:current`
+**baselineAmplitude**$ Amplitude of current before time delay, and after time delay + duration ${ref}`schema:dimensions:current`
+**delay**$ Delay before change in current. Current is baselineAmplitude prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for holding current at amplitude. Current is baselineAmplitude after delay + duration. ${ref}`schema:dimensions:time`
+**finishAmplitude**$ Amplitude of linearly varying current at time delay + duration ${ref}`schema:dimensions:current`
+**startAmplitude**$ Amplitude of linearly varying current at time delay ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2067,7 +2299,7 @@ extends *{ref}`schema:basepointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2157,7 +2389,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
-<i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the dimensionless current steadily changes from **startAmplitude** to **finishAmplitude.**.</i>
+<i>Dimensionless equivalent of  {ref}`schema:rampgenerator`. Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the dimensionless current steadily changes from **startAmplitude** to **finishAmplitude.** Scaled by **weight,** if set.</i>
 
 
 
@@ -2167,11 +2399,11 @@ extends *{ref}`schema:basepointcurrentdl`*
 :width: 100 %
 :delim: $
 
-**baselineAmplitude**$  $Dimensionless
-**delay**$  ${ref}`schema:dimensions:time`
-**duration**$  ${ref}`schema:dimensions:time`
-**finishAmplitude**$  $Dimensionless
-**startAmplitude**$  $Dimensionless
+**baselineAmplitude**$ Amplitude of current before time delay, and after time delay + duration $Dimensionless
+**delay**$ Delay before change in current. Current is baselineAmplitude prior to this. ${ref}`schema:dimensions:time`
+**duration**$ Duration for holding current at amplitude. Current is baselineAmplitude after delay + duration. ${ref}`schema:dimensions:time`
+**finishAmplitude**$ Amplitude of linearly varying current at time delay + duration $Dimensionless
+**startAmplitude**$ Amplitude of linearly varying current at time delay $Dimensionless
 
 ```
 ````
@@ -2288,7 +2520,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**delay**$ Delay before change in current. Current is zero  prior to this. ${ref}`schema:dimensions:time`
+**delay**$ Delay before change in current. Current is zero prior to this. ${ref}`schema:dimensions:time`
 **duration**$ Duration for attempting to keep parent at targetVoltage. Current is zero after delay + duration. ${ref}`schema:dimensions:time`
 **simpleSeriesResistance**$ Current will be calculated by the difference in voltage between the target and parent, divided by this value ${ref}`schema:dimensions:resistance`
 **targetVoltage**$ Current will be applied to try to get parent to this target voltage ${ref}`schema:dimensions:voltage`
@@ -2313,7 +2545,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2445,7 +2677,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 :width: 100 %
 :delim: $
 
-**i**$ The total (time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
+**i**$ The total (usually time varying) current produced by this ComponentType *(from {ref}`schema:basepointcurrent`)* ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -2529,238 +2761,6 @@ variable = VoltageClampTriple(neuro_lex_id=None, id=None, metaid=None, notes=Non
 *XML examples*
 ```{code-block} xml
 <voltageClampTriple id="vClamp0" active="1" delay="50ms" duration="200ms" conditioningVoltage="-70mV" testingVoltage="-50mV" returnVoltage="-70mV" simpleSeriesResistance="1e6ohm"/>
-```
-
-````
-
-(schema:spikearray)=
-
-## spikeArray
-
-
-
-
-extends *{ref}`schema:basespikesource`*
-
-
-
-<i>Set of spike ComponentTypes, each emitting one spike at a certain time. Can be used to feed a predetermined spike train into a cell.</i>
-
-
-
-````{tabbed} Children list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**spikes**$  $ {ref}`schema:spike`
-
-```
-````
-
-````{tabbed} Exposures
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
-
-```
-````
-
-````{tabbed} Event Ports
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**in**$ This will receive events from the children$Direction: in
-**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
-
-```
-````
-
-````{tabbed} Dynamics
-
-
-
-<i>**State Variables**</i>
-: **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
-
-
-
-
-
-
-
-
-
-<i>**On Start**</i>
-: **tsince** = 0
-
-
-<i>**On Events**</i>
-
-: EVENT IN on port: **in**
-: &emsp;&emsp;&emsp;**tsince** = 0
-: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
-
-
-
-
-
-
-
-
-<i>**Time Derivatives**</i>
-    : d **tsince** /dt = 1
-    
-
-````
-
-````{tabbed} Usage
-
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">libNeuroML API</a>*
-```{code-block} python
-from neuroml import SpikeArray
-
-variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, spikes=None, **kwargs_)
-```
-
-
-
-*XML examples*
-```{code-block} xml
-<spikeArray id="spkArr">
-      <spike id="0" time="50 ms"/>
-      <spike id="1" time="100 ms"/>
-      <spike id="2" time="150 ms"/>
-      <spike id="3" time="155 ms"/>
-      <spike id="4" time="250 ms"/>
-    </spikeArray>
-```
-
-````
-
-(schema:spike)=
-
-## spike
-
-
-
-
-extends *{ref}`schema:basespikesource`*
-
-
-
-<i>Emits a single spike at the specified time.</i>
-
-
-
-````{tabbed} Parameters
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**time**$ Time at which to emit one spike event ${ref}`schema:dimensions:time`
-
-```
-````
-
-````{tabbed} Exposures
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**spiked**$ 0 signals not yet spiked, 1 signals has spiked $Dimensionless
-**tsince**$ Time since the last spike was emitted *(from {ref}`schema:basespikesource`)* ${ref}`schema:dimensions:time`
-
-```
-````
-
-````{tabbed} Event Ports
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**spike**$ Port on which spikes are emitted *(from {ref}`schema:basespikesource`)*$Direction: out
-
-```
-````
-
-````{tabbed} Dynamics
-
-<i>**Structure**</i>
-: WITH **this** AS **a**
-: WITH **parent** AS **b**
-: EVENT CONNECTION from **a** TO  **b**   
-
-
-
-
-
-<i>**State Variables**</i>
-: **tsince**: {ref}`schema:dimensions:time` &emsp;(exposed as **tsince**)
-: **spiked**: Dimensionless &emsp;(exposed as **spiked**)
-
-
-
-
-
-
-
-
-
-<i>**On Start**</i>
-: **tsince** = 0
-
-
-
-<i>**On Conditions**</i>
-
-: IF (t &gt;= time) AND (spiked = 0) THEN
-: &emsp;&emsp;&emsp;**spiked** = 1
-: &emsp;&emsp;&emsp;**tsince** = 0
-: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
-
-
-
-
-
-
-
-
-<i>**Time Derivatives**</i>
-    : d **tsince** /dt = 1
-    
-
-````
-
-````{tabbed} Usage
-
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Spike" target="_blank">libNeuroML API</a>*
-```{code-block} python
-from neuroml import Spike
-
-variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
-```
-
-
-
-*XML examples*
-```{code-block} xml
-<spike id="0" time="50 ms"/>
-```
-```{code-block} xml
-<spike id="1" time="100 ms"/>
-```
-```{code-block} xml
-<spike id="2" time="150 ms"/>
 ```
 
 ````

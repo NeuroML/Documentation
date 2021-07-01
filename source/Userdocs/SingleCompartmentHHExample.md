@@ -3,7 +3,7 @@
 
 In this section we will model and simulate a Hodgkin-Huxley (HH) neuron ({cite}`Hodgkin1952`).
 A Hodgkin-Huxley neuron includes Sodium (Na), Potassium (K), and leak ion channels.
-For more information on this neuron model, please see [this tutorial](https://hodgkin-huxley-tutorial.readthedocs.io/en/latest/index.html).
+For further information on this neuron model, please see [here](https://hodgkin-huxley-tutorial.readthedocs.io/en/latest/index.html).
 
 ```{figure} ../Userdocs/NML2_examples/HH_single_compartment_example_sim-v.png
 :alt: Membrane potential for neuron recorded from the simulation
@@ -11,7 +11,7 @@ For more information on this neuron model, please see [this tutorial](https://ho
 
 Membrane potential of the simulated Hodgkin-Huxley neuron.
 ```
-This plot, saved as `HH_single_compartment_example_sim-v.pn` is generated using the following Python NeuroML script:
+This plot, saved as `HH_single_compartment_example_sim-v.png` is generated using the following Python NeuroML script:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
@@ -20,7 +20,7 @@ language: python
 ## Declaring the model in NeuroML
 
 Similar to previous examples, we will first declare the model, visualise it, and then simulate it.
-The HH neuron model is more complex that the Izhikevich neuron model we have seen so far.
+The HH neuron model is more complex than the {ref}`Izhikevich neuron model <userdocs:getting_started:single_example>` we have seen so far.
 For example, it includes voltage-gated ion channels.
 We will first implement these ion channels in NeuroML, then add them to a cell.
 We will then create a network of one cell which will will stimulate with external input to record the membrane potential.
@@ -30,6 +30,10 @@ Let us now step through the script in a bottom-up fashion.
 We start with the ion channels and build the network simulation.
 
 ### Declaring ion channels
+
+```{admonition} Note: you might not need to define your ion channels in Python every time....
+In this example, all parts of the model, including the ion channels, are defined from scratch in Python and then NeuroML files in XML are generated and saved. For many modelling projects however, ion channel XML files will be reused from other models, and can just be included in the cells that use them with: `<include href="my_channel.nml"/>`. See {ref}` here <userdocs:finding_models>` for tips on where to find ion channel models in NeuroML.
+```
 
 Let us look at the definition of the Sodium (Na) channel in NeuroML:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
@@ -45,7 +49,7 @@ So we now have our Na channel defined in a separate NeuroML file that can be use
 ----
 language: xml
 ```
-The various rate equations that can be used here are defined in the NeuroML {ref}`schema <schema:channels>`.
+The various rate equations ({ref}`HHExpLinearRate <schema:HHExpLinearRate>`, {ref}`HHExpRate <schema:HHExpRate>`, {ref}`HHSigmoidRate <schema:HHSigmoidRate>` that can be used in the gate (here {ref}`gateHHrates <schema:gateHHrates>`, but other forms such as {ref}`gateHHtauInf <schema:gateHHtauInf>` and {ref}`gateHHInstantaneous <schema:gateHHInstantaneous>` can be used) are defined in the NeuroML {ref}`schema <schema:channels>`.
 
 Also note that since we'll want to *include* this file in other NeuroML files, we make the function return the name of the file.
 This is an implementation detail, and there are other ways of doing this too.
@@ -72,7 +76,7 @@ language: xml
 ```
 ### Declaring the cell
 
-Now that we have declared our ion channels, we can start constructing our cell in a different function.
+Now that we have declared our ion channels, we can start constructing our {ref}`cell <schema:cell>` in a different function.
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
@@ -116,14 +120,11 @@ and three *children* elements:
 - {ref}`populations <schema:basechannelpopulation>`
 - {ref}`channelDensities <schema:basechanneldensity>`
 
-<!---
-TODO: what is the difference between child and children elements?
--->
-The difference between *child* elements and *children* elements is that ...
+
 
 ```{admonition} Child elements vs Children elements
 :class: tip
-The difference between *child* elements and *children* elements is that...
+When an element specifies a **Child** subelement, it will only have one of these present (it could have zero). **Children** explicitly says that there can be zero, one or many subelements.
 ```
 
 So, we start with the ion-channels which are distributed along the membrane with some density.
@@ -165,8 +166,8 @@ We now have our cell defined in a separate NeuroML file, that can be re-used and
 ### Declaring the network
 
 We now use our cell in a network.
-A {ref}`network in NeuroML <schema:network>` has multiple children elements: `regions`, `populations`, `projections`, `synapticConnections`, `inputs` and so on.
-Here we are going to only create a network with one cell, and an external input to the cell:
+A {ref}`network in NeuroML <schema:network>` has multiple children elements: {ref}`populations <schema:population>`, {ref}`projections <schema:projection>`, {ref}`inputLists <schema:inputList>` and so on.
+Here we are going to only create a network with one cell, and an {ref}`explicit input <schema:explicitinput>` to the cell:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
@@ -192,13 +193,31 @@ However, if required, this can be easily done:
 ```{code-block} console
 pynml -validate HH_*nml
 ```
-Next, we can visualise our model using the information noted in the {ref}`visualising NeuroML models <userdocs:visualising_models>` page:
+Next, we can visualise our model using the information noted in the {ref}`visualising NeuroML models <userdocs:visualising_models>` page (including the `-v` verbose option for more information on the cell):
 ```{code-block} console
-pynml-summary HH_example_net.nml
+pynml-summary HH_example_net.nml -v
 *******************************************************
 * NeuroMLDocument: network
 *
+*  IonChannelHH: ['k_channel', 'leak_channel', 'na_channel']
 *  PulseGenerator: ['pg']
+*
+*  Cell: hh_cell
+*    <Segment|0|soma>
+*      Parent segment: None (root segment)
+*      (0.0, 0.0, 0.0), diam 17.841241161527712um -> (0.0, 0.0, 0.0), diam 17.841241161527712um; seg length: 0.0 um
+*      Surface area: 1000.0 um2, volume: 2973.5401935879518 um3
+*    Total length of 1 segment: 0.0 um; total area: 1000.0 um2
+*
+*    Channel density: na_channels on all;       conductance of 120.0 mS_per_cm2 through ion chan na_channel with ion na, erev: 50.0 mV
+*      Channel is on <Segment|0|soma>,  total conductance: 1200.0 S_per_m2 x 1e-09 m2 = 1.2000000000000002e-06 S (1200000.0000000002 pS)
+*    Channel density: k_channels on all;        conductance of 360 S_per_m2 through ion chan k_channel with ion k, erev: -77mV
+*      Channel is on <Segment|0|soma>,  total conductance: 360.0 S_per_m2 x 1e-09 m2 = 3.6000000000000005e-07 S (360000.00000000006 pS)
+*    Channel density: leak_channels on all;     conductance of 3.0 S_per_m2 through ion chan leak_channel with ion non_specific, erev: -54.3mV
+*      Channel is on <Segment|0|soma>,  total conductance: 3.0 S_per_m2 x 1e-09 m2 = 3.0000000000000004e-09 S (3000.0000000000005 pS)
+*
+*    Specific capacitance on all: 1.0 uF_per_cm2
+*      Capacitance of <Segment|0|soma>, total capacitance: 0.01 F_per_m2 x 1e-09 m2 = 1.0000000000000001e-11 F (10.000000000000002 pF)
 *
 *  Network: single_hh_cell_network
 *

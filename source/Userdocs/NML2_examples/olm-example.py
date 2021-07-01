@@ -9,33 +9,114 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
 from neuroml import (NeuroMLDocument, IncludeType, Population, PulseGenerator,
-                     ExplicitInput, Network, SegmentGroup, Member)
+                     ExplicitInput, Network, SegmentGroup, Member, Property)
 from CellBuilder import (create_cell, add_segment, add_channel_density,
                          set_init_memb_potential, set_resistivity,
-                         set_specific_capacitance)
+                         set_specific_capacitance, get_seg_group_by_id)
 from pyneuroml import pynml
+from pyneuroml.lems import LEMSSimulation
+import numpy as np
 
 
 def main():
-    """Main worker function. """
-    nml_doc = NeuroMLDocument(id="oml_example", notes="Example of a multi-compartmental OLM cell")
+    """Main function
+
+    Include the NeuroML model into a LEMS simulation file, run it, plot some
+    data.
+    """
+    # Simulation bits
+    sim_id = "olm_example_sim"
+    simulation = LEMSSimulation(sim_id=sim_id, duration=600, dt=0.01, simulation_seed=123)
+    # Include the NeuroML model file
+    simulation.include_neuroml2_file(create_olm_network())
+    # Assign target for the simulation
+    simulation.assign_simulation_target("single_olm_cell_network")
+
+    # Recording information from the simulation
+    simulation.create_output_file(id="output0", file_name=sim_id + ".dat")
+    simulation.add_column_to_output_file("output0", column_id="pop0_0_v", quantity="pop0[0]/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_soma_0",
+                                         quantity="pop0/0/olm/0/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_soma_0",
+                                         quantity="pop0/0/olm/1/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_axon_0",
+                                         quantity="pop0/0/olm/2/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_axon_0",
+                                         quantity="pop0/0/olm/3/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_dend_0",
+                                         quantity="pop0/0/olm/4/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_0",
+                                         quantity="pop0/0/olm/6/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_dend_1",
+                                         quantity="pop0/0/olm/5/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_1",
+                                         quantity="pop0/0/olm/7/v")
+    # TODO: why does the name of the cell component have to be included? This
+    # does not work, for example.
+    """
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_1",
+                                         quantity="pop0/0/7/v")
+    """
+    # TODO: why does indexing not work in this population?
+    """
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_1",
+                                         quantity="pop0[0]/olm/7/v")
 
 
-def create_network():
+    """
+    # TODO: are these LEMS issues or bugs in the neuron writer?
+
+    # Save LEMS simulation to file
+    sim_file = simulation.save_to_file()
+
+    # Run the simulation using the default jNeuroML simulator
+    pynml.run_lems_with_jneuroml_neuron(sim_file, max_memory="2G", nogui=True,
+                                        plot=False, skip_run=False)
+    # Plot the data
+    plot_data(sim_id)
+
+
+def plot_data(sim_id):
+    """Plot the sim data.
+
+    Load the data from the file and plot the graph for the membrane potential
+    using the pynml generate_plot utility function.
+
+    :sim_id: ID of simulaton
+
+    """
+    data_array = np.loadtxt(sim_id + ".dat")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 1]], "Membrane potential (soma seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+
+
+def create_olm_network():
     """Create the network
 
     :returns: name of network nml file
     """
     net_doc = NeuroMLDocument(id="network",
                               notes="OLM cell network")
-    net_doc_fn = "OLM_example_net.nml"
-    net_doc.includes.append(IncludeType(href=create_cell()))
+    net_doc_fn = "olm_example_net.nml"
+    net_doc.includes.append(IncludeType(href=create_olm_cell()))
     # Create a population: convenient to create many cells of the same type
-    pop = Population(id="pop0", notes="A population for our cell", component="hh_cell", size=1)
+    pop = Population(id="pop0", notes="A population for our cell", component="olm", size=1)
     # Input
-    pulsegen = PulseGenerator(id="pg", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
+    pulsegen = PulseGenerator(id="pg_olm", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
 
-    exp_input = ExplicitInput(target="pop0[0]", input="pg")
+    exp_input = ExplicitInput(target="pop0[0]", input="pg_olm")
 
     net = Network(id="single_olm_cell_network", note="A network with a single population")
     net_doc.pulse_generators.append(pulsegen)
@@ -60,13 +141,13 @@ def create_olm_cell():
     diam = 10.0
     soma_0 = add_segment(cell,
                          prox=[0.0, 0.0, 0.0, diam],
-                         dist=[0.0, 1.0, 0.0, diam],
+                         dist=[0.0, 10., 0.0, diam],
                          name="Seg0_soma_0",
                          group="soma_0")
 
     soma_1 = add_segment(cell,
                          prox=None,
-                         dist=[0.0, 1.0 + 1.0, 0.0, diam],
+                         dist=[0.0, 10. + 10., 0.0, diam],
                          name="Seg1_soma_0",
                          parent=soma_0,
                          group="soma_0")
@@ -75,14 +156,14 @@ def create_olm_cell():
     diam = 1.5
     axon_0 = add_segment(cell,
                          prox=[0.0, 0.0, 0.0, diam],
-                         dist=[0.0, -7.5, 0.0, diam],
-                         name="Seg1_axon_0",
+                         dist=[0.0, -75, 0.0, diam],
+                         name="Seg0_axon_0",
                          parent=soma_0,
                          fraction_along=0.0,
                          group="axon_0")
     axon_1 = add_segment(cell,
                          prox=None,
-                         dist=[0.0, -1.5, 0.0, diam],
+                         dist=[0.0, -150, 0.0, diam],
                          name="Seg1_axon_0",
                          parent=axon_0,
                          group="axon_0")
@@ -90,41 +171,42 @@ def create_olm_cell():
     # Add 2 dendrite segments
     diam = 3.0
     dend_0_0 = add_segment(cell,
-                           prox=[0.0, 2.0, 0.0, diam],
-                           dist=[1.0, 1.2, 0.0, diam],
+                           prox=[0.0, 20, 0.0, diam],
+                           dist=[100, 120, 0.0, diam],
                            name="Seg0_dend_0",
                            parent=soma_1,
                            fraction_along=0.0,
                            group="dend_0")
     dend_0_1 = add_segment(cell,
-                           prox=[0.0, 2.0, 0.0, diam],
-                           dist=[-1.0, 1.2, 0.0, diam],
+                           prox=[0.0, 20, 0.0, diam],
+                           dist=[-100, 120, 0.0, diam],
                            name="Seg0_dend_1",
                            parent=soma_1,
                            group="dend_0")
 
     dend_1_0 = add_segment(cell,
                            prox=None,
-                           dist=[1.77, 1.97, 0.0, diam],
+                           dist=[177, 197, 0.0, diam],
                            name="Seg1_dend_0",
                            parent=dend_0_0,
                            fraction_along=0.0,
                            group="dend_1")
     dend_1_1 = add_segment(cell,
                            prox=None,
-                           dist=[-1.77, 1.97, 0.0, diam],
+                           dist=[-177, 197, 0.0, diam],
                            name="Seg1_dend_1",
                            parent=dend_0_1,
                            fraction_along=0.0,
                            group="dend_1")
 
-    # Add a segment group for all dendrites
-    den_seg_group = SegmentGroup(id="dendrite_group")
-    cell.morphology.segment_groups.append(den_seg_group)
-    den_seg_group.members.append(Member(segments=dend_0_0.id))
-    den_seg_group.members.append(Member(segments=dend_0_1.id))
-    den_seg_group.members.append(Member(segments=dend_1_0.id))
-    den_seg_group.members.append(Member(segments=dend_1_1.id))
+    den_seg_group = get_seg_group_by_id("dendrite_group", cell)
+    den_seg_group.properties.append(Property(tag="color", value="0.8 0 0"))
+
+    ax_seg_group = get_seg_group_by_id("axon_group", cell)
+    ax_seg_group.properties.append(Property(tag="color", value="0 0.8 0"))
+
+    soma_seg_group = get_seg_group_by_id("soma_group", cell)
+    soma_seg_group.properties.append(Property(tag="color", value="0 0 0.8"))
 
     # Other cell properties
     set_init_memb_potential(cell, "-67mV")
@@ -224,7 +306,8 @@ def create_olm_cell():
 
     nml_cell_doc.cells.append(cell)
     pynml.write_neuroml2_file(nml_cell_doc, nml_cell_file, True, True)
+    return nml_cell_file
+
 
 if __name__ == "__main__":
-    #  main()
-    create_olm_cell()
+    main()
