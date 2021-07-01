@@ -39,33 +39,6 @@ def main():
     simulation.add_column_to_output_file("output0",
                                          column_id="pop0_0_v_Seg0_soma_0",
                                          quantity="pop0/0/olm/0/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_soma_0",
-                                         quantity="pop0/0/olm/1/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg0_axon_0",
-                                         quantity="pop0/0/olm/2/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_axon_0",
-                                         quantity="pop0/0/olm/3/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg0_dend_0",
-                                         quantity="pop0/0/olm/4/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_dend_0",
-                                         quantity="pop0/0/olm/6/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg0_dend_1",
-                                         quantity="pop0/0/olm/5/v")
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_dend_1",
-                                         quantity="pop0/0/olm/7/v")
-    """
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pg0",
-                                         quantity="explicitInput/pg_olm/i")
-    """
-
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
 
@@ -87,10 +60,6 @@ def plot_data(sim_id):
     """
     data_array = np.loadtxt(sim_id + ".dat")
     pynml.generate_plot([data_array[:, 0]], [data_array[:, 1]], "Membrane potential (soma seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 9]], "Current (pg)", show_plot_already=False, save_figure_to=sim_id + "pg-v.png", xaxis="time (s)", yaxis="current (amp)")
 
 
 def create_olm_network():

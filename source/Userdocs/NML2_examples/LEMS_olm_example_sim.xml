@@ -27,13 +27,6 @@
         <OutputFile id="output0" fileName="olm_example_sim.dat">
             <OutputColumn id="pop0_0_v" quantity="pop0[0]/v"/> 
             <OutputColumn id="pop0_0_v_Seg0_soma_0" quantity="pop0/0/olm/0/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_soma_0" quantity="pop0/0/olm/1/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_axon_0" quantity="pop0/0/olm/2/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_axon_0" quantity="pop0/0/olm/3/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_dend_0" quantity="pop0/0/olm/4/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_dend_0" quantity="pop0/0/olm/6/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_dend_1" quantity="pop0/0/olm/5/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_dend_1" quantity="pop0/0/olm/7/v"/> 
         </OutputFile>
         
     </Simulation>
