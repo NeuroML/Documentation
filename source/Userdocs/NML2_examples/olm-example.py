@@ -59,22 +59,6 @@ def main():
     simulation.add_column_to_output_file("output0",
                                          column_id="pop0_0_v_Seg1_dend_1",
                                          quantity="pop0/0/olm/7/v")
-    # TODO: why does the name of the cell component have to be included? This
-    # does not work, for example.
-    """
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_dend_1",
-                                         quantity="pop0/0/7/v")
-    """
-    # TODO: why does indexing not work in this population?
-    """
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_dend_1",
-                                         quantity="pop0[0]/olm/7/v")
-
-
-    """
-    # TODO: are these LEMS issues or bugs in the neuron writer?
 
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
