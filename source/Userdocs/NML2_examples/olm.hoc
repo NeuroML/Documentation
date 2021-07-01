@@ -13,7 +13,7 @@
     "fractionAlong" : 1.0,
     "points3d" : [ "0.0, 20.0, 0.0, 10.0", "0.0, 10.0, 0.0, 10.0" ]
   }, {
-    "name" : "Seg1_axon_0",
+    "name" : "Seg0_axon_0",
     "id" : "2",
     "parent" : "Seg0_soma_0",
     "fractionAlong" : 0.0,
@@ -21,7 +21,7 @@
   }, {
     "name" : "Seg1_axon_0",
     "id" : "3",
-    "parent" : "Seg1_axon_0",
+    "parent" : "Seg0_axon_0",
     "fractionAlong" : 1.0,
     "points3d" : [ "0.0, -150.0, 0.0, 1.5", "0.0, -75.0, 0.0, 1.5" ]
   }, {
@@ -54,7 +54,7 @@
     "segments" : [ "Seg0_soma_0", "Seg1_soma_0" ]
   }, {
     "name" : "axon_group",
-    "segments" : [ "Seg1_axon_0", "Seg1_axon_0" ]
+    "segments" : [ "Seg0_axon_0", "Seg1_axon_0" ]
   }, {
     "name" : "dendrite_group",
     "segments" : [ "Seg0_dend_0", "Seg0_dend_1", "Seg1_dend_0", "Seg1_dend_1" ]
@@ -63,7 +63,7 @@
     "segments" : [ "Seg0_soma_0", "Seg1_soma_0" ]
   }, {
     "name" : "axon_0",
-    "segments" : [ "Seg1_axon_0", "Seg1_axon_0" ]
+    "segments" : [ "Seg0_axon_0", "Seg1_axon_0" ]
   }, {
     "name" : "dend_0",
     "segments" : [ "Seg0_dend_0", "Seg0_dend_1" ]
@@ -72,7 +72,7 @@
     "segments" : [ "Seg1_dend_0", "Seg1_dend_1" ]
   }, {
     "name" : "all",
-    "sections" : [ "Seg0_soma_0", "Seg1_soma_0", "Seg1_axon_0", "Seg1_axon_0", "Seg0_dend_0", "Seg0_dend_1", "Seg1_dend_0", "Seg1_dend_1" ]
+    "sections" : [ "Seg0_soma_0", "Seg1_soma_0", "Seg0_axon_0", "Seg1_axon_0", "Seg0_dend_0", "Seg0_dend_1", "Seg1_dend_0", "Seg1_dend_1" ]
   } ],
   "specificCapacitance" : [ {
     "group" : "all",
@@ -180,10 +180,10 @@ public Seg0_soma_0
 // Section: Seg1_soma_0, id: 1, parent: Seg0_soma_0
 create Seg1_soma_0
 public Seg1_soma_0
-// Section: Seg1_axon_0, id: 2, parent: Seg0_soma_0
-create Seg1_axon_0
-public Seg1_axon_0
-// Section: Seg1_axon_0, id: 3, parent: Seg1_axon_0
+// Section: Seg0_axon_0, id: 2, parent: Seg0_soma_0
+create Seg0_axon_0
+public Seg0_axon_0
+// Section: Seg1_axon_0, id: 3, parent: Seg0_axon_0
 create Seg1_axon_0
 public Seg1_axon_0
 // Section: Seg0_dend_0, id: 4, parent: Seg1_soma_0
@@ -201,19 +201,19 @@ public Seg1_dend_1
 
 // Group: {name=soma_group, segments=[Seg0_soma_0, Seg1_soma_0]}
 objref soma_group
-// Group: {name=axon_group, segments=[Seg1_axon_0, Seg1_axon_0]}
+// Group: {name=axon_group, segments=[Seg0_axon_0, Seg1_axon_0]}
 objref axon_group
 // Group: {name=dendrite_group, segments=[Seg0_dend_0, Seg0_dend_1, Seg1_dend_0, Seg1_dend_1]}
 objref dendrite_group
 // Group: {name=soma_0, segments=[Seg0_soma_0, Seg1_soma_0]}
 objref soma_0
-// Group: {name=axon_0, segments=[Seg1_axon_0, Seg1_axon_0]}
+// Group: {name=axon_0, segments=[Seg0_axon_0, Seg1_axon_0]}
 objref axon_0
 // Group: {name=dend_0, segments=[Seg0_dend_0, Seg0_dend_1]}
 objref dend_0
 // Group: {name=dend_1, segments=[Seg1_dend_0, Seg1_dend_1]}
 objref dend_1
-// Group: {name=all, sections=[Seg0_soma_0, Seg1_soma_0, Seg1_axon_0, Seg1_axon_0, Seg0_dend_0, Seg0_dend_1, Seg1_dend_0, Seg1_dend_1]}
+// Group: {name=all, sections=[Seg0_soma_0, Seg1_soma_0, Seg0_axon_0, Seg1_axon_0, Seg0_dend_0, Seg0_dend_1, Seg1_dend_0, Seg1_dend_1]}
 objref all
 
 objref synlist
@@ -244,8 +244,8 @@ proc set_initial_ion_properties() {
 proc topol() {
     basic_shape()
     connect Seg1_soma_0(0), Seg0_soma_0(1.0)
-    connect Seg1_axon_0(0), Seg0_soma_0(0.0)
-    connect Seg1_axon_0(0), Seg1_axon_0(1.0)
+    connect Seg0_axon_0(0), Seg0_soma_0(0.0)
+    connect Seg1_axon_0(0), Seg0_axon_0(1.0)
     connect Seg0_dend_0(0), Seg1_soma_0(0.0)
     connect Seg0_dend_1(0), Seg1_soma_0(1.0)
     connect Seg1_dend_0(0), Seg0_dend_0(0.0)
@@ -264,11 +264,11 @@ proc basic_shape() {
     Seg1_soma_0 { pt3dclear() }
     Seg1_soma_0 { pt3dadd( 0.0, 20.0, 0.0, 10.0 ) }
     Seg1_soma_0 { pt3dadd( 0.0, 10.0, 0.0, 10.0 ) }
-    // Section: Seg1_axon_0, id: 2, parent: Seg0_soma_0 (entry count 4/100)
-    Seg1_axon_0 { pt3dclear() }
-    Seg1_axon_0 { pt3dadd( 0.0, -75.0, 0.0, 1.5 ) }
-    Seg1_axon_0 { pt3dadd( 0.0, 0.0, 0.0, 1.5 ) }
-    // Section: Seg1_axon_0, id: 3, parent: Seg1_axon_0 (entry count 6/100)
+    // Section: Seg0_axon_0, id: 2, parent: Seg0_soma_0 (entry count 4/100)
+    Seg0_axon_0 { pt3dclear() }
+    Seg0_axon_0 { pt3dadd( 0.0, -75.0, 0.0, 1.5 ) }
+    Seg0_axon_0 { pt3dadd( 0.0, 0.0, 0.0, 1.5 ) }
+    // Section: Seg1_axon_0, id: 3, parent: Seg0_axon_0 (entry count 6/100)
     Seg1_axon_0 { pt3dclear() }
     Seg1_axon_0 { pt3dadd( 0.0, -150.0, 0.0, 1.5 ) }
     Seg1_axon_0 { pt3dadd( 0.0, -75.0, 0.0, 1.5 ) }
@@ -297,7 +297,7 @@ proc subsets() { local i
     // Group: {name=soma_group, segments=[Seg0_soma_0, Seg1_soma_0]}
     soma_group = new SectionList()
 
-    // Group: {name=axon_group, segments=[Seg1_axon_0, Seg1_axon_0]}
+    // Group: {name=axon_group, segments=[Seg0_axon_0, Seg1_axon_0]}
     axon_group = new SectionList()
 
     // Group: {name=dendrite_group, segments=[Seg0_dend_0, Seg0_dend_1, Seg1_dend_0, Seg1_dend_1]}
@@ -306,7 +306,7 @@ proc subsets() { local i
     // Group: {name=soma_0, segments=[Seg0_soma_0, Seg1_soma_0]}
     soma_0 = new SectionList()
 
-    // Group: {name=axon_0, segments=[Seg1_axon_0, Seg1_axon_0]}
+    // Group: {name=axon_0, segments=[Seg0_axon_0, Seg1_axon_0]}
     axon_0 = new SectionList()
 
     // Group: {name=dend_0, segments=[Seg0_dend_0, Seg0_dend_1]}
@@ -315,11 +315,11 @@ proc subsets() { local i
     // Group: {name=dend_1, segments=[Seg1_dend_0, Seg1_dend_1]}
     dend_1 = new SectionList()
 
-    // Group: {name=all, sections=[Seg0_soma_0, Seg1_soma_0, Seg1_axon_0, Seg1_axon_0, Seg0_dend_0, Seg0_dend_1, Seg1_dend_0, Seg1_dend_1]}
+    // Group: {name=all, sections=[Seg0_soma_0, Seg1_soma_0, Seg0_axon_0, Seg1_axon_0, Seg0_dend_0, Seg0_dend_1, Seg1_dend_0, Seg1_dend_1]}
     all = new SectionList()
     Seg0_soma_0 all.append()
     Seg1_soma_0 all.append()
-    Seg1_axon_0 all.append()
+    Seg0_axon_0 all.append()
     Seg1_axon_0 all.append()
     Seg0_dend_0 all.append()
     Seg0_dend_1 all.append()

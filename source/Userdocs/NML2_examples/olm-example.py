@@ -15,6 +15,7 @@ from CellBuilder import (create_cell, add_segment, add_channel_density,
                          set_specific_capacitance, get_seg_group_by_id)
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
+import numpy as np
 
 
 def main():
@@ -25,31 +26,80 @@ def main():
     """
     # Simulation bits
     sim_id = "olm_example_sim"
-    simulation = LEMSSimulation(sim_id=sim_id, duration=300, dt=0.01, simulation_seed=123)
+    simulation = LEMSSimulation(sim_id=sim_id, duration=600, dt=0.01, simulation_seed=123)
     # Include the NeuroML model file
     simulation.include_neuroml2_file(create_olm_network())
     # Assign target for the simulation
     simulation.assign_simulation_target("single_olm_cell_network")
 
     # Recording information from the simulation
-    """
-
     simulation.create_output_file(id="output0", file_name=sim_id + ".dat")
-    simulation.add_column_to_output_file("output0", column_id="pop0[0]/v", quantity="pop0[0]/v")
-    simulation.add_column_to_output_file("output0", column_id="pop0[0]/iChannels", quantity="pop0[0]/iChannels")
-    simulation.add_column_to_output_file("output0", column_id="pop0[0]/na/iDensity", quantity="pop0[0]/hh_b_prop/membraneProperties/na_channels/iDensity/")
-    simulation.add_column_to_output_file("output0", column_id="pop0[0]/k/iDensity", quantity="pop0[0]/hh_b_prop/membraneProperties/k_channels/iDensity/")
+    simulation.add_column_to_output_file("output0", column_id="pop0_0_v", quantity="pop0[0]/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_soma_0",
+                                         quantity="pop0/0/olm/0/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_soma_0",
+                                         quantity="pop0/0/olm/1/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_axon_0",
+                                         quantity="pop0/0/olm/2/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_axon_0",
+                                         quantity="pop0/0/olm/3/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_dend_0",
+                                         quantity="pop0/0/olm/4/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_0",
+                                         quantity="pop0/0/olm/6/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg0_dend_1",
+                                         quantity="pop0/0/olm/5/v")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_1",
+                                         quantity="pop0/0/olm/7/v")
+    # TODO: why does the name of the cell component have to be included? This
+    # does not work, for example.
     """
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_1",
+                                         quantity="pop0/0/7/v")
+    """
+    # TODO: why does indexing not work in this population?
+    """
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0_0_v_Seg1_dend_1",
+                                         quantity="pop0[0]/olm/7/v")
+
+
+    """
+    # TODO: are these LEMS issues or bugs in the neuron writer?
 
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
 
     # Run the simulation using the default jNeuroML simulator
-    pynml.run_lems_with_jneuroml_neuron(sim_file, max_memory="2G", nogui=True, plot=False)
-    """
+    pynml.run_lems_with_jneuroml_neuron(sim_file, max_memory="2G", nogui=True,
+                                        plot=False, skip_run=False)
     # Plot the data
     plot_data(sim_id)
+
+
+def plot_data(sim_id):
+    """Plot the sim data.
+
+    Load the data from the file and plot the graph for the membrane potential
+    using the pynml generate_plot utility function.
+
+    :sim_id: ID of simulaton
+
     """
+    data_array = np.loadtxt(sim_id + ".dat")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 1]], "Membrane potential (soma seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
 
 
 def create_olm_network():
@@ -64,9 +114,9 @@ def create_olm_network():
     # Create a population: convenient to create many cells of the same type
     pop = Population(id="pop0", notes="A population for our cell", component="olm", size=1)
     # Input
-    pulsegen = PulseGenerator(id="pg", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
+    pulsegen = PulseGenerator(id="pg_olm", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
 
-    exp_input = ExplicitInput(target="pop0[0]", input="pg")
+    exp_input = ExplicitInput(target="pop0[0]", input="pg_olm")
 
     net = Network(id="single_olm_cell_network", note="A network with a single population")
     net_doc.pulse_generators.append(pulsegen)
@@ -107,7 +157,7 @@ def create_olm_cell():
     axon_0 = add_segment(cell,
                          prox=[0.0, 0.0, 0.0, diam],
                          dist=[0.0, -75, 0.0, diam],
-                         name="Seg1_axon_0",
+                         name="Seg0_axon_0",
                          parent=soma_0,
                          fraction_along=0.0,
                          group="axon_0")
