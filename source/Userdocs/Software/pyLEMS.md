@@ -48,7 +48,7 @@ sudo dnf install python3-pyLEMS
 (pylems:docs)=
 ## Documentation
 
-Detailed API documentation for PyLEMS can be found [here](https://pylems.readthedocs.io/en/latest/).
+Detailed API documentation for PyLEMS can be found [here](https://pylems.readthedocs.io/en/development/).
 pyLEMS provides the `pylems` command line utility that can be used to simulate LEMS files.
 `pylems` is self documented, and you can learn about its usage using the `-h` flag:
 
