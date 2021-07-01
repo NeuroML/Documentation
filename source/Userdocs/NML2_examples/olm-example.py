@@ -186,6 +186,8 @@ def create_olm_cell():
                            fraction_along=1,
                            group="dend_1")
 
+    # XXX: For segment groups to be correctly mapped to sections in NEURON,
+    # they must include the correct neurolex ID
     for section_name in ["soma_0", "axon_0", "dend_0", "dend_1"]:
         section_group = get_seg_group_by_id(section_name, cell)
         section_group.neuro_lex_id = 'sao864921383'
