@@ -60,6 +60,11 @@ def main():
     simulation.add_column_to_output_file("output0",
                                          column_id="pop0_0_v_Seg1_dend_1",
                                          quantity="pop0/0/olm/7/v")
+    """
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pg0",
+                                         quantity="explicitInput/pg_olm/i")
+    """
 
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
@@ -85,6 +90,7 @@ def plot_data(sim_id):
     pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
     pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
     pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 9]], "Current (pg)", show_plot_already=False, save_figure_to=sim_id + "pg-v.png", xaxis="time (s)", yaxis="current (amp)")
 
 
 def create_olm_network():
@@ -102,9 +108,9 @@ def create_olm_network():
     pop.instances.append(Instance(id="1", location=Location(x="0.0", y="0.0", z="0.0")))
 
     # Input
-    pulsegen = PulseGenerator(id="pg_olm", notes="Simple pulse generator", delay="100ms", duration="100ms", amplitude="0.08nA")
+    pulsegen = PulseGenerator(id="pg_olm", notes="Simple pulse generator", delay="100ms", duration="300ms", amplitude="0.08nA")
 
-    exp_input = ExplicitInput(target="pop0[0]", input="pg_olm")
+    exp_input = ExplicitInput(target="pop0/0/olm/0", input="pg_olm")
 
     net = Network(id="single_olm_cell_network", note="A network with a single population")
     net_doc.pulse_generators.append(pulsegen)
