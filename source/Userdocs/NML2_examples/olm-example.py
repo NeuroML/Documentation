@@ -59,7 +59,7 @@ def main():
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
 
-    # Run the simulation using the default jNeuroML simulator
+    # Run the simulation using the NEURON simulator
     pynml.run_lems_with_jneuroml_neuron(sim_file, max_memory="2G", nogui=True,
                                         plot=False, skip_run=False)
     # Plot the data
