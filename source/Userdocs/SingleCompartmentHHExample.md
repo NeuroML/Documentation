@@ -1,4 +1,4 @@
-(userdocs:getting_started:single_comparment_example)=
+(userdocs:getting_started:single_compartment_example)=
 # Simulating a single compartment Hodgkin-Huxley neuron
 
 In this section we will model and simulate a Hodgkin-Huxley (HH) neuron ({cite}`Hodgkin1952`).
