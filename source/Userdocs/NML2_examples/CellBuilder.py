@@ -10,12 +10,7 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 
 
 from typing import List
-from neuroml import (Cell, Morphology, MembraneProperties,  # type: ignore  # noqa
-                     IntracellularProperties, BiophysicalProperties, Segment,
-                     SegmentGroup, Point3DWithDiam, SegmentParent, Member,
-                     InitMembPotential, Resistivity, SpecificCapacitance,
-                     NeuroMLDocument, IncludeType, ChannelDensity,
-                     )
+from neuroml import (Cell, Morphology, MembraneProperties, IntracellularProperties, BiophysicalProperties, Segment, SegmentGroup, Point3DWithDiam, SegmentParent, Member, InitMembPotential, Resistivity, SpecificCapacitance, NeuroMLDocument, IncludeType, ChannelDensity) # type: ignore  # noqa
 from pyneuroml.pynml import print_function  # type: ignore
 
 
