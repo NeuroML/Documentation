@@ -2,18 +2,14 @@
 """
 Multi-compartmental OLM cell example
 
-File:
+File: olm-example.py
 
 Copyright 2021 NeuroML contributors
-Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
+Authors: Padraig Gleeson, Ankur Sinha
 """
 
-from neuroml import (NeuroMLDocument, IncludeType, Population, PulseGenerator,
-                     ExplicitInput, Network, SegmentGroup, Member, Property,
-                     Include)
-from CellBuilder import (create_cell, add_segment, add_channel_density,
-                         set_init_memb_potential, set_resistivity,
-                         set_specific_capacitance, get_seg_group_by_id)
+from neuroml import (NeuroMLDocument, IncludeType, Population, PulseGenerator, ExplicitInput, Network, SegmentGroup, Member, Property, Include)
+from CellBuilder import (create_cell, add_segment, add_channel_density, set_init_memb_potential, set_resistivity, set_specific_capacitance, get_seg_group_by_id)
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
 import numpy as np
@@ -80,10 +76,10 @@ def plot_data(sim_id):
 
     """
     data_array = np.loadtxt(sim_id + ".dat")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 1]], "Membrane potential (soma seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (axon seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (axon seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 1]], "Membrane potential (soma seg 0)", show_plot_already=False, save_figure_to=sim_id + "_seg0_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "_seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (axon seg 0)", show_plot_already=False, save_figure_to=sim_id + "_seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (axon seg 1)", show_plot_already=False, save_figure_to=sim_id + "_seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
 
 
 def create_olm_network():
