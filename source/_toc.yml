@@ -33,7 +33,12 @@ parts:
             - file: Userdocs/Schemas/PyNN
             - file: Userdocs/Schemas/Simulation
         - file: Userdocs/NeuroMLv1
-    - file: Userdocs/ExtendingNeuroMLv2WithLEMS
+    - file: Userdocs/UsingNeuroMLv2AndLEMS
+      sections:
+        - file: Userdocs/UnitsAndDimensions
+        - file: Userdocs/LEMSSimulation
+        - file: Userdocs/QuantitiesAndPaths
+        - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Software/Software
       sections:
         - file: Userdocs/Software/pyNeuroML
