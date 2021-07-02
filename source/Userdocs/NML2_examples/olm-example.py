@@ -60,23 +60,6 @@ def main():
     simulation.add_column_to_output_file("output0",
                                          column_id="pop0_0_v_Seg1_dend_1",
                                          quantity="pop0/0/olm/7/v")
-    # TODO: why does the name of the cell component have to be included? This
-    # does not work, for example.
-    """
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_dend_1",
-                                         quantity="pop0/0/7/v")
-    """
-    # TODO: why does indexing not work in this population?
-    """
-    simulation.add_column_to_output_file("output0",
-                                         column_id="pop0_0_v_Seg1_dend_1",
-                                         quantity="pop0[0]/olm/7/v")
-
-
-    """
-    # TODO: are these LEMS issues or bugs in the neuron writer?
-
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
 
@@ -99,8 +82,8 @@ def plot_data(sim_id):
     data_array = np.loadtxt(sim_id + ".dat")
     pynml.generate_plot([data_array[:, 0]], [data_array[:, 1]], "Membrane potential (soma seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
     pynml.generate_plot([data_array[:, 0]], [data_array[:, 2]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_soma0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
-    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (soma seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 3]], "Membrane potential (axon seg 0)", show_plot_already=False, save_figure_to=sim_id + "seg0_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
+    pynml.generate_plot([data_array[:, 0]], [data_array[:, 4]], "Membrane potential (axon seg 1)", show_plot_already=False, save_figure_to=sim_id + "seg1_axon0-v.png", xaxis="time (s)", yaxis="membrane potential (V)")
 
 
 def create_olm_network():
@@ -188,8 +171,6 @@ def create_olm_cell():
                            fraction_along=1,
                            group="dend_0")
 
-
-
     dend_0_1 = add_segment(cell,
                            prox=[0.0, 20, 0.0, diam],
                            dist=[-100, 120, 0.0, diam],
@@ -205,7 +186,9 @@ def create_olm_cell():
                            fraction_along=1,
                            group="dend_1")
 
-    for section_name in ["soma_0","axon_0","dend_0","dend_1"]:
+    # XXX: For segment groups to be correctly mapped to sections in NEURON,
+    # they must include the correct neurolex ID
+    for section_name in ["soma_0", "axon_0", "dend_0", "dend_1"]:
         section_group = get_seg_group_by_id(section_name, cell)
         section_group.neuro_lex_id = 'sao864921383'
 
