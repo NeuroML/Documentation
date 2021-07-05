@@ -123,6 +123,8 @@ Shared options:
 (pyneuroml:api_docs)=
 ### API documentation
 
+Detailed API documentation for pyNeuroML can be found [here](https://pyneuroml.readthedocs.io/en/development/).
+
 ```{admonition} TODO!
 :class: dropdown
 Generate and publish API documentation for pyNeuroML.
