@@ -5,6 +5,7 @@ This page documents various conventions in use in NeuroML.
 
 In general, please prefer underscores `_` instead of spaces wherever possible.
 
+(userdocs:conventions:files)=
 ## File naming
 
 When naming different NeuroML files, we suggest the following suffixes:
@@ -20,6 +21,7 @@ For LEMS files that describe simulations of NeuroML models, we suggest that:
 
 For example `LEMS_HH_Simulation.xml`
 
+(userdocs:conventions:segments)=
 ## Neuron segments
 
 When naming segments in multi-compartmental neuron models, we suggest the following prefixes:
