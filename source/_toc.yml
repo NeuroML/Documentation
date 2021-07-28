@@ -15,9 +15,11 @@ parts:
       - file: Userdocs/NML2_examples/HH_single_compartment.ipynb
       - file: Userdocs/MultiCompartmentOLMexample
       - file: Userdocs/NML2_examples/OLM.ipynb
-    - file: Userdocs/Conventions
     - file: Userdocs/FindingNeuroMLModels
     - file: Userdocs/CreatingNeuroMLModels
+      sections:
+      - file: Userdocs/Conventions
+      - file: Userdocs/Units
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
     - file: Userdocs/SimulatingNeuroMLModels
