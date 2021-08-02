@@ -19,7 +19,6 @@ parts:
     - file: Userdocs/CreatingNeuroMLModels
       sections:
       - file: Userdocs/Conventions
-      - file: Userdocs/Units
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
     - file: Userdocs/SimulatingNeuroMLModels
