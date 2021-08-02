@@ -17,12 +17,9 @@ parts:
       - file: Userdocs/NML2_examples/OLM.ipynb
     - file: Userdocs/FindingNeuroMLModels
     - file: Userdocs/CreatingNeuroMLModels
-      sections:
-      - file: Userdocs/Conventions
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
     - file: Userdocs/SimulatingNeuroMLModels
-    - file: Userdocs/RecordingFromSimulations
     - file: Userdocs/Specification
       sections:
         - file: Userdocs/NeuroMLv2
@@ -39,9 +36,11 @@ parts:
         - file: Userdocs/NeuroMLv1
     - file: Userdocs/UsingNeuroMLv2AndLEMS
       sections:
+        - file: Userdocs/Conventions
         - file: Userdocs/UnitsAndDimensions
         - file: Userdocs/LEMSSimulation
-        - file: Userdocs/QuantitiesAndPaths
+        - file: Userdocs/Paths
+        - file: Userdocs/RecordingFromSimulations
         - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Software/Software
       sections:
