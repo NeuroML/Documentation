@@ -38,9 +38,9 @@ parts:
       sections:
         - file: Userdocs/Conventions
         - file: Userdocs/UnitsAndDimensions
-        - file: Userdocs/LEMSSimulation
         - file: Userdocs/Paths
         - file: Userdocs/QuantitiesAndRecording
+        - file: Userdocs/LEMSSimulation
         - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Software/Software
       sections:
