@@ -37,6 +37,11 @@ We will look at the pre-defined entities, and how NeuroML may be extended later 
 For now, we limit ourselves to defining a new `Izhikevich2007Cell` (definition of this {ref}`here <schema:izhikevich2007Cell>`).
 The Izhikevich neuron model can take sets of parameters to show different types of spiking behaviour.
 Here, we define an instance of the general Izhikevich cell using parameters that exhibit regular spiking.
+
+```{admonition} Units in NeuroML
+NeuroML defines a {ref}`standard set of units <schema:neuromlcoredimensions>` that can be used in models.
+Learn more about units and dimensions in NeuroML and LEMS {ref}`here <userdocs:unitsanddimensions>`.
+```
 Once defined, we add this to our `NeuroMLDocument`.
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
