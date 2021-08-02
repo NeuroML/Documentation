@@ -1,5 +1,5 @@
 (userdocs:conventions)=
-# Conventions in NeuroML
+# Conventions
 
 This page documents various conventions in use in NeuroML.
 
