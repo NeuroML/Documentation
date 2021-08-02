@@ -10,7 +10,7 @@ See <a href="Schemas/Simulation.html">here</a> for definition of the main elemen
 
 ## Quantities and paths
 
-Specifying the quantities to save/display in a LEMS Simulation file is an important and sometimes confusing process. There is a {ref}`dedicated page <userdocs:quantitiesandpaths>` on quantities and paths in LEMS and NeuroML2.
+Specifying the quantities to save/display in a LEMS Simulation file is an important and sometimes confusing process. There is a {ref}`dedicated page <userdocs:quantitiesandrecording>` on quantities and paths in LEMS and NeuroML2.
 
 
 ## What about SED-ML?

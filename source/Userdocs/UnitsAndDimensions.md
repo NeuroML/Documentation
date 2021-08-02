@@ -15,5 +15,5 @@ Users can therefore use a wide range of commonly used units for each dimension d
 
 Additionally, please keep in mind that:
 
-- all quantities are saved and {ref}`recorded <userdocs:recording>` in SI Units
+- all quantities are saved and {ref}`recorded <userdocs:quantitiesandrecording>` in SI Units
 - when plotting data using NeuroML/LEMS using the {ref}`Line <schema:line>` component, users can use the `scale` parameter to convert quantities to other units.

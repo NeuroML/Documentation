@@ -40,7 +40,7 @@ parts:
         - file: Userdocs/UnitsAndDimensions
         - file: Userdocs/LEMSSimulation
         - file: Userdocs/Paths
-        - file: Userdocs/RecordingFromSimulations
+        - file: Userdocs/QuantitiesAndRecording
         - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Software/Software
       sections:
