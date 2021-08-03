@@ -1,7 +1,7 @@
 (userdocs:lemssimulation)=
 # LEMS Simulation files
 
-For many users, the most obvious place that LEMS is used is in the LEMS Simulation file (usually LEMS_*.xml).
+For many users, the most obvious place that LEMS is used is in the LEMS Simulation file (usually {ref}`LEMS_*.xml <userdocs:conventions:files>`).
 
 ## Specification of format
 
@@ -16,6 +16,8 @@ Specifying the quantities to save/display in a LEMS Simulation file is an import
 ## What about SED-ML?
 
 The Simulation Experiment Description Markup Language ([SED-ML](https://sed-ml.org/)) is used by a number of other initiatives such as SBML for specifying simulation setup, execution and basic analysis.
+
+We chose to have a LEMS specific format for specifying simulations in NeuroML2 as opposed to natively supporting SED-ML, mainly because of the tight link to the LEMS language and {ref}`jLEMS <jLEMS>` package, i.e. all of the NeuroML2 elements and elements in a LEMS simulation file have underlying definitions in the LEMS language. However it is possible to convert the LEMS simulation to the equivalent in SED-ML.
 
 ### Exporting LEMS simulation descriptions to SED-ML
 

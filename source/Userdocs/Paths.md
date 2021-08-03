@@ -10,7 +10,7 @@ Paths start from any element and ascend/descend to refer to the entity that is t
 
 The `.` and `..` path constructs are special constructs that mean "the current node" and "the parent node" respectively.
 
-For example, in the {reF}`Izhikevich network example <userdocs:getting_started:single_example>`, the network is defined in NeuroML like this:
+For example, in the {ref}`Izhikevich network example <userdocs:getting_started:single_example>`, the network is defined in NeuroML like this:
 ```{code-block} xml
     <network id="IzNet">
         <population id="IzPop0" component="iz2007RS0" size="5">
@@ -51,4 +51,3 @@ Additionally, when constructing the path:
 - for any `child` elements, the *name* of the element should be used in the path
 - for `children` elements, the *id* of the element should be used in the path
 - for elements that have a `size` attribute like {ref}`population <schema:population>`, individual elements should be referred to using the `[]` operator
-
