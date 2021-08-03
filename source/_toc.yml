@@ -36,9 +36,11 @@ parts:
         - file: Userdocs/NeuroMLv1
     - file: Userdocs/UsingNeuroMLv2AndLEMS
       sections:
+        - file: Userdocs/Conventions
         - file: Userdocs/UnitsAndDimensions
+        - file: Userdocs/Paths
+        - file: Userdocs/QuantitiesAndRecording
         - file: Userdocs/LEMSSimulation
-        - file: Userdocs/QuantitiesAndPaths
         - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Software/Software
       sections:

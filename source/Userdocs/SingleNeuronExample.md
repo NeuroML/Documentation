@@ -37,6 +37,11 @@ We will look at the pre-defined entities, and how NeuroML may be extended later 
 For now, we limit ourselves to defining a new `Izhikevich2007Cell` (definition of this {ref}`here <schema:izhikevich2007Cell>`).
 The Izhikevich neuron model can take sets of parameters to show different types of spiking behaviour.
 Here, we define an instance of the general Izhikevich cell using parameters that exhibit regular spiking.
+
+```{admonition} Units in NeuroML
+NeuroML defines a {ref}`standard set of units <schema:neuromlcoredimensions>` that can be used in models.
+Learn more about units and dimensions in NeuroML and LEMS {ref}`here <userdocs:unitsanddimensions>`.
+```
 Once defined, we add this to our `NeuroMLDocument`.
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
@@ -212,6 +217,7 @@ We will limit ourselves to the bits necessary to simulate our Izhikevich neuron 
 The following lines of code instantiate a new simulation with certain simulation parameters: `duration`, `dt`, `simulation_seed`.
 Additionally, they also define what information is being recorded from the simulation.
 In this case, we create an output file, and then add a new column to record the membrane potential `v` from our one neuron in the one population in it.
+You can read more about recording from NeuroML simulations {ref}`here <userdocs:quantitiesandrecording>`.
 
 Finally, like we had saved our NeuroML model to a file, we also save our LEMS document to a file.
 
