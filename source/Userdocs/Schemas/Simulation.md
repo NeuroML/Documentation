@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Simulation.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Simulation.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
+Generated on 04/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/c6d2535a733aaf07449e6e284be729918a5aca46) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -21,7 +21,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i>The main element in a LEMS Simulation file. Defines the **length** of simulation, the timestep ( dt ) **step** and an optional **seed** to use for stochastic elements, as well as **displays,** **outputs** and **events** to record.</i>
+<i>The main element in a LEMS Simulation file. Defines the **length** of simulation, the timestep ( dt ) **step** and an optional **seed** to use for stochastic elements, as well as **displays,** **outputs** and **events** to record. Specifies a **target** component to run, usually the id of a  {ref}`schema:network`.</i>
 
 
 
@@ -32,7 +32,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :delim: $
 
 **length**$ Duration of the simulation run ${ref}`schema:dimensions:time`
-**step**$  ${ref}`schema:dimensions:time`
+**step**$ Time step (dt) to use in simulation ${ref}`schema:dimensions:time`
 
 ```
 ````
@@ -43,7 +43,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**seed**$ 
+**seed**$ The seed to use in the random number generator for stochastic entities
 
 ````
 
@@ -96,7 +96,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-<i></i>
+<i>Details of a display to generate ( usually a set of plots in a newly opened window ) on completion of the simulation.</i>
 
 
 
@@ -106,11 +106,11 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100 %
 :delim: $
 
-**timeScale**$  ${ref}`schema:dimensions:time`
-**xmax**$  $Dimensionless
-**xmin**$  $Dimensionless
-**ymax**$  $Dimensionless
-**ymin**$  $Dimensionless
+**timeScale**$ A scaling of the time axis, e.g. 1ms means display in milliseconds ${ref}`schema:dimensions:time`
+**xmax**$ The maximum value on the x axis (i.e time variable) of the display $Dimensionless
+**xmin**$ The minimum value on the x axis (i.e time variable) of the display $Dimensionless
+**ymax**$ The maximum value on the x axis of the display $Dimensionless
+**ymin**$ The minimum value on the y axis of the display $Dimensionless
 
 ```
 ````
@@ -121,7 +121,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**title**$ 
+**title**$ The title of the dispalcy, e.g. to use for the window
 
 ````
 
