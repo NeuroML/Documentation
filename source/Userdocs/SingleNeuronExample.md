@@ -39,7 +39,7 @@ The Izhikevich neuron model can take sets of parameters to show different types 
 Here, we define an instance of the general Izhikevich cell using parameters that exhibit regular spiking.
 
 ```{admonition} Units in NeuroML
-NeuroML defines a {ref}`standard set of units <schema:neuromlcoredimensions>` that can be used in models.
+NeuroML defines a {ref}`standard set of units <schema:neuromlcoredimensions_>` that can be used in models.
 Learn more about units and dimensions in NeuroML and LEMS {ref}`here <userdocs:unitsanddimensions>`.
 ```
 Once defined, we add this to our `NeuroMLDocument`.

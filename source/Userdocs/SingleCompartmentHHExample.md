@@ -49,7 +49,7 @@ So we now have our Na channel defined in a separate NeuroML file that can be use
 ----
 language: xml
 ```
-The various rate equations ({ref}`HHExpLinearRate <schema:HHExpLinearRate>`, {ref}`HHExpRate <schema:HHExpRate>`, {ref}`HHSigmoidRate <schema:HHSigmoidRate>` that can be used in the gate (here {ref}`gateHHrates <schema:gateHHrates>`, but other forms such as {ref}`gateHHtauInf <schema:gateHHtauInf>` and {ref}`gateHHInstantaneous <schema:gateHHInstantaneous>` can be used) are defined in the NeuroML {ref}`schema <schema:channels>`.
+The various rate equations ({ref}`HHExpLinearRate <schema:HHExpLinearRate>`, {ref}`HHExpRate <schema:HHExpRate>`, {ref}`HHSigmoidRate <schema:HHSigmoidRate>` that can be used in the gate (here {ref}`gateHHrates <schema:gateHHrates>`, but other forms such as {ref}`gateHHtauInf <schema:gateHHtauInf>` and {ref}`gateHHInstantaneous <schema:gateHHInstantaneous>` can be used) are defined in the NeuroML {ref}`schema <schema:channels_>`.
 
 Also note that since we'll want to *include* this file in other NeuroML files, we make the function return the name of the file.
 This is an implementation detail, and there are other ways of doing this too.

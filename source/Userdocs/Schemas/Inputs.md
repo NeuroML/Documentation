@@ -1,5 +1,5 @@
 
-(schema:inputs)=
+(schema:inputs_)=
 # Inputs
 
 **A number of ComponentTypes for providing spiking ( e.g.  {ref}`schema:spikegeneratorpoisson`,  {ref}`schema:spikearray` ) and current inputs ( e.g.  {ref}`schema:pulsegenerator`,  {ref}`schema:voltageclamp`,  {ref}`schema:timedsynapticinput`,  {ref}`schema:poissonfiringsynapse` ) to other ComponentTypes**
@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
+Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -1661,13 +1661,13 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 
 *XML examples*
 ```{code-block} xml
-<pulseGenerator id="pulseGen1" delay="100ms" duration="100ms" amplitude="0.3nA"/>
-```
-```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="100ms" duration="100ms" amplitude="0.4nA"/>
-```
-```{code-block} xml
 <pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0032nA"/>
+```
+```{code-block} xml
+<pulseGenerator id="pulseGen2" delay="20ms" duration="100ms" amplitude="0.2nA"/>
 ```
 
 ````

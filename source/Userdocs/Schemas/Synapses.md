@@ -1,5 +1,5 @@
 
-(schema:synapses)=
+(schema:synapses_)=
 # Synapses
 
 **A number of synaptic ComponentTypes for use in NeuroML 2 documents, e.g.  {ref}`schema:exponesynapse`,  {ref}`schema:exptwosynapse`,  {ref}`schema:blockingplasticsynapse`. These extend the  {ref}`schema:basesynapse` ComponentType. Also defined continuously transmitting synapses, e.g.  {ref}`schema:gapjunction` and  {ref}`schema:gradedsynapse`.**
@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Synapses.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
+Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -615,15 +615,15 @@ variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
+<expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
+        <notes>A simple monoexponential synapse.</notes>
+    </expOneSynapse>
+```
+```{code-block} xml
 <expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 ```{code-block} xml
 <expOneSynapse id="syn2" gbase="10nS" erev="0mV" tauDecay="2ms"/>
-```
-```{code-block} xml
-<expOneSynapse id="sy1" gbase="0.5nS" erev="0mV" tauDecay="3ms">
-        <notes>A simple monoexponential synapse.</notes>
-    </expOneSynapse>
 ```
 
 ````
@@ -912,13 +912,15 @@ variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
+<expTwoSynapse id="SimpleSynapse" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms">
+        <notes>A biexponential synapse.</notes>
+    </expTwoSynapse>
+```
+```{code-block} xml
+<expTwoSynapse id="AMPA" tauRise="3e-5s" tauDecay="0.5e-3s" gbase=".3nS" erev="0V"/>
 ```
 ```{code-block} xml
 <expTwoSynapse id="synInput" gbase="8nS" erev="20mV" tauRise="1ms" tauDecay="5ms"/>
-```
-```{code-block} xml
-<expTwoSynapse id="synInputFast" gbase="1nS" erev="20mV" tauRise="0.2ms" tauDecay="1ms"/>
 ```
 
 ````
@@ -1077,12 +1079,12 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 *XML examples*
 ```{code-block} xml
-<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
-```
-```{code-block} xml
 <expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
         <notes>A synapse consisting of one rise and two decay time courses.</notes>
     </expThreeSynapse>
+```
+```{code-block} xml
+<expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
 ```
 
 ````
@@ -2152,10 +2154,10 @@ variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <silentSynapse id="silent1"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent2"/>
+<silentSynapse id="silent1"/>
 ```
 ```{code-block} xml
-<silentSynapse id="silent1"/>
+<silentSynapse id="silent2"/>
 ```
 
 ````
@@ -2407,10 +2409,10 @@ variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 
 *XML examples*
 ```{code-block} xml
-<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
 ```
 ```{code-block} xml
-<gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
+<gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
 ```
 
 ````

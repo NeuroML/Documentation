@@ -73,7 +73,7 @@ To simulate a LEMS file:
 pylems lemsexample.xml
 
 ```
-Please note that if you are simulating a NeuroML file you will have to also specify the location of the {ref}`NeuroML 2 LEMS definitions <schema:neuromlcorecomptypes>` with the `-I` option.
+Please note that if you are simulating a NeuroML file you will have to also specify the location of the {ref}`NeuroML 2 LEMS definitions <schema:neuromlcorecomptypes_>` with the `-I` option.
 We suggest that you use {ref}`pyNeuroML <pyNeuroML>` where this is not required:
 ```{code-block} console
 pylems -I <dir of NeuroML2 install>/NeuroML2CoreTypes/  LEMS_NeuroML2_Model.xml

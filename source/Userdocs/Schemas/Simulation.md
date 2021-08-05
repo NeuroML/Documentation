@@ -1,5 +1,5 @@
 
-(schema:simulation)=
+(schema:simulation_)=
 # Simulation
 
 **Specification of the LEMS Simulation element which is normally used to define simulations of NeuroML2 files. Note: not actually part of NeuroML v2, but this is required by much of the NeuroML toolchain for defining Simulations ( which NeuroML model to use and how long to run for ), as well as what to  {ref}`schema:display` and what to save in  {ref}`schema:outputfile`s.**
@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Simulation.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Simulation.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/496cd0fdd47d63036ea95cb278d2a877319a0433) commit.
+Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---

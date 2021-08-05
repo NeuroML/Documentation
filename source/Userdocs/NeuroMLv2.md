@@ -71,12 +71,12 @@ Each element has a corresponding **ComponentType** definition, describing the pa
 
 The standard set of **ComponentType** definitions for the core NeuroML2 elements are contained in a curated set of files (below) though users are {ref}`free to define their own ComponentTypes to extend the scope of the language <userdocs:extending>`.
 
-- {ref}`Dimensions/units allowed <schema:neuromlcoredimensions>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/NeuroMLCoreDimensions.xml?view=markup))
-- {ref}`Cell models <schema:cells>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Cells.xml?view=markup))
-- {ref}`Network elements <schema:networks>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Networks.xml?view=markup))
-- {ref}`Ion channels <schema:channels>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Channels.xml?view=markup))
-- {ref}`Synapse models <schema:synapses>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Synapses.xml?view=markup))
-- {ref}`Mapping of PyNN cells & synapses <schema:pynn>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/PyNN.xml?view=markup))
+- {ref}`Dimensions/units allowed <schema:neuromlcoredimensions_>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/NeuroMLCoreDimensions.xml?view=markup))
+- {ref}`Cell models <schema:cells_>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Cells.xml?view=markup))
+- {ref}`Network elements <schema:networks_>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Networks.xml?view=markup))
+- {ref}`Ion channels <schema:channels_>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Channels.xml?view=markup))
+- {ref}`Synapse models <schema:synapses_>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Synapses.xml?view=markup))
+- {ref}`Mapping of PyNN cells & synapses <schema:pynn_>` ([source in LEMS](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/PyNN.xml?view=markup))
 
 
 

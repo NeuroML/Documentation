@@ -1,5 +1,5 @@
 
-(schema:channels)=
+(schema:channels_)=
 # Channels
 
 **Defines voltage ( and concentration ) gated ion channel models. Ion channels will generally extend  {ref}`schema:baseionchannel`. The most commonly used voltage dependent gate will extend  {ref}`schema:basegate`.**
@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Channels.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 29/06/21 from [this](https://github.com/NeuroML/NeuroML2/commit/6ecd79c4f80acc75cc6a41e8f52c5fba52fad127) commit.
+Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -1365,9 +1365,9 @@ extends {ref}`schema:gate`
         </gateHHrates>
 ```
 ```{code-block} xml
-<gateHHrates id="n" instances="4">
-            <forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
+<gateHHrates id="m" instances="3">
+            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
         </gateHHrates>
 ```
 
@@ -2337,8 +2337,15 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 *XML examples*
 ```{code-block} xml
-<ionChannelHH id="HH_Na" conductance="10pS" species="na">  
-        
+<ionChannelHH id="NaConductance" conductance="10pS" species="na">
+        <gateHHrates id="m" instances="3">
+            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
+            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+        </gateHHrates>
+        <gateHHrates id="h" instances="1">
+            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
+            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
+        </gateHHrates>
     </ionChannelHH>
 ```
 ```{code-block} xml
