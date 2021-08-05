@@ -1,0 +1,34 @@
+<Lems>
+
+    <!-- Specify the Simulation element below as what LEMS should load. Save a
+         report of the simulation (e.g. simulator version, run time) in a file-->
+    <Target component="sim1" reportFile="report.txt"/>
+
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+    <!-- Including file with a <neuroml> root, a "real" NeuroML 2 file -->
+    <Include file="NML2_SingleCompHHCell.nml"/>
+
+    <!-- What to run (from the above NeuroML file) and what duration/timestep -->
+    <Simulation id="sim1" length="300ms" step="0.01ms" target="net1">
+
+        <!-- Display a trace in a new window -->
+        <Display id="d1" title="HH cell with simple morphology: voltage" timeScale="1ms" xmin="0" xmax="300" ymin="-90" ymax="50">
+                <Line id="v" quantity="hhpop[0]/v" color="#cccccc" scale="0.001" timeScale="1ms"/>
+        </Display>
+
+        <!-- Save a variable to file  -->
+        <OutputFile id="of0" fileName="ex_v.dat">
+            <OutputColumn id="v" quantity="hhpop[0]/v"/>
+        </OutputFile>
+
+        <!-- Save spike times from a cell to file  -->
+        <EventOutputFile id="spikes" fileName="ex.spikes" format="TIME_ID">
+            <EventSelection id="0" select="hhpop[0]" eventPort="spike"/>
+        </EventOutputFile>
+
+    </Simulation>
+
+</Lems>
