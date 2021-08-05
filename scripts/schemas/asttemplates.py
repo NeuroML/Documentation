@@ -81,7 +81,7 @@ env.filters['format_math'] = format_math
 """Template for the page header"""
 page_header = env.from_string(textwrap.dedent(
     """
-    (schema:{{ comp_definition|lower }})=
+    (schema:{{ comp_definition|lower }}_)=
     # {{ comp_definition }}
 
     {% if comp_description and comp_description | length > 0 -%}
