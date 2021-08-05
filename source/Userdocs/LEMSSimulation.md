@@ -7,11 +7,27 @@ For many users, the most obvious place that LEMS is used is in the LEMS Simulati
 
 See <a href="Schemas/Simulation.html">here</a> for definition of the main elements used in the file, including {ref}`schema:display`,  {ref}`schema:outputfile`, etc.
 
-
 ## Quantities and paths
 
 Specifying the quantities to save/display in a LEMS Simulation file is an important and sometimes confusing process. There is a {ref}`dedicated page <userdocs:quantitiesandrecording>` on quantities and paths in LEMS and NeuroML2.
 
+## Creating LEMS Simulation files
+
+Perhaps the easiest way to create a LEMS Simulation file is to base it off of an existing example.
+
+```{literalinclude} ./NML2_examples/lems_sim/LEMS_SimulationExample.xml
+----
+language: xml
+```
+
+Alternatively, it is possible to create a LEMS Simulation file in Python file using pyNeuroML:
+
+```{literalinclude} ./NML2_examples/lems_sim/create_lems.py
+----
+language: python
+```
+
+See [this example](https://github.com/NeuroML/pyNeuroML/blob/master/examples/create_new_lems_file.py) for more details.
 
 ## What about SED-ML?
 
