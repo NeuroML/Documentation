@@ -56,6 +56,7 @@ parts:
     - file: Userdocs/FAQ
   - caption: NeuroML events
     chapters:
+      - file: Events/202108-INCF-Training-Week
       - file: Events/202107-CNS2021
       - file: Events/202103-Harmony
   - caption: The NeuroML Initiative
