@@ -3,7 +3,7 @@
 
 A NeuroML tutorial will be held at the [Virtual INCF Neuroinformatics Training Weeks 2021](https://www.incf.org/virtual-incf-neuroinformatics-training-week-2021).
 
-This tutorial is intended for members of the computational modelling interested in learning more about how NeuroML and its related technologies facilitates the standardization, sharing, and collaborative development of models.
+This tutorial is intended for members of the research community interested in learning more about how NeuroML and its related technologies facilitates the standardization, sharing, and collaborative development of models.
 
 (neuromlevents:202108incf:when)=
 ## Times and dates
