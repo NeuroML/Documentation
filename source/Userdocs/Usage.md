@@ -27,6 +27,11 @@ Each page in the documentation also has its own navigation in the *right hand si
 
 (userdocs:usage:jupyterbooks)=
 ## Using Jupyter books included in the documentation
+```{admonition} Familiar with Jupyter Notebooks, skip ahead to the next section.
+:class: tip
+If you are familiar with Jupyter Notebooks, you can skip ahead to the {ref}`Getting started with NeuroML <userdocs:getting_started_neuroml>` section.
+```
+
 
 The most important feature of Jupyter books is that it allows you to include [Jupyter notebooks](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html) in the documentation.
 This allows us to write documentation which includes code examples that can be modified and executed by users interactively in their browsers *without having to install anything on their local machines*.
