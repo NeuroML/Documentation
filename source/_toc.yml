@@ -60,6 +60,7 @@ parts:
       - file: Events/202108-INCF-Training-Week
       - file: Events/202107-CNS2021
       - file: Events/202103-Harmony
+      - file: Events/PastEvents
   - caption: The NeuroML Initiative
     chapters:
       - file: NeuroMLOrg/CommunicationChannels
