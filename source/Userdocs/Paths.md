@@ -18,19 +18,19 @@ For example, in the {ref}`Izhikevich network example <userdocs:getting_started:s
         </population>
         <populationList id="IzPop1" component="iz2007RS0">
             <property tag="color" value=".8 0 0"/>
-            <instance id=1>
+            <instance id=0>
                 <location x="0" y="0" z="0" />
             </instance>
-            <instance id=2>
+            <instance id=1>
                 <location x="1" y="0" z="0" />
             </instance>
-            <instance id=3>
+            <instance id=2>
                 <location x="2" y="0" z="0" />
             </instance>
-            <instance id=4>
+            <instance id=3>
                 <location x="3" y="0" z="0" />
             </instance>
-            <instance id=5>
+            <instance id=4>
                 <location x="4" y="0" z="0" />
             </instance>
         </populationList>
