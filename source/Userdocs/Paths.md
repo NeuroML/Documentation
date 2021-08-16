@@ -16,13 +16,28 @@ For example, in the {ref}`Izhikevich network example <userdocs:getting_started:s
         <population id="IzPop0" component="iz2007RS0" size="5">
             <property tag="color" value="0 0 .8"/>
         </population>
-        <population id="IzPop1" component="iz2007RS0" size="5">
+        <populationList id="IzPop1" component="iz2007RS0">
             <property tag="color" value=".8 0 0"/>
-        </population>
+            <instance id=1>
+                <location x="0" y="0" z="0" />
+            </instance>
+            <instance id=2>
+                <location x="1" y="0" z="0" />
+            </instance>
+            <instance id=3>
+                <location x="2" y="0" z="0" />
+            </instance>
+            <instance id=4>
+                <location x="3" y="0" z="0" />
+            </instance>
+            <instance id=5>
+                <location x="4" y="0" z="0" />
+            </instance>
+        </populationList>
         <projection id="proj" presynapticPopulation="IzPop0" postsynapticPopulation="IzPop1" synapse="syn0">
-            <connection id="0" preCellId="../IzPop0[0]" postCellId="../IzPop1[0]"/>
-            <connection id="1" preCellId="../IzPop0[0]" postCellId="../IzPop1[1]"/>
-            <connection id="2" preCellId="../IzPop0[0]" postCellId="../IzPop1[2]"/>
+            <connection id="0" preCellId="../IzPop0[0]" postCellId="../IzPop1/0"/>
+            <connection id="1" preCellId="../IzPop0[0]" postCellId="../IzPop1/1"/>
+            <connection id="2" preCellId="../IzPop0[0]" postCellId="../IzPop1/2"/>
             ...
         </projection>
         <explicitInput target="IzPop0[0]" input="pg_0"/>
@@ -49,5 +64,9 @@ For example, `../../../` would mean "go up three levels".
 Additionally, when constructing the path:
 
 - for any `child` elements, the *name* of the element should be used in the path
-- for `children` elements, the *id* of the element should be used in the path
-- for elements that have a `size` attribute like {ref}`population <schema:population>`, individual elements should be referred to using the `[]` operator
+- for `children` elements, the *id* of the element should be used in the path (because all children will have the same name)
+- for elements that have a `size` attribute like {ref}`population <schema:population>`, individual elements should be referred to using the `[]` operator (these elements instantiate multiple instances of the provided component without the user having the specify each instance explicitly)
+
+Note the difference in the paths used for the `population` and `populationList` components.
+Whereas `population` uses the `size` attribute to instantiate multiple instances of the cell, each instance must be explicitly mentioned when using the `populationList` component.
+This is because unlike `population`, in `populationList` all `instance` elements are `children` elements.
