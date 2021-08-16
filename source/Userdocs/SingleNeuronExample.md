@@ -16,6 +16,7 @@ language: python
 ----
 ```
 
+(userdocs:getting_started:single_example:declaring)=
 ## Declaring the model in NeuroML
 
 ```{admonition} Python is the suggested programming language to use for working with NeuroML.
@@ -77,6 +78,7 @@ lines: 48-54
 ----
 
 ```
+(userdocs:getting_started:single_example:declaring:model)=
 ### The generated NeuroML model
 
 We have now defined our model in NeuroML.
@@ -205,6 +207,7 @@ As is evident, XML files are excellent for storing structured data, but may not 
 However, NeuroML users *are not expected* to write in XML.
 They should use the Python tools as demonstrated here.
 
+(userdocs:getting_started:single_example:simulating)=
 ## Simulating the model
 
 Until now, we have just declared the model.
@@ -252,6 +255,7 @@ lines: 77-80
 Here, we are running our simulation using the {ref}`jNeuroML <jNeuroML>` simulator, which is bundled with {ref}`pyNeuroML <pyNeuroML>`.
 Since NeuroML is a well defined standard, models defined in NeuroML can also be run using other {ref}`supported simulators <userdocs:simulators>`.
 
+(userdocs:getting_started:single_example:plotting)=
 ## Plotting the recorded membrane potential
 
 Once we have simulated our model and the data has been collected in the specified file, we can analyse the data.
