@@ -2,7 +2,7 @@
 (schema:networks_)=
 # Networks
 
-**Network descriptions for NeuroML 2. Describes  {ref}`schema:network` elements containing  {ref}`schema:population`s ( potentially specifying a list of cell  {ref}`schema:location`s ),  {ref}`schema:projection`s ( lists of  {ref}`schema:connection`s ) and  {ref}`schema:input`s.**
+**Network descriptions for NeuroML 2. Describes  {ref}`schema:network` elements containing  {ref}`schema:population`s ( potentially of type  {ref}`schema:populationlist`, and so specifying a list of cell  {ref}`schema:location`s ),  {ref}`schema:projection`s ( i.e. lists of  {ref}`schema:connection`s ) and  {ref}`schema:input`s.**
 
 ---
 
@@ -25,7 +25,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s ( either directly between components of the populations or via synapses ).</i>
+<i>Network containing:  {ref}`schema:population`s ( potentially of type  {ref}`schema:populationlist`, and so specifying a list of cell  {ref}`schema:location`s );  {ref}`schema:projection`s ( with lists of  {ref}`schema:connection`s ) and/or  {ref}`schema:explicitconnection`s; and  {ref}`schema:inputlist`s ( with lists of  {ref}`schema:input`s ) and/or  {ref}`schema:explicitinput`s. Note: often in NeuroML this will be of type  {ref}`schema:networkwithtemperature` if there are temperature dependent elements ( e.g. ion channels ).</i>
 
 
 
@@ -120,7 +120,7 @@ extends {ref}`schema:network`
 
 
 
-<i>Network containing  {ref}`schema:population`s,  {ref}`schema:projection`s and lists of  {ref}`schema:explicitconnection`s ( either directly between components of the populations or via synapses ), and an explicit temperature.</i>
+<i>Same as  {ref}`schema:network`, but with an explicit **temperature** for temperature dependent elements ( e.g. ion channels ).</i>
 
 
 
@@ -146,7 +146,7 @@ extends *{ref}`schema:basestandalone`*
 
 
 
-<i>A population of cells ( anything which extends  {ref}`schema:basecell` ).</i>
+<i>A population of multiple instances of a specific **component,** which anything which extends  {ref}`schema:basecell`.</i>
 
 
 
@@ -195,7 +195,7 @@ extends *{ref}`schema:basepopulation`*
 
 
 
-<i>A population of components, with just one parameter for the **size**.</i>
+<i>A population of components, with just one parameter for the **size,** i.e. number of components to create. Note: quite often this is used with type= {ref}`schema:populationlist` which means the size is determined by the number of  {ref}`schema:instance`s ( with  {ref}`schema:location`s ) in the list. The **size** attribute is still set, and there will be a validation error if this does not match the number in the list.</i>
 
 
 
@@ -245,7 +245,7 @@ extends *{ref}`schema:basepopulation`*
 
 
 
-<i>An explicit list of the cells in the population.</i>
+<i>An explicit list of  {ref}`schema:instance`s ( with  {ref}`schema:location`s ) of components in the population.</i>
 
 
 
@@ -255,7 +255,7 @@ extends *{ref}`schema:basepopulation`*
 :width: 100%
 :delim: $
 
-**size**$ This attribute is not used by LEMS and is provided for metadata purposes only. The size of the populationList is equal to the number of explicitly defined instances.
+**size**$ Note: the size of the populationList to create is set by the number of explicitly defined instances. The size attribute is still set, and there will be a validation error if this does not match the number in the list.
 
 ````
 
@@ -277,7 +277,7 @@ extends *{ref}`schema:basepopulation`*
 
 
 
-<i>Specifies a single instance of a component in a population ( placed at  {ref}`schema:location` ).</i>
+<i>Specifies a single instance of a component in a  {ref}`schema:population` ( placed at  {ref}`schema:location` ).</i>
 
 
 
@@ -329,7 +329,7 @@ variable = Instance(id=None, i=None, j=None, k=None, location=None, **kwargs_)
 
 
 
-<i>Specifies location of a single  {ref}`schema:instance` of a component in a population.</i>
+<i>Specifies the ( x, y, z ) location of a single  {ref}`schema:instance` of a component in a  {ref}`schema:population`.</i>
 
 
 
