@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
+Generated on 18/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/4d38dbbe8313b7273c206db82dad67aaeacf45f4) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -1664,10 +1664,10 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 <pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
 ```
 ```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0032nA"/>
+<pulseGenerator id="pulseGen2" delay="400ms" duration="200ms" amplitude="0.0020nA"/>
 ```
 ```{code-block} xml
-<pulseGenerator id="pulseGen2" delay="20ms" duration="100ms" amplitude="0.2nA"/>
+<pulseGenerator id="pulseGen3" delay="700ms" duration="200ms" amplitude="0.0010nA"/>
 ```
 
 ````

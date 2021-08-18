@@ -132,7 +132,7 @@ def get_comp_examples(srcdirs, examples_max=3):
 
     for srcdir in srcdirs:
         example_files = os.listdir(srcdir)
-        for f in example_files:
+        for f in sorted(example_files):
             if ".nml" in f or ".xml" in f:
                 srcfile = srcdir + "/" + f
                 print("Processing example file: {}".format(srcfile))

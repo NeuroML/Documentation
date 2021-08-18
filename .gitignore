@@ -13,3 +13,6 @@ x86_64/
 *nrn.py
 __pycache__
 /regen.sh
+/source/Userdocs/NML2_examples/lems_sim/LEMS_sim1.xml
+/source/Userdocs/NML2_examples/lems_sim/ex.spikes
+/source/Userdocs/NML2_examples/lems_sim/report.txt
