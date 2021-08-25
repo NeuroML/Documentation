@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
+Generated on 18/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/4d38dbbe8313b7273c206db82dad67aaeacf45f4) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -29,13 +29,13 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 *XML examples*
 ```{code-block} xml
-<notes>An alpha synapse with time for rise equal to decay.</notes>
+<notes>A Simple Spiking cell for testing purposes</notes>
 ```
 ```{code-block} xml
-<notes>A simple monoexponential synapse.</notes>
+<notes>Multicompartmental cell</notes>
 ```
 ```{code-block} xml
-<notes>A biexponential synapse.</notes>
+<notes>Leak conductance</notes>
 ```
 
 ````
@@ -86,7 +86,7 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 *XML examples*
 ```{code-block} xml
-<annotation xmlns:xi="http://www.w3.org/2001/XInclude">
+<annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
               <rdf:Description rdf:about="HippoCA1Cell">
                 <bqbiol:is>

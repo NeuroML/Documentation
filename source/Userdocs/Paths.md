@@ -2,7 +2,7 @@
 # Paths
 
 Since NeuroMLv2 and LEMS are both XML based, entities in models and simulations must be referred to using *paths*.
-This page documents how paths can be constructed, and how they can be used to refer to entities in NeuroML/LEMS based models and simulations.
+This page documents how paths can be constructed, and how they can be used to refer to entities in NeuroML/LEMS based models and simulations (e.g. in a {ref}`LEMS Simulation file <userdocs:lemssimulation>`).
 
 (userdocs:constructingpaths)=
 ## Constructing paths
@@ -10,7 +10,7 @@ Paths start from any element and ascend/descend to refer to the entity that is t
 
 The `.` and `..` path constructs are special constructs that mean "the current node" and "the parent node" respectively.
 
-For example, in the {ref}`Izhikevich network example <userdocs:getting_started:single_example>`, the network is defined in NeuroML like this:
+For example, in the following block of code, based on the  {ref}`Izhikevich network example <userdocs:gettingstarted:izhikevichnetwork>`, a network is defined in NeuroML with 2 populations:
 ```{code-block} xml
     <network id="IzNet">
         <population id="IzPop0" component="iz2007RS0" size="5">

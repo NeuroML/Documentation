@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Channels.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 05/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/2e11cc54c858240d64275ffdb633f9219bac232d) commit.
+Generated on 18/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/4d38dbbe8313b7273c206db82dad67aaeacf45f4) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -2337,23 +2337,15 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 *XML examples*
 ```{code-block} xml
-<ionChannelHH id="NaConductance" conductance="10pS" species="na">
-        <gateHHrates id="m" instances="3">
-            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
-        </gateHHrates>
-        <gateHHrates id="h" instances="1">
-            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
-            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
-        </gateHHrates>
+<ionChannelHH id="pas" conductance="10pS"/>
+```
+```{code-block} xml
+<ionChannelHH id="HH_Na" conductance="10pS" species="na">  
+        
     </ionChannelHH>
 ```
 ```{code-block} xml
-<ionChannelHH xmlns:xi="http://www.w3.org/2001/XInclude" id="pas" conductance="10pS"/>
-```
-```{code-block} xml
-<ionChannelHH id="naChan" conductance="10pS" species="na">
-        <notes>Na channel</notes>
+<ionChannelHH id="NaConductance" conductance="10pS" species="na">
         <gateHHrates id="m" instances="3">
             <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
             <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
