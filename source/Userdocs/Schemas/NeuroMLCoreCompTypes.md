@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/4d38dbbe8313b7273c206db82dad67aaeacf45f4) commit.
+Generated on 25/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/e7fc8f080839ddf0aa910ed0bc39dcb684a852b6) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -23,11 +23,10 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 
-````{tabbed} Usage
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <notes>A Simple Spiking cell for testing purposes</notes>
 ```
@@ -37,8 +36,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```{code-block} xml
 <notes>Leak conductance</notes>
 ```
-
 ````
+
 
 (schema:annotation)=
 
@@ -73,18 +72,19 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Annotation" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Annotation" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Annotation
 
 variable = Annotation(anytypeobjs_=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -99,8 +99,8 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
             </rdf:RDF>
         </annotation>
 ```
-
 ````
+
 
 (schema:property)=
 
@@ -124,23 +124,24 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Property" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Property" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Property
 
 variable = Property(tag=None, value=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <property tag="numberInternalDivisions" value="9"/>
 ```
-
 ````
+
 
 (schema:basestandalone)=
 
@@ -630,15 +631,15 @@ extends *{ref}`schema:basebqbiol`*
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Point3DWithDiam" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Point3DWithDiam" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Point3DWithDiam
 
 variable = Point3DWithDiam(x=None, y=None, z=None, diameter=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+

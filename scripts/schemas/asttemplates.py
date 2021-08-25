@@ -510,24 +510,25 @@ dynamics = env.from_string(textwrap.dedent(
 
 examples = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
     {% if pysig %}
-    *Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q={{ pysig[0] }}" target="_blank">libNeuroML API</a>*
+    ````{tabbed} {{ title }}: Python
+    *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q={{ pysig[0] }}" target="_blank">Go to the libNeuroML documentation</a>*
     ```{code-block} python
     from neuroml import {{ pysig[0] }}
 
     variable = {{ pysig[0] }}{{ pysig[1] }}
     ```
+    ````
     {% endif %}
 
     {% if lemsexamples|length > 0 %}
-    *XML examples*
+    ````{tabbed} {{ title }}: XML
     {% for e in lemsexamples -%}
     ```{code-block} xml
     {{ e|trim }}
     ```
     {% endfor -%}
-    {% endif %}
     ````
+    {% endif %}
     """
 ))

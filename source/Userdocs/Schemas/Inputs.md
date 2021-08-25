@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/4d38dbbe8313b7273c206db82dad67aaeacf45f4) commit.
+Generated on 25/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/e7fc8f080839ddf0aa910ed0bc39dcb684a852b6) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -321,23 +321,24 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGenerator" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGenerator
 
 variable = SpikeGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, period=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <spikeGenerator id="spikeGenRegular" period="20 ms"/>
 ```
-
 ````
+
 
 (schema:spikegeneratorrandom)=
 
@@ -447,23 +448,24 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRandom" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRandom" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorRandom
 
 variable = SpikeGeneratorRandom(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, max_isi=None, min_isi=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <spikeGeneratorRandom id="spikeGenRandom" minISI="10 ms" maxISI="30 ms"/>
 ```
-
 ````
+
 
 (schema:spikegeneratorpoisson)=
 
@@ -577,23 +579,24 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorPoisson" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorPoisson
 
 variable = SpikeGeneratorPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, extensiontype_=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <spikeGeneratorPoisson id="spikeGenPoisson" averageRate="50 Hz"/>
 ```
-
 ````
+
 
 (schema:spikegeneratorrefpoisson)=
 
@@ -708,23 +711,24 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRefPoisson" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRefPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorRefPoisson
 
 variable = SpikeGeneratorRefPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, minimum_isi=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <spikeGeneratorRefPoisson id="spikeGenRefPoisson" averageRate="50 Hz" minimumISI="10 ms"/>
 ```
-
 ````
+
 
 (schema:poissonfiringsynapse)=
 
@@ -909,23 +913,24 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PoissonFiringSynapse" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PoissonFiringSynapse
 
 variable = PoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, synapse=None, spike_target=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <poissonFiringSynapse id="poissonFiringSyn" averageRate="10 Hz" synapse="synInput" spikeTarget="./synInput"/>
 ```
-
 ````
+
 
 (schema:transientpoissonfiringsynapse)=
 
@@ -1113,26 +1118,27 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TransientPoissonFiringSynapse" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TransientPoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TransientPoissonFiringSynapse
 
 variable = TransientPoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, delay=None, duration=None, synapse=None, spike_target=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <transientPoissonFiringSynapse id="transPoissonFiringSyn" delay="50ms" duration="50ms" averageRate="300 Hz" synapse="synInputFast" spikeTarget="./synInputFast"/>
 ```
 ```{code-block} xml
 <transientPoissonFiringSynapse id="transPoissonFiringSyn2" delay="50ms" duration="500ms" averageRate="10 Hz" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo"/>
 ```
-
 ````
+
 
 (schema:timedsynapticinput)=
 
@@ -1277,18 +1283,19 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TimedSynapticInput" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TimedSynapticInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TimedSynapticInput
 
 variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse=None, spike_target=None, spikes=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <timedSynapticInput id="synTrain" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo">
         <spike id="0" time="2 ms"/>
@@ -1309,8 +1316,8 @@ variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=Non
         <spike id="15" time="55.2 ms"/>
     </timedSynapticInput>
 ```
-
 ````
+
 
 (schema:spikearray)=
 
@@ -1399,18 +1406,19 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeArray
 
 variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, spikes=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <spikeArray id="spkArr">
       <spike id="0" time="50 ms"/>
@@ -1420,8 +1428,8 @@ variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
       <spike id="4" time="250 ms"/>
     </spikeArray>
 ```
-
 ````
+
 
 (schema:spike)=
 
@@ -1520,18 +1528,19 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Spike" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Spike" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Spike
 
 variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <spike id="0" time="50 ms"/>
 ```
@@ -1541,8 +1550,8 @@ variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
 ```{code-block} xml
 <spike id="2" time="150 ms"/>
 ```
-
 ````
+
 
 (schema:pulsegenerator)=
 
@@ -1648,18 +1657,19 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGenerator" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PulseGenerator
 
 variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
 ```
@@ -1669,8 +1679,8 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 ```{code-block} xml
 <pulseGenerator id="pulseGen3" delay="700ms" duration="200ms" amplitude="0.0010nA"/>
 ```
-
 ````
+
 
 (schema:compoundinput)=
 
@@ -1763,18 +1773,19 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInput" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import CompoundInput
 
 variable = CompoundInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generators=None, sine_generators=None, ramp_generators=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <compoundInput id="ci0">
         <pulseGenerator id="pg1" delay="50ms" duration="200ms" amplitude=".8 nA"/>
@@ -1782,8 +1793,8 @@ variable = CompoundInput(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
         <sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
     </compoundInput>
 ```
-
 ````
+
 
 (schema:compoundinputdl)=
 
@@ -1876,18 +1887,18 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInputDL" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInputDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import CompoundInputDL
 
 variable = CompoundInputDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generator_dls=None, sine_generator_dls=None, ramp_generator_dls=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:pulsegeneratordl)=
 
@@ -1993,18 +2004,18 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGeneratorDL" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PulseGeneratorDL
 
 variable = PulseGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:sinegenerator)=
 
@@ -2112,26 +2123,27 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGenerator" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SineGenerator
 
 variable = SineGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <sineGenerator id="sg0" phase="0" delay="50ms" duration="200ms" amplitude="1.4nA" period="50ms"/>
 ```
 ```{code-block} xml
 <sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
 ```
-
 ````
+
 
 (schema:sinegeneratordl)=
 
@@ -2239,18 +2251,18 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGeneratorDL" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SineGeneratorDL
 
 variable = SineGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:rampgenerator)=
 
@@ -2360,23 +2372,24 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGenerator" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import RampGenerator
 
 variable = RampGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <rampGenerator id="rg0" delay="50ms" duration="200ms" startAmplitude="0.5nA" finishAmplitude="4nA" baselineAmplitude="0nA"/>
 ```
-
 ````
+
 
 (schema:rampgeneratordl)=
 
@@ -2486,18 +2499,18 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGeneratorDL" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import RampGeneratorDL
 
 variable = RampGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:voltageclamp)=
 
@@ -2615,18 +2628,18 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClamp" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClamp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VoltageClamp
 
 variable = VoltageClamp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, target_voltage=None, simple_series_resistance=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:voltageclamptriple)=
 
@@ -2747,20 +2760,21 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClampTriple" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClampTriple" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VoltageClampTriple
 
 variable = VoltageClampTriple(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, active=None, delay=None, duration=None, conditioning_voltage=None, testing_voltage=None, return_voltage=None, simple_series_resistance=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <voltageClampTriple id="vClamp0" active="1" delay="50ms" duration="200ms" conditioningVoltage="-70mV" testingVoltage="-50mV" returnVoltage="-70mV" simpleSeriesResistance="1e6ohm"/>
 ```
-
 ````
+

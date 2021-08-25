@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Networks.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/4d38dbbe8313b7273c206db82dad67aaeacf45f4) commit.
+Generated on 25/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/e7fc8f080839ddf0aa910ed0bc39dcb684a852b6) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -47,18 +47,19 @@ extends *{ref}`schema:basestandalone`*
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Network" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Network" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Network
 
 variable = Network(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, type=None, temperature=None, spaces=None, regions=None, extracellular_properties=None, populations=None, cell_sets=None, synaptic_connections=None, projections=None, electrical_projections=None, continuous_projections=None, explicit_inputs=None, input_lists=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <network id="net1">
         <population id="iafPop1" component="iaf" size="1"/>
@@ -106,8 +107,8 @@ variable = Network(neuro_lex_id=None, id=None, metaid=None, notes=None, properti
         </projection>
     </network>
 ```
-
 ````
+
 
 (schema:networkwithtemperature)=
 
@@ -210,18 +211,19 @@ extends *{ref}`schema:basepopulation`*
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Population" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Population" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Population
 
 variable = Population(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, component=None, size=None, type=None, extracellular_properties=None, layout=None, instances=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <population id="iafPop1" component="iaf" size="1"/>
 ```
@@ -231,8 +233,8 @@ variable = Population(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 ```{code-block} xml
 <population id="iafPop3" component="iaf" size="1"/>
 ```
-
 ````
+
 
 (schema:populationlist)=
 
@@ -292,18 +294,19 @@ extends *{ref}`schema:basepopulation`*
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Instance" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Instance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Instance
 
 variable = Instance(id=None, i=None, j=None, k=None, location=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <instance id="0">
                 <location x="0" y="0" z="0"/>
@@ -319,8 +322,8 @@ variable = Instance(id=None, i=None, j=None, k=None, location=None, **kwargs_)
                 <location x="0" y="0" z="0"/>
             </instance>
 ```
-
 ````
+
 
 (schema:location)=
 
@@ -346,18 +349,19 @@ variable = Instance(id=None, i=None, j=None, k=None, location=None, **kwargs_)
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Location" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Location" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Location
 
 variable = Location(x=None, y=None, z=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <location x="0" y="0" z="0"/>
 ```
@@ -367,8 +371,8 @@ variable = Location(x=None, y=None, z=None, **kwargs_)
 ```{code-block} xml
 <location x="0" y="0" z="0"/>
 ```
-
 ````
+
 
 (schema:region)=
 
@@ -392,18 +396,18 @@ variable = Location(x=None, y=None, z=None, **kwargs_)
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Region" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Region" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Region
 
 variable = Region(neuro_lex_id=None, id=None, spaces=None, anytypeobjs_=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:rectangularextent)=
 
@@ -477,18 +481,19 @@ variable = Region(neuro_lex_id=None, id=None, spaces=None, anytypeobjs_=None, **
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Projection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Projection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Projection
 
 variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, postsynaptic_population=None, synapse=None, connections=None, connection_wds=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <projection id="Proj1" presynapticPopulation="Population1" postsynapticPopulation="Population1" synapse="AMPA">
            
@@ -507,8 +512,8 @@ variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, p
             <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/2/iaf"/>
         </projection>
 ```
-
 ````
+
 
 (schema:explicitconnection)=
 
@@ -578,18 +583,19 @@ variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, p
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Connection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Connection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Connection
 
 variable = Connection(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segment_id='0', pre_fraction_along='0.5', post_cell_id=None, post_segment_id='0', post_fraction_along='0.5', **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/1/iaf"/>
 ```
@@ -599,8 +605,8 @@ variable = Connection(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segment_
 ```{code-block} xml
 <connection id="0" preCellId="../pop0/0/MultiCompCell" postCellId="../pop0/1/MultiCompCell" preSegmentId="0" preFractionAlong="0.5" postSegmentId="0" postFractionAlong="0.5"/>
 ```
-
 ````
+
 
 (schema:synapticconnection)=
 
@@ -649,18 +655,18 @@ extends {ref}`schema:explicitconnection`
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SynapticConnection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SynapticConnection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SynapticConnection
 
 variable = SynapticConnection(from_=None, to=None, synapse=None, destination=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:synapticconnectionwd)=
 
@@ -752,18 +758,19 @@ extends {ref}`schema:connection`
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ConnectionWD" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ConnectionWD" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ConnectionWD
 
 variable = ConnectionWD(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segment_id='0', pre_fraction_along='0.5', post_cell_id=None, post_segment_id='0', post_fraction_along='0.5', weight=None, delay=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista[0]" postCellId="../pop_target[0]" weight="0.01" delay="10ms"/>
 ```
@@ -773,8 +780,8 @@ variable = ConnectionWD(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segmen
 ```{code-block} xml
 <connectionWD id="0" preCellId="../pop_IF_curr_alpha[0]" postCellId="../pop_target[2]" weight="1" delay="30ms"/>
 ```
-
 ````
+
 
 (schema:electricalconnection)=
 
@@ -798,23 +805,24 @@ variable = ConnectionWD(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segmen
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalConnection
 
 variable = ElectricalConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', synapse=None, extensiontype_=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
 ```
-
 ````
+
 
 (schema:electricalconnectioninstance)=
 
@@ -862,23 +870,24 @@ variable = ElectricalConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_s
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstance" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalConnectionInstance
 
 variable = ElectricalConnectionInstance(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', synapse=None, extensiontype_=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
 ```
-
 ````
+
 
 (schema:electricalconnectioninstancew)=
 
@@ -930,18 +939,18 @@ extends {ref}`schema:electricalconnectioninstance`
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstanceW" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstanceW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalConnectionInstanceW
 
 variable = ElectricalConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', synapse=None, weight=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:electricalprojection)=
 
@@ -978,18 +987,19 @@ variable = ElectricalConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=No
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalProjection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalProjection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalProjection
 
 variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_population=None, postsynaptic_population=None, electrical_connections=None, electrical_connection_instances=None, electrical_connection_instance_ws=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
             <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
@@ -1000,8 +1010,8 @@ variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_populati
             <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
         </electricalProjection>
 ```
-
 ````
+
 
 (schema:continuousconnection)=
 
@@ -1026,26 +1036,27 @@ variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_populati
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousConnection
 
 variable = ContinuousConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', pre_component=None, post_component=None, extensiontype_=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
 ```
 ```{code-block} xml
 <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent2" postComponent="gs2"/>
 ```
-
 ````
+
 
 (schema:continuousconnectioninstance)=
 
@@ -1094,18 +1105,18 @@ variable = ContinuousConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_s
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstance" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousConnectionInstance
 
 variable = ContinuousConnectionInstance(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', pre_component=None, post_component=None, extensiontype_=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
 
 (schema:continuousconnectioninstancew)=
 
@@ -1157,23 +1168,24 @@ extends {ref}`schema:continuousconnectioninstance`
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstanceW" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstanceW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousConnectionInstanceW
 
 variable = ContinuousConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', pre_component=None, post_component=None, weight=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
 ```
-
 ````
+
 
 (schema:continuousprojection)=
 
@@ -1210,18 +1222,19 @@ variable = ContinuousConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=No
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousProjection" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousProjection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousProjection
 
 variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_population=None, postsynaptic_population=None, continuous_connections=None, continuous_connection_instances=None, continuous_connection_instance_ws=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <continuousProjection id="testLinearGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
             <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
@@ -1237,8 +1250,8 @@ variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_populati
             <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
         </continuousProjection>
 ```
-
 ````
+
 
 (schema:explicitinput)=
 
@@ -1284,18 +1297,19 @@ variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_populati
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExplicitInput" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExplicitInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExplicitInput
 
 variable = ExplicitInput(target=None, input=None, destination=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <explicitInput target="iafPop1[0]" input="pulseGen1" destination="synapses"/>
 ```
@@ -1305,8 +1319,8 @@ variable = ExplicitInput(target=None, input=None, destination=None, **kwargs_)
 ```{code-block} xml
 <explicitInput target="iafPop1[0]" input="pulseGen3" destination="synapses"/>
 ```
-
 ````
+
 
 (schema:inputlist)=
 
@@ -1351,18 +1365,19 @@ variable = ExplicitInput(target=None, input=None, destination=None, **kwargs_)
 ```
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputList" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputList" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InputList
 
 variable = InputList(neuro_lex_id=None, id=None, populations=None, component=None, input=None, input_ws=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <inputList id="i1" component="pulseGen1" population="hhPop1">
             <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
@@ -1378,8 +1393,8 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
             <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
         </inputList>
 ```
-
 ````
+
 
 (schema:input)=
 
@@ -1414,18 +1429,19 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Input" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Input" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Input
 
 variable = Input(id=None, target=None, destination=None, segment_id=None, fraction_along=None, extensiontype_=None, **kwargs_)
 ```
+````
 
 
 
-*XML examples*
+````{tabbed} Usage: XML
 ```{code-block} xml
 <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
 ```
@@ -1435,8 +1451,8 @@ variable = Input(id=None, target=None, destination=None, segment_id=None, fracti
 ```{code-block} xml
 <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
 ```
-
 ````
+
 
 (schema:inputw)=
 
@@ -1484,15 +1500,15 @@ extends {ref}`schema:input`
 
 ````
 
-````{tabbed} Usage
 
-*Python: <a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputW" target="_blank">libNeuroML API</a>*
+````{tabbed} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InputW
 
 variable = InputW(id=None, target=None, destination=None, segment_id=None, fraction_along=None, weight=None, **kwargs_)
 ```
-
-
-
 ````
+
+
+
