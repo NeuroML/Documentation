@@ -10,6 +10,11 @@ VENV_DIR="$(readlink -f .venv)"
 VENV_ACTIVATE_SCRIPT="$VENV_DIR/bin/activate"
 VENV_STATUS="inactive"
 
+if [[ -z "${PYTHON}" ]]
+then
+    PYTHON="python3"
+fi
+
 function enable_virtenv() {
     if [[ -z "${VIRTUAL_ENV}" ]];
     then
@@ -50,7 +55,7 @@ function create_virtenv() {
         echo "Please delete it and re-run to create a new one."
     else
         echo "Setting up new virtual environment in $VENV_DIR."
-        python -m venv "$VENV_DIR"
+        $PYTHON -m venv "$VENV_DIR"
 
         echo "Activating virtual environment."
         source "$VENV_ACTIVATE_SCRIPT"
