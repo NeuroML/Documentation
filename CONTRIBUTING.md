@@ -8,6 +8,10 @@
 ## Building docs locally
 
 The documentation currently uses [Jupyter-book](https://jupyterbook.org/).
+
+Please note that Jupyterbook does not yet support Sphinx v4, and Sphinx v3 does not run correctly with Python 3.10.
+Therefore, until Jupyterbook is updated to support Sphinx v4, please use Python `<= 3.9` for your virtual environment.
+
 To build the documentation locally, to test before opening Pull Requests for example, a virtual environment can be used:
 
 ```
