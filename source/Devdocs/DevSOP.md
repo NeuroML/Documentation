@@ -1,9 +1,12 @@
 (devdocs:devsop)=
 # Contribution guidelines
 
+Thank you for your interest in contributing to NeuroML.
+Welcome!
+
 This page documents the contribution guidelines for all NeuroML related repositories.
 
-Please remember that these are *guidelines* but not rules that must be strictly followed.
+Please do remember that these are *guidelines* but not rules that must be strictly followed.
 We think these are reasonable ideas to follow and they help us maintain a high code quality while making it easier and more efficient for all of us to work together.
 However, there may be cases where they can not be followed, and that's fine too.
 
