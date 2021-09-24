@@ -1,3 +1,4 @@
+(coc)=
 # Code of Conduct
 
 Everyone is welcome in the NeuroML community.
