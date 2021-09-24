@@ -78,6 +78,7 @@ parts:
     chapters:
       - file: Devdocs/Devdocs
         sections:
+          - file: Devdocs/DevSOP
           - file: Devdocs/ReleaseProcess
       - file: Devdocs/InteractionOtherBits
   - caption: Reference
