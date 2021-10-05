@@ -15,7 +15,7 @@ The general theme of the workshop is to discuss the current status of the NeuroM
 ## Times and dates
 
 - 13 October 2021
-- 8am PDT/11am EST/4pm UK/5pm CET/8:30 IST
+- 8-11am PDT/11-2pm EST/4-7pm UK/5-8pm CET/8:30-11:30 IST
 
 
 (neuromlevents:202109combine:who)=
