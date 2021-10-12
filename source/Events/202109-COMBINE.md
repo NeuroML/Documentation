@@ -23,3 +23,7 @@ The general theme of the workshop is to discuss the current status of the NeuroM
 Everyone that is involved/interested in developing tools that use/integrate with NeuroML is encouraged to join.
 
 Please register for the COMBINE meeting (free of charge) to receive access to the complete schedule of the meeting, including links to the various virtual meetings/sessions.
+
+## Agenda
+
+The provisional agenda for the meeting can be found [here](https://docs.google.com/document/d/1rZp6fggUe1vlo5fYK-CiUP__fdJV8xYg-wrkpIp0dHk/edit).
