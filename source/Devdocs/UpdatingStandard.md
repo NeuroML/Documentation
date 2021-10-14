@@ -11,7 +11,7 @@ These files are housed in the [NeuroML](https://github.com/NeuroML/NeuroML2/) re
 The XSD schema file is used to validate NeuroML XML files, as shown in the {ref}`page on validating NeuroML files <userdocs:validating_models>`.
 Further, the NeuroML Python model in {ref}`libNeuroML <libneuroml>` is also generated from the XSD file using the [generateDS](http://www.davekuhlman.org/generateDS.html) utility.
 
-The LEMS ComponentType definition XML files are also used for a series of additional validation tests, and since they include the details of the underlying dynamics/mathematics for all ComponentTypes, they are also used for the simulation of NeuroML models either using the reference LEMS interpreter or the many supported simulation platforms.
+The LEMS ComponentType definition XML files are also used for a series of additional validation tests, and since they include the details of the underlying dynamics for all ComponentTypes, they are also used for the simulation of NeuroML models either using the reference LEMS interpreter, {ref}`jLEMS <jlems>`, or through automated code generation for supported simulation platforms (via {ref}`jNeuroML <jneuroml>`).
 Additionally, the LEMS definition files are also used the generate the {ref}`human readable schema documentation <userdocs:neuromlv2>` included in this documentation resource.
 
 The two sets of files are therefore, tightly coupled.
