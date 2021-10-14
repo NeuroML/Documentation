@@ -4,7 +4,7 @@
 The NeuroML standard is stored in two sets of files, each serving a specific purpose:
 
 - the NeuroML [XML Schema Definition](https://en.wikipedia.org/wiki/XML_Schema_(W3C)) (XSD) file: this specifies the structure of a valid NeuroML XML file: what XML tags may be used and the how they are related
-- the NeuroML LEMS ComponentType definition XML files: these include the definitions of the NeuroML standard ComponentTypes in LEMS constructs, which include the mathematical details underlying these ComponentTypes
+- the NeuroML [LEMS](http://lems.github.io/LEMS/) ComponentType definition XML files: these include the definitions of the NeuroML standard ComponentTypes in LEMS constructs, which include the mathematical details underlying these ComponentTypes
 
 These files are housed in the [NeuroML](https://github.com/NeuroML/NeuroML2/) repository.
 
