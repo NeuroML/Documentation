@@ -41,8 +41,17 @@ This is done by running the [generate-jupyter-ast.py](https://github.com/NeuroML
 This will read the LEMS XML definition files and regenerate the corresponding documentation pages.
 A pull request can then be opened with the updated pages.
 
+
+
+(devdocs:updating_standard:org_neuroml_model)=
+## Updating the Java API: org.neuroml.model
+
+TODO: Document what needs to be done for https://github.com/NeuroML/org.neuroml.model
+
+
+
 (devdocs:updating_standard:libneuroml)=
-## Updating libNeuroML
+## Updating the Python API: libNeuroML
 
 ```{admonition} PR waiting
 TODO: A pull request to include the `regenerate-nml.sh` script in the repository is in review here: https://github.com/NeuralEnsemble/libNeuroML/pull/110
@@ -57,3 +66,9 @@ Any changes to the XSD schema file require regeneration of the [Python object mo
 - run all tests using `pytest`
 - run all examples and ensure that they run correctly (please see the [GitHub actions workflow](https://github.com/NeuralEnsemble/libNeuroML/blob/master/.github/workflows/ci.yml#L44) for more information)
 - if all checks pass successfully, a pull request can be opened
+
+(devdocs:updating_standard:c_api)=
+## Updating the C++ API
+
+TODO: Document what needs to be done for https://github.com/NeuroML/NeuroML_API/
+
