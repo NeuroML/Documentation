@@ -36,8 +36,8 @@ So, all pull request must be made against the `development` branch.
 (devdocs:updating_standard:schema_docs)=
 ## Regenerating schema documentation
 
-Once the pull request has been merged in the NeuroML repository, the schema documentation must be updated here.
-This is done by running the [generate-jupyter-ast.py](https://github.com/NeuroML/Documentation/blob/master/scripts/schemas/generate-jupyter-ast.py) script included in the Documentation source repository.
+Once the pull request has been merged in the NeuroML repository, the {ref}`human readable schema documentation included in this documentation resource <userdocs:neuromlv2>` must be updated.
+This is done by running the [generate-jupyter-ast.py](https://github.com/NeuroML/Documentation/blob/master/scripts/schemas/generate-jupyter-ast.py) script included in the [documentation source repository](https://github.com/NeuroML/Documentation).
 This will read the LEMS XML definition files and regenerate the corresponding documentation pages.
 A pull request can then be opened with the updated pages.
 
