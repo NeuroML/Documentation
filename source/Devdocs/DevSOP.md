@@ -29,6 +29,11 @@ You can find links to these on the respective pages for each {ref}`software tool
 
 The NeuroML standard itself (schema and ComponentType definitions) is housed in its own repository [here](https://github.com/NeuroML/NeuroML2).
 
+(devdocs:devsop:repos:zenhub)
+### Kanban board on Zenhub
+
+An overview of the various repositories, tasks, issues, and so on can be seen on the [NeuroML Kanban board on Zenhub](https://app.zenhub.com/workspaces/neuroml-development-605c92c7c670460016e497ab/board?filterLogic=any&repos=7225220,6579766,7225426,299352189,78101103,129064858,8460738,6171449,6171626,27832592,78100679,6171646,3740176,4614078,7146844,4326891&showPipelineDescriptions=false).
+
 
 (devdocs:devsop:versioning)=
 ## Versioning
