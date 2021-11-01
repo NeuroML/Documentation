@@ -55,7 +55,7 @@ This means that the version string consists of three components: `MAJOR.MINOR.PA
 
 - For branch names, please consider using the [Git flow](https://nvie.com/posts/a-successful-git-branching-model/) naming convention (not mandatory but strongly suggested):
 
-  - prefix feature branches with `feat/` or `enh/` (for enhancment)
+  - prefix feature branches with `feat/` or `enh/` (for enhancement)
   - prefix bugfix branches with `bugfix/` or `fix/`
   - pull requests addressing specific tickets may also mention them in the branch name. E.g., `bugfix/issue-22`.
 
