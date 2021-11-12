@@ -1,13 +1,6 @@
 (userdocs:quantitiesandrecording)=
 # Quantities and recording
 
-```{note}
-TODO: document `list_exposures()` once https://github.com/NeuroML/pyNeuroML/pull/118 is merged.
-```
-```{note}
-TODO: document `list_recording_paths()` once https://github.com/NeuroML/pyNeuroML/pull/118 is merged.
-```
-
 In LEMS and NeuroML, `quantities` from all `exposures` and all `events` can be recorded by referring to them using {ref}`paths <userdocs:paths>`.
 For examples, please see the {ref}`Getting Started with NeuroML <userdocs:getting_started_neuroml>` section.
 
