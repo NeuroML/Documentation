@@ -31,7 +31,7 @@ These are also all documented in the [LEMS documentation](http://lems.github.io/
 (userdocs:extending:examplexml)=
 ## Example: Lorenz model for cellular convection
 
-Let us create a new LEMS `ComponentType`, one that is not neuroscience specific.
+Let us create a new LEMS ComponentType, one that is not neuroscience specific.
 We will first create it using the plain XML and then see how it can be done using the Python pyLEMS API.
 
 For this example, we will use the Lorenz model for cellular convection {cite}`Lorenz1963`.
@@ -187,7 +187,7 @@ The complete LEMS file will be this:
 ```
 
 We now have a complete LEMS model declaration.
-To use this model, we need to create an instance of the `ComponentType`, a `Component`.
+To use this model, we need to create an instance of the ComponentType, a Component.
 This requires us to set the values of various parameters of the defined model:
 
 ```{code-block} xml
@@ -196,9 +196,9 @@ This requires us to set the values of various parameters of the defined model:
 ```
 
 Here, we've set parameters that result in the chaotic attractor regime.
-We could also use different values for the parameters---like a class can have many many objects with different parameters, a `ComponentType` can have also have different `Components`.
+We could also use different values for the parameters---like a class can have many many objects with different parameters, a ComponentType can have also have different Components.
 
-Note that one can also define a `Component` using the standard constructor form:
+Note that one can also define a Component using the standard constructor form:
 ```{code-block} xml
   <Component id="lorenzCell" type="lorenz1963" sigma="10" beta="2.67" rho="28" x0="1.0" y0="1.0" z0="1.0"/>
 ```
