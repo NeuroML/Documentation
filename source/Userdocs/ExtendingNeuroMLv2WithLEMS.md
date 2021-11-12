@@ -36,7 +36,7 @@ These are also all documented in the [LEMS documentation](http://lems.github.io/
 (userdocs:extending:examplexml)=
 ## Example: Lorenz model for cellular convection
 
-Let us create a new LEMS ComponentType.
+Let us create a new LEMS `ComponentType`, one that is not neuroscience specific.
 We will first create it using the plain XML and then see how it can be done using the Python pyLEMS API.
 
 For this example, we will use the Lorenz model for cellular convection {cite}`Lorenz1963`.
@@ -191,32 +191,8 @@ The complete LEMS file will be this:
 </Lems>
 ```
 
-(userdocs:extending:examplexml:simulating)=
-### Simulating the model
-
-We now have a complete LEMS model.
-This model may now be simulated with different simulation parameters, such as time step and simulation length.
-LEMS enforces the suggested convention where the model and simulations of the model are kept separate from each other.
-
-We therefore define a different file to hold the simulation related information.
-In this new file, we can *include* our first file with out ComponentType definition:
-
-```{code-block} xml
-<Lems xmlns="http://www.neuroml.org/lems/0.7.6"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.neuroml.org/lems/0.7.6 https://raw.github.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.7.6.xsd">
-  <Include file="lorenzComponentType.xml" />
-
-</Lems>
-```
-
-The `Include` element type allows us to modularise our models.
-In NeuroML based models, we use it to break our model down into small independent reusable files.
-
-(userdocs:extending:examplexml:simulating:component)=
-#### Declaring a Component of the ComponentType
-
-To simulate the model, we need to create an instance of the ComponentType, a Component.
+We now have a complete LEMS model declaration.
+To use this model, we need to create an instance of the `ComponentType`, a `Component`.
 This requires us to set the values of various parameters of the defined model:
 
 ```{code-block} xml
@@ -225,24 +201,60 @@ This requires us to set the values of various parameters of the defined model:
 ```
 
 Here, we've set parameters that result in the chaotic attractor regime.
-We could also use different values for the parameters---like a class can have many many objects with different parameters, a ComponentType can have also have different Components.
+We could also use different values for the parameters---like a class can have many many objects with different parameters, a `ComponentType` can have also have different `Components`.
 
-Note that one can also define a Component using the standard constructor form:
+Note that one can also define a `Component` using the standard constructor form:
 ```{code-block} xml
   <Component id="lorenzCell" type="lorenz1963" sigma="10" beta="2.67" rho="28" x0="1.0" y0="1.0" z0="1.0"/>
 ```
 The two forms are equivalent.
 As with other conventions, either form can be used as long as it is used consistently.
-To complete the definition of our LEMS model, me must specify a *target* component:
 
-```{code-block} xml
-<target component="lorenzCell" />
+The `Include` element type allows us to modularise our models.
+In NeuroML based models, we use it to break our model down into small independent reusable files.
+
+(userdocs:extending:lorenz:python)=
+### Writing the model in Python using PyLEMS
+
+While the underlying format for NeuroML and LEMS is XML, Python is the suggested programming language for end users.
+In this section we will see how the Lorenz model can be written using the {ref}`PyLEMS <pylems>` Python LEMS API.
+The complete script is below:
+
+```{literalinclude} ./NML2_examples/LorenzLems.py
+----
+language: python
+----
 ```
 
-This is because a LEMS model may define multiple ComponentTypes and they can all be instantiated into different Components.
-So, LEMS must be informed which of these is the entry point for the simulation.
+As you will see, the PyLEMS API exactly follows the XML constructs that we used before.
+Running this script, let's call it `LorenzLems.py` gives us:
 
-(userdocs:extending:examplexml:simulating:sim_and_record)=
-#### Simulating the model and recording data
+```{code-block} console
+$ python LorenzLems.py
+Validating LEMS_lorenz.xml against https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.6.xsd
+It's valid!
+```
 
-TODO
+The generated XML file is below.
+As you can see, it is identical to the XML file that we wrote by hand in the previous section.
+You will also see that the Python API also provides convenience functions, such as the `export_to_file` and `validate_lems` functions to quickly save your model to an XML file, and validate it.
+
+```{literalinclude} ./NML2_examples/LEMS_lorenz.xml
+----
+language: xml
+----
+```
+
+We strongly suggest that users use the Python tools when working with both NeuroML and LEMS.
+Not only is Python easier to read and write than XML, it also provides powerful programming constructs and has a rick ecosystem of scientific software.
+
+(userdocs:extending:examples)=
+## Examples
+
+Here are some examples of Components written using LEMS to extend NeuroML that can be used as references.
+
+- [The Lorenz example XML source code](https://github.com/NeuroML/NeuroMLlite/blob/master/examples/test_files/Lorenz1963.xml)
+- [An example script for building a LEMS model using Python](https://github.com/LEMS/pylems/blob/master/examples/apitest2.py)
+- [Defining a new synapse in LEMS](https://github.com/OpenSourceBrain/BonoClopath2017/blob/master/NeuroML2/AMPA_NMDA.synapse.nml)
+- [Defining an ion channel in LEMS](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/na.channel.nml)
+- [Defining a new Calcium pool in LEMS](https://github.com/OpenSourceBrain/PospischilEtAl2008/blob/master/NeuroML2/channels/Ca/Ca.nml)
