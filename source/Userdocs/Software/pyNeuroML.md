@@ -125,11 +125,6 @@ Shared options:
 
 Detailed API documentation for pyNeuroML can be found [here](https://pyneuroml.readthedocs.io/en/development/).
 
-```{admonition} TODO!
-:class: dropdown
-Generate and publish API documentation for pyNeuroML.
-Issue filed: https://github.com/NeuroML/pyNeuroML/issues/86
-```
 The pyNeuroML API is also self documented.
 You can use Python's in-built documentation viewer `pydoc` to view the documentation for any of the package's modules and their functions:
 ```{code-block} console
