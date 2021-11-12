@@ -75,7 +75,7 @@ This is because unlike `population`, in `populationList` all `instance` elements
 ### Helper functions in pyNeuroML
 
 ```{note}
-NOTE: These functions require {ref}`pyNeuroML <pyneuroml>` version 0.5.18+, and {ref}`pylems <pylems>` version 0.5.8+.
+These functions require {ref}`pyNeuroML <pyneuroml>` version 0.5.18+, and {ref}`pylems <pylems>` version 0.5.8+.
 ```
 
 From version 0.5.18, {ref}`pyNeuroML <pyneuroml>` includes the [list_recording_paths_for_exposures](https://pyneuroml.readthedocs.io/en/development/pyneuroml.html#pyneuroml.pynml.list_recording_paths_for_exposures) helper function that can list the exposures and their recordable paths from a NeuroML 2 model:
