@@ -96,7 +96,7 @@ list_recording_paths_for_exposures(nml_doc_fn, substring='', target='')
     this one is.
 ```
 
-It can be run on the example Izhikevich network model:
+It can be run on the example {ref}`Izhikevich network example <userdocs:gettingstarted:izhikevichnetwork>`:
 ```{code-block} pycon
 >>> pynml.list_recording_paths_for_exposures("izhikevich2007_network.nml", substring="", target="IzNet")
 ['IzNet/IzPop0[0]/iMemb',
@@ -150,7 +150,7 @@ list_exposures(nml_doc_fn, substring='')
             "component": ["exp1", "exp2"]
         }
 ```
-When run on the example Izhikevich network model, it will return:
+When run on the example {ref}`Izhikevich network example <userdocs:gettingstarted:izhikevichnetwork>`, it will return:
 
 ```{code-block} pycon
 >>> pynml.list_exposures("izhikevich2007_network.nml")
