@@ -17,7 +17,7 @@ Having definitions in LEMS allows their re-use, and these new ComponentTypes can
 
 - Like NeuroML, LEMS files are also XML files.
 - Next, like NeuroML, LEMS also has a [well defined schema](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS) (XSD) that is used to validate LEMS XML files.
-- However, also similar to NeuroML, you can use the [LEMS Python tools](https://github.com/LEMS/pylems) to work with LEMS and do not need to work directly with the XML files.
+- However, also similar to NeuroML, you can use the {ref}`LEMS Python tools <pylems>` to work with LEMS and do not need to work directly with the XML files.
 
 (userdocs:extending:types)=
 ## LEMS elements
