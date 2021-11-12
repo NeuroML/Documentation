@@ -83,11 +83,9 @@ For more information on pyLEMS, please see Vella et al. ({cite}`Vella2014`) and 
 
 (pylems:api_docs)=
 ### API documentation
-```{admonition} TODO!
-:class: dropdown
-Generate and publish API documentation for pyLEMS.
-Issue filed: https://github.com/LEMS/pylems/issues/45
-```
+
+Detailed API documentation for pyNeuroML can be found [here](https://pylems.readthedocs.io/en/development/index.html).
+
 The pyLEMS API is also self documented.
 You can use Python's in-built documentation viewer `pydoc` to view the documentation for any of the package's modules and their functions:
 
