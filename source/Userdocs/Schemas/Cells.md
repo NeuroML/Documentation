@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Cells.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 25/08/21 from [this](https://github.com/NeuroML/NeuroML2/commit/e7fc8f080839ddf0aa910ed0bc39dcb684a852b6) commit.
+Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -2787,7 +2787,7 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 ```{code-block} python
 from neuroml import SpecificCapacitance
 
-variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = SpecificCapacitance(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
@@ -2834,7 +2834,7 @@ variable = SpecificCapacitance(value=None, segment_groups='all', segments=None, 
 ```{code-block} python
 from neuroml import InitMembPotential
 
-variable = InitMembPotential(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = InitMembPotential(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
@@ -2878,7 +2878,7 @@ variable = InitMembPotential(value=None, segment_groups='all', segments=None, **
 ```{code-block} python
 from neuroml import SpikeThresh
 
-variable = SpikeThresh(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
@@ -3516,7 +3516,7 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 ```{code-block} python
 from neuroml import Resistivity
 
-variable = Resistivity(value=None, segment_groups='all', segments=None, **kwargs_)
+variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
@@ -4057,7 +4057,7 @@ extends {ref}`schema:concentrationmodel`
 ```{code-block} python
 from neuroml import Species
 
-variable = Species(value=None, segment_groups='all', segments=None, id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, **kwargs_)
+variable = Species(id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, segment_groups='all', **kwargs_)
 ```
 ````
 
@@ -5168,12 +5168,12 @@ extends *{ref}`schema:basecellmembpot`*
 :width: 100 %
 :delim: $
 
-**a**$  $Dimensionless
-**b**$  $Dimensionless
-**c**$  $Dimensionless
-**d**$  $Dimensionless
-**thresh**$  ${ref}`schema:dimensions:voltage`
-**v0**$  ${ref}`schema:dimensions:voltage`
+**a**$ Time scale of the recovery variable U $Dimensionless
+**b**$ Sensitivity of U to the subthreshold fluctuations of the membrane potential v $Dimensionless
+**c**$ After-spike reset value of v $Dimensionless
+**d**$ After-spike reset of u $Dimensionless
+**thresh**$ Spike threshold ${ref}`schema:dimensions:voltage`
+**v0**$ Initial membrane potential ${ref}`schema:dimensions:voltage`
 
 ```
 ````
