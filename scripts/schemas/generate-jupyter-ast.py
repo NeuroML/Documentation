@@ -263,7 +263,7 @@ def main(srcdir, destdir):
         tempdir = tempfile.TemporaryDirectory()
         tmpsrcdir = tempdir.name
         print("Temporariy directory: {}".format(tmpsrcdir))
-        clone_command = ["git", "clone", "--depth", "1", GitHubRepo, tmpsrcdir]
+        clone_command = ["git", "clone", "--depth", "1", "--branch", nml_branch, GitHubRepo, tmpsrcdir]
         subprocess.run(clone_command)
     else:
         tmpsrcdir = srcdir
