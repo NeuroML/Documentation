@@ -61,6 +61,34 @@ Due to the lack of active development of GENESIS, support for mapping to GENESIS
 
 More information on running NeuroML models in MOOSE can be found {ref}`here <userdocs:simulating_models:moose>`.
 
+(userdocs:supporting:apps:brian)=
+### BRIAN
+
+![Brian logo](../../images/tools/brian2.png)
+
+[Brian] is an easy to use, Python based simulator of spiking networks.
+
+More information on running NeuroML models in Brian can be found {ref}`here <userdocs:simulating_models:brian2>`.
+
+(userdocs:supporting:apps:eden)=
+### EDEN
+
+[EDEN] is a recently developed simulation engine which incorporates native NeuroML 2 support from the start.
+
+Initial tests of using EDEN with NeuroML models and example code can be found [here](https://github.com/OpenSourceBrain/EDENShowcase).
+
+
+(userdocs:supporting:apps:arbor)=
+### Arbor
+
+![Arbor logo](../../images/tools/arbor.png)
+
+[Arbor] is a high performance multicompartmental neural simulation library. Addition of support for NeuroML2 and LEMS is under active development.
+See [here](https://docs.arbor-sim.org/en/stable/fileformat/neuroml.html).
+
+Example code for interactions between NeuroML models and Arbor can be found [here](https://github.com/OpenSourceBrain/ArborShowcase).
+
+
 (userdocs:supporting:apps:pynn)=
 ### PyNN
 
@@ -256,3 +284,5 @@ Loading of morphologies in MorphML and NeuroML formats is supported.
 [Geppetto]: http://www.geppetto.org/
 [NEST]: https://nest-simulator.org/
 [Brian]: https://briansimulator.org/
+[EDEN]: https://gitlab.com/neurocomputing-lab/Inferior_OliveEMC/eden
+[Arbor]: https://arbor-sim.org/
