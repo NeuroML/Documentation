@@ -21,6 +21,7 @@ parts:
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
     - file: Userdocs/SimulatingNeuroMLModels
+    - file: Userdocs/OptimisingNeuroMLModels
     - file: Userdocs/Specification
       sections:
         - file: Userdocs/NeuroMLv2
