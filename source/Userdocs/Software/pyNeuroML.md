@@ -63,6 +63,29 @@ The easiest way to install the latest version of pyNeuroML is using the default 
 ```{code-block} console
 pip install pyneuroml
 ```
+
+By default, this will only install the minimal set of packages required to use pyNeuroML.
+To use pyNeuroML with specific {ref}`supporting tools <userdocs:supporting:apps>`, please install them as required:
+
+For {ref}`NEURON <userdocs:supporting:apps:neuron>`
+
+```{code-block} console
+pip install NEURON
+```
+
+For compiling NEURON mod files, you also need a C compiler and the make utility installed on your computer.
+Additionally, to run parallel simulations the [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) libraries are also needed.
+Please see the [NEURON installation documentation](https://www.neuron.yale.edu/neuron/download) for more information on installing NEURON on your computer.
+
+{ref}`Brian <userdocs:supporting:apps:brian>`, {ref}`NetPyNE <userdocs:supporting:apps:netpyne>` can also be similarly installed:
+
+```
+pip install netpyne
+pip install brian2
+```
+
+For more information, please refer to their respective documentations.
+
 (pyneuroml:install_fedora)=
 ### Installation on Fedora Linux
 
@@ -72,6 +95,16 @@ On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neur
 sudo dnf copr enable @neurofedora/neurofedora-extra
 sudo dnf install python3-pyneuroml
 ```
+
+Optional packages can also be installed using the default package manager:
+
+```
+sudo dnf install python3-brian2 python3-neuron neuron-devel python3-netpyne
+```
+
+MPI builds of these tools are also available in the NeuroFedora repositories.
+Please see the [project documentation](https://docs.fedoraproject.org/en-US/neurofedora/mpi/) on installing and using them.
+
 (pyneuroml:docs)=
 ## Documentation
 
