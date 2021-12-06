@@ -12,45 +12,48 @@ from pyneuroml.tune.NeuroMLTuner import run_optimisation
 import pynwb
 import numpy as np
 from pyelectro.utils import simple_network_analysis
-import typing
+from typing import List, Dict, Tuple
 from pyneuroml.pynml import read_neuroml2_file
 from pyneuroml.pynml import validate_neuroml2
 from pyneuroml.pynml import write_neuroml2_file
+from pyneuroml.pynml import generate_plot
+from pyneuroml.pynml import run_lems_with_jneuroml
 from neuroml import (NeuroMLDocument, Izhikevich2007Cell, PulseGenerator,
                      Network, Population, ExplicitInput)
+from hdmf.container import Container
+from pyneuroml.lems.LEMSSimulation import LEMSSimulation
 
 
-def get_data_metrics() -> typing.Tuple[typing.Dict, typing.Dict]:
+def get_data_metrics(datafile: Container) -> Tuple[Dict, Dict, Dict]:
     """Analyse the data to get metrics to tune against.
 
-    :returns: metrics from pyelectro analysis, current that was used
+    :returns: metrics from pyelectro analysis, currents, and the membrane potential values
 
     """
     analysis_results = {}
     currents = {}
-    with pynwb.NWBHDF5IO("./FergusonEtAl2015_PYR3.nwb", 'r') as io:
-        datafile = io.read()
-        # let's get the first series
-        total_acquisitions = len(datafile.acquisition)
-        for acq in range(1, total_acquisitions):
-            print("Going over acquisition # {}".format(acq))
+    memb_vals = {}
+    # let's get the first series
+    total_acquisitions = len(datafile.acquisition)
+    for acq in range(1, total_acquisitions):
+        print("Going over acquisition # {}".format(acq))
 
-            data_v = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].data[:] * 1000.
-            sampling_rate = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].rate
-            # generate time steps from sampling rate
-            data_t = np.arange(0, len(data_v) / sampling_rate, 1. / sampling_rate) * 1000.
-            analysis_results[acq] = (simple_network_analysis({acq: data_v}, data_t))
+        data_v = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].data[:] * 1000.
+        sampling_rate = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].rate
+        # generate time steps from sampling rate
+        data_t = np.arange(0, len(data_v) / sampling_rate, 1. / sampling_rate) * 1000.
+        analysis_results[acq] = (simple_network_analysis({acq: data_v}, data_t))
 
-            # extract current from description, but can be extracted from other
-            # locations also, such as the CurrentClampStimulus series.
-            data_i = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].description.split('(')[1].split('~')[1].split(' ')[0]
-            currents[acq] = data_i
+        # extract current from description, but can be extracted from other
+        # locations also, such as the CurrentClampStimulus series.
+        data_i = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].description.split('(')[1].split('~')[1].split(' ')[0]
+        currents[acq] = data_i
+        memb_vals[acq] = (data_t, data_v)
 
-    return (analysis_results, currents)
+    return (analysis_results, currents, memb_vals)
 
 
-def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
-                   currents: typing.Dict) -> None:
+def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> Dict:
     """Tune networks model against the data.
 
     Here we generate a network with the necessary number of Izhikevich cells,
@@ -87,7 +90,7 @@ def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
     counter = 0
     for acq in acq_list:
         template_doc.pulse_generators.append(PulseGenerator(id="Stim{}".format(counter),
-                                                            delay="0ms", duration="1000ms",
+                                                            delay="50ms", duration="1000ms",
                                                             amplitude="{}pA".format(currents[acq]))
                                              )
         template_doc.networks[0].explicit_inputs.append(ExplicitInput(target="Pop0[{}]".format(counter),
@@ -127,8 +130,8 @@ def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
 
     # parameters from the izhikevich cell models that we want to fit
     # one for each parameter: [ C, k, vr, vt, vpeak, a, b, c, d ]
-    min_constraints = [80, 0.5, -80, -80, 20, 0.0, -4, -80, 80]
-    max_constraints = [120, 0.9, -40, -20, 50, 0.05, 0., -20, 120]
+    min_constraints = [80, 0.5, -70, -50, 20, 0.01, -4, -80, 80]
+    max_constraints = [120, 0.9, -50, -20, 80, 0.5, 0., -20, 120]
 
     ctr = 0
 
@@ -148,7 +151,7 @@ def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
         average_maximum = "Pop0/{}/Izh2007/v:average_maximum".format(ctr)
         average_minimum = "Pop0/{}/Izh2007/v:average_minimum".format(ctr)
 
-        weights[mean_spike_frequency] = 5
+        weights[mean_spike_frequency] = 1
         weights[average_last_1percent] = 1
 
         # value of the target data from our data set
@@ -168,7 +171,7 @@ def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
     # simulator to use
     simulator = "jNeuroML"
 
-    run_optimisation(
+    return run_optimisation(
         # Prefix for new files
         prefix="TuneIzh",
         # Name of the NeuroML template file
@@ -187,7 +190,7 @@ def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
         # Simulation time
         sim_time=sim_time,
         # EC parameters
-        population_size=20,
+        population_size=100,
         max_evaluations=100,
         num_selected=10,
         num_offspring=10,
@@ -198,19 +201,128 @@ def tune_izh_model(acq_list: typing.List, metrics_from_data: typing.Dict,
         # Simulator
         simulator=simulator,
         nogui=True,
+        dt=0.025,
     )
 
 
 if __name__ == "__main__":
-    analysis_results, currents = get_data_metrics()
-    # Get tuned models against any of the sweeps:
-    # Note: (1 is the key in the dictionary, not the index)
-    # tune_izh_model(1, analysis_results[1], float(currents[1]))
-    # tune_izh_model(33, analysis_results[33], float(currents[33]))
+    io = pynwb.NWBHDF5IO("./FergusonEtAl2015_PYR3.nwb", 'r')
+    datafile = io.read()
 
-    """
+    analysis_results, currents, memb_pots = get_data_metrics(datafile)
 
-    for i in len(analysis_results):
-        tune_izh_model(list(analysis_results.items())[i], currents[i])
-    """
-    tune_izh_model([1, 33], analysis_results, currents)
+    # Choose what sweeps to tune against.
+    # There are 33 sweeps: 1..33.
+    sweeps_to_tune_against = [5, 10, 15, 25, 33]
+    report = tune_izh_model(sweeps_to_tune_against, analysis_results, currents)
+    fittest_vars = (report['fittest vars'])
+    print(fittest_vars)
+    C = str(fittest_vars["izhikevich2007Cell:Izh2007/C/pF"]) + "pF"
+    k = str(fittest_vars["izhikevich2007Cell:Izh2007/k/nS_per_mV"]) + "nS_per_mV"
+    vr = str(fittest_vars["izhikevich2007Cell:Izh2007/vr/mV"]) + "mV"
+    vt = str(fittest_vars["izhikevich2007Cell:Izh2007/vt/mV"]) + "mV"
+    vpeak = str(fittest_vars["izhikevich2007Cell:Izh2007/vpeak/mV"]) + "mV"
+    a = str(fittest_vars["izhikevich2007Cell:Izh2007/a/per_ms"]) + "per_ms"
+    b = str(fittest_vars["izhikevich2007Cell:Izh2007/b/nS"]) + "nS"
+    c = str(fittest_vars["izhikevich2007Cell:Izh2007/c/mV"]) + "mV"
+    d = str(fittest_vars["izhikevich2007Cell:Izh2007/d/pA"]) + "pA"
+
+    # Create a simulation using our obtained parameters.
+    # We could, technically, read in the template document used for tuning and
+    # update the variables here, but we'll just create one from scratch for the
+    # time being.
+    sim_time = 2000.
+    simulation_doc = NeuroMLDocument(id="FittedNet")
+    # Add an Izhikevich cell with some parameters to the document
+    simulation_doc.izhikevich2007_cells.append(
+        Izhikevich2007Cell(id="Izh2007", C=C, v0="-60mV", k=k, vr=vr, vt=vt,
+                           vpeak=vpeak, a=a, b=b, c=c, d=d)
+    )
+    simulation_doc.networks.append(Network(id="Network0"))
+    # Add a cell for each acquisition list
+    popsize = len(sweeps_to_tune_against)
+    simulation_doc.networks[0].populations.append(Population(id="Pop0",
+                                                             component="Izh2007",
+                                                             size=popsize))
+
+    # Add a current source for each cell, matching the currents that
+    # were used in the experimental study.
+    counter = 0
+    for acq in sweeps_to_tune_against:
+        simulation_doc.pulse_generators.append(PulseGenerator(id="Stim{}".format(counter),
+                                                              delay="50ms", duration="1000ms",
+                                                              amplitude="{}pA".format(currents[acq]))
+                                               )
+        simulation_doc.networks[0].explicit_inputs.append(ExplicitInput(target="Pop0[{}]".format(counter),
+                                                                        input="Stim{}".format(counter)))
+        counter = counter + 1
+
+    # Print a summary
+    print(simulation_doc.summary())
+
+    # Write to a neuroml file and validate it.
+    reference = "FittedIzhFergusonPyr3"
+    simulation_filename = "{}.net.nml".format(reference)
+    write_neuroml2_file(simulation_doc, simulation_filename, validate=True)
+
+    simulation_id = "fitted_izhikevich_sim"
+    simulation = LEMSSimulation(sim_id=simulation_id, duration=sim_time,
+                                dt=0.1, target="Network0",
+                                simulation_seed=54321)
+    simulation.include_neuroml2_file(simulation_filename)
+    simulation.create_output_file("output0", "{}.v.dat".format(simulation_id))
+    counter = 0
+    for acq in sweeps_to_tune_against:
+        simulation.add_column_to_output_file("output0",
+                                             'Pop0[{}]'.format(counter),
+                                             'Pop0[{}]/v'.format(counter))
+        counter = counter + 1
+    simulation_file = simulation.save_to_file()
+    # simulate
+    run_lems_with_jneuroml(
+        simulation_file, max_memory="2G", nogui=True, plot=False
+
+    )
+    # Plot
+    data_array = np.loadtxt("%s.v.dat" % simulation_id)
+
+    # construct data for plotting
+    counter = 0
+    time_vals_list = []
+    sim_v_list = []
+    data_v_list = []
+    data_t_list = []
+    stim_vals = []
+    for acq in sweeps_to_tune_against:
+        stim_vals.append("{}pA".format(currents[acq]))
+
+        # remains the same for all columns
+        time_vals_list.append(data_array[:, 0] * 1000.)
+        sim_v_list.append(data_array[:, counter + 1] * 1000.)
+
+        data_v_list.append(memb_pots[acq][1])
+        data_t_list.append(memb_pots[acq][0])
+
+        counter = counter + 1
+
+    # Model membrane potential plot
+    generate_plot(
+        xvalues=time_vals_list,
+        yvalues=sim_v_list,
+        labels=stim_vals,
+        title="Membrane potential (model)", show_plot_already=False,
+        save_figure_to="%s-model-v.png" % simulation_id,
+        xaxis="time (s)", yaxis="membrane potential (mV)"
+    )
+    # data membrane potential plot
+    generate_plot(
+        xvalues=data_t_list,
+        yvalues=data_v_list,
+        labels=stim_vals,
+        title="Membrane potential (exp)", show_plot_already=False,
+        save_figure_to="%s-exp-v.png" % simulation_id,
+        xaxis="time (s)", yaxis="membrane potential (mV)"
+    )
+
+    # close the data file
+    io.close()
