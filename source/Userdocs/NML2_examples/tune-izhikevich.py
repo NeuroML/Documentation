@@ -38,7 +38,8 @@ def get_data_metrics(datafile: Container) -> Tuple[Dict, Dict, Dict]:
     for acq in range(1, total_acquisitions):
         print("Going over acquisition # {}".format(acq))
 
-        data_v = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].data[:] * 1000.
+        # stimulus goes on for about a second, so we limit it to 1100ms -> 11000 points
+        data_v = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].data[:11000] * 1000.
         sampling_rate = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].rate
         # generate time steps from sampling rate
         data_t = np.arange(0, len(data_v) / sampling_rate, 1. / sampling_rate) * 1000.
@@ -70,7 +71,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
 
     # length of simulation of the cells---should match the length of the
     # experiment
-    sim_time = 2000.
+    sim_time = 1100.
     # Create a NeuroML template network simulation file that we will use for
     # the tuning
     template_doc = NeuroMLDocument(id="IzhTuneNet")
@@ -90,7 +91,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     counter = 0
     for acq in acq_list:
         template_doc.pulse_generators.append(PulseGenerator(id="Stim{}".format(counter),
-                                                            delay="50ms", duration="1000ms",
+                                                            delay="80ms", duration="1000ms",
                                                             amplitude="{}pA".format(currents[acq]))
                                              )
         template_doc.networks[0].explicit_inputs.append(ExplicitInput(target="Pop0[{}]".format(counter),
@@ -129,9 +130,31 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     ]
 
     # parameters from the izhikevich cell models that we want to fit
-    # one for each parameter: [ C, k, vr, vt, vpeak, a, b, c, d ]
-    min_constraints = [80, 0.5, -70, -50, 20, 0.01, -4, -80, 80]
-    max_constraints = [120, 0.9, -50, -20, 80, 0.5, 0., -20, 120]
+    # (C="100pF", v0="-60mV", k="0.7nS_per_mV", vr="-60mV", vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
+    # one for each par[ C, k,   vr,  vt, vpeak, a,  b,    c, d ]
+    # defaults:       [100, 0.7, -60, -40, 35, 0.03, -2, -50, 100]
+    min_constraints = [
+        10,
+        0.5,
+        -70,
+        -50,
+        30,
+        0.01,
+        -5,
+        -60,
+        40
+    ]
+    max_constraints = [
+        100,
+        5.0,
+        -50,
+        30,
+        60,
+        1.0,
+        5.,
+        -40,
+        120
+    ]
 
     ctr = 0
 
@@ -191,21 +214,32 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         sim_time=sim_time,
         # EC parameters
         population_size=100,
-        max_evaluations=100,
-        num_selected=10,
-        num_offspring=10,
-        mutation_rate=0.5,
-        num_elites=3,
+        max_evaluations=1000,
+        num_selected=100,
+        num_offspring=100,
+        mutation_rate=0.2,
+        num_elites=5,
         # Seed value
         seed=12345,
         # Simulator
         simulator=simulator,
-        nogui=True,
         dt=0.025,
+        show_plot_already=True,
+        save_to_file="fitted_izhikevich_fitness.png",
+        save_to_file_scatter="fitted_izhikevich_scatter.png",
+        save_to_file_hist="fitted_izhikevich_hist.png",
+        save_to_file_output="fitted_izhikevich_output.png",
+        num_parallel_evaluations=4,
     )
 
 
 if __name__ == "__main__":
+
+    # set the default size for generated plots
+    # https://matplotlib.org/stable/tutorials/introductory/customizing.html#a-sample-matplotlibrc-file
+    import matplotlib as mpl
+    mpl.rcParams['figure.figsize'] = [18, 12]
+
     io = pynwb.NWBHDF5IO("./FergusonEtAl2015_PYR3.nwb", 'r')
     datafile = io.read()
 
@@ -213,7 +247,8 @@ if __name__ == "__main__":
 
     # Choose what sweeps to tune against.
     # There are 33 sweeps: 1..33.
-    sweeps_to_tune_against = [5, 10, 15, 25, 33]
+    # sweeps_to_tune_against = [1, 2, 15, 30, 31, 32, 33]
+    sweeps_to_tune_against = [11, 12, 13, 14, 15, 16]
     report = tune_izh_model(sweeps_to_tune_against, analysis_results, currents)
     fittest_vars = (report['fittest vars'])
     print(fittest_vars)
@@ -231,7 +266,7 @@ if __name__ == "__main__":
     # We could, technically, read in the template document used for tuning and
     # update the variables here, but we'll just create one from scratch for the
     # time being.
-    sim_time = 2000.
+    sim_time = 1100.
     simulation_doc = NeuroMLDocument(id="FittedNet")
     # Add an Izhikevich cell with some parameters to the document
     simulation_doc.izhikevich2007_cells.append(
@@ -250,7 +285,7 @@ if __name__ == "__main__":
     counter = 0
     for acq in sweeps_to_tune_against:
         simulation_doc.pulse_generators.append(PulseGenerator(id="Stim{}".format(counter),
-                                                              delay="50ms", duration="1000ms",
+                                                              delay="80ms", duration="1000ms",
                                                               amplitude="{}pA".format(currents[acq]))
                                                )
         simulation_doc.networks[0].explicit_inputs.append(ExplicitInput(target="Pop0[{}]".format(counter),
