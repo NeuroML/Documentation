@@ -167,12 +167,12 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         # format: populationid/cell instance/component type/variable
         # variable from pyelectro, for example:
         # https://pyelectro.readthedocs.io/en/latest/pyelectro.html?highlight=mean_spike_frequency#pyelectro.analysis.mean_spike_frequency
-        mean_spike_frequency = "Pop0/{}/Izh2007/v:mean_spike_frequency".format(ctr)
-        average_last_1percent = "Pop0/{}/Izh2007/v:average_last_1percent".format(ctr)
+        mean_spike_frequency = "Pop0[{}]/v:mean_spike_frequency".format(ctr)
+        average_last_1percent = "Pop0[{}]/v:average_last_1percent".format(ctr)
 
         # these are only generated for traces with spikes
-        average_maximum = "Pop0/{}/Izh2007/v:average_maximum".format(ctr)
-        average_minimum = "Pop0/{}/Izh2007/v:average_minimum".format(ctr)
+        average_maximum = "Pop0[{}]/v:average_maximum".format(ctr)
+        average_minimum = "Pop0[{}]/v:average_minimum".format(ctr)
 
         weights[mean_spike_frequency] = 1
         weights[average_last_1percent] = 1
