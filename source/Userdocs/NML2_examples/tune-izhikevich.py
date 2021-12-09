@@ -39,7 +39,7 @@ def get_data_metrics(datafile: Container) -> Tuple[Dict, Dict, Dict]:
         print("Going over acquisition # {}".format(acq))
 
         # stimulus goes on for about a second, so we limit it to 1100ms -> 11000 points
-        data_v = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].data[:11000] * 1000.
+        data_v = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].data[:15000] * 1000.
         sampling_rate = datafile.acquisition['CurrentClampSeries_{:02d}'.format(acq)].rate
         # generate time steps from sampling rate
         data_t = np.arange(0, len(data_v) / sampling_rate, 1. / sampling_rate) * 1000.
@@ -71,7 +71,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
 
     # length of simulation of the cells---should match the length of the
     # experiment
-    sim_time = 1100.
+    sim_time = 1500.
     # Create a NeuroML template network simulation file that we will use for
     # the tuning
     template_doc = NeuroMLDocument(id="IzhTuneNet")
@@ -135,25 +135,25 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     # defaults:       [100, 0.7, -60, -40, 35, 0.03, -2, -50, 100]
     min_constraints = [
         10,
-        0.5,
-        -70,
-        -50,
-        30,
+        0.1,
+        -90,
+        -60,
+        0,
         0.01,
         -5,
-        -60,
-        40
+        -65,
+        10
     ]
     max_constraints = [
-        100,
-        5.0,
+        300,
+        2,
         -50,
-        30,
+        70,
         60,
-        1.0,
-        5.,
-        -40,
-        120
+        0.4,
+        20,
+        -10,
+        400
     ]
 
     ctr = 0
@@ -214,11 +214,11 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         sim_time=sim_time,
         # EC parameters
         population_size=100,
-        max_evaluations=1000,
-        num_selected=100,
-        num_offspring=100,
+        max_evaluations=500,
+        num_selected=30,
+        num_offspring=50,
         mutation_rate=0.2,
-        num_elites=5,
+        num_elites=3,
         # Seed value
         seed=12345,
         # Simulator
@@ -248,7 +248,7 @@ if __name__ == "__main__":
     # Choose what sweeps to tune against.
     # There are 33 sweeps: 1..33.
     # sweeps_to_tune_against = [1, 2, 15, 30, 31, 32, 33]
-    sweeps_to_tune_against = [11, 12, 13, 14, 15, 16]
+    sweeps_to_tune_against = [11,16]
     report = tune_izh_model(sweeps_to_tune_against, analysis_results, currents)
     fittest_vars = (report['fittest vars'])
     print(fittest_vars)
@@ -266,7 +266,7 @@ if __name__ == "__main__":
     # We could, technically, read in the template document used for tuning and
     # update the variables here, but we'll just create one from scratch for the
     # time being.
-    sim_time = 1100.
+    sim_time = 1500.
     simulation_doc = NeuroMLDocument(id="FittedNet")
     # Add an Izhikevich cell with some parameters to the document
     simulation_doc.izhikevich2007_cells.append(
