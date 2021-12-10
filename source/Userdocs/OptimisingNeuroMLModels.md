@@ -82,7 +82,7 @@ We use the [PyNWB](https://pynwb.readthedocs.io/en/stable/) package to read it, 
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 233-236
+lines: 409-412
 ----
 ```
 
@@ -97,9 +97,15 @@ We pass this information to the `simple_network_analysis` function provided by P
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 27-54
+lines: 32-70
 ----
 ```
+
+We now have the following information:
+
+- the results of the analysis by PyElectro: we need these to set the target values for our fitting
+- the value of stimulation current for each sweep we've chosen: we need this for our models
+- the time series of the membrane potentials and recordings times: we'll use this to plot the membrane potentials later to compare our fitted model against
 
 (userdocs:optimising:running)=
 ## Running the optimisation
