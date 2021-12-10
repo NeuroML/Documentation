@@ -419,9 +419,6 @@ if __name__ == "__main__":
     sweeps_to_tune_against = [11, 16]
     report = tune_izh_model(sweeps_to_tune_against, analysis_results, currents)
 
-    # io.close()
-    # exit()
-
     simulation_id = "fitted_izhikevich_sim"
     run_fitted_cell_simulation(sweeps_to_tune_against, report, simulation_id)
 
