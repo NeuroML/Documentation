@@ -13,7 +13,6 @@ import pynwb  # type: ignore
 import numpy as np
 from pyelectro.utils import simple_network_analysis
 from typing import List, Dict, Tuple
-from pyneuroml.pynml import read_neuroml2_file
 from pyneuroml.pynml import write_neuroml2_file
 from pyneuroml.pynml import generate_plot
 from pyneuroml.pynml import run_lems_with_jneuroml
@@ -248,7 +247,9 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     )
 
 
-def run_fitted_cell_simulation(sweeps_to_tune_against: List, tuning_report: Dict, simulation_id: str) -> None:
+def run_fitted_cell_simulation(
+    sweeps_to_tune_against: List, tuning_report: Dict, simulation_id: str
+) -> None:
     """Run a simulation with the values obtained from the fitting
 
     :param tuning_report: tuning report from the optimser
@@ -345,7 +346,9 @@ def run_fitted_cell_simulation(sweeps_to_tune_against: List, tuning_report: Dict
     run_lems_with_jneuroml(simulation_file, max_memory="2G", nogui=True, plot=False)
 
 
-def plot_sim_data(sweeps_to_tune_against: List, simulation_id: str, memb_pots: Dict) -> None:
+def plot_sim_data(
+    sweeps_to_tune_against: List, simulation_id: str, memb_pots: Dict
+) -> None:
     """Plot data from our fitted simulation
 
     :param simulation_id: string id of simulation
