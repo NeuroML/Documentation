@@ -219,8 +219,8 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         # Parameters to be fitted
         parameters=list(parameters.keys()),
         # Our max and min constraints
-        max_constraints=[v[0] for v in parameters.values()],
-        min_constraints=[v[1] for v in parameters.values()],
+        min_constraints=[v[0] for v in parameters.values()],
+        max_constraints=[v[1] for v in parameters.values()],
         # Weights we set for parameters
         weights=weights,
         # The experimental metrics to fit to
