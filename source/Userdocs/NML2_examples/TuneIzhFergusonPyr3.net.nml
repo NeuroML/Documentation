@@ -1,0 +1,10 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.2.xsd" id="IzhTuneNet">
+    <izhikevich2007Cell id="Izh2007" C="100pF" v0="-60mV" k="0.7nS_per_mV" vr="-60mV" vt="-40mV" vpeak="35mV" a="0.03per_ms" b="-2nS" c="-50.0mV" d="100pA"/>
+    <pulseGenerator id="Stim0" delay="80ms" duration="1000ms" amplitude="102.0pA"/>
+    <pulseGenerator id="Stim1" delay="80ms" duration="1000ms" amplitude="152.0pA"/>
+    <network id="Network0">
+        <population id="Pop0" component="Izh2007" size="2"/>
+        <explicitInput target="Pop0[0]" input="Stim0"/>
+        <explicitInput target="Pop0[1]" input="Stim1"/>
+    </network>
+</neuroml>

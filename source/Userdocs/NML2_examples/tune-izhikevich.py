@@ -170,8 +170,8 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     weights = {}
     for acq in acq_list:
         # data to fit to:
-        # format: populationid/cell instance/component type/variable
-        # variable from pyelectro, for example:
+        # format: path/to/variable:metric
+        # metric from pyelectro, for example:
         # https://pyelectro.readthedocs.io/en/latest/pyelectro.html?highlight=mean_spike_frequency#pyelectro.analysis.mean_spike_frequency
         mean_spike_frequency = "Pop0[{}]/v:mean_spike_frequency".format(ctr)
         average_last_1percent = "Pop0[{}]/v:average_last_1percent".format(ctr)
