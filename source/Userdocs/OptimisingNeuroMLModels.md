@@ -1,21 +1,10 @@
 (userdocs:optimising)=
 # Optimising/Fitting NeuroML Models
 
-{ref}`pyNeuroML <pyNeuroML>` includes the `NeuroMLTuner` module for the tuning and optimisation of NeuroML models against provided data.
+{ref}`pyNeuroML <pyNeuroML>` includes the [NeuroMLTuner](https://pyneuroml.readthedocs.io/en/development/pyneuroml.tune.html#module-pyneuroml.tune.NeuroMLTuner) module for the tuning and optimisation of NeuroML models against provided data.
 This uses the [NeuroTune](https://github.com/NeuralEnsemble/neurotune/) Python package for the fitting of models using evolutionary computation.
 
 This page will walk through an example model optimisation.
-
-```{admonition} Work in progress
-:class: note
-This page is a work in progress. Please see https://github.com/NeuroML/Documentation/issues/106
-```
-
-```{admonition} Validate NeuroML 2 files before using them.
-:class: tip
-It is good practice to {ref}`validate NeuroML 2 files <userdocs:validating_models>` to check them for correctness before optimising/fitting them.
-```
-
 
 <div class="container-fluid">
 <div class="row my-2 py-2">
@@ -53,12 +42,12 @@ language: python
 ----
 ```
 (userdocs:optimising:data)=
-## Loading data and metrics to use for optimisation
+## Loading data and calculating metrics to use for optimisation
 
 The first step in the optimisation of the model is to obtain the data that the model is to be fitted against.
 In this example, we will use the data set of CA1 pyramidal cell recordings using an intact whole hippocampus preparation, including recordings of rebound firing {cite}`ferguson_2015_17794`.
 The data set is provided in the [Neurodata Without Borders](https://nwb.org) (NWB) format.
-It can can be downloaded [here on the Open Source Brain repository](https://github.com/OpenSourceBrain/NWBShowcase/tree/master/FergusonEtAl2015), and can also be viewed on the [NWB Explorer](https://nwbexplorer.opensourcebrain.org) platform:
+It can can be downloaded [here on the Open Source Brain repository](https://github.com/OpenSourceBrain/NWBShowcase/tree/master/FergusonEtAl2015), and can also be viewed on the [NWB Explorer](https://nwbexplorer.opensourcebrain.org) web application:
 
 ```{figure} ./NML2_examples/fitted_izhikevich_screenshot_nwbexplorer.png
 :alt: Screenshot showing two recordings from FergusonEtAl2015_PYR3.nwb in NWB Explorer.
@@ -118,7 +107,7 @@ lines: 419-420
 ----
 ```
 
-The Neurotune optimiser uses the evolutionary computation provided by the [Inspyred](https://github.com/aarongarrett/inspyred/) package.
+The Neurotune optimiser uses the evolutionary computation method provided by the [Inspyred](https://github.com/aarongarrett/inspyred/) package.
 In short:
 
 - the evolutionary algorithm starts with a population of models, each with a random set of parameters picked from our provided set
@@ -130,7 +119,7 @@ In short:
 The idea is that by calculating the fittest parents and offspring, it will find the candidate models that fit the provided target data best.
 You can read more about evolutionary computation online (e.g. [Wikipedia](https://en.wikipedia.org/wiki/Evolutionary_algorithm)).
 More information on model fitting in computational neuroscience can also be found in the literature.
-For example, see this review {cite}`Rossant2011`.
+For example, see this review {cite}`Rossant2011,Prinz2004`.
 
 Here, we follow the following steps:
 
@@ -161,7 +150,7 @@ language: python
 lines: 87-141
 ----
 ```
-The resultant network template model for our two recordings is shown below:
+The resultant network template model for our two chosen recordings is shown below:
 
 ```{literalinclude} ./NML2_examples/TuneIzhFergusonPyr3.net.nml
 ----
@@ -198,7 +187,7 @@ lines: 167-206
 ```
 
 As we have set up a cell for each recording that we want to fit to, we must also set the target value for each cell.
-We pick four features from the set of features that PyElectro provided us with:
+We pick four features from a subset of features that PyElectro provided us with:
 
 - `mean_spike_frequency`
 - `average_last_1percent`
@@ -207,7 +196,7 @@ We pick four features from the set of features that PyElectro provided us with:
 
 The last two can only be calculated for membrane potential data that includes spikes.
 Since a few of the experimental recordings to not show any spikes, these two metrics will not be calculated for them.
-So, we only add them for the corresponding cell, if they are present in the features for the chosen recording.
+So, we only add them for the corresponding cell only if they are present in the features for the chosen recording.
 
 The format for the `target_data` is similar to that of the `parameters`.
 The keys of the `target_data` dictionary are the specifications for the metrics.
@@ -247,7 +236,7 @@ For simplicity, we set the weights for all as `1` here.
 (userdocs:optimising:running:call)=
 ### Calling the optimisation function
 
-The last step here is now to call our `run_optimisation` function with the various parameters that we have set up.
+The last step is to call our `run_optimisation` function with the various parameters that we have set up.
 Here, for simplicity, we use the `jNeuroML` simulator.
 For multi-compartmental models, however, we will need to use the `jNeuroML_NEURON` simulator (since `jNeuroML` only supports single compartment simulations).
 A number of arguments to the function are specific to evolutionary computation, and their discussion is beyond the scope of this tutorial.
@@ -339,9 +328,11 @@ FITTEST: {   'izhikevich2007Cell:Izh2007/C/pF': 240.6982897890555,
 
 ```
 
-It will also generate a number of plots:
+It will also generate a number of plots (shown below):
 
-- 
+- showing the evolution of the parameters being fitted, with indications of the fitness value: larger circles mean more fitness
+- the change in the overall fitness value as the population evolves
+- distributions of the values of the parameters being fitted, with indications of the fitness value: darker lines mean higher fitness
 
 ```{figure} ./NML2_examples/fitted_izhikevich_scatter.png
 :alt: Evolution of parameters.
@@ -357,4 +348,75 @@ The figure shows the trend of the fitness throughout the evolution.
 :alt: Histograms of values of fitting parameters.
 
 The figure shows the distribution of values that for each parameter throughout the evolution. Darker lines have higher fitness values.
+
 ```
+
+(userdocs:optimising:results)=
+## Viewing results
+
+The tuner also generates a plot with the membrane potential of a cell using the fitted parameter values (shown on the top of the page).
+Here, to document how the fitted parameters are to be extracted from the output of the `run_optimisation` function, we also construct a model to use the fitted parameters ourselves and plot the membrane potential to compare it against the experimental data.
+
+(userdocs:optimising:results:run_model)=
+### Extracting results and running a fitted model
+
+This is done in the `run_fitted_cell_simulation` function:
+
+```{literalinclude} ./NML2_examples/tune-izhikevich.py
+----
+language: python
+lines: 250-346
+----
+```
+
+First, we extract the fitted parameters from the dictionary returned by the `run_optimisation` function.
+Then, we use these parameters to set up a simple NeuroML network and run a test simulation, recording the values of membrane potentials generated by the cells.
+Please note that the current stimulus to the cells in this test model must also match the values that were used in the experiment, and so also in the fitting.
+
+(userdocs:optimising:results:plotting)=
+### Plotting model generated and experimentally recorded membrane potentials
+
+Finally, in the `plot_sim_data` function, we plot the membrane potentials from our fitted cells and the experimental data to see visually inspect the results of our fitting:
+
+```{literalinclude} ./NML2_examples/tune-izhikevich.py
+----
+language: python
+lines: 349-401
+----
+```
+
+This generates the following figures:
+
+<div class="container-fluid">
+<div class="row my-2 py-2">
+<div class="col-sm-6 px-2">
+<center>
+
+```{figure} ./NML2_examples/fitted_izhikevich_sim-exp-v.png
+:alt: Membrane potential from example experimental data.
+
+Membrane potential from the experimental data.
+```
+</center>
+
+</div>
+<div class="col-sm-6 px-2">
+<center>
+
+```{figure} ./NML2_examples/fitted_izhikevich_output.png
+:alt: Membrane potential obtained from example fitted model.
+
+Membrane potential obtained from the model with highest fitness.
+```
+
+</center>
+
+</div>
+</div>
+</div>
+
+
+We can clearly see the similarity between our fitted model and the experimental data.
+A number of tweaks can be made to improve the fitting.
+For example, pyNeuroML also provides a two staged optimisation function: [run_2stage_optimisation](https://pyneuroml.readthedocs.io/en/development/pyneuroml.tune.html#pyneuroml.tune.NeuroMLTuner.run_2stage_optimization) that allows users to optimise sets of parameters in two different stages.
+The graphs also show ranges of parameters that provide fits, so users can also hand-tune their models further as required.

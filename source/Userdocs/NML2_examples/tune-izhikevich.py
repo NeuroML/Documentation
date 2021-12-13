@@ -384,7 +384,7 @@ def plot_sim_data(
         title="Membrane potential (model)",
         show_plot_already=False,
         save_figure_to="%s-model-v.png" % simulation_id,
-        xaxis="time (s)",
+        xaxis="time (ms)",
         yaxis="membrane potential (mV)",
     )
     # data membrane potential plot
@@ -395,7 +395,7 @@ def plot_sim_data(
         title="Membrane potential (exp)",
         show_plot_already=False,
         save_figure_to="%s-exp-v.png" % simulation_id,
-        xaxis="time (s)",
+        xaxis="time (ms)",
         yaxis="membrane potential (mV)",
     )
 
