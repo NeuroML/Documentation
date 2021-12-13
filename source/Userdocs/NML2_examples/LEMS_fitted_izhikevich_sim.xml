@@ -1,0 +1,28 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.5.18 (libNeuroML v0.3.1)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="fitted_izhikevich_sim"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="FittedIzhFergusonPyr3.net.nml"/>
+   
+    <Simulation id="fitted_izhikevich_sim" length="1500.0ms" step="0.1ms" target="Network0" seed="54321">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <OutputFile id="output0" fileName="fitted_izhikevich_sim.v.dat">
+            <OutputColumn id="Pop0[0]" quantity="Pop0[0]/v"/> 
+            <OutputColumn id="Pop0[1]" quantity="Pop0[1]/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>
