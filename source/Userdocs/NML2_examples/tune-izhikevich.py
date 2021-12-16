@@ -157,7 +157,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         "izhikevich2007Cell:Izh2007/k/nS_per_mV": (0.1, 2),
         "izhikevich2007Cell:Izh2007/vr/mV": (-90, -50),
         "izhikevich2007Cell:Izh2007/vt/mV": (-60, 70),
-        "izhikevich2007Cell:Izh2007/vpeak/mV": (0, 60),
+        "izhikevich2007Cell:Izh2007/vpeak/mV": (0, 70),
         "izhikevich2007Cell:Izh2007/a/per_ms": (0.01, 0.4),
         "izhikevich2007Cell:Izh2007/b/nS": (-5, 20),
         "izhikevich2007Cell:Izh2007/c/mV": (-65, -10),
@@ -228,7 +228,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         sim_time=sim_time,
         # EC parameters
         population_size=100,
-        max_evaluations=500,
+        max_evaluations=1000,
         num_selected=30,
         num_offspring=50,
         mutation_rate=0.2,
@@ -243,7 +243,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         save_to_file_scatter="fitted_izhikevich_scatter.png",
         save_to_file_hist="fitted_izhikevich_hist.png",
         save_to_file_output="fitted_izhikevich_output.png",
-        num_parallel_evaluations=4,
+        num_parallel_evaluations=16,
     )
 
 
@@ -416,7 +416,7 @@ if __name__ == "__main__":
     # Choose what sweeps to tune against.
     # There are 33 sweeps: 1..33.
     # sweeps_to_tune_against = [1, 2, 15, 30, 31, 32, 33]
-    sweeps_to_tune_against = [11, 16]
+    sweeps_to_tune_against = [16,21]
     report = tune_izh_model(sweeps_to_tune_against, analysis_results, currents)
 
     simulation_id = "fitted_izhikevich_sim"
