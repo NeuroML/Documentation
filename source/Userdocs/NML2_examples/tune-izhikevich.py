@@ -157,13 +157,13 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     parameters = {
         "izhikevich2007Cell:Izh2007/C/pF": (100, 300),
         "izhikevich2007Cell:Izh2007/k/nS_per_mV": (0.01, 2),
-        "izhikevich2007Cell:Izh2007/vr/mV": (-75, -50),
+        "izhikevich2007Cell:Izh2007/vr/mV": (-70, -50),
         "izhikevich2007Cell:Izh2007/vt/mV": (-60, 0),
-        "izhikevich2007Cell:Izh2007/vpeak/mV": (20, 70),
+        "izhikevich2007Cell:Izh2007/vpeak/mV": (35, 70),
         "izhikevich2007Cell:Izh2007/a/per_ms": (0.001, 0.4),
         "izhikevich2007Cell:Izh2007/b/nS": (-10, 10),
         "izhikevich2007Cell:Izh2007/c/mV": (-65, -10),
-        "izhikevich2007Cell:Izh2007/d/pA": (100, 300),
+        "izhikevich2007Cell:Izh2007/d/pA": (50, 500),
     }  # type: Dict[str, Tuple[float, float]]
 
     # Set up our target data and so on
@@ -230,10 +230,10 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         sim_time=sim_time,
         # EC parameters
         population_size=100,
-        max_evaluations=500,
+        max_evaluations=1000,
         num_selected=30,
         num_offspring=50,
-        mutation_rate=0.2,
+        mutation_rate=0.9,
         num_elites=3,
         # Seed value
         seed=12345,
@@ -245,7 +245,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         save_to_file_scatter="fitted_izhikevich_scatter.png",
         save_to_file_hist="fitted_izhikevich_hist.png",
         save_to_file_output="fitted_izhikevich_output.png",
-        num_parallel_evaluations=6,
+        num_parallel_evaluations=16,
     )
 
 
