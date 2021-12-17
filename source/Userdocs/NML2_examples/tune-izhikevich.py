@@ -177,10 +177,12 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         # https://pyelectro.readthedocs.io/en/latest/pyelectro.html?highlight=mean_spike_frequency#pyelectro.analysis.mean_spike_frequency
         mean_spike_frequency = "Pop0[{}]/v:mean_spike_frequency".format(ctr)
         average_last_1percent = "Pop0[{}]/v:average_last_1percent".format(ctr)
+        first_spike_time = "Pop0[{}]/v:first_spike_time".format(ctr)
 
         # each metric can have an associated weight
         weights[mean_spike_frequency] = 1
         weights[average_last_1percent] = 1
+        weights[first_spike_time] = 1
 
         # value of the target data from our data set
         target_data[mean_spike_frequency] = metrics_from_data[acq][
@@ -188,6 +190,9 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         ]
         target_data[average_last_1percent] = metrics_from_data[acq][
             "{}:average_last_1percent".format(acq)
+        ]
+        target_data[first_spike_time] = metrics_from_data[acq][
+            "{}:first_spike_time".format(acq)
         ]
 
         # only add these if the experimental data includes them
@@ -230,7 +235,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         sim_time=sim_time,
         # EC parameters
         population_size=100,
-        max_evaluations=1000,
+        max_evaluations=500,
         num_selected=30,
         num_offspring=50,
         mutation_rate=0.9,
@@ -245,7 +250,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         save_to_file_scatter="fitted_izhikevich_scatter.png",
         save_to_file_hist="fitted_izhikevich_hist.png",
         save_to_file_output="fitted_izhikevich_output.png",
-        num_parallel_evaluations=16,
+        num_parallel_evaluations=4,
     )
 
 
