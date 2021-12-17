@@ -27,6 +27,8 @@ from neuroml import (
 from hdmf.container import Container
 from pyneuroml.lems.LEMSSimulation import LEMSSimulation
 
+import sys
+
 
 def get_data_metrics(datafile: Container) -> Tuple[Dict, Dict, Dict]:
     """Analyse the data to get metrics to tune against.
@@ -153,15 +155,15 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     # we want to tune these parameters within these ranges
     # param: (min, max)
     parameters = {
-        "izhikevich2007Cell:Izh2007/C/pF": (10, 300),
-        "izhikevich2007Cell:Izh2007/k/nS_per_mV": (0.1, 2),
-        "izhikevich2007Cell:Izh2007/vr/mV": (-90, -50),
-        "izhikevich2007Cell:Izh2007/vt/mV": (-60, 70),
-        "izhikevich2007Cell:Izh2007/vpeak/mV": (0, 70),
-        "izhikevich2007Cell:Izh2007/a/per_ms": (0.01, 0.4),
-        "izhikevich2007Cell:Izh2007/b/nS": (-5, 20),
+        "izhikevich2007Cell:Izh2007/C/pF": (100, 300),
+        "izhikevich2007Cell:Izh2007/k/nS_per_mV": (0.01, 2),
+        "izhikevich2007Cell:Izh2007/vr/mV": (-75, -50),
+        "izhikevich2007Cell:Izh2007/vt/mV": (-60, 0),
+        "izhikevich2007Cell:Izh2007/vpeak/mV": (20, 70),
+        "izhikevich2007Cell:Izh2007/a/per_ms": (0.001, 0.4),
+        "izhikevich2007Cell:Izh2007/b/nS": (-10, 10),
         "izhikevich2007Cell:Izh2007/c/mV": (-65, -10),
-        "izhikevich2007Cell:Izh2007/d/pA": (10, 400),
+        "izhikevich2007Cell:Izh2007/d/pA": (100, 300),
     }  # type: Dict[str, Tuple[float, float]]
 
     # Set up our target data and so on
@@ -228,7 +230,7 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         sim_time=sim_time,
         # EC parameters
         population_size=100,
-        max_evaluations=1000,
+        max_evaluations=500,
         num_selected=30,
         num_offspring=50,
         mutation_rate=0.2,
@@ -238,12 +240,12 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         # Simulator
         simulator=simulator,
         dt=0.025,
-        show_plot_already=True,
+        show_plot_already='-nogui' not in sys.argv,
         save_to_file="fitted_izhikevich_fitness.png",
         save_to_file_scatter="fitted_izhikevich_scatter.png",
         save_to_file_hist="fitted_izhikevich_hist.png",
         save_to_file_output="fitted_izhikevich_output.png",
-        num_parallel_evaluations=16,
+        num_parallel_evaluations=6,
     )
 
 
@@ -405,7 +407,6 @@ if __name__ == "__main__":
     # set the default size for generated plots
     # https://matplotlib.org/stable/tutorials/introductory/customizing.html#a-sample-matplotlibrc-file
     import matplotlib as mpl
-
     mpl.rcParams["figure.figsize"] = [18, 12]
 
     io = pynwb.NWBHDF5IO("./FergusonEtAl2015_PYR3.nwb", "r")
