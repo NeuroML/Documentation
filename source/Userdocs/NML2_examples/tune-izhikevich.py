@@ -27,6 +27,8 @@ from neuroml import (
 from hdmf.container import Container
 from pyneuroml.lems.LEMSSimulation import LEMSSimulation
 
+import sys
+
 
 def get_data_metrics(datafile: Container) -> Tuple[Dict, Dict, Dict]:
     """Analyse the data to get metrics to tune against.
@@ -153,15 +155,15 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
     # we want to tune these parameters within these ranges
     # param: (min, max)
     parameters = {
-        "izhikevich2007Cell:Izh2007/C/pF": (10, 300),
-        "izhikevich2007Cell:Izh2007/k/nS_per_mV": (0.1, 2),
-        "izhikevich2007Cell:Izh2007/vr/mV": (-90, -50),
-        "izhikevich2007Cell:Izh2007/vt/mV": (-60, 70),
-        "izhikevich2007Cell:Izh2007/vpeak/mV": (0, 60),
-        "izhikevich2007Cell:Izh2007/a/per_ms": (0.01, 0.4),
-        "izhikevich2007Cell:Izh2007/b/nS": (-5, 20),
+        "izhikevich2007Cell:Izh2007/C/pF": (100, 300),
+        "izhikevich2007Cell:Izh2007/k/nS_per_mV": (0.01, 2),
+        "izhikevich2007Cell:Izh2007/vr/mV": (-70, -50),
+        "izhikevich2007Cell:Izh2007/vt/mV": (-60, 0),
+        "izhikevich2007Cell:Izh2007/vpeak/mV": (35, 70),
+        "izhikevich2007Cell:Izh2007/a/per_ms": (0.001, 0.4),
+        "izhikevich2007Cell:Izh2007/b/nS": (-10, 10),
         "izhikevich2007Cell:Izh2007/c/mV": (-65, -10),
-        "izhikevich2007Cell:Izh2007/d/pA": (10, 400),
+        "izhikevich2007Cell:Izh2007/d/pA": (50, 500),
     }  # type: Dict[str, Tuple[float, float]]
 
     # Set up our target data and so on
@@ -175,10 +177,12 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         # https://pyelectro.readthedocs.io/en/latest/pyelectro.html?highlight=mean_spike_frequency#pyelectro.analysis.mean_spike_frequency
         mean_spike_frequency = "Pop0[{}]/v:mean_spike_frequency".format(ctr)
         average_last_1percent = "Pop0[{}]/v:average_last_1percent".format(ctr)
+        first_spike_time = "Pop0[{}]/v:first_spike_time".format(ctr)
 
         # each metric can have an associated weight
         weights[mean_spike_frequency] = 1
         weights[average_last_1percent] = 1
+        weights[first_spike_time] = 1
 
         # value of the target data from our data set
         target_data[mean_spike_frequency] = metrics_from_data[acq][
@@ -186,6 +190,9 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         ]
         target_data[average_last_1percent] = metrics_from_data[acq][
             "{}:average_last_1percent".format(acq)
+        ]
+        target_data[first_spike_time] = metrics_from_data[acq][
+            "{}:first_spike_time".format(acq)
         ]
 
         # only add these if the experimental data includes them
@@ -231,14 +238,14 @@ def tune_izh_model(acq_list: List, metrics_from_data: Dict, currents: Dict) -> D
         max_evaluations=500,
         num_selected=30,
         num_offspring=50,
-        mutation_rate=0.2,
+        mutation_rate=0.9,
         num_elites=3,
         # Seed value
         seed=12345,
         # Simulator
         simulator=simulator,
         dt=0.025,
-        show_plot_already=True,
+        show_plot_already='-nogui' not in sys.argv,
         save_to_file="fitted_izhikevich_fitness.png",
         save_to_file_scatter="fitted_izhikevich_scatter.png",
         save_to_file_hist="fitted_izhikevich_hist.png",
@@ -405,7 +412,6 @@ if __name__ == "__main__":
     # set the default size for generated plots
     # https://matplotlib.org/stable/tutorials/introductory/customizing.html#a-sample-matplotlibrc-file
     import matplotlib as mpl
-
     mpl.rcParams["figure.figsize"] = [18, 12]
 
     io = pynwb.NWBHDF5IO("./FergusonEtAl2015_PYR3.nwb", "r")
@@ -416,7 +422,7 @@ if __name__ == "__main__":
     # Choose what sweeps to tune against.
     # There are 33 sweeps: 1..33.
     # sweeps_to_tune_against = [1, 2, 15, 30, 31, 32, 33]
-    sweeps_to_tune_against = [11, 16]
+    sweeps_to_tune_against = [16,21]
     report = tune_izh_model(sweeps_to_tune_against, analysis_results, currents)
 
     simulation_id = "fitted_izhikevich_sim"

@@ -1,7 +1,7 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.2.xsd" id="FittedNet">
-    <izhikevich2007Cell id="Izh2007" C="240.6982897890555pF" v0="-60mV" k="0.24113869560362797nS_per_mV" vr="-59.283747806929135mV" vt="-48.9131459978619mV" vpeak="47.44063356996336mV" a="0.03863507615280202per_ms" b="2.0112449831346746nS" c="-43.069939785498356mV" d="212.50982499591083pA"/>
-    <pulseGenerator id="Stim0" delay="80ms" duration="1000ms" amplitude="102.0pA"/>
-    <pulseGenerator id="Stim1" delay="80ms" duration="1000ms" amplitude="152.0pA"/>
+    <izhikevich2007Cell id="Izh2007" C="218.4327857182973pF" v0="-60mV" k="0.18316582604079204nS_per_mV" vr="-62.041928888985446mV" vt="-47.092363403808555mV" vpeak="48.11219617698208mV" a="0.02796485155048417per_ms" b="-2.5503998675195585nS" c="-37.82172030372774mV" d="415.59295635232337pA"/>
+    <pulseGenerator id="Stim0" delay="80ms" duration="1000ms" amplitude="152.0pA"/>
+    <pulseGenerator id="Stim1" delay="80ms" duration="1000ms" amplitude="202.0pA"/>
     <network id="Network0">
         <population id="Pop0" component="Izh2007" size="2"/>
         <explicitInput target="Pop0[0]" input="Stim0"/>
