@@ -86,5 +86,6 @@ parts:
       - file: Devdocs/InteractionOtherBits
   - caption: Reference
     chapters:
+    - file: Reference/Publications
     - file: Reference/Glossary
     - file: Reference/zBibliography
