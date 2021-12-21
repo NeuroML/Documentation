@@ -26,7 +26,7 @@ These are the steps required for a new release of the NeuroML development tools.
 | Run & check [test.py](https://github.com/NeuroML/NeuroML2/blob/master/test.py) in NeuroML2 repo | v2.2 |
 | Check through issues for closed & easily closable ones | v2.2 |
 | Update NeuroML [milestones](https://github.com/NeuroML/NeuroML2/milestones) | v2.2 |
-| Update HISTORY.md in NeuroML2 | v2.2 |
+| Update [HISTORY.md](https://github.com/NeuroML/NeuroML2/blob/master/HISTORY.md) in NeuroML2 | v2.2 |
 | pylems: Update README; Merge to master; Tag release; Release to pip | v2.2 |
 | libNeuroML:  Update README; Retest; Merge to master; Tag release; Release to pip; Check [installation docs](https://libneuroml.readthedocs.org/en/latest/install.html) | v2.2 |
 | pyNeuroML: Update Readme; Tag release; Release to pip | v2.2 |
@@ -36,7 +36,7 @@ These are the steps required for a new release of the NeuroML development tools.
 | Regenerate Cells.xml etc. on nml website & commit | v2.2 |
 | Update docs on [http://www.neuroml.org](https://www.neuroml.org) | v2.2 |
 | Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.2 |
-| ANNOUNCE (mailing list, Twitter) | v2.1 |
+| ANNOUNCE (mailing list, Twitter) | v2.2 |
 | Increment version numbers in all development branches | v2.1 |
 | DOI on [Zenodo](https://doi.org/10.5281/zenodo.4627568) | v2.1 |
 | New milestone in issues | v2.1 |
