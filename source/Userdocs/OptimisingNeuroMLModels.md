@@ -61,7 +61,7 @@ We use the [PyNWB](https://pynwb.readthedocs.io/en/stable/) package to read it, 
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 411-414
+lines: 417-420
 ----
 ```
 
@@ -76,7 +76,7 @@ We pass this information to the `simple_network_analysis` function provided by t
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 37-69
+lines: 33-71
 ----
 ```
 
@@ -103,7 +103,7 @@ Here, however, for simplicity and to keep the computation time in check, we only
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 419-420
+lines: 425-426
 ----
 ```
 
@@ -132,7 +132,7 @@ The `tune_izh_model` function shown below is the main workhorse function that do
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 72-247
+lines: 74-254
 ----
 ```
 
@@ -147,7 +147,7 @@ For each of these cells, we provide a current stimulus matching the current used
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 87-141
+lines: 89-143
 ----
 ```
 The resultant network template model for our two chosen recordings is shown below:
@@ -169,7 +169,7 @@ The `parameters` dictionary contains the specifications of the parameters that w
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 153-165
+lines: 155-167
 ----
 ```
 The format of the parameter specification is: `ComponentType:ComponentID/VariableName[:VariableID]/Units`.
@@ -182,7 +182,7 @@ Next, we specify the target data that we want to fit against.
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 167-206
+lines: 169-213
 ----
 ```
 
@@ -243,7 +243,7 @@ A number of arguments to the function are specific to evolutionary computation, 
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 208-247
+lines: 215-254
 ----
 ```
 
@@ -365,7 +365,7 @@ This is done in the `run_fitted_cell_simulation` function:
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 250-346
+lines: 257-354
 ----
 ```
 
@@ -381,7 +381,7 @@ Finally, in the `plot_sim_data` function, we plot the membrane potentials from o
 ```{literalinclude} ./NML2_examples/tune-izhikevich.py
 ----
 language: python
-lines: 349-401
+lines: 356-409
 ----
 ```
 
