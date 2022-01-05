@@ -40,6 +40,11 @@ In parallel with development of NeuroML2 and LEMS, software libraries for readin
 The NeuroML specifications are currently being developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>`, overseen by the NeuroML specifications are developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>` and overseen by its {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`. NeuroML specifications and the associated libraries are developed on GitHub and an overview of current activities can be found [here](https://github.com/NeuroML/NeuroML2/projects/1).
 
 
+```{admonition} Recent releases of NeuroML2
+For full details on the recent releases of NeuroML see: [here](https://github.com/NeuroML/NeuroML2/blob/master/HISTORY.md).
+```
+
+
 ## The future
 
 {ref}`NeuroMLlite <neuromllite>` is under active development, which will significantly enhance the range of network models which can be expressed (in a concise JSON based format) and run in NeuroML supporting simulators. This work will form the basis of NeuroML v3.0.

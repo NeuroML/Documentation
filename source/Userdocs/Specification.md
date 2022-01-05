@@ -1,7 +1,7 @@
 (userdocs:specification)=
 # Schema/Specification
 
-```{admonition} NeuroML v2.1 is the current stable release of the language, and is described below.
+```{admonition} NeuroML v2.2 is the current stable release of the language, and is described below.
 For an overview of the various releases of the language see: {ref}`A brief history of NeuroML <history>`.
 ```
 
