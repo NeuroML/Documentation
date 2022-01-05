@@ -3,10 +3,6 @@
 
 ## Overview
 
-```{admonition} Needs work
-TODO: Add more information to each of these
-```
-
 In general, work is carried out in the **development** branches of the [main NeuroML repositories](https://github.com/NeuroML)
 and these are merged to **master** branches on a new major release, e.g. move from NeuroML v2.1 to v2.2.
 

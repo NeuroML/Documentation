@@ -1,9 +1,5 @@
 (userdocs:creating_models)=
 # Creating NeuroML models
-```{admonition} WIP
-:class: warning
-This page is currently a work in progress. Please see the related issue here: https://github.com/NeuroML/Documentation/issues/39
-```
 
 (userdocs:creating_models:from_scratch)=
 ## Writing models from scratch using Python NeuroML tools
@@ -94,7 +90,7 @@ This step is optional, but recommended.
 ### Compare multi-compartmental cell with channels
 
 - You can export morphologies on [NeuroMorpho.org](https://neuromorpho.org) to NeuroML2 ([example](https://github.com/NeuralEnsemble/NeuroinformaticsTutorial/blob/master/Exercises/Exercise1_NeuroMorpho_to_OSB.md))
-- If you are using NEURON, export morphology from NEURON using pyNeuroML ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)); this will be easier if there is a hoc script with just a single cell instance as in section 1). While there is the option to use `includeBiophysicalProperties=True` and this will attempt to export the conductance densities on different groups, it may be better to consolidate these and add them afterwards using correctly named groups and the most efficient representation of conductance density to group relationships ([example](https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/Python/Export/export_mitral.py)). 
+- If you are using NEURON, export morphology from NEURON using pyNeuroML ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)); this will be easier if there is a hoc script with just a single cell instance as in section 1). While there is the option to use `includeBiophysicalProperties=True` and this will attempt to export the conductance densities on different groups, it may be better to consolidate these and add them afterwards using correctly named groups and the most efficient representation of conductance density to group relationships ([example](https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/Python/Export/export_mitral.py)).
   - Alternatively manually add the `<channelDensity>` elements to the cell file (as [here](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/L23_NoHotSpot.cell.nml#L16711)).
 - As with the single compartment example, it's best to start off with the passive case, compare that to the original code (for v at multiple locations), and gradually add channels.
 - Many projects on OSB were originally converted from the original format (NEURON, GENESIS, etc.) to NeuroML v1 using {ref}`neuroConstruct <userdocs:supporting:apps:neuroconstruct>` (see [here](http://www.opensourcebrain.org/search_custom_field?f[]=43&op[43]=~&v[43][]=neuroConstruct) for a list of these). neuroConstruct has good support for export to NeuroML v2, and this code could form the basis for your conversion. More on using neuroConstruct [here](http://www.opensourcebrain.org/docs#Using_neuroConstruct_Based_Projects) and details on conversion of models to NeuroML v1 [here](http://www.neuroconstruct.org/docs/importneuron.html#Converting+mod+file%2FGENESIS+script+channels+into+ChannelML).

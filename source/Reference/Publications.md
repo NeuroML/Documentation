@@ -2,7 +2,7 @@
 # Publications and how to cite NeuroML
 
 #### NeuroML 2 and LEMS
-```{admonition} The main citation for NeuroML 2.
+```{admonition} The main citation for NeuroML 2
 :class: tip
 Please cite the following paper when discussing NeuroML v2.0 or LEMS.
 ```
