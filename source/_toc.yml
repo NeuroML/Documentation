@@ -55,6 +55,7 @@ parts:
         - file: Userdocs/Software/NeuroML_API
         - file: Userdocs/Software/MatLab
         - file: Userdocs/Software/SupportingTools
+    - file: Userdocs/Publications
     - file: Userdocs/FAQ
   - caption: NeuroML events
     chapters:
@@ -86,6 +87,5 @@ parts:
       - file: Devdocs/InteractionOtherBits
   - caption: Reference
     chapters:
-    - file: Reference/Publications
     - file: Reference/Glossary
     - file: Reference/zBibliography
