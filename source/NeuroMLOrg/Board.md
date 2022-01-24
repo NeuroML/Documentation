@@ -12,12 +12,12 @@ Due to the close link between the development of NeuroML 2 and LEMS, this group 
 The five current members of the NeuroML Editorial Board are:
 
 - Justas Birgiolas
-- Andrew Davison
 - Salvador Dura-Bernal
 - Padraig Gleeson
 - Boris Marin
+- Ankur Sinha
 
-Andrew Davison and Salvador Dura-Bernal were elected for three year terms 2019--2021 and Padraig Gleeson, Boris Marin and Justas Birgiolas were elected for three year terms 2020--2022.
+Padraig Gleeson, Boris Marin and Justas Birgiolas were elected for three year terms in 2019 (2020--2022) and Salvador Dura-Bernal and Ankur Sinha were elected for three year terms in 2021 (2022--2024).
 
 % To force a new line in markdown, end the line with two or more spaces, so do not strip these.
 
@@ -37,24 +37,6 @@ height: 150px
 Independent Researcher<br />
 Buffalo, NY<br />
 [Website](https://www.linkedin.com/in/justasbirgiolas/)
-
-</center>
-
-</div>
-<div class="col-sm-4 px-2">
-<center>
-
-```{image} ../images/Board/andrew.jpg
----
-alt: Andrew Davidson
-height: 150px
----
-```
-
-**Andrew Davidson**<br />
-CNRS, Gif-sur-Yvette<br />
-France<br />
-[Website](http://www.andrewdavison.info/)
 
 </center>
 
@@ -113,6 +95,23 @@ Brazil<br />
 
 </center>
 
+</div>
+<div class="col-sm-4 px-2">
+<center>
+
+```{image} ../images/Board/ankur.png
+---
+alt: Ankur Sinha
+height: 150px
+---
+```
+
+**Ankur Sinha**<br />
+University College London<br />
+UK<br />
+[Website](https://ankursinha.in)
+
+</center>
 </div>
 </div>
 </div>

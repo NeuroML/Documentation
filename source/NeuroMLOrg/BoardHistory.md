@@ -48,3 +48,12 @@ The fifth election of an editorial board for NeuroML took place in Nov/Dec 2019.
 - The three candidates who received the highest number of votes would serve three year terms.
 - Padraig Gleeson, Boris Marin and Justas Birgiolas were nominated, and eventually all elected to serve as editors.
 - Malin Sandstrom at the INCF was the returning officer for this election.
+
+## Election of editors (2022)
+The sixth election of an editorial board for NeuroML took place in Nov/Dec 2021.
+
+- The electorate consisted of the members of the NeuroML mailing lists as well as anyone who had made significant contributions to any of the NeuroML GitHub repositories in the past 3 years.
+- Anyone on the electorate could nominate someone to be an editor. Self nominations were also allowed.
+- The three candidates who received the highest number of votes would serve three year terms.
+- Salvador Dura-Bernal and Ankur Sinha were nominated, and eventually all elected to serve as editors.
+- Sharon Crook was the returning officer for this election.
