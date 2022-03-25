@@ -77,6 +77,7 @@ More information on running NeuroML models in Brian can be found {ref}`here <use
 
 Initial tests of using EDEN with NeuroML models and example code can be found [here](https://github.com/OpenSourceBrain/EDENShowcase).
 
+There is a **dedicated page on EDEN/NeuroML interactions** {ref}`here <userdocs:eden>`.
 
 (userdocs:supporting:apps:arbor)=
 ### Arbor
@@ -88,6 +89,7 @@ See [here](https://docs.arbor-sim.org/en/stable/fileformat/neuroml.html).
 
 Example code for interactions between NeuroML models and Arbor can be found [here](https://github.com/OpenSourceBrain/ArborShowcase).
 
+There is a **dedicated page on Arbor/NeuroML interactions** {ref}`here <userdocs:arbor>`.
 
 (userdocs:supporting:apps:pynn)=
 ### PyNN

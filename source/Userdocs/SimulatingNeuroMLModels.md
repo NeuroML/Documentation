@@ -152,3 +152,20 @@ You can export NeuroML models to the MOOSE simulator format using `jnml`:
 # Using jnml
 jnml <LEMS simulation file> -moose
 ```
+
+
+(userdocs:simulating_models:eden)=
+## Using EDEN
+
+The EDEN simulator can load and simulate NeuroML v2 models.
+
+There is a **dedicated page on EDEN/NeuroML interactions** {ref}`here <userdocs:eden>`.
+
+
+
+(userdocs:simulating_models:arbor)=
+## Using Arbor
+
+You can import NeuroML models to the Arbor simulator.
+
+There is a **dedicated page on Arbor/NeuroML interactions** {ref}`here <userdocs:arbor>`.
