@@ -2,7 +2,7 @@
 # Optimising/fitting NeuroML Models
 
 {ref}`pyNeuroML <pyNeuroML>` includes the [NeuroMLTuner](https://pyneuroml.readthedocs.io/en/development/pyneuroml.tune.html#module-pyneuroml.tune.NeuroMLTuner) module for the tuning and optimisation of NeuroML models against provided data.
-This uses the [NeuroTune](https://github.com/NeuralEnsemble/neurotune/) Python package for the fitting of models using evolutionary computation.
+This uses the [Neurotune](https://github.com/NeuralEnsemble/neurotune/) Python package for the fitting of models using evolutionary computation.
 
 This page will walk through an example model optimisation.
 
