@@ -1,33 +1,27 @@
 (userdocs:creating_models)=
 # Creating NeuroML models
 
+There are 3 main ways of developing a new model of a neuronal system in NeuroML
+
+**1) Reuse elements from previous NeuroML models**
+
+There are an increasing number of resources where you can find and analyse previously developed NeuroML models to use as the basis for a new model. See {ref}`here <userdocs:finding_models>` for details.
+
 (userdocs:creating_models:from_scratch)=
-## Writing models from scratch using Python NeuroML tools
+**2) Writing models from scratch using Python NeuroML tools**
 
-Please see the {ref}`Getting Started with NeuroML section <userdocs:getting_started_neuroml>` for quick examples on how you can use {ref}`pyNeuroML <pyneuroml>` to create NeuroML models and run them.
+The toolchain around NeuroML means that it is possible to create a model in NeuroML format from the start. Please see the {ref}`Getting Started with NeuroML section <userdocs:getting_started_neuroml>` for quick examples on how you can use {ref}`pyNeuroML <pyneuroml>` to create NeuroML models and run them.
 
+**3) Convert a published model developed in a simulator specific format to NeuroML**
 
-(userdocs:creating_models:from_neuron)=
-## Converting models from NEURON to NeuroML
+Most computational models used in publications are released in the particular format used by the authors during their research, often in a general purpose simulator like {ref}`NEURON <userdocs:supporting:apps:neuron>`. Many of these can be found on [ModelDB](https://senselab.med.yale.edu/ModelDB/default). Converting one of these to NeuroML format will mean that all further developments/modifications of the model will be standards compliant, and will give access to all of the NeuroML compliant tools for visualising/analysing/optimising/sharing the model, as well as providing multiple options for executing the model across multiple simulators.
 
-Model simulations written using the NEURON simulator can be converted to NeuroML using the {ref}`pyNeuroML <pyneuroml>` API:
+The rest of this page is a **step by step guide** to creating a new NeuroML model based on an existing published model, verifying its behaviour, and sharing it with the community on the Open Source Brain platform.
 
-```{code-block} python
-from pyneuroml.neuron import export_to_neuroml2
-..
-..
-
-export_to_neuroml2("test.hoc", "test.morphonly.cell.nml", includeBiophysicalProperties=False)
-```
 
 (userdocs:creating_models:converting_conductance)=
-## Converting conductance based cell models to NeuroML
-```{admonition} Needs improvements
-:class: warning
-This section needs improvements, verfication, and re-writing to make it easier to follow.
-Related issue: https://github.com/NeuroML/Documentation/issues/31
+## Converting cell models to NeuroML and sharing on Open Source Brain
 
-```
 ```{figure} ../images/osb-conversion.png
 :alt: Schamatic of process of converting models to NeuroML
 :align: center
@@ -90,6 +84,22 @@ This step is optional, but recommended.
 ### Compare multi-compartmental cell with channels
 
 - You can export morphologies on [NeuroMorpho.org](https://neuromorpho.org) to NeuroML2 ([example](https://github.com/NeuralEnsemble/NeuroinformaticsTutorial/blob/master/Exercises/Exercise1_NeuroMorpho_to_OSB.md))
+
+
+(userdocs:creating_models:from_neuron)=
+## Converting models from NEURON to NeuroML
+
+Model simulations written using the NEURON simulator can be converted to NeuroML using the {ref}`pyNeuroML <pyneuroml>` API:
+
+```{code-block} python
+from pyneuroml.neuron import export_to_neuroml2
+..
+..
+
+export_to_neuroml2("test.hoc", "test.morphonly.cell.nml", includeBiophysicalProperties=False)
+```
+
+
 - If you are using NEURON, export morphology from NEURON using pyNeuroML ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)); this will be easier if there is a hoc script with just a single cell instance as in section 1). While there is the option to use `includeBiophysicalProperties=True` and this will attempt to export the conductance densities on different groups, it may be better to consolidate these and add them afterwards using correctly named groups and the most efficient representation of conductance density to group relationships ([example](https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/Python/Export/export_mitral.py)).
   - Alternatively manually add the `<channelDensity>` elements to the cell file (as [here](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/L23_NoHotSpot.cell.nml#L16711)).
 - As with the single compartment example, it's best to start off with the passive case, compare that to the original code (for v at multiple locations), and gradually add channels.
