@@ -20,7 +20,9 @@ The rest of this page is a **step by step guide** to creating a new NeuroML mode
 
 
 (userdocs:creating_models:converting_conductance)=
-## Converting cell models to NeuroML and sharing on Open Source Brain
+## Converting cell models to NeuroML and sharing them on Open Source Brain
+
+The figure below is taken from the supplementary information of the {ref}`Open Source Brain paper <papers:osb>`, and gives a quick overview of the steps required and tools available for converting a model to NeuroML and sharing it on the OSB platform.
 
 ```{figure} ../images/osb-conversion.png
 :alt: Schamatic of process of converting models to NeuroML
@@ -30,9 +32,27 @@ The rest of this page is a **step by step guide** to creating a new NeuroML mode
 Procedures and tools to convert models from native formats to NeuroML and PyNN (Taken from Gleeson et al. 2019 {cite}`Gleeson2019`)
 ```
 
+### Step 1) Find the original model code
+
+While it should in principle be possible to create the model based only on the description in the accompanying publication, having the original code will be invaluable for identifying all parameters related to the model and being able to verify the dynamical behaviour of the NeuroML equivalent against the original version.
+
+Scripts for an increasing number of published models are available on [ModelDB](https://senselab.med.yale.edu/ModelDB/default), or the authors can be contacted to obtain the original scripts.
+
+Verifying that these scripts reproduces some aspect of the published model by running them locally is an important first step.
 
 (userdocs:creating_models:converting_conductance:github)=
-### Share original model code in GitHub repo
+### Step 2) Create GitHub and OSB accounts for sharing the code
+
+Sign up to [GitHub](https://github.com/signup) to be able to share the updated code publicly. Sign up to [Open Source Brain](https://www.opensourcebrain.org/account/register), and adding a link to your GitHub user account will help link between the two resources.
+
+Create a new [GitHub repository](https://docs.github.com/en/repositories) for your new model. There are plenty of examples of repositories containing NeuroML [on OSB](https://github.com/orgs/OpenSourceBrain/repositories). It's fine to share the code under your own user account, but if you would like to host it at https://github.com/OpenSourceBrain, please [get in contact with the OSB team](https://docs.opensourcebrain.org/General/Contacts.html).
+
+Now you can commit the scripts for original version of the model to your GitHub repository. **Please confirm what the license/redistribution conditions are for the code!** Authors who have shared their code on ModelDB are generally happy for the code to be reused, but it is good to get in contact with them as a courtesy to let them know your plans with the model. They will generally be very supportive as long as the original publications are referenced, and will often have useful information on updated versions of the model. Adding or updating a README file will be valuable for anyone who comes across the model on GitHub.
+
+Now you can create a project on OSB which will point to the GitHub repository and will be able to find any NeuroML models committed to it. You can also add a link back to the original archived version on ModelDB. For more details on this see [here](https://docs.opensourcebrain.org/OSBv1/Creating_Your_Own_Project.html).
+
+
+### Step 3) Improve and test original model code
 
 - Make simple script with one/each cell - simple current pulse into each ([example1](https://github.com/mbezaire/ca1/blob/development/NeuroML2/olm.hoc), [example2](https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/NEURON/mitral.hoc))
 - Make soma only example with all channels (ideally one where channels can easily be added/commented out) - apply current pulse ([example](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NEURON/Test_Soma.hoc) in NEURON)

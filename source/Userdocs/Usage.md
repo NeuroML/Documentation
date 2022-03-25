@@ -27,7 +27,7 @@ Each page in the documentation also has its own navigation in the *right hand si
 
 (userdocs:usage:jupyterbooks)=
 ## Using Jupyter notebooks included in the documentation
-```{admonition} Familiar with Jupyter Notebooks, skip ahead to the next section.
+```{admonition} Familiar with Jupyter Notebooks? Skip ahead to the next section.
 :class: tip
 If you are familiar with Jupyter Notebooks, you can skip ahead to the {ref}`Getting started with NeuroML <userdocs:getting_started_neuroml>` section.
 ```
