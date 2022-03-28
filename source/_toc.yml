@@ -55,6 +55,9 @@ parts:
         - file: Userdocs/Software/NeuroML_API
         - file: Userdocs/Software/MatLab
         - file: Userdocs/Software/SupportingTools
+          sections:
+            - file: Userdocs/Software/Tools/EDEN
+            - file: Userdocs/Software/Tools/Arbor
     - file: Userdocs/Publications
     - file: Userdocs/FAQ
   - caption: NeuroML events

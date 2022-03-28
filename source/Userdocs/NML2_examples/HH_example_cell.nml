@@ -7,8 +7,8 @@
         <notes>A single compartment HH cell</notes>
         <morphology id="hh_cell_morph">
             <segment id="0" name="soma">
-                <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="17.841241161527712"/>
-                <distal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="17.841241161527712"/>
+                <proximal x="0.0" y="0.0" z="0.0" diameter="17.841241161527712"/>
+                <distal x="0.0" y="0.0" z="0.0" diameter="17.841241161527712"/>
             </segment>
         </morphology>
         <biophysicalProperties id="hh_b_prop">

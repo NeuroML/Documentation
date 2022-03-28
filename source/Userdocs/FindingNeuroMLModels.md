@@ -7,6 +7,11 @@ There are an increasing number of repositories where you can find NeuroML models
 (userdocs:finding_models:neuromldb)=
 ## NeuroML-DB: The NeuroML Database
 
+```{admonition} Read the NeuroML-DB preprint!
+:class: tip
+A preprint of a manuscript describing NeuroML-DB and its current features is available [here](https://www.biorxiv.org/content/10.1101/2021.09.11.459920v1).
+```
+
 ```{figure} ../images/NML-DB.png
 :alt: NeuroML Database
 :align: center
@@ -16,7 +21,7 @@ The NeuroML Database contains NeuroML files for many [cells](https://neuroml-db.
 
 ```
 
-The [NeuroML Database](https://neuroml-db.org/) is a relational database that provides a means for exchanging NeuroML model descriptions and their components.
+The [NeuroML Database](https://neuroml-db.org/) is a relational database that provides a means for sharing NeuroML model descriptions and their components.
 One of its goals is to contribute to an efficient tool chain for model development using NeuroML.
 This emphasis allows the database design and subsequent searching to take advantage of this specific format.
 In particular, the NeuroML database allows for efficient searches over the components of models and metadata that are associated with a hierarchical NeuroML model description.
@@ -24,6 +29,7 @@ In particular, the NeuroML database allows for efficient searches over the compo
 The NeuroML Database is developed and maintained by the [ICON Lab](https://iconlab.asu.edu/) at [Arizona State University](https://asu.edu/).
 
 To submit your NeuroML model to NeuroML-DB, please see the information on [this page](https://neuroml-db.org/about).
+
 
 (userdocs:finding_models:osbv1)=
 ## Open Source Brain
@@ -68,12 +74,12 @@ NeuroML is being used for the description of the 302 neurons in the [worm's nerv
 
 
 (userdocs:finding_models:AllenInstitute)=
-## AllenInstitute
+## Allen Institute
 
-See [https://github.com/OpenSourceBrain/AllenInstituteNeuroML](https://github.com/OpenSourceBrain/AllenInstituteNeuroML).
+Multiple cell models as produced by the [Allen Institute](https://alleninstitute.org/) as part of their large scale brain modelling efforts are available in NeuroML format [here](https://github.com/OpenSourceBrain/AllenInstituteNeuroML).
 
 
 (userdocs:finding_models:BlueBrainProject)=
 ## Blue Brain Project
 
-See [https://github.com/OpenSourceBrain/BlueBrainProjectShowcase](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase).
+The detailed cortical cell models from the [Blue Brain Project](http://bluebrain.epfl.ch) have been converted to NeuroML format, along with the ion channels from the [Channelpedia database](https://channelpedia.epfl.ch). See [here](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase) for details.
