@@ -1,14 +1,13 @@
 (userdocs:neuromlv1)=
 # NeuroML v1
 
-```{admonition} NeuroML v1.x is deprecated.
-:class: note
-
+```{warning}
 NeuroML v1.x is deprecated. This page is maintained for archival purposes only.
+
 Please use {ref}`NeuroML v2 <userdocs:neuromlv2>`.
 ```
 
-There are three Levels of compliance to the NeuroML specifications:
+There are three Levels of compliance to the NeuroML v1 specifications:
 
 ## Level 1
 

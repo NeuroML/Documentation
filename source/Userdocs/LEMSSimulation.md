@@ -3,6 +3,16 @@
 
 For many users, the most obvious place that LEMS is used is in the LEMS Simulation file (usually {ref}`LEMS_*.xml <userdocs:conventions:files>`).
 
+In short, what a file like this does is:
+
+- point at the NeuroML file containing the model to simulate
+- include any other LEMS file it needs, including the {ref}`NeuroML core type definitions <userdocs:neuromlv2inlems>`
+- specify how long to run the simulation for and the simulation timestep (dt)
+- say what to display when the simulation has finished (e.g. membrane potentials of selected cells)
+- say what to save to file, e.g. voltage traces, spike times
+
+These files are criucial in many of the workflows for {ref}`simulating NeuroML models <userdocs:simulators>`.
+
 ## Specification of format
 
 See {ref}`here <schema:simulation_>` for definition of the main elements used in the file, including {ref}`schema:display`,  {ref}`schema:outputfile`, etc.
