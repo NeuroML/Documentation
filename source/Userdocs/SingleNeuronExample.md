@@ -214,10 +214,9 @@ They should use the Python tools as demonstrated here.
 (userdocs:getting_started:single_example:simulating)=
 ## Simulating the model
 
-Until now, we have just declared the model.
-We have not, however, included any information related to the simulation of this model.
-The same model may be instantiated many times with different random seeds and so on to give rise to different simulations and behaviours.
-In NeuroML, the information required to simulate the model is provided using {ref}`LEMS <userdocs:specification:lemsdefs>`.
+Until now, we have just declared the model in NeuroML. We have not, however, included any information related to the simulation of this model, e.g. how long to run it for, what to save from the simulation etc.
+
+With NeuroML v2, the information required to simulate the model is provided using a {ref}`LEMS Simulation file <userdocs:lemssimulation>`.
 We will not go into the details of LEMS just yet.
 We will limit ourselves to the bits necessary to simulate our Izhikevich neuron only.
 
@@ -241,8 +240,7 @@ The generated LEMS file is shown below:
 language: xml
 ----
 ```
-Similar to NeuroML, LEMS also has a well defined schema.
-I.e., a set of valid tags define a LEMS file.
+Similar to NeuroML, a {ref}`LEMS Simulation file <userdocs:lemssimulation>` also has a well defined structure, i.e., a set of valid tags which define the contents of the LEMS file.
 We observe that whereas the NeuroML tags were related to the modelling parameters, the LEMS tags are related to simulation.
 We also note that our NeuroML model has been "included" in the LEMS file, so that all entities defined there are now known to the LEMS simulation also.
 Like NeuroML, *users are not expected to write the LEMS XML component by hand*.

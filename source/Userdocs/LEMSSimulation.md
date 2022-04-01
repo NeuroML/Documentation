@@ -11,7 +11,7 @@ In short, what a file like this does is:
 - say what to display when the simulation has finished (e.g. membrane potentials of selected cells)
 - say what to save to file, e.g. voltage traces, spike times
 
-These files are criucial in many of the workflows for {ref}`simulating NeuroML models <userdocs:simulators>`.
+These files are crucial in many of the workflows for {ref}`simulating NeuroML models <userdocs:simulators>`, and are reused across different simulator targets, e.g. `jnml LEMS_MyNetwork.xml` (run in jNeuroML), `jnml LEMS_MyNetwork.xml -neuron` (convert to NEURON), `jnml LEMS_MyNetwork.xml -brian2` (convert to Brian2). See {ref}`here <userdocs:simulating_models:jnml>` for more information.
 
 ## Specification of format
 
