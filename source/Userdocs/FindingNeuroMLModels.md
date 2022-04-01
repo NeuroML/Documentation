@@ -45,7 +45,7 @@ Examples of NeuroML 2 models visualised on Open Source Brain. A) [Hodgkin Huxley
 
 [Open Source Brain](https://www.opensourcebrain.org) is a platform for sharing, viewing, analyzing, and simulating standardized models from different brain regions and species.
 
-To add your NeuroML model to Open Source Brain, please see the information on [this page](https://www.opensourcebrain.org/docs#Creating_Your_Own_Project).
+To add your NeuroML model to Open Source Brain, please see the information on {ref}`this page <userdocs:creating_models:converting_conductance>`.
 
 (userdocs:finding_models:others)=
 ## Other related projects
