@@ -15,6 +15,21 @@ other applications, libraries and databases which support NeuroML 2 and LEMS.
 (userdocs:supporting:apps)=
 ## Applications with NeuroML support
 
+
+
+(userdocs:supporting:apps:neuron)=
+### NEURON
+
+![NEURON logo](../../images/tools/neuron.png)
+
+The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models.
+
+{ref}`jNeuroML <jneuroml>` can be used to convert NeuroML2/LEMS models to NEURON. NEURON simulations can also be generated from NeuroML model components by [neuroConstruct].
+
+There is a **dedicated page on NEURON/NeuroML interactions** {ref}`here <userdocs:neuron>`.
+
+
+
 (userdocs:supporting:apps:netpyne)=
 ### NetPyNE
 
@@ -22,7 +37,7 @@ other applications, libraries and databases which support NeuroML 2 and LEMS.
 
 [NetPyNE] is a Python package to facilitate the development, simulation, parallelization, analysis, and optimization of biological neuronal networks using the NEURON simulator. NetPyNE can import from and export to NeuroML. NetPyNE also provides a web based [Graphical User Interface](https://github.com/MetaCell/NetPyNE-UI/wiki).
 
-More information on running NeuroML models in NetPyNE can be found {ref}`here <userdocs:simulating_models:netpyne>`.
+There is a **dedicated page on NetPyNE/NeuroML interactions** {ref}`here <userdocs:netpyne>`.
 
 (userdocs:supporting:apps:neuroconstruct)=
 ### neuroConstruct
@@ -31,15 +46,6 @@ More information on running NeuroML models in NetPyNE can be found {ref}`here <u
 
 [neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the [NEURON], [GENESIS], [PSICS] and [PyNN] platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks. More info on the support for NeuroML in neuroConstruct is available [here](http://www.neuroconstruct.org/docs/neuroml.html).
 
-
-(userdocs:supporting:apps:neuron)=
-### NEURON
-
-![NEURON logo](../../images/tools/neuron.png)
-
-The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. NEURON simulations can be generated from NeuroML model components by [neuroConstruct].
-
-{ref}`jNeuroML <jneuroml>` can also be used to convert NeuroML2/LEMS models to NEURON. More information on running NeuroML models in NEURON can be found {ref}`here <userdocs:simulating_models:neuron>`.
 
 
 
