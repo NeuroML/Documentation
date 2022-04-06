@@ -10,7 +10,7 @@ Please [file issues](https://github.com/NeuroML/Documentation/issues/new/choose)
 
 
 Apart from the core NeuroML tools ({ref}`pyNeuroML <pyNeuroML>`, {ref}`jNeuroML <jNeuroML>`, etc.) there are many
-other applications, libraries and databases which support NeuroML 2 and LEMS.
+other applications, libraries and databases which support NeuroML 2 and LEMS. These tools take a {ref}`number of different approaches <userdocs:neuroml_support_approaches>` to adding NeuroML support.
 
 (userdocs:supporting:apps)=
 ## Applications with NeuroML support
