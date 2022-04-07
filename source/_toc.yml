@@ -59,6 +59,7 @@ parts:
             - file: Userdocs/Software/Tools/Approaches
             - file: Userdocs/Software/Tools/NEURON
             - file: Userdocs/Software/Tools/NetPyNE
+            - file: Userdocs/Software/Tools/PyNN
             - file: Userdocs/Software/Tools/EDEN
             - file: Userdocs/Software/Tools/Arbor
     - file: Userdocs/Publications
