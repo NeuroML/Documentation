@@ -119,7 +119,7 @@ You can export single component NeuroML models to Python scripts for running the
 jnml <LEMS simulation file> -brian2
 
 # Using pynml
-pynml <LEMS simulation file> -brian
+pynml <LEMS simulation file> -brian2
 ```
 
 You can also run LEMS simulations using the Brian2 simulator using the {ref}`pyNeuroML <pyneuroml>` API:
@@ -127,11 +127,12 @@ You can also run LEMS simulations using the Brian2 simulator using the {ref}`pyN
 ```{code-block} python
 from pyneuroml.pynml import run_lems_with_jneuroml_brian2
 
-
 ...
 
 run_lems_with_jneuroml_brian2(lems_file_name)
 ```
+
+There is a **dedicated page on Brian/NeuroML interactions** {ref}`here <userdocs:brian>`.
 
 (userdocs:simulating_models:moose)=
 ## Using MOOSE

@@ -16,15 +16,14 @@ other applications, libraries and databases which support NeuroML 2 and LEMS. Th
 ## Applications with NeuroML support
 
 
-
 (userdocs:supporting:apps:neuron)=
 ### NEURON
 
 ![NEURON logo](../../images/tools/neuron.png)
 
-The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models.
+The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. {ref}`jNeuroML <jneuroml>` can be used to convert NeuroML2/LEMS models to NEURON. NEURON simulations can also be generated from NeuroML model components by [neuroConstruct].
 
-{ref}`jNeuroML <jneuroml>` can be used to convert NeuroML2/LEMS models to NEURON. NEURON simulations can also be generated from NeuroML model components by [neuroConstruct].
+See also {ref}`NetPyNE <userdocs:netpyne>`, which builds on NEURON.
 
 There is a **dedicated page on NEURON/NeuroML interactions** {ref}`here <userdocs:neuron>`.
 
@@ -44,8 +43,9 @@ There is a **dedicated page on NetPyNE/NeuroML interactions** {ref}`here <userdo
 
 ![Neuroconstruct logo](../../images/tools/neuroconstruct.png)
 
-[neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the [NEURON], [GENESIS], [PSICS] and [PyNN] platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks. More info on the support for NeuroML in neuroConstruct is available [here](http://www.neuroconstruct.org/docs/neuroml.html).
+[neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the [NEURON], [GENESIS], [PSICS] and [PyNN] platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks.
 
+More info on the support for NeuroML in neuroConstruct is available [here](http://www.neuroconstruct.org/docs/neuroml.html).
 
 
 
@@ -74,7 +74,7 @@ More information on running NeuroML models in MOOSE can be found {ref}`here <use
 
 [Brian] is an easy to use, Python based simulator of spiking networks.
 
-More information on running NeuroML models in Brian can be found {ref}`here <userdocs:simulating_models:brian2>`.
+There is a **dedicated page on Brian/NeuroML interactions** {ref}`here <userdocs:brian>`.
 
 (userdocs:supporting:apps:eden)=
 ### EDEN
