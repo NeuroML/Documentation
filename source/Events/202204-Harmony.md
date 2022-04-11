@@ -3,11 +3,11 @@
 
 ```{admonition} Registration for the COMBINE initiative's HARMONY 2022 meeting is free.
 :class: tip
-Register for the COMBINE: HARMONY 2022 meeting [here](https://combine-org.github.io/events/).
-Registration is free.
+Please register for the COMBINE HARMONY 2022 meeting [here](https://combine-org.github.io/events/) if you are coming to our NeuroML workshop.
+Registration for HARMONY is free.
 ```
 
-We will be running a NeuroML development workshop during the upcoming [COMBINE: HARMONY 2022](https://combine-org.github.io/events/) meeting on XX April 2022.
+We will be running a NeuroML development workshop during the upcoming [COMBINE network's HARMONY 2022](https://combine-org.github.io/events/) meeting on Thus 28 April 2022.
 This will be an opportunity for anyone interested in developing NeuroML or adding support for the format to their application talk about their work and hear about other developments.
 
 (neuromlevents:202104harmony:agenda)=
@@ -18,13 +18,14 @@ More details to follow...
 (neuromlevents:202104harmony:when)=
 ## Times and dates
 
-More details to follow...
+The workshop will take place on **Thus 28 April 2022** at 15:00-18:00 UTC ([converter](https://www.timeanddate.com/worldclock/converter.html?iso=20220427T150000&p1=136&p2=1440&p3=137&p4=179&p5=37&p6=176&p7=248)).
 
 (neuromlevents:202104harmony:registration)=
 ## Registration
 
 To take part in the workshop, please register [here](https://combine-org.github.io/events/) for the HARMONY meeting (registration is free).
-You will get sent details to access the HARMONY agenda, which will have links to the Zoom session.
+
+You will get sent details to access the HARMONY agenda, which will have links to the **Zoom session for the NeuroML workshop**.
 
 (neuromlevents:202104harmony:prepare)=
 ## Open an issue beforehand!
