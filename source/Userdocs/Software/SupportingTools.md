@@ -117,6 +117,20 @@ The [c302 subproject](https://github.com/openworm/c302) in OpenWorm has the late
 
  Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see [Geppetto](#geppetto)).
 
+
+
+ (userdocs:supporting:apps:mdf)=
+ ### Model Description Format (MDF)
+
+ ![MDF logo](../../images/tools/mdf.png)
+
+ (userdocs:supporting:apps:tvb)=
+ ### The Virtual Brain
+ 
+ ![TVB logo](../../images/tools/tvb.png)
+
+
+
 (userdocs:supporting:apps:lfpy)=
 ### LFPy
 
