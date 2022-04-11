@@ -124,12 +124,18 @@ The [c302 subproject](https://github.com/openworm/c302) in OpenWorm has the late
 
  ![MDF logo](../../images/tools/mdf.png)
 
+[ModECI Model Description Format (MDF)](https://github.com/ModECI/MDF) is an open source, community-supported standard and associated library of tools for expressing computational models in a form that allows them to be exchanged between diverse programming languages and execution environments, with a particular focus on machine learning, artificial intelligence and computational neuroscience.
+
+There will be full compatibility between NeuroML and MDF for specifying neuronal models. See [here](https://github.com/ModECI/MDF/blob/main/examples/NeuroML/README.md) for ongoing work in this direction.
+
  (userdocs:supporting:apps:tvb)=
  ### The Virtual Brain
- 
+
  ![TVB logo](../../images/tools/tvb.png)
 
+[The Virtual Brain (TVB)](https://www.thevirtualbrain.org) offers a simulation environment for large-scale brain networks. It allows network properties, in particular the brain’s structural connectivity, to be incorporated into models, and so TVB can simulate whole brain behaviour as is commonly observed in clinical scanners (e.g. EEG, MEG, fMRI).
 
+Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [here](https://github.com/OpenSourceBrain/TheVirtualBrainShowcase). See also the work of the [INCF Network Specification Working Group in this area](https://github.com/NeuralEnsemble/Networks_SIG/issues?q=is%3Aissue+is%3Aopen+label%3ATVB). 
 
 (userdocs:supporting:apps:lfpy)=
 ### LFPy
