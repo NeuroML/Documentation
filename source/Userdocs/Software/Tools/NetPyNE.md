@@ -11,4 +11,8 @@ More information on running NeuroML models in NetPyNE can be found {ref}`here <u
 
 ## Running NetPyNE on OSBv2
 
-Building and running NetPyNE models will be a core feature of Open Source Brain v2.0. See [here](https://docs.opensourcebrain.org/OSBv2/NetPyNE.html) for more details. 
+Building and running NetPyNE models will be a core feature of Open Source Brain v2.0. See [here](https://docs.opensourcebrain.org/OSBv2/NetPyNE.html) for more details.
+
+## NeuroMLlite
+
+NetPyNE is also a key target for cross simulator network creation using {ref}`NeuroMLlite <neuromllite>`. There are ongoing plans for greater alignment between formats used for network specification in NetPyNE and NeuroMLlite.

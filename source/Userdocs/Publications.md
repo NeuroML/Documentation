@@ -1,7 +1,7 @@
 (citing)=
 # Citing NeuroML and related publications
 
-This page documents how one can cite NeuroML in their work, and lists publications associated to NeuroML.
+This page documents how one can cite NeuroML in their work, and lists publications associated with the NeuroML initiative.
 
 ## Citing NeuroML
 
