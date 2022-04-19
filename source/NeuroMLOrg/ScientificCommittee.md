@@ -89,6 +89,24 @@ USA<br />
 <div class="col-sm-4 px-2">
 <center>
 
+```{image} ../images/ScientificCommittee/andrew.jpg
+---
+alt: Andrew Davison
+height: 150px
+---
+```
+
+**Andrew Davison**<br />
+CNRS, Gif-sur-Yvette<br />
+France<br />
+[Website](http://www.andrewdavison.info/)
+
+</center>
+
+</div>
+<div class="col-sm-4 px-2">
+<center>
+
 ```{image} ../images/ScientificCommittee/robertmcdougal.png
 ---
 alt: Robert McDougal
