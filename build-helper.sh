@@ -61,6 +61,7 @@ function create_virtenv() {
         source "$VENV_ACTIVATE_SCRIPT"
 
         echo "Installing required dependencies in virtual environment."
+        pip install wheel
         pip install -r requirements-book.txt
         # pip install -r requirements.txt
 
