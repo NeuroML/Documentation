@@ -13,7 +13,7 @@ This will be an opportunity for anyone interested in developing NeuroML or addin
 (neuromlevents:202104harmony:agenda)=
 ## Agenda
 
-More details to follow...
+The agenda for the meeting can be found [here](https://docs.google.com/document/d/1GOkmylIlLH3dbxB2Pmis7VxFPzipstLBdXn5uBu4rv8/edit).
 
 (neuromlevents:202104harmony:when)=
 ## Times and dates
