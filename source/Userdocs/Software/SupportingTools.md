@@ -63,9 +63,12 @@ Due to the lack of active development of GENESIS, support for mapping to GENESIS
 
 ![MOOSE logo](../../images/tools/moose.jpg)
 
-[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core, and scripts for that environment are largely compatible with MOOSE.
+[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core.
 
 More information on running NeuroML models in MOOSE can be found {ref}`here <userdocs:simulating_models:moose>`.
+
+There is a **dedicated page on MOOSE/NeuroML interactions** {ref}`here <userdocs:moose>`.
+
 
 (userdocs:supporting:apps:brian)=
 ### BRIAN
@@ -152,7 +155,7 @@ Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [he
 
 [BioSimulators] provides a registry and platform supporting a broad range of modeling frameworks, model formats, simulation algorithms, and simulation tools.
 
-See for example https://biosimulators.org/simulators/pyneuroml/latest. 
+See for example https://biosimulators.org/simulators/pyneuroml/latest.
 
 
 

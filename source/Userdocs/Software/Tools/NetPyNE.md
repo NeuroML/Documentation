@@ -5,9 +5,13 @@
 
 [NetPyNE](http://netpyne.org) is a Python package to facilitate the development, simulation, parallelization, analysis, and optimization of biological neuronal networks using the NEURON simulator. NetPyNE can import from and export to NeuroML. NetPyNE also provides a web based [Graphical User Interface](https://github.com/MetaCell/NetPyNE-UI/wiki).
 
-## Importing and exporting NeuroML models to/from NetPyNE
+## Importing NeuroML into NetPyNE
 
-More information on running NeuroML models in NetPyNE can be found {ref}`here <userdocs:simulating_models:netpyne>`.
+An example of how to import a network in NeuroML into NetPyNE can be found [here](https://github.com/Neurosim-lab/netpyne/blob/development/examples/NeuroMLImport/SimpleNet_import.py).
+
+## Exporting NeuroML from NetPyNE
+
+An example of how to export a network built using NetPyNE to NeuroML can be found [here](https://github.com/OpenSourceBrain/NetPyNEShowcase/blob/master/NetPyNE/HHSmall/HH_export.py).
 
 ## Running NetPyNE on OSBv2
 
