@@ -58,8 +58,6 @@ from pyneuroml.pynml import run_lems_with_jneuroml
 run_lems_with_jneuroml(lems_file_name)
 ```
 
-
-
 (userdocs:simulating_models:neuron)=
 ## Using NEURON
 
@@ -73,6 +71,15 @@ jnml <LEMS simulation file> -neuron -run
 pynml <LEMS simulation file> -neuron -run
 ```
 
+You can also run LEMS simulations using the NEURON simulator using the {ref}`pyNeuroML <pyneuroml>` API:
+
+```{code-block} python
+from pyneuroml.pynml import run_lems_with_jneuroml_neuron
+
+...
+
+run_lems_with_jneuroml_neuron(lems_file_name)
+```
 There is a **dedicated page on NEURON/NeuroML interactions** {ref}`here <userdocs:neuron>`.
 
 
@@ -101,13 +108,9 @@ from pyneuroml.pynml import run_lems_with_jneuroml_netpyne
 
 run_lems_with_jneuroml_netpyne(lems_file_name)
 ```
-### Importing NeuroML into NetPyNE
 
-An example of how to import a network in NeuroML into NetPyNE can be found [here](https://github.com/Neurosim-lab/netpyne/blob/development/examples/NeuroMLImport/SimpleNet_import.py).
+There is a **dedicated page on NetPyNE/NeuroML interactions** {ref}`here <userdocs:netpyne>`.
 
-### Exporting NeuroML from NetPyNE
-
-An example of how to export a network built using NetPyNE to NeuroML can be found [here](https://github.com/OpenSourceBrain/NetPyNEShowcase/blob/master/NetPyNE/HHSmall/HH_export.py).
 
 (userdocs:simulating_models:brian2)=
 ## Using Brian2
@@ -137,12 +140,16 @@ There is a **dedicated page on Brian/NeuroML interactions** {ref}`here <userdocs
 (userdocs:simulating_models:moose)=
 ## Using MOOSE
 
-You can export NeuroML models to the MOOSE simulator format using `jnml`:
+You can export NeuroML models to the MOOSE simulator format using {ref}`jNeuroML <jneuroml>` or {ref}`pyNeuroML <pyNeuroML>`, pointing at a {ref}`LEMS Simulation file <userdocs:lemssimulation>` describing what to simulate, and using the `-moose` option:
 
 ```{code-block} console
 # Using jnml
 jnml <LEMS simulation file> -moose
+
+# Using pynml
+pynml <LEMS simulation file> -moose
 ```
+There is a **dedicated page on MOOSE/NeuroML interactions** {ref}`here <userdocs:moose>`.
 
 
 (userdocs:simulating_models:eden)=

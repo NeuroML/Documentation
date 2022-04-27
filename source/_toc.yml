@@ -61,6 +61,7 @@ parts:
             - file: Userdocs/Software/Tools/NetPyNE
             - file: Userdocs/Software/Tools/PyNN
             - file: Userdocs/Software/Tools/Brian
+            - file: Userdocs/Software/Tools/MOOSE
             - file: Userdocs/Software/Tools/EDEN
             - file: Userdocs/Software/Tools/Arbor
     - file: Userdocs/Publications

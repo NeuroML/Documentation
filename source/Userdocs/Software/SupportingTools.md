@@ -63,9 +63,12 @@ Due to the lack of active development of GENESIS, support for mapping to GENESIS
 
 ![MOOSE logo](../../images/tools/moose.jpg)
 
-[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core, and scripts for that environment are largely compatible with MOOSE.
+[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core.
 
 More information on running NeuroML models in MOOSE can be found {ref}`here <userdocs:simulating_models:moose>`.
+
+There is a **dedicated page on MOOSE/NeuroML interactions** {ref}`here <userdocs:moose>`.
+
 
 (userdocs:supporting:apps:brian)=
 ### BRIAN
@@ -119,23 +122,23 @@ The [c302 subproject](https://github.com/openworm/c302) in OpenWorm has the late
 
 
 
- (userdocs:supporting:apps:mdf)=
- ### Model Description Format (MDF)
+(userdocs:supporting:apps:mdf)=
+### Model Description Format (MDF)
 
- ![MDF logo](../../images/tools/mdf.png)
+![MDF logo](../../images/tools/mdf.png)
 
 [ModECI Model Description Format (MDF)](https://github.com/ModECI/MDF) is an open source, community-supported standard and associated library of tools for expressing computational models in a form that allows them to be exchanged between diverse programming languages and execution environments, with a particular focus on machine learning, artificial intelligence and computational neuroscience.
 
 There will be full compatibility between NeuroML and MDF for specifying neuronal models. See [here](https://github.com/ModECI/MDF/blob/main/examples/NeuroML/README.md) for ongoing work in this direction.
 
- (userdocs:supporting:apps:tvb)=
- ### The Virtual Brain
+(userdocs:supporting:apps:tvb)=
+### The Virtual Brain
 
- ![TVB logo](../../images/tools/tvb.png)
+![TVB logo](../../images/tools/tvb.png)
 
 [The Virtual Brain (TVB)](https://www.thevirtualbrain.org) offers a simulation environment for large-scale brain networks. It allows network properties, in particular the brain’s structural connectivity, to be incorporated into models, and so TVB can simulate whole brain behaviour as is commonly observed in clinical scanners (e.g. EEG, MEG, fMRI).
 
-Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [here](https://github.com/OpenSourceBrain/TheVirtualBrainShowcase). See also the work of the [INCF Network Specification Working Group in this area](https://github.com/NeuralEnsemble/Networks_SIG/issues?q=is%3Aissue+is%3Aopen+label%3ATVB). 
+Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [here](https://github.com/OpenSourceBrain/TheVirtualBrainShowcase). See also the work of the [INCF Network Specification Working Group in this area](https://github.com/NeuralEnsemble/Networks_SIG/issues?q=is%3Aissue+is%3Aopen+label%3ATVB).
 
 (userdocs:supporting:apps:lfpy)=
 ### LFPy
@@ -143,6 +146,17 @@ Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [he
 ![LFPy logo](../../images/tools/lfpy.png)
 
 [LFPy] is a Python package for calculation of extracellular potentials from multicompartment neuron models. It relies on the NEURON simulator and uses the Python interface it provides. LFPy provides a set of easy to use Python classes for setting up the model, running simulations and calculating the extracellular potentials arising from activity in the model neuron. Initial support for loading of NeuroML morphologies has been added.
+
+
+(userdocs:supporting:apps:biosimulators)=
+### BioSimulators
+
+![BioSimulators logo](../../images/tools/biosimulators.png)
+
+[BioSimulators] provides a registry and platform supporting a broad range of modeling frameworks, model formats, simulation algorithms, and simulation tools.
+
+See for example https://biosimulators.org/simulators/pyneuroml/latest.
+
 
 
 (userdocs:supporting:apps:neuronland)=
@@ -314,3 +328,4 @@ Loading of morphologies in MorphML and NeuroML formats is supported.
 [Brian]: https://briansimulator.org/
 [EDEN]: https://gitlab.com/neurocomputing-lab/Inferior_OliveEMC/eden
 [Arbor]: https://arbor-sim.org/
+[BioSimulators]: https://biosimulators.org/
