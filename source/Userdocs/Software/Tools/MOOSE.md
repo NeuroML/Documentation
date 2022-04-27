@@ -4,7 +4,7 @@
 
 [MOOSE](https://moose.ncbs.res.in/) is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core.
 
-Some tests of using MOOSE with NeuroML models and example code can be found [here](https://github.com/OpenSourceBrain/MOOSEShowcase).
+Some tests of using MOOSE with NeuroML models and example code can be found in the [MOOSE Showcase](https://github.com/OpenSourceBrain/MOOSEShowcase) repository.
 
 
 ## Simulating NeuroML models in MOOSE
