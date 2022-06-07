@@ -14,7 +14,7 @@ Two potential problems that must be checked are:
 - Point of connection of dendritic branches to the soma: e.g., in Neurolucida, there is no explicit soma but usually only an outline.
 - Zero length sections: NEURON can work with zero segment lengths (consecutive pt3d points being equal), but a standard mapping of this may not be supported in other simulators such as GENESIS.
 
-An incomplete list of checks to make to ensure a valid cell is (taken from {ref}`NeuroConstruct <userdocs:supporting:apps:neuroconstruct>`):
+An incomplete list of checks to make to ensure a valid cell is (taken from {ref}`neuroConstruct <userdocs:supporting:apps:neuroconstruct>`):
 
 - Only one segment should be without a parent (root)
 - All segments must have sections
@@ -49,3 +49,7 @@ Information on the SWC format can be found in the [NeuroMorpho FAQ](http://neuro
 
 
 ## Tools
+
+### neuroConstruct
+
+### 
