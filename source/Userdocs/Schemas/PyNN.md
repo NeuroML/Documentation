@@ -7,9 +7,9 @@
 ---
 
 
-Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//PyNN.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
+Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//PyNN.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -28,8 +28,8 @@ extends *{ref}`schema:basecellmembpot`*
 <i>Base type of any PyNN standard cell model. Note: membrane potential **v** has dimensions voltage, but all other parameters are dimensionless. This is to facilitate translation to and from PyNN scripts in Python, where these parameters have implicit units, see http://neuralensemble.org/trac/PyNN/wiki/StandardModels.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -44,7 +44,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -57,7 +57,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -69,7 +69,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -81,6 +81,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 ```
 ````
+`````
 
 (schema:basepynniafcell)=
 
@@ -96,8 +97,8 @@ extends *{ref}`schema:basepynncell`*
 <i>Base type of any PyNN standard integrate and fire model.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -117,7 +118,7 @@ extends *{ref}`schema:basepynncell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -129,7 +130,7 @@ extends *{ref}`schema:basepynncell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -141,6 +142,7 @@ extends *{ref}`schema:basepynncell`*
 
 ```
 ````
+`````
 
 (schema:basepynniafcondcell)=
 
@@ -156,8 +158,8 @@ extends *{ref}`schema:basepynniafcell`*
 <i>Base type of conductance based PyNN IaF cell models.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -179,7 +181,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -191,7 +193,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -203,6 +205,7 @@ extends *{ref}`schema:basepynniafcell`*
 
 ```
 ````
+`````
 
 (schema:if_curr_alpha)=
 
@@ -218,8 +221,8 @@ extends *{ref}`schema:basepynniafcell`*
 <i>Leaky integrate and fire model with fixed threshold and alpha-function-shaped post-synaptic current.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -239,7 +242,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -251,7 +254,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -264,7 +267,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -275,7 +278,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -324,24 +327,20 @@ extends *{ref}`schema:basepynniafcell`*
 : &emsp;&emsp; d **v** /dt = (MVOLT * ((i_offset/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_curr_alpha" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_curr_alpha
 
-variable = IF_curr_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, **kwargs_)
+variable = IF_curr_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <IF_curr_alpha id="IF_curr_alpha" cm="1.0" i_offset="0.9" tau_m="20.0" tau_refrac="10.0" tau_syn_E="0.5" tau_syn_I="0.5" v_init="-65" v_reset="-62.0" v_rest="-65.0" v_thresh="-52.0"/>
 ```
 ````
-
+`````
 
 (schema:if_curr_exp)=
 
@@ -357,8 +356,8 @@ extends *{ref}`schema:basepynniafcell`*
 <i>Leaky integrate and fire model with fixed threshold and decaying-exponential post-synaptic current.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -378,7 +377,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -390,7 +389,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -403,7 +402,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -414,7 +413,7 @@ extends *{ref}`schema:basepynniafcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -463,24 +462,20 @@ extends *{ref}`schema:basepynniafcell`*
 : &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_curr_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_curr_exp
 
-variable = IF_curr_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, **kwargs_)
+variable = IF_curr_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <IF_curr_exp id="IF_curr_exp" cm="1.0" i_offset="1.0" tau_m="20.0" tau_refrac="8.0" tau_syn_E="5.0" tau_syn_I="5.0" v_init="-65" v_reset="-70.0" v_rest="-65.0" v_thresh="-50.0"/>
 ```
 ````
-
+`````
 
 (schema:if_cond_alpha)=
 
@@ -496,8 +491,8 @@ extends *{ref}`schema:basepynniafcondcell`*
 <i>Leaky integrate and fire model with fixed threshold and alpha-function-shaped post-synaptic conductance.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -519,7 +514,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -531,7 +526,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -544,7 +539,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -555,7 +550,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -604,19 +599,15 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset) / cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_cond_alpha" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_cond_alpha
 
-variable = IF_cond_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, **kwargs_)
+variable = IF_cond_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <IF_cond_alpha id="IF_cond_alpha" cm="1.0" e_rev_E="0.0" e_rev_I="-70.0" i_offset="0.9" tau_m="20.0" tau_refrac="5.0" tau_syn_E="0.3" tau_syn_I="0.5" v_init="-65" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0"/>
 ```
@@ -624,7 +615,7 @@ variable = IF_cond_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <IF_cond_alpha id="silent_cell" cm="1.0" e_rev_E="0.0" e_rev_I="-70.0" i_offset="0" tau_m="20.0" tau_refrac="5.0" tau_syn_E="5" tau_syn_I="10" v_init="-65" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0"/>
 ```
 ````
-
+`````
 
 (schema:if_cond_exp)=
 
@@ -640,8 +631,8 @@ extends *{ref}`schema:basepynniafcondcell`*
 <i>Leaky integrate and fire model with fixed threshold and exponentially-decaying post-synaptic conductance.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -663,7 +654,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -675,7 +666,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -688,7 +679,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -699,7 +690,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -748,24 +739,20 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_cond_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_cond_exp
 
-variable = IF_cond_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, **kwargs_)
+variable = IF_cond_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <IF_cond_exp id="IF_cond_exp" cm="1.0" e_rev_E="0.0" e_rev_I="-70.0" i_offset="1.0" tau_m="20.0" tau_refrac="5.0" tau_syn_E="5.0" tau_syn_I="5.0" v_init="-65" v_reset="-68.0" v_rest="-65.0" v_thresh="-52.0"/>
 ```
 ````
-
+`````
 
 (schema:eif_cond_exp_isfa_ista)=
 
@@ -781,8 +768,8 @@ extends *{ref}`schema:basepynniafcondcell`*
 <i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W ( 2005 ) with exponentially-decaying post-synaptic conductance.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -809,7 +796,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -820,7 +807,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -833,7 +820,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -846,7 +833,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -857,7 +844,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -918,24 +905,20 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=EIF_cond_exp_isfa_ista" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import EIF_cond_exp_isfa_ista
 
-variable = EIF_cond_exp_isfa_ista(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, a=None, b=None, delta_T=None, tau_w=None, v_spike=None, extensiontype_=None, **kwargs_)
+variable = EIF_cond_exp_isfa_ista(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, a=None, b=None, delta_T=None, tau_w=None, v_spike=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <EIF_cond_exp_isfa_ista id="EIF_cond_exp_isfa_ista" a="0.0" b="0.0805" cm="0.281" delta_T="2.0" e_rev_E="0.0" e_rev_I="-80.0" i_offset="0.6" tau_m="9.3667" tau_refrac="5" tau_syn_E="5.0" tau_syn_I="5.0" tau_w="144.0" v_init="-65" v_reset="-68.0" v_rest="-70.6" v_spike="-40.0" v_thresh="-52.0"/>
 ```
 ````
-
+`````
 
 (schema:eif_cond_alpha_isfa_ista)=
 
@@ -951,8 +934,8 @@ extends *{ref}`schema:basepynniafcondcell`*
 <i>Adaptive exponential integrate and fire neuron according to Brette R and Gerstner W ( 2005 ) with alpha-function-shaped post-synaptic conductance.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -979,7 +962,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -990,7 +973,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1003,7 +986,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1016,7 +999,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1027,7 +1010,7 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1088,24 +1071,20 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp; d **w** /dt = (1/ tau_w) * (a*((v/MVOLT)-v_rest) - w) /MSEC
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=EIF_cond_alpha_isfa_ista" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import EIF_cond_alpha_isfa_ista
 
-variable = EIF_cond_alpha_isfa_ista(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, a=None, b=None, delta_T=None, tau_w=None, v_spike=None, **kwargs_)
+variable = EIF_cond_alpha_isfa_ista(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, a=None, b=None, delta_T=None, tau_w=None, v_spike=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <EIF_cond_alpha_isfa_ista id="EIF_cond_alpha_isfa_ista" a="0.0" b="0.0805" cm="0.281" delta_T="0" e_rev_E="0.0" e_rev_I="-80.0" i_offset="0.6" tau_m="9.3667" tau_refrac="5" tau_syn_E="5.0" tau_syn_I="5.0" tau_w="144.0" v_init="-65" v_reset="-68.0" v_rest="-70.6" v_spike="-40.0" v_thresh="-52.0"/>
 ```
 ````
-
+`````
 
 (schema:hh_cond_exp)=
 
@@ -1121,8 +1100,8 @@ extends *{ref}`schema:basepynncell`*
 <i>Single-compartment Hodgkin-Huxley-type neuron with transient sodium and delayed-rectifier potassium currents using the ion channel models from Traub.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1146,7 +1125,7 @@ extends *{ref}`schema:basepynncell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1161,7 +1140,7 @@ extends *{ref}`schema:basepynncell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1174,7 +1153,7 @@ extends *{ref}`schema:basepynncell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1185,7 +1164,7 @@ extends *{ref}`schema:basepynncell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1237,24 +1216,20 @@ extends *{ref}`schema:basepynncell`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=HH_cond_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import HH_cond_exp
 
-variable = HH_cond_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, v_offset=None, e_rev_E=None, e_rev_I=None, e_rev_K=None, e_rev_Na=None, e_rev_leak=None, g_leak=None, gbar_K=None, gbar_Na=None, **kwargs_)
+variable = HH_cond_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, v_offset=None, e_rev_E=None, e_rev_I=None, e_rev_K=None, e_rev_Na=None, e_rev_leak=None, g_leak=None, gbar_K=None, gbar_Na=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <HH_cond_exp id="HH_cond_exp" cm="0.2" e_rev_E="0.0" e_rev_I="-80.0" e_rev_K="-90.0" e_rev_Na="50.0" e_rev_leak="-65.0" g_leak="0.01" gbar_K="6.0" gbar_Na="20.0" i_offset="0.2" tau_syn_E="0.2" tau_syn_I="2.0" v_init="-65" v_offset="-63.0"/>
 ```
 ````
-
+`````
 
 (schema:basepynnsynapse)=
 
@@ -1270,8 +1245,8 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 <i>Base type for all PyNN synapses. Note, the current **I** produced is dimensionless, but it requires a membrane potential **v** with dimension voltage.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1282,7 +1257,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1295,7 +1270,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1306,7 +1281,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1317,7 +1292,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1328,18 +1303,15 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BasePynnSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BasePynnSynapse
 
-variable = BasePynnSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, extensiontype_=None, **kwargs_)
+variable = BasePynnSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:expcondsynapse)=
 
@@ -1355,8 +1327,8 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>Conductance based synapse with instantaneous rise and single exponential decay ( with time constant tau_syn ).</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1368,7 +1340,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1379,7 +1351,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1391,7 +1363,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1402,7 +1374,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1413,7 +1385,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1453,24 +1425,20 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpCondSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpCondSynapse
 
-variable = ExpCondSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, e_rev=None, **kwargs_)
+variable = ExpCondSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, e_rev=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <expCondSynapse id="syn1" tau_syn="5" e_rev="0"/>
 ```
 ````
-
+`````
 
 (schema:expcurrsynapse)=
 
@@ -1486,8 +1454,8 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>Current based synapse with instantaneous rise and single exponential decay ( with time constant tau_syn ).</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1498,7 +1466,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1509,7 +1477,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1520,7 +1488,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1531,7 +1499,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1542,7 +1510,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1582,24 +1550,20 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpCurrSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpCurrSynapse
 
-variable = ExpCurrSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, **kwargs_)
+variable = ExpCurrSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <expCurrSynapse id="syn3" tau_syn="5"/>
 ```
 ````
-
+`````
 
 (schema:alphacondsynapse)=
 
@@ -1615,8 +1579,8 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>Alpha synapse: rise time and decay time are both tau_syn. Conductance based synapse.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1628,7 +1592,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1639,7 +1603,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1652,7 +1616,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1663,7 +1627,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1674,7 +1638,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1716,24 +1680,20 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCondSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaCondSynapse
 
-variable = AlphaCondSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, e_rev=None, **kwargs_)
+variable = AlphaCondSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, e_rev=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <alphaCondSynapse id="syn2" tau_syn="5" e_rev="0"/>
 ```
 ````
-
+`````
 
 (schema:alphacurrsynapse)=
 
@@ -1749,8 +1709,8 @@ extends *{ref}`schema:basepynnsynapse`*
 <i>Alpha synapse: rise time and decay time are both tau_syn. Current based synapse.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1761,7 +1721,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1772,7 +1732,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1784,7 +1744,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1795,7 +1755,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1806,7 +1766,7 @@ extends *{ref}`schema:basepynnsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1848,24 +1808,20 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCurrSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaCurrSynapse
 
-variable = AlphaCurrSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, **kwargs_)
+variable = AlphaCurrSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <alphaCurrSynapse id="syn4" tau_syn="5"/>
 ```
 ````
-
+`````
 
 (schema:spikesourcepoisson)=
 
@@ -1881,8 +1837,8 @@ extends *{ref}`schema:basespikesource`*
 <i>Spike source, generating spikes according to a Poisson process.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1895,7 +1851,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1906,7 +1862,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1918,7 +1874,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1932,7 +1888,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1944,7 +1900,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1994,19 +1950,15 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeSourcePoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeSourcePoisson
 
-variable = SpikeSourcePoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, start=None, duration=None, rate=None, **kwargs_)
+variable = SpikeSourcePoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, start=None, duration=None, rate=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <SpikeSourcePoisson id="spikes1" start="50ms" duration="400ms" rate="50Hz"/>
 ```
@@ -2014,4 +1966,4 @@ variable = SpikeSourcePoisson(neuro_lex_id=None, id=None, metaid=None, notes=Non
 <SpikeSourcePoisson id="spikes2" start="50ms" duration="300ms" rate="80Hz"/>
 ```
 ````
-
+`````
