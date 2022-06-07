@@ -2,14 +2,14 @@
 (schema:cells_)=
 # Cells
 
-**Defines both abstract cell models ( e.g.  {ref}`schema:izhikevichcell`, adaptive exponential integrate and fire cell,  {ref}`schema:adexiafcell` ), point conductance based cell models (  {ref}`schema:pointcellcondbased`,  {ref}`schema:pointcellcondbasedca` ) and cells models (  {ref}`schema:cell` ), which specify the  {ref}`schema:morphology` ( containing  {ref}`schema:segment`s ) and  {ref}`schema:biophysicalproperties` separately.**
+**Defines both abstract cell models ( e.g.  {ref}`schema:izhikevichcell`, adaptive exponential integrate and fire cell,  {ref}`schema:adexiafcell` ), point conductance based cell models (  {ref}`schema:pointcellcondbased`,  {ref}`schema:pointcellcondbasedca` ) and cells models (  {ref}`schema:cell` ) which specify the  {ref}`schema:morphology` ( containing  {ref}`schema:segment`s ) and  {ref}`schema:biophysicalproperties` separately.**
 
 ---
 
 
-Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Cells.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
+Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Cells.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -28,19 +28,16 @@ extends *{ref}`schema:basestandalone`*
 <i>Base type of any cell ( e.g. point neuron like  {ref}`schema:izhikevich2007cell`, or a morphologically detailed  {ref}`schema:cell` with  {ref}`schema:segment`s ) which can be used in a  {ref}`schema:population`.</i>
 
 
-
-
-````{tabbed} Usage: Python
+`````{tab-set}
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseCell
 
-variable = BaseCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+variable = BaseCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:basespikingcell)=
 
@@ -56,8 +53,8 @@ extends *{ref}`schema:basecell`*
 <i>Base type of any cell which can emit **spike** events.</i>
 
 
-
-````{tabbed} Event Ports
+`````{tab-set}
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -67,6 +64,7 @@ extends *{ref}`schema:basecell`*
 
 ```
 ````
+`````
 
 (schema:basecellmembpot)=
 
@@ -82,8 +80,8 @@ extends *{ref}`schema:basespikingcell`*
 <i>Any spiking cell which has a membrane potential **v** with units of voltage ( as opposed to a dimensionless membrane potential used in  {ref}`schema:basecellmembpotdl` ).</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -94,7 +92,7 @@ extends *{ref}`schema:basespikingcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -104,6 +102,7 @@ extends *{ref}`schema:basespikingcell`*
 
 ```
 ````
+`````
 
 (schema:basecellmembpotdl)=
 
@@ -119,8 +118,8 @@ extends *{ref}`schema:basespikingcell`*
 <i>Any spiking cell which has a dimensioness membrane potential, **V** ( as opposed to a membrane potential units of voltage,  {ref}`schema:basecellmembpot` ).</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -131,7 +130,7 @@ extends *{ref}`schema:basespikingcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -141,6 +140,7 @@ extends *{ref}`schema:basespikingcell`*
 
 ```
 ````
+`````
 
 (schema:basechannelpopulation)=
 
@@ -156,8 +156,8 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>Base type for any current produced by a population of channels, all of which are of type **ionChannel**.</i>
 
 
-
-````{tabbed} Component References
+`````{tab-set}
+````{tab-item} Component References
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -168,7 +168,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -179,7 +179,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -189,6 +189,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ```
 ````
+`````
 
 (schema:channelpopulation)=
 
@@ -204,8 +205,8 @@ extends *{ref}`schema:basechannelpopulation`*
 <i>Population of a **number** of ohmic ion channels. These each produce a conductance **channelg** across a reversal potential **erev,** giving a total current **i.** Note that active membrane currents are more frequently specified as a density over an area of the  {ref}`schema:cell` using  {ref}`schema:channeldensity`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -217,7 +218,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -227,7 +228,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -238,7 +239,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -249,7 +250,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -260,7 +261,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -285,24 +286,20 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelPopulation" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelPopulation
 
-variable = ChannelPopulation(neuro_lex_id=None, id=None, ion_channel=None, number=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, **kwargs_)
+variable = ChannelPopulation(neuro_lex_id=None, id=None, ion_channel=None, number=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <channelPopulation id="naChansDend" ionChannel="NaConductance" segment="2" number="120000" erev="50mV" ion="na"/>
 ```
 ````
-
+`````
 
 (schema:channelpopulationnernst)=
 
@@ -318,8 +315,8 @@ extends *{ref}`schema:basechannelpopulation`*
 <i>Population of a **number** of channels with a time varying reversal potential **erev** determined by Nernst equation. Note: hard coded for Ca only!</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -330,7 +327,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -340,7 +337,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -354,7 +351,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -366,7 +363,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -380,7 +377,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -405,6 +402,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 
 ````
+`````
 
 (schema:basechanneldensity)=
 
@@ -416,8 +414,8 @@ extends *{ref}`schema:basechannelpopulation`*
 <i>Base type for a current of density **iDensity** distributed on an area of a  {ref}`schema:cell`, flowing through the specified **ionChannel.** Instances of this ( normally  {ref}`schema:channeldensity` ) are specified in the  {ref}`schema:membraneproperties` of the  {ref}`schema:cell`.</i>
 
 
-
-````{tabbed} Component References
+`````{tab-set}
+````{tab-item} Component References
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -428,7 +426,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -439,7 +437,7 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -449,6 +447,7 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ```
 ````
+`````
 
 (schema:basechanneldensitycond)=
 
@@ -464,8 +463,8 @@ extends *{ref}`schema:basechanneldensity`*
 <i>Base type for distributed conductances on an area of a cell producing a ( not necessarily ohmic ) current.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -476,7 +475,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -488,7 +487,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -498,6 +497,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 ```
 ````
+`````
 
 (schema:variableparameter)=
 
@@ -509,8 +509,8 @@ extends *{ref}`schema:basechanneldensity`*
 <i>Specifies a **parameter** ( e.g. condDensity ) which can vary its value across a **segmentGroup.** The value is calculated from **value** attribute of the  {ref}`schema:inhomogeneousvalue` subelement. This element is normally a child of  {ref}`schema:channeldensitynonuniform`,  {ref}`schema:channeldensitynonuniformnernst` or  {ref}`schema:channeldensitynonuniformghk` and is used to calculate the value of the conductance, etc. which will vary on different parts of the cell. The **segmentGroup** specified here needs to define an  {ref}`schema:inhomogeneousparameter` ( referenced from **inhomogeneousParameter** in the  {ref}`schema:inhomogeneousvalue` ), which calculates a **variable** ( e.g. p ) varying across the cell ( e.g. based on the path length from soma ), which is then used in the **value** attribute of the  {ref}`schema:inhomogeneousvalue` ( so for example condDensity = f( p ) ).</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -521,7 +521,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -532,26 +532,22 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VariableParameter" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VariableParameter
 
-variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_value=None, **kwargs_)
+variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_value=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
                         <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>  
                     </variableParameter>
 ```
 ````
-
+`````
 
 (schema:inhomogeneousvalue)=
 
@@ -563,8 +559,8 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 <i>Specifies the **value** of an **inhomogeneousParameter.** For usage see  {ref}`schema:variableparameter`.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -575,24 +571,20 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InhomogeneousValue" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InhomogeneousValue
 
-variable = InhomogeneousValue(inhomogeneous_parameters=None, value=None, **kwargs_)
+variable = InhomogeneousValue(inhomogeneous_parameters=None, value=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <inhomogeneousValue inhomogeneousParameter="dendrite_group_x1" value="5e-7 * exp(-p/200)"/>
 ```
 ````
-
+`````
 
 (schema:channeldensitynonuniform)=
 
@@ -608,8 +600,8 @@ extends *{ref}`schema:basechanneldensity`*
 <i>Specifies a time varying ohmic conductance density, which is distributed on a region of the **cell.** The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -620,7 +612,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -631,7 +623,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -642,7 +634,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -653,7 +645,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -664,7 +656,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -675,7 +667,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -698,19 +690,15 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniform" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniform
 
-variable = ChannelDensityNonUniform(neuro_lex_id=None, id=None, ion_channel=None, erev=None, ion=None, variable_parameters=None, **kwargs_)
+variable = ChannelDensityNonUniform(neuro_lex_id=None, id=None, ion_channel=None, erev=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <channelDensityNonUniform id="nonuniform_na_chans" ionChannel="NaConductance" erev="50mV" ion="na">
                     <variableParameter parameter="condDensity" segmentGroup="dendrite_group">
@@ -719,7 +707,7 @@ variable = ChannelDensityNonUniform(neuro_lex_id=None, id=None, ion_channel=None
                 </channelDensityNonUniform>
 ```
 ````
-
+`````
 
 (schema:channeldensitynonuniformnernst)=
 
@@ -735,8 +723,8 @@ extends *{ref}`schema:basechanneldensity`*
 <i>Specifies a time varying conductance density, which is distributed on a region of the **cell,** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -747,7 +735,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -758,7 +746,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -769,7 +757,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -780,7 +768,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -791,7 +779,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -814,18 +802,15 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformNernst" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniformNernst
 
-variable = ChannelDensityNonUniformNernst(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, **kwargs_)
+variable = ChannelDensityNonUniformNernst(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:channeldensitynonuniformghk)=
 
@@ -841,8 +826,8 @@ extends *{ref}`schema:basechanneldensity`*
 <i>Specifies a time varying conductance density, which is distributed on a region of the **cell,** and whose current is calculated from the Goldman-Hodgkin-Katz equation. Hard coded for Ca only!. The conductance density of the channel is not uniform, but is set using the  {ref}`schema:variableparameter`. Note, there is no dynamical description of this in LEMS yet, as this type only makes sense for multicompartmental cells. A ComponentType for this needs to be present to enable export of NeuroML 2 multicompartmental cells via LEMS/jNeuroML to NEURON.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -853,7 +838,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -864,7 +849,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -875,7 +860,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -886,7 +871,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -897,7 +882,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -920,18 +905,15 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformGHK" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniformGHK
 
-variable = ChannelDensityNonUniformGHK(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, **kwargs_)
+variable = ChannelDensityNonUniformGHK(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:channeldensity)=
 
@@ -947,8 +929,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 <i>Specifies a time varying ohmic conductance density, **gDensity,** which is distributed on an area of the **cell** ( specified in  {ref}`schema:membraneproperties` ) with fixed reversal potential **erev** producing a current density **iDensity**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -960,7 +942,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -971,7 +953,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -982,7 +964,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -994,7 +976,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1005,7 +987,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -1030,19 +1012,15 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensity" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensity
 
-variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, **kwargs_)
+variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <channelDensity id="pasChans" ionChannel="pas" condDensity="3.0 S_per_m2" erev="-70mV" ion="non_specific"/>
 ```
@@ -1053,7 +1031,7 @@ variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_den
 <channelDensity id="naChans" ionChannel="HH_Na" segmentGroup="soma_group" condDensity="120.0 mS_per_cm2" ion="na" erev="50mV"/>
 ```
 ````
-
+`````
 
 (schema:channeldensityvshift)=
 
@@ -1069,8 +1047,8 @@ extends {ref}`schema:channeldensity`
 <i>Same as  {ref}`schema:channeldensity`, but with a **vShift** parameter to change voltage activation of gates. The exact usage of **vShift** in expressions for rates is determined by the individual gates.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1083,7 +1061,7 @@ extends {ref}`schema:channeldensity`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1094,7 +1072,7 @@ extends {ref}`schema:channeldensity`
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1106,7 +1084,7 @@ extends {ref}`schema:channeldensity`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1117,18 +1095,15 @@ extends {ref}`schema:channeldensity`
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityVShift" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityVShift
 
-variable = ChannelDensityVShift(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, v_shift=None, **kwargs_)
+variable = ChannelDensityVShift(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, v_shift=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:channeldensitynernst)=
 
@@ -1144,8 +1119,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 <i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the **cell,** producing a current density **iDensity** and whose reversal potential is calculated from the Nernst equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1156,7 +1131,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1167,7 +1142,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1180,7 +1155,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1193,7 +1168,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1207,7 +1182,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -1244,18 +1219,15 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernst" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNernst
 
-variable = ChannelDensityNernst(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, **kwargs_)
+variable = ChannelDensityNernst(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:channeldensitynernstca2)=
 
@@ -1271,8 +1243,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 <i>This component is similar to the original component type  {ref}`schema:channeldensitynernst` but it is changed in order to have a reversal potential that depends on a second independent Ca++ pool ( ca2 ). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1283,7 +1255,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1294,7 +1266,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1307,7 +1279,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1320,7 +1292,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1334,7 +1306,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -1371,18 +1343,15 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernstCa2" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNernstCa2
 
-variable = ChannelDensityNernstCa2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, **kwargs_)
+variable = ChannelDensityNernstCa2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:channeldensityghk)=
 
@@ -1398,8 +1367,8 @@ extends *{ref}`schema:basechanneldensity`*
 <i>Specifies a time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity** and whose reversal potential is calculated from the Goldman Hodgkin Katz equation. Hard coded for Ca only! See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1410,7 +1379,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1421,7 +1390,7 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1434,7 +1403,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1445,7 +1414,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1459,7 +1428,7 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -1490,18 +1459,15 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityGHK" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityGHK
 
-variable = ChannelDensityGHK(neuro_lex_id=None, id=None, ion_channel=None, permeability=None, segment_groups='all', segments=None, ion=None, **kwargs_)
+variable = ChannelDensityGHK(neuro_lex_id=None, id=None, ion_channel=None, permeability=None, segment_groups='all', segments=None, ion=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:channeldensityghk2)=
 
@@ -1517,8 +1483,8 @@ extends *{ref}`schema:basechanneldensitycond`*
 <i>Time varying conductance density, **gDensity,** which is distributed on an area of the cell, producing a current density **iDensity.** Modified version of Jaffe et al. 1994 ( used also in Lawrence et al. 2006 ). See https://github.com/OpenSourceBrain/ghk-nernst.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1529,7 +1495,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1540,7 +1506,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1553,7 +1519,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1565,7 +1531,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1579,7 +1545,7 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **ionChannel**
@@ -1618,18 +1584,15 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityGHK2" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityGHK2
 
-variable = ChannelDensityGHK2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, **kwargs_)
+variable = ChannelDensityGHK2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:pointcellcondbased)=
 
@@ -1645,8 +1608,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>Simple model of a conductance based cell, with no separate  {ref}`schema:morphology` element, just an absolute capacitance **C,** and a set of channel **populations.** Note: use of  {ref}`schema:cell` is generally preferable ( and more widely supported ), even for a single compartment cell.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1659,7 +1622,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1670,7 +1633,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1683,7 +1646,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1694,7 +1657,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1705,7 +1668,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1755,6 +1718,7 @@ extends *{ref}`schema:basecellmembpotcap`*
     
 
 ````
+`````
 
 (schema:pointcellcondbasedca)=
 
@@ -1770,8 +1734,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>TEMPORARY: Point cell with conductances and Ca concentration info. Not yet fully tested!!! TODO: Remove in favour of  {ref}`schema:cell`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1784,7 +1748,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1796,7 +1760,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1811,7 +1775,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1822,7 +1786,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1833,7 +1797,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1885,6 +1849,7 @@ extends *{ref}`schema:basecellmembpotcap`*
     
 
 ````
+`````
 
 (schema:distal)=
 
@@ -1900,8 +1865,8 @@ extends {ref}`schema:point3dwithdiam`
 <i>Point on a  {ref}`schema:segment` furthest from the soma. Should always be present in the description of a  {ref}`schema:segment`, unlike  {ref}`schema:proximal`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1915,7 +1880,7 @@ extends {ref}`schema:point3dwithdiam`
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1930,9 +1895,7 @@ extends {ref}`schema:point3dwithdiam`
 ````
 
 
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <distal x="10" y="0" z="0" diameter="10"/>
 ```
@@ -1943,7 +1906,7 @@ extends {ref}`schema:point3dwithdiam`
 <distal x="30" y="0" z="0" diameter="1"/>
 ```
 ````
-
+`````
 
 (schema:proximal)=
 
@@ -1959,8 +1922,8 @@ extends {ref}`schema:point3dwithdiam`
 <i>Point on a  {ref}`schema:segment` closest to the soma. Note, the proximal point can be omitted, and in this case is defined as being the point **fractionAlong** between the proximal and  {ref}`schema:distal` point of the  {ref}`schema:parent`, i.e. if **fractionAlong** = 1 ( as it is by default ) it will be the **distal** on the parent, or if **fractionAlong** = 0, it will be the proximal point. If between 0 and 1, it is the linear interpolation between the two points.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1974,7 +1937,7 @@ extends {ref}`schema:point3dwithdiam`
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1989,9 +1952,7 @@ extends {ref}`schema:point3dwithdiam`
 ````
 
 
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <proximal x="0" y="0" z="0" diameter="10"/>
 ```
@@ -2002,7 +1963,7 @@ extends {ref}`schema:point3dwithdiam`
 <proximal x="0" y="0" z="0" diameter="10"/>
 ```
 ````
-
+`````
 
 (schema:parent)=
 
@@ -2014,8 +1975,8 @@ extends {ref}`schema:point3dwithdiam`
 <i>Specifies the  {ref}`schema:segment` which is this segment's parent. The **fractionAlong** specifies where it is connected, usually 1 ( the default value ), meaning the  {ref}`schema:distal` point of the parent, or 0, meaning the  {ref}`schema:proximal` point. If it is between these, a linear interpolation between the 2 points should be used.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2027,9 +1988,7 @@ extends {ref}`schema:point3dwithdiam`
 ````
 
 
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <parent segment="0"/>
 ```
@@ -2040,7 +1999,7 @@ extends {ref}`schema:point3dwithdiam`
 <parent segment="2" fractionAlong="0.5"/>
 ```
 ````
-
+`````
 
 (schema:segment)=
 
@@ -2052,8 +2011,8 @@ extends {ref}`schema:point3dwithdiam`
 <i>A segment defines the smallest unit within a possibly branching structure (  {ref}`schema:morphology` ), such as a dendrite or axon. Its **id** should be a nonnegative integer ( usually soma/root = 0 ). Its end points are given by the  {ref}`schema:proximal` and  {ref}`schema:distal` points. The  {ref}`schema:proximal` point can be omitted, usually because it is the same as a point on the  {ref}`schema:parent` segment, see  {ref}`schema:proximal` for details.  {ref}`schema:parent` specifies the parent segment. The first segment of a  {ref}`schema:cell` ( with no  {ref}`schema:parent` ) usually represents the soma. The shape is normally a cylinder ( radii of the  {ref}`schema:proximal` and  {ref}`schema:distal` equal, but positions different ) or a conical frustum ( radii and positions different ). If the x, y, x positions of the  {ref}`schema:proximal` and  {ref}`schema:distal` are equal, the segment can be interpreted as a sphere, and in this case the radii of these points must be equal. NOTE: LEMS does not yet support multicompartmental modelling, so the Dynamics here is only appropriate for single compartment modelling.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2063,7 +2022,7 @@ extends {ref}`schema:point3dwithdiam`
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2076,7 +2035,7 @@ extends {ref}`schema:point3dwithdiam`
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2087,7 +2046,7 @@ extends {ref}`schema:point3dwithdiam`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2100,7 +2059,7 @@ extends {ref}`schema:point3dwithdiam`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2132,19 +2091,15 @@ extends {ref}`schema:point3dwithdiam`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Segment" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Segment
 
-variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=None, distal=None, **kwargs_)
+variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=None, distal=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <segment id="3" name="Spine1">
                 <parent segment="2" fractionAlong="0.5"/>
@@ -2167,7 +2122,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
             </segment>
 ```
 ````
-
+`````
 
 (schema:segmentgroup)=
 
@@ -2179,8 +2134,8 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 <i>A method to describe a group of  {ref}`schema:segment`s in a  {ref}`schema:morphology`, e.g. soma_group, dendrite_group, axon_group. While a name is useful to describe the group, the **neuroLexId** attribute can be used to explicitly specify the meaning of the group, e.g. sao1044911821 for 'Neuronal Cell Body', sao1211023249 for 'Dendrite'. The  {ref}`schema:segment`s in this group can be specified as: a list of individual  {ref}`schema:member` segments; a  {ref}`schema:path`, all of the segments along which should be included; a  {ref}`schema:subtree` of the  {ref}`schema:cell` to include; other segmentGroups to  {ref}`schema:include` ( so all segments from those get included here ). An  {ref}`schema:inhomogeneousparameter` can be defined on the region of the cell specified by this group ( see  {ref}`schema:variableparameter` for usage ).</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2190,7 +2145,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2202,7 +2157,7 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2218,19 +2173,15 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SegmentGroup" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SegmentGroup
 
-variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None, annotation=None, members=None, includes=None, paths=None, sub_trees=None, inhomogeneous_parameters=None, **kwargs_)
+variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None, annotation=None, members=None, includes=None, paths=None, sub_trees=None, inhomogeneous_parameters=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <segmentGroup id="dendrite_group" neuroLexId="sao1211023249">    
                 <member segment="1"/>
@@ -2249,7 +2200,7 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
             </segmentGroup>
 ```
 ````
-
+`````
 
 (schema:member)=
 
@@ -2261,8 +2212,8 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 <i>A single identified **segment** which is part of the  {ref}`schema:segmentgroup`.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2272,19 +2223,15 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Member" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Member
 
-variable = Member(segments=None, **kwargs_)
+variable = Member(segments=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <member segment="0"/>
 ```
@@ -2295,7 +2242,7 @@ variable = Member(segments=None, **kwargs_)
 <member segment="2"/>
 ```
 ````
-
+`````
 
 (schema:from)=
 
@@ -2307,8 +2254,8 @@ variable = Member(segments=None, **kwargs_)
 <i>In a  {ref}`schema:path` or  {ref}`schema:subtree`, specifies which **segment** ( inclusive ) from which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2319,9 +2266,7 @@ variable = Member(segments=None, **kwargs_)
 ````
 
 
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <from segment="1"/>
 ```
@@ -2329,7 +2274,7 @@ variable = Member(segments=None, **kwargs_)
 <from segment="1"/>
 ```
 ````
-
+`````
 
 (schema:to)=
 
@@ -2341,8 +2286,8 @@ variable = Member(segments=None, **kwargs_)
 <i>In a  {ref}`schema:path`, specifies which **segment** ( inclusive ) up to which to calculate the  {ref}`schema:segmentgroup`.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2353,14 +2298,12 @@ variable = Member(segments=None, **kwargs_)
 ````
 
 
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <to segment="2"/>
 ```
 ````
-
+`````
 
 (schema:include)=
 
@@ -2372,8 +2315,8 @@ variable = Member(segments=None, **kwargs_)
 <i>Include all members of another  {ref}`schema:segmentgroup` in this group.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2384,19 +2327,15 @@ variable = Member(segments=None, **kwargs_)
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Include" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Include
 
-variable = Include(segment_groups=None, **kwargs_)
+variable = Include(segment_groups=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <include href="NML2_SingleCompHHCell.nml"/>
 ```
@@ -2407,7 +2346,7 @@ variable = Include(segment_groups=None, **kwargs_)
 <include href="NML2_SimpleIonChannel.nml"/>
 ```
 ````
-
+`````
 
 (schema:path)=
 
@@ -2419,8 +2358,8 @@ variable = Include(segment_groups=None, **kwargs_)
 <i>Include all the  {ref}`schema:segment`s between those specified by  {ref}`schema:from` and  {ref}`schema:to`, inclusive.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2432,19 +2371,15 @@ variable = Include(segment_groups=None, **kwargs_)
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Path" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Path
 
-variable = Path(from_=None, to=None, **kwargs_)
+variable = Path(from_=None, to=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <path>
                     <from segment="1"/>
@@ -2452,7 +2387,7 @@ variable = Path(from_=None, to=None, **kwargs_)
                 </path>
 ```
 ````
-
+`````
 
 (schema:subtree)=
 
@@ -2464,8 +2399,8 @@ variable = Path(from_=None, to=None, **kwargs_)
 <i>Include all the  {ref}`schema:segment`s distal to that specified by  {ref}`schema:from` in the  {ref}`schema:segmentgroup`.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2476,26 +2411,22 @@ variable = Path(from_=None, to=None, **kwargs_)
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SubTree" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SubTree
 
-variable = SubTree(from_=None, to=None, **kwargs_)
+variable = SubTree(from_=None, to=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <subTree>
                     <from segment="1"/>
                 </subTree>
 ```
 ````
-
+`````
 
 (schema:inhomogeneousparameter)=
 
@@ -2507,8 +2438,8 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 <i>An inhomogeneous parameter specified across the  {ref}`schema:segmentgroup` ( see  {ref}`schema:variableparameter` for usage ).</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2519,7 +2450,7 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2531,19 +2462,15 @@ variable = SubTree(from_=None, to=None, **kwargs_)
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InhomogeneousParameter" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InhomogeneousParameter
 
-variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, metric=None, proximal=None, distal=None, **kwargs_)
+variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, metric=None, proximal=None, distal=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <inhomogeneousParameter id="dendrite_group_x2" variable="r" metric="Path Length from root">
                         <proximal translationStart="0"/>
@@ -2554,7 +2481,7 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 <inhomogeneousParameter id="dendrite_group_x1" variable="p" metric="Path Length from root"/>
 ```
 ````
-
+`````
 
 (schema:proximalproperties)=
 
@@ -2566,8 +2493,8 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 <i>What to do at the proximal point when creating an inhomogeneous parameter.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2576,6 +2503,7 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 **translationStart**$ 
 
 ````
+`````
 
 (schema:distalproperties)=
 
@@ -2587,8 +2515,8 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 <i>What to do at the distal point when creating an inhomogeneous parameter.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2597,6 +2525,7 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 **normalizationEnd**$ 
 
 ````
+`````
 
 (schema:morphology)=
 
@@ -2608,8 +2537,8 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 <i>The collection of  {ref}`schema:segment`s which specify the 3D structure of the cell, along with a number of  {ref}`schema:segmentgroup`s.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2621,19 +2550,15 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Morphology" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Morphology
 
-variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, segments=None, segment_groups=None, **kwargs_)
+variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, segments=None, segment_groups=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <morphology id="SpikingCell_morphology">
             <segment id="0" name="Soma">
@@ -2717,7 +2642,7 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
         </morphology>
 ```
 ````
-
+`````
 
 (schema:specificcapacitance)=
 
@@ -2729,8 +2654,8 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 <i>Capacitance per unit area.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2741,7 +2666,7 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2751,7 +2676,7 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2762,7 +2687,7 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2781,19 +2706,15 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpecificCapacitance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpecificCapacitance
 
-variable = SpecificCapacitance(value=None, segment_groups='all', **kwargs_)
+variable = SpecificCapacitance(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
 ```
@@ -2804,7 +2725,7 @@ variable = SpecificCapacitance(value=None, segment_groups='all', **kwargs_)
 <specificCapacitance segmentGroup="soma_group" value="1.0 uF_per_cm2"/>
 ```
 ````
-
+`````
 
 (schema:initmembpotential)=
 
@@ -2816,8 +2737,8 @@ variable = SpecificCapacitance(value=None, segment_groups='all', **kwargs_)
 <i>Explicitly set initial membrane potential for the cell.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2828,19 +2749,15 @@ variable = SpecificCapacitance(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InitMembPotential" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InitMembPotential
 
-variable = InitMembPotential(value=None, segment_groups='all', **kwargs_)
+variable = InitMembPotential(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <initMembPotential value="-65mV"/>
 ```
@@ -2848,7 +2765,7 @@ variable = InitMembPotential(value=None, segment_groups='all', **kwargs_)
 <initMembPotential value="-65mV"/>
 ```
 ````
-
+`````
 
 (schema:spikethresh)=
 
@@ -2860,8 +2777,8 @@ variable = InitMembPotential(value=None, segment_groups='all', **kwargs_)
 <i>Membrane potential at which to emit a spiking event. Note, usually the spiking event will not be emitted again until the membrane potential has fallen below this value and rises again to cross it in a positive direction.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2872,19 +2789,15 @@ variable = InitMembPotential(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeThresh" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeThresh
 
-variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
+variable = SpikeThresh(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeThresh value="-20mV"/>
 ```
@@ -2892,7 +2805,7 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 <spikeThresh value="-20mV"/>
 ```
 ````
-
+`````
 
 (schema:membraneproperties)=
 
@@ -2904,8 +2817,8 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 <i>Properties specific to the membrane, such as the **populations** of channels, **channelDensities,** **specificCapacitance,** etc.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2917,7 +2830,7 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2930,7 +2843,7 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2943,7 +2856,7 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2954,7 +2867,7 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2979,19 +2892,15 @@ variable = SpikeThresh(value=None, segment_groups='all', **kwargs_)
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import MembraneProperties
 
-variable = MembraneProperties(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, extensiontype_=None, **kwargs_)
+variable = MembraneProperties(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <membraneProperties>
                 <channelPopulation id="naChansDend" ionChannel="NaConductance" segment="2" number="120000" erev="50mV" ion="na"/>   
@@ -3023,7 +2932,7 @@ variable = MembraneProperties(channel_populations=None, channel_densities=None, 
             </membraneProperties>
 ```
 ````
-
+`````
 
 (schema:membraneproperties2capools)=
 
@@ -3039,8 +2948,8 @@ extends {ref}`schema:membraneproperties`
 <i>Variant of membraneProperties with 2 independent Ca pools.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3052,7 +2961,7 @@ extends {ref}`schema:membraneproperties`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3065,7 +2974,7 @@ extends {ref}`schema:membraneproperties`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3079,7 +2988,7 @@ extends {ref}`schema:membraneproperties`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3091,7 +3000,7 @@ extends {ref}`schema:membraneproperties`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3119,18 +3028,15 @@ extends {ref}`schema:membraneproperties`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import MembraneProperties2CaPools
 
-variable = MembraneProperties2CaPools(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, channel_density_nernst_ca2s=None, **kwargs_)
+variable = MembraneProperties2CaPools(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, channel_density_nernst_ca2s=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:biophysicalproperties)=
 
@@ -3142,8 +3048,8 @@ variable = MembraneProperties2CaPools(channel_populations=None, channel_densitie
 <i>The biophysical properties of the  {ref}`schema:cell`, including the  {ref}`schema:membraneproperties` and the  {ref}`schema:intracellularproperties`.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3155,7 +3061,7 @@ variable = MembraneProperties2CaPools(channel_populations=None, channel_densitie
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3166,7 +3072,7 @@ variable = MembraneProperties2CaPools(channel_populations=None, channel_densitie
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3185,19 +3091,15 @@ variable = MembraneProperties2CaPools(channel_populations=None, channel_densitie
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BiophysicalProperties
 
-variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties=None, intracellular_properties=None, extracellular_properties=None, **kwargs_)
+variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties=None, intracellular_properties=None, extracellular_properties=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <biophysicalProperties id="bio_cell">
             <membraneProperties>
@@ -3246,7 +3148,7 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
         </biophysicalProperties>
 ```
 ````
-
+`````
 
 (schema:biophysicalproperties2capools)=
 
@@ -3258,8 +3160,8 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 <i>The biophysical properties of the  {ref}`schema:cell`, including the  {ref}`schema:membraneproperties2capools` and the  {ref}`schema:intracellularproperties2capools` for a cell with two Ca pools.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3271,7 +3173,7 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3282,7 +3184,7 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3301,18 +3203,15 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BiophysicalProperties2CaPools
 
-variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties2_ca_pools=None, intracellular_properties2_ca_pools=None, extracellular_properties=None, **kwargs_)
+variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties2_ca_pools=None, intracellular_properties2_ca_pools=None, extracellular_properties=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:intracellularproperties)=
 
@@ -3324,8 +3223,8 @@ variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None
 <i>Biophysical properties related to the intracellular space within the  {ref}`schema:cell`, such as the  {ref}`schema:resistivity` and the list of ionic  {ref}`schema:species` present. **caConc** and **caConcExt** are explicitly exposed here to facilitate accessing these values from other Components, even though **caConcExt** is clearly not an intracellular property.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3337,7 +3236,7 @@ variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3349,7 +3248,7 @@ variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3369,19 +3268,15 @@ variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IntracellularProperties
 
-variable = IntracellularProperties(species=None, resistivities=None, extensiontype_=None, **kwargs_)
+variable = IntracellularProperties(species=None, resistivities=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <intracellularProperties>
                 <resistivity value="0.1 kohm_cm"/>  
@@ -3400,7 +3295,7 @@ variable = IntracellularProperties(species=None, resistivities=None, extensionty
             </intracellularProperties>
 ```
 ````
-
+`````
 
 (schema:intracellularproperties2capools)=
 
@@ -3416,8 +3311,8 @@ extends {ref}`schema:intracellularproperties`
 <i>Variant of intracellularProperties with 2 independent Ca pools.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3429,7 +3324,7 @@ extends {ref}`schema:intracellularproperties`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3443,7 +3338,7 @@ extends {ref}`schema:intracellularproperties`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3465,18 +3360,15 @@ extends {ref}`schema:intracellularproperties`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IntracellularProperties2CaPools
 
-variable = IntracellularProperties2CaPools(species=None, resistivities=None, **kwargs_)
+variable = IntracellularProperties2CaPools(species=None, resistivities=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:resistivity)=
 
@@ -3488,8 +3380,8 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 <i>The resistivity, or specific axial resistance, of the cytoplasm.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3500,7 +3392,7 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -3510,19 +3402,15 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, **k
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Resistivity" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Resistivity
 
-variable = Resistivity(value=None, segment_groups='all', **kwargs_)
+variable = Resistivity(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <resistivity value="0.1 kohm_cm"/>
 ```
@@ -3533,7 +3421,7 @@ variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 <resistivity value="0.1 kohm_cm"/>
 ```
 ````
-
+`````
 
 (schema:concentrationmodel)=
 
@@ -3545,8 +3433,8 @@ variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 <i>Base for any model of an **ion** concentration which changes with time. Internal ( **concentration** ) and external ( **extConcentration** ) values for the concentration of the ion are given.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -3556,7 +3444,7 @@ variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3568,7 +3456,7 @@ variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3581,7 +3469,7 @@ variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3609,6 +3497,7 @@ variable = Resistivity(value=None, segment_groups='all', **kwargs_)
 
 
 ````
+`````
 
 (schema:decayingpoolconcentrationmodel)=
 
@@ -3624,8 +3513,8 @@ extends {ref}`schema:concentrationmodel`
 <i>Model of an intracellular buffering mechanism for **ion** ( currently hard Coded to be calcium, due to requirement for **iCa** ) which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** The ion is assumed to occupy a shell inside the membrane of thickness **shellThickness.**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3638,7 +3527,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -3648,7 +3537,7 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -3661,7 +3550,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3673,7 +3562,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3687,7 +3576,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3734,18 +3623,15 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DecayingPoolConcentrationModel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import DecayingPoolConcentrationModel
 
-variable = DecayingPoolConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, shell_thickness=None, extensiontype_=None, **kwargs_)
+variable = DecayingPoolConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, shell_thickness=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:fixedfactorconcentrationmodel)=
 
@@ -3761,8 +3647,8 @@ extends {ref}`schema:concentrationmodel`
 <i>Model of buffering of concentration of an ion ( currently hard coded to be calcium, due to requirement for **iCa** ) which has a baseline level **restingConc** and tends to this value with time course **decayConstant.** A fixed factor **rho** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3775,7 +3661,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -3785,7 +3671,7 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3797,7 +3683,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3812,7 +3698,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3852,18 +3738,15 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FixedFactorConcentrationModel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import FixedFactorConcentrationModel
 
-variable = FixedFactorConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, rho=None, **kwargs_)
+variable = FixedFactorConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, rho=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:fixedfactorconcentrationmodeltraub)=
 
@@ -3879,8 +3762,8 @@ extends {ref}`schema:concentrationmodel`
 <i>Model of buffering of concentration of an ion ( currently hard coded to be calcium, due to requirement for **iCa** ) which has a baseline level **restingConc** and tends to this value with time course 1 / **beta.** A fixed factor **phi** is used to scale the incoming current *independently of the size of the compartment* to produce a concentration change. Not recommended for use in models other than Traub et al. 2005!</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3893,7 +3776,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -3903,7 +3786,7 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3915,7 +3798,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3930,7 +3813,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3969,6 +3852,7 @@ extends {ref}`schema:concentrationmodel`
     
 
 ````
+`````
 
 (schema:species)=
 
@@ -3980,8 +3864,8 @@ extends {ref}`schema:concentrationmodel`
 <i>Description of a chemical species identified by **ion,** which has internal, **concentration,** and external, **extConcentration** values for its concentration.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3993,7 +3877,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -4004,7 +3888,7 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-````{tabbed} Component References
+````{tab-item} Component References
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -4015,7 +3899,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4027,7 +3911,7 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : CHILD INSTANCE: **concentrationModel**
@@ -4051,18 +3935,15 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Species" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Species
 
-variable = Species(id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, segment_groups='all', **kwargs_)
+variable = Species(id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, segment_groups='all', gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:cell)=
 
@@ -4078,8 +3959,8 @@ extends *{ref}`schema:basecellmembpot`*
 <i>Cell with  {ref}`schema:segment`s specified in a  {ref}`schema:morphology` element along with details on its  {ref}`schema:biophysicalproperties`. NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v** of this cell represents the membrane potential in that isopotential segment.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -4089,7 +3970,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -4101,7 +3982,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4120,7 +4001,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4131,7 +4012,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -4142,7 +4023,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -4200,19 +4081,15 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Cell
 
-variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, extensiontype_=None, **kwargs_)
+variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <cell id="SpikingCell" metaid="HippoCA1Cell">
         <notes>A Simple Spiking cell for testing purposes</notes>
@@ -4333,7 +4210,7 @@ variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=
     </cell>
 ```
 ````
-
+`````
 
 (schema:cell2capools)=
 
@@ -4349,8 +4226,8 @@ extends {ref}`schema:cell`
 <i>Variant of cell with two independent Ca2+ pools. Cell with  {ref}`schema:segment`s specified in a  {ref}`schema:morphology` element along with details on its  {ref}`schema:biophysicalproperties`. NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v** of this cell represents the membrane potential in that isopotential segment.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -4360,7 +4237,7 @@ extends {ref}`schema:cell`
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -4371,7 +4248,7 @@ extends {ref}`schema:cell`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4393,7 +4270,7 @@ extends {ref}`schema:cell`
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4404,7 +4281,7 @@ extends {ref}`schema:cell`
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -4415,7 +4292,7 @@ extends {ref}`schema:cell`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -4476,18 +4353,15 @@ extends {ref}`schema:cell`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Cell2CaPools
 
-variable = Cell2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, biophysical_properties2_ca_pools=None, **kwargs_)
+variable = Cell2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, biophysical_properties2_ca_pools=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:basecellmembpotcap)=
 
@@ -4503,8 +4377,8 @@ extends *{ref}`schema:basecellmembpot`*
 <i>Any cell with a membrane potential **v** with voltage units and a membrane capacitance **C.** Also defines exposed value **iSyn** for current due to external synapses and **iMemb** for total transmembrane current ( usually channel currents plus **iSyn** ).</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4515,7 +4389,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4528,7 +4402,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4539,18 +4413,15 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCellMembPotCap" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseCellMembPotCap
 
-variable = BaseCellMembPotCap(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, extensiontype_=None, **kwargs_)
+variable = BaseCellMembPotCap(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:baseiaf)=
 
@@ -4566,8 +4437,8 @@ extends *{ref}`schema:basecellmembpot`*
 <i>Base ComponentType for an integrate and fire cell which emits a spiking event at membrane potential **thresh** and and resets to **reset**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4579,7 +4450,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4590,7 +4461,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4600,6 +4471,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 ```
 ````
+`````
 
 (schema:iaftaucell)=
 
@@ -4615,8 +4487,8 @@ extends *{ref}`schema:baseiaf`*
 <i>Integrate and fire cell which returns to its leak reversal potential of **leakReversal** with a time constant **tau**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4630,7 +4502,7 @@ extends *{ref}`schema:baseiaf`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4641,7 +4513,7 @@ extends *{ref}`schema:baseiaf`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4652,7 +4524,7 @@ extends *{ref}`schema:baseiaf`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -4691,24 +4563,20 @@ extends *{ref}`schema:baseiaf`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafTauCell
 
-variable = IafTauCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, extensiontype_=None, **kwargs_)
+variable = IafTauCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <iafTauCell id="iafTau" leakReversal="-50mV" thresh="-55mV" reset="-70mV" tau="30ms"/>
 ```
 ````
-
+`````
 
 (schema:iaftaurefcell)=
 
@@ -4724,8 +4592,8 @@ extends {ref}`schema:iaftaucell`
 <i>Integrate and fire cell which returns to its leak reversal potential of **leakReversal** with a time course **tau.** It has a refractory period of **refract** after spiking.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4740,7 +4608,7 @@ extends {ref}`schema:iaftaucell`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4751,7 +4619,7 @@ extends {ref}`schema:iaftaucell`
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4762,7 +4630,7 @@ extends {ref}`schema:iaftaucell`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -4806,24 +4674,20 @@ extends {ref}`schema:iaftaucell`
 : &emsp;&emsp; d **v** /dt = (leakReversal - v) / tau
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauRefCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafTauRefCell
 
-variable = IafTauRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, refract=None, **kwargs_)
+variable = IafTauRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, refract=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <iafTauRefCell id="iafTauRef" leakReversal="-50mV" thresh="-55mV" reset="-70mV" tau="30ms" refract="5ms"/>
 ```
 ````
-
+`````
 
 (schema:baseiafcapcell)=
 
@@ -4839,8 +4703,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>Base Type for all Integrate and Fire cells with a capacitance **C,** threshold **thresh** and reset membrane potential **reset**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4853,7 +4717,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4866,7 +4730,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4876,6 +4740,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ```
 ````
+`````
 
 (schema:iafcell)=
 
@@ -4891,8 +4756,8 @@ extends *{ref}`schema:baseiafcapcell`*
 <i>Integrate and fire cell with capacitance **C,** **leakConductance** and **leakReversal**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4907,7 +4772,7 @@ extends *{ref}`schema:baseiafcapcell`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4920,7 +4785,7 @@ extends *{ref}`schema:baseiafcapcell`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -4931,7 +4796,7 @@ extends *{ref}`schema:baseiafcapcell`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -4942,7 +4807,7 @@ extends *{ref}`schema:baseiafcapcell`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -4987,19 +4852,15 @@ extends *{ref}`schema:baseiafcapcell`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafCell
 
-variable = IafCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, extensiontype_=None, **kwargs_)
+variable = IafCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <iafCell id="iaf" leakReversal="-50mV" thresh="-55mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS"/>
 ```
@@ -5010,7 +4871,7 @@ variable = IafCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properti
 <iafCell id="iaf" leakConductance="0.2nS" leakReversal="-70mV" thresh="-55mV" reset="-70mV" C="3.2pF"/>
 ```
 ````
-
+`````
 
 (schema:iafrefcell)=
 
@@ -5026,8 +4887,8 @@ extends {ref}`schema:iafcell`
 <i>Integrate and fire cell with capacitance **C,** **leakConductance,** **leakReversal** and refractory period **refract**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5043,7 +4904,7 @@ extends {ref}`schema:iafcell`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5056,7 +4917,7 @@ extends {ref}`schema:iafcell`
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5067,7 +4928,7 @@ extends {ref}`schema:iafcell`
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -5078,7 +4939,7 @@ extends {ref}`schema:iafcell`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -5128,24 +4989,20 @@ extends {ref}`schema:iafcell`
 : &emsp;&emsp; d **v** /dt = iMemb / C
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafRefCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafRefCell
 
-variable = IafRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, refract=None, **kwargs_)
+variable = IafRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, refract=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <iafRefCell id="iafRef" leakReversal="-50mV" thresh="-55mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS" refract="5ms"/>
 ```
 ````
-
+`````
 
 (schema:izhikevichcell)=
 
@@ -5161,24 +5018,24 @@ extends *{ref}`schema:basecellmembpot`*
 <i>Cell based on the 2003 model of Izhikevich, see http://izhikevich.org/publications/spikes.htm.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
 :delim: $
 
 **a**$ Time scale of the recovery variable U $Dimensionless
-**b**$ Sensitivity of U to the subthreshold fluctuations of the membrane potential v $Dimensionless
-**c**$ After-spike reset value of v $Dimensionless
-**d**$ After-spike reset of u $Dimensionless
+**b**$ Sensitivity of U to the subthreshold fluctuations of the membrane potential V $Dimensionless
+**c**$ After-spike reset value of V $Dimensionless
+**d**$ After-spike increase to U $Dimensionless
 **thresh**$ Spike threshold ${ref}`schema:dimensions:voltage`
 **v0**$ Initial membrane potential ${ref}`schema:dimensions:voltage`
 
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -5190,7 +5047,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5202,7 +5059,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5213,7 +5070,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -5224,7 +5081,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -5272,24 +5129,20 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IzhikevichCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IzhikevichCell
 
-variable = IzhikevichCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, v0=None, thresh=None, a=None, b=None, c=None, d=None, **kwargs_)
+variable = IzhikevichCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, v0=None, thresh=None, a=None, b=None, c=None, d=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <izhikevichCell id="izBurst" v0="-70mV" thresh="30mV" a="0.02" b="0.2" c="-50.0" d="2"/>
 ```
 ````
-
+`````
 
 (schema:izhikevich2007cell)=
 
@@ -5305,8 +5158,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>Cell based on the modified Izhikevich model in Izhikevich 2007, Dynamical systems in neuroscience, MIT Press.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5326,7 +5179,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5340,7 +5193,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5351,7 +5204,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -5362,7 +5215,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -5411,24 +5264,20 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Izhikevich2007Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Izhikevich2007Cell
 
-variable = Izhikevich2007Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, v0=None, k=None, vr=None, vt=None, vpeak=None, a=None, b=None, c=None, d=None, **kwargs_)
+variable = Izhikevich2007Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, v0=None, k=None, vr=None, vt=None, vpeak=None, a=None, b=None, c=None, d=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <izhikevich2007Cell id="iz2007RS" v0="-60mV" C="100 pF" k="0.7 nS_per_mV" vr="-60 mV" vt="-40 mV" vpeak="35 mV" a="0.03 per_ms" b="-2 nS" c="-50 mV" d="100 pA"/>
 ```
 ````
-
+`````
 
 (schema:adexiafcell)=
 
@@ -5444,8 +5293,8 @@ extends *{ref}`schema:basecellmembpotcap`*
 <i>Model based on Brette R and Gerstner W ( 2005 ) Adaptive Exponential Integrate-and-Fire Model as an Effective Description of Neuronal Activity. J Neurophysiol 94:3637-3642.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5466,7 +5315,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5480,7 +5329,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5491,7 +5340,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Attachments
+````{tab-item} Attachments
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -5502,7 +5351,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -5558,24 +5407,20 @@ extends *{ref}`schema:basecellmembpotcap`*
 : &emsp;&emsp; d **w** /dt = (a * (v - EL) - w) / tauw
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AdExIaFCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AdExIaFCell
 
-variable = AdExIaFCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, g_l=None, EL=None, reset=None, VT=None, thresh=None, del_t=None, tauw=None, refract=None, a=None, b=None, **kwargs_)
+variable = AdExIaFCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, g_l=None, EL=None, reset=None, VT=None, thresh=None, del_t=None, tauw=None, refract=None, a=None, b=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <adExIaFCell id="adExBurst" C="281pF" gL="30nS" EL="-70.6mV" reset="-48.5mV" VT="-50.4mV" thresh="-40.4mV" refract="0ms" delT="2mV" tauw="40ms" a="4nS" b="0.08nA"/>
 ```
 ````
-
+`````
 
 (schema:fitzhughnagumocell)=
 
@@ -5591,8 +5436,8 @@ extends *{ref}`schema:basecellmembpotdl`*
 <i>Simple dimensionless model of spiking cell from FitzHugh and Nagumo. Superseded by **fitzHughNagumo1969Cell** ( See https://github.com/NeuroML/NeuroML2/issues/42 ).</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5603,7 +5448,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -5614,7 +5459,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5626,7 +5471,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5637,7 +5482,7 @@ extends *{ref}`schema:basecellmembpotdl`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -5661,24 +5506,20 @@ extends *{ref}`schema:basecellmembpotdl`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FitzHughNagumoCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import FitzHughNagumoCell
 
-variable = FitzHughNagumoCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, I=None, **kwargs_)
+variable = FitzHughNagumoCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, I=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <fitzHughNagumoCell id="fn1" I="0.8"/>
 ```
 ````
-
+`````
 
 (schema:pinskyrinzelca3cell)=
 
@@ -5694,8 +5535,8 @@ extends *{ref}`schema:basecellmembpot`*
 <i>Reduced CA3 cell model from Pinsky and Rinzel 1994. See https://github.com/OpenSourceBrain/PinskyRinzelModel.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5726,7 +5567,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -5742,7 +5583,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5764,7 +5605,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -5775,7 +5616,7 @@ extends *{ref}`schema:basecellmembpot`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -5867,21 +5708,17 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PinskyRinzelCA3Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PinskyRinzelCA3Cell
 
-variable = PinskyRinzelCA3Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, i_soma=None, i_dend=None, gc=None, g_ls=None, g_ld=None, g_na=None, g_kdr=None, g_ca=None, g_kahp=None, g_kc=None, g_nmda=None, g_ampa=None, e_na=None, e_ca=None, e_k=None, e_l=None, qd0=None, pp=None, alphac=None, betac=None, cm=None, **kwargs_)
+variable = PinskyRinzelCA3Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, i_soma=None, i_dend=None, gc=None, g_ls=None, g_ld=None, g_na=None, g_kdr=None, g_ca=None, g_kahp=None, g_kc=None, g_nmda=None, g_ampa=None, e_na=None, e_ca=None, e_k=None, e_l=None, qd0=None, pp=None, alphac=None, betac=None, cm=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <pinskyRinzelCA3Cell id="pr2A" iSoma="0.75 uA_per_cm2" iDend="0 uA_per_cm2" gc="2.1 mS_per_cm2" qd0="0" gLs="0.1 mS_per_cm2" gLd="0.1 mS_per_cm2" gNa="30 mS_per_cm2" gKdr="15 mS_per_cm2" gCa="10 mS_per_cm2" gKahp="0.8 mS_per_cm2" gKC="15 mS_per_cm2" eNa="60 mV" eCa="80 mV" eK="-75 mV" eL="-60 mV" pp="0.5" cm="3 uF_per_cm2" alphac="2" betac="0.1" gNmda="0 mS_per_cm2" gAmpa="0 mS_per_cm2"/>
 ```
 ````
-
+`````
