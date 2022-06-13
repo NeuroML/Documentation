@@ -7,9 +7,9 @@
 ---
 
 
-Original ComponentType definitions: [Simulation.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Simulation.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 05/01/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Original ComponentType definitions: [Simulation.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Simulation.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -24,8 +24,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>The main element in a LEMS Simulation file. Defines the **length** of simulation, the timestep ( dt ) **step** and an optional **seed** to use for stochastic elements, as well as  {ref}`schema:display`s,  {ref}`schema:outputfile`s and  {ref}`schema:eventoutputfile`s to record. Specifies a **target** component to run, usually the id of a  {ref}`schema:network`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -37,7 +37,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -47,7 +47,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````
 
-````{tabbed} Component References
+````{tab-item} Component References
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -58,7 +58,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -71,7 +71,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -88,6 +88,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 ````
+`````
 
 (schema:display)=
 
@@ -99,8 +100,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>Details of a display to generate ( usually a set of traces given by  {ref}`schema:line`s in a newly opened window ) on completion of the simulation.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -115,7 +116,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -125,7 +126,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -135,6 +136,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+`````
 
 (schema:line)=
 
@@ -146,8 +148,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>Specification of a single time varying **quantity** to plot on the  {ref}`schema:display`. Note that all quantities are handled internally in LEMS in SI units, and so a **scale** should be used if it is to be displayed in other units.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -159,7 +161,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -169,7 +171,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````
 
-````{tabbed} Paths
+````{tab-item} Paths
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -178,6 +180,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **quantity**$ Path to the quantity to display, see see https://docs.neuroml.org/Userdocs/Paths.html.
 
 ````
+`````
 
 (schema:outputfile)=
 
@@ -189,8 +192,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>A file in which to save recorded values from the simulation.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -201,7 +204,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -211,6 +214,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+`````
 
 (schema:outputcolumn)=
 
@@ -222,8 +226,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>Specification of a single time varying **quantity** to record during the simulation. Note that all quantities are handled internally in LEMS in SI units, and so the value for the quantity in the file ( as well as time ) will be in SI units.</i>
 
 
-
-````{tabbed} Paths
+`````{tab-set}
+````{tab-item} Paths
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -232,6 +236,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **quantity**$ Path to the quantity to save, see see https://docs.neuroml.org/Userdocs/Paths.html. Note that all quantities are saved in SI units.
 
 ````
+`````
 
 (schema:eventoutputfile)=
 
@@ -243,8 +248,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>A file in which to save event information ( e.g. spikes from cells in a population ) in a specified **format**.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -256,7 +261,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -266,6 +271,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+`````
 
 (schema:eventselection)=
 
@@ -277,8 +283,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>A specific source of events with an associated **id,** which will be recorded inside the file specified in the parent  {ref}`schema:eventoutputfile`. The attribute **select** should point to a cell inside a  {ref}`schema:population` ( e.g. hhpop[0], see https://docs.neuroml.org/Userdocs/Paths.html ), and the **eventPort** specifies the port for the emitted events, which usually has id: spike. Note: the **id** used on this element ( and appearing in the file alongside the event time ) can be different from the id/index of the cell in the population.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -288,7 +294,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````
 
-````{tabbed} Paths
+````{tab-item} Paths
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -297,3 +303,4 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **select**$ The cell which will be emitting the events
 
 ````
+`````

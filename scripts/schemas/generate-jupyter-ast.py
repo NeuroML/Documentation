@@ -44,7 +44,7 @@ comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
 
-nml_branch = "documentation_update"
+nml_branch = "master"
 nml_version = "2.2"
 GitHubCompSources = ("https://github.com/NeuroML/NeuroML2/blob/" + nml_branch +
                      "/NeuroML2CoreTypes/")
@@ -440,6 +440,7 @@ def main(srcdir, destdir):
                 """Recurse up the next parent"""
                 extd_comp_type = get_extended_from_comp_type(extd_comp_type.name)
 
+            print("""`````{tab-set}""", end="", file=ast_doc)
             if len(params) > 0:
                 keysort = sorted(params.keys(), key=lambda param: param.name)
                 print(asttemplates.params.render(title="Parameters",
@@ -531,6 +532,7 @@ def main(srcdir, destdir):
                     lemsexamples=comp_type_examples[comp_type.name],
                     pysig=comp_type_py_api[comp_type.name]), file=ast_doc)
 
+            print("""`````""", file=ast_doc)
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
 

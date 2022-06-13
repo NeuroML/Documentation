@@ -107,9 +107,10 @@ dimension = env.from_string(textwrap.dedent(
     (schema:dimensions:{{ dim.name }})=
     ### {{ dim.name | replace("_", "\_") }}
 
-    ```{panels}
-    Dimensions
-    ^^^
+    ````{grid}
+    :gutter: 2
+
+    ```{grid-item-card} Dimensions
     {% if dim.m is not none and dim.m != 0 -%}
     M{superscript}{{ "`%s` "|format(dim.m)  }}
     {%- endif -%}
@@ -128,18 +129,17 @@ dimension = env.from_string(textwrap.dedent(
     {%- if dim.n is not none and dim.n != 0 -%}
     N{superscript}{{ "`%s` "|format(dim.n)  }}
     {%- endif %}
-    ---
-    Units
-    ^^^
+    ```
+
+    ```{grid-item-card} Units
     {% for unit in units %}
     {%- if unit.dimension == dim.name %}
     - Defined unit: {ref}`schema:units:{{ unit.symbol }}`
     {% endif -%}
     {%- endfor %}
     ```
+    ````
     {% endfor %}
-
-
 
     """
 ))
@@ -152,9 +152,10 @@ unit = env.from_string(textwrap.dedent(
     (schema:units:{{ unit.symbol }})=
     ### {{ unit.symbol | replace("__", "")}}
 
-    ```{panels}
-    Summary
-    ^^^
+    ````{grid}
+    :gutter: 2
+
+    ```{grid-item-card} Summary
     - Dimension: {ref}`schema:dimensions:{{ unit.dimension }}`
     - Power of 10: {{ unit.power  }}
     {% if unit.offset is not none and unit.offset != 0 -%}
@@ -164,14 +165,15 @@ unit = env.from_string(textwrap.dedent(
     - {{ "Scale: %s"|format(unit.scale)  }}
     {% endif %}
     {% if unit.factors| length > 0 %}
-    ----
-    Conversions
-    ^^^
+    ```
+
+    ```{grid-item-card} Conversions
     {% for factor in unit.factors %}
     - 1 {{ unit.symbol | replace("__", "") }} = {{ factor[0] }} {ref}`schema:units:{{ factor[1] }}`
     {%- endfor %}
     {% endif %}
     ```
+    ````
     {% endfor %}
 
     """
@@ -205,7 +207,7 @@ comp = env.from_string(textwrap.dedent(
 
 misc2c = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     ```{csv-table}
     :widths: 1, 7
     :width: 100%
@@ -221,7 +223,7 @@ misc2c = env.from_string(textwrap.dedent(
 
 misc3c = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     ```{csv-table}
     :widths: 1, 7, 2
     :width: 100%
@@ -238,7 +240,7 @@ misc3c = env.from_string(textwrap.dedent(
 
 constants = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     ```{csv-table}
     :widths: 3, 5, 2
     :width: 100%
@@ -255,7 +257,7 @@ constants = env.from_string(textwrap.dedent(
 
 properties = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     ```{csv-table}
     :widths: 3, 5, 2
     :width: 100%
@@ -273,7 +275,7 @@ properties = env.from_string(textwrap.dedent(
 
 params = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     ```{csv-table}
     :widths: 1, 7, 2
     :width: 100 %
@@ -312,7 +314,7 @@ requirements = params
 
 eventPorts = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     ```{csv-table}
     :widths: 1, 7, 2
     :width: 100 %
@@ -334,7 +336,7 @@ eventPorts = env.from_string(textwrap.dedent(
 
 dynamics = env.from_string(textwrap.dedent(
     """
-    ````{tabbed} {{ title }}
+    ````{tab-item} {{ title }}
     {% if comp_type.structure  and (comp_type.structure.withs|length +
     comp_type.structure.child_instances|length +
     comp_type.structure.multi_instantiates|length +
@@ -510,8 +512,8 @@ dynamics = env.from_string(textwrap.dedent(
 
 examples = env.from_string(textwrap.dedent(
     """
-    {% if pysig %}
-    ````{tabbed} {{ title }}: Python
+    {% if pysig -%}
+    ````{tab-item} {{ title }}: Python
     *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q={{ pysig[0] }}" target="_blank">Go to the libNeuroML documentation</a>*
     ```{code-block} python
     from neuroml import {{ pysig[0] }}
@@ -519,16 +521,15 @@ examples = env.from_string(textwrap.dedent(
     variable = {{ pysig[0] }}{{ pysig[1] }}
     ```
     ````
-    {% endif %}
-
+    {%- endif -%}
     {% if lemsexamples|length > 0 %}
-    ````{tabbed} {{ title }}: XML
+    ````{tab-item} {{ title }}: XML
     {% for e in lemsexamples -%}
     ```{code-block} xml
     {{ e|trim }}
     ```
     {% endfor -%}
     ````
-    {% endif %}
+    {%- endif -%}
     """
 ))
