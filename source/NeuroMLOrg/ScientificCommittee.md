@@ -3,7 +3,7 @@
 
 The responsibilities of the NeuroML Scientific Committee are:
 - To advise on the scientific focus of the NeuroML initiative; to ensure that the structure of the language is based on the latest knowledge of neuronal anatomy and physiology.
-- To agree on the technical implementation for the core specifications and to ensure that best practices are encouraged in model specification.
+- To agree on the technical implementation for the core specifications (in collaboration with the {ref}`NeuroML Editorial Board<neuromlorg:board>`) and to ensure that best practices are encouraged in model specification.
 - To promote NeuroML internationally, both the core specifications and the tools which support the language.
 - To define the governance structure of the NeuroML Initiative and outline a path towards a specification process with dedicated, elected editors.
 - To engage with other standardisation and databasing initiatives in the computational neuroscience and wider biology fields.

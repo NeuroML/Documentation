@@ -2,7 +2,7 @@
 # NeuroML contributors
 
 This page lists contributors to the various NeuroML and related repositories, listed in no particular order.
-It is generated periodically, most recently on 01/04/21.
+It is generated periodically, most recently on 01/04/21. See also the current {ref}`NeuroML Editorial Board<neuromlorg:board>` and the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`. 
 
 
 

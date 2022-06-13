@@ -3,7 +3,7 @@
 
 An elected board of editors has been formed to manage the NeuroML specification development process.
 The editorial board consists of five members, elected by the NeuroML community.
-The editors are responsible for producing and maintaining the official documentation for the NeuroML language.
+The editors are responsible for producing and maintaining the official documentation for the NeuroML language, and work in collaboration with the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>` who provide oversight and guidance.
 
 Due to the close link between the development of NeuroML 2 and LEMS, this group is also responsible for producing a stable specification for the subset of LEMS used by NeuroML 2.
 
