@@ -20,6 +20,8 @@ parts:
     - file: Userdocs/CreatingNeuroMLModels
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
+      sections:
+      - file: Userdocs/VisualisingChannels
     - file: Userdocs/SimulatingNeuroMLModels
     - file: Userdocs/OptimisingNeuroMLModels
     - file: Userdocs/Specification
