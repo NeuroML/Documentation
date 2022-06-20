@@ -241,7 +241,7 @@ language: xml
 ```
 
 We strongly suggest that users use the Python tools when working with both NeuroML and LEMS.
-Not only is Python easier to read and write than XML, it also provides powerful programming constructs and has a rick ecosystem of scientific software.
+Not only is Python easier to read and write than XML, it also provides powerful programming constructs and has a rich ecosystem of scientific software.
 
 (userdocs:extending:examples)=
 ## Examples
