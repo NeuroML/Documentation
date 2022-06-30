@@ -13,6 +13,15 @@ In short, what a file like this does is:
 
 These files are crucial in many of the workflows for {ref}`simulating NeuroML models <userdocs:simulators>`, and are reused across different simulator targets, e.g. `jnml LEMS_MyNetwork.xml` (run in jNeuroML), `jnml LEMS_MyNetwork.xml -neuron` (convert to NEURON), `jnml LEMS_MyNetwork.xml -brian2` (convert to Brian2). See {ref}`here <userdocs:simulating_models:jnml>` for more information.
 
+```{figure} ../images/lems_nml_files.png
+:alt: LEMS Simulation file and NeuroML file
+:align: center
+:scale: 24 %
+
+Typical organisation for a NeuroML simulation. The main NeuroML model is specified in a file with the network (`*.net.nml`), which can include/point to files containing individual synapses (`*.synapse.nml`) or cell files (`*.cell.nml`). If the latter are conductance based, they may include external channel files (`*.channel.nml`). The main LEMS Simulation file only needs to include the network file, and tools for running simulations of the model refer to just this LEMS file. Exceptions to these conventions are frequent and simulations will run perfectly well with all the elements inside the main LEMS file, but using this scheme will maximise reusability of model elements. 
+
+```
+
 ## Specification of format
 
 See {ref}`here <schema:simulation_>` for definition of the main elements used in the file, including {ref}`schema:display`,  {ref}`schema:outputfile`, etc.
