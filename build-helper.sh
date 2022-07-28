@@ -90,6 +90,19 @@ function clean_book() {
     jupyter-book clean ./source
 }
 
+function watch_and_build () {
+    if ! command -v inotifywait > /dev/null
+    then
+        echo "inotifywait command could not be found. Please install inotify-tools."
+    else
+        while true
+        do
+            echo "Watching source dir for changes and re-building as required. Use Ctrl C to stop."
+            inotifywait -q -e modify,create,delete,move -r source && echo "Change detected, rebuilding.." && build_book
+        done
+    fi
+}
+
 function usage() {
     echo "$0: helper script to work with docs locally"
     echo "OPTIONS:"
@@ -97,6 +110,7 @@ function usage() {
     echo "-h: print help message"
     echo "-c: create new virtual environment in $VENV and install packages."
     echo "-b: build book"
+    echo "-w: watch source directory for changes and build as necessary, requires inotifywait"
     echo "-p: publish book to GitHub pages (requires commit access to repo)"
     echo "-X: clean book"
 }
@@ -108,11 +122,15 @@ then
 fi
 
 # parse options
-while getopts "bpchX" OPTION
+while getopts "bpchwX" OPTION
 do
     case $OPTION in
         b)
             build_book
+            exit 0
+            ;;
+        w)
+            watch_and_build
             exit 0
             ;;
         p)
