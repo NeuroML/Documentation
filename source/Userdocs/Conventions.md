@@ -5,6 +5,20 @@ This page documents various conventions in use in NeuroML.
 
 In general, please prefer underscores `_` instead of spaces wherever possible, in filenames and ids.
 
+(userdocs:conventions:nmlid)=
+## Component IDs: NmlId
+
+Some Components take an `id` parameter to set an ID for them.
+They can then be referred to using their IDs when constructing paths and so on.
+
+IDs in NeuroML are strings and have certain constraints:
+
+- they **must** start with an alphabet (either small or capital) or an underscore
+- they may include alphabets, both small and capital letters, numbers and underscores
+
+IDs are also checked during validation, so if an ID does not follow these constraints, the validation will throw an error.
+
+
 (userdocs:conventions:files)=
 ## File naming
 
