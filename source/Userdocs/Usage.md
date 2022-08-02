@@ -112,7 +112,7 @@ Additionally, you will also need to install the {ref}`NeuroML software <userdocs
 Information on using Jupyter Notebooks and the interface can be found in the documentation [here](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#starting-the-notebook-server).
 
 
-(userdocs:usage:jupyterbooks:locally)=
+(userdocs:usage:jupyterbooks:pdf)=
 ### Downloading this documentation as PDF
 
 You can download this documentation as PDF pages for offline use.
