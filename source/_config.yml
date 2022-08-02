@@ -64,7 +64,7 @@ parse:
 sphinx:
   config:
     pygments_style: "tango"
-    latex_elements:
+    latex_elements: # https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276#issuecomment-1102154800
       preamble: |
         % make phantomsection empty inside figures
         \usepackage{etoolbox}
