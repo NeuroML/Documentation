@@ -3,3 +3,4 @@ jupyter-book>=0.13
 matplotlib
 numpy
 ghp-import
+sphinx-jupyterbook-latex

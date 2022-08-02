@@ -103,6 +103,16 @@ function watch_and_build () {
     fi
 }
 
+build_pdf () {
+    enable_virtenv
+    echo "Building book PDF using LaTeX."
+    rm -rf ./source/_build/latex/*
+    jupyter-book build ./source --builder pdflatex
+
+    echo "Installing book to _static directory"
+    mv source/_build/latex/neuroml-documentation.pdf source/_static/
+}
+
 function usage() {
     echo "$0: helper script to work with docs locally"
     echo "OPTIONS:"
@@ -110,6 +120,7 @@ function usage() {
     echo "-h: print help message"
     echo "-c: create new virtual environment in $VENV and install packages."
     echo "-b: build book"
+    echo "-f: build pdf (using LaTeX)"
     echo "-w: watch source directory for changes and build as necessary, requires inotifywait"
     echo "-p: publish book to GitHub pages (requires commit access to repo)"
     echo "-X: clean book"
@@ -122,7 +133,7 @@ then
 fi
 
 # parse options
-while getopts "bpchwX" OPTION
+while getopts "bpchwfX" OPTION
 do
     case $OPTION in
         b)
@@ -131,6 +142,10 @@ do
             ;;
         w)
             watch_and_build
+            exit 0
+            ;;
+        f)
+            build_pdf
             exit 0
             ;;
         p)
