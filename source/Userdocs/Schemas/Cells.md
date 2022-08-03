@@ -218,16 +218,6 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -237,6 +227,16 @@ extends *{ref}`schema:basechannelpopulation`*
 **vShift** = 0mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -327,16 +327,6 @@ extends *{ref}`schema:basechannelpopulation`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -349,6 +339,16 @@ extends *{ref}`schema:basechannelpopulation`*
 **vShift** = 0mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -612,6 +612,17 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
+
+```
+````
+
 ````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
@@ -630,17 +641,6 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **variableParameter**$  $ {ref}`schema:variableparameter`
-
-```
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
 
 ```
 ````
@@ -724,6 +724,17 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 `````{tab-set}
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
+
+```
+````
+
 ````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
@@ -742,17 +753,6 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **variableParameter**$  $ {ref}`schema:variableparameter`
-
-```
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
 
 ```
 ````
@@ -827,6 +827,17 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 `````{tab-set}
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
+
+```
+````
+
 ````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
@@ -845,17 +856,6 @@ extends *{ref}`schema:basechanneldensity`*
 :delim: $
 
 **variableParameter**$  $ {ref}`schema:variableparameter`
-
-```
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**ZERO_CURR_DENS** = 0 A_per_m2$  $ {ref}`schema:dimensions:currentDensity`
 
 ```
 ````
@@ -942,17 +942,6 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**segmentGroup**$ Which _segmentGroup_ the channelDensity is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -962,6 +951,17 @@ extends *{ref}`schema:basechanneldensitycond`*
 **vShift** = 0mV$  $ {ref}`schema:dimensions:voltage`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**segmentGroup**$ Which _segmentGroup_ the channelDensity is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -1131,17 +1131,6 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**segmentGroup**$ Which _segmentGroup_ the channelDensityNernst is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -1153,6 +1142,17 @@ extends *{ref}`schema:basechanneldensitycond`*
 **F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**segmentGroup**$ Which _segmentGroup_ the channelDensityNernst is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -1255,17 +1255,6 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**segmentGroup**$ Which _segmentGroup_ the channelDensityNernstCa2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -1277,6 +1266,17 @@ extends *{ref}`schema:basechanneldensitycond`*
 **F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**segmentGroup**$ Which _segmentGroup_ the channelDensityNernstCa2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -1379,17 +1379,6 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -1401,6 +1390,17 @@ extends *{ref}`schema:basechanneldensity`*
 **F** = 96485.3 C_per_mol$  $ {ref}`schema:dimensions:charge_per_mole`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -1495,17 +1495,6 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
-**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -1517,6 +1506,17 @@ extends *{ref}`schema:basechanneldensitycond`*
 **TEMP_SCALE** = 1 K$  $ {ref}`schema:dimensions:temperature`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**segmentGroup**$ Which _segmentGroup_ the channelDensityGHK2 is placed on. If this is missing, it implies it is placed on all _segment_s of the _cell_
+**ion**$ Which ion flows through the channel. Note: ideally this needs to be a property of ionChannel only, but it's here as it makes it easier to select channelPopulations transmitting specific ions.
+
 ````
 
 ````{tab-item} Exposures
@@ -2056,6 +2056,17 @@ extends {ref}`schema:point3dwithdiam`
 
 
 `````{tab-set}
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**LEN** = 1m$  $ {ref}`schema:dimensions:length`
+
+```
+````
+
 ````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
@@ -2075,17 +2086,6 @@ extends {ref}`schema:point3dwithdiam`
 **parent**$  $ {ref}`schema:parent`
 **distal**$  $ {ref}`schema:distal`
 **proximal**$  $ {ref}`schema:proximal`
-
-```
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**LEN** = 1m$  $ {ref}`schema:dimensions:length`
 
 ```
 ````
@@ -3571,16 +3571,6 @@ extends {ref}`schema:concentrationmodel`
 ```
 ````
 
-````{tab-item} Text fields
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**ion**$ 
-
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -3592,6 +3582,16 @@ extends {ref}`schema:concentrationmodel`
 **LENGTH_SCALE** = 1m$  $ {ref}`schema:dimensions:length`
 
 ```
+````
+
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**ion**$ 
+
 ````
 
 ````{tab-item} Exposures

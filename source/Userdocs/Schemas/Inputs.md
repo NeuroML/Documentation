@@ -747,6 +747,17 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
 ````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
@@ -776,17 +787,6 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :delim: $
 
 **synapse**$  $ {ref}`schema:basesynapse`
-
-```
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
 
 ```
 ````
@@ -948,6 +948,18 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
+**LONG_TIME** = 1e9hour$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
 ````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
@@ -977,18 +989,6 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :delim: $
 
 **synapse**$  $ {ref}`schema:basesynapse`
-
-```
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
-**LONG_TIME** = 1e9hour$  $ {ref}`schema:dimensions:time`
 
 ```
 ````

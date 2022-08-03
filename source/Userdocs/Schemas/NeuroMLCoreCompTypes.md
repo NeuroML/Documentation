@@ -618,6 +618,17 @@ extends *{ref}`schema:basebqbiol`*
 ```
 ````
 
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**MICRON** = 1um$  $ {ref}`schema:dimensions:length`
+
+```
+````
+
 ````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
@@ -652,17 +663,6 @@ extends *{ref}`schema:basebqbiol`*
 ```
 &emsp;&emsp;&emsp;**zLength** = MICRON * z
 
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**MICRON** = 1um$  $ {ref}`schema:dimensions:length`
-
-```
 ````
 
 ````{tab-item} Usage: Python

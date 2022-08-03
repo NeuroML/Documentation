@@ -1798,6 +1798,18 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**tsinceRate** = 1$  $ Dimensionless
+**longTime** = 1000s$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
 ````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
@@ -1816,18 +1828,6 @@ extends {ref}`schema:exptwosynapse`
 ```
 &emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
 
-````
-
-````{tab-item} Constants
-```{csv-table}
-:widths: 3, 5, 2
-:width: 100%
-:delim: $
-
-**tsinceRate** = 1$  $ Dimensionless
-**longTime** = 1000s$  $ {ref}`schema:dimensions:time`
-
-```
 ````
 
 ````{tab-item} Exposures

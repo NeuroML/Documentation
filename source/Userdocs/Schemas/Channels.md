@@ -1520,17 +1520,6 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tab-item} Child list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
-
-```
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -1538,6 +1527,17 @@ extends {ref}`schema:gate`
 :delim: $
 
 **SEC** = 1 s$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
+````{tab-item} Child list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
 
 ```
 ````
@@ -2818,17 +2818,6 @@ extends {ref}`schema:kstransition`
 
 
 `````{tab-set}
-````{tab-item} Child list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**rate**$  $ {ref}`schema:basehhrate`
-
-```
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -2836,6 +2825,17 @@ extends {ref}`schema:kstransition`
 :delim: $
 
 **SEC** = 1s$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
+````{tab-item} Child list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**rate**$  $ {ref}`schema:basehhrate`
 
 ```
 ````
@@ -2898,17 +2898,6 @@ extends {ref}`schema:kstransition`
 
 
 `````{tab-set}
-````{tab-item} Child list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**rate**$  $ {ref}`schema:basehhrate`
-
-```
-````
-
 ````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
@@ -2916,6 +2905,17 @@ extends {ref}`schema:kstransition`
 :delim: $
 
 **SEC** = 1s$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
+````{tab-item} Child list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**rate**$  $ {ref}`schema:basehhrate`
 
 ```
 ````
