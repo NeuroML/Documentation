@@ -449,10 +449,10 @@ def main(srcdir, destdir):
                                                  keysort=keysort), file=ast_doc)
             if len(derived_params) > 0:
                 keysort = sorted(derived_params.keys(), key=lambda derived_param: derived_param.name)
-                print(asttemplates.params.render(title="Derived parameters",
-                                                 comp_type=comp_type,
-                                                 entries=derived_params,
-                                                 keysort=keysort), file=ast_doc)
+                print(asttemplates.derived_params.render(title="Derived parameters",
+                                                         comp_type=comp_type,
+                                                         entries=derived_params,
+                                                         keysort=keysort), file=ast_doc)
 
             if len(comp_type.texts) > 0:  # TODO: Check if Text elements are inherited...
                 print(asttemplates.misc2c.render(title="Text fields",

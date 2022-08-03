@@ -305,6 +305,41 @@ params = env.from_string(textwrap.dedent(
     """
 ))
 
+derived_params = env.from_string(textwrap.dedent(
+    """
+    ````{tab-item} {{ title }}
+    {% for entry in keysort -%}
+    ```{csv-table}
+    :widths: 1, 7, 2
+    :width: 100 %
+    :delim: $
+
+    {# inherited parameters, which we print first #}
+    {%- if entries[entry] != comp_type.name -%}
+    **{{ entry.name }}**$ {{ entry.description if entry.description }} *(from {ref}`schema:{{ entries[entry] | lower }}`)* $
+    {%-if entry.dimension -%}
+    {{ "{ref}`schema:dimensions:%s`" | format(entry.dimension) if entry.dimension != "none" else "Dimensionless"}}
+    {% else -%}
+    Dimensionless
+    {% endif -%}
+    {# Not an inherited parameter #}
+    {%- else -%}
+    **{{ entry.name }}**$ {{ entry.description if entry.description }} $
+    {%-if entry.dimension -%}
+    {{ "{ref}`schema:dimensions:%s`" | format(entry.dimension) if entry.dimension != "none" else "Dimensionless" }}
+    {% else -%}
+    Dimensionless
+    {% endif -%}
+    {% endif -%}
+    ```
+    {% if entry.value -%}
+    &emsp;&emsp;&emsp;**{{ entry.name }}** = {{ entry.value }}
+    {% endif -%}
+    {%- endfor %}
+    ````
+    """
+))
+
 # Same works for exposures
 exposures = params
 
