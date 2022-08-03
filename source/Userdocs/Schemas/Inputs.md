@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -626,8 +626,9 @@ extends {ref}`schema:spikegeneratorpoisson`
 :delim: $
 
 **averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
-
 ```
+&emsp;&emsp;&emsp;**averageIsi** = 1 / averageRate
+
 ````
 
 ````{tab-item} Exposures
@@ -753,8 +754,9 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :delim: $
 
 **averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
-
 ```
+&emsp;&emsp;&emsp;**averageIsi** = 1 / averageRate
+
 ````
 
 ````{tab-item} Paths
@@ -953,8 +955,9 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 :delim: $
 
 **averageIsi**$  ${ref}`schema:dimensions:time`
-
 ```
+&emsp;&emsp;&emsp;**averageIsi** = 1 / averageRate
+
 ````
 
 ````{tab-item} Paths

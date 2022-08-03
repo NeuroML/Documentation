@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -777,9 +777,17 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 :delim: $
 
 **peakTime**$  ${ref}`schema:dimensions:time`
-**waveformFactor**$  $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime** = log(tauDecay / tauRise) * (tauRise * tauDecay)/(tauDecay - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor**$  $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
+
 ````
 
 ````{tab-item} Properties
@@ -933,11 +941,33 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 :delim: $
 
 **peakTime1**$  ${ref}`schema:dimensions:time`
-**peakTime2**$  ${ref}`schema:dimensions:time`
-**waveformFactor1**$  $Dimensionless
-**waveformFactor2**$  $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime1** = log(tauDecay1 / tauRise) * (tauRise * tauDecay1)/(tauDecay1 - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**peakTime2**$  ${ref}`schema:dimensions:time`
+```
+&emsp;&emsp;&emsp;**peakTime2** = log(tauDecay2 / tauRise) * (tauRise * tauDecay2)/(tauDecay2 - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor1**$  $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor1** = 1 / (-exp(-peakTime1 / tauRise) + exp(-peakTime1 / tauDecay1))
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor2**$  $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor2** = 1 / (-exp(-peakTime2 / tauRise) + exp(-peakTime2 / tauDecay2))
+
 ````
 
 ````{tab-item} Properties
@@ -1433,9 +1463,17 @@ extends {ref}`schema:exptwosynapse`
 :delim: $
 
 **peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
-**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime** = log(tauDecay / tauRise) * (tauRise * tauDecay)/(tauDecay - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
+
 ````
 
 ````{tab-item} Children list
@@ -1767,9 +1805,17 @@ extends {ref}`schema:exptwosynapse`
 :delim: $
 
 **peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
-**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime** = log(tauDecay / tauRise) * (tauRise * tauDecay)/(tauDecay - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
+
 ````
 
 ````{tab-item} Constants

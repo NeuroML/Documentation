@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -625,11 +625,33 @@ extends *{ref}`schema:basebqbiol`*
 :delim: $
 
 **radius**$ A dimensional quantity given by half the _diameter. ${ref}`schema:dimensions:length`
-**xLength**$ A version of _x with dimension length. ${ref}`schema:dimensions:length`
-**yLength**$ A version of _y with dimension length. ${ref}`schema:dimensions:length`
-**zLength**$ A version of _z with dimension length. ${ref}`schema:dimensions:length`
-
 ```
+&emsp;&emsp;&emsp;**radius** = MICRON * diameter / 2
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**xLength**$ A version of _x with dimension length. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**xLength** = MICRON * x
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**yLength**$ A version of _y with dimension length. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**yLength** = MICRON * y
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**zLength**$ A version of _z with dimension length. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**zLength** = MICRON * z
+
 ````
 
 ````{tab-item} Constants

@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//PyNN.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 07/06/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -803,8 +803,9 @@ extends *{ref}`schema:basepynniafcondcell`*
 :delim: $
 
 **eif_threshold**$  $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**eif_threshold** = v_spike * H(delta_T-1e-12) + v_thresh * H(-1*delta_T+1e-9)
+
 ````
 
 ````{tab-item} Exposures
@@ -969,8 +970,9 @@ extends *{ref}`schema:basepynniafcondcell`*
 :delim: $
 
 **eif_threshold**$  $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**eif_threshold** = v_spike * H(delta_T-1e-12) + v_thresh * H(-1*delta_T+1e-9)
+
 ````
 
 ````{tab-item} Exposures
@@ -1858,8 +1860,9 @@ extends *{ref}`schema:basespikesource`*
 :delim: $
 
 **end**$  ${ref}`schema:dimensions:time`
-
 ```
+&emsp;&emsp;&emsp;**end** = start + duration
+
 ````
 
 ````{tab-item} Constants
