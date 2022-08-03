@@ -95,6 +95,7 @@ function watch_and_build () {
     then
         echo "inotifywait command could not be found. Please install inotify-tools."
     else
+        build_book
         while true
         do
             echo "Watching source dir for changes and re-building as required. Use Ctrl C to stop."
