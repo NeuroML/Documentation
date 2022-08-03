@@ -447,6 +447,11 @@ def main(srcdir, destdir):
                                                  comp_type=comp_type,
                                                  entries=params,
                                                  keysort=keysort), file=ast_doc)
+
+            if len(comp_type.constants) > 0:
+                print(asttemplates.constants.render(title="Constants",
+                                                    textlist=comp_type.constants), file=ast_doc)
+
             if len(derived_params) > 0:
                 keysort = sorted(derived_params.keys(), key=lambda derived_param: derived_param.name)
                 print(asttemplates.derived_params.render(title="Derived parameters",
@@ -479,10 +484,6 @@ def main(srcdir, destdir):
                 if len(childrenlist) > 0:
                     print(asttemplates.misc3c.render(title="Children list",
                                                      textlist=childrenlist), file=ast_doc)
-
-            if len(comp_type.constants) > 0:
-                print(asttemplates.constants.render(title="Constants",
-                                                    textlist=comp_type.constants), file=ast_doc)
 
             if len(comp_type.properties) > 0:
                 print(asttemplates.properties.render(title="Properties",
