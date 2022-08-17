@@ -25,12 +25,15 @@ jobs:
         # pip install -r requirements.txt
         pip install -r requirements-book.txt
         sudo apt-get install build-essential
+        sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex latexmk
     - name: Disable building jupyter-books
       run: |
         sed -i "s/execute_notebooks.*/execute_notebooks: 'off'/" source/_config.yml
     - name: Run jupyter-book
       run: |
         jupyter-book clean ./source
+        jupyter-book build ./source  --builder pdflatex
+        mv ./source/_build/latex/neuroml-documentation.pdf ./source/_static/
         jupyter-book build ./source
     - name: Import to GitHub pages
       run: |

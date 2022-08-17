@@ -17,3 +17,4 @@ __pycache__
 /source/Userdocs/NML2_examples/lems_sim/ex.spikes
 /source/Userdocs/NML2_examples/lems_sim/report.txt
 NT_*/
+.mypy_cache/

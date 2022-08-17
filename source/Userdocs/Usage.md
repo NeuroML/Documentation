@@ -26,8 +26,8 @@ Each part contains different chapters, which can each contain different sections
 Each page in the documentation also has its own navigation in the *right hand side bar*.
 
 (userdocs:usage:jupyterbooks)=
-## Using Jupyter books included in the documentation
-```{admonition} Familiar with Jupyter Notebooks, skip ahead to the next section.
+## Using Jupyter notebooks included in the documentation
+```{admonition} Familiar with Jupyter Notebooks? Skip ahead to the next section.
 :class: tip
 If you are familiar with Jupyter Notebooks, you can skip ahead to the {ref}`Getting started with NeuroML <userdocs:getting_started_neuroml>` section.
 ```
@@ -110,6 +110,17 @@ You will need to install the Python Jupyter Notebook packages to do so.
 Please refer to the Jupyter Notebook [documentation](https://jupyter.readthedocs.io/en/latest/install/notebook-classic.html#alternative-for-experienced-python-users-installing-jupyter-with-pip) to see how you can install Jupyter Notebooks.
 Additionally, you will also need to install the {ref}`NeuroML software <userdocs:software>` to run these notebooks.
 Information on using Jupyter Notebooks and the interface can be found in the documentation [here](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#starting-the-notebook-server).
+
+
+(userdocs:usage:pdf)=
+## Downloading this documentation as PDF
+
+You can download this documentation as PDF pages for offline use.
+
+To download individual pages, use the download icon in the top bar.
+This will generate a PDF page of the current page for you, using your browser's "print to file" functionality.
+
+You can also download the complete book as a PDF [here](https://docs.neuroml.org/_static/neuroml-documentation.pdf).
 
 (userdocs:usage:bugs)=
 ## Reporting bugs and issues

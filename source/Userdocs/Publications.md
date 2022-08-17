@@ -1,7 +1,7 @@
 (citing)=
 # Citing NeuroML and related publications
 
-This page documents how one can cite NeuroML in their work, and lists publications associated to NeuroML.
+This page documents how one can cite NeuroML in their work, and lists publications associated with the NeuroML initiative.
 
 ## Citing NeuroML
 
@@ -12,6 +12,7 @@ Generally, you should cite the particular paper while discussing NeuroML in the 
 
 Please cite the following papers as required:
 
+(papers:neuroml2)=
 #### NeuroML 2 and LEMS
 ```{admonition} The main citation for NeuroML 2
 :class: tip
@@ -36,6 +37,7 @@ Please cite the following paper when discussing NeuroML v2.0 or LEMS.
 }
 ```
 
+(papers:libneuroml)=
 #### libNeuroML and PyLEMS
 ```{admonition} Citation for Python & NeuroML
 :class: tip
@@ -59,6 +61,7 @@ Please cite the following paper when using the Python NeuroML libraries
 ```
 
 
+(papers:neuroml1)=
 #### NeuroML v1
 ```{admonition} Citation for NeuroML v1
 :class: tip
@@ -84,9 +87,10 @@ Please cite the following paper when discussing NeuroML version 1. (deprecated)
 }
 ```
 
+(papers:osb)=
 #### Open Source Brain
 
-Please cite this paper if you have made use of the [Open Source Brain](https://www.opensourcebrain.org) platform in your work:
+This paper describes version 1 of the [Open Source Brain](https://www.opensourcebrain.org) platform. Please cite this paper if you have made use of OSB in your work:
 
 **Gleeson P, Cantarelli M, Marin B, Quintana A, Earnshaw M, et al. (2019)**
 <a  href="https://www.cell.com/neuron/fulltext/S0896-6273(19)30444-1">Open Source Brain: a collaborative resource for visualizing, analyzing, simulating and developing standardized models of neurons and circuits.</a> <em>Neuron</em> 103 (3):395–411

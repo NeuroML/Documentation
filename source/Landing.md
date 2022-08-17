@@ -79,11 +79,11 @@ NeuroML is:
 
 and this allows you to:
 
-- easily build detailed models of neural systems
-- easily validate your models
-- easily visualise your models
-- easily simulate your models using a variety of simulators
-- easily analyse your simulations
+- easily {ref}`build <userdocs:creating_models>` and {ref}`optimise <userdocs:optimising>` detailed models of neural systems
+- easily {ref}`validate <userdocs:validating_models>` your models
+- easily {ref}`visualise <userdocs:visualising_models>` your models
+- easily {ref}`simulate <userdocs:simulators>` your models using a variety of simulators
+- easily {ref}`analyse <userdocs:software>` your simulations
 
 all using a {ref}`well supported set of tools <userdocs:software>` in the powerful [Python](https://www.python.org) programming language.
 

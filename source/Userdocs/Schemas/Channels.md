@@ -7,9 +7,9 @@
 ---
 
 
-Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Channels.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
+Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Channels.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -24,8 +24,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>Base ComponentType for voltage dependent rate. Produces a time varying rate **r** which depends on **v.**.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -36,7 +36,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -46,6 +46,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+`````
 
 (schema:basevoltageconcdeprate)=
 
@@ -61,8 +62,8 @@ extends *{ref}`schema:basevoltagedeprate`*
 <i>Base ComponentType for voltage and concentration dependent rate. Produces a time varying rate **r** which depends on **v** and **caConc.**.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -73,7 +74,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -84,6 +85,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 ```
 ````
+`````
 
 (schema:basehhrate)=
 
@@ -99,8 +101,8 @@ extends *{ref}`schema:basevoltagedeprate`*
 <i>Base ComponentType for rate which follow one of the typical forms for rate equations in the standard HH formalism, using the parameters **rate,** **midpoint** and **scale**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -113,7 +115,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -124,7 +126,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -134,6 +136,7 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 ```
 ````
+`````
 
 (schema:hhexprate)=
 
@@ -149,8 +152,8 @@ extends *{ref}`schema:basehhrate`*
 <i>Exponential form for rate equation ( Q: Should these be renamed hhExpRate, etc? ).</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -163,7 +166,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -174,7 +177,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -185,7 +188,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -203,6 +206,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 ````
+`````
 
 (schema:hhsigmoidrate)=
 
@@ -218,8 +222,8 @@ extends *{ref}`schema:basehhrate`*
 <i>Sigmoidal form for rate equation.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -232,7 +236,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -243,7 +247,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -254,7 +258,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -272,6 +276,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 ````
+`````
 
 (schema:hhexplinearrate)=
 
@@ -287,8 +292,8 @@ extends *{ref}`schema:basehhrate`*
 <i>Exponential linear form for rate equation. Linear for large positive **v,** exponentially decays for large negative **v.**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -301,7 +306,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -312,7 +317,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -323,7 +328,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -347,6 +352,7 @@ extends *{ref}`schema:basehhrate`*
 
 
 ````
+`````
 
 (schema:basevoltagedepvariable)=
 
@@ -358,8 +364,8 @@ extends *{ref}`schema:basehhrate`*
 <i>Base ComponentType for voltage dependent variable **x,** which depends on **v.** Can be used for inf/steady state of rate variable.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -370,7 +376,7 @@ extends *{ref}`schema:basehhrate`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -380,6 +386,7 @@ extends *{ref}`schema:basehhrate`*
 
 ```
 ````
+`````
 
 (schema:basevoltageconcdepvariable)=
 
@@ -395,8 +402,8 @@ extends *{ref}`schema:basevoltagedepvariable`*
 <i>Base ComponentType for voltage and calcium concentration dependent variable **x,** which depends on **v** and **caConc.**.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -407,7 +414,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -418,6 +425,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 ```
 ````
+`````
 
 (schema:basehhvariable)=
 
@@ -433,8 +441,8 @@ extends *{ref}`schema:basevoltagedepvariable`*
 <i>Base ComponentType for voltage dependent dimensionless variable which follow one of the typical forms for variable equations in the standard HH formalism, using the parameters **rate,** **midpoint,** **scale**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -447,7 +455,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -458,7 +466,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -468,6 +476,7 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 ```
 ````
+`````
 
 (schema:hhexpvariable)=
 
@@ -483,8 +492,8 @@ extends *{ref}`schema:basehhvariable`*
 <i>Exponential form for variable equation.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -497,7 +506,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -508,7 +517,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -519,7 +528,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -537,6 +546,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 ````
+`````
 
 (schema:hhsigmoidvariable)=
 
@@ -552,8 +562,8 @@ extends *{ref}`schema:basehhvariable`*
 <i>Sigmoidal form for variable equation.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -566,7 +576,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -577,7 +587,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -588,7 +598,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -606,6 +616,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 ````
+`````
 
 (schema:hhexplinearvariable)=
 
@@ -621,8 +632,8 @@ extends *{ref}`schema:basehhvariable`*
 <i>Exponential linear form for variable equation. Linear for large positive **v,** exponentially decays for large negative **v.**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -635,7 +646,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -646,7 +657,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -657,7 +668,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -676,6 +687,7 @@ extends *{ref}`schema:basehhvariable`*
 
 
 ````
+`````
 
 (schema:basevoltagedeptime)=
 
@@ -687,8 +699,8 @@ extends *{ref}`schema:basehhvariable`*
 <i>Base ComponentType for voltage dependent ComponentType producing value **t** with dimension time ( e.g. for time course of rate variable ). Note: time course would not normally be fit to exp/sigmoid etc.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -699,7 +711,7 @@ extends *{ref}`schema:basehhvariable`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -709,6 +721,7 @@ extends *{ref}`schema:basehhvariable`*
 
 ```
 ````
+`````
 
 (schema:basevoltageconcdeptime)=
 
@@ -724,8 +737,8 @@ extends *{ref}`schema:basevoltagedeptime`*
 <i>Base type for voltage and calcium concentration dependent ComponentType producing value **t** with dimension time ( e.g. for time course of rate variable ).</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -736,7 +749,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -747,6 +760,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 ```
 ````
+`````
 
 (schema:fixedtimecourse)=
 
@@ -762,8 +776,8 @@ extends *{ref}`schema:basevoltagedeptime`*
 <i>Time course of a fixed magnitude **tau** which can be used for the time course in  {ref}`schema:gatehhtauinf`,  {ref}`schema:gatehhratestau` or  {ref}`schema:gatehhratestauinf`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -774,7 +788,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -785,7 +799,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -796,7 +810,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -814,6 +828,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 
 ````
+`````
 
 (schema:baseq10settings)=
 
@@ -825,8 +840,8 @@ extends *{ref}`schema:basevoltagedeptime`*
 <i>Base ComponentType for a scaling to apply to gating variable time course, usually temperature dependent.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -837,7 +852,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -847,6 +862,7 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 ```
 ````
+`````
 
 (schema:q10fixed)=
 
@@ -862,8 +878,8 @@ extends *{ref}`schema:baseq10settings`*
 <i>A fixed value, **fixedQ10,** for the scaling of the time course of the gating variable.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -874,7 +890,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -885,7 +901,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -896,7 +912,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -914,6 +930,7 @@ extends *{ref}`schema:baseq10settings`*
 
 
 ````
+`````
 
 (schema:q10exptemp)=
 
@@ -929,8 +946,8 @@ extends *{ref}`schema:baseq10settings`*
 <i>A value for the Q10 scaling which varies as a standard function of the difference between the current temperature, **temperature,** and the temperature at which the gating variable equations were determined, **experimentalTemp**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -942,7 +959,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -953,7 +970,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -964,7 +981,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -975,7 +992,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -993,6 +1010,7 @@ extends *{ref}`schema:baseq10settings`*
 
 
 ````
+`````
 
 (schema:baseconductancescaling)=
 
@@ -1004,8 +1022,8 @@ extends *{ref}`schema:baseq10settings`*
 <i>Base ComponentType for a scaling to apply to a gate's conductance, e.g. temperature dependent scaling.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1016,7 +1034,7 @@ extends *{ref}`schema:baseq10settings`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1026,6 +1044,7 @@ extends *{ref}`schema:baseq10settings`*
 
 ```
 ````
+`````
 
 (schema:q10conductancescaling)=
 
@@ -1041,8 +1060,8 @@ extends *{ref}`schema:baseconductancescaling`*
 <i>A value for the conductance scaling which varies as a standard function of the difference between the current temperature, **temperature,** and the temperature at which the conductance was originally determined, **experimentalTemp**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1054,7 +1073,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1065,7 +1084,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1076,7 +1095,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1087,7 +1106,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1106,18 +1125,15 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Q10ConductanceScaling" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Q10ConductanceScaling
 
-variable = Q10ConductanceScaling(q10_factor=None, experimental_temp=None, **kwargs_)
+variable = Q10ConductanceScaling(q10_factor=None, experimental_temp=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:baseconductancescalingcadependent)=
 
@@ -1133,8 +1149,8 @@ extends *{ref}`schema:baseconductancescaling`*
 <i>Base ComponentType for a scaling to apply to a gate's conductance which depends on Ca concentration. Usually a generic expression of **caConc** ( so no standard, non-base form here ).</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1145,7 +1161,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1156,6 +1172,7 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ```
 ````
+`````
 
 (schema:basegate)=
 
@@ -1167,8 +1184,8 @@ extends *{ref}`schema:baseconductancescaling`*
 <i>Base ComponentType for a voltage and/or concentration dependent gate.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1179,7 +1196,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1190,7 +1207,7 @@ extends *{ref}`schema:baseconductancescaling`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1201,6 +1218,7 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ```
 ````
+`````
 
 (schema:gate)=
 
@@ -1216,8 +1234,8 @@ extends *{ref}`schema:basegate`*
 <i>Conveniently named baseGate.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1228,7 +1246,7 @@ extends *{ref}`schema:basegate`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1239,6 +1257,7 @@ extends *{ref}`schema:basegate`*
 
 ```
 ````
+`````
 
 (schema:gatehhrates)=
 
@@ -1254,8 +1273,8 @@ extends {ref}`schema:gate`
 <i>Gate which follows the general Hodgkin Huxley formalism.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1266,7 +1285,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1278,7 +1297,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1289,7 +1308,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1306,7 +1325,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1348,9 +1367,7 @@ extends {ref}`schema:gate`
 ````
 
 
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <gateHHrates id="m" instances="3">
             <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
@@ -1370,7 +1387,7 @@ extends {ref}`schema:gate`
         </gateHHrates>
 ```
 ````
-
+`````
 
 (schema:gatehhtauinf)=
 
@@ -1386,8 +1403,8 @@ extends {ref}`schema:gate`
 <i>Gate which follows the general Hodgkin Huxley formalism.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1398,7 +1415,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1410,7 +1427,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1421,7 +1438,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1436,7 +1453,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1475,6 +1492,7 @@ extends {ref}`schema:gate`
     
 
 ````
+`````
 
 (schema:gatehhinstantaneous)=
 
@@ -1490,8 +1508,8 @@ extends {ref}`schema:gate`
 <i>Gate which follows the general Hodgkin Huxley formalism but is instantaneous, so tau = 0 and gate follows exactly inf value.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1502,18 +1520,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Child list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
-
-```
-````
-
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1524,7 +1531,18 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Child list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**steadyState**$  $ {ref}`schema:basevoltagedepvariable`
+
+```
+````
+
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1538,7 +1556,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1560,18 +1578,15 @@ extends {ref}`schema:gate`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHInstantaneous" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHInstantaneous
 
-variable = GateHHInstantaneous(neuro_lex_id=None, id=None, instances=None, notes=None, steady_state=None, **kwargs_)
+variable = GateHHInstantaneous(neuro_lex_id=None, id=None, instances=None, notes=None, steady_state=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:gatehhratestau)=
 
@@ -1587,8 +1602,8 @@ extends {ref}`schema:gate`
 <i>Gate which follows the general Hodgkin Huxley formalism.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1599,7 +1614,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1612,7 +1627,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1623,7 +1638,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1640,7 +1655,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1681,6 +1696,7 @@ extends {ref}`schema:gate`
     
 
 ````
+`````
 
 (schema:gatehhratesinf)=
 
@@ -1696,8 +1712,8 @@ extends {ref}`schema:gate`
 <i>Gate which follows the general Hodgkin Huxley formalism.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1708,7 +1724,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1721,7 +1737,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1732,7 +1748,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1749,7 +1765,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1789,6 +1805,7 @@ extends {ref}`schema:gate`
     
 
 ````
+`````
 
 (schema:gatehhratestauinf)=
 
@@ -1804,8 +1821,8 @@ extends {ref}`schema:gate`
 <i>Gate which follows the general Hodgkin Huxley formalism.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1816,7 +1833,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1830,7 +1847,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1841,7 +1858,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1858,7 +1875,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1899,6 +1916,7 @@ extends {ref}`schema:gate`
     
 
 ````
+`````
 
 (schema:gatefractional)=
 
@@ -1914,8 +1932,8 @@ extends {ref}`schema:gate`
 <i>Gate composed of subgates contributing with fractional conductance.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1926,7 +1944,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1938,7 +1956,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1951,7 +1969,7 @@ extends {ref}`schema:gate`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1972,18 +1990,15 @@ extends {ref}`schema:gate`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractional" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateFractional
 
-variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, sub_gates=None, **kwargs_)
+variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, sub_gates=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:subgate)=
 
@@ -1995,8 +2010,8 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 <i>Gate composed of subgates contributing with fractional conductance.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2007,7 +2022,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2020,7 +2035,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2034,7 +2049,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2045,7 +2060,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2083,6 +2098,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
     
 
 ````
+`````
 
 (schema:baseionchannel)=
 
@@ -2094,8 +2110,8 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 <i>Base for all ion channel ComponentTypes.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2106,7 +2122,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2116,7 +2132,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2128,7 +2144,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2140,7 +2156,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2150,6 +2166,7 @@ variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None
 
 ```
 ````
+`````
 
 (schema:ionchannelpassive)=
 
@@ -2165,8 +2182,8 @@ extends {ref}`schema:ionchannel`
 <i>Simple passive ion channel where the constant conductance through the channel is equal to **conductance**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2177,7 +2194,7 @@ extends {ref}`schema:ionchannel`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2187,7 +2204,7 @@ extends {ref}`schema:ionchannel`
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2199,7 +2216,7 @@ extends {ref}`schema:ionchannel`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2210,7 +2227,7 @@ extends {ref}`schema:ionchannel`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2229,6 +2246,7 @@ extends {ref}`schema:ionchannel`
 
 
 ````
+`````
 
 (schema:ionchannelhh)=
 
@@ -2244,8 +2262,8 @@ extends *{ref}`schema:baseionchannel`*
 <i>Note  {ref}`schema:ionchannel` and  {ref}`schema:ionchannelhh` are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2256,7 +2274,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2266,7 +2284,7 @@ extends *{ref}`schema:baseionchannel`*
 
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2278,7 +2296,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2290,7 +2308,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2301,7 +2319,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2323,19 +2341,15 @@ extends *{ref}`schema:baseionchannel`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelHH" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannelHH
 
-variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, **kwargs_)
+variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <ionChannelHH id="pas" conductance="10pS"/>
 ```
@@ -2357,7 +2371,7 @@ variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
     </ionChannelHH>
 ```
 ````
-
+`````
 
 (schema:ionchannel)=
 
@@ -2373,8 +2387,8 @@ extends {ref}`schema:ionchannelhh`
 <i>Note  {ref}`schema:ionchannel` and  {ref}`schema:ionchannelhh` are currently functionally identical. This is needed since many existing examples use ionChannel, some use ionChannelHH. NeuroML v2beta4 should remove one of these, probably ionChannelHH.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2385,7 +2399,7 @@ extends {ref}`schema:ionchannelhh`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2397,7 +2411,7 @@ extends {ref}`schema:ionchannelhh`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2408,7 +2422,7 @@ extends {ref}`schema:ionchannelhh`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2430,18 +2444,15 @@ extends {ref}`schema:ionchannelhh`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannel
 
-variable = IonChannel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, extensiontype_=None, **kwargs_)
+variable = IonChannel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:ionchannelvshift)=
 
@@ -2457,8 +2468,8 @@ extends {ref}`schema:ionchannel`
 <i>Same as  {ref}`schema:ionchannel`, but with a **vShift** parameter to change voltage activation of gates. The exact usage of **vShift** in expressions for rates is determined by the individual gates.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2470,7 +2481,7 @@ extends {ref}`schema:ionchannel`
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2480,7 +2491,7 @@ extends {ref}`schema:ionchannel`
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2492,7 +2503,7 @@ extends {ref}`schema:ionchannel`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2503,18 +2514,15 @@ extends {ref}`schema:ionchannel`
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelVShift" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannelVShift
 
-variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, v_shift=None, **kwargs_)
+variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, v_shift=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:ksstate)=
 
@@ -2526,8 +2534,8 @@ variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None,
 <i>One of the states in which a  {ref}`schema:gateks` can be. The rates of transitions between these states are given by  {ref}`schema:kstransition`s.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2538,7 +2546,7 @@ variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None,
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2550,7 +2558,7 @@ variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None,
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2572,6 +2580,7 @@ variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None,
 
 
 ````
+`````
 
 (schema:closedstate)=
 
@@ -2587,8 +2596,8 @@ extends {ref}`schema:ksstate`
 <i>A  {ref}`schema:ksstate` with **relativeConductance** of 0.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2599,7 +2608,7 @@ extends {ref}`schema:ksstate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2611,18 +2620,15 @@ extends {ref}`schema:ksstate`
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ClosedState" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ClosedState
 
-variable = ClosedState(neuro_lex_id=None, id=None, **kwargs_)
+variable = ClosedState(neuro_lex_id=None, id=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:openstate)=
 
@@ -2638,8 +2644,8 @@ extends {ref}`schema:ksstate`
 <i>A  {ref}`schema:ksstate` with **relativeConductance** of 1.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2650,7 +2656,7 @@ extends {ref}`schema:ksstate`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2662,18 +2668,15 @@ extends {ref}`schema:ksstate`
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=OpenState" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import OpenState
 
-variable = OpenState(neuro_lex_id=None, id=None, **kwargs_)
+variable = OpenState(neuro_lex_id=None, id=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:ionchannelks)=
 
@@ -2689,8 +2692,8 @@ extends *{ref}`schema:baseionchannel`*
 <i>A kinetic scheme based ion channel with multiple  {ref}`schema:gateks`s, each of which consists of multiple  {ref}`schema:ksstate`s and  {ref}`schema:kstransition`s giving the rates of transition between them.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2701,7 +2704,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -2711,7 +2714,7 @@ extends *{ref}`schema:baseionchannel`*
 
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -2723,7 +2726,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2735,7 +2738,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2746,7 +2749,7 @@ extends *{ref}`schema:baseionchannel`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2766,18 +2769,15 @@ extends *{ref}`schema:baseionchannel`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelKS" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannelKS
 
-variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, species=None, conductance=None, gate_kses=None, **kwargs_)
+variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, species=None, conductance=None, gate_kses=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:kstransition)=
 
@@ -2789,8 +2789,8 @@ variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 <i>Specified the forward and reverse rates of transition between two  {ref}`schema:ksstate`s in a  {ref}`schema:gateks`.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2801,6 +2801,7 @@ variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, pro
 
 ```
 ````
+`````
 
 (schema:forwardtransition)=
 
@@ -2816,19 +2817,8 @@ extends {ref}`schema:kstransition`
 <i>A forward only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** ( type  {ref}`schema:basehhrate` ) which follows one of the standard Hodgkin Huxley forms ( e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate`.</i>
 
 
-
-````{tabbed} Child list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**rate**$  $ {ref}`schema:basehhrate`
-
-```
-````
-
-````{tabbed} Constants
+`````{tab-set}
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2839,7 +2829,18 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Child list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**rate**$  $ {ref}`schema:basehhrate`
+
+```
+````
+
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2851,7 +2852,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2872,18 +2873,15 @@ extends {ref}`schema:kstransition`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ForwardTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ForwardTransition
 
-variable = ForwardTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, **kwargs_)
+variable = ForwardTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:reversetransition)=
 
@@ -2899,19 +2897,8 @@ extends {ref}`schema:kstransition`
 <i>A reverse only  {ref}`schema:kstransition` for a  {ref}`schema:gateks` which specifies a **rate** ( type  {ref}`schema:basehhrate` ) which follows one of the standard Hodgkin Huxley forms ( e.g.  {ref}`schema:hhexprate`,  {ref}`schema:hhsigmoidrate`,  {ref}`schema:hhexplinearrate`.</i>
 
 
-
-````{tabbed} Child list
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**rate**$  $ {ref}`schema:basehhrate`
-
-```
-````
-
-````{tabbed} Constants
+`````{tab-set}
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2922,7 +2909,18 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Child list
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**rate**$  $ {ref}`schema:basehhrate`
+
+```
+````
+
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2934,7 +2932,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2955,18 +2953,15 @@ extends {ref}`schema:kstransition`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ReverseTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ReverseTransition
 
-variable = ReverseTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, **kwargs_)
+variable = ReverseTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:vhalftransition)=
 
@@ -2982,8 +2977,8 @@ extends {ref}`schema:kstransition`
 <i>Transition which specifies both the forward and reverse rates of transition.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2998,7 +2993,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -3009,7 +3004,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3021,7 +3016,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3032,7 +3027,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3053,6 +3048,7 @@ extends {ref}`schema:kstransition`
 
 
 ````
+`````
 
 (schema:tauinftransition)=
 
@@ -3068,8 +3064,8 @@ extends {ref}`schema:kstransition`
 <i>KS Transition specified in terms of time constant  {ref}`schema:tau` and steady state  {ref}`schema:inf`.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3081,7 +3077,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3093,7 +3089,7 @@ extends {ref}`schema:kstransition`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3115,18 +3111,15 @@ extends {ref}`schema:kstransition`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TauInfTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TauInfTransition
 
-variable = TauInfTransition(neuro_lex_id=None, id=None, from_=None, to=None, steady_state=None, time_course=None, **kwargs_)
+variable = TauInfTransition(neuro_lex_id=None, id=None, from_=None, to=None, steady_state=None, time_course=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:gateks)=
 
@@ -3142,8 +3135,8 @@ extends *{ref}`schema:basegate`*
 <i>A gate which consists of multiple  {ref}`schema:ksstate`s and  {ref}`schema:kstransition`s giving the rates of transition between them.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3154,7 +3147,7 @@ extends *{ref}`schema:basegate`*
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -3167,7 +3160,7 @@ extends *{ref}`schema:basegate`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -3180,7 +3173,7 @@ extends *{ref}`schema:basegate`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -3201,15 +3194,12 @@ extends *{ref}`schema:basegate`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateKS" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateKS
 
-variable = GateKS(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, closed_states=None, open_states=None, forward_transition=None, reverse_transition=None, tau_inf_transition=None, **kwargs_)
+variable = GateKS(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, closed_states=None, open_states=None, forward_transition=None, reverse_transition=None, tau_inf_transition=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````

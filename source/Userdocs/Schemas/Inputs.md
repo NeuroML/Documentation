@@ -7,9 +7,9 @@
 ---
 
 
-Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Inputs.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
+Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Inputs.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -28,8 +28,8 @@ extends *{ref}`schema:basestandalone`*
 <i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ).</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -39,6 +39,7 @@ extends *{ref}`schema:basestandalone`*
 
 ```
 ````
+`````
 
 (schema:basevoltagedeppointcurrent)=
 
@@ -54,8 +55,8 @@ extends *{ref}`schema:basepointcurrent`*
 <i>Base type for all ComponentTypes which produce a current **i** ( with dimension current ) and require a voltage **v** exposed on the parent Component, which would often be the membrane potential of a Component extending  {ref}`schema:basecellmembpot`.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -66,7 +67,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -76,6 +77,7 @@ extends *{ref}`schema:basepointcurrent`*
 
 ```
 ````
+`````
 
 (schema:basevoltagedeppointcurrentspiking)=
 
@@ -91,8 +93,8 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>Base type for all ComponentTypes which produce a current **i,** require a membrane potential **v** exposed on the parent and emit spikes ( on a port **spike** ). The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -104,7 +106,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -115,7 +117,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -125,6 +127,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ```
 ````
+`````
 
 (schema:basepointcurrentdl)=
 
@@ -136,8 +139,8 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>Base type for all ComponentTypes which produce a dimensionless current **I.** There are many dimensionless equivalents of all the core current producing ComponentTypes such as  {ref}`schema:pulsegenerator` /  {ref}`schema:pulsegeneratordl`,  {ref}`schema:sinegenerator` /  {ref}`schema:sinegeneratordl` and  {ref}`schema:rampgenerator` /  {ref}`schema:rampgeneratordl`.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -147,6 +150,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ```
 ````
+`````
 
 (schema:basevoltagedeppointcurrentdl)=
 
@@ -162,8 +166,8 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>Base type for all ComponentTypes which produce a dimensionless current **I** and require a dimensionless membrane potential **V** exposed on the parent Component.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -174,7 +178,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -184,6 +188,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ```
 ````
+`````
 
 (schema:basespikesource)=
 
@@ -195,8 +200,8 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>Base for any ComponentType whose main purpose is to emit spikes ( on a port **spike** ). The exposed variable **tsince** can be used for plotting the time since the Component has spiked last.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -207,7 +212,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -217,6 +222,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ```
 ````
+`````
 
 (schema:spikegenerator)=
 
@@ -232,8 +238,8 @@ extends *{ref}`schema:basespikesource`*
 <i>Simple generator of spikes at a regular interval set by **period**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -244,7 +250,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -255,7 +261,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -267,7 +273,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -278,7 +284,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -321,24 +327,20 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGenerator
 
-variable = SpikeGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, period=None, **kwargs_)
+variable = SpikeGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, period=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeGenerator id="spikeGenRegular" period="20 ms"/>
 ```
 ````
-
+`````
 
 (schema:spikegeneratorrandom)=
 
@@ -354,8 +356,8 @@ extends *{ref}`schema:basespikesource`*
 <i>Generator of spikes with a random interspike interval of at least **minISI** and at most **maxISI**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -367,7 +369,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -378,7 +380,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -391,7 +393,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -402,7 +404,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -448,24 +450,20 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRandom" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorRandom
 
-variable = SpikeGeneratorRandom(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, max_isi=None, min_isi=None, **kwargs_)
+variable = SpikeGeneratorRandom(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, max_isi=None, min_isi=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeGeneratorRandom id="spikeGenRandom" minISI="10 ms" maxISI="30 ms"/>
 ```
 ````
-
+`````
 
 (schema:spikegeneratorpoisson)=
 
@@ -481,8 +479,8 @@ extends *{ref}`schema:basespikesource`*
 <i>Generator of spikes whose ISI is distributed according to an exponential PDF with scale: 1 / **averageRate**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -493,7 +491,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -504,7 +502,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -518,7 +516,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -529,7 +527,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -579,24 +577,20 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorPoisson
 
-variable = SpikeGeneratorPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, extensiontype_=None, **kwargs_)
+variable = SpikeGeneratorPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeGeneratorPoisson id="spikeGenPoisson" averageRate="50 Hz"/>
 ```
 ````
-
+`````
 
 (schema:spikegeneratorrefpoisson)=
 
@@ -612,8 +606,8 @@ extends {ref}`schema:spikegeneratorpoisson`
 <i>Generator of spikes whose ISI distribution is the maximum entropy distribution over [ **minimumISI,** +infinity ) with mean: 1 / **averageRate**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -625,18 +619,19 @@ extends {ref}`schema:spikegeneratorpoisson`
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
 :delim: $
 
 **averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
-
 ```
+&emsp;&emsp;&emsp;**averageIsi** = 1 / averageRate
+
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -650,7 +645,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -661,7 +656,7 @@ extends {ref}`schema:spikegeneratorpoisson`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -711,24 +706,20 @@ extends {ref}`schema:spikegeneratorpoisson`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRefPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorRefPoisson
 
-variable = SpikeGeneratorRefPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, minimum_isi=None, **kwargs_)
+variable = SpikeGeneratorRefPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, minimum_isi=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeGeneratorRefPoisson id="spikeGenRefPoisson" averageRate="50 Hz" minimumISI="10 ms"/>
 ```
 ````
-
+`````
 
 (schema:poissonfiringsynapse)=
 
@@ -744,8 +735,8 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 <i>Poisson spike generator firing at **averageRate,** which is connected to single **synapse** that is triggered every time a spike is generated, producing an input current. See also  {ref}`schema:transientpoissonfiringsynapse`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -756,39 +747,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Derived parameters
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
-
-```
-````
-
-````{tabbed} Paths
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**spikeTarget**$ The target of the spikes, i.e. the synapse
-
-````
-
-````{tabbed} Component References
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**synapse**$  $ {ref}`schema:basesynapse`
-
-```
-````
-
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -799,7 +758,40 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Derived parameters
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**averageIsi**$ The average interspike interval ${ref}`schema:dimensions:time`
+```
+&emsp;&emsp;&emsp;**averageIsi** = 1 / averageRate
+
+````
+
+````{tab-item} Paths
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**spikeTarget**$ The target of the spikes, i.e. the synapse
+
+````
+
+````{tab-item} Component References
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**synapse**$  $ {ref}`schema:basesynapse`
+
+```
+````
+
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -810,7 +802,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -825,7 +817,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -836,7 +828,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -849,7 +841,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **this** AS **a**
@@ -913,24 +905,20 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PoissonFiringSynapse
 
-variable = PoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, synapse=None, spike_target=None, **kwargs_)
+variable = PoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, synapse=None, spike_target=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <poissonFiringSynapse id="poissonFiringSyn" averageRate="10 Hz" synapse="synInput" spikeTarget="./synInput"/>
 ```
 ````
-
+`````
 
 (schema:transientpoissonfiringsynapse)=
 
@@ -946,8 +934,8 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 <i>Poisson spike generator firing at **averageRate** after a **delay** and for a **duration,** connected to single **synapse** that is triggered every time a spike is generated, providing an input current. Similar to ComponentType  {ref}`schema:poissonfiringsynapse`.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -960,39 +948,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Derived parameters
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**averageIsi**$  ${ref}`schema:dimensions:time`
-
-```
-````
-
-````{tabbed} Paths
-```{csv-table}
-:widths: 1, 7
-:width: 100%
-:delim: $
-
-**spikeTarget**$ 
-
-````
-
-````{tabbed} Component References
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100%
-:delim: $
-
-**synapse**$  $ {ref}`schema:basesynapse`
-
-```
-````
-
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1004,7 +960,40 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Derived parameters
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**averageIsi**$  ${ref}`schema:dimensions:time`
+```
+&emsp;&emsp;&emsp;**averageIsi** = 1 / averageRate
+
+````
+
+````{tab-item} Paths
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**spikeTarget**$ 
+
+````
+
+````{tab-item} Component References
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**synapse**$  $ {ref}`schema:basesynapse`
+
+```
+````
+
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1015,7 +1004,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1030,7 +1019,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1041,7 +1030,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1054,7 +1043,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **this** AS **a**
@@ -1118,19 +1107,15 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TransientPoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TransientPoissonFiringSynapse
 
-variable = TransientPoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, delay=None, duration=None, synapse=None, spike_target=None, **kwargs_)
+variable = TransientPoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, delay=None, duration=None, synapse=None, spike_target=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <transientPoissonFiringSynapse id="transPoissonFiringSyn" delay="50ms" duration="50ms" averageRate="300 Hz" synapse="synInputFast" spikeTarget="./synInputFast"/>
 ```
@@ -1138,7 +1123,7 @@ variable = TransientPoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None
 <transientPoissonFiringSynapse id="transPoissonFiringSyn2" delay="50ms" duration="500ms" averageRate="10 Hz" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo"/>
 ```
 ````
-
+`````
 
 (schema:timedsynapticinput)=
 
@@ -1154,8 +1139,8 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 <i>Spike array connected to a single **synapse,** producing a current triggered by each  {ref}`schema:spike` in the array.</i>
 
 
-
-````{tabbed} Paths
+`````{tab-set}
+````{tab-item} Paths
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1165,7 +1150,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-````{tabbed} Component References
+````{tab-item} Component References
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1176,7 +1161,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1187,7 +1172,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1198,7 +1183,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1210,7 +1195,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1221,7 +1206,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1233,7 +1218,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **this** AS **a**
@@ -1283,19 +1268,15 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TimedSynapticInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TimedSynapticInput
 
-variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse=None, spike_target=None, spikes=None, **kwargs_)
+variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse=None, spike_target=None, spikes=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <timedSynapticInput id="synTrain" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo">
         <spike id="0" time="2 ms"/>
@@ -1317,7 +1298,7 @@ variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=Non
     </timedSynapticInput>
 ```
 ````
-
+`````
 
 (schema:spikearray)=
 
@@ -1333,8 +1314,8 @@ extends *{ref}`schema:basespikesource`*
 <i>Set of spike ComponentTypes, each emitting one spike at a certain time. Can be used to feed a predetermined spike train into a cell.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1345,7 +1326,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1356,7 +1337,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1368,7 +1349,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1406,19 +1387,15 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeArray
 
-variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, spikes=None, **kwargs_)
+variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, spikes=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeArray id="spkArr">
       <spike id="0" time="50 ms"/>
@@ -1429,7 +1406,7 @@ variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
     </spikeArray>
 ```
 ````
-
+`````
 
 (schema:spike)=
 
@@ -1445,8 +1422,8 @@ extends *{ref}`schema:basespikesource`*
 <i>Emits a single spike at the specified **time**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1457,7 +1434,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1469,7 +1446,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1480,7 +1457,7 @@ extends *{ref}`schema:basespikesource`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **this** AS **a**
@@ -1528,19 +1505,15 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Spike" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Spike
 
-variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
+variable = Spike(neuro_lex_id=None, id=None, time=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <spike id="0" time="50 ms"/>
 ```
@@ -1551,7 +1524,7 @@ variable = Spike(neuro_lex_id=None, id=None, time=None, **kwargs_)
 <spike id="2" time="150 ms"/>
 ```
 ````
-
+`````
 
 (schema:pulsegenerator)=
 
@@ -1567,8 +1540,8 @@ extends *{ref}`schema:basepointcurrent`*
 <i>Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay.** Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1581,7 +1554,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1592,7 +1565,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1603,7 +1576,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1614,7 +1587,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1657,19 +1630,15 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PulseGenerator
 
-variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, **kwargs_)
+variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <pulseGenerator id="pulseGen1" delay="50ms" duration="200ms" amplitude="0.0032nA"/>
 ```
@@ -1680,7 +1649,7 @@ variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, p
 <pulseGenerator id="pulseGen3" delay="700ms" duration="200ms" amplitude="0.0010nA"/>
 ```
 ````
-
+`````
 
 (schema:compoundinput)=
 
@@ -1696,8 +1665,8 @@ extends *{ref}`schema:basepointcurrent`*
 <i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrent` element, e.g. can be a combination of  {ref}`schema:pulsegenerator`,  {ref}`schema:sinegenerator` elements producing a single **i.** Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1708,7 +1677,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1719,7 +1688,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1730,7 +1699,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1741,7 +1710,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1773,19 +1742,15 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import CompoundInput
 
-variable = CompoundInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generators=None, sine_generators=None, ramp_generators=None, **kwargs_)
+variable = CompoundInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generators=None, sine_generators=None, ramp_generators=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <compoundInput id="ci0">
         <pulseGenerator id="pg1" delay="50ms" duration="200ms" amplitude=".8 nA"/>
@@ -1794,7 +1759,7 @@ variable = CompoundInput(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
     </compoundInput>
 ```
 ````
-
+`````
 
 (schema:compoundinputdl)=
 
@@ -1810,8 +1775,8 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>Generates a current which is the sum of all its child  {ref}`schema:basepointcurrentdl` elements, e.g. can be a combination of  {ref}`schema:pulsegeneratordl`,  {ref}`schema:sinegeneratordl` elements producing a single **i.** Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1822,7 +1787,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1833,7 +1798,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1844,7 +1809,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1855,7 +1820,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1887,18 +1852,15 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInputDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import CompoundInputDL
 
-variable = CompoundInputDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generator_dls=None, sine_generator_dls=None, ramp_generator_dls=None, **kwargs_)
+variable = CompoundInputDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generator_dls=None, sine_generator_dls=None, ramp_generator_dls=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:pulsegeneratordl)=
 
@@ -1914,8 +1876,8 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>Dimensionless equivalent of  {ref}`schema:pulsegenerator`. Generates a constant current pulse of a certain **amplitude** for a specified **duration** after a **delay.** Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1928,7 +1890,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1939,7 +1901,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1950,7 +1912,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1961,7 +1923,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2004,18 +1966,15 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PulseGeneratorDL
 
-variable = PulseGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, **kwargs_)
+variable = PulseGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:sinegenerator)=
 
@@ -2031,8 +1990,8 @@ extends *{ref}`schema:basepointcurrent`*
 <i>Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start. Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2047,7 +2006,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2058,7 +2017,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2069,7 +2028,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2080,7 +2039,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2123,19 +2082,15 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SineGenerator
 
-variable = SineGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, **kwargs_)
+variable = SineGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <sineGenerator id="sg0" phase="0" delay="50ms" duration="200ms" amplitude="1.4nA" period="50ms"/>
 ```
@@ -2143,7 +2098,7 @@ variable = SineGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
 ```
 ````
-
+`````
 
 (schema:sinegeneratordl)=
 
@@ -2159,8 +2114,8 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>Dimensionless equivalent of  {ref}`schema:sinegenerator`. Generates a sinusoidally varying current after a time **delay,** for a fixed **duration.** The **period** and maximum **amplitude** of the current can be set as well as the **phase** at which to start. Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2175,7 +2130,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2186,7 +2141,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2197,7 +2152,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2208,7 +2163,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2251,18 +2206,15 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SineGeneratorDL
 
-variable = SineGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, **kwargs_)
+variable = SineGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:rampgenerator)=
 
@@ -2278,8 +2230,8 @@ extends *{ref}`schema:basepointcurrent`*
 <i>Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the current steadily changes from **startAmplitude** to **finishAmplitude.** Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2294,7 +2246,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2305,7 +2257,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2316,7 +2268,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2327,7 +2279,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2372,24 +2324,20 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import RampGenerator
 
-variable = RampGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, **kwargs_)
+variable = RampGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <rampGenerator id="rg0" delay="50ms" duration="200ms" startAmplitude="0.5nA" finishAmplitude="4nA" baselineAmplitude="0nA"/>
 ```
 ````
-
+`````
 
 (schema:rampgeneratordl)=
 
@@ -2405,8 +2353,8 @@ extends *{ref}`schema:basepointcurrentdl`*
 <i>Dimensionless equivalent of  {ref}`schema:rampgenerator`. Generates a ramping current after a time **delay,** for a fixed **duration.** During this time the dimensionless current steadily changes from **startAmplitude** to **finishAmplitude.** Scaled by **weight,** if set.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2421,7 +2369,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2432,7 +2380,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2443,7 +2391,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2454,7 +2402,7 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2499,18 +2447,15 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import RampGeneratorDL
 
-variable = RampGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, **kwargs_)
+variable = RampGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:voltageclamp)=
 
@@ -2526,8 +2471,8 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>Voltage clamp. Applies a variable current **i** to try to keep parent at **targetVoltage.** Not yet fully tested!!! Consider using voltageClampTriple!!</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2541,7 +2486,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2552,7 +2497,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2563,7 +2508,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2574,7 +2519,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2585,7 +2530,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2628,18 +2573,15 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClamp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VoltageClamp
 
-variable = VoltageClamp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, target_voltage=None, simple_series_resistance=None, **kwargs_)
+variable = VoltageClamp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, target_voltage=None, simple_series_resistance=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:voltageclamptriple)=
 
@@ -2655,8 +2597,8 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 <i>Voltage clamp with 3 clamp levels. Applies a variable current **i** ( through **simpleSeriesResistance** ) to try to keep parent cell at **conditioningVoltage** until time **delay,** **testingVoltage** until **delay** + **duration,** and **returnVoltage** afterwards. Only enabled if **active** = 1.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2673,7 +2615,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2684,7 +2626,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2695,7 +2637,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2706,7 +2648,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2717,7 +2659,7 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2760,21 +2702,17 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClampTriple" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VoltageClampTriple
 
-variable = VoltageClampTriple(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, active=None, delay=None, duration=None, conditioning_voltage=None, testing_voltage=None, return_voltage=None, simple_series_resistance=None, **kwargs_)
+variable = VoltageClampTriple(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, active=None, delay=None, duration=None, conditioning_voltage=None, testing_voltage=None, return_voltage=None, simple_series_resistance=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <voltageClampTriple id="vClamp0" active="1" delay="50ms" duration="200ms" conditioningVoltage="-70mV" testingVoltage="-50mV" returnVoltage="-70mV" simpleSeriesResistance="1e6ohm"/>
 ```
 ````
-
+`````

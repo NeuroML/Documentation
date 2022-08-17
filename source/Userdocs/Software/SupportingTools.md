@@ -10,10 +10,24 @@ Please [file issues](https://github.com/NeuroML/Documentation/issues/new/choose)
 
 
 Apart from the core NeuroML tools ({ref}`pyNeuroML <pyNeuroML>`, {ref}`jNeuroML <jNeuroML>`, etc.) there are many
-other applications, libraries and databases which support NeuroML 2 and LEMS.
+other applications, libraries and databases which support NeuroML 2 and LEMS. These tools take a {ref}`number of different approaches <userdocs:neuroml_support_approaches>` to adding NeuroML support.
 
 (userdocs:supporting:apps)=
 ## Applications with NeuroML support
+
+
+(userdocs:supporting:apps:neuron)=
+### NEURON
+
+![NEURON logo](../../images/tools/neuron.png)
+
+The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. {ref}`jNeuroML <jneuroml>` can be used to convert NeuroML2/LEMS models to NEURON. NEURON simulations can also be generated from NeuroML model components by [neuroConstruct].
+
+See also {ref}`NetPyNE <userdocs:netpyne>`, which builds on NEURON.
+
+There is a **dedicated page on NEURON/NeuroML interactions** {ref}`here <userdocs:neuron>`.
+
+
 
 (userdocs:supporting:apps:netpyne)=
 ### NetPyNE
@@ -22,24 +36,16 @@ other applications, libraries and databases which support NeuroML 2 and LEMS.
 
 [NetPyNE] is a Python package to facilitate the development, simulation, parallelization, analysis, and optimization of biological neuronal networks using the NEURON simulator. NetPyNE can import from and export to NeuroML. NetPyNE also provides a web based [Graphical User Interface](https://github.com/MetaCell/NetPyNE-UI/wiki).
 
-More information on running NeuroML models in NetPyNE can be found {ref}`here <userdocs:simulating_models:netpyne>`.
+There is a **dedicated page on NetPyNE/NeuroML interactions** {ref}`here <userdocs:netpyne>`.
 
 (userdocs:supporting:apps:neuroconstruct)=
 ### neuroConstruct
 
 ![Neuroconstruct logo](../../images/tools/neuroconstruct.png)
 
-[neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the [NEURON], [GENESIS], [PSICS] and [PyNN] platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks. More info on the support for NeuroML in neuroConstruct is available [here](http://www.neuroconstruct.org/docs/neuroml.html).
+[neuroConstruct] is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the [NEURON], [GENESIS], [PSICS] and [PyNN] platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks.
 
-
-(userdocs:supporting:apps:neuron)=
-### NEURON
-
-![NEURON logo](../../images/tools/neuron.png)
-
-The [NEURON] simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. NEURON simulations can be generated from NeuroML model components by [neuroConstruct].
-
-{ref}`jNeuroML <jneuroml>` can also be used to convert NeuroML2/LEMS models to NEURON. More information on running NeuroML models in NEURON can be found {ref}`here <userdocs:simulating_models:neuron>`.
+More info on the support for NeuroML in neuroConstruct is available [here](http://www.neuroconstruct.org/docs/neuroml.html).
 
 
 
@@ -57,9 +63,12 @@ Due to the lack of active development of GENESIS, support for mapping to GENESIS
 
 ![MOOSE logo](../../images/tools/moose.jpg)
 
-[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core, and scripts for that environment are largely compatible with MOOSE.
+[MOOSE] is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core.
 
 More information on running NeuroML models in MOOSE can be found {ref}`here <userdocs:simulating_models:moose>`.
+
+There is a **dedicated page on MOOSE/NeuroML interactions** {ref}`here <userdocs:moose>`.
+
 
 (userdocs:supporting:apps:brian)=
 ### BRIAN
@@ -68,7 +77,7 @@ More information on running NeuroML models in MOOSE can be found {ref}`here <use
 
 [Brian] is an easy to use, Python based simulator of spiking networks.
 
-More information on running NeuroML models in Brian can be found {ref}`here <userdocs:simulating_models:brian2>`.
+There is a **dedicated page on Brian/NeuroML interactions** {ref}`here <userdocs:brian>`.
 
 (userdocs:supporting:apps:eden)=
 ### EDEN
@@ -77,6 +86,7 @@ More information on running NeuroML models in Brian can be found {ref}`here <use
 
 Initial tests of using EDEN with NeuroML models and example code can be found [here](https://github.com/OpenSourceBrain/EDENShowcase).
 
+There is a **dedicated page on EDEN/NeuroML interactions** {ref}`here <userdocs:eden>`.
 
 (userdocs:supporting:apps:arbor)=
 ### Arbor
@@ -88,6 +98,7 @@ See [here](https://docs.arbor-sim.org/en/stable/fileformat/neuroml.html).
 
 Example code for interactions between NeuroML models and Arbor can be found [here](https://github.com/OpenSourceBrain/ArborShowcase).
 
+There is a **dedicated page on Arbor/NeuroML interactions** {ref}`here <userdocs:arbor>`.
 
 (userdocs:supporting:apps:pynn)=
 ### PyNN
@@ -109,12 +120,43 @@ The [c302 subproject](https://github.com/openworm/c302) in OpenWorm has the late
 
  Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see [Geppetto](#geppetto)).
 
+
+
+(userdocs:supporting:apps:mdf)=
+### Model Description Format (MDF)
+
+![MDF logo](../../images/tools/mdf.png)
+
+[ModECI Model Description Format (MDF)](https://github.com/ModECI/MDF) is an open source, community-supported standard and associated library of tools for expressing computational models in a form that allows them to be exchanged between diverse programming languages and execution environments, with a particular focus on machine learning, artificial intelligence and computational neuroscience.
+
+There will be full compatibility between NeuroML and MDF for specifying neuronal models. See [here](https://github.com/ModECI/MDF/blob/main/examples/NeuroML/README.md) for ongoing work in this direction.
+
+(userdocs:supporting:apps:tvb)=
+### The Virtual Brain
+
+![TVB logo](../../images/tools/tvb.png)
+
+[The Virtual Brain (TVB)](https://www.thevirtualbrain.org) offers a simulation environment for large-scale brain networks. It allows network properties, in particular the brain’s structural connectivity, to be incorporated into models, and so TVB can simulate whole brain behaviour as is commonly observed in clinical scanners (e.g. EEG, MEG, fMRI).
+
+Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [here](https://github.com/OpenSourceBrain/TheVirtualBrainShowcase). See also the work of the [INCF Network Specification Working Group in this area](https://github.com/NeuralEnsemble/Networks_SIG/issues?q=is%3Aissue+is%3Aopen+label%3ATVB).
+
 (userdocs:supporting:apps:lfpy)=
 ### LFPy
 
 ![LFPy logo](../../images/tools/lfpy.png)
 
 [LFPy] is a Python package for calculation of extracellular potentials from multicompartment neuron models. It relies on the NEURON simulator and uses the Python interface it provides. LFPy provides a set of easy to use Python classes for setting up the model, running simulations and calculating the extracellular potentials arising from activity in the model neuron. Initial support for loading of NeuroML morphologies has been added.
+
+
+(userdocs:supporting:apps:biosimulators)=
+### BioSimulators
+
+![BioSimulators logo](../../images/tools/biosimulators.png)
+
+[BioSimulators] provides a registry and platform supporting a broad range of modeling frameworks, model formats, simulation algorithms, and simulation tools.
+
+See for example https://biosimulators.org/simulators/pyneuroml/latest.
+
 
 
 (userdocs:supporting:apps:neuronland)=
@@ -286,3 +328,4 @@ Loading of morphologies in MorphML and NeuroML formats is supported.
 [Brian]: https://briansimulator.org/
 [EDEN]: https://gitlab.com/neurocomputing-lab/Inferior_OliveEMC/eden
 [Arbor]: https://arbor-sim.org/
+[BioSimulators]: https://biosimulators.org/

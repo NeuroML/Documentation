@@ -44,7 +44,7 @@ comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
 
-nml_branch = "documentation_update"
+nml_branch = "master"
 nml_version = "2.2"
 GitHubCompSources = ("https://github.com/NeuroML/NeuroML2/blob/" + nml_branch +
                      "/NeuroML2CoreTypes/")
@@ -440,18 +440,24 @@ def main(srcdir, destdir):
                 """Recurse up the next parent"""
                 extd_comp_type = get_extended_from_comp_type(extd_comp_type.name)
 
+            print("""`````{tab-set}""", end="", file=ast_doc)
             if len(params) > 0:
                 keysort = sorted(params.keys(), key=lambda param: param.name)
                 print(asttemplates.params.render(title="Parameters",
                                                  comp_type=comp_type,
                                                  entries=params,
                                                  keysort=keysort), file=ast_doc)
+
+            if len(comp_type.constants) > 0:
+                print(asttemplates.constants.render(title="Constants",
+                                                    textlist=comp_type.constants), file=ast_doc)
+
             if len(derived_params) > 0:
                 keysort = sorted(derived_params.keys(), key=lambda derived_param: derived_param.name)
-                print(asttemplates.params.render(title="Derived parameters",
-                                                 comp_type=comp_type,
-                                                 entries=derived_params,
-                                                 keysort=keysort), file=ast_doc)
+                print(asttemplates.derived_params.render(title="Derived parameters",
+                                                         comp_type=comp_type,
+                                                         entries=derived_params,
+                                                         keysort=keysort), file=ast_doc)
 
             if len(comp_type.texts) > 0:  # TODO: Check if Text elements are inherited...
                 print(asttemplates.misc2c.render(title="Text fields",
@@ -478,10 +484,6 @@ def main(srcdir, destdir):
                 if len(childrenlist) > 0:
                     print(asttemplates.misc3c.render(title="Children list",
                                                      textlist=childrenlist), file=ast_doc)
-
-            if len(comp_type.constants) > 0:
-                print(asttemplates.constants.render(title="Constants",
-                                                    textlist=comp_type.constants), file=ast_doc)
 
             if len(comp_type.properties) > 0:
                 print(asttemplates.properties.render(title="Properties",
@@ -531,6 +533,7 @@ def main(srcdir, destdir):
                     lemsexamples=comp_type_examples[comp_type.name],
                     pysig=comp_type_py_api[comp_type.name]), file=ast_doc)
 
+            print("""`````""", file=ast_doc)
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
 

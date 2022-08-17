@@ -21,6 +21,8 @@ parts:
     - file: Userdocs/ImportingMorphologyFiles
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
+      sections:
+      - file: Userdocs/VisualisingChannels
     - file: Userdocs/SimulatingNeuroMLModels
     - file: Userdocs/OptimisingNeuroMLModels
     - file: Userdocs/Specification
@@ -56,10 +58,21 @@ parts:
         - file: Userdocs/Software/NeuroML_API
         - file: Userdocs/Software/MatLab
         - file: Userdocs/Software/SupportingTools
+          sections:
+            - file: Userdocs/Software/Tools/Approaches
+            - file: Userdocs/Software/Tools/NEURON
+            - file: Userdocs/Software/Tools/NetPyNE
+            - file: Userdocs/Software/Tools/PyNN
+            - file: Userdocs/Software/Tools/Brian
+            - file: Userdocs/Software/Tools/MOOSE
+            - file: Userdocs/Software/Tools/EDEN
+            - file: Userdocs/Software/Tools/Arbor
     - file: Userdocs/Publications
     - file: Userdocs/FAQ
   - caption: NeuroML events
     chapters:
+      - file: Events/20220630-CNS2022
+      - file: Events/202204-Harmony
       - file: Events/202109-COMBINE
       - file: Events/202108-INCF-Training-Week
       - file: Events/202107-CNS2021

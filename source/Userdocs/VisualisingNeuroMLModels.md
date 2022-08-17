@@ -325,6 +325,9 @@ import pyneuroml.pynml
 
 ...
 
-
 pyneuroml.pynml.generate_lemsgraph(lems_file)
 ```
+
+## Viewing/analysing ion channel dynamics
+
+There is a dedicated section on {ref}`visualising and analysing ion channel models <userdocs:visualising_channels>`.

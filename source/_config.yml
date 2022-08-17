@@ -17,7 +17,9 @@ execute:
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
-    targetname: book.tex
+    targetname: neuroml-documentation.tex
+    use_jupyterbook_latex: true
+  latex_engine: pdflatex
 
 # Information about where the book exists on the web
 repository:
@@ -62,3 +64,8 @@ parse:
 sphinx:
   config:
     pygments_style: "tango"
+    latex_elements: # https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276#issuecomment-1102154800
+      preamble: |
+        % make phantomsection empty inside figures
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}

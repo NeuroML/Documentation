@@ -7,9 +7,9 @@
 ---
 
 
-Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//Synapses.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
+Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -30,8 +30,8 @@ extends *{ref}`schema:basepointcurrent`*
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000009)
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -42,7 +42,7 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -53,18 +53,15 @@ extends *{ref}`schema:basepointcurrent`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseSynapse
 
-variable = BaseSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+variable = BaseSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:basevoltagedepsynapse)=
 
@@ -80,8 +77,8 @@ extends *{ref}`schema:basesynapse`*
 <i>Base type for synapses with a dependence on membrane potential.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -92,7 +89,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -103,7 +100,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -114,18 +111,15 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseVoltageDepSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseVoltageDepSynapse
 
-variable = BaseVoltageDepSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+variable = BaseVoltageDepSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:basesynapsedl)=
 
@@ -143,8 +137,8 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseSynapseDL.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000009)
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -155,7 +149,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -165,6 +159,7 @@ extends *{ref}`schema:basevoltagedeppointcurrentdl`*
 
 ```
 ````
+`````
 
 (schema:basecurrentbasedsynapse)=
 
@@ -180,8 +175,8 @@ extends *{ref}`schema:basesynapse`*
 <i>Synapse model which produces a synaptic current.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -192,7 +187,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -203,18 +198,15 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCurrentBasedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseCurrentBasedSynapse
 
-variable = BaseCurrentBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, **kwargs_)
+variable = BaseCurrentBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:alphacurrentsynapse)=
 
@@ -230,8 +222,8 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 <i>Alpha current synapse: rise time and decay time are both **tau.**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -243,7 +235,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -254,7 +246,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -265,7 +257,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -276,7 +268,7 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -321,18 +313,15 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCurrentSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaCurrentSynapse
 
-variable = AlphaCurrentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau=None, ibase=None, **kwargs_)
+variable = AlphaCurrentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau=None, ibase=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:baseconductancebasedsynapse)=
 
@@ -350,8 +339,8 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000027)
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -363,7 +352,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -375,7 +364,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -386,7 +375,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -397,18 +386,15 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseConductanceBasedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseConductanceBasedSynapse
 
-variable = BaseConductanceBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, extensiontype_=None, **kwargs_)
+variable = BaseConductanceBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:baseconductancebasedsynapsetwo)=
 
@@ -426,8 +412,8 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 [Bioportal entry for Computational Neuroscience Ontology related to baseConductanceBasedSynapseTwo.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000027)
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -440,7 +426,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -452,7 +438,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -463,7 +449,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -474,18 +460,15 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseConductanceBasedSynapseTwo" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseConductanceBasedSynapseTwo
 
-variable = BaseConductanceBasedSynapseTwo(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, extensiontype_=None, **kwargs_)
+variable = BaseConductanceBasedSynapseTwo(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
 
 (schema:exponesynapse)=
 
@@ -501,8 +484,8 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 <i>Ohmic synapse model whose conductance rises instantaneously by ( **gbase** * **weight** ) on receiving an event, and which decays exponentially to zero with time course **tauDecay**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -515,7 +498,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -526,7 +509,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -538,7 +521,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -549,7 +532,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -560,7 +543,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -602,19 +585,15 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpOneSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpOneSynapse
 
-variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, **kwargs_)
+variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
@@ -625,7 +604,7 @@ variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <expOneSynapse id="syn1" gbase="5nS" erev="0mV" tauDecay="3ms"/>
 ```
 ````
-
+`````
 
 (schema:alphasynapse)=
 
@@ -641,8 +620,8 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 <i>Ohmic synapse model where rise time and decay time are both **tau.** Max conductance reached during this time ( assuming zero conductance before ) is **gbase** * **weight.**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -655,7 +634,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -666,7 +645,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -678,7 +657,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -689,7 +668,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -700,7 +679,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -745,26 +724,22 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaSynapse
 
-variable = AlphaSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau=None, **kwargs_)
+variable = AlphaSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <alphaSynapse id="synalpha" gbase="0.5nS" erev="0mV" tau="2ms">
         <notes>An alpha synapse with time for rise equal to decay.</notes>
     </alphaSynapse>
 ```
 ````
-
+`````
 
 (schema:exptwosynapse)=
 
@@ -780,8 +755,8 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 <i>Ohmic synapse model whose conductance waveform on receiving an event has a rise time of **tauRise** and a decay time of **tauDecay.** Max conductance reached during this time ( assuming zero conductance before ) is **gbase** * **weight.**.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -795,19 +770,27 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
 :delim: $
 
 **peakTime**$  ${ref}`schema:dimensions:time`
-**waveformFactor**$  $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime** = log(tauDecay / tauRise) * (tauRise * tauDecay)/(tauDecay - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor**$  $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
+
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -818,7 +801,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -830,7 +813,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -841,7 +824,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -852,7 +835,7 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -899,19 +882,15 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpTwoSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpTwoSynapse
 
-variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, extensiontype_=None, **kwargs_)
+variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, extensiontype_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <expTwoSynapse id="AMPA" gbase="0.5nS" erev="0mV" tauRise="1ms" tauDecay="2ms"/>
 ```
@@ -922,7 +901,7 @@ variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <expTwoSynapse id="synInputFast" gbase="1nS" erev="20mV" tauRise="0.2ms" tauDecay="1ms"/>
 ```
 ````
-
+`````
 
 (schema:expthreesynapse)=
 
@@ -938,8 +917,8 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 <i>Ohmic synapse similar to expTwoSynapse but consisting of two components that can differ in decay times and max conductances but share the same rise time.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -955,21 +934,43 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
 :delim: $
 
 **peakTime1**$  ${ref}`schema:dimensions:time`
-**peakTime2**$  ${ref}`schema:dimensions:time`
-**waveformFactor1**$  $Dimensionless
-**waveformFactor2**$  $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime1** = log(tauDecay1 / tauRise) * (tauRise * tauDecay1)/(tauDecay1 - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**peakTime2**$  ${ref}`schema:dimensions:time`
+```
+&emsp;&emsp;&emsp;**peakTime2** = log(tauDecay2 / tauRise) * (tauRise * tauDecay2)/(tauDecay2 - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor1**$  $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor1** = 1 / (-exp(-peakTime1 / tauRise) + exp(-peakTime1 / tauDecay1))
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor2**$  $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor2** = 1 / (-exp(-peakTime2 / tauRise) + exp(-peakTime2 / tauDecay2))
+
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -980,7 +981,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -992,7 +993,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1003,7 +1004,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1014,7 +1015,7 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1065,19 +1066,15 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpThreeSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpThreeSynapse
 
-variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, tau_decay1=None, tau_decay2=None, tau_rise=None, **kwargs_)
+variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, tau_decay1=None, tau_decay2=None, tau_rise=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <expThreeSynapse id="synInputFastTwo" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV"/>
 ```
@@ -1087,7 +1084,7 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
     </expThreeSynapse>
 ```
 ````
-
+`````
 
 (schema:baseblockmechanism)=
 
@@ -1099,8 +1096,8 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 <i>Base of any ComponentType which produces a varying scaling ( or blockage ) of synaptic strength of magnitude **scaling**.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1110,6 +1107,7 @@ variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, 
 
 ```
 ````
+`````
 
 (schema:voltageconcdepblockmechanism)=
 
@@ -1125,8 +1123,8 @@ extends *{ref}`schema:baseblockmechanism`*
 <i>Synaptic blocking mechanism which varys with membrane potential across the synapse, e.g. in NMDA receptor mediated synapses.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1139,7 +1137,7 @@ extends *{ref}`schema:baseblockmechanism`*
 ```
 ````
 
-````{tabbed} Text fields
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1149,7 +1147,7 @@ extends *{ref}`schema:baseblockmechanism`*
 
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1160,7 +1158,7 @@ extends *{ref}`schema:baseblockmechanism`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1171,7 +1169,7 @@ extends *{ref}`schema:baseblockmechanism`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1189,6 +1187,7 @@ extends *{ref}`schema:baseblockmechanism`*
 
 
 ````
+`````
 
 (schema:baseplasticitymechanism)=
 
@@ -1200,8 +1199,8 @@ extends *{ref}`schema:baseblockmechanism`*
 <i>Base plasticity mechanism.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1212,7 +1211,7 @@ extends *{ref}`schema:baseblockmechanism`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1222,6 +1221,7 @@ extends *{ref}`schema:baseblockmechanism`*
 
 ```
 ````
+`````
 
 (schema:tsodyksmarkramdepmechanism)=
 
@@ -1237,8 +1237,8 @@ extends *{ref}`schema:baseplasticitymechanism`*
 <i>Depression-only Tsodyks-Markram model, as in Tsodyks and Markram 1997.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1250,7 +1250,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1261,7 +1261,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1272,7 +1272,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **parent** AS **a**
@@ -1321,6 +1321,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
     
 
 ````
+`````
 
 (schema:tsodyksmarkramdepfacmechanism)=
 
@@ -1336,8 +1337,8 @@ extends *{ref}`schema:baseplasticitymechanism`*
 <i>Full Tsodyks-Markram STP model with both depression and facilitation, as in Tsodyks, Pawelzik and Markram 1998.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1350,7 +1351,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1361,7 +1362,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1372,7 +1373,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **parent** AS **a**
@@ -1424,6 +1425,7 @@ extends *{ref}`schema:baseplasticitymechanism`*
     
 
 ````
+`````
 
 (schema:blockingplasticsynapse)=
 
@@ -1439,8 +1441,8 @@ extends {ref}`schema:exptwosynapse`
 <i>Biexponential synapse that allows for optional block and plasticity mechanisms, which can be expressed as child elements.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1454,19 +1456,27 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Derived parameters
+````{tab-item} Derived parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
 :delim: $
 
 **peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
-**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
-
 ```
+&emsp;&emsp;&emsp;**peakTime** = log(tauDecay / tauRise) * (tauRise * tauDecay)/(tauDecay - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
+
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1478,7 +1488,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1489,7 +1499,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1501,7 +1511,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1512,7 +1522,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1524,7 +1534,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1574,19 +1584,15 @@ extends {ref}`schema:exptwosynapse`
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BlockingPlasticSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BlockingPlasticSynapse
 
-variable = BlockingPlasticSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, plasticity_mechanism=None, block_mechanism=None, **kwargs_)
+variable = BlockingPlasticSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, plasticity_mechanism=None, block_mechanism=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <blockingPlasticSynapse id="NMDA" gbase=".8nS" tauRise="1e-3s" tauDecay="13.3333e-3s" erev="0V">
         <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2mM" scalingConc="1.9205441817997078mM" scalingVolt="0.016129032258064516V"/>
@@ -1608,7 +1614,7 @@ variable = BlockingPlasticSynapse(neuro_lex_id=None, id=None, metaid=None, notes
     </blockingPlasticSynapse>
 ```
 ````
-
+`````
 
 (schema:doublesynapse)=
 
@@ -1624,8 +1630,8 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 <i>Synapse consisting of two independent synaptic mechanisms ( e.g. AMPA-R and NMDA-R ), which can be easily colocated in connections.</i>
 
 
-
-````{tabbed} Paths
+`````{tab-set}
+````{tab-item} Paths
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -1636,7 +1642,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 ````
 
-````{tabbed} Component References
+````{tab-item} Component References
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -1648,7 +1654,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1659,7 +1665,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1670,7 +1676,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1681,7 +1687,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1693,7 +1699,7 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 <i>**Structure**</i>
 : WITH **this** AS **a**
@@ -1744,26 +1750,22 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DoubleSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import DoubleSynapse
 
-variable = DoubleSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse1=None, synapse2=None, synapse1_path=None, synapse2_path=None, **kwargs_)
+variable = DoubleSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse1=None, synapse2=None, synapse1_path=None, synapse2_path=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <doubleSynapse id="AMPA_NMDA" synapse1="AMPA" synapse1Path="./AMPA" synapse2="NMDA" synapse2Path="./NMDA">
         <notes>A single "synapse" which contains both AMPA and NMDA. It is planned that the need for extra synapse1Path/synapse2Path attributes can be removed in later versions.</notes>
     </doubleSynapse>
 ```
 ````
-
+`````
 
 (schema:stdpsynapse)=
 
@@ -1781,8 +1783,8 @@ extends {ref}`schema:exptwosynapse`
 
 [Bioportal entry for Computational Neuroscience Ontology related to stdpSynapse.](https://bioportal.bioontology.org/ontologies/CNO/?p=classes&conceptid=cno_0000034)
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1796,19 +1798,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Derived parameters
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
-**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
-
-```
-````
-
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1820,7 +1810,27 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Derived parameters
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**peakTime**$  *(from {ref}`schema:exptwosynapse`)* ${ref}`schema:dimensions:time`
+```
+&emsp;&emsp;&emsp;**peakTime** = log(tauDecay / tauRise) * (tauRise * tauDecay)/(tauDecay - tauRise)
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**waveformFactor**$  *(from {ref}`schema:exptwosynapse`)* $Dimensionless
+```
+&emsp;&emsp;&emsp;**waveformFactor** = 1 / (-exp(-peakTime / tauRise) + exp(-peakTime / tauDecay))
+
+````
+
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1835,7 +1845,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1846,7 +1856,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1857,7 +1867,7 @@ extends {ref}`schema:exptwosynapse`
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -1911,6 +1921,7 @@ extends {ref}`schema:exptwosynapse`
     
 
 ````
+`````
 
 (schema:gapjunction)=
 
@@ -1926,8 +1937,8 @@ extends *{ref}`schema:basesynapse`*
 <i>Gap junction/single electrical connection.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1938,7 +1949,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -1949,7 +1960,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1960,7 +1971,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1971,7 +1982,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -1982,7 +1993,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2002,19 +2013,15 @@ extends *{ref}`schema:basesynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GapJunction" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GapJunction
 
-variable = GapJunction(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, **kwargs_)
+variable = GapJunction(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <gapJunction id="gj1" conductance="10pS"/>
 ```
@@ -2022,7 +2029,7 @@ variable = GapJunction(neuro_lex_id=None, id=None, metaid=None, notes=None, prop
 <gapJunction id="gj1" conductance="10pS"/>
 ```
 ````
-
+`````
 
 (schema:basegradedsynapse)=
 
@@ -2038,8 +2045,8 @@ extends *{ref}`schema:basesynapse`*
 <i>Base type for graded synapses.</i>
 
 
-
-````{tabbed} Exposures
+`````{tab-set}
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2050,7 +2057,7 @@ extends *{ref}`schema:basesynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2060,6 +2067,7 @@ extends *{ref}`schema:basesynapse`*
 
 ```
 ````
+`````
 
 (schema:silentsynapse)=
 
@@ -2075,8 +2083,8 @@ extends *{ref}`schema:basegradedsynapse`*
 <i>Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection.</i>
 
 
-
-````{tabbed} Properties
+`````{tab-set}
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2087,7 +2095,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2098,7 +2106,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2109,7 +2117,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2120,7 +2128,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2140,19 +2148,15 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SilentSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SilentSynapse
 
-variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, **kwargs_)
+variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <silentSynapse id="silent1"/>
 ```
@@ -2163,7 +2167,7 @@ variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <silentSynapse id="silent1"/>
 ```
 ````
-
+`````
 
 (schema:lineargradedsynapse)=
 
@@ -2179,8 +2183,8 @@ extends *{ref}`schema:basegradedsynapse`*
 <i>Behaves just like a one way gap junction.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2191,7 +2195,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2202,7 +2206,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2213,7 +2217,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2224,7 +2228,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2235,7 +2239,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2255,24 +2259,20 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=LinearGradedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import LinearGradedSynapse
 
-variable = LinearGradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, **kwargs_)
+variable = LinearGradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <linearGradedSynapse id="gs1" conductance="5pS"/>
 ```
 ````
-
+`````
 
 (schema:gradedsynapse)=
 
@@ -2288,8 +2288,8 @@ extends *{ref}`schema:basegradedsynapse`*
 <i>Graded/analog synapse. Based on synapse in Methods of http://www.nature.com/neuro/journal/v7/n12/abs/nn1352.html.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2304,7 +2304,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Properties
+````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -2315,7 +2315,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Exposures
+````{tab-item} Exposures
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2328,7 +2328,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Requirements
+````{tab-item} Requirements
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2339,7 +2339,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Event Ports
+````{tab-item} Event Ports
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -2350,7 +2350,7 @@ extends *{ref}`schema:basegradedsynapse`*
 ```
 ````
 
-````{tabbed} Dynamics
+````{tab-item} Dynamics
 
 
 
@@ -2400,19 +2400,15 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GradedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GradedSynapse
 
-variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, delta=None, Vth=None, k=None, erev=None, **kwargs_)
+variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, delta=None, Vth=None, k=None, erev=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <gradedSynapse id="gs2" conductance="5pS" delta="5mV" Vth="-55mV" k="0.025per_ms" erev="0mV"/>
 ```
@@ -2420,4 +2416,4 @@ variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, pr
 <gradedSynapse id="gs1" conductance="0.1nS" delta="5mV" Vth="-35mV" k="0.025per_ms" erev="0mV"/>
 ```
 ````
-
+`````

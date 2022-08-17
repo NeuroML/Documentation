@@ -5,9 +5,9 @@
 
 
 
-Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/documentation_update/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/documentation_update/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 17/11/21 from [this](https://github.com/NeuroML/NeuroML2/commit/b3f361ad8a618c458f690c05091f62bae4763a72) commit.
+Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -22,11 +22,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>Human readable notes/description for a Component.</i>
 
 
+`````{tab-set}
 
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <notes>A Simple Spiking cell for testing purposes</notes>
 ```
@@ -37,7 +35,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <notes>Leak conductance</notes>
 ```
 ````
-
+`````
 
 (schema:annotation)=
 
@@ -49,8 +47,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 <i>A structured annotation containing metadata, specifically RDF or  {ref}`schema:property` elements.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -61,7 +59,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -72,19 +70,15 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Annotation" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Annotation
 
-variable = Annotation(anytypeobjs_=None, **kwargs_)
+variable = Annotation(anytypeobjs_=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -100,7 +94,7 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
         </annotation>
 ```
 ````
-
+`````
 
 (schema:property)=
 
@@ -112,8 +106,8 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 <i>A property ( a **tag** and **value** pair ), which can be on any  {ref}`schema:basestandalone` either as a direct child, or within an  {ref}`schema:annotation`. Generally something which helps the visual display or facilitates simulation of a Component, but is not a core physiological property. Common examples include: **numberInternalDivisions,** equivalent of nseg in NEURON; **radius,** for a radius to use in graphical displays for abstract cells ( i.e. without defined morphologies ); **color,** the color to use for a  {ref}`schema:population` or  {ref}`schema:populationlist` of cells; **recommended_dt_ms,** the recommended timestep to use for simulating a  {ref}`schema:network`, **recommended_duration_ms** the recommended duration to use when running a  {ref}`schema:network`.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -124,24 +118,20 @@ variable = Annotation(anytypeobjs_=None, **kwargs_)
 
 ````
 
-
-````{tabbed} Usage: Python
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Property" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Property
 
-variable = Property(tag=None, value=None, **kwargs_)
+variable = Property(tag=None, value=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
-````{tabbed} Usage: XML
+````{tab-item} Usage: XML
 ```{code-block} xml
 <property tag="numberInternalDivisions" value="9"/>
 ```
 ````
-
+`````
 
 (schema:basestandalone)=
 
@@ -153,8 +143,8 @@ variable = Property(tag=None, value=None, **kwargs_)
 <i>Base type of any Component which can have  {ref}`schema:notes`,  {ref}`schema:annotation`, or a  {ref}`schema:property` list.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -166,7 +156,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 ```
 ````
 
-````{tabbed} Children list
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -176,6 +166,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ```
 ````
+`````
 
 (schema:rdf_rdf)=
 
@@ -187,8 +178,8 @@ variable = Property(tag=None, value=None, **kwargs_)
 <i>Structured block in an  {ref}`schema:annotation` based on RDF. See https://github.com/OpenSourceBrain/OSB_API/blob/master/python/examples/grancelllayer.xml.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -198,7 +189,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -208,6 +199,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ```
 ````
+`````
 
 (schema:rdf_description)=
 
@@ -219,8 +211,8 @@ variable = Property(tag=None, value=None, **kwargs_)
 <i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -230,7 +222,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ````
 
-````{tabbed} Child list
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -255,6 +247,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ```
 ````
+`````
 
 (schema:basebqbiol)=
 
@@ -266,8 +259,8 @@ variable = Property(tag=None, value=None, **kwargs_)
 <i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
-
-````{tabbed} Child list
+`````{tab-set}
+````{tab-item} Child list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -277,6 +270,7 @@ variable = Property(tag=None, value=None, **kwargs_)
 
 ```
 ````
+`````
 
 (schema:bqbiol_encodes)=
 
@@ -292,6 +286,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_haspart)=
 
@@ -307,6 +302,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_hasproperty)=
 
@@ -322,6 +318,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_hasversion)=
 
@@ -337,6 +334,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_is)=
 
@@ -352,6 +350,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_isdescribedby)=
 
@@ -367,6 +366,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_isencodedby)=
 
@@ -382,6 +382,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_ishomologto)=
 
@@ -397,6 +398,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_ispartof)=
 
@@ -412,6 +414,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_ispropertyof)=
 
@@ -427,6 +430,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_isversionof)=
 
@@ -442,8 +446,8 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -452,6 +456,7 @@ extends *{ref}`schema:basebqbiol`*
 **xmlns:bqbiol**$ 
 
 ````
+`````
 
 (schema:bqbiol_occursin)=
 
@@ -467,6 +472,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqbiol_hastaxon)=
 
@@ -482,6 +488,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqmodel_is)=
 
@@ -497,6 +504,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:bqmodel_isdescribedby)=
 
@@ -512,8 +520,8 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -522,6 +530,7 @@ extends *{ref}`schema:basebqbiol`*
 **xmlns:bqmodel**$ 
 
 ````
+`````
 
 (schema:bqmodel_isderivedfrom)=
 
@@ -537,6 +546,7 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
+`````{tab-set}`````
 
 (schema:rdf_bag)=
 
@@ -548,8 +558,8 @@ extends *{ref}`schema:basebqbiol`*
 <i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
-
-````{tabbed} Children list
+`````{tab-set}
+````{tab-item} Children list
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100%
@@ -559,6 +569,7 @@ extends *{ref}`schema:basebqbiol`*
 
 ```
 ````
+`````
 
 (schema:rdf_li)=
 
@@ -570,8 +581,8 @@ extends *{ref}`schema:basebqbiol`*
 <i>Structured block in an  {ref}`schema:annotation` based on RDF.</i>
 
 
-
-````{tabbed} Text fields
+`````{tab-set}
+````{tab-item} Text fields
 ```{csv-table}
 :widths: 1, 7
 :width: 100%
@@ -580,6 +591,7 @@ extends *{ref}`schema:basebqbiol`*
 **rdf:resource**$ 
 
 ````
+`````
 
 (schema:point3dwithdiam)=
 
@@ -591,8 +603,8 @@ extends *{ref}`schema:basebqbiol`*
 <i>Base type for ComponentTypes which specify an ( **x,** **y,** **z** ) coordinate along with a **diameter.** Note: no dimension used in the attributes for these coordinates! These are assumed to have dimension micrometer ( 10^-6 m ). This is due to micrometers being the default option for the majority of neuronal morphology formats, and dimensions are omitted here to facilitate reading and writing of morphologies in NeuroML.</i>
 
 
-
-````{tabbed} Parameters
+`````{tab-set}
+````{tab-item} Parameters
 ```{csv-table}
 :widths: 1, 7, 2
 :width: 100 %
@@ -606,21 +618,7 @@ extends *{ref}`schema:basebqbiol`*
 ```
 ````
 
-````{tabbed} Derived parameters
-```{csv-table}
-:widths: 1, 7, 2
-:width: 100 %
-:delim: $
-
-**radius**$ A dimensional quantity given by half the _diameter. ${ref}`schema:dimensions:length`
-**xLength**$ A version of _x with dimension length. ${ref}`schema:dimensions:length`
-**yLength**$ A version of _y with dimension length. ${ref}`schema:dimensions:length`
-**zLength**$ A version of _z with dimension length. ${ref}`schema:dimensions:length`
-
-```
-````
-
-````{tabbed} Constants
+````{tab-item} Constants
 ```{csv-table}
 :widths: 3, 5, 2
 :width: 100%
@@ -631,15 +629,48 @@ extends *{ref}`schema:basebqbiol`*
 ```
 ````
 
+````{tab-item} Derived parameters
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
 
-````{tabbed} Usage: Python
+**radius**$ A dimensional quantity given by half the _diameter. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**radius** = MICRON * diameter / 2
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**xLength**$ A version of _x with dimension length. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**xLength** = MICRON * x
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**yLength**$ A version of _y with dimension length. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**yLength** = MICRON * y
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**zLength**$ A version of _z with dimension length. ${ref}`schema:dimensions:length`
+```
+&emsp;&emsp;&emsp;**zLength** = MICRON * z
+
+````
+
+````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Point3DWithDiam" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Point3DWithDiam
 
-variable = Point3DWithDiam(x=None, y=None, z=None, diameter=None, **kwargs_)
+variable = Point3DWithDiam(x=None, y=None, z=None, diameter=None, gds_collector_=None, **kwargs_)
 ```
 ````
-
-
-
+`````
