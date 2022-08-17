@@ -36,7 +36,7 @@ The format for a GENESIS cell description is given [here](http://www.genesis-sim
 ### NEURON
 
 There is no fixed format in NEURON for specifying morphologies.
-However, cells created in NEURON may be exported to NeuroML2 format using {ref}`pyNeuroML <pyneuroml>` ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)).
+However, cells created in NEURON may be exported to NeuroML2 format using the [`export_to_neuroml2`](https://pyneuroml.readthedocs.io/en/stable/pyneuroml.neuron.html#pyneuroml.neuron.export_to_neuroml2) method included in {ref}`pyNeuroML <pyneuroml>` ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)).
 
 ### CVapp (SWC files)
 
