@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 03/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -286,7 +286,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_haspart)=
 
@@ -302,7 +301,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_hasproperty)=
 
@@ -318,7 +316,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_hasversion)=
 
@@ -334,7 +331,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_is)=
 
@@ -350,7 +346,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_isdescribedby)=
 
@@ -366,7 +361,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_isencodedby)=
 
@@ -382,7 +376,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_ishomologto)=
 
@@ -398,7 +391,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_ispartof)=
 
@@ -414,7 +406,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_ispropertyof)=
 
@@ -430,7 +421,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_isversionof)=
 
@@ -472,7 +462,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqbiol_hastaxon)=
 
@@ -488,7 +477,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqmodel_is)=
 
@@ -504,7 +492,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:bqmodel_isdescribedby)=
 
@@ -546,7 +533,6 @@ extends *{ref}`schema:basebqbiol`*
 <i>See http://co.mbine.org/standards/qualifiers.</i>
 
 
-`````{tab-set}`````
 
 (schema:rdf_bag)=
 
