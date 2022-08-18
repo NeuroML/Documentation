@@ -30,14 +30,18 @@ An incomplete list of checks to make to ensure a valid cell is (taken from {ref}
 
 ## Formats
 
-### GENESIS
-
-The format for a GENESIS cell description is given [here](http://www.genesis-sim.org/GENESIS/Hyperdoc/Manual-25.html#readcell).
 ### NEURON
 
 There is no fixed format in NEURON for specifying morphologies.
 However, cells created in NEURON may be exported to NeuroML2 format using the [`export_to_neuroml2`](https://pyneuroml.readthedocs.io/en/stable/pyneuroml.neuron.html#pyneuroml.neuron.export_to_neuroml2) method included in {ref}`pyNeuroML <pyneuroml>` ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)).
 
+
+
+
+
+### GENESIS
+
+The format for a GENESIS cell description is given [here](http://www.genesis-sim.org/GENESIS/Hyperdoc/Manual-25.html#readcell).
 ### CVapp (SWC files)
 
 The SWC format was developed to cover most of the information common between Neurolucida, NEURON, and GENESIS formats.
@@ -47,9 +51,26 @@ Information on the SWC format can be found in the [NeuroMorpho FAQ](http://neuro
 
 ### Neurolucida
 
+## Terminology
+
+All formats have their own terminology that is used to refer to different parts of the cell.
+
+TODO: refer to MorphML paper, cite it, include figure.
+
+In NEURON:
+
+- a {code}`section` is an unbranched contiguous cell region
+- the morphology of a cell is defined by 3D points, `n3D`
+- for simulation, one can specify many segments a section should be divided into, the given by {code}`nseg`
+
+In NeuroML:
+
+- segments are 3D points describing the cell morphology
+- continuous, unbranched segments groups, would form a section
+- the {code}`numberInternalDivisions` property can be used to set the number of divisions a segment or segment group should be divided into for simulation
+
 
 ## Tools
 
 ### neuroConstruct
 
-### 
