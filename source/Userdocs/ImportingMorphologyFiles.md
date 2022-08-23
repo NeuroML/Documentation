@@ -57,7 +57,7 @@ All formats have their own terminology that is used to refer to different parts 
 
 TODO: refer to MorphML paper, cite it, include figure.
 
-In NEURON:
+In [NEURON](https://neuronsimulator.github.io/nrn/python/modelspec/programmatic/topology/geometry.html):
 
 - a {code}`section` is an unbranched contiguous cell region
 - the morphology of a cell is defined by 3D points, `n3D`
