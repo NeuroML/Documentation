@@ -2,7 +2,7 @@
 # NeuroML v2
 
 
-The current stable version of NeuroML is v2.1, and can the schema for this be seen [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
+The current stable version of NeuroML is v2.1, and the schema for this can be seen [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.1.xsd).
 The following figure, taken from Cannon et al. 2014 ({cite}`Cannon2014`) shows some of the elements defined in NeuroML version 2 (note: these core elements haven't changed since that publication).
 
 ```{figure} ../images/Figure6a.png
