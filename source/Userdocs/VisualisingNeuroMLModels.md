@@ -202,7 +202,7 @@ import pyneuroml.pynml
 ...
 
 
-pyneuroml.pynml.generate_nmlgraph(nml2_doc, leven="1", engine="dot")
+pyneuroml.pynml.generate_nmlgraph(nml2_doc, level="1", engine="dot")
 ```
 
 
