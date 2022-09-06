@@ -440,7 +440,17 @@ def main(srcdir, destdir):
                 """Recurse up the next parent"""
                 extd_comp_type = get_extended_from_comp_type(extd_comp_type.name)
 
-            print("""`````{tab-set}""", end="", file=ast_doc)
+            if (len(params) > 0 or len(comp_type.constants) > 0 or
+                    len(derived_params) > 0 or len(comp_type.texts) > 0 or
+                    len(comp_type.paths) > 0 or len(comp_type.component_references) > 0
+                    or len(comp_type.children) > 0 or len(comp_type.properties) > 0 or
+                    len(exposures) > 0 or len(requirements) > 0 or len(eventPorts) > 0
+                    or len(comp_type.attachments) > 0 or comp_type.dynamics and
+                    comp_type.dynamics.has_content() or
+                    comp_type_py_api[comp_type.name] or
+                    len(comp_type_examples[comp_type.name]) > 0):
+                print("""`````{tab-set}""", end="", file=ast_doc)
+
             if len(params) > 0:
                 keysort = sorted(params.keys(), key=lambda param: param.name)
                 print(asttemplates.params.render(title="Parameters",
@@ -533,7 +543,16 @@ def main(srcdir, destdir):
                     lemsexamples=comp_type_examples[comp_type.name],
                     pysig=comp_type_py_api[comp_type.name]), file=ast_doc)
 
-            print("""`````""", file=ast_doc)
+            if (len(params) > 0 or len(comp_type.constants) > 0 or
+                    len(derived_params) > 0 or len(comp_type.texts) > 0 or
+                    len(comp_type.paths) > 0 or len(comp_type.component_references) > 0
+                    or len(comp_type.children) > 0 or len(comp_type.properties) > 0 or
+                    len(exposures) > 0 or len(requirements) > 0 or len(eventPorts) > 0
+                    or len(comp_type.attachments) > 0 or comp_type.dynamics and
+                    comp_type.dynamics.has_content() or
+                    comp_type_py_api[comp_type.name] or
+                    len(comp_type_examples[comp_type.name]) > 0):
+                print("""`````""", file=ast_doc)
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
 

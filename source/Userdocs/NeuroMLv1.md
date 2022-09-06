@@ -5,6 +5,8 @@
 NeuroML v1.x is deprecated. This page is maintained for archival purposes only.
 
 Please use {ref}`NeuroML v2 <userdocs:neuromlv2>`.
+
+{ref}`neuroConstruct <userdocs:supporting:apps:neuroconstruct>` can be used for converting NeuroML v1 models into NeuroML v2.
 ```
 
 There are three Levels of compliance to the NeuroML v1 specifications:
