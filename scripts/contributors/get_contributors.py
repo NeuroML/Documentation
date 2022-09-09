@@ -52,7 +52,7 @@ with open(docs_page, 'w') as f:
         # NeuroML contributors
 
         This page lists contributors to the various NeuroML and related repositories, listed in no particular order.
-        It is generated periodically, most recently on {}.
+        It is generated periodically, most recently on {}. See also the current {{ref}}`NeuroML Editorial Board<neuromlorg:board>` and the {{ref}}`Scientific Committee <neuromlorg:ScientificCommittee>`.
 
         """.format(todays_date)), file=f)
     # A blank line
