@@ -1,16 +1,42 @@
 (userdocs:supporting)=
 # Tools and resources with NeuroML support
 
+
+Apart from the **{ref}`core NeuroML tools <userdocs:software>`** (e.g. {ref}`pyNeuroML <pyNeuroML>`, {ref}`jNeuroML <jNeuroML>`) there are many
+other applications, libraries and databases which support NeuroML 2 and LEMS.
+
+<a href="#neuron"><img src="../../images/tools/neuron.png" alt="h"/></a>
+<a href="#neuroconstruct"><img src="../../images/tools/neuroconstruct.png" alt="h"/></a>
+<a href="#netpyne"><img src="../../images/tools/netpyne.png" alt="h"/></a>
+<a href="#genesis"><img src="../../images/tools/genesis.png" alt="h"/></a>
+<a href="#moose"><img src="../../images/tools/moose.jpg" alt="h"/></a>
+<a href="#brian"><img src="../../images/tools/brian2.png" alt="h"/></a>
+<a href="#arbor"><img src="../../images/tools/arbor.png" alt="h"/></a>
+<a href="#pynn"><img src="../../images/tools/pynn.png" alt="h"/></a>
+<a href="#model-description-format-mdf"><img src="../../images/tools/mdf.png" alt="h"/></a>
+<a href="#openworm"><img src="../../images/tools/openworm.png" alt="h"/></a>
+<a href="#the-virtual-brain"><img src="../../images/tools/tvb.png" alt="h"/></a>
+<a href="#lfpy"><img src="../../images/tools/lfpy.png" alt="h"/></a>
+<a href="#biosimulators"><img src="../../images/tools/biosimulators.png" alt="h"/></a>
+<a href="#neuronland"><img src="../../images/tools/neuronland.png" alt="h"/></a>
+<a href="#cx3d"><img src="../../images/tools/cx3d.png" alt="h"/></a>
+<a href="#trees"><img src="../../images/tools/trees.png" alt="h"/></a>
+<a href="#trakem2"><img src="../../images/tools/trakem2.png" alt="h"/></a>
+<a href="#neuronvisio"><img src="../../images/tools/neuronvisio.png" alt="h"/></a>
+<a href="#myokit"><img src="../../images/tools/myokit.png" alt="h"/></a>
+<a href="#geppetto"><img src="../../images/tools/geppetto.png" alt="h"/></a>
+<a href="#catmaid"><img src="../../images/tools/catmaid.png" alt="h"/></a>
+
+These tools take a {ref}`number of different approaches <userdocs:neuroml_support_approaches>` to adding NeuroML support, from dealing with the format natively to allowing import/export of (subsets of) the language, to an external application generating scripts/code for use in the simulator.
+
 ```{admonition} Please help us keep this page up to date.
 :class: note
 
-Tools listed here may no longer be maintained, or may have moved to new locations, and others may be missing.
+Tools listed here may have moved to new locations, or may no longer be maintained, and others may be missing.
 Please [file issues](https://github.com/NeuroML/Documentation/issues/new/choose) if you can help update this information.
 ```
 
 
-Apart from the core NeuroML tools ({ref}`pyNeuroML <pyNeuroML>`, {ref}`jNeuroML <jNeuroML>`, etc.) there are many
-other applications, libraries and databases which support NeuroML 2 and LEMS. These tools take a {ref}`number of different approaches <userdocs:neuroml_support_approaches>` to adding NeuroML support.
 
 (userdocs:supporting:apps)=
 ## Applications with NeuroML support
