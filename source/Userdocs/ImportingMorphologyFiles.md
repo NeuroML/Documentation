@@ -1,7 +1,7 @@
 (userdocs:importing_morphology_files)=
 # Importing Morphology Files
 
-A number of formats are used in Neuroscience to store neuronal morphologies obtained from experiments where neuronal reconstructions is possible.
+A number of formats are used in neuroscience to store neuronal morphologies obtained from experiments involving neuronal reconstructions.
 This page provides general information on these formats, and documents how they may be converted to NeuroML for use in computational models.
 
 (userdocs:importing_morphology_files:terminology)=
@@ -12,9 +12,7 @@ This page provides general information on these formats, and documents how they 
 :align: center
 :width: 500px
 
-Figure 1 from {cite}`Crook2007` (all properties of MorphML are now included in NeuroML v2):
-
-Schematic comparing handling of morphological information for a simple cell by different applications. a) Original cell structure.  b) Schematic of Neurolucida reconstruction where the soma is represented by an outline and three-dimensional points are specified along each branch. c) NEURON simulator format where cell structure is specified in sections. Only the center of the section is simulated unless the nseg parameter is greater than one. d) GENESIS simulator representation using compartments that are cylinders except for the soma, which can be spherical. The optimal length of each compartment is determined by the electrotonic length. e) MorphML representation where any of the information shown in panels b through d can be encoded.
+Figure 1 from {cite}`Crook2007` (all properties of MorphML are now included in NeuroML v2). A schematic comparing handling of morphological information for a simple cell by different applications. a) Original cell structure.  b) Schematic of Neurolucida reconstruction where the soma is represented by an outline and three-dimensional points are specified along each branch. c) NEURON simulator format where cell structure is specified in sections. Only the center of the section is simulated unless the nseg parameter is greater than one. d) GENESIS simulator representation using compartments that are cylinders except for the soma, which can be spherical. The optimal length of each compartment is determined by the electrotonic length. e) MorphML representation where any of the information shown in panels b through d can be encoded.
 ```
 
 All formats have their own terminology that is used to refer to different parts of the cell.
@@ -22,8 +20,8 @@ All formats have their own terminology that is used to refer to different parts 
 In [NEURON](https://neuronsimulator.github.io/nrn/python/modelspec/programmatic/topology/geometry.html):
 
 - a {code}`section` is an unbranched contiguous cell region
-- the morphology of a cell is defined by 3D points, `n3D`
-- for simulation, one can specify many segments a section should be divided into, the given by {code}`nseg`
+- the morphology of a cell is defined by 3D points, `pt3D`
+- for simulation, one can specify how many segments a section should be divided into, given by {code}`nseg`
 
 In NeuroML:
 
