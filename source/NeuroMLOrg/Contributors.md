@@ -2,15 +2,15 @@
 # NeuroML contributors
 
 This page lists contributors to the various NeuroML and related repositories, listed in no particular order.
-It is generated periodically, most recently on 01/04/21. See also the current {ref}`NeuroML Editorial Board<neuromlorg:board>` and the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`. 
+It is generated periodically, most recently on 09/09/22. See also the current {ref}`NeuroML Editorial Board<neuromlorg:board>` and the {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`.
 
 
 
 - [@pgleeson](https://github.com/pgleeson)
 - [@tarelli](https://github.com/tarelli)
 - [@borismarin](https://github.com/borismarin)
-- [@mattearnshaw](https://github.com/mattearnshaw)
 - [@sanjayankur31](https://github.com/sanjayankur31)
+- [@mattearnshaw](https://github.com/mattearnshaw)
 - [@adrianq](https://github.com/adrianq)
 - [@epiasini](https://github.com/epiasini)
 - [@RokasSt](https://github.com/RokasSt)
@@ -27,14 +27,19 @@ It is generated periodically, most recently on 01/04/21. See also the current {r
 - [@ChihweiLHBird](https://github.com/ChihweiLHBird)
 - [@rgerkin](https://github.com/rgerkin)
 - [@ccluri](https://github.com/ccluri)
+- [@mwatts15](https://github.com/mwatts15)
 - [@34383c](https://github.com/34383c)
 - [@andrisecker](https://github.com/andrisecker)
 - [@jrieke](https://github.com/jrieke)
 - [@scrook](https://github.com/scrook)
 - [@jonc125](https://github.com/jonc125)
+- [@davidt0x](https://github.com/davidt0x)
+- [@shayan823](https://github.com/shayan823)
+- [@ramcdougal](https://github.com/ramcdougal)
 - [@lisphacker](https://github.com/lisphacker)
 - [@dokato](https://github.com/dokato)
 - [@robertcannon](https://github.com/robertcannon)
+- [@JLLeitschuh](https://github.com/JLLeitschuh)
 - [@waffle-iron](https://github.com/waffle-iron)
 - [@vellamike](https://github.com/vellamike)
 - [@clbarnes](https://github.com/clbarnes)
@@ -71,6 +76,7 @@ It is generated periodically, most recently on 01/04/21. See also the current {r
 - [NeuroML/neuroml2modelLite](https://github.com/NeuroML/neuroml2modelLite)
 - [NeuroML/NeuroMLlite](https://github.com/NeuroML/NeuroMLlite)
 - [NeuroML/Documentation](https://github.com/NeuroML/Documentation)
+- [NeuroML/.github](https://github.com/NeuroML/.github)
 - [LEMS/pylems](https://github.com/LEMS/pylems)
 - [LEMS/jLEMS](https://github.com/LEMS/jLEMS)
 - [LEMS/LEMS](https://github.com/LEMS/LEMS)
