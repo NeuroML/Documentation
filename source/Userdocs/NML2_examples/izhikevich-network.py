@@ -4,70 +4,98 @@ Create a simple network with two populations.
 """
 
 from neuroml import NeuroMLDocument
-from neuroml import Izhikevich2007Cell
-from neuroml import Network
-from neuroml import ExpOneSynapse
-from neuroml import Population
-from neuroml import Projection
-from neuroml import PulseGenerator
-from neuroml import ExplicitInput
-from neuroml import Connection
-from neuroml import Property
 import neuroml.writers as writers
 import random
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
 import numpy as np
+from pyneuroml.utils import component_factory
 
-nml_doc = NeuroMLDocument(id="IzNet")
+# component_factory: form one: provide class as argument
+nml_doc = component_factory(NeuroMLDocument, id="IzNet")
 
-iz0 = Izhikevich2007Cell(
-    id="iz2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
-    vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
-nml_doc.izhikevich2007_cells.append(iz0)
+# component_factory: form two: provide name of NeuroML class as string
+# advantage of this form: do not need to import all the ComponentType classes
+# before using them
+iz0 = component_factory("Izhikevich2007Cell",
+                        id="iz2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
+                        vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
 
-syn0 = ExpOneSynapse(id="syn0", gbase="65nS", erev="0mV", tau_decay="3ms")
-nml_doc.exp_one_synapses.append(syn0)
+# Exercise 1: give wrong units of a parameter/parameters
+# Exercise 2: skip out a few parameters
 
-net = Network(id="IzNet")
-nml_doc.networks.append(net)
+# Inspect the component
+iz0.info()
+
+# Inspect the component, also show all members:
+iz0.info(True)
+
+# Add the component to the document, so that it can be used
+nml_doc.add(iz0)
+
+# Create a component of type ExpOneSynapse, and add it to the document
+syn0 = component_factory("ExpOneSynapse", id="syn0", gbase="65nS", erev="0mV", tau_decay="3ms")
+nml_doc.add(syn0)
+
+# Check what we have so far:
+nml_doc.info(True)
+
+# Create a network
+# net = component_factory("Network", id="IzNet")
+# Throws an error: why?
+# Because a Population is necessary in a Network, but we have not provided one.
+# Two workarounds:
+# - create population first, and pass that to component_factory here
+# - disable validation
+
+net = component_factory("Network", id="IzNet", validate=False)
+
+nml_doc.add(net)
 
 size0 = 5
-pop0 = Population(id="IzPop0", component=iz0.id, size=size0)
+pop0 = component_factory("Population", id="IzPop0", component=iz0.id, size=size0)
 # Set optional color property. Note: used later when generating graphs etc.
-pop0.properties.append(Property(tag='color', value='0 0 .8'))
-net.populations.append(pop0)
+pop0.add(component_factory("Property", tag='color', value='0 0 .8'))
+net.add(pop0)
 
 size1 = 5
-pop1 = Population(id="IzPop1", component=iz0.id, size=size1)
-pop1.properties.append(Property(tag='color', value='.8 0 0'))
-net.populations.append(pop1)
+pop1 = component_factory("Population", id="IzPop1", component=iz0.id, size=size1)
+pop1.add(component_factory("Property", tag='color', value='.8 0 0'))
+net.add(pop1)
 
-proj = Projection(id='proj', presynaptic_population=pop0.id,
-                  postsynaptic_population=pop1.id, synapse=syn0.id)
-net.projections.append(proj)
+# can also use this form, but remember to (will not be validated!):
+# from neuroml import Property
+# pop1.add(Property(tag='color', value='.8 0 0'))
+
+proj = component_factory("Projection", id='proj', presynaptic_population=pop0.id,
+                         postsynaptic_population=pop1.id, synapse=syn0.id)
+net.add(proj)
+# No more
+# net.projections.append(proj)
 
 random.seed(123)
 prob_connection = 0.8
 count = 0
 for pre in range(0, size0):
-    pg = PulseGenerator(
-        id="pg_%i" % pre, delay="0ms", duration="10000ms",
-        amplitude="%f nA" % (0.1 + 0.1 * random.random())
-    )
-    nml_doc.pulse_generators.append(pg)
+    pg = component_factory("PulseGenerator",
+                           id="pg_%i" % pre, delay="0ms", duration="10000ms",
+                           amplitude="%f nA" % (0.1 + 0.1 * random.random())
+                           )
+    nml_doc.add(pg)
 
-    exp_input = ExplicitInput(target="%s[%i]" % (pop0.id, pre), input=pg.id)
-    net.explicit_inputs.append(exp_input)
+    exp_input = component_factory("ExplicitInput", target="%s[%i]" % (pop0.id, pre), input=pg.id)
+    net.add(exp_input)
 
     for post in range(0, size1):
         if random.random() <= prob_connection:
-            syn = Connection(id=count,
-                             pre_cell_id="../%s[%i]" % (pop0.id, pre),
-                             synapse=syn0.id,
-                             post_cell_id="../%s[%i]" % (pop1.id, post))
-            proj.connections.append(syn)
+            syn = component_factory("Connection", id=count,
+                                    pre_cell_id="../%s[%i]" % (pop0.id, pre),
+                                    post_cell_id="../%s[%i]" % (pop1.id, post))
+            proj.add(syn)
             count += 1
+
+nml_doc.info(True)
+print(nml_doc.summary())
 
 nml_file = 'izhikevich2007_network.nml'
 writers.NeuroMLWriter.write(nml_doc, nml_file)
