@@ -29,7 +29,7 @@ To declare the complete network model, we must again first declare its core enti
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 15-40
+lines: 15-42
 ----
 ```
 Here, we create a new document, declare the {ref}`Izhikevich neuron<schema:izhikevich2007Cell>`, and also declare the synapse that we are going to use to connect one population of neurons to the other.
