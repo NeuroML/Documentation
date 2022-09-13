@@ -18,6 +18,12 @@ import numpy as np
 # component_factory: form one: provide class as argument
 nml_doc = component_factory(NeuroMLDocument, id="IzhSingleNeuron")
 
+# Inspect it:
+nml_doc.info()
+
+# Also see contents:
+nml_doc.info(show_contents=True)
+
 # Define the Izhikevich cell and add it to the model in the document
 # component_factory: form two: provide name of NeuroML class as string
 # advantage of this form: do not need to import all the ComponentType classes
@@ -40,6 +46,7 @@ izh0.info(True)
 # one can also go:
 # nml_doc.izhikevich2007_cells.append(izh0)
 nml_doc.add(izh0)
+nml_doc.info(show_contents=True)
 
 # Create a network and add it to the model
 # net = component_factory("Network", id="IzNet")
@@ -55,6 +62,7 @@ nml_doc.add(net)
 size0 = 1
 pop0 = component_factory("Population", id="IzhPop0", component=izh0.id, size=size0)
 net.add(pop0)
+net.info()
 
 # Define an external stimulus and add it to the model
 pg = component_factory(
