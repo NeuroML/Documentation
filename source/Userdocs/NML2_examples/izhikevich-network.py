@@ -21,9 +21,6 @@ iz0 = component_factory("Izhikevich2007Cell",
                         id="iz2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
                         vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
 
-# Exercise 1: give wrong units of a parameter/parameters
-# Exercise 2: skip out a few parameters
-
 # Inspect the component
 iz0.info()
 
