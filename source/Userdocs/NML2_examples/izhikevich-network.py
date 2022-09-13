@@ -64,6 +64,9 @@ pop1 = component_factory("Population", id="IzPop1", component=iz0.id, size=size1
 pop1.add(component_factory("Property", tag="color", value=".8 0 0"))
 net.add(pop1)
 
+# network should be valid now that it contains populations
+net.validate()
+
 # create a projection from one population to another
 proj = component_factory(
     "Projection",
