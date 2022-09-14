@@ -358,7 +358,22 @@ class InputList(Base)
 The information provided by both will be similar, but `info()` is perhaps more NeuroML specific whereas the Python `help()` function provides Python language related information also.
 Further, the {ref}`schema documentation <schema:explicitinput>` also includes examples that will make their usage clearer.
 
-In this case, since we are providing a single input to the single cell in our network, `ExplicitInput` is sufficient.
+Another useful function is the `parentinfo()` function.
+Like `info()` it provides some information about the component/object:
+```
+neuroml.InputList().parentinfo()
+InputList -- An explicit list of  **input** s to a **population.**
+
+Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
+
+Valid parents for InputList are:
+* Network
+        * input_lists (class: InputList, Optional)
+```
+This tells us that components of type `InputList` can be added to components of the `Network` type, in the `input_list` member.
+Of course, we just use the `add` function, and that adds the components to the correct member.
+
+Coming back to our model, in this case, since we are providing a single input to the single cell in our network, `ExplicitInput` is sufficient.
 
 The list of inputs included in the NeuroML specification can be found on the {ref}`inputs <schema:inputs_>` page.
 We use a {ref}`pulse generator <schema:pulsegenerator>` here, creating a new component and adding it to our NeuroML document.
