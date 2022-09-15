@@ -33,14 +33,14 @@ This "document" represents the complete model and is the top level container for
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 17-19
+lines: 21
 ----
 ```
 
 (userdocs:getting_started:single_example:declaring:component_factory)=
 ### Creating model components: the component factory
 
-Here, we've used the {code}`component_factory` utility function that is included in the {code}`pyneuroml.utils` module.
+Here, we've used the {code}`component_factory` utility function that is included in the {code}`neuroml.utils` module.
 This is, as the name notes, a "factory function".
 When we provide the name of a NeuroML component type (the Python class) to it
 as the first argument along with any parameters, it will create a new component
@@ -53,16 +53,22 @@ the hood:
 
 We will see some of these checks in action later as we create more components for our model.
 
+The `component_factory` can accept two forms.
+We can either pass the component type (class) to the function, or we can pass its name as a string.
+The difference is that we do not need to `import` the class in our script before using it if we specify its name as a string.
+The component factory function will import the class for us for us internally.
+Either form works, so you can choose which you prefer.
+It is important to only remain consistent and use one form to aid readability.
+
 (userdocs:getting_started:single_example:declaring:info)=
 ### Inspecting model components: the info() function
 
 Now that we have a document, what if we want to inspect it to see what components it can hold, and what its current contents are?
 Each NeuroML component type includes the {code}`info` function that gives us a quick summary of information about the component:
-
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 21-25
+lines: 26-29
 ----
 ```
 The output will be of this form:
@@ -89,26 +95,44 @@ Note that before a component can be used in a model, it must be defined in the d
 The {ref}`NeuroML specification <userdocs:neuromlv2>` provides many standard component types for you to use, and you can also define new component types for advanced cases where the pre-defined components are not sufficient.
 We will limit ourselves to pre-defined entities here.
 
+(userdocs:getting_started:single_example:declaring:add)=
+### Adding components to others: the add() function
+
 Let us define an Izhikevich cell that we will use to simulate a neuron.
 The Izhikevich neuron model can take sets of parameters to exhibit different types of spiking behaviour.
 Here, we define an component (object) of the general Izhikevich cell using parameters to show regular spiking.
-
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 27-34
+lines: 34-38
 ----
 ```
+Here, we could have used the `component_factory` again, but we use another utility method: `add`.
+The `add` method calls the `component_factory` for us internally to create a new object of the required component.
 
-Here, we use the `component_factory` again, but in a different form.
-Instead of passing the component type (class) to the function, we pass its name as a string.
-It will still give us a component (object) of the provided class name.
-The difference here is that we do not need to `import` the class in our script before using it.
-The component factory function will do that for us internally.
-Either form works, so you can choose which you prefer.
-It is important to only remain consistent and use one form to aid readability.
+We could also use the `component_factory`, followed by `add`, which would result in the same thing:
+```python
+izh0 = component_factory(
+    "Izhikevich2007Cell",
+    id="izh2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
+    vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
+nml_doc.add(izh0)
+```
 
-An exercise here would be to try providing invalid arguments to the factory.
+In fact, we could do it all without using either method:
+```python
+# from neuroml import Izhikevich2007Cell
+izh0 = neuroml.Izhikevich2007Cell(
+    id="izh2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
+    vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
+nml_doc.izhikevich2007_cells.append(izh0)
+```
+
+This last form is not suggested because here, the extra checks that the `component_factory` and `add` methods run are not carried out.
+You also need to know the name of the variable in the `nml_doc` object to be able to append to it.
+The output of the `info` method will list all the member names, but the `add` method inspects the parent component and places the child in the right place for us.
+
+An exercise here would be to try providing invalid arguments to the `add` or `component_factory` methods.
 For example:
 
 - try giving the wrong units for a parameter
@@ -118,7 +142,9 @@ What happens?
 
 For example, I have used the wrong units for the `d` parameter here, `ms` instead of `pA`:
 ```
-izh0 = component_factory(
+# or
+# izh0 = component_factory(
+izh0 = nml_doc.add(
     "Izhikevich2007Cell",
     id="izh2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
     vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100ms")
@@ -128,7 +154,7 @@ and it will throw a `ValueError` telling us that this does not match the expecte
 ValueError: Validation failed:
 - Value "100ms" does not match xsd pattern restrictions: [['^(-?([0-9]*(\\.[0-9]+)?)([eE]-?[0-9]+)?[\\s]*(A|uA|nA|pA))$']]
 ```
-The specific error here includes the "pattern restrictions" (regular expression) for valid values of the `d` parameter.
+The specific error here includes the "pattern restrictions" ([regular expression](https://docs.python.org/3/howto/regex.html#regex-howto)) for valid values of the `d` parameter.
 There are a number of tutorials on regular expressions on the internet that you can use to learn more about the meaning of the provided pattern restriction.
 The one restriction that we are interested in here is that the value of `d` must end in one of `A`, `uA`, `nA`, or `pA`.
 Anything else will result in an invalid value, and the factory will throw a `ValueError`.
@@ -145,7 +171,7 @@ Let us now inspect our newly created Izhikevich cell component:
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 43
+lines: 46
 ----
 ```
 
@@ -196,25 +222,6 @@ Valid members for Izhikevich2007Cell are:
 ```
 We can see that all the required parameters are correctly set for this component.
 
-(userdocs:getting_started:single_example:declaring:add)=
-### Adding components to others: the add() function
-
-We can now add it to our `NeuroMLDocument`:
-```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
-----
-language: python
-lines: 48
-----
-```
-We have used the `add()` function here to add the new cell component (the child) to the document component (parent).
-The `add` function inspects the parent component and places the child in the right place.
-We could also have done:
-```python
-nml_doc.izhikevich2007_cells.append(izh0)
-```
-However, in this form, we need to have information about the corresponding variable that the child must be added to.
-This can be obtained from the `info()` function as we saw above, but the `add()` function is clearly easier to use, and it runs a few checks under the hood too, so we recommend users use it.
-
 Let us inspect our document again:
 ```python
 nml_doc.info(show_contents=True)
@@ -249,7 +256,7 @@ lines: 58
 ```
 Let us try creating a network without disabling validation:
 ```python
-net = component_factory("Network", id="IzNet")
+net = nml_doc.add("Network", id="IzNet")
 ```
 It will throw another validation error:
 ```
@@ -270,7 +277,7 @@ net.validate()
 ```
 This function does not return anything if the component is valid.
 However, if it is not valid, it will throw a `ValueError`.
-(In fact, this function is used by the `component_factory` internally)
+(this function is used internally by the `component_factory`)
 
 Our network is now ready, but we must add inputs to make our neuron spike.
 We can call the `info()` function on the network again to see what components can belong to it:
@@ -303,12 +310,30 @@ Valid members for Network are:
 * input_lists (class: InputList, Optional)
 
 ```
+(userdocs:getting_started:single_example:declaring:ctinfo)=
+### Getting information on component types: the ctinfo() function
+
 % TODO: This is unclear: how does a user know which to use?
 It seems we should use one of either `ExplicitInput` or `InputList` here.
-We can use the `info()` function to learn more about each again:
+There are multiple ways of getting information on a component type.
 
-```
+The first, of course, is to look at the {ref}`schema <userdocs:neuromlv2>` documentation online.
+The documentation for ExplicitInput is {ref}`here <schema:explicitinput>`, and for InputList is {ref}`here <schema:inputlist>`.
+The schema documentation will also include examples of usage for most component types under the "Usage:Python" tab.
+
+`neuroml` includes the `ctinfo()` utility function, that like the `info()` method, provides information about component types (`ct` in `ctinfo` stands for `component type`).
+Note that component types are classes and the `info()` method cannot be used on them.
+It can only be used once objects have been created from the component type classes.
+
+So, we could do (create a new dummy object of the class and call `info()` on it):
+```python
 neuroml.ExplicitInput().info()
+```
+but `ctinfo` will do this for us:
+```python
+ctinfo("ExplicitInput")
+# or the second form:
+# ctinfo(neuroml.ExplicitInput)
 ExplicitInput -- An explicit input ( anything which extends  **basePointCurrent**  ) to a target cell in a population
 
 Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
@@ -319,7 +344,7 @@ Valid members for ExplicitInput are:
 * input (class: xs:string, Required)
 
 
-neuroml.InputList().info()
+ctinfo("InputList")
 InputList -- An explicit list of  **input** s to a **population.**
 
 Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
@@ -332,7 +357,8 @@ Valid members for InputList are:
 * id (class: NmlId, Required)
 ```
 
-Or, we can also use the in-built Python [in-built help function](https://docs.python.org/3/library/functions.html#help):
+Finally, for completeness, we can also get information from the API documentation for libNeuroML [here](https://libneuroml.readthedocs.io/en/latest/).
+Since this is documentation that is "embedded" in the Python classes, we can also use the in-built Python [in-built help function](https://docs.python.org/3/library/functions.html#help) to see it:
 ```
 help(neuroml.ExplicitInput)
 Help on class ExplicitInput in module neuroml.nml.nml:
@@ -355,13 +381,12 @@ class InputList(Base)
  ...
 ```
 
-The information provided by both will be similar, but `info()` is perhaps more NeuroML specific whereas the Python `help()` function provides Python language related information also.
-Further, the {ref}`schema documentation <schema:explicitinput>` also includes examples that will make their usage clearer.
+The information provided by the different sources will be similar, but `ctinfo()` is perhaps the most NeuroML specific (whereas the Python `help()` function provides Python language related information also.)
 
 Another useful function is the `parentinfo()` function.
 Like `info()` it provides some information about the component/object:
 ```
-neuroml.InputList().parentinfo()
+ctparentinfo("InputList")
 InputList -- An explicit list of  **input** s to a **population.**
 
 Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
@@ -371,7 +396,7 @@ Valid parents for InputList are:
         * input_lists (class: InputList, Optional)
 ```
 This tells us that components of type `InputList` can be added to components of the `Network` type, in the `input_list` member.
-Of course, we just use the `add` function, and that adds the components to the correct member.
+Of course, we will use the `add` function in our network object `net`, and that will add the component to the correct member.
 
 Coming back to our model, in this case, since we are providing a single input to the single cell in our network, `ExplicitInput` is sufficient.
 
@@ -381,7 +406,7 @@ To connect it to our neuron, we specify the neuron as the `target` using an {ref
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 66-75
+lines: 64-71
 ----
 ```
 This completes our model.
@@ -390,7 +415,7 @@ At this point, we can save our model to a file and validate it again to check if
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 77-84
+lines: 74-78
 ----
 ```
 Note that the validation here will re-run the tests our component factory and validate methods use, but it also runs a series of additional tests that can only be run on the complete model.
@@ -544,7 +569,7 @@ Finally, like we had saved our NeuroML model to a file, we also save our LEMS do
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 85-104
+lines: 85-99
 ----
 ```
 The generated LEMS file is shown below:
@@ -564,7 +589,7 @@ Finally, {ref}`pyNeuroML <pyNeuroML>` also includes functions that allow you to 
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 107-109
+lines: 102-104
 ----
 ```
 
@@ -580,7 +605,7 @@ The last few lines of code shows how the membrane potential plot at the top of t
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 113-119
+lines: 108-114
 ----
 ```
 

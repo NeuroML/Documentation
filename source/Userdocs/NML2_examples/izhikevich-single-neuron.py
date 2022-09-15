@@ -7,16 +7,20 @@ File: izhikevich-single-neuron.py
 
 from neuroml import NeuroMLDocument
 import neuroml.writers as writers
+from neuroml.utils import component_factory
 from neuroml.utils import validate_neuroml2
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
-from pyneuroml.utils import component_factory
 import numpy as np
 
 
 # Create a new NeuroML model document
-# component_factory: form one: provide class as argument
-nml_doc = component_factory(NeuroMLDocument, id="IzhSingleNeuron")
+# component_factory: form one: provide name of NeuroML class as string
+# advantage of this form: do not need to import all the ComponentType classes
+# before using them
+nml_doc = component_factory("NeuroMLDocument", id="IzhSingleNeuron")
+# component_factory: form two: provide class as argument
+# nml_doc = component_factory(NeuroMLDocument, id="IzhSingleNeuron")
 
 # Inspect it:
 nml_doc.info()
@@ -25,10 +29,9 @@ nml_doc.info()
 nml_doc.info(show_contents=True)
 
 # Define the Izhikevich cell and add it to the model in the document
-# component_factory: form two: provide name of NeuroML class as string
-# advantage of this form: do not need to import all the ComponentType classes
-# before using them
-izh0 = component_factory(
+# the `add` will create and validate the new component, and add it to the
+# parent (nml_doc)
+izh0 = nml_doc.add(
     "Izhikevich2007Cell",
     id="izh2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
     vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
@@ -42,10 +45,7 @@ izh0.info()
 # Inspect the component, also show all members:
 izh0.info(True)
 
-# add: is smart enough to add the izh0 object in the right place
-# one can also go:
-# nml_doc.izhikevich2007_cells.append(izh0)
-nml_doc.add(izh0)
+# inspect the document
 nml_doc.info(show_contents=True)
 
 # Create a network and add it to the model
@@ -55,24 +55,19 @@ nml_doc.info(show_contents=True)
 # Two workarounds:
 # - create population first, and pass that to component_factory here
 # - disable validation
-net = component_factory("Network", id="IzNet", validate=False)
-nml_doc.add(net)
+net = nml_doc.add("Network", id="IzNet", validate=False)
 
 # Create a population of defined cells and add it to the model
 size0 = 1
-pop0 = component_factory("Population", id="IzhPop0", component=izh0.id, size=size0)
-net.add(pop0)
-net.info()
+pop0 = net.add("Population", id="IzhPop0", component=izh0.id, size=size0)
 
 # Define an external stimulus and add it to the model
-pg = component_factory(
+pg = nml_doc.add(
     "PulseGenerator",
     id="pulseGen_%i" % 0, delay="0ms", duration="1000ms",
     amplitude="0.07 nA"
 )
-nml_doc.add(pg)
-exp_input = component_factory("ExplicitInput", target="%s[%i]" % (pop0.id, 0), input=pg.id)
-net.add(exp_input)
+exp_input = net.add("ExplicitInput", target="%s[%i]" % (pop0.id, 0), input=pg.id)
 
 # Write the NeuroML model to a file
 nml_file = 'izhikevich2007_single_cell_network.nml'
