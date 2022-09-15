@@ -29,7 +29,7 @@ To declare the complete network model, we must again first declare its core enti
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 15-42
+lines: 15-37
 ----
 ```
 Here, we create a new document, declare the {ref}`Izhikevich neuron<schema:izhikevich2007Cell>`, and also declare the synapse that we are going to use to connect one population of neurons to the other.
@@ -81,7 +81,7 @@ Note: setting a color as a  {ref}`property <schema:property>` is optional, but i
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 49-65
+lines: 43-57
 ----
 ```
 
@@ -101,7 +101,7 @@ While we are iterating over all our pre-synaptic cells here, we also add externa
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 70-113
+lines: 62-101
 ----
 ```
 
@@ -177,7 +177,7 @@ We can now save and validate our model.
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 118-122
+lines: 105-110
 ----
 ```
 ### The generated NeuroML model
@@ -269,7 +269,7 @@ We create our simulation, and setup the information we want to record from it.
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 125-149
+lines: 112-137
 ----
 ```
 The generated LEMS file is here:
@@ -295,7 +295,7 @@ Let us add the necessary code to run our simulation, this time using the well kn
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 151-153
+lines: 138-141
 ----
 ```
 (userdocs:gettingstarted:izhikevichnetwork:plotting)=
@@ -307,7 +307,7 @@ So let us plot them to generate our figure:
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
-lines: 157-174
+lines: 143-162
 ----
 ```
 Observe how we are using the same `generate_plot` utility function as before: it is general enough to plot different recorded quantities.

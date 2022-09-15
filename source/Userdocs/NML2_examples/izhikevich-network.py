@@ -6,15 +6,14 @@ Create a simple network with two populations.
 import random
 import numpy as np
 
-from pyneuroml.utils import component_factory
+from neuroml.utils import component_factory
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
 import neuroml.writers as writers
 
 
 nml_doc = component_factory("NeuroMLDocument", id="IzNet")
-
-iz0 = component_factory(
+iz0 = nml_doc.add(
     "Izhikevich2007Cell",
     id="iz2007RS0",
     v0="-60mV",
@@ -32,50 +31,42 @@ iz0 = component_factory(
 # Inspect the component, also show all members:
 iz0.info(True)
 
-# Add the component to the document, so that it can be used
-nml_doc.add(iz0)
-
 # Create a component of type ExpOneSynapse, and add it to the document
-syn0 = component_factory(
+syn0 = nml_doc.add(
     "ExpOneSynapse", id="syn0", gbase="65nS", erev="0mV", tau_decay="3ms"
 )
-nml_doc.add(syn0)
-
 # Check what we have so far:
 nml_doc.info(True)
 # Also try:
 print(nml_doc.summary())
 
 # create the network: turned of validation because we will add populations next
-net = component_factory("Network", id="IzNet", validate=False)
-
-nml_doc.add(net)
+net = nml_doc.add("Network", id="IzNet", validate=False)
 
 # create the first population
 size0 = 5
 pop0 = component_factory("Population", id="IzPop0", component=iz0.id, size=size0)
 # Set optional color property. Note: used later when generating plots
-pop0.add(component_factory("Property", tag="color", value="0 0 .8"))
+pop0.add("Property", tag="color", value="0 0 .8")
 net.add(pop0)
 
 # create the second population
 size1 = 5
 pop1 = component_factory("Population", id="IzPop1", component=iz0.id, size=size1)
-pop1.add(component_factory("Property", tag="color", value=".8 0 0"))
+pop1.add("Property", tag="color", value=".8 0 0")
 net.add(pop1)
 
 # network should be valid now that it contains populations
 net.validate()
 
 # create a projection from one population to another
-proj = component_factory(
+proj = net.add(
     "Projection",
     id="proj",
     presynaptic_population=pop0.id,
     postsynaptic_population=pop1.id,
     synapse=syn0.id,
 )
-net.add(proj)
 
 # We do two things in the loop:
 # - add pulse generator inputs to population 1 to make neurons spike
@@ -85,30 +76,27 @@ prob_connection = 0.8
 count = 0
 for pre in range(0, size0):
     # pulse generator as explicit stimulus
-    pg = component_factory(
+    pg = nml_doc.add(
         "PulseGenerator",
         id="pg_%i" % pre,
         delay="0ms",
         duration="10000ms",
         amplitude="%f nA" % (0.1 + 0.1 * random.random()),
     )
-    nml_doc.add(pg)
 
-    exp_input = component_factory(
+    exp_input = net.add(
         "ExplicitInput", target="%s[%i]" % (pop0.id, pre), input=pg.id
     )
-    net.add(exp_input)
 
     # synapses between populations
     for post in range(0, size1):
         if random.random() <= prob_connection:
-            syn = component_factory(
+            syn = proj.add(
                 "Connection",
                 id=count,
                 pre_cell_id="../%s[%i]" % (pop0.id, pre),
                 post_cell_id="../%s[%i]" % (pop1.id, post),
             )
-            proj.add(syn)
             count += 1
 
 nml_doc.info(True)
