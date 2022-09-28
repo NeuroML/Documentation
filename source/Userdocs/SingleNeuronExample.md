@@ -360,15 +360,16 @@ Valid members for InputList are:
 ```
 
 Finally, for completeness, we can also get information from the API documentation for libNeuroML [here](https://libneuroml.readthedocs.io/en/latest/).
-Since this is documentation that is "embedded" in the Python classes, we can also use the in-built Python [in-built help function](https://docs.python.org/3/library/functions.html#help) to see it:
+Since this is documentation that is "embedded" in the Python classes, we can also use the Python [in-built help function](https://docs.python.org/3/library/functions.html#help) to see it:
 ```
 help(neuroml.ExplicitInput)
 Help on class ExplicitInput in module neuroml.nml.nml:
 
-class ExplicitInput(GeneratedsSuper)
- |  ExplicitInput(target=None, input=None, destination=None, gds_collector_=None, **kwargs_)
- |
+class ExplicitInput(BaseWithoutId)
+ |  ExplicitInput(target: 'one str (required)' = None, input: 'one str (required)' = None, destination: 'one str (optional)' = None, gds_collector_=None, **kwargs_)
+ |  
  |  ExplicitInput -- An explicit input ( anything which extends  **basePointCurrent**  ) to a target cell in a population
+ |  
  ...
 
 
@@ -377,13 +378,19 @@ help(neuroml.InputList)
 Help on class InputList in module neuroml.nml.nml:
 
 class InputList(Base)
- |  InputList(neuro_lex_id=None, id=None, populations=None, component=None, input=None, input_ws=None, gds_collector_=None, **kwargs_)
- |
+ |  InputList(id: 'one NonNegativeInteger (required)' = None, populations: 'one NmlId (required)' = None, component: 'one NmlId (required)' = None, input: 'list of Input(s) (optional)' = None, input_ws: 'list of InputW(s) (optional)' = None, gds_collector_=None, **kwargs_)
+ |  
  |  InputList -- An explicit list of  **input** s to a **population.**
  ...
 ```
 
 The information provided by the different sources will be similar, but `ctinfo()` is perhaps the most NeuroML specific (whereas the Python `help()` function provides Python language related information also.)
+
+
+```{admonition} Use an integrated development environment (IDE):
+:class: tip
+[IDEs](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) make programming easier. For example, a good IDE will show you the documentation that the `help` Python function shows.
+```
 
 Another useful function is the `parentinfo()` function.
 Like `info()` it provides some information about the component/object:
