@@ -276,6 +276,8 @@ We can check this using the `validate` function that each component has:
 net.validate()
 ```
 This function does not return anything if the component is valid.
+(Technically, if a function does not return anything in Python, it returns
+`None` by default, so this returns `None` if the component is valid.)
 However, if it is not valid, it will throw a `ValueError`.
 (this function is used internally by the `component_factory`)
 
