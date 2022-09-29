@@ -114,7 +114,6 @@ def create_olm_cell():
     """
     nml_cell_doc = component_factory("NeuroMLDocument", id="oml_cell")
     cell = nml_cell_doc.add("Cell", id="olm", neuro_lex_id="NLXCELL:091206")
-    cell.info()
     nml_cell_file = cell.id + ".cell.nml"
 
     # Add two soma segments
