@@ -4,9 +4,17 @@
 In this section we will model and simulate a multi-compartment Oriens-lacunosum moleculare (OLM) interneuron cell from the rodent hippocampal CA1 network model developed by Bezaire et al. ({cite}`Bezaire2016`).
 The complete network model can be seen [here on GitHub](https://github.com/mbezaire/ca1), and [here on Open Source Brain](https://www.opensourcebrain.org/projects/nc_ca1).
 
+```{figure} ../Userdocs/NML2_examples/olm.cell.xy.png
+:alt: Morphology of constructed OLM cell in xy plane
+:align: center
+:width: 50%
+
+Morphology of OLM cell in xy plane
+```
 ```{figure} ../Userdocs/NML2_examples/olm_example_sim_seg0_soma0-v.png
 :alt: Membrane potential for neuron recorded from the simulation at the soma
 :align: center
+:width: 50%
 
 Membrane potential of the simulated OLM cell at the soma.
 ```
@@ -14,23 +22,6 @@ This plot, saved as `olm_example_sim_seg0_soma0-v.png` is generated using the fo
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-----
-```
-
-As we will see, we repeat the same operations in the script while adding segments and ion-channels to our model, so we also write some helper functions to make it easier for ourselves:
-
-```{literalinclude} ./NML2_examples/CellBuilder.py
-----
-language: python
-----
-```
-These helper functions will be included in the Python NeuroML libraries in their next release.
-Currently, we *import* them into our Python script at the top:
-
-```{literalinclude} ./NML2_examples/olm-example.py
-----
-language: python
-lines: 12
 ----
 ```
 ## Declaring the model in NeuroML
@@ -49,86 +40,162 @@ To keep our Python script modularised, we start constructing our {ref}`cell <sch
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 113-306
+lines: 110-285
 ----
 ```
 Let us walk through this function:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 118-120
+lines: 115-121
 ----
 ```
-First, we create a new NeuroML document that we will use to save this cell.
-Then, we proceed to create a new cell using the {ref}`Cell NeuroML component type <schema:cell>`, and define the name of the file we will use to store the cell in NeuroML.
-To create the cell, we use the `create_cell` utility function:
+We create a new model document that will hold the cell model.
+Then, we create and add a new {ref}`Cell <schema:cell>` using the `add` method to the document.
+We also provide a `neuro_lex_id` here, which is the [NeuroLex ontology identifier](https://scicrunch.org/scicrunch/interlex/view/ilx_0105030?searchTerm=oriens-lacunosum%20moleculare).
+This allows us to better connect models to biological concepts.
 
-```{literalinclude} ./NML2_examples/CellBuilder.py
-----
-language: python
-lines: 24,47-72
-----
+As we have seen in the {ref}`single Izhikevich neuron example <userdocs:getting_started:single_example:declaring:add>`, the `add` method calls the `component_factory` to create the component object for us.
+For the `Cell` component type, it does a number of extra things for us to set up, or initialise, the cell.
+We have a number of ways of inspecting the cell.
+
+The `summary` function provides a very short summary of the cell.
+This is useful to quickly get a high level overview of it:
+```pycon
+>>> cell.summary()
+*******************************************************
+* Cell: olm
+* Notes: None
+* Segments: 0
+* SegmentGroups: 4
+*******************************************************
 ```
-We now know that a {ref}`Cell <schema:cell>` component has two children: {ref}`morphology <schema:morphology>`, and {ref}`biophysical properties <schema:biophysicalproperties>`.
-The function simply creates the new {ref}`Cell <schema:cell>` component for us and initialises the {ref}`morphology <schema:morphology>` and {ref}`biophysical properties <schema:biophysicalproperties>`.
-Additionally, it creates some default {ref}`segment groups <schema:segmentgroup>` for us that we use to organise our our segments in later.
+We can also use the general {ref}`info function <userdocs:getting_started:single_example:declaring:info>` to inspect the cell:
+```pycon
+>>> cell.info(show_contents=True)
+Cell -- Cell with  **segment** s specified in a  **morphology**  element along with details on its  **biophysicalProperties** . NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v**  of this cell represents the membrane potential in that isopotential segment.
+
+Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
+
+Valid members for Cell are:
+* biophysical_properties_attr (class: NmlId, Optional)
+* morphology (class: Morphology, Optional)
+        * Contents ('ids'/<objects>): 'morphology'
+
+* neuro_lex_id (class: NeuroLexId, Optional)
+        * Contents ('ids'/<objects>): NLXCELL:091206
+
+* metaid (class: MetaId, Optional)
+* biophysical_properties (class: BiophysicalProperties, Optional)
+        * Contents ('ids'/<objects>): 'biophys'
+
+* id (class: NmlId, Required)
+        * Contents ('ids'/<objects>): olm
+
+* notes (class: xs:string, Optional)
+* properties (class: Property, Optional)
+* annotation (class: Annotation, Optional)
+* morphology_attr (class: NmlId, Optional)
+
+```
+
+We see the cell already contains `biophysical_properties` or `morphology`.
+Because these are components of the cell that are expected to be used, these were added automatically for us when the new component was created.
+
+Let us take a look at the morphology of the cell:
+```pycon
+>>> cell.morphology.info(show_contents=True)
+Morphology -- The collection of  **segment** s which specify the 3D structure of the cell, along with a number of  **segmentGroup** s
+
+Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
+
+Valid members for Morphology are:
+* segments (class: Segment, Required)
+* metaid (class: MetaId, Optional)
+* segment_groups (class: SegmentGroup, Optional)
+        * Contents ('ids'/<objects>): ['all', 'soma_group', 'axon_group', 'dendrite_group']
+
+* id (class: NmlId, Required)
+        * Contents ('ids'/<objects>): morphology
+
+* notes (class: xs:string, Optional)
+* properties (class: Property, Optional)
+* annotation (class: Annotation, Optional)
+```
+
+We see that there are no segments in the cell because we have not added any.
+However, there are already a number of "default" segment groups that were automatically added for us: `all`, `soma_group`, `axon_group`, `dendrite_group`.
+These groups allow us to keep track of all the segments, and of the segments forming the soma, the axon, and the dendrites of the cell respectively.
 
 We now have an empty cell.
 Since we are building a multi-compartmental cell, we now proceed to define the detailed morphology of the cell.
-We do this by adding {ref}`segments <schema:segment>` and grouping them in to {ref}`segment groups <schema:segmentgroup>` which are both children elements of the {ref}`morphology <schema:morphology>` of the cell.
-This is done using the `add_segment` utility function as required:
+We do this by adding {ref}`segments <schema:segment>` and grouping them in to {ref}`segment groups <schema:segmentgroup>`.
+We can segments using the `add_segment` utility function, as we do for the segments forming the soma:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 124-128
+lines: 123-137
 ----
 ```
 The utility function takes the dimensions of the segment---it's {ref}`proximal <schema:proximal>` and {ref}`distal <schema:distal>` co-ordinates and the diameter to create a segment of the provided name.
 Additionally, since segments need to be contiguous, it adds the segment to a *parent* segment.
 Finally, it places the segment into the specified segment group and the default groups that we also have and adds the segment to the cell's morphology.
-```{literalinclude} ./NML2_examples/CellBuilder.py
-----
-language: python
-lines: 74,103-144,152-158
-----
-```
 
-We call the same function multiple times to add soma, dendritic, and axonal segments to our cell.
-Note how the segments connect to each other to form the contiguous cell morphology.
+We call the same function multiple times to add soma, dendritic, and axonal segments to our cell but this can get quite lengthy.
+To easily add unbranched contiguous lists of segments to the cell, we can use the `add_unbranched_segments` utility function.
+Here we use it to create a dendrite that includes two segments.
+The first point we provide is the proximal (starting) of the dendrite.
+The next two points are the distal (ends) of each segment forming the section.
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 122-185
+lines: 152-162
 ----
 ```
+We repeat this process to create more dendritic and axonal sections of contiguous segments.
 
-Next, we add extra information to our segments and organise them so that they can be correctly exported to the NEURON format for simulation later.
-
+Finally, we add an extra colour property to the three primary segment groups that can be used when generating morphology graphs:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 189-205
+lines: 175-183
 ----
 ```
 
 We have now completed adding the morphological information to our cell.
-Next, we proceed to our {ref}`biophysical properties <schema:biophysicalproperties>`, which are split into two:
+Next, we proceed to our {ref}`biophysical properties <schema:biophysicalproperties>`, e.g.:
 - the {ref}`membrane properties <schema:membraneproperties>`
+  - {ref}`spike threshold <schema:spikethresh>`
+  - {ref}`initial membrane potential <schema:initmembpotential>`
+  - {ref}`channel densities <schema:basechanneldensity>`
+  - {ref}`specifc capacitances <schema:specificcapacitance>`
 - the {ref}`intracellular properties <schema:intracellularproperties>`
+  - {ref}`resistivity <schema:resistivity>`
 
-We also use a few simple helper functions defined  in the `CellBuilder.py` module to add these to our cell:
+We use more helpful utility functions to set these values
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 207-303
+lines: 186-188
 ----
 ```
-This completes the definition of our cell.
-We write it to a NeuroML file, and validate it.
+For setting channel densities, we have the `add_channel_density` function:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 304
+lines: 192-198
+----
+```
+Note that we are not writing our channel files from scratch here.
+We are re-using already written NeuroML channel definitions by simply including their NeuroML definition files.
+
+This completes the definition of our cell.
+We now run the level one validation, write it to a file while also running a complete (level one and level two) validation using pyNeuroML.
+We also generate the morphology plot shown on the top of this page.
+```{literalinclude} ./NML2_examples/olm-example.py
+----
+language: python
+lines: 281-284
 ----
 ```
 The resulting NeuroML file is:
@@ -136,14 +203,14 @@ The resulting NeuroML file is:
 ----
 language: xml
 ```
-We can now already inspect our cell using the NeuroML tools:
+We can now already inspect our cell using the NeuroML tools.
+We have already generated the morphology plot in our script, but we can also do it using `pynml`:
 ```{code-block} console
-
 pynml -png olm.cell.png
 ...
 pyNeuroML >>> Writing to: /home/asinha/Documents/02_Code/00_mine/2020-OSB/NeuroML-Documentation/source/Userdocs/NML2_examples/olm.cell.png
 ```
-This gives us a figure of the morphology of our cell:
+This gives us a figure of the morphology of our cell, similar to the one we've already generated:
 ```{figure} ../Userdocs/NML2_examples/olm.cell.png
 :alt: Figure showing the morphology of the OLM cell generated from the NeuroML definition.
 :align: center
@@ -157,7 +224,7 @@ Similar to our previous example, we are going to only create a network with one 
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 85-110
+lines: 86-107
 ----
 ```
 We start in the same way, by creating a new NeuroML document and including our cell file into it.
@@ -303,7 +370,6 @@ pynml-summary olm_example_net.nml -v
 
 ```
 We can check the connectivity graph of the model:
-
 ```{code-block} console
 pynml -graph 10 olm_example_net.nml
 ```
@@ -322,7 +388,7 @@ We do this in the `main` function:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 18-66
+lines: 19-67
 ----
 ```
 Here we first create a `LEMSSimulation` instance and include our network NeuroML file in it.
@@ -331,14 +397,14 @@ In our case, it's the id of our network, `single_olm_cell_network`:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 25-30
+lines: 27-31
 ----
 ```
 We also want to record some information, so we create an output file first with an `id` of `output0`:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 33
+lines: 35
 ----
 ```
 Now, we can record any quantity that is exposed by NeuroML (any `exposure`).
@@ -346,7 +412,7 @@ Here, for example, we add columns for the membrane potentials `v` of the differe
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 35-58
+lines: 36-59
 ----
 ```
 The path required to point to the `quantity` (exposure) to be recorded needs to be correctly provided.
@@ -358,7 +424,7 @@ We then save the LEMS simulation file, and run our simulation with the {ref}`NEU
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 62-64
+lines: 61-65
 ----
 ```
 ## Plotting the recorded variables
@@ -367,7 +433,7 @@ To plot the variables that we recorded, we write a simple function that reads th
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 69-82
+lines: 70-83
 ----
 ```
 This concludes this example.

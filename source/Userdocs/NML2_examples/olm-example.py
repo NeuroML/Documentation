@@ -116,6 +116,10 @@ def create_olm_cell():
     cell = nml_cell_doc.add("Cell", id="olm", neuro_lex_id="NLXCELL:091206")
     nml_cell_file = cell.id + ".cell.nml"
 
+    cell.summary()
+    cell.info(show_contents=True)
+    cell.morphology.info(show_contents=True)
+
     # Add two soma segments
     diam = 10.0
     soma_0 = cell.add_segment(
@@ -274,6 +278,7 @@ def create_olm_cell():
                              ion="na",
                              group="axon_group")
 
+    cell.validate(recursive=True)
     pynml.write_neuroml2_file(nml_cell_doc, nml_cell_file, True, True)
     plot_2D(nml_cell_file, plane2d="xy", nogui=True,
             save_to_file="olm.cell.xy.png")
