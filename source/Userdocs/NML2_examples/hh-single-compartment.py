@@ -29,6 +29,7 @@ from neuroml import PulseGenerator, ExplicitInput
 import numpy as np
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
+from neuroml.utils import component_factory
 
 
 def main():
@@ -84,25 +85,30 @@ def create_na_channel():
 
     returns: name of the created file
     """
-    na_channel = IonChannelHH(id="na_channel", notes="Sodium channel for HH cell", conductance="10pS", species="na")
-    gate_m = GateHHRates(id="na_m", instances="3", notes="m gate for na channel")
+    na_channel = component_factory("IonChannelHH", id="na_channel",
+                                   notes="Sodium channel for HH cell",
+                                   conductance="10pS", species="na",
+                                   validate=False)
+    gate_m = component_factory("GateHHRates", id="na_m", instances="3",
+                               notes="m gate for na channel", validate=False)
+    m_forward_rate = component_factory("HHRate", type="HHExpLinearRate", rate="1per_ms", midpoint="-40mV", scale="10mV")
+    m_reverse_rate = component_factory("HHRate", type="HHExpRate", rate="4per_ms", midpoint="-65mV", scale="-18mV")
 
-    m_forward_rate = HHRate(type="HHExpLinearRate", rate="1per_ms", midpoint="-40mV", scale="10mV")
-    m_reverse_rate = HHRate(type="HHExpRate", rate="4per_ms", midpoint="-65mV", scale="-18mV")
-    gate_m.forward_rate = m_forward_rate
-    gate_m.reverse_rate = m_reverse_rate
-    na_channel.gate_hh_rates.append(gate_m)
+    gate_m.add(m_forward_rate, hint="forward_rate", validate=False)
+    gate_m.add(m_reverse_rate, hint="reverse_rate")
+    na_channel.add(gate_m)
 
-    gate_h = GateHHRates(id="na_h", instances="1", notes="h gate for na channel")
-    h_forward_rate = HHRate(type="HHExpRate", rate="0.07per_ms", midpoint="-65mV", scale="-20mV")
-    h_reverse_rate = HHRate(type="HHSigmoidRate", rate="1per_ms", midpoint="-35mV", scale="10mV")
-    gate_h.forward_rate = h_forward_rate
-    gate_h.reverse_rate = h_reverse_rate
-    na_channel.gate_hh_rates.append(gate_h)
+    gate_h = component_factory("GateHHRates", id="na_h", instances="1", notes="h gate for na channel", validate=False)
+    h_forward_rate = component_factory("HHRate", type="HHExpRate", rate="0.07per_ms", midpoint="-65mV", scale="-20mV")
+    h_reverse_rate = component_factory("HHRate", type="HHSigmoidRate", rate="1per_ms", midpoint="-35mV", scale="10mV")
+    gate_h.add(h_forward_rate, hint="forward_rate", validate=False)
+    gate_h.add(h_reverse_rate, hint="reverse_rate")
+    na_channel.add(gate_h)
 
-    na_channel_doc = NeuroMLDocument(id="na_channel", notes="Na channel for HH neuron")
+    na_channel_doc = component_factory("NeuroMLDocument", id="na_channel", notes="Na channel for HH neuron")
     na_channel_fn = "HH_example_na_channel.nml"
-    na_channel_doc.ion_channel_hhs.append(na_channel)
+    na_channel_doc.add(na_channel)
+    na_channel_doc.validate(recursive=True)
 
     pynml.write_neuroml2_file(nml2_doc=na_channel_doc, nml2_file_name=na_channel_fn, validate=True)
 
