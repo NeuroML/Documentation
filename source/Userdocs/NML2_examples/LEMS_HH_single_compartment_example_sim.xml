@@ -2,7 +2,7 @@
     
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v0.7.0 (libNeuroML v0.4.0)
+        This LEMS file has been automatically generated using PyNeuroML v0.7.2 (libNeuroML v0.4.1)
 
      -->
     
@@ -25,8 +25,8 @@
         <OutputFile id="output0" fileName="HH_single_compartment_example_sim.dat">
             <OutputColumn id="pop0[0]/v" quantity="pop0[0]/v"/> 
             <OutputColumn id="pop0[0]/iChannels" quantity="pop0[0]/iChannels"/> 
-            <OutputColumn id="pop0[0]/na/iDensity" quantity="pop0[0]/hh_b_prop/membraneProperties/na_channels/iDensity/"/> 
-            <OutputColumn id="pop0[0]/k/iDensity" quantity="pop0[0]/hh_b_prop/membraneProperties/k_channels/iDensity/"/> 
+            <OutputColumn id="pop0[0]/na/iDensity" quantity="pop0[0]/biophys/membraneProperties/na_channels/iDensity/"/> 
+            <OutputColumn id="pop0[0]/k/iDensity" quantity="pop0[0]/biophys/membraneProperties/k_channels/iDensity/"/> 
         </OutputFile>
         
     </Simulation>
