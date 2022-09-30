@@ -57,8 +57,8 @@ This allows us to better connect models to biological concepts.
 
 As we have seen in the {ref}`single Izhikevich neuron example <userdocs:getting_started:single_example:declaring:add>`, the `add` method calls the `component_factory` to create the component object for us.
 For the `Cell` component type, it does a number of extra things for us to set up, or initialise, the cell.
-We have a number of ways of inspecting the cell.
 
+We have a number of ways of inspecting the cell.
 The `summary` function provides a very short summary of the cell.
 This is useful to quickly get a high level overview of it:
 ```pycon
@@ -126,6 +126,7 @@ Valid members for Morphology are:
 We see that there are no segments in the cell because we have not added any.
 However, there are already a number of "default" segment groups that were automatically added for us: `all`, `soma_group`, `axon_group`, `dendrite_group`.
 These groups allow us to keep track of all the segments, and of the segments forming the soma, the axon, and the dendrites of the cell respectively.
+Take a look at the {ref}`conventions page <userdocs:conventions:segments>` for more information on these.
 
 We now have an empty cell.
 Since we are building a multi-compartmental cell, we now proceed to define the detailed morphology of the cell.

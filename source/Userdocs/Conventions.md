@@ -57,7 +57,7 @@ When naming segments in multi-compartmental neuron models, we suggest the follow
 There are 3 specific recommended names for segment groups which contain **ALL** of the somatic, dendritic or axonal segments
 
 - `axon_group` for the group of all axonal segments
-- `dend_group` for the group of all dendritic segments
+- `dendrite_group` for the group of all dendritic segments
 - `soma_group` for the group of all somatic segments
 
 Ideally every segment should be a member of one and only one of these groups.
