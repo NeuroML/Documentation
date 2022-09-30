@@ -254,9 +254,10 @@ def create_cell():
     hh_cell_fn = "HH_example_cell.nml"
 
     # Define a cell
-    hh_cell = component_factory(
+    hh_cell = hh_cell_doc.add(
         "Cell", id="hh_cell", notes="A single compartment HH cell"
     )  # type: neuroml.Cell
+    hh_cell.info(show_contents=True)
 
     # Channel density for Na channel
     hh_cell.add_channel_density(
@@ -309,7 +310,6 @@ def create_cell():
         group="soma_0",
     )
 
-    hh_cell_doc.add(hh_cell)
     hh_cell_doc.validate(recursive=True)
     pynml.write_neuroml2_file(
         nml2_doc=hh_cell_doc, nml2_file_name=hh_cell_fn, validate=True
@@ -350,7 +350,6 @@ def create_network():
 
     exp_input = net.add("ExplicitInput", target="pop0[0]", input="pg")
 
-    net_doc.add(net)
     net_doc.validate(recursive=True)
 
     pynml.write_neuroml2_file(
