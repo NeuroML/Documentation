@@ -9,14 +9,9 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
 import math
+import neuroml
 from neuroml import NeuroMLDocument
-from neuroml import Cell
-from neuroml import IonChannelHH
-from neuroml import GateHHRates
-from neuroml import BiophysicalProperties
-from neuroml import MembraneProperties
 from neuroml import ChannelDensity
-from neuroml import HHRate
 from neuroml import SpikeThresh
 from neuroml import SpecificCapacitance
 from neuroml import InitMembPotential
@@ -50,8 +45,12 @@ def main():
     simulation.create_output_file(id="output0", file_name=sim_id + ".dat")
     simulation.add_column_to_output_file("output0", column_id="pop0[0]/v", quantity="pop0[0]/v")
     simulation.add_column_to_output_file("output0", column_id="pop0[0]/iChannels", quantity="pop0[0]/iChannels")
-    simulation.add_column_to_output_file("output0", column_id="pop0[0]/na/iDensity", quantity="pop0[0]/hh_b_prop/membraneProperties/na_channels/iDensity/")
-    simulation.add_column_to_output_file("output0", column_id="pop0[0]/k/iDensity", quantity="pop0[0]/hh_b_prop/membraneProperties/k_channels/iDensity/")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0[0]/na/iDensity",
+                                         quantity="pop0[0]/biophys/membraneProperties/na_channels/iDensity/")
+    simulation.add_column_to_output_file("output0",
+                                         column_id="pop0[0]/k/iDensity",
+                                         quantity="pop0[0]/biophys/membraneProperties/k_channels/iDensity/")
 
     # Save LEMS simulation to file
     sim_file = simulation.save_to_file()
@@ -123,17 +122,22 @@ def create_k_channel():
 
     :returns: name of the K channel file
     """
-    k_channel = IonChannelHH(id="k_channel", notes="Potassium channel for HH cell", conductance="10pS", species="k")
-    gate_n = GateHHRates(id="k_n", instances="4", notes="n gate for k channel")
-    n_forward_rate = HHRate(type="HHExpLinearRate", rate="0.1per_ms", midpoint="-55mV", scale="10mV")
-    n_reverse_rate = HHRate(type="HHExpRate", rate="0.125per_ms", midpoint="-65mV", scale="-80mV")
-    gate_n.forward_rate = n_forward_rate
-    gate_n.reverse_rate = n_reverse_rate
-    k_channel.gate_hh_rates.append(gate_n)
+    k_channel = component_factory("IonChannelHH", id="k_channel",
+                                  notes="Potassium channel for HH cell",
+                                  conductance="10pS", species="k",
+                                  validate=False)
+    gate_n = component_factory("GateHHRates", id="k_n", instances="4",
+                               notes="n gate for k channel", validate=False)
+    n_forward_rate = component_factory("HHRate", type="HHExpLinearRate", rate="0.1per_ms", midpoint="-55mV", scale="10mV")
+    n_reverse_rate = component_factory("HHRate", type="HHExpRate", rate="0.125per_ms", midpoint="-65mV", scale="-80mV")
+    gate_n.add(n_forward_rate, hint="forward_rate", validate=False)
+    gate_n.add(n_reverse_rate, hint="reverse_rate")
+    k_channel.add(gate_n)
 
-    k_channel_doc = NeuroMLDocument(id="k_channel", notes="k channel for HH neuron")
+    k_channel_doc = component_factory("NeuroMLDocument", id="k_channel", notes="k channel for HH neuron")
     k_channel_fn = "HH_example_k_channel.nml"
-    k_channel_doc.ion_channel_hhs.append(k_channel)
+    k_channel_doc.add(k_channel)
+    k_channel_doc.validate(recursive=True)
 
     pynml.write_neuroml2_file(nml2_doc=k_channel_doc, nml2_file_name=k_channel_fn, validate=True)
 
@@ -148,10 +152,11 @@ def create_leak_channel():
 
     :returns: name of leak channel nml file
     """
-    leak_channel = IonChannelHH(id="leak_channel", conductance="10pS", notes="Leak conductance")
-    leak_channel_doc = NeuroMLDocument(id="leak_channel", notes="leak channel for HH neuron")
+    leak_channel = component_factory("IonChannelHH", id="leak_channel", conductance="10pS", notes="Leak conductance")
+    leak_channel_doc = component_factory("NeuroMLDocument", id="leak_channel", notes="leak channel for HH neuron")
     leak_channel_fn = "HH_example_leak_channel.nml"
-    leak_channel_doc.ion_channel_hhs.append(leak_channel)
+    leak_channel_doc.add(leak_channel)
+    leak_channel_doc.validate(recursive=True)
 
     pynml.write_neuroml2_file(nml2_doc=leak_channel_doc, nml2_file_name=leak_channel_fn, validate=True)
 
@@ -166,62 +171,43 @@ def create_cell():
     # Create the nml file and add the ion channels
     hh_cell_doc = NeuroMLDocument(id="cell", notes="HH cell")
     hh_cell_fn = "HH_example_cell.nml"
-    hh_cell_doc.includes.append(IncludeType(href=create_na_channel()))
-    hh_cell_doc.includes.append(IncludeType(href=create_k_channel()))
-    hh_cell_doc.includes.append(IncludeType(href=create_leak_channel()))
 
     # Define a cell
-    hh_cell = Cell(id="hh_cell", notes="A single compartment HH cell")
-
-    # Define its biophysical properties
-    bio_prop = BiophysicalProperties(id="hh_b_prop")
-    #  notes="Biophysical properties for HH cell")
-
-    # Membrane properties are a type of biophysical properties
-    mem_prop = MembraneProperties()
-    # Add membrane properties to the biophysical properties
-    bio_prop.membrane_properties = mem_prop
-
-    # Append to cell
-    hh_cell.biophysical_properties = bio_prop
+    hh_cell = component_factory("Cell", id="hh_cell", notes="A single compartment HH cell")  # type: neuroml.Cell
 
     # Channel density for Na channel
-    na_channel_density = ChannelDensity(id="na_channels", cond_density="120.0 mS_per_cm2", erev="50.0 mV", ion="na", ion_channel="na_channel")
-    mem_prop.channel_densities.append(na_channel_density)
+    hh_cell.add_channel_density(hh_cell_doc,
+                                cd_id="na_channels", cond_density="120.0 mS_per_cm2", erev="50.0 mV", ion="na",
+                                ion_channel="na_channel",
+                                ion_chan_def_file=create_na_channel())
 
     # Channel density for k channel
-    k_channel_density = ChannelDensity(id="k_channels", cond_density="360 S_per_m2", erev="-77mV", ion="k", ion_channel="k_channel")
-    mem_prop.channel_densities.append(k_channel_density)
-
+    hh_cell.add_channel_density(hh_cell_doc,
+                                cd_id="k_channels", cond_density="360 S_per_m2", erev="-77mV", ion="k",
+                                ion_channel="k_channel",
+                                ion_chan_def_file=create_k_channel())
     # Leak channel
-    leak_channel_density = ChannelDensity(id="leak_channels", cond_density="3.0 S_per_m2", erev="-54.3mV", ion="non_specific", ion_channel="leak_channel")
-    mem_prop.channel_densities.append(leak_channel_density)
+    hh_cell.add_channel_density(hh_cell_doc,
+                                cd_id="leak_channels", cond_density="3.0 S_per_m2", erev="-54.3mV", ion="non_specific",
+                                ion_channel="leak_channel",
+                                ion_chan_def_file=create_leak_channel())
 
     # Other membrane properties
-    mem_prop.spike_threshes.append(SpikeThresh(value="-20mV"))
-    mem_prop.specific_capacitances.append(SpecificCapacitance(value="1.0 uF_per_cm2"))
-    mem_prop.init_memb_potentials.append(InitMembPotential(value="-65mV"))
+    hh_cell.add_membrane_property("SpikeThresh", value="-20mV")
+    hh_cell.set_specific_capacitance("1.0 uF_per_cm2")
+    hh_cell.set_init_memb_potential("-65mV")
 
-    intra_prop = IntracellularProperties()
-    intra_prop.resistivities.append(Resistivity(value="0.03 kohm_cm"))
+    hh_cell.set_resistivity("0.03 kohm_cm")
 
-    # Add to biological properties
-    bio_prop.intracellular_properties = intra_prop
-
-    # Morphology
-    morph = Morphology(id="hh_cell_morph")
-    #  notes="Simple morphology for the HH cell")
-    seg = Segment(id="0", name="soma", notes="Soma segment")
     # We want a diameter such that area is 1000 micro meter^2
     # surface area of a sphere is 4pi r^2 = 4pi diam^2
     diam = math.sqrt(1000 / math.pi)
-    proximal = distal = Point3DWithDiam(x="0", y="0", z="0", diameter=str(diam))
-    seg.proximal = proximal
-    seg.distal = distal
-    morph.segments.append(seg)
-    hh_cell.morphology = morph
+    hh_cell.add_segment(prox=[0, 0, 0, diam], dist=[0, 0, 0, diam],
+                        name="soma", parent=None, fraction_along=1.0,
+                        group="soma_0")
 
-    hh_cell_doc.cells.append(hh_cell)
+    hh_cell_doc.add(hh_cell)
+    hh_cell_doc.validate(recursive=True)
     pynml.write_neuroml2_file(nml2_doc=hh_cell_doc, nml2_file_name=hh_cell_fn, validate=True)
     return hh_cell_fn
 
