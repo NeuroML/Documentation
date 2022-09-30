@@ -11,14 +11,6 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 import math
 import neuroml
 from neuroml import NeuroMLDocument
-from neuroml import ChannelDensity
-from neuroml import SpikeThresh
-from neuroml import SpecificCapacitance
-from neuroml import InitMembPotential
-from neuroml import IntracellularProperties
-from neuroml import IncludeType
-from neuroml import Resistivity
-from neuroml import Morphology, Segment, Point3DWithDiam
 from neuroml import Network, Population
 from neuroml import PulseGenerator, ExplicitInput
 import numpy as np
@@ -330,15 +322,25 @@ def create_network():
 
     :returns: name of network nml file
     """
-    net_doc = NeuroMLDocument(id="network", notes="HH cell network")
-    net_doc_fn = "HH_example_net.nml"
-    net_doc.includes.append(IncludeType(href=create_cell()))
-    # Create a population: convenient to create many cells of the same type
-    pop = Population(
-        id="pop0", notes="A population for our cell", component="hh_cell", size=1
+    net_doc = component_factory(
+        "NeuroMLDocument", id="network", notes="HH cell network"
     )
+    net_doc_fn = "HH_example_net.nml"
+    net_doc.add("IncludeType", href=create_cell())
+    net = net_doc.add("Network", id="single_hh_cell_network", validate=False)
+
+    # Create a population: convenient to create many cells of the same type
+    pop = net.add(
+        "Population",
+        id="pop0",
+        notes="A population for our cell",
+        component="hh_cell",
+        size=1,
+    )
+
     # Input
-    pulsegen = PulseGenerator(
+    pulsegen = net_doc.add(
+        "PulseGenerator",
         id="pg",
         notes="Simple pulse generator",
         delay="100ms",
@@ -346,15 +348,10 @@ def create_network():
         amplitude="0.08nA",
     )
 
-    exp_input = ExplicitInput(target="pop0[0]", input="pg")
+    exp_input = net.add("ExplicitInput", target="pop0[0]", input="pg")
 
-    net = Network(
-        id="single_hh_cell_network", note="A network with a single population"
-    )
-    net_doc.pulse_generators.append(pulsegen)
-    net.explicit_inputs.append(exp_input)
-    net.populations.append(pop)
-    net_doc.networks.append(net)
+    net_doc.add(net)
+    net_doc.validate(recursive=True)
 
     pynml.write_neuroml2_file(
         nml2_doc=net_doc, nml2_file_name=net_doc_fn, validate=True
