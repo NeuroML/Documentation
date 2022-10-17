@@ -39,7 +39,7 @@ Let us look at the definition of the Sodium (Na) channel in NeuroML:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 79-109
+lines: 106-168
 ----
 ```
 Here, we define the two gates, `m` and `h`, with their forward and reverse rates and add them to the channel.
@@ -60,7 +60,7 @@ The K and leak channels are defined in a similar way:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 112-152
+lines: 171-245
 ----
 ```
 They are also saved in their own NeuroML files, which have also been validated.
@@ -80,7 +80,7 @@ Now that we have declared our ion channels, we can start constructing our {ref}`
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 155-221
+lines: 247-318
 ----
 ```
 Let us walk through this function:
@@ -90,20 +90,38 @@ language: python
 lines: 161-168
 ----
 ```
-First, before we do anything else, we create a new NeuroML document that we will use to save this cell.
-Now, since the ion-channels were created in other files, we need to make this document aware of their declarations.
-To do this, we *include* the other files into this one using the `IncludeType` construct.
-Each document we want to include gets appended to the list of `includes` for the document.
+We start by creating a new NeuroML document that we will use to save this cell, and adding the cell to it.
 
-Now we can proceed to building our cell using the {ref}`Cell NeuroML component type <schema:cell>`.
-As the schema document shows, a `Cell` component has two children: {ref}`morphology <schema:morphology>`, and {ref}`biophysical properties <schema:biophysicalproperties>`.
-Let us first look at setting up the biophysical properties:
-```{literalinclude} ./NML2_examples/hh-single-compartment.py
-----
-language: python
-lines: 170-203
-----
+A {ref}`Cell <schema:cell>` component has a number of child/children components that we need to now populate:
+```{code-block} pycon
+Cell -- Cell with  **segment** s specified in a  **morphology**  element along with details on its  **biophysicalProperties** . NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v**  of this cell represents the membrane potential in that isopotential segment.
+
+Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
+
+Valid members for Cell are:
+* morphology_attr (class: NmlId, Optional)
+* biophysical_properties_attr (class: NmlId, Optional)
+* morphology (class: Morphology, Optional)
+        * Contents ('ids'/<objects>): 'morphology'
+
+* neuro_lex_id (class: NeuroLexId, Optional)
+* metaid (class: MetaId, Optional)
+* biophysical_properties (class: BiophysicalProperties, Optional)
+        * Contents ('ids'/<objects>): 'biophys'
+
+* id (class: NmlId, Required)
+        * Contents ('ids'/<objects>): hh_cell
+
+* notes (class: xs:string, Optional)
+        * Contents ('ids'/<objects>): A single compartment HH cell
+
+* properties (class: Property, Optional)
+* annotation (class: Annotation, Optional)
 ```
+We can see that the {ref}`morphology <schema:morphology>` and {ref}`biophysical properties <schema:biophysicalproperties>` components have already been initialised for us.
+We now need to add the required components to them.
+
+We begin with the biophysical properties.
 Biophysical properties are themselves split into two:
 - the {ref}`membrane properties <schema:membraneproperties>`
 - the {ref}`intracellular properties <schema:intracellularproperties>`
@@ -119,39 +137,46 @@ and three *children* elements:
 - {ref}`specificCapacitances <schema:specificcapacitance>`
 - {ref}`populations <schema:basechannelpopulation>`
 - {ref}`channelDensities <schema:basechanneldensity>`
-
-
-
 ```{admonition} Child elements vs Children elements
 :class: tip
 When an element specifies a **Child** subelement, it will only have one of these present (it could have zero). **Children** explicitly says that there can be zero, one or many subelements.
 ```
 
 So, we start with the ion-channels which are distributed along the membrane with some density.
-We create new {ref}`ChannelDensity <schema:channeldensity>` objects for each of our defined ion-channels (Na, K, leak) and append these to the list of channel densities in the membrane properties.
+A number of helpful functions are available to us: `add_channel_density`, `add_membrane_property`, `set_specific_capacitance`, `set_init_memb_potential`:
 For example, for the Na channels:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 182-184
+lines: 262-271
 ----
 ```
 and similarly for the K and leak channels.
-Next, we add the other child and children elements: the `specificCapacitance`, the `spikeThreshold`, the `initMembPotential`.
-This completes the membrane properties.
-Similarly we add the intracellular properties next: {ref}`Resistivity <schema:resistivity>`.
+Now, since the ion-channels were created in other files, we need to make this document aware of their declarations.
+To do this, reference the other files in the `ion_chan_def_file` argument of the `add_channel_density` method.
+Under the hood, this will `include` the ion channel definition file we have created in this cell document using an `IncludeType` component.
+Each document we want to include gets appended to the list of `includes` for the document.
 
+Next, we add the other child and children elements: the {ref}`Specific Capacitance <schema:specificcapacitance>`, the {ref}`Spike Threshold <schema:spikethresh>`, the {ref}`InitMembPotential <schema:initmembpotential>`.
+This completes the membrane properties.
+We then add the intracellular properties next: {ref}`Resistivity <schema:resistivity>`.
+```{literalinclude} ./NML2_examples/hh-single-compartment.py
+----
+language: python
+lines: 294-299
+----
+```
 Next, we add the {ref}`Morphology <schema:morphology>` related information for our cell.
 Here, we are only creating a single compartment cell with only one segment.
 We will look into multi-compartment cells with more segments in later examples:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 205-216
+lines: 303-311
 ----
 ```
 A {ref}`segment <schema:segment>` has `proximal` and `distal` child elements which describe the extent of the segment.
-These are described using a {ref}`Point3DWithDiam <schema:point3dwithdiam>` object.
+These are described using a {ref}`Point3DWithDiam <schema:point3dwithdiam>` object, which the `add_segment` function creates for us.
 
 
 This completes our cell.
@@ -171,7 +196,7 @@ Here we are going to only create a network with one cell, and an {ref}`explicit 
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 223-247
+lines: 320-358
 ----
 ```
 We start in the same way, by creating a new NeuroML document and including our cell file into it.
@@ -334,7 +359,7 @@ We do this in the `main` function:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 34-62
+lines: 22-63
 ----
 ```
 Here we first create a `LEMSSimulation` instance and include our network NeuroML file in it.
@@ -343,14 +368,14 @@ In our case, it's the id of our network, `single_hh_cell_network`:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 41-46
+lines: 29-36
 ----
 ```
 We also want to record some information, so we create an output file first with an `id` of `output0`:
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 49-50
+lines: 39
 ----
 ```
 Now, we can record any quantity that is exposed by NeuroML (any `exposure`).
@@ -360,7 +385,7 @@ We can also record the {ref}`current density <schema:channeldensity>` `iDensity`
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 50-53
+lines: 40-55
 ----
 ```
 We then save the LEMS simulation file, run our simulation with the default {ref}`jNeuroML <jneuroml>` simulator.
@@ -371,7 +396,7 @@ To plot the variables that we recorded, we read the data and use the `generate_p
 ```{literalinclude} ./NML2_examples/hh-single-compartment.py
 ----
 language: python
-lines: 64-76
+lines: 66-103
 ----
 ```
 This generates the following graphs:

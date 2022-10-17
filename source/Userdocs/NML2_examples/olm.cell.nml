@@ -4,7 +4,7 @@
     <include href="olm-example/Kdrfast.channel.nml"/>
     <include href="olm-example/KvAolm.channel.nml"/>
     <include href="olm-example/Nav.channel.nml"/>
-    <cell id="olm">
+    <cell id="olm" neuroLexId="NLXCELL:091206">
         <morphology id="morphology">
             <segment id="0" name="Seg0_soma_0">
                 <proximal x="0.0" y="0.0" z="0.0" diameter="10.0"/>
@@ -21,6 +21,7 @@
             </segment>
             <segment id="3" name="Seg1_axon_0">
                 <parent segment="2"/>
+                <proximal x="0.0" y="-75.0" z="0.0" diameter="1.5"/>
                 <distal x="0.0" y="-150.0" z="0.0" diameter="1.5"/>
             </segment>
             <segment id="4" name="Seg0_dend_0">
@@ -30,6 +31,7 @@
             </segment>
             <segment id="5" name="Seg1_dend_0">
                 <parent segment="4"/>
+                <proximal x="100.0" y="120.0" z="0.0" diameter="3.0"/>
                 <distal x="177.0" y="197.0" z="0.0" diameter="3.0"/>
             </segment>
             <segment id="6" name="Seg0_dend_1">
@@ -39,33 +41,40 @@
             </segment>
             <segment id="7" name="Seg1_dend_1">
                 <parent segment="6"/>
+                <proximal x="-100.0" y="120.0" z="0.0" diameter="3.0"/>
                 <distal x="-177.0" y="197.0" z="0.0" diameter="3.0"/>
             </segment>
-            <segmentGroup id="all">
+            <segmentGroup id="soma_0" neuroLexId="sao864921383">
                 <member segment="0"/>
                 <member segment="1"/>
+            </segmentGroup>
+            <segmentGroup id="axon_0" neuroLexId="sao864921383">
                 <member segment="2"/>
                 <member segment="3"/>
+            </segmentGroup>
+            <segmentGroup id="dend_0" neuroLexId="sao864921383">
                 <member segment="4"/>
                 <member segment="5"/>
+            </segmentGroup>
+            <segmentGroup id="dend_1" neuroLexId="sao864921383">
                 <member segment="6"/>
                 <member segment="7"/>
             </segmentGroup>
-            <segmentGroup neuroLexId="GO:0043025" id="soma_group">
+            <segmentGroup id="soma_group" neuroLexId="GO:0043025">
                 <notes>Default soma segment group for the cell</notes>
                 <property tag="color" value="0 0 0.8"/>
                 <member segment="0"/>
                 <member segment="1"/>
                 <include segmentGroup="soma_0"/>
             </segmentGroup>
-            <segmentGroup neuroLexId="GO:0030424" id="axon_group">
+            <segmentGroup id="axon_group" neuroLexId="GO:0030424">
                 <notes>Default axon segment group for the cell</notes>
                 <property tag="color" value="0 0.8 0"/>
                 <member segment="2"/>
                 <member segment="3"/>
                 <include segmentGroup="axon_0"/>
             </segmentGroup>
-            <segmentGroup neuroLexId="GO:0030425" id="dendrite_group">
+            <segmentGroup id="dendrite_group" neuroLexId="GO:0030425">
                 <notes>Default dendrite segment group for the cell</notes>
                 <property tag="color" value="0.8 0 0"/>
                 <member segment="4"/>
@@ -75,21 +84,19 @@
                 <include segmentGroup="dend_0"/>
                 <include segmentGroup="dend_1"/>
             </segmentGroup>
-            <segmentGroup neuroLexId="sao864921383" id="soma_0">
+            <segmentGroup id="all">
                 <member segment="0"/>
                 <member segment="1"/>
-            </segmentGroup>
-            <segmentGroup neuroLexId="sao864921383" id="axon_0">
                 <member segment="2"/>
                 <member segment="3"/>
-            </segmentGroup>
-            <segmentGroup neuroLexId="sao864921383" id="dend_0">
                 <member segment="4"/>
                 <member segment="5"/>
-            </segmentGroup>
-            <segmentGroup neuroLexId="sao864921383" id="dend_1">
                 <member segment="6"/>
                 <member segment="7"/>
+                <include segmentGroup="soma_0"/>
+                <include segmentGroup="axon_0"/>
+                <include segmentGroup="dend_0"/>
+                <include segmentGroup="dend_1"/>
             </segmentGroup>
         </morphology>
         <biophysicalProperties id="biophys">
