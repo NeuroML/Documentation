@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Cells.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -34,7 +34,16 @@ extends *{ref}`schema:basestandalone`*
 ```{code-block} python
 from neuroml import BaseCell
 
-variable = BaseCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -291,7 +300,17 @@ extends *{ref}`schema:basechannelpopulation`*
 ```{code-block} python
 from neuroml import ChannelPopulation
 
-variable = ChannelPopulation(neuro_lex_id=None, id=None, ion_channel=None, number=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
+variable = ChannelPopulation(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    number: 'a NonNegativeInteger (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -537,7 +556,12 @@ extends *{ref}`schema:basechanneldensity`*
 ```{code-block} python
 from neuroml import VariableParameter
 
-variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_value=None, gds_collector_=None, **kwargs_)
+variable = VariableParameter(
+    parameter: 'a string (required)' = None,
+    segment_groups: 'a string (required)' = None,
+    inhomogeneous_value: 'a InhomogeneousValue (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -576,7 +600,11 @@ variable = VariableParameter(parameter=None, segment_groups=None, inhomogeneous_
 ```{code-block} python
 from neuroml import InhomogeneousValue
 
-variable = InhomogeneousValue(inhomogeneous_parameters=None, value=None, gds_collector_=None, **kwargs_)
+variable = InhomogeneousValue(
+    inhomogeneous_parameters: 'a string (required)' = None,
+    value: 'a string (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -695,7 +723,14 @@ extends *{ref}`schema:basechanneldensity`*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniform
 
-variable = ChannelDensityNonUniform(neuro_lex_id=None, id=None, ion_channel=None, erev=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityNonUniform(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -807,7 +842,13 @@ extends *{ref}`schema:basechanneldensity`*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniformNernst
 
-variable = ChannelDensityNonUniformNernst(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityNonUniformNernst(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -910,7 +951,13 @@ extends *{ref}`schema:basechanneldensity`*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniformGHK
 
-variable = ChannelDensityNonUniformGHK(neuro_lex_id=None, id=None, ion_channel=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityNonUniformGHK(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -1017,7 +1064,18 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{code-block} python
 from neuroml import ChannelDensity
 
-variable = ChannelDensity(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensity(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1100,7 +1158,18 @@ extends {ref}`schema:channeldensity`
 ```{code-block} python
 from neuroml import ChannelDensityVShift
 
-variable = ChannelDensityVShift(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, erev=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, v_shift=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityVShift(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    v_shift: 'a Nml2Quantity_voltage (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -1224,7 +1293,17 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{code-block} python
 from neuroml import ChannelDensityNernst
 
-variable = ChannelDensityNernst(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityNernst(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -1348,7 +1427,16 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{code-block} python
 from neuroml import ChannelDensityNernstCa2
 
-variable = ChannelDensityNernstCa2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, variable_parameters=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityNernstCa2(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    variable_parameters: 'list of VariableParameter(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -1464,7 +1552,15 @@ extends *{ref}`schema:basechanneldensity`*
 ```{code-block} python
 from neuroml import ChannelDensityGHK
 
-variable = ChannelDensityGHK(neuro_lex_id=None, id=None, ion_channel=None, permeability=None, segment_groups='all', segments=None, ion=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityGHK(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    permeability: 'a Nml2Quantity_permeability (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -1589,7 +1685,15 @@ extends *{ref}`schema:basechanneldensitycond`*
 ```{code-block} python
 from neuroml import ChannelDensityGHK2
 
-variable = ChannelDensityGHK2(neuro_lex_id=None, id=None, ion_channel=None, cond_density=None, segment_groups='all', segments=None, ion=None, gds_collector_=None, **kwargs_)
+variable = ChannelDensityGHK2(
+    id: 'a NmlId (required)' = None,
+    ion_channel: 'a NmlId (required)' = None,
+    cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    segments: 'a NonNegativeInteger (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -2140,7 +2244,15 @@ extends {ref}`schema:point3dwithdiam`
 ```{code-block} python
 from neuroml import Segment
 
-variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=None, distal=None, gds_collector_=None, **kwargs_)
+variable = Segment(
+    id: 'a NonNegativeInteger (required)' = None,
+    name: 'a string (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    parent: 'a SegmentParent (optional)' = None,
+    proximal: 'a Point3DWithDiam (optional)' = None,
+    distal: 'a Point3DWithDiam (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2222,7 +2334,19 @@ variable = Segment(neuro_lex_id=None, id=None, name=None, parent=None, proximal=
 ```{code-block} python
 from neuroml import SegmentGroup
 
-variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None, annotation=None, members=None, includes=None, paths=None, sub_trees=None, inhomogeneous_parameters=None, gds_collector_=None, **kwargs_)
+variable = SegmentGroup(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    members: 'list of Member(s) (optional)' = None,
+    includes: 'list of Include(s) (optional)' = None,
+    paths: 'list of Path(s) (optional)' = None,
+    sub_trees: 'list of SubTree(s) (optional)' = None,
+    inhomogeneous_parameters: 'list of InhomogeneousParameter(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2272,7 +2396,10 @@ variable = SegmentGroup(neuro_lex_id=None, id=None, notes=None, properties=None,
 ```{code-block} python
 from neuroml import Member
 
-variable = Member(segments=None, gds_collector_=None, **kwargs_)
+variable = Member(
+    segments: 'a NonNegativeInteger (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2376,7 +2503,10 @@ variable = Member(segments=None, gds_collector_=None, **kwargs_)
 ```{code-block} python
 from neuroml import Include
 
-variable = Include(segment_groups=None, gds_collector_=None, **kwargs_)
+variable = Include(
+    segment_groups: 'a NmlId (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2420,7 +2550,11 @@ variable = Include(segment_groups=None, gds_collector_=None, **kwargs_)
 ```{code-block} python
 from neuroml import Path
 
-variable = Path(from_=None, to=None, gds_collector_=None, **kwargs_)
+variable = Path(
+    from_: 'a SegmentEndPoint (optional)' = None,
+    to: 'a SegmentEndPoint (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2460,7 +2594,11 @@ variable = Path(from_=None, to=None, gds_collector_=None, **kwargs_)
 ```{code-block} python
 from neuroml import SubTree
 
-variable = SubTree(from_=None, to=None, gds_collector_=None, **kwargs_)
+variable = SubTree(
+    from_: 'a SegmentEndPoint (optional)' = None,
+    to: 'a SegmentEndPoint (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2511,7 +2649,14 @@ variable = SubTree(from_=None, to=None, gds_collector_=None, **kwargs_)
 ```{code-block} python
 from neuroml import InhomogeneousParameter
 
-variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, metric=None, proximal=None, distal=None, gds_collector_=None, **kwargs_)
+variable = InhomogeneousParameter(
+    id: 'a NmlId (required)' = None,
+    variable: 'a string (required)' = None,
+    metric: 'a Metric (required)' = None,
+    proximal: 'a ProximalDetails (optional)' = None,
+    distal: 'a DistalDetails (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2599,7 +2744,16 @@ variable = InhomogeneousParameter(neuro_lex_id=None, id=None, variable=None, met
 ```{code-block} python
 from neuroml import Morphology
 
-variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, segments=None, segment_groups=None, gds_collector_=None, **kwargs_)
+variable = Morphology(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    segments: 'list of Segment(s) (required)' = None,
+    segment_groups: 'list of SegmentGroup(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2755,7 +2909,11 @@ variable = Morphology(neuro_lex_id=None, id=None, metaid=None, notes=None, prope
 ```{code-block} python
 from neuroml import SpecificCapacitance
 
-variable = SpecificCapacitance(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
+variable = SpecificCapacitance(
+    value: 'a Nml2Quantity_specificCapacitance (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2798,7 +2956,11 @@ variable = SpecificCapacitance(value=None, segment_groups='all', gds_collector_=
 ```{code-block} python
 from neuroml import InitMembPotential
 
-variable = InitMembPotential(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
+variable = InitMembPotential(
+    value: 'a Nml2Quantity_voltage (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2838,7 +3000,11 @@ variable = InitMembPotential(value=None, segment_groups='all', gds_collector_=No
 ```{code-block} python
 from neuroml import SpikeThresh
 
-variable = SpikeThresh(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
+variable = SpikeThresh(
+    value: 'a Nml2Quantity_voltage (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2941,7 +3107,22 @@ variable = SpikeThresh(value=None, segment_groups='all', gds_collector_=None, **
 ```{code-block} python
 from neuroml import MembraneProperties
 
-variable = MembraneProperties(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = MembraneProperties(
+    channel_populations: 'list of ChannelPopulation(s) (optional)' = None,
+    channel_densities: 'list of ChannelDensity(s) (optional)' = None,
+    channel_density_v_shifts: 'list of ChannelDensityVShift(s) (optional)' = None,
+    channel_density_nernsts: 'list of ChannelDensityNernst(s) (optional)' = None,
+    channel_density_ghks: 'list of ChannelDensityGHK(s) (optional)' = None,
+    channel_density_ghk2s: 'list of ChannelDensityGHK2(s) (optional)' = None,
+    channel_density_non_uniforms: 'list of ChannelDensityNonUniform(s) (optional)' = None,
+    channel_density_non_uniform_nernsts: 'list of ChannelDensityNonUniformNernst(s) (optional)' = None,
+    channel_density_non_uniform_ghks: 'list of ChannelDensityNonUniformGHK(s) (optional)' = None,
+    spike_threshes: 'list of SpikeThresh(s) (optional)' = None,
+    specific_capacitances: 'list of SpecificCapacitance(s) (optional)' = None,
+    init_memb_potentials: 'list of InitMembPotential(s) (optional)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3077,7 +3258,22 @@ extends {ref}`schema:membraneproperties`
 ```{code-block} python
 from neuroml import MembraneProperties2CaPools
 
-variable = MembraneProperties2CaPools(channel_populations=None, channel_densities=None, channel_density_v_shifts=None, channel_density_nernsts=None, channel_density_ghks=None, channel_density_ghk2s=None, channel_density_non_uniforms=None, channel_density_non_uniform_nernsts=None, channel_density_non_uniform_ghks=None, spike_threshes=None, specific_capacitances=None, init_memb_potentials=None, channel_density_nernst_ca2s=None, gds_collector_=None, **kwargs_)
+variable = MembraneProperties2CaPools(
+    channel_populations: 'list of ChannelPopulation(s) (optional)' = None,
+    channel_densities: 'list of ChannelDensity(s) (optional)' = None,
+    channel_density_v_shifts: 'list of ChannelDensityVShift(s) (optional)' = None,
+    channel_density_nernsts: 'list of ChannelDensityNernst(s) (optional)' = None,
+    channel_density_ghks: 'list of ChannelDensityGHK(s) (optional)' = None,
+    channel_density_ghk2s: 'list of ChannelDensityGHK2(s) (optional)' = None,
+    channel_density_non_uniforms: 'list of ChannelDensityNonUniform(s) (optional)' = None,
+    channel_density_non_uniform_nernsts: 'list of ChannelDensityNonUniformNernst(s) (optional)' = None,
+    channel_density_non_uniform_ghks: 'list of ChannelDensityNonUniformGHK(s) (optional)' = None,
+    spike_threshes: 'list of SpikeThresh(s) (optional)' = None,
+    specific_capacitances: 'list of SpecificCapacitance(s) (optional)' = None,
+    init_memb_potentials: 'list of InitMembPotential(s) (optional)' = None,
+    channel_density_nernst_ca2s: 'list of ChannelDensityNernstCa2(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -3140,7 +3336,17 @@ variable = MembraneProperties2CaPools(channel_populations=None, channel_densitie
 ```{code-block} python
 from neuroml import BiophysicalProperties
 
-variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties=None, intracellular_properties=None, extracellular_properties=None, gds_collector_=None, **kwargs_)
+variable = BiophysicalProperties(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    membrane_properties: 'a MembraneProperties (required)' = None,
+    intracellular_properties: 'a IntracellularProperties (optional)' = None,
+    extracellular_properties: 'a ExtracellularProperties (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3252,7 +3458,17 @@ variable = BiophysicalProperties(neuro_lex_id=None, id=None, metaid=None, notes=
 ```{code-block} python
 from neuroml import BiophysicalProperties2CaPools
 
-variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, membrane_properties2_ca_pools=None, intracellular_properties2_ca_pools=None, extracellular_properties=None, gds_collector_=None, **kwargs_)
+variable = BiophysicalProperties2CaPools(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    membrane_properties2_ca_pools: 'a MembraneProperties2CaPools (required)' = None,
+    intracellular_properties2_ca_pools: 'a IntracellularProperties2CaPools (optional)' = None,
+    extracellular_properties: 'a ExtracellularProperties (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -3317,7 +3533,12 @@ variable = BiophysicalProperties2CaPools(neuro_lex_id=None, id=None, metaid=None
 ```{code-block} python
 from neuroml import IntracellularProperties
 
-variable = IntracellularProperties(species=None, resistivities=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = IntracellularProperties(
+    species: 'list of Species(s) (optional)' = None,
+    resistivities: 'list of Resistivity(s) (optional)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3409,7 +3630,11 @@ extends {ref}`schema:intracellularproperties`
 ```{code-block} python
 from neuroml import IntracellularProperties2CaPools
 
-variable = IntracellularProperties2CaPools(species=None, resistivities=None, gds_collector_=None, **kwargs_)
+variable = IntracellularProperties2CaPools(
+    species: 'list of Species(s) (optional)' = None,
+    resistivities: 'list of Resistivity(s) (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -3451,7 +3676,11 @@ variable = IntracellularProperties2CaPools(species=None, resistivities=None, gds
 ```{code-block} python
 from neuroml import Resistivity
 
-variable = Resistivity(value=None, segment_groups='all', gds_collector_=None, **kwargs_)
+variable = Resistivity(
+    value: 'a Nml2Quantity_resistivity (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3672,7 +3901,19 @@ extends {ref}`schema:concentrationmodel`
 ```{code-block} python
 from neuroml import DecayingPoolConcentrationModel
 
-variable = DecayingPoolConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, shell_thickness=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = DecayingPoolConcentrationModel(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    resting_conc: 'a Nml2Quantity_concentration (required)' = None,
+    decay_constant: 'a Nml2Quantity_time (required)' = None,
+    shell_thickness: 'a Nml2Quantity_length (required)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -3787,7 +4028,18 @@ extends {ref}`schema:concentrationmodel`
 ```{code-block} python
 from neuroml import FixedFactorConcentrationModel
 
-variable = FixedFactorConcentrationModel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, ion=None, resting_conc=None, decay_constant=None, rho=None, gds_collector_=None, **kwargs_)
+variable = FixedFactorConcentrationModel(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    ion: 'a NmlId (required)' = None,
+    resting_conc: 'a Nml2Quantity_concentration (required)' = None,
+    decay_constant: 'a Nml2Quantity_time (required)' = None,
+    rho: 'a Nml2Quantity_rhoFactor (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -3984,7 +4236,15 @@ extends {ref}`schema:concentrationmodel`
 ```{code-block} python
 from neuroml import Species
 
-variable = Species(id=None, concentration_model=None, ion=None, initial_concentration=None, initial_ext_concentration=None, segment_groups='all', gds_collector_=None, **kwargs_)
+variable = Species(
+    id: 'a NmlId (required)' = None,
+    concentration_model: 'a NmlId (required)' = None,
+    ion: 'a NmlId (optional)' = None,
+    initial_concentration: 'a Nml2Quantity_concentration (required)' = None,
+    initial_ext_concentration: 'a Nml2Quantity_concentration (required)' = None,
+    segment_groups: 'a NmlId (optional)' = 'all',
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -4130,7 +4390,20 @@ extends *{ref}`schema:basecellmembpot`*
 ```{code-block} python
 from neuroml import Cell
 
-variable = Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = Cell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    morphology_attr: 'a NmlId (optional)' = None,
+    biophysical_properties_attr: 'a NmlId (optional)' = None,
+    morphology: 'a Morphology (optional)' = None,
+    biophysical_properties: 'a BiophysicalProperties (optional)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -4402,7 +4675,20 @@ extends {ref}`schema:cell`
 ```{code-block} python
 from neuroml import Cell2CaPools
 
-variable = Cell2CaPools(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, morphology_attr=None, biophysical_properties_attr=None, morphology=None, biophysical_properties=None, biophysical_properties2_ca_pools=None, gds_collector_=None, **kwargs_)
+variable = Cell2CaPools(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    morphology_attr: 'a NmlId (optional)' = None,
+    biophysical_properties_attr: 'a NmlId (optional)' = None,
+    morphology: 'a Morphology (optional)' = None,
+    biophysical_properties: 'a BiophysicalProperties (optional)' = None,
+    biophysical_properties2_ca_pools: 'a BiophysicalProperties2CaPools (optional)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -4462,7 +4748,17 @@ extends *{ref}`schema:basecellmembpot`*
 ```{code-block} python
 from neuroml import BaseCellMembPotCap
 
-variable = BaseCellMembPotCap(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseCellMembPotCap(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    C: 'a Nml2Quantity_capacitance (required)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -4612,7 +4908,20 @@ extends *{ref}`schema:baseiaf`*
 ```{code-block} python
 from neuroml import IafTauCell
 
-variable = IafTauCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = IafTauCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    leak_reversal: 'a Nml2Quantity_voltage (required)' = None,
+    thresh: 'a Nml2Quantity_voltage (required)' = None,
+    reset: 'a Nml2Quantity_voltage (required)' = None,
+    tau: 'a Nml2Quantity_time (required)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -4723,7 +5032,20 @@ extends {ref}`schema:iaftaucell`
 ```{code-block} python
 from neuroml import IafTauRefCell
 
-variable = IafTauRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, tau=None, refract=None, gds_collector_=None, **kwargs_)
+variable = IafTauRefCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    leak_reversal: 'a Nml2Quantity_voltage (required)' = None,
+    thresh: 'a Nml2Quantity_voltage (required)' = None,
+    reset: 'a Nml2Quantity_voltage (required)' = None,
+    tau: 'a Nml2Quantity_time (required)' = None,
+    refract: 'a Nml2Quantity_time (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -4901,7 +5223,21 @@ extends *{ref}`schema:baseiafcapcell`*
 ```{code-block} python
 from neuroml import IafCell
 
-variable = IafCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = IafCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    leak_reversal: 'a Nml2Quantity_voltage (required)' = None,
+    thresh: 'a Nml2Quantity_voltage (required)' = None,
+    reset: 'a Nml2Quantity_voltage (required)' = None,
+    C: 'a Nml2Quantity_capacitance (required)' = None,
+    leak_conductance: 'a Nml2Quantity_conductance (required)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5038,7 +5374,21 @@ extends {ref}`schema:iafcell`
 ```{code-block} python
 from neuroml import IafRefCell
 
-variable = IafRefCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, leak_reversal=None, thresh=None, reset=None, C=None, leak_conductance=None, refract=None, gds_collector_=None, **kwargs_)
+variable = IafRefCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    leak_reversal: 'a Nml2Quantity_voltage (required)' = None,
+    thresh: 'a Nml2Quantity_voltage (required)' = None,
+    reset: 'a Nml2Quantity_voltage (required)' = None,
+    C: 'a Nml2Quantity_capacitance (required)' = None,
+    leak_conductance: 'a Nml2Quantity_conductance (required)' = None,
+    refract: 'a Nml2Quantity_time (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5178,7 +5528,21 @@ extends *{ref}`schema:basecellmembpot`*
 ```{code-block} python
 from neuroml import IzhikevichCell
 
-variable = IzhikevichCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, v0=None, thresh=None, a=None, b=None, c=None, d=None, gds_collector_=None, **kwargs_)
+variable = IzhikevichCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    v0: 'a Nml2Quantity_voltage (required)' = None,
+    thresh: 'a Nml2Quantity_voltage (required)' = None,
+    a: 'a Nml2Quantity_none (required)' = None,
+    b: 'a Nml2Quantity_none (required)' = None,
+    c: 'a Nml2Quantity_none (required)' = None,
+    d: 'a Nml2Quantity_none (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5313,7 +5677,25 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```{code-block} python
 from neuroml import Izhikevich2007Cell
 
-variable = Izhikevich2007Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, v0=None, k=None, vr=None, vt=None, vpeak=None, a=None, b=None, c=None, d=None, gds_collector_=None, **kwargs_)
+variable = Izhikevich2007Cell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    C: 'a Nml2Quantity_capacitance (required)' = None,
+    v0: 'a Nml2Quantity_voltage (required)' = None,
+    k: 'a Nml2Quantity_conductancePerVoltage (required)' = None,
+    vr: 'a Nml2Quantity_voltage (required)' = None,
+    vt: 'a Nml2Quantity_voltage (required)' = None,
+    vpeak: 'a Nml2Quantity_voltage (required)' = None,
+    a: 'a Nml2Quantity_pertime (required)' = None,
+    b: 'a Nml2Quantity_conductance (required)' = None,
+    c: 'a Nml2Quantity_voltage (required)' = None,
+    d: 'a Nml2Quantity_current (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5456,7 +5838,26 @@ extends *{ref}`schema:basecellmembpotcap`*
 ```{code-block} python
 from neuroml import AdExIaFCell
 
-variable = AdExIaFCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, C=None, g_l=None, EL=None, reset=None, VT=None, thresh=None, del_t=None, tauw=None, refract=None, a=None, b=None, gds_collector_=None, **kwargs_)
+variable = AdExIaFCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    C: 'a Nml2Quantity_capacitance (required)' = None,
+    g_l: 'a Nml2Quantity_conductance (required)' = None,
+    EL: 'a Nml2Quantity_voltage (required)' = None,
+    reset: 'a Nml2Quantity_voltage (required)' = None,
+    VT: 'a Nml2Quantity_voltage (required)' = None,
+    thresh: 'a Nml2Quantity_voltage (required)' = None,
+    del_t: 'a Nml2Quantity_voltage (required)' = None,
+    tauw: 'a Nml2Quantity_time (required)' = None,
+    refract: 'a Nml2Quantity_time (required)' = None,
+    a: 'a Nml2Quantity_conductance (required)' = None,
+    b: 'a Nml2Quantity_current (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5555,7 +5956,16 @@ extends *{ref}`schema:basecellmembpotdl`*
 ```{code-block} python
 from neuroml import FitzHughNagumoCell
 
-variable = FitzHughNagumoCell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, I=None, gds_collector_=None, **kwargs_)
+variable = FitzHughNagumoCell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    I: 'a Nml2Quantity_none (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5757,7 +6167,36 @@ extends *{ref}`schema:basecellmembpot`*
 ```{code-block} python
 from neuroml import PinskyRinzelCA3Cell
 
-variable = PinskyRinzelCA3Cell(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, i_soma=None, i_dend=None, gc=None, g_ls=None, g_ld=None, g_na=None, g_kdr=None, g_ca=None, g_kahp=None, g_kc=None, g_nmda=None, g_ampa=None, e_na=None, e_ca=None, e_k=None, e_l=None, qd0=None, pp=None, alphac=None, betac=None, cm=None, gds_collector_=None, **kwargs_)
+variable = PinskyRinzelCA3Cell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    i_soma: 'a Nml2Quantity_currentDensity (required)' = None,
+    i_dend: 'a Nml2Quantity_currentDensity (required)' = None,
+    gc: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_ls: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_ld: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_na: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_kdr: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_ca: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_kahp: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_kc: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_nmda: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    g_ampa: 'a Nml2Quantity_conductanceDensity (required)' = None,
+    e_na: 'a Nml2Quantity_voltage (required)' = None,
+    e_ca: 'a Nml2Quantity_voltage (required)' = None,
+    e_k: 'a Nml2Quantity_voltage (required)' = None,
+    e_l: 'a Nml2Quantity_voltage (required)' = None,
+    qd0: 'a Nml2Quantity_none (required)' = None,
+    pp: 'a Nml2Quantity_none (required)' = None,
+    alphac: 'a Nml2Quantity_none (required)' = None,
+    betac: 'a Nml2Quantity_none (required)' = None,
+    cm: 'a Nml2Quantity_specificCapacitance (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML

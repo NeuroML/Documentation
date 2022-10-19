@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -75,7 +75,10 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```{code-block} python
 from neuroml import Annotation
 
-variable = Annotation(anytypeobjs_=None, gds_collector_=None, **kwargs_)
+variable = Annotation(
+    anytypeobjs_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -123,7 +126,11 @@ variable = Annotation(anytypeobjs_=None, gds_collector_=None, **kwargs_)
 ```{code-block} python
 from neuroml import Property
 
-variable = Property(tag=None, value=None, gds_collector_=None, **kwargs_)
+variable = Property(
+    tag: 'a string (required)' = None,
+    value: 'a string (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -656,7 +663,13 @@ extends *{ref}`schema:basebqbiol`*
 ```{code-block} python
 from neuroml import Point3DWithDiam
 
-variable = Point3DWithDiam(x=None, y=None, z=None, diameter=None, gds_collector_=None, **kwargs_)
+variable = Point3DWithDiam(
+    x: 'a double (required)' = None,
+    y: 'a double (required)' = None,
+    z: 'a double (required)' = None,
+    diameter: 'a DoubleGreaterThanZero (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````

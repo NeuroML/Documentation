@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//PyNN.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -332,7 +332,25 @@ extends *{ref}`schema:basepynniafcell`*
 ```{code-block} python
 from neuroml import IF_curr_alpha
 
-variable = IF_curr_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, gds_collector_=None, **kwargs_)
+variable = IF_curr_alpha(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    tau_m: 'a float (required)' = None,
+    tau_refrac: 'a float (required)' = None,
+    v_reset: 'a float (required)' = None,
+    v_rest: 'a float (required)' = None,
+    v_thresh: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -467,7 +485,25 @@ extends *{ref}`schema:basepynniafcell`*
 ```{code-block} python
 from neuroml import IF_curr_exp
 
-variable = IF_curr_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, gds_collector_=None, **kwargs_)
+variable = IF_curr_exp(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    tau_m: 'a float (required)' = None,
+    tau_refrac: 'a float (required)' = None,
+    v_reset: 'a float (required)' = None,
+    v_rest: 'a float (required)' = None,
+    v_thresh: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -604,7 +640,27 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```{code-block} python
 from neuroml import IF_cond_alpha
 
-variable = IF_cond_alpha(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, gds_collector_=None, **kwargs_)
+variable = IF_cond_alpha(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    tau_m: 'a float (required)' = None,
+    tau_refrac: 'a float (required)' = None,
+    v_reset: 'a float (required)' = None,
+    v_rest: 'a float (required)' = None,
+    v_thresh: 'a float (required)' = None,
+    e_rev_E: 'a float (required)' = None,
+    e_rev_I: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -744,7 +800,27 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```{code-block} python
 from neuroml import IF_cond_exp
 
-variable = IF_cond_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, gds_collector_=None, **kwargs_)
+variable = IF_cond_exp(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    tau_m: 'a float (required)' = None,
+    tau_refrac: 'a float (required)' = None,
+    v_reset: 'a float (required)' = None,
+    v_rest: 'a float (required)' = None,
+    v_thresh: 'a float (required)' = None,
+    e_rev_E: 'a float (required)' = None,
+    e_rev_I: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -911,7 +987,33 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```{code-block} python
 from neuroml import EIF_cond_exp_isfa_ista
 
-variable = EIF_cond_exp_isfa_ista(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, a=None, b=None, delta_T=None, tau_w=None, v_spike=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = EIF_cond_exp_isfa_ista(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    tau_m: 'a float (required)' = None,
+    tau_refrac: 'a float (required)' = None,
+    v_reset: 'a float (required)' = None,
+    v_rest: 'a float (required)' = None,
+    v_thresh: 'a float (required)' = None,
+    e_rev_E: 'a float (required)' = None,
+    e_rev_I: 'a float (required)' = None,
+    a: 'a float (required)' = None,
+    b: 'a float (required)' = None,
+    delta_T: 'a float (required)' = None,
+    tau_w: 'a float (required)' = None,
+    v_spike: 'a float (required)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1078,7 +1180,32 @@ extends *{ref}`schema:basepynniafcondcell`*
 ```{code-block} python
 from neuroml import EIF_cond_alpha_isfa_ista
 
-variable = EIF_cond_alpha_isfa_ista(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, tau_m=None, tau_refrac=None, v_reset=None, v_rest=None, v_thresh=None, e_rev_E=None, e_rev_I=None, a=None, b=None, delta_T=None, tau_w=None, v_spike=None, gds_collector_=None, **kwargs_)
+variable = EIF_cond_alpha_isfa_ista(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    tau_m: 'a float (required)' = None,
+    tau_refrac: 'a float (required)' = None,
+    v_reset: 'a float (required)' = None,
+    v_rest: 'a float (required)' = None,
+    v_thresh: 'a float (required)' = None,
+    e_rev_E: 'a float (required)' = None,
+    e_rev_I: 'a float (required)' = None,
+    a: 'a float (required)' = None,
+    b: 'a float (required)' = None,
+    delta_T: 'a float (required)' = None,
+    tau_w: 'a float (required)' = None,
+    v_spike: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1223,7 +1350,29 @@ extends *{ref}`schema:basepynncell`*
 ```{code-block} python
 from neuroml import HH_cond_exp
 
-variable = HH_cond_exp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, cm=None, i_offset=None, tau_syn_E=None, tau_syn_I=None, v_init=None, v_offset=None, e_rev_E=None, e_rev_I=None, e_rev_K=None, e_rev_Na=None, e_rev_leak=None, g_leak=None, gbar_K=None, gbar_Na=None, gds_collector_=None, **kwargs_)
+variable = HH_cond_exp(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    cm: 'a float (required)' = None,
+    i_offset: 'a float (required)' = None,
+    tau_syn_E: 'a float (required)' = None,
+    tau_syn_I: 'a float (required)' = None,
+    v_init: 'a float (required)' = None,
+    v_offset: 'a float (required)' = None,
+    e_rev_E: 'a float (required)' = None,
+    e_rev_I: 'a float (required)' = None,
+    e_rev_K: 'a float (required)' = None,
+    e_rev_Na: 'a float (required)' = None,
+    e_rev_leak: 'a float (required)' = None,
+    g_leak: 'a float (required)' = None,
+    gbar_K: 'a float (required)' = None,
+    gbar_Na: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1310,7 +1459,17 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```{code-block} python
 from neuroml import BasePynnSynapse
 
-variable = BasePynnSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BasePynnSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    tau_syn: 'a float (required)' = None,
+    extensiontype_=None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 `````
@@ -1432,7 +1591,17 @@ extends *{ref}`schema:basepynnsynapse`*
 ```{code-block} python
 from neuroml import ExpCondSynapse
 
-variable = ExpCondSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, e_rev=None, gds_collector_=None, **kwargs_)
+variable = ExpCondSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    tau_syn: 'a float (required)' = None,
+    e_rev: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1557,7 +1726,16 @@ extends *{ref}`schema:basepynnsynapse`*
 ```{code-block} python
 from neuroml import ExpCurrSynapse
 
-variable = ExpCurrSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, gds_collector_=None, **kwargs_)
+variable = ExpCurrSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    tau_syn: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1687,7 +1865,17 @@ extends *{ref}`schema:basepynnsynapse`*
 ```{code-block} python
 from neuroml import AlphaCondSynapse
 
-variable = AlphaCondSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, e_rev=None, gds_collector_=None, **kwargs_)
+variable = AlphaCondSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    tau_syn: 'a float (required)' = None,
+    e_rev: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1815,7 +2003,16 @@ extends *{ref}`schema:basepynnsynapse`*
 ```{code-block} python
 from neuroml import AlphaCurrSynapse
 
-variable = AlphaCurrSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau_syn=None, gds_collector_=None, **kwargs_)
+variable = AlphaCurrSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    tau_syn: 'a float (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1958,7 +2155,17 @@ extends *{ref}`schema:basespikesource`*
 ```{code-block} python
 from neuroml import SpikeSourcePoisson
 
-variable = SpikeSourcePoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, start=None, duration=None, rate=None, gds_collector_=None, **kwargs_)
+variable = SpikeSourcePoisson(
+    id: 'a NonNegativeInteger (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    start: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    rate: 'a Nml2Quantity_pertime (required)' = None,
+    gds_collector_=None,
+    **kwargs_,)
 ```
 ````
 ````{tab-item} Usage: XML
