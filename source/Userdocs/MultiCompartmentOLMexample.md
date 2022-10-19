@@ -40,14 +40,14 @@ To keep our Python script modularised, we start constructing our {ref}`cell <sch
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 110-285
+lines: 111-290
 ----
 ```
 Let us walk through this function:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 115-121
+lines: 116-123
 ----
 ```
 We create a new model document that will hold the cell model.
@@ -131,26 +131,36 @@ Take a look at the {ref}`conventions page <userdocs:conventions:segments>` for m
 We now have an empty cell.
 Since we are building a multi-compartmental cell, we now proceed to define the detailed morphology of the cell.
 We do this by adding {ref}`segments <schema:segment>` and grouping them in to {ref}`segment groups <schema:segmentgroup>`.
-We can segments using the `add_segment` utility function, as we do for the segments forming the soma:
+We can add segments using the `add_segment` utility function, as we do for the segments forming the soma.
+Here, our soma has two segments.
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 123-137
+lines: 123-142
 ----
 ```
 The utility function takes the dimensions of the segment---it's {ref}`proximal <schema:proximal>` and {ref}`distal <schema:distal>` co-ordinates and the diameter to create a segment of the provided name.
-Additionally, since segments need to be contiguous, it adds the segment to a *parent* segment.
+Additionally, since segments need to be contiguous, it makes the first segment the *parent* of the second, to build a chain.
 Finally, it places the segment into the specified segment group and the default groups that we also have and adds the segment to the cell's morphology.
 
-We call the same function multiple times to add soma, dendritic, and axonal segments to our cell but this can get quite lengthy.
-To easily add unbranched contiguous lists of segments to the cell, we can use the `add_unbranched_segments` utility function.
-Here we use it to create a dendrite that includes two segments.
+Note that by default, the `add_segment` function does not know if the segments are contiguous, i.e., that they form an unbranched branch of the cell.
+We could have added segments here that do not line up in a chain, when building different parts of a cell for example.
+In this case, we know that the two soma segments must be contiguous, and that they are on the same unbranched branch (i.e. a continuous section without any branching points on it), so we create an unbranched segment group first using the `add_unbranched_segment_group`.
+
+If we were only creating cell morphologies, this would not not matter much.
+Even if the two segments were not included in a group of unbranched segments, they would still be connected.
+However, for simulation, simulators such as NEURON need to know which parts of the cell form unbranched sections so that they can apply the [cable equation](https://en.wikipedia.org/wiki/Cable_theory#Deriving_the_cable_equation) and break them into smaller segments to simulate the electric current through them.
+(See {cite}`Crook2007` for more information on how different simulators simulate cells with detailed morphologies.)
+
+Next, we can call the same functions multiple times to add soma, dendritic, and axonal segments to our cell but this can get quite lengthy.
+To easily add unbranched contiguous lists of segments to the cell, we can directly use the `add_unbranched_segments` utility function.
+Here we use it to create an axonal segment group, and two dendritic groups each with two segments.
 The first point we provide is the proximal (starting) of the dendrite.
 The next two points are the distal (ends) of each segment forming the section.
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 152-162
+lines: 144-183
 ----
 ```
 We repeat this process to create more dendritic and axonal sections of contiguous segments.
@@ -159,7 +169,7 @@ Finally, we add an extra colour property to the three primary segment groups tha
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 175-183
+lines: 185-193
 ----
 ```
 
@@ -177,14 +187,14 @@ We use more helpful utility functions to set these values
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 186-188
+lines: 195-198
 ----
 ```
 For setting channel densities, we have the `add_channel_density` function:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 192-198
+lines: 200-289
 ----
 ```
 Note that we are not writing our channel files from scratch here.
@@ -196,7 +206,7 @@ We also generate the morphology plot shown on the top of this page.
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 281-284
+lines: 291-294
 ----
 ```
 The resulting NeuroML file is:
@@ -225,7 +235,7 @@ Similar to our previous example, we are going to only create a network with one 
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 86-107
+lines: 87-109
 ----
 ```
 We start in the same way, by creating a new NeuroML document and including our cell file into it.
@@ -389,7 +399,7 @@ We do this in the `main` function:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 19-67
+lines: 20-68
 ----
 ```
 Here we first create a `LEMSSimulation` instance and include our network NeuroML file in it.
@@ -398,14 +408,14 @@ In our case, it's the id of our network, `single_olm_cell_network`:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 27-31
+lines: 28-32
 ----
 ```
 We also want to record some information, so we create an output file first with an `id` of `output0`:
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 35
+lines: 36
 ----
 ```
 Now, we can record any quantity that is exposed by NeuroML (any `exposure`).
@@ -413,7 +423,7 @@ Here, for example, we add columns for the membrane potentials `v` of the differe
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 36-59
+lines: 37-60
 ----
 ```
 The path required to point to the `quantity` (exposure) to be recorded needs to be correctly provided.
@@ -425,7 +435,7 @@ We then save the LEMS simulation file, and run our simulation with the {ref}`NEU
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 61-65
+lines: 62-66
 ----
 ```
 ## Plotting the recorded variables
@@ -434,7 +444,7 @@ To plot the variables that we recorded, we write a simple function that reads th
 ```{literalinclude} ./NML2_examples/olm-example.py
 ----
 language: python
-lines: 70-83
+lines: 71-84
 ----
 ```
 This concludes this example.
