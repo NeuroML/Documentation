@@ -114,7 +114,11 @@ def get_libneuroml_signatures():
             class_sig = class_dict[comp_type_upper]
             constructor_sig = inspect.signature(class_sig)
             params = str(constructor_sig)[1:][:-1].split(', ')
-            comp_type_py_api[comp_type] = [comp_type_upper, params]
+            filtered_params = []
+            for p in params:
+                if "gds_collector_" not in p and "kwargs_" not in p:
+                    filtered_params.append(p)
+            comp_type_py_api[comp_type] = [comp_type_upper, filtered_params]
         except KeyError:
             comp_type_py_api[comp_type] = None
 

@@ -556,7 +556,7 @@ examples = env.from_string(textwrap.dedent(
     variable = {{ pysig[0] }}(
     {%- for sig in pysig[1] %}
         {{ sig | indent(4) }},
-    {%- endfor -%}
+    {%- endfor %}
     )
     ```
     ````
