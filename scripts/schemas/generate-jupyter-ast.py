@@ -113,7 +113,8 @@ def get_libneuroml_signatures():
         try:
             class_sig = class_dict[comp_type_upper]
             constructor_sig = inspect.signature(class_sig)
-            comp_type_py_api[comp_type] = [comp_type_upper, str(constructor_sig)]
+            params = str(constructor_sig)[1:][:-1].split(', ')
+            comp_type_py_api[comp_type] = [comp_type_upper, params]
         except KeyError:
             comp_type_py_api[comp_type] = None
 

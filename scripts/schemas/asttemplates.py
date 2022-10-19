@@ -553,7 +553,11 @@ examples = env.from_string(textwrap.dedent(
     ```{code-block} python
     from neuroml import {{ pysig[0] }}
 
-    variable = {{ pysig[0] }}{{ pysig[1] }}
+    variable = {{ pysig[0] }}(
+    {%- for sig in pysig[1] %}
+        {{ sig | indent(4) }},
+    {%- endfor -%}
+    )
     ```
     ````
     {%- endif -%}
