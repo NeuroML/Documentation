@@ -63,39 +63,31 @@
             <segmentGroup id="soma_group" neuroLexId="GO:0043025">
                 <notes>Default soma segment group for the cell</notes>
                 <property tag="color" value="0 0 0.8"/>
-                <member segment="0"/>
-                <member segment="1"/>
+                <include segmentGroup="soma_0"/>
                 <include segmentGroup="soma_0"/>
             </segmentGroup>
             <segmentGroup id="axon_group" neuroLexId="GO:0030424">
                 <notes>Default axon segment group for the cell</notes>
                 <property tag="color" value="0 0.8 0"/>
-                <member segment="2"/>
-                <member segment="3"/>
+                <include segmentGroup="axon_0"/>
                 <include segmentGroup="axon_0"/>
             </segmentGroup>
             <segmentGroup id="dendrite_group" neuroLexId="GO:0030425">
                 <notes>Default dendrite segment group for the cell</notes>
                 <property tag="color" value="0.8 0 0"/>
-                <member segment="4"/>
-                <member segment="5"/>
-                <member segment="6"/>
-                <member segment="7"/>
                 <include segmentGroup="dend_0"/>
+                <include segmentGroup="dend_0"/>
+                <include segmentGroup="dend_1"/>
                 <include segmentGroup="dend_1"/>
             </segmentGroup>
             <segmentGroup id="all">
-                <member segment="0"/>
-                <member segment="1"/>
-                <member segment="2"/>
-                <member segment="3"/>
-                <member segment="4"/>
-                <member segment="5"/>
-                <member segment="6"/>
-                <member segment="7"/>
+                <include segmentGroup="soma_0"/>
                 <include segmentGroup="soma_0"/>
                 <include segmentGroup="axon_0"/>
+                <include segmentGroup="axon_0"/>
                 <include segmentGroup="dend_0"/>
+                <include segmentGroup="dend_0"/>
+                <include segmentGroup="dend_1"/>
                 <include segmentGroup="dend_1"/>
             </segmentGroup>
         </morphology>

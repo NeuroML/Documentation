@@ -5,31 +5,13 @@
     <include href="HH_example_leak_channel.nml"/>
     <cell id="hh_cell">
         <notes>A single compartment HH cell</notes>
-        <morphology id="morphology">
+        <morphology id="hh_cell_morph">
             <segment id="0" name="soma">
                 <proximal x="0.0" y="0.0" z="0.0" diameter="17.841241161527712"/>
                 <distal x="0.0" y="0.0" z="0.0" diameter="17.841241161527712"/>
             </segment>
-            <segmentGroup id="soma_0" neuroLexId="sao864921383">
-                <member segment="0"/>
-            </segmentGroup>
-            <segmentGroup id="soma_group" neuroLexId="GO:0043025">
-                <notes>Default soma segment group for the cell</notes>
-                <member segment="0"/>
-                <include segmentGroup="soma_0"/>
-            </segmentGroup>
-            <segmentGroup id="axon_group" neuroLexId="GO:0030424">
-                <notes>Default axon segment group for the cell</notes>
-            </segmentGroup>
-            <segmentGroup id="dendrite_group" neuroLexId="GO:0030425">
-                <notes>Default dendrite segment group for the cell</notes>
-            </segmentGroup>
-            <segmentGroup id="all">
-                <member segment="0"/>
-                <include segmentGroup="soma_0"/>
-            </segmentGroup>
         </morphology>
-        <biophysicalProperties id="biophys">
+        <biophysicalProperties id="hh_b_prop">
             <membraneProperties>
                 <channelDensity id="na_channels" ionChannel="na_channel" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
                 <channelDensity id="k_channels" ionChannel="k_channel" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
