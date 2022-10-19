@@ -349,8 +349,7 @@ variable = IF_curr_alpha(
     v_reset: 'a float (required)' = None,
     v_rest: 'a float (required)' = None,
     v_thresh: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -502,8 +501,7 @@ variable = IF_curr_exp(
     v_reset: 'a float (required)' = None,
     v_rest: 'a float (required)' = None,
     v_thresh: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -659,8 +657,7 @@ variable = IF_cond_alpha(
     v_thresh: 'a float (required)' = None,
     e_rev_E: 'a float (required)' = None,
     e_rev_I: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -819,8 +816,7 @@ variable = IF_cond_exp(
     v_thresh: 'a float (required)' = None,
     e_rev_E: 'a float (required)' = None,
     e_rev_I: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1012,8 +1008,7 @@ variable = EIF_cond_exp_isfa_ista(
     tau_w: 'a float (required)' = None,
     v_spike: 'a float (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1204,8 +1199,7 @@ variable = EIF_cond_alpha_isfa_ista(
     delta_T: 'a float (required)' = None,
     tau_w: 'a float (required)' = None,
     v_spike: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1371,8 +1365,7 @@ variable = HH_cond_exp(
     g_leak: 'a float (required)' = None,
     gbar_K: 'a float (required)' = None,
     gbar_Na: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1468,8 +1461,7 @@ variable = BasePynnSynapse(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     tau_syn: 'a float (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1600,8 +1592,7 @@ variable = ExpCondSynapse(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     tau_syn: 'a float (required)' = None,
     e_rev: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1734,8 +1725,7 @@ variable = ExpCurrSynapse(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     tau_syn: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1874,8 +1864,7 @@ variable = AlphaCondSynapse(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     tau_syn: 'a float (required)' = None,
     e_rev: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2011,8 +2000,7 @@ variable = AlphaCurrSynapse(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     tau_syn: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2164,8 +2152,7 @@ variable = SpikeSourcePoisson(
     start: 'a Nml2Quantity_time (required)' = None,
     duration: 'a Nml2Quantity_time (required)' = None,
     rate: 'a Nml2Quantity_pertime (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML

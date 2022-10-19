@@ -66,8 +66,7 @@ variable = BaseSynapse(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -133,8 +132,7 @@ variable = BaseVoltageDepSynapse(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -229,8 +227,7 @@ variable = BaseCurrentBasedSynapse(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -354,8 +351,7 @@ variable = AlphaCurrentSynapse(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     tau: 'a Nml2Quantity_time (required)' = None,
     ibase: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -438,8 +434,7 @@ variable = BaseConductanceBasedSynapse(
     gbase: 'a Nml2Quantity_conductance (required)' = None,
     erev: 'a Nml2Quantity_voltage (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -524,8 +519,7 @@ variable = BaseConductanceBasedSynapseTwo(
     gbase2: 'a Nml2Quantity_conductance (required)' = None,
     erev: 'a Nml2Quantity_voltage (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -660,8 +654,7 @@ variable = ExpOneSynapse(
     gbase: 'a Nml2Quantity_conductance (required)' = None,
     erev: 'a Nml2Quantity_voltage (required)' = None,
     tau_decay: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -810,8 +803,7 @@ variable = AlphaSynapse(
     gbase: 'a Nml2Quantity_conductance (required)' = None,
     erev: 'a Nml2Quantity_voltage (required)' = None,
     tau: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -981,8 +973,7 @@ variable = ExpTwoSynapse(
     tau_decay: 'a Nml2Quantity_time (required)' = None,
     tau_rise: 'a Nml2Quantity_time (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1179,8 +1170,7 @@ variable = ExpThreeSynapse(
     tau_decay1: 'a Nml2Quantity_time (required)' = None,
     tau_decay2: 'a Nml2Quantity_time (required)' = None,
     tau_rise: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1711,8 +1701,7 @@ variable = BlockingPlasticSynapse(
     tau_rise: 'a Nml2Quantity_time (required)' = None,
     plasticity_mechanism: 'a PlasticityMechanism (optional)' = None,
     block_mechanism: 'a BlockMechanism (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1889,8 +1878,7 @@ variable = DoubleSynapse(
     synapse2: 'a NmlId (required)' = None,
     synapse1_path: 'a string (required)' = None,
     synapse2_path: 'a string (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2161,8 +2149,7 @@ variable = GapJunction(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     conductance: 'a Nml2Quantity_conductance (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2304,8 +2291,7 @@ variable = SilentSynapse(
     properties: 'list of Property(s) (optional)' = None,
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2424,8 +2410,7 @@ variable = LinearGradedSynapse(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     conductance: 'a Nml2Quantity_conductance (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2578,8 +2563,7 @@ variable = GradedSynapse(
     Vth: 'a Nml2Quantity_voltage (required)' = None,
     k: 'a Nml2Quantity_pertime (required)' = None,
     erev: 'a Nml2Quantity_voltage (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML

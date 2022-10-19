@@ -339,8 +339,7 @@ variable = SpikeGenerator(
     properties: 'list of Property(s) (optional)' = None,
     annotation: 'a Annotation (optional)' = None,
     period: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -471,8 +470,7 @@ variable = SpikeGeneratorRandom(
     annotation: 'a Annotation (optional)' = None,
     max_isi: 'a Nml2Quantity_time (required)' = None,
     min_isi: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -607,8 +605,7 @@ variable = SpikeGeneratorPoisson(
     annotation: 'a Annotation (optional)' = None,
     average_rate: 'a Nml2Quantity_pertime (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -745,8 +742,7 @@ variable = SpikeGeneratorRefPoisson(
     annotation: 'a Annotation (optional)' = None,
     average_rate: 'a Nml2Quantity_pertime (required)' = None,
     minimum_isi: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -954,8 +950,7 @@ variable = PoissonFiringSynapse(
     average_rate: 'a Nml2Quantity_pertime (required)' = None,
     synapse: 'a string (required)' = None,
     spike_target: 'a string (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1168,8 +1163,7 @@ variable = TransientPoissonFiringSynapse(
     duration: 'a Nml2Quantity_time (required)' = None,
     synapse: 'a string (required)' = None,
     spike_target: 'a string (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1339,8 +1333,7 @@ variable = TimedSynapticInput(
     synapse: 'a NmlId (required)' = None,
     spike_target: 'a string (required)' = None,
     spikes: 'list of Spike(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1466,8 +1459,7 @@ variable = SpikeArray(
     properties: 'list of Property(s) (optional)' = None,
     annotation: 'a Annotation (optional)' = None,
     spikes: 'list of Spike(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1588,8 +1580,7 @@ from neuroml import Spike
 variable = Spike(
     id: 'a NonNegativeInteger (required)' = None,
     time: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1723,8 +1714,7 @@ variable = PulseGenerator(
     delay: 'a Nml2Quantity_time (required)' = None,
     duration: 'a Nml2Quantity_time (required)' = None,
     amplitude: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1845,8 +1835,7 @@ variable = CompoundInput(
     pulse_generators: 'list of PulseGenerator(s) (optional)' = None,
     sine_generators: 'list of SineGenerator(s) (optional)' = None,
     ramp_generators: 'list of RampGenerator(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1965,8 +1954,7 @@ variable = CompoundInputDL(
     pulse_generator_dls: 'list of PulseGeneratorDL(s) (optional)' = None,
     sine_generator_dls: 'list of SineGeneratorDL(s) (optional)' = None,
     ramp_generator_dls: 'list of RampGeneratorDL(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2089,8 +2077,7 @@ variable = PulseGeneratorDL(
     delay: 'a Nml2Quantity_time (required)' = None,
     duration: 'a Nml2Quantity_time (required)' = None,
     amplitude: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2217,8 +2204,7 @@ variable = SineGenerator(
     duration: 'a Nml2Quantity_time (required)' = None,
     amplitude: 'a Nml2Quantity_current (required)' = None,
     period: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2353,8 +2339,7 @@ variable = SineGeneratorDL(
     duration: 'a Nml2Quantity_time (required)' = None,
     amplitude: 'a Nml2Quantity_current (required)' = None,
     period: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2483,8 +2468,7 @@ variable = RampGenerator(
     start_amplitude: 'a Nml2Quantity_current (required)' = None,
     finish_amplitude: 'a Nml2Quantity_current (required)' = None,
     baseline_amplitude: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2618,8 +2602,7 @@ variable = RampGeneratorDL(
     start_amplitude: 'a Nml2Quantity_current (required)' = None,
     finish_amplitude: 'a Nml2Quantity_current (required)' = None,
     baseline_amplitude: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2755,8 +2738,7 @@ variable = VoltageClamp(
     duration: 'a Nml2Quantity_time (required)' = None,
     target_voltage: 'a Nml2Quantity_voltage (required)' = None,
     simple_series_resistance: 'a Nml2Quantity_resistance (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2898,8 +2880,7 @@ variable = VoltageClampTriple(
     testing_voltage: 'a Nml2Quantity_voltage (required)' = None,
     return_voltage: 'a Nml2Quantity_voltage (required)' = None,
     simple_series_resistance: 'a Nml2Quantity_resistance (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML

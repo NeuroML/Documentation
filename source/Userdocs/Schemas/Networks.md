@@ -72,8 +72,7 @@ variable = Network(
     continuous_projections: 'list of ContinuousProjection(s) (optional)' = None,
     explicit_inputs: 'list of ExplicitInput(s) (optional)' = None,
     input_lists: 'list of InputList(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -248,8 +247,7 @@ variable = Population(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     layout: 'a Layout (optional)' = None,
     instances: 'list of Instance(s) (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -335,8 +333,7 @@ variable = Instance(
     j: 'a nonNegativeInteger (optional)' = None,
     k: 'a nonNegativeInteger (optional)' = None,
     location: 'a Location (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -391,8 +388,7 @@ variable = Location(
     x: 'a float (required)' = None,
     y: 'a float (required)' = None,
     z: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -439,8 +435,7 @@ variable = Region(
     id: 'a NmlId (required)' = None,
     spaces: 'a NmlId (optional)' = None,
     anytypeobjs_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -530,8 +525,7 @@ variable = Projection(
     synapse: 'a NmlId (required)' = None,
     connections: 'list of Connection(s) (optional)' = None,
     connection_wds: 'list of ConnectionWD(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -639,8 +633,7 @@ variable = Connection(
     post_cell_id: 'a string (required)' = None,
     post_segment_id: 'a NonNegativeInteger (optional)' = '0',
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -714,8 +707,7 @@ variable = SynapticConnection(
     to: 'a string (required)' = None,
     synapse: 'a string (required)' = None,
     destination: 'a NmlId (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -827,8 +819,7 @@ variable = ConnectionWD(
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
     weight: 'a float (required)' = None,
     delay: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -882,8 +873,7 @@ variable = ElectricalConnection(
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
     synapse: 'a NmlId (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -955,8 +945,7 @@ variable = ElectricalConnectionInstance(
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
     synapse: 'a NmlId (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1032,8 +1021,7 @@ variable = ElectricalConnectionInstanceW(
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
     synapse: 'a NmlId (required)' = None,
     weight: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1085,8 +1073,7 @@ variable = ElectricalProjection(
     electrical_connections: 'list of ElectricalConnection(s) (optional)' = None,
     electrical_connection_instances: 'list of ElectricalConnectionInstance(s) (optional)' = None,
     electrical_connection_instance_ws: 'list of ElectricalConnectionInstanceW(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1143,8 +1130,7 @@ variable = ContinuousConnection(
     pre_component: 'a NmlId (required)' = None,
     post_component: 'a NmlId (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1221,8 +1207,7 @@ variable = ContinuousConnectionInstance(
     pre_component: 'a NmlId (required)' = None,
     post_component: 'a NmlId (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1294,8 +1279,7 @@ variable = ContinuousConnectionInstanceW(
     pre_component: 'a NmlId (required)' = None,
     post_component: 'a NmlId (required)' = None,
     weight: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1352,8 +1336,7 @@ variable = ContinuousProjection(
     continuous_connections: 'list of ContinuousConnection(s) (optional)' = None,
     continuous_connection_instances: 'list of ContinuousConnectionInstance(s) (optional)' = None,
     continuous_connection_instance_ws: 'list of ContinuousConnectionInstanceW(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1428,8 +1411,7 @@ variable = ExplicitInput(
     target: 'a string (required)' = None,
     input: 'a string (required)' = None,
     destination: 'a string (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1499,8 +1481,7 @@ variable = InputList(
     component: 'a NmlId (required)' = None,
     input: 'list of Input(s) (optional)' = None,
     input_ws: 'list of InputW(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1567,8 +1548,7 @@ variable = Input(
     segment_id: 'a NonNegativeInteger (optional)' = None,
     fraction_along: 'a ZeroToOne (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1642,8 +1622,7 @@ variable = InputW(
     segment_id: 'a NonNegativeInteger (optional)' = None,
     fraction_along: 'a ZeroToOne (optional)' = None,
     weight: 'a float (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````

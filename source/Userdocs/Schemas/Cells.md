@@ -42,8 +42,7 @@ variable = BaseCell(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -309,8 +308,7 @@ variable = ChannelPopulation(
     segments: 'a NonNegativeInteger (optional)' = None,
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -560,8 +558,7 @@ variable = VariableParameter(
     parameter: 'a string (required)' = None,
     segment_groups: 'a string (required)' = None,
     inhomogeneous_value: 'a InhomogeneousValue (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -603,8 +600,7 @@ from neuroml import InhomogeneousValue
 variable = InhomogeneousValue(
     inhomogeneous_parameters: 'a string (required)' = None,
     value: 'a string (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -729,8 +725,7 @@ variable = ChannelDensityNonUniform(
     erev: 'a Nml2Quantity_voltage (required)' = None,
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -847,8 +842,7 @@ variable = ChannelDensityNonUniformNernst(
     ion_channel: 'a NmlId (required)' = None,
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -956,8 +950,7 @@ variable = ChannelDensityNonUniformGHK(
     ion_channel: 'a NmlId (required)' = None,
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1074,8 +1067,7 @@ variable = ChannelDensity(
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1168,8 +1160,7 @@ variable = ChannelDensityVShift(
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
     v_shift: 'a Nml2Quantity_voltage (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1302,8 +1293,7 @@ variable = ChannelDensityNernst(
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1435,8 +1425,7 @@ variable = ChannelDensityNernstCa2(
     segments: 'a NonNegativeInteger (optional)' = None,
     ion: 'a NmlId (required)' = None,
     variable_parameters: 'list of VariableParameter(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1559,8 +1548,7 @@ variable = ChannelDensityGHK(
     segment_groups: 'a NmlId (optional)' = 'all',
     segments: 'a NonNegativeInteger (optional)' = None,
     ion: 'a NmlId (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1692,8 +1680,7 @@ variable = ChannelDensityGHK2(
     segment_groups: 'a NmlId (optional)' = 'all',
     segments: 'a NonNegativeInteger (optional)' = None,
     ion: 'a NmlId (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2251,8 +2238,7 @@ variable = Segment(
     parent: 'a SegmentParent (optional)' = None,
     proximal: 'a Point3DWithDiam (optional)' = None,
     distal: 'a Point3DWithDiam (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2345,8 +2331,7 @@ variable = SegmentGroup(
     paths: 'list of Path(s) (optional)' = None,
     sub_trees: 'list of SubTree(s) (optional)' = None,
     inhomogeneous_parameters: 'list of InhomogeneousParameter(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2398,8 +2383,7 @@ from neuroml import Member
 
 variable = Member(
     segments: 'a NonNegativeInteger (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2505,8 +2489,7 @@ from neuroml import Include
 
 variable = Include(
     segment_groups: 'a NmlId (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2553,8 +2536,7 @@ from neuroml import Path
 variable = Path(
     from_: 'a SegmentEndPoint (optional)' = None,
     to: 'a SegmentEndPoint (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2597,8 +2579,7 @@ from neuroml import SubTree
 variable = SubTree(
     from_: 'a SegmentEndPoint (optional)' = None,
     to: 'a SegmentEndPoint (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2655,8 +2636,7 @@ variable = InhomogeneousParameter(
     metric: 'a Metric (required)' = None,
     proximal: 'a ProximalDetails (optional)' = None,
     distal: 'a DistalDetails (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2752,8 +2732,7 @@ variable = Morphology(
     annotation: 'a Annotation (optional)' = None,
     segments: 'list of Segment(s) (required)' = None,
     segment_groups: 'list of SegmentGroup(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2912,8 +2891,7 @@ from neuroml import SpecificCapacitance
 variable = SpecificCapacitance(
     value: 'a Nml2Quantity_specificCapacitance (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2959,8 +2937,7 @@ from neuroml import InitMembPotential
 variable = InitMembPotential(
     value: 'a Nml2Quantity_voltage (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3003,8 +2980,7 @@ from neuroml import SpikeThresh
 variable = SpikeThresh(
     value: 'a Nml2Quantity_voltage (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3121,8 +3097,7 @@ variable = MembraneProperties(
     specific_capacitances: 'list of SpecificCapacitance(s) (optional)' = None,
     init_memb_potentials: 'list of InitMembPotential(s) (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3272,8 +3247,7 @@ variable = MembraneProperties2CaPools(
     specific_capacitances: 'list of SpecificCapacitance(s) (optional)' = None,
     init_memb_potentials: 'list of InitMembPotential(s) (optional)' = None,
     channel_density_nernst_ca2s: 'list of ChannelDensityNernstCa2(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -3345,8 +3319,7 @@ variable = BiophysicalProperties(
     membrane_properties: 'a MembraneProperties (required)' = None,
     intracellular_properties: 'a IntracellularProperties (optional)' = None,
     extracellular_properties: 'a ExtracellularProperties (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3467,8 +3440,7 @@ variable = BiophysicalProperties2CaPools(
     membrane_properties2_ca_pools: 'a MembraneProperties2CaPools (required)' = None,
     intracellular_properties2_ca_pools: 'a IntracellularProperties2CaPools (optional)' = None,
     extracellular_properties: 'a ExtracellularProperties (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -3537,8 +3509,7 @@ variable = IntracellularProperties(
     species: 'list of Species(s) (optional)' = None,
     resistivities: 'list of Resistivity(s) (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3633,8 +3604,7 @@ from neuroml import IntracellularProperties2CaPools
 variable = IntracellularProperties2CaPools(
     species: 'list of Species(s) (optional)' = None,
     resistivities: 'list of Resistivity(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -3679,8 +3649,7 @@ from neuroml import Resistivity
 variable = Resistivity(
     value: 'a Nml2Quantity_resistivity (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -3912,8 +3881,7 @@ variable = DecayingPoolConcentrationModel(
     decay_constant: 'a Nml2Quantity_time (required)' = None,
     shell_thickness: 'a Nml2Quantity_length (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -4038,8 +4006,7 @@ variable = FixedFactorConcentrationModel(
     resting_conc: 'a Nml2Quantity_concentration (required)' = None,
     decay_constant: 'a Nml2Quantity_time (required)' = None,
     rho: 'a Nml2Quantity_rhoFactor (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -4243,8 +4210,7 @@ variable = Species(
     initial_concentration: 'a Nml2Quantity_concentration (required)' = None,
     initial_ext_concentration: 'a Nml2Quantity_concentration (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -4402,8 +4368,7 @@ variable = Cell(
     morphology: 'a Morphology (optional)' = None,
     biophysical_properties: 'a BiophysicalProperties (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -4687,8 +4652,7 @@ variable = Cell2CaPools(
     morphology: 'a Morphology (optional)' = None,
     biophysical_properties: 'a BiophysicalProperties (optional)' = None,
     biophysical_properties2_ca_pools: 'a BiophysicalProperties2CaPools (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -4757,8 +4721,7 @@ variable = BaseCellMembPotCap(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     C: 'a Nml2Quantity_capacitance (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -4920,8 +4883,7 @@ variable = IafTauCell(
     reset: 'a Nml2Quantity_voltage (required)' = None,
     tau: 'a Nml2Quantity_time (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5044,8 +5006,7 @@ variable = IafTauRefCell(
     reset: 'a Nml2Quantity_voltage (required)' = None,
     tau: 'a Nml2Quantity_time (required)' = None,
     refract: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5236,8 +5197,7 @@ variable = IafCell(
     C: 'a Nml2Quantity_capacitance (required)' = None,
     leak_conductance: 'a Nml2Quantity_conductance (required)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5387,8 +5347,7 @@ variable = IafRefCell(
     C: 'a Nml2Quantity_capacitance (required)' = None,
     leak_conductance: 'a Nml2Quantity_conductance (required)' = None,
     refract: 'a Nml2Quantity_time (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5541,8 +5500,7 @@ variable = IzhikevichCell(
     b: 'a Nml2Quantity_none (required)' = None,
     c: 'a Nml2Quantity_none (required)' = None,
     d: 'a Nml2Quantity_none (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5694,8 +5652,7 @@ variable = Izhikevich2007Cell(
     b: 'a Nml2Quantity_conductance (required)' = None,
     c: 'a Nml2Quantity_voltage (required)' = None,
     d: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5856,8 +5813,7 @@ variable = AdExIaFCell(
     refract: 'a Nml2Quantity_time (required)' = None,
     a: 'a Nml2Quantity_conductance (required)' = None,
     b: 'a Nml2Quantity_current (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -5964,8 +5920,7 @@ variable = FitzHughNagumoCell(
     annotation: 'a Annotation (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     I: 'a Nml2Quantity_none (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -6195,8 +6150,7 @@ variable = PinskyRinzelCA3Cell(
     alphac: 'a Nml2Quantity_none (required)' = None,
     betac: 'a Nml2Quantity_none (required)' = None,
     cm: 'a Nml2Quantity_specificCapacitance (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML

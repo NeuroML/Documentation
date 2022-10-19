@@ -77,8 +77,7 @@ from neuroml import Annotation
 
 variable = Annotation(
     anytypeobjs_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -129,8 +128,7 @@ from neuroml import Property
 variable = Property(
     tag: 'a string (required)' = None,
     value: 'a string (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -668,8 +666,7 @@ variable = Point3DWithDiam(
     y: 'a double (required)' = None,
     z: 'a double (required)' = None,
     diameter: 'a DoubleGreaterThanZero (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````

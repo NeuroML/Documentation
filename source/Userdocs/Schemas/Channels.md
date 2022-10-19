@@ -1133,8 +1133,7 @@ from neuroml import Q10ConductanceScaling
 variable = Q10ConductanceScaling(
     q10_factor: 'a Nml2Quantity_none (required)' = None,
     experimental_temp: 'a Nml2Quantity_temperature (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -1592,8 +1591,7 @@ variable = GateHHInstantaneous(
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
     steady_state: 'a HHVariable (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2011,8 +2009,7 @@ variable = GateFractional(
     notes: 'a string (optional)' = None,
     q10_settings: 'a Q10Settings (optional)' = None,
     sub_gates: 'list of GateFractionalSubgate(s) (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2382,8 +2379,7 @@ variable = IonChannelHH(
     gate_h_hrates_tau_infs: 'list of GateHHRatesTauInf(s) (optional)' = None,
     gate_hh_instantaneouses: 'list of GateHHInstantaneous(s) (optional)' = None,
     gate_fractionals: 'list of GateFractional(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2506,8 +2502,7 @@ variable = IonChannel(
     gate_hh_instantaneouses: 'list of GateHHInstantaneous(s) (optional)' = None,
     gate_fractionals: 'list of GateFractional(s) (optional)' = None,
     extensiontype_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2597,8 +2592,7 @@ variable = IonChannelVShift(
     gate_hh_instantaneouses: 'list of GateHHInstantaneous(s) (optional)' = None,
     gate_fractionals: 'list of GateFractional(s) (optional)' = None,
     v_shift: 'a Nml2Quantity_voltage (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2706,8 +2700,7 @@ from neuroml import ClosedState
 
 variable = ClosedState(
     id: 'a NmlId (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2757,8 +2750,7 @@ from neuroml import OpenState
 
 variable = OpenState(
     id: 'a NmlId (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2869,8 +2861,7 @@ variable = IonChannelKS(
     conductance: 'a Nml2Quantity_conductance (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     gate_kses: 'list of GateKS(s) (optional)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -2979,8 +2970,7 @@ variable = ForwardTransition(
     from_: 'a NmlId (required)' = None,
     to: 'a NmlId (required)' = None,
     anytypeobjs_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -3065,8 +3055,7 @@ variable = ReverseTransition(
     from_: 'a NmlId (required)' = None,
     to: 'a NmlId (required)' = None,
     anytypeobjs_=None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -3230,8 +3219,7 @@ variable = TauInfTransition(
     to: 'a NmlId (required)' = None,
     steady_state: 'a HHVariable (required)' = None,
     time_course: 'a HHTime (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
@@ -3324,8 +3312,7 @@ variable = GateKS(
     forward_transition: 'list of ForwardTransition(s) (required)' = None,
     reverse_transition: 'list of ReverseTransition(s) (required)' = None,
     tau_inf_transition: 'list of TauInfTransition(s) (required)' = None,
-    gds_collector_=None,
-    **kwargs_,)
+)
 ```
 ````
 `````
