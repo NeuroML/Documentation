@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Channels.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -1130,7 +1130,10 @@ extends *{ref}`schema:baseconductancescaling`*
 ```{code-block} python
 from neuroml import Q10ConductanceScaling
 
-variable = Q10ConductanceScaling(q10_factor=None, experimental_temp=None, gds_collector_=None, **kwargs_)
+variable = Q10ConductanceScaling(
+    q10_factor: 'a Nml2Quantity_none (required)' = None,
+    experimental_temp: 'a Nml2Quantity_temperature (required)' = None,
+)
 ```
 ````
 `````
@@ -1583,7 +1586,12 @@ extends {ref}`schema:gate`
 ```{code-block} python
 from neuroml import GateHHInstantaneous
 
-variable = GateHHInstantaneous(neuro_lex_id=None, id=None, instances=None, notes=None, steady_state=None, gds_collector_=None, **kwargs_)
+variable = GateHHInstantaneous(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+)
 ```
 ````
 `````
@@ -1995,7 +2003,13 @@ extends {ref}`schema:gate`
 ```{code-block} python
 from neuroml import GateFractional
 
-variable = GateFractional(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, sub_gates=None, gds_collector_=None, **kwargs_)
+variable = GateFractional(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    sub_gates: 'list of GateFractionalSubgate(s) (required)' = None,
+)
 ```
 ````
 `````
@@ -2346,7 +2360,26 @@ extends *{ref}`schema:baseionchannel`*
 ```{code-block} python
 from neuroml import IonChannelHH
 
-variable = IonChannelHH(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, gds_collector_=None, **kwargs_)
+variable = IonChannelHH(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    q10_conductance_scalings: 'list of Q10ConductanceScaling(s) (optional)' = None,
+    species: 'a NmlId (optional)' = None,
+    type: 'a channelTypes (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (optional)' = None,
+    gates: 'list of GateHHUndetermined(s) (optional)' = None,
+    gate_hh_rates: 'list of GateHHRates(s) (optional)' = None,
+    gate_h_hrates_taus: 'list of GateHHRatesTau(s) (optional)' = None,
+    gate_hh_tau_infs: 'list of GateHHTauInf(s) (optional)' = None,
+    gate_h_hrates_infs: 'list of GateHHRatesInf(s) (optional)' = None,
+    gate_h_hrates_tau_infs: 'list of GateHHRatesTauInf(s) (optional)' = None,
+    gate_hh_instantaneouses: 'list of GateHHInstantaneous(s) (optional)' = None,
+    gate_fractionals: 'list of GateFractional(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2449,7 +2482,27 @@ extends {ref}`schema:ionchannelhh`
 ```{code-block} python
 from neuroml import IonChannel
 
-variable = IonChannel(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = IonChannel(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    q10_conductance_scalings: 'list of Q10ConductanceScaling(s) (optional)' = None,
+    species: 'a NmlId (optional)' = None,
+    type: 'a channelTypes (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (optional)' = None,
+    gates: 'list of GateHHUndetermined(s) (optional)' = None,
+    gate_hh_rates: 'list of GateHHRates(s) (optional)' = None,
+    gate_h_hrates_taus: 'list of GateHHRatesTau(s) (optional)' = None,
+    gate_hh_tau_infs: 'list of GateHHTauInf(s) (optional)' = None,
+    gate_h_hrates_infs: 'list of GateHHRatesInf(s) (optional)' = None,
+    gate_h_hrates_tau_infs: 'list of GateHHRatesTauInf(s) (optional)' = None,
+    gate_hh_instantaneouses: 'list of GateHHInstantaneous(s) (optional)' = None,
+    gate_fractionals: 'list of GateFractional(s) (optional)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -2519,7 +2572,27 @@ extends {ref}`schema:ionchannel`
 ```{code-block} python
 from neuroml import IonChannelVShift
 
-variable = IonChannelVShift(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, q10_conductance_scalings=None, species=None, type=None, conductance=None, gates=None, gate_hh_rates=None, gate_h_hrates_taus=None, gate_hh_tau_infs=None, gate_h_hrates_infs=None, gate_h_hrates_tau_infs=None, gate_hh_instantaneouses=None, gate_fractionals=None, v_shift=None, gds_collector_=None, **kwargs_)
+variable = IonChannelVShift(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    q10_conductance_scalings: 'list of Q10ConductanceScaling(s) (optional)' = None,
+    species: 'a NmlId (optional)' = None,
+    type: 'a channelTypes (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (optional)' = None,
+    gates: 'list of GateHHUndetermined(s) (optional)' = None,
+    gate_hh_rates: 'list of GateHHRates(s) (optional)' = None,
+    gate_h_hrates_taus: 'list of GateHHRatesTau(s) (optional)' = None,
+    gate_hh_tau_infs: 'list of GateHHTauInf(s) (optional)' = None,
+    gate_h_hrates_infs: 'list of GateHHRatesInf(s) (optional)' = None,
+    gate_h_hrates_tau_infs: 'list of GateHHRatesTauInf(s) (optional)' = None,
+    gate_hh_instantaneouses: 'list of GateHHInstantaneous(s) (optional)' = None,
+    gate_fractionals: 'list of GateFractional(s) (optional)' = None,
+    v_shift: 'a Nml2Quantity_voltage (required)' = None,
+)
 ```
 ````
 `````
@@ -2625,7 +2698,9 @@ extends {ref}`schema:ksstate`
 ```{code-block} python
 from neuroml import ClosedState
 
-variable = ClosedState(neuro_lex_id=None, id=None, gds_collector_=None, **kwargs_)
+variable = ClosedState(
+    id: 'a NmlId (required)' = None,
+)
 ```
 ````
 `````
@@ -2673,7 +2748,9 @@ extends {ref}`schema:ksstate`
 ```{code-block} python
 from neuroml import OpenState
 
-variable = OpenState(neuro_lex_id=None, id=None, gds_collector_=None, **kwargs_)
+variable = OpenState(
+    id: 'a NmlId (required)' = None,
+)
 ```
 ````
 `````
@@ -2774,7 +2851,17 @@ extends *{ref}`schema:baseionchannel`*
 ```{code-block} python
 from neuroml import IonChannelKS
 
-variable = IonChannelKS(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, species=None, conductance=None, gate_kses=None, gds_collector_=None, **kwargs_)
+variable = IonChannelKS(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    species: 'a NmlId (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gate_kses: 'list of GateKS(s) (optional)' = None,
+)
 ```
 ````
 `````
@@ -2878,7 +2965,12 @@ extends {ref}`schema:kstransition`
 ```{code-block} python
 from neuroml import ForwardTransition
 
-variable = ForwardTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, gds_collector_=None, **kwargs_)
+variable = ForwardTransition(
+    id: 'a NmlId (required)' = None,
+    from_: 'a NmlId (required)' = None,
+    to: 'a NmlId (required)' = None,
+    anytypeobjs_=None,
+)
 ```
 ````
 `````
@@ -2958,7 +3050,12 @@ extends {ref}`schema:kstransition`
 ```{code-block} python
 from neuroml import ReverseTransition
 
-variable = ReverseTransition(neuro_lex_id=None, id=None, from_=None, to=None, anytypeobjs_=None, gds_collector_=None, **kwargs_)
+variable = ReverseTransition(
+    id: 'a NmlId (required)' = None,
+    from_: 'a NmlId (required)' = None,
+    to: 'a NmlId (required)' = None,
+    anytypeobjs_=None,
+)
 ```
 ````
 `````
@@ -3116,7 +3213,13 @@ extends {ref}`schema:kstransition`
 ```{code-block} python
 from neuroml import TauInfTransition
 
-variable = TauInfTransition(neuro_lex_id=None, id=None, from_=None, to=None, steady_state=None, time_course=None, gds_collector_=None, **kwargs_)
+variable = TauInfTransition(
+    id: 'a NmlId (required)' = None,
+    from_: 'a NmlId (required)' = None,
+    to: 'a NmlId (required)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+    time_course: 'a HHTime (required)' = None,
+)
 ```
 ````
 `````
@@ -3199,7 +3302,17 @@ extends *{ref}`schema:basegate`*
 ```{code-block} python
 from neuroml import GateKS
 
-variable = GateKS(neuro_lex_id=None, id=None, instances=None, notes=None, q10_settings=None, closed_states=None, open_states=None, forward_transition=None, reverse_transition=None, tau_inf_transition=None, gds_collector_=None, **kwargs_)
+variable = GateKS(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    closed_states: 'list of ClosedState(s) (required)' = None,
+    open_states: 'list of OpenState(s) (required)' = None,
+    forward_transition: 'list of ForwardTransition(s) (required)' = None,
+    reverse_transition: 'list of ReverseTransition(s) (required)' = None,
+    tau_inf_transition: 'list of TauInfTransition(s) (required)' = None,
+)
 ```
 ````
 `````

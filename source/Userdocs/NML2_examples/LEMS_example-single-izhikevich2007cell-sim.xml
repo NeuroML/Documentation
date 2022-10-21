@@ -2,7 +2,7 @@
     
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v0.7.0 (libNeuroML v0.4.0)
+        This LEMS file has been automatically generated using PyNeuroML v0.7.2 (libNeuroML v0.4.1)
 
      -->
     
@@ -16,7 +16,7 @@
     
     <Include file="izhikevich2007_single_cell_network.nml"/>
    
-    <Simulation id="example-single-izhikevich2007cell-sim" length="1000ms" step="0.1ms" target="IzhNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="example-single-izhikevich2007cell-sim" length="1000ms" step="0.1ms" target="IzNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
         
         <OutputFile id="output0" fileName="example-single-izhikevich2007cell-sim.v.dat">
             <OutputColumn id="IzhPop0[0]" quantity="IzhPop0[0]/v"/> 

@@ -239,11 +239,11 @@ Our neuron has been correctly added to the document.
 
 Now that the neuron has been defined and added to the document, we declare a {ref}`network <schema:network>` with a {ref}`population <schema:population>` of these neurons to create a network in a similar way.
 Here, our model includes one network which includes only one population, which in turn only consists of a single neuron.
-Once the network, its populations, and their neurons have been declared, we again them to our model:
+Once the network, its populations, and their neurons have been declared, we again add them to our model:
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
-lines: 58-64
+lines: 58-62
 ----
 ```
 
@@ -392,7 +392,7 @@ The information provided by the different sources will be similar, but `ctinfo()
 [IDEs](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) make programming easier. For example, a good IDE will show you the documentation that the `help` Python function shows.
 ```
 
-Another useful function is the `parentinfo()` function.
+Another useful function is the `ctparentinfo()` function.
 Like `info()` it provides some information about the component/object:
 ```
 ctparentinfo("InputList")

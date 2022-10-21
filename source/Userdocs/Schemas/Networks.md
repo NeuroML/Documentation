@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Networks.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -52,7 +52,27 @@ extends *{ref}`schema:basestandalone`*
 ```{code-block} python
 from neuroml import Network
 
-variable = Network(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, type=None, temperature=None, spaces=None, regions=None, extracellular_properties=None, populations=None, cell_sets=None, synaptic_connections=None, projections=None, electrical_projections=None, continuous_projections=None, explicit_inputs=None, input_lists=None, gds_collector_=None, **kwargs_)
+variable = Network(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    type: 'a networkTypes (optional)' = None,
+    temperature: 'a Nml2Quantity_temperature (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    spaces: 'list of Space(s) (optional)' = None,
+    regions: 'list of Region(s) (optional)' = None,
+    extracellular_properties: 'list of ExtracellularPropertiesLocal(s) (optional)' = None,
+    populations: 'list of Population(s) (required)' = None,
+    cell_sets: 'list of CellSet(s) (optional)' = None,
+    synaptic_connections: 'list of SynapticConnection(s) (optional)' = None,
+    projections: 'list of Projection(s) (optional)' = None,
+    electrical_projections: 'list of ElectricalProjection(s) (optional)' = None,
+    continuous_projections: 'list of ContinuousProjection(s) (optional)' = None,
+    explicit_inputs: 'list of ExplicitInput(s) (optional)' = None,
+    input_lists: 'list of InputList(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -214,7 +234,20 @@ extends *{ref}`schema:basepopulation`*
 ```{code-block} python
 from neuroml import Population
 
-variable = Population(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, component=None, size=None, type=None, extracellular_properties=None, layout=None, instances=None, gds_collector_=None, **kwargs_)
+variable = Population(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    component: 'a NmlId (required)' = None,
+    size: 'a NonNegativeInteger (optional)' = None,
+    type: 'a populationTypes (optional)' = None,
+    extracellular_properties: 'a NmlId (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    layout: 'a Layout (optional)' = None,
+    instances: 'list of Instance(s) (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -294,7 +327,13 @@ extends *{ref}`schema:basepopulation`*
 ```{code-block} python
 from neuroml import Instance
 
-variable = Instance(id=None, i=None, j=None, k=None, location=None, gds_collector_=None, **kwargs_)
+variable = Instance(
+    id: 'a nonNegativeInteger (optional)' = None,
+    i: 'a nonNegativeInteger (optional)' = None,
+    j: 'a nonNegativeInteger (optional)' = None,
+    k: 'a nonNegativeInteger (optional)' = None,
+    location: 'a Location (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -345,7 +384,11 @@ variable = Instance(id=None, i=None, j=None, k=None, location=None, gds_collecto
 ```{code-block} python
 from neuroml import Location
 
-variable = Location(x=None, y=None, z=None, gds_collector_=None, **kwargs_)
+variable = Location(
+    x: 'a float (required)' = None,
+    y: 'a float (required)' = None,
+    z: 'a float (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -388,7 +431,11 @@ variable = Location(x=None, y=None, z=None, gds_collector_=None, **kwargs_)
 ```{code-block} python
 from neuroml import Region
 
-variable = Region(neuro_lex_id=None, id=None, spaces=None, anytypeobjs_=None, gds_collector_=None, **kwargs_)
+variable = Region(
+    id: 'a NmlId (required)' = None,
+    spaces: 'a NmlId (optional)' = None,
+    anytypeobjs_=None,
+)
 ```
 ````
 `````
@@ -471,7 +518,14 @@ variable = Region(neuro_lex_id=None, id=None, spaces=None, anytypeobjs_=None, gd
 ```{code-block} python
 from neuroml import Projection
 
-variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, postsynaptic_population=None, synapse=None, connections=None, connection_wds=None, gds_collector_=None, **kwargs_)
+variable = Projection(
+    id: 'a NmlId (required)' = None,
+    presynaptic_population: 'a NmlId (required)' = None,
+    postsynaptic_population: 'a NmlId (required)' = None,
+    synapse: 'a NmlId (required)' = None,
+    connections: 'list of Connection(s) (optional)' = None,
+    connection_wds: 'list of ConnectionWD(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -570,7 +624,16 @@ variable = Projection(neuro_lex_id=None, id=None, presynaptic_population=None, p
 ```{code-block} python
 from neuroml import Connection
 
-variable = Connection(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segment_id='0', pre_fraction_along='0.5', post_cell_id=None, post_segment_id='0', post_fraction_along='0.5', gds_collector_=None, **kwargs_)
+variable = Connection(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell_id: 'a string (required)' = None,
+    pre_segment_id: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell_id: 'a string (required)' = None,
+    post_segment_id: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -638,7 +701,13 @@ extends {ref}`schema:explicitconnection`
 ```{code-block} python
 from neuroml import SynapticConnection
 
-variable = SynapticConnection(from_=None, to=None, synapse=None, destination=None, gds_collector_=None, **kwargs_)
+variable = SynapticConnection(
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    from_: 'a string (required)' = None,
+    to: 'a string (required)' = None,
+    synapse: 'a string (required)' = None,
+    destination: 'a NmlId (optional)' = None,
+)
 ```
 ````
 `````
@@ -739,7 +808,18 @@ extends {ref}`schema:connection`
 ```{code-block} python
 from neuroml import ConnectionWD
 
-variable = ConnectionWD(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segment_id='0', pre_fraction_along='0.5', post_cell_id=None, post_segment_id='0', post_fraction_along='0.5', weight=None, delay=None, gds_collector_=None, **kwargs_)
+variable = ConnectionWD(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell_id: 'a string (required)' = None,
+    pre_segment_id: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell_id: 'a string (required)' = None,
+    post_segment_id: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    weight: 'a float (required)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -782,7 +862,18 @@ variable = ConnectionWD(neuro_lex_id=None, id=None, pre_cell_id=None, pre_segmen
 ```{code-block} python
 from neuroml import ElectricalConnection
 
-variable = ElectricalConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', synapse=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ElectricalConnection(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell: 'a string (required)' = None,
+    pre_segment: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell: 'a string (required)' = None,
+    post_segment: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    synapse: 'a NmlId (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -843,7 +934,18 @@ variable = ElectricalConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_s
 ```{code-block} python
 from neuroml import ElectricalConnectionInstance
 
-variable = ElectricalConnectionInstance(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', synapse=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ElectricalConnectionInstance(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell: 'a string (required)' = None,
+    pre_segment: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell: 'a string (required)' = None,
+    post_segment: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    synapse: 'a NmlId (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -908,7 +1010,18 @@ extends {ref}`schema:electricalconnectioninstance`
 ```{code-block} python
 from neuroml import ElectricalConnectionInstanceW
 
-variable = ElectricalConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', synapse=None, weight=None, gds_collector_=None, **kwargs_)
+variable = ElectricalConnectionInstanceW(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell: 'a string (required)' = None,
+    pre_segment: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell: 'a string (required)' = None,
+    post_segment: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    synapse: 'a NmlId (required)' = None,
+    weight: 'a float (required)' = None,
+)
 ```
 ````
 `````
@@ -953,7 +1066,14 @@ variable = ElectricalConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=No
 ```{code-block} python
 from neuroml import ElectricalProjection
 
-variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_population=None, postsynaptic_population=None, electrical_connections=None, electrical_connection_instances=None, electrical_connection_instance_ws=None, gds_collector_=None, **kwargs_)
+variable = ElectricalProjection(
+    id: 'a NmlId (required)' = None,
+    presynaptic_population: 'a NmlId (required)' = None,
+    postsynaptic_population: 'a NmlId (required)' = None,
+    electrical_connections: 'list of ElectricalConnection(s) (optional)' = None,
+    electrical_connection_instances: 'list of ElectricalConnectionInstance(s) (optional)' = None,
+    electrical_connection_instance_ws: 'list of ElectricalConnectionInstanceW(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -998,7 +1118,19 @@ variable = ElectricalProjection(neuro_lex_id=None, id=None, presynaptic_populati
 ```{code-block} python
 from neuroml import ContinuousConnection
 
-variable = ContinuousConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', pre_component=None, post_component=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ContinuousConnection(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell: 'a string (required)' = None,
+    pre_segment: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell: 'a string (required)' = None,
+    post_segment: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    pre_component: 'a NmlId (required)' = None,
+    post_component: 'a NmlId (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1063,7 +1195,19 @@ variable = ContinuousConnection(neuro_lex_id=None, id=None, pre_cell=None, pre_s
 ```{code-block} python
 from neuroml import ContinuousConnectionInstance
 
-variable = ContinuousConnectionInstance(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', pre_component=None, post_component=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ContinuousConnectionInstance(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell: 'a string (required)' = None,
+    pre_segment: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell: 'a string (required)' = None,
+    post_segment: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    pre_component: 'a NmlId (required)' = None,
+    post_component: 'a NmlId (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -1123,7 +1267,19 @@ extends {ref}`schema:continuousconnectioninstance`
 ```{code-block} python
 from neuroml import ContinuousConnectionInstanceW
 
-variable = ContinuousConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=None, pre_segment='0', pre_fraction_along='0.5', post_cell=None, post_segment='0', post_fraction_along='0.5', pre_component=None, post_component=None, weight=None, gds_collector_=None, **kwargs_)
+variable = ContinuousConnectionInstanceW(
+    id: 'a NonNegativeInteger (required)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    pre_cell: 'a string (required)' = None,
+    pre_segment: 'a NonNegativeInteger (optional)' = '0',
+    pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    post_cell: 'a string (required)' = None,
+    post_segment: 'a NonNegativeInteger (optional)' = '0',
+    post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
+    pre_component: 'a NmlId (required)' = None,
+    post_component: 'a NmlId (required)' = None,
+    weight: 'a float (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1173,7 +1329,14 @@ variable = ContinuousConnectionInstanceW(neuro_lex_id=None, id=None, pre_cell=No
 ```{code-block} python
 from neuroml import ContinuousProjection
 
-variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_population=None, postsynaptic_population=None, continuous_connections=None, continuous_connection_instances=None, continuous_connection_instance_ws=None, gds_collector_=None, **kwargs_)
+variable = ContinuousProjection(
+    id: 'a NmlId (required)' = None,
+    presynaptic_population: 'a NmlId (required)' = None,
+    postsynaptic_population: 'a NmlId (required)' = None,
+    continuous_connections: 'list of ContinuousConnection(s) (optional)' = None,
+    continuous_connection_instances: 'list of ContinuousConnectionInstance(s) (optional)' = None,
+    continuous_connection_instance_ws: 'list of ContinuousConnectionInstanceW(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1244,7 +1407,11 @@ variable = ContinuousProjection(neuro_lex_id=None, id=None, presynaptic_populati
 ```{code-block} python
 from neuroml import ExplicitInput
 
-variable = ExplicitInput(target=None, input=None, destination=None, gds_collector_=None, **kwargs_)
+variable = ExplicitInput(
+    target: 'a string (required)' = None,
+    input: 'a string (required)' = None,
+    destination: 'a string (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1308,7 +1475,13 @@ variable = ExplicitInput(target=None, input=None, destination=None, gds_collecto
 ```{code-block} python
 from neuroml import InputList
 
-variable = InputList(neuro_lex_id=None, id=None, populations=None, component=None, input=None, input_ws=None, gds_collector_=None, **kwargs_)
+variable = InputList(
+    id: 'a NonNegativeInteger (required)' = None,
+    populations: 'a NmlId (required)' = None,
+    component: 'a NmlId (required)' = None,
+    input: 'list of Input(s) (optional)' = None,
+    input_ws: 'list of InputW(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1368,7 +1541,14 @@ variable = InputList(neuro_lex_id=None, id=None, populations=None, component=Non
 ```{code-block} python
 from neuroml import Input
 
-variable = Input(id=None, target=None, destination=None, segment_id=None, fraction_along=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = Input(
+    id: 'a NonNegativeInteger (required)' = None,
+    target: 'a string (required)' = None,
+    destination: 'a NmlId (required)' = None,
+    segment_id: 'a NonNegativeInteger (optional)' = None,
+    fraction_along: 'a ZeroToOne (optional)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1435,7 +1615,14 @@ extends {ref}`schema:input`
 ```{code-block} python
 from neuroml import InputW
 
-variable = InputW(id=None, target=None, destination=None, segment_id=None, fraction_along=None, weight=None, gds_collector_=None, **kwargs_)
+variable = InputW(
+    id: 'a NonNegativeInteger (required)' = None,
+    target: 'a string (required)' = None,
+    destination: 'a NmlId (required)' = None,
+    segment_id: 'a NonNegativeInteger (optional)' = None,
+    fraction_along: 'a ZeroToOne (optional)' = None,
+    weight: 'a float (required)' = None,
+)
 ```
 ````
 `````

@@ -7,8 +7,12 @@
     <pulseGenerator id="pg_3" delay="0ms" duration="10000ms" amplitude="0.131546 nA"/>
     <pulseGenerator id="pg_4" delay="0ms" duration="10000ms" amplitude="0.102124 nA"/>
     <network id="IzNet">
-        <population id="IzPop0" component="iz2007RS0" size="5"/>
-        <population id="IzPop1" component="iz2007RS0" size="5"/>
+        <population id="IzPop0" component="iz2007RS0" size="5" type="population">
+            <property tag="color" value="0 0 .8"/>
+        </population>
+        <population id="IzPop1" component="iz2007RS0" size="5" type="population">
+            <property tag="color" value=".8 0 0"/>
+        </population>
         <projection id="proj" presynapticPopulation="IzPop0" postsynapticPopulation="IzPop1" synapse="syn0">
             <connection id="0" preCellId="../IzPop0[0]" postCellId="../IzPop1[0]"/>
             <connection id="1" preCellId="../IzPop0[0]" postCellId="../IzPop1[1]"/>
