@@ -8,7 +8,6 @@ The following figure, taken from Cannon et al. 2014 ({cite}`Cannon2014`) shows s
 ```{figure} ../images/Figure6a.png
 :alt: Elements defined in the NeuroML schema, version 2.
 :align: center
-:scale: 60 %
 
 Elements defined in the NeuroML schema, version 2.
 ```

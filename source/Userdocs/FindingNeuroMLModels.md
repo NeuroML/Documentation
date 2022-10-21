@@ -15,7 +15,6 @@ A preprint of a manuscript describing NeuroML-DB and its current features is ava
 ```{figure} ../images/NML-DB.png
 :alt: NeuroML Database
 :align: center
-:scale: 24 %
 
 The NeuroML Database contains NeuroML files for many [cells](https://neuroml-db.org/model_info?model_id=NMLCL000938) (left above), [channels](https://neuroml-db.org/model_info?model_id=NMLCH000103) (right) and synapses taken from Open Source Brain, Blue Brain Project, Allen Institute and more.  
 
@@ -37,7 +36,6 @@ To submit your NeuroML model to NeuroML-DB, please see the information on [this 
 ```{figure} ../images/OSBv1.png
 :alt: Open Source Brain
 :align: center
-:scale: 25 %
 
 Examples of NeuroML 2 models visualised on Open Source Brain. A) [Hodgkin Huxley model](https://www.opensourcebrain.org/projects/hodgkin-huxley-tutorial?explorer=https%3A%2F%2Fraw.githubusercontent.com%2Fopensourcebrain%2Ftutorials%2Fdevelopment%2Fmodels%2FhodgkinHuxley%2FGEPPETTO.json) interactive tutorial. B) Integrate and fire network model of cortical column ([Potjans and Diesmann 2014](https://www.opensourcebrain.org/projects/potjansdiesmann2014)), showing network connectivity. C) Cortical model with multicompartmental cells ([Traub et al. 2005](https://www.opensourcebrain.org/projects/thalamocortical)), showing network properties and simulated membrane potential activity. D) Model of C. elegans nervous system from [OpenWorm project](https://www.opensourcebrain.org/projects/c302/). All visualisation/analysis/simulation enabled due to models being in standardised NeuroML format.
 
