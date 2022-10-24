@@ -19,7 +19,8 @@ parts:
       - file: Userdocs/NML2_examples/NeuroML-DB.ipynb
     - file: Userdocs/FindingNeuroMLModels
     - file: Userdocs/CreatingNeuroMLModels
-    - file: Userdocs/ImportingMorphologyFiles
+      sections:
+      - file: Userdocs/ImportingMorphologyFiles
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
       sections:
