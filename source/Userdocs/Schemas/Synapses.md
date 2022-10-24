@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -58,7 +58,15 @@ extends *{ref}`schema:basepointcurrent`*
 ```{code-block} python
 from neuroml import BaseSynapse
 
-variable = BaseSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -116,7 +124,15 @@ extends *{ref}`schema:basesynapse`*
 ```{code-block} python
 from neuroml import BaseVoltageDepSynapse
 
-variable = BaseVoltageDepSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseVoltageDepSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -203,7 +219,15 @@ extends *{ref}`schema:basesynapse`*
 ```{code-block} python
 from neuroml import BaseCurrentBasedSynapse
 
-variable = BaseCurrentBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseCurrentBasedSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -318,7 +342,16 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 ```{code-block} python
 from neuroml import AlphaCurrentSynapse
 
-variable = AlphaCurrentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, tau=None, ibase=None, gds_collector_=None, **kwargs_)
+variable = AlphaCurrentSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    tau: 'a Nml2Quantity_time (required)' = None,
+    ibase: 'a Nml2Quantity_current (required)' = None,
+)
 ```
 ````
 `````
@@ -391,7 +424,17 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```{code-block} python
 from neuroml import BaseConductanceBasedSynapse
 
-variable = BaseConductanceBasedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseConductanceBasedSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -465,7 +508,18 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```{code-block} python
 from neuroml import BaseConductanceBasedSynapseTwo
 
-variable = BaseConductanceBasedSynapseTwo(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = BaseConductanceBasedSynapseTwo(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase1: 'a Nml2Quantity_conductance (required)' = None,
+    gbase2: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 `````
@@ -590,7 +644,17 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```{code-block} python
 from neuroml import ExpOneSynapse
 
-variable = ExpOneSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, gds_collector_=None, **kwargs_)
+variable = ExpOneSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    tau_decay: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -729,7 +793,17 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```{code-block} python
 from neuroml import AlphaSynapse
 
-variable = AlphaSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau=None, gds_collector_=None, **kwargs_)
+variable = AlphaSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    tau: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -887,7 +961,19 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 ```{code-block} python
 from neuroml import ExpTwoSynapse
 
-variable = ExpTwoSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = ExpTwoSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    tau_decay: 'a Nml2Quantity_time (required)' = None,
+    tau_rise: 'a Nml2Quantity_time (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1071,7 +1157,20 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 ```{code-block} python
 from neuroml import ExpThreeSynapse
 
-variable = ExpThreeSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase1=None, gbase2=None, erev=None, tau_decay1=None, tau_decay2=None, tau_rise=None, gds_collector_=None, **kwargs_)
+variable = ExpThreeSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase1: 'a Nml2Quantity_conductance (required)' = None,
+    gbase2: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    tau_decay1: 'a Nml2Quantity_time (required)' = None,
+    tau_decay2: 'a Nml2Quantity_time (required)' = None,
+    tau_rise: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1589,7 +1688,20 @@ extends {ref}`schema:exptwosynapse`
 ```{code-block} python
 from neuroml import BlockingPlasticSynapse
 
-variable = BlockingPlasticSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gbase=None, erev=None, tau_decay=None, tau_rise=None, plasticity_mechanism=None, block_mechanism=None, gds_collector_=None, **kwargs_)
+variable = BlockingPlasticSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    gbase: 'a Nml2Quantity_conductance (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+    tau_decay: 'a Nml2Quantity_time (required)' = None,
+    tau_rise: 'a Nml2Quantity_time (required)' = None,
+    plasticity_mechanism: 'a PlasticityMechanism (optional)' = None,
+    block_mechanism: 'a BlockMechanism (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1755,7 +1867,18 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 ```{code-block} python
 from neuroml import DoubleSynapse
 
-variable = DoubleSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse1=None, synapse2=None, synapse1_path=None, synapse2_path=None, gds_collector_=None, **kwargs_)
+variable = DoubleSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    synapse1: 'a NmlId (required)' = None,
+    synapse2: 'a NmlId (required)' = None,
+    synapse1_path: 'a string (required)' = None,
+    synapse2_path: 'a string (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2018,7 +2141,15 @@ extends *{ref}`schema:basesynapse`*
 ```{code-block} python
 from neuroml import GapJunction
 
-variable = GapJunction(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, gds_collector_=None, **kwargs_)
+variable = GapJunction(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2153,7 +2284,14 @@ extends *{ref}`schema:basegradedsynapse`*
 ```{code-block} python
 from neuroml import SilentSynapse
 
-variable = SilentSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, gds_collector_=None, **kwargs_)
+variable = SilentSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2264,7 +2402,15 @@ extends *{ref}`schema:basegradedsynapse`*
 ```{code-block} python
 from neuroml import LinearGradedSynapse
 
-variable = LinearGradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, gds_collector_=None, **kwargs_)
+variable = LinearGradedSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2405,7 +2551,19 @@ extends *{ref}`schema:basegradedsynapse`*
 ```{code-block} python
 from neuroml import GradedSynapse
 
-variable = GradedSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, conductance=None, delta=None, Vth=None, k=None, erev=None, gds_collector_=None, **kwargs_)
+variable = GradedSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    conductance: 'a Nml2Quantity_conductance (required)' = None,
+    delta: 'a Nml2Quantity_voltage (required)' = None,
+    Vth: 'a Nml2Quantity_voltage (required)' = None,
+    k: 'a Nml2Quantity_pertime (required)' = None,
+    erev: 'a Nml2Quantity_voltage (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML

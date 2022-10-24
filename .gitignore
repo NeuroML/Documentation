@@ -18,3 +18,4 @@ __pycache__
 /source/Userdocs/NML2_examples/lems_sim/report.txt
 NT_*/
 .mypy_cache/
+/source/Userdocs/NML2_examples/NMLCH000008.channel.nml

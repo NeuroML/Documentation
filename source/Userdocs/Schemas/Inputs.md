@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 18/08/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -332,7 +332,14 @@ extends *{ref}`schema:basespikesource`*
 ```{code-block} python
 from neuroml import SpikeGenerator
 
-variable = SpikeGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, period=None, gds_collector_=None, **kwargs_)
+variable = SpikeGenerator(
+    id: 'a NonNegativeInteger (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    period: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -455,7 +462,15 @@ extends *{ref}`schema:basespikesource`*
 ```{code-block} python
 from neuroml import SpikeGeneratorRandom
 
-variable = SpikeGeneratorRandom(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, max_isi=None, min_isi=None, gds_collector_=None, **kwargs_)
+variable = SpikeGeneratorRandom(
+    id: 'a NonNegativeInteger (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    max_isi: 'a Nml2Quantity_time (required)' = None,
+    min_isi: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -582,7 +597,15 @@ extends *{ref}`schema:basespikesource`*
 ```{code-block} python
 from neuroml import SpikeGeneratorPoisson
 
-variable = SpikeGeneratorPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, extensiontype_=None, gds_collector_=None, **kwargs_)
+variable = SpikeGeneratorPoisson(
+    id: 'a NonNegativeInteger (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    average_rate: 'a Nml2Quantity_pertime (required)' = None,
+    extensiontype_=None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -711,7 +734,15 @@ extends {ref}`schema:spikegeneratorpoisson`
 ```{code-block} python
 from neuroml import SpikeGeneratorRefPoisson
 
-variable = SpikeGeneratorRefPoisson(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, minimum_isi=None, gds_collector_=None, **kwargs_)
+variable = SpikeGeneratorRefPoisson(
+    id: 'a NonNegativeInteger (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    average_rate: 'a Nml2Quantity_pertime (required)' = None,
+    minimum_isi: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -910,7 +941,16 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```{code-block} python
 from neuroml import PoissonFiringSynapse
 
-variable = PoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, synapse=None, spike_target=None, gds_collector_=None, **kwargs_)
+variable = PoissonFiringSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    average_rate: 'a Nml2Quantity_pertime (required)' = None,
+    synapse: 'a string (required)' = None,
+    spike_target: 'a string (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1112,7 +1152,18 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```{code-block} python
 from neuroml import TransientPoissonFiringSynapse
 
-variable = TransientPoissonFiringSynapse(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, average_rate=None, delay=None, duration=None, synapse=None, spike_target=None, gds_collector_=None, **kwargs_)
+variable = TransientPoissonFiringSynapse(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    average_rate: 'a Nml2Quantity_pertime (required)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    synapse: 'a string (required)' = None,
+    spike_target: 'a string (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1273,7 +1324,16 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 ```{code-block} python
 from neuroml import TimedSynapticInput
 
-variable = TimedSynapticInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, synapse=None, spike_target=None, spikes=None, gds_collector_=None, **kwargs_)
+variable = TimedSynapticInput(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    synapse: 'a NmlId (required)' = None,
+    spike_target: 'a string (required)' = None,
+    spikes: 'list of Spike(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1392,7 +1452,14 @@ extends *{ref}`schema:basespikesource`*
 ```{code-block} python
 from neuroml import SpikeArray
 
-variable = SpikeArray(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, spikes=None, gds_collector_=None, **kwargs_)
+variable = SpikeArray(
+    id: 'a NonNegativeInteger (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    spikes: 'list of Spike(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1510,7 +1577,10 @@ extends *{ref}`schema:basespikesource`*
 ```{code-block} python
 from neuroml import Spike
 
-variable = Spike(neuro_lex_id=None, id=None, time=None, gds_collector_=None, **kwargs_)
+variable = Spike(
+    id: 'a NonNegativeInteger (required)' = None,
+    time: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1635,7 +1705,16 @@ extends *{ref}`schema:basepointcurrent`*
 ```{code-block} python
 from neuroml import PulseGenerator
 
-variable = PulseGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, gds_collector_=None, **kwargs_)
+variable = PulseGenerator(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    amplitude: 'a Nml2Quantity_current (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1747,7 +1826,16 @@ extends *{ref}`schema:basepointcurrent`*
 ```{code-block} python
 from neuroml import CompoundInput
 
-variable = CompoundInput(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generators=None, sine_generators=None, ramp_generators=None, gds_collector_=None, **kwargs_)
+variable = CompoundInput(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    pulse_generators: 'list of PulseGenerator(s) (optional)' = None,
+    sine_generators: 'list of SineGenerator(s) (optional)' = None,
+    ramp_generators: 'list of RampGenerator(s) (optional)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -1857,7 +1945,16 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```{code-block} python
 from neuroml import CompoundInputDL
 
-variable = CompoundInputDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, pulse_generator_dls=None, sine_generator_dls=None, ramp_generator_dls=None, gds_collector_=None, **kwargs_)
+variable = CompoundInputDL(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    pulse_generator_dls: 'list of PulseGeneratorDL(s) (optional)' = None,
+    sine_generator_dls: 'list of SineGeneratorDL(s) (optional)' = None,
+    ramp_generator_dls: 'list of RampGeneratorDL(s) (optional)' = None,
+)
 ```
 ````
 `````
@@ -1971,7 +2068,16 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```{code-block} python
 from neuroml import PulseGeneratorDL
 
-variable = PulseGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, amplitude=None, gds_collector_=None, **kwargs_)
+variable = PulseGeneratorDL(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    amplitude: 'a Nml2Quantity_current (required)' = None,
+)
 ```
 ````
 `````
@@ -2087,7 +2193,18 @@ extends *{ref}`schema:basepointcurrent`*
 ```{code-block} python
 from neuroml import SineGenerator
 
-variable = SineGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, gds_collector_=None, **kwargs_)
+variable = SineGenerator(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    phase: 'a Nml2Quantity_none (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    amplitude: 'a Nml2Quantity_current (required)' = None,
+    period: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2211,7 +2328,18 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```{code-block} python
 from neuroml import SineGeneratorDL
 
-variable = SineGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, phase=None, duration=None, amplitude=None, period=None, gds_collector_=None, **kwargs_)
+variable = SineGeneratorDL(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    phase: 'a Nml2Quantity_none (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    amplitude: 'a Nml2Quantity_current (required)' = None,
+    period: 'a Nml2Quantity_time (required)' = None,
+)
 ```
 ````
 `````
@@ -2329,7 +2457,18 @@ extends *{ref}`schema:basepointcurrent`*
 ```{code-block} python
 from neuroml import RampGenerator
 
-variable = RampGenerator(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, gds_collector_=None, **kwargs_)
+variable = RampGenerator(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    start_amplitude: 'a Nml2Quantity_current (required)' = None,
+    finish_amplitude: 'a Nml2Quantity_current (required)' = None,
+    baseline_amplitude: 'a Nml2Quantity_current (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
@@ -2452,7 +2591,18 @@ extends *{ref}`schema:basepointcurrentdl`*
 ```{code-block} python
 from neuroml import RampGeneratorDL
 
-variable = RampGeneratorDL(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, start_amplitude=None, finish_amplitude=None, baseline_amplitude=None, gds_collector_=None, **kwargs_)
+variable = RampGeneratorDL(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    start_amplitude: 'a Nml2Quantity_current (required)' = None,
+    finish_amplitude: 'a Nml2Quantity_current (required)' = None,
+    baseline_amplitude: 'a Nml2Quantity_current (required)' = None,
+)
 ```
 ````
 `````
@@ -2578,7 +2728,17 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```{code-block} python
 from neuroml import VoltageClamp
 
-variable = VoltageClamp(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, delay=None, duration=None, target_voltage=None, simple_series_resistance=None, gds_collector_=None, **kwargs_)
+variable = VoltageClamp(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    target_voltage: 'a Nml2Quantity_voltage (required)' = None,
+    simple_series_resistance: 'a Nml2Quantity_resistance (required)' = None,
+)
 ```
 ````
 `````
@@ -2707,7 +2867,20 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 ```{code-block} python
 from neuroml import VoltageClampTriple
 
-variable = VoltageClampTriple(neuro_lex_id=None, id=None, metaid=None, notes=None, properties=None, annotation=None, active=None, delay=None, duration=None, conditioning_voltage=None, testing_voltage=None, return_voltage=None, simple_series_resistance=None, gds_collector_=None, **kwargs_)
+variable = VoltageClampTriple(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    active: 'a ZeroOrOne (required)' = None,
+    delay: 'a Nml2Quantity_time (required)' = None,
+    duration: 'a Nml2Quantity_time (required)' = None,
+    conditioning_voltage: 'a Nml2Quantity_voltage (required)' = None,
+    testing_voltage: 'a Nml2Quantity_voltage (required)' = None,
+    return_voltage: 'a Nml2Quantity_voltage (required)' = None,
+    simple_series_resistance: 'a Nml2Quantity_resistance (required)' = None,
+)
 ```
 ````
 ````{tab-item} Usage: XML
