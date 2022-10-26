@@ -77,10 +77,10 @@
                 <include segmentGroup="dend_1"/>
             </segmentGroup>
             <segmentGroup id="all">
+                <include segmentGroup="soma_0"/>
                 <include segmentGroup="axon_0"/>
                 <include segmentGroup="dend_0"/>
                 <include segmentGroup="dend_1"/>
-                <include segmentGroup="soma_0"/>
             </segmentGroup>
         </morphology>
         <biophysicalProperties id="biophys">
