@@ -28,15 +28,15 @@
   "groups" : [ {
     "name" : "soma_group",
     "groups" : [ ],
-    "sections" : [ "soma_0", "soma_0" ]
+    "sections" : [ "soma_0" ]
   }, {
     "name" : "axon_group",
     "groups" : [ ],
-    "sections" : [ "axon_0", "axon_0" ]
+    "sections" : [ "axon_0" ]
   }, {
     "name" : "dendrite_group",
     "groups" : [ ],
-    "sections" : [ "dend_0", "dend_0", "dend_1", "dend_1" ]
+    "sections" : [ "dend_0", "dend_1" ]
   }, {
     "name" : "all",
     "sections" : [ "soma_0", "soma_0", "axon_0", "axon_0", "dend_0", "dend_0", "dend_1", "dend_1" ]
@@ -154,11 +154,11 @@ public dend_0
 create dend_1
 public dend_1
 
-// Group: {name=soma_group, groups=[], sections=[soma_0, soma_0]}
+// Group: {name=soma_group, groups=[], sections=[soma_0]}
 objref soma_group
-// Group: {name=axon_group, groups=[], sections=[axon_0, axon_0]}
+// Group: {name=axon_group, groups=[], sections=[axon_0]}
 objref axon_group
-// Group: {name=dendrite_group, groups=[], sections=[dend_0, dend_0, dend_1, dend_1]}
+// Group: {name=dendrite_group, groups=[], sections=[dend_0, dend_1]}
 objref dendrite_group
 // Group: {name=all, sections=[soma_0, soma_0, axon_0, axon_0, dend_0, dend_0, dend_1, dend_1]}
 objref all
@@ -225,21 +225,17 @@ proc basic_shape() {
 
 proc subsets() { local i
 
-    // Group: {name=soma_group, groups=[], sections=[soma_0, soma_0]}
+    // Group: {name=soma_group, groups=[], sections=[soma_0]}
     soma_group = new SectionList()
     soma_0 soma_group.append()
-    soma_0 soma_group.append()
 
-    // Group: {name=axon_group, groups=[], sections=[axon_0, axon_0]}
+    // Group: {name=axon_group, groups=[], sections=[axon_0]}
     axon_group = new SectionList()
     axon_0 axon_group.append()
-    axon_0 axon_group.append()
 
-    // Group: {name=dendrite_group, groups=[], sections=[dend_0, dend_0, dend_1, dend_1]}
+    // Group: {name=dendrite_group, groups=[], sections=[dend_0, dend_1]}
     dendrite_group = new SectionList()
     dend_0 dendrite_group.append()
-    dend_0 dendrite_group.append()
-    dend_1 dendrite_group.append()
     dend_1 dendrite_group.append()
 
     // Group: {name=all, sections=[soma_0, soma_0, axon_0, axon_0, dend_0, dend_0, dend_1, dend_1]}

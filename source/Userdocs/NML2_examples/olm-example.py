@@ -288,6 +288,7 @@ def create_olm_cell():
                              ion="na",
                              group_id="axon_group")
 
+    cell.optimise_segment_groups()
     cell.validate(recursive=True)
     pynml.write_neuroml2_file(nml_cell_doc, nml_cell_file, True, True)
     plot_2D(nml_cell_file, plane2d="xy", nogui=True,

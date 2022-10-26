@@ -64,31 +64,23 @@
                 <notes>Default soma segment group for the cell</notes>
                 <property tag="color" value="0 0 0.8"/>
                 <include segmentGroup="soma_0"/>
-                <include segmentGroup="soma_0"/>
             </segmentGroup>
             <segmentGroup id="axon_group" neuroLexId="GO:0030424">
                 <notes>Default axon segment group for the cell</notes>
                 <property tag="color" value="0 0.8 0"/>
-                <include segmentGroup="axon_0"/>
                 <include segmentGroup="axon_0"/>
             </segmentGroup>
             <segmentGroup id="dendrite_group" neuroLexId="GO:0030425">
                 <notes>Default dendrite segment group for the cell</notes>
                 <property tag="color" value="0.8 0 0"/>
                 <include segmentGroup="dend_0"/>
-                <include segmentGroup="dend_0"/>
-                <include segmentGroup="dend_1"/>
                 <include segmentGroup="dend_1"/>
             </segmentGroup>
             <segmentGroup id="all">
-                <include segmentGroup="soma_0"/>
-                <include segmentGroup="soma_0"/>
-                <include segmentGroup="axon_0"/>
                 <include segmentGroup="axon_0"/>
                 <include segmentGroup="dend_0"/>
-                <include segmentGroup="dend_0"/>
                 <include segmentGroup="dend_1"/>
-                <include segmentGroup="dend_1"/>
+                <include segmentGroup="soma_0"/>
             </segmentGroup>
         </morphology>
         <biophysicalProperties id="biophys">
