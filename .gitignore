@@ -19,3 +19,12 @@ __pycache__
 NT_*/
 .mypy_cache/
 /source/Userdocs/NML2_examples/NMLCH000008.channel.nml
+/source/Userdocs/NML2_examples/TestCell.net.nml
+/source/Userdocs/NML2_examples/complex_cell.hoc
+/source/Userdocs/NML2_examples/iv_complex_cell.net.nml
+/source/Userdocs/NML2_examples/NMLCH000007.channel.nml
+/source/Userdocs/NML2_examples/NMLCH000110.channel.nml
+/source/Userdocs/NML2_examples/NMLCH000113.channel.nml
+/source/Userdocs/NML2_examples/LEMS_Test_NaTa_t.xml
+/source/Userdocs/NML2_examples/LEMS_Test_SKv3_1.xml
+/source/Userdocs/NML2_examples/LEMS_iv_complex_cell.xml
