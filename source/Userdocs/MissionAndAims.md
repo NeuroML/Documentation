@@ -8,7 +8,7 @@ standard data format for defining and exchanging descriptions of neuronal cell a
 NeuroML specifications are developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>` and overseen by its {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`.
 NeuroML is [endorsed by the INCF](https://www.incf.org/sbp/neuroml), and is also an official [COMBINE standard](http://co.mbine.org/standards/neuroml).
 
-The NeuroML project community develops an [XML (eXtensible Markup Language)](https://wikipedia.org/XML) based description language where [XML Schemas](http://www.w3schools.com/schema/default.asp) are used to define model specifications.
+The NeuroML project community develops an [XML (eXtensible Markup Language)](https://wikipedia.org/XML) based description language where [XML Schemas](https://www.w3schools.com/xml/schema_intro.asp) are used to define model specifications.
 The community also develops and maintains a number of libraries (in {ref}`Python, Java and other languages <userdocs:software>`) to facilitate use of these specifications.
 
 The **aims of the NeuroML initiative** are:
