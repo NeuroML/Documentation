@@ -120,6 +120,7 @@ You can download this documentation as PDF pages for offline use.
 To download individual pages, use the download icon in the top bar.
 This will generate a PDF page of the current page for you, using your browser's "print to file" functionality.
 
+% relative links to external files don't yet work. See https://github.com/executablebooks/jupyter-book/issues/1657
 You can also download the complete book as a PDF [here](https://docs.neuroml.org/_static/files/neuroml-documentation.pdf).
 
 (userdocs:usage:bugs)=
