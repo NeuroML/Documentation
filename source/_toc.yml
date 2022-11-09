@@ -92,6 +92,7 @@ parts:
           - file: NeuroMLOrg/BoardMeetingReports
       - file: NeuroMLOrg/ScientificCommittee
       - file: NeuroMLOrg/Funding
+      - file: NeuroMLOrg/OutreachTraining
       - file: NeuroMLOrg/Contributors
       - file: NeuroMLOrg/CoC
   - caption: Developer documentation
