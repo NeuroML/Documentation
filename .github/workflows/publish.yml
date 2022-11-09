@@ -33,7 +33,7 @@ jobs:
       run: |
         jupyter-book clean ./source
         jupyter-book build ./source  --builder pdflatex
-        mv ./source/_build/latex/neuroml-documentation.pdf ./source/_static/
+        mv ./source/_build/latex/neuroml-documentation.pdf ./source/_static/files/
         jupyter-book build ./source
     - name: Import to GitHub pages
       run: |

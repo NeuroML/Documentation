@@ -111,7 +111,7 @@ build_pdf () {
     jupyter-book build ./source --builder pdflatex
 
     echo "Installing book to _static directory"
-    mv source/_build/latex/neuroml-documentation.pdf source/_static/
+    mv source/_build/latex/neuroml-documentation.pdf source/_static/files/
 }
 
 function usage() {
