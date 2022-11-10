@@ -29,4 +29,4 @@ Projects are centred around the standardisation of published models in NeuroML t
 - 2015: Justas Birgiolas: [Convert several large-scale thalamocortical models to NeuroML & PyNN](https://www.google-melange.com/archive/gsoc/2015/orgs/incf/projects/birgiolasj.html)
 - 2014: Ramón Martínez Mayorquin: [Open source, cross simulator, large scale cortical models](https://www.google-melange.com/archive/gsoc/2014/orgs/incf/projects/h_mayorquin.html)
 - 2013: Vitor Chaud: [Open source, cross simulator, models of cortical circuits](https://www.google-melange.com/archive/gsoc/2013/orgs/incf/projects/vitorchaud.html)
-- 2012: Mike Vella: Simulator-independent Python API for multi-compartmental modeling](https://www.google-melange.com/archive/gsoc/2012/orgs/incf/projects/vellamike.html)
+- 2012: Mike Vella: [Simulator-independent Python API for multi-compartmental modeling](https://www.google-melange.com/archive/gsoc/2012/orgs/incf/projects/vellamike.html)
