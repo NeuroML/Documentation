@@ -43,7 +43,7 @@ Information and minutes of various NeuroML meetings can be found here.
 * - 2012 NeuroML Development Workshop
   - Informatics Forum, Edinburgh, UK
   - The NeuroML workshop at was combined with the [BrainScaleS](http://brainscales.kip.uni-heidelberg.de/) (previously FACETS) CodeJam meeting.<br />
-    [Minutes](https://www.neuroml.org/workshop2012).
+    {ref}`Minutes <neuromlevents:2012edinburgh>`.
 * - 2011 NeuroML Development Workshop
   - University College London, UK
   - A key outcome of third NeuroML Development Workshop was the creation of a Scientific Committee for NeuroML.<br />
