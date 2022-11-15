@@ -148,10 +148,157 @@ Chair: Sharon Crook
   -
 
 * - 17:30
-  - **Reconvene and presentated discussions*
+  - **Reconvene and presentated discussions**
   -
 
 * - 18:00
   - **Close**
   -
 ```
+
+### Tuesday 13th March: NeuroML Development Workshop Day 2
+#### Morning session: Representing morphologies/support for detailed neuronal simulators/relationship to connectomics initiatives
+Chair: Michael Hines
+
+```{list-table}
+:header-rows: 1
+:widths: 10, 70, 20
+
+* - Time
+  - Session
+  - Speaker
+
+
+* - 09:00
+  - **The Neural Tissue Simulator([PDF](https://docs.neuroml.org/_static/NeuroML2012/JKozloski_NeuroML_workshop_2012.pdf))**
+
+    James presented his work on the Neural Tissue Simulator, much of which was contained in the recent publication: Kozloski J and Wagner J (2011) An ultrascalable solution to large-scale neural tissue simulation. Frontiers in Neuroinformatics. 5:15. ([link](http://www.frontiersin.org/neuroinformatics/10.3389/fninf.2011.00015/abstract)).
+
+    The key goals of this work are: to develop a simulator capable of testing mappings to various machine architectures, both parallel and multithreaded; to develop support for high level, abstract model definitions and simulation specifications; and to create an extensible simulator, able to map arbitrary, domain level models directly to a variety of data arrangements and computational implementations.
+
+    James discussed the process of defining the model (using the Model Definition & Graph Specification Languages), how the model elements are partitioned on the computing resources, and how these elements communicate during simulation to solve the model equations. He discussed the specific case of simulating cortical columns when synapses were determined through contact detection algorithms. He also presented some results for how the simulator scales for larger networks. The Neural Tissue Simulator is not currently publicly available, but James is keen to make it available, and to build a community of users. NeuroML support is also planned
+
+  - James Kozloski
+
+* - 09:30
+  - **The Blue Brain Project**
+
+    Eilif presented an overview of the Blue Brain Project's efforts to reverse engineer a P14 Rat non-barrel somatosensory cortical column. Based on a database of anatomical reconstructions, electrophysiology, etc. they will fill the cortical column with cells based on known location, probability distributions. Morphologies for those classes of cells are taken from library of cells called a collage with some rules about how they fit in based on constraints from reconstructions. Some of these cells have been "repaired" due to axon cuts in reconstructions.
+
+    Functional circuits are also based on biological data. Electrical behaviors are based on classifications based on firing patterns observed in experiments. This is combinatorial since each morphological class has a number of possible firing patterns. They use genetic algorithm to adjust parameters which are set up based on what is known (gene expression, etc). Channelome project uses cell culture and automated patch clamp by robot and then automated model fitting for data that are then posted to Channelpedia. Channels there are available in ChannelML. Synaptic parameterization and validation for functional synapses are also based on database of recorded synaptic properties.
+
+    In silico model is compared to in vitro using same protocols as experiments. There was a standards and interoperability discussion: they are mostly using custom formats other than what they use with NEURON. Eilif welcomed greater support for more widely used standards.
+
+  - Eilif Muller
+
+* - 10:00
+  - **Tools for the dense reconstruction of neuronal circuits**
+
+    Moritz gave an overview of his recent work with Winfried Denk and Frank Briggman, which is continuing in his own lab. They have used Serial Block-Face Electron Microscopy (SBEM), to investigate the connectivity in blocks of neuronal tissue, which has been the subject of a number of recent publications, e.g. K.L. Briggman, Helmstaedter, M. and W. Denk, Wiring specificity in the direction-selectivity circuit of the mammalian retina. Nature 471, 183-188, 2011. ([link](http://www.nature.com/nature/journal/v471/n7337/full/nature09818.html)).
+
+    He also discussed the application [KNOSSOS](http://www.knossostool.org/) which was developed to facilitate the reconstruction of neuronal morphologies from such data. While this tool uses a proprietary format for storing morphologies, it is open source and Mortiz was keen to integrate the application with other tools using NeuroML.
+
+  - Moritz Helmstaedter
+
+* - 10:30
+  - **Coffee**
+  -
+
+* - 11:00
+  - **The OpenWorm project: Using NeuroML in a highly detailed model of C. elegans ([PPT](https://docs.neuroml.org/_static/NeuroML2012/Open_Worm_03-13-12.ppt))**
+
+    Stephen presented the OpenWorm project. This ambitious project aims to build an in silico model of C. elegans. This well studied system with ~1000 cells and 302 identified neurons is an ideal system with which to attempt a full simulation of a living organism down to cellular scale. Many different approaches are being take in the project at the moment, including investigatin Smoothed Particle Hydrodynamics (SHP) to allow simulation of the interaction of the worm with its environment, and creating a new parallel (GPU based) simulator in Java which will support physical and electrical simulations. Full reconstructions of all of the cells are available in 3D and those of the neurons have been converted to NeuroML, which will form the basis of a simulation of the worm's nervous system.
+
+    One of the concrete outcomes of code sprinting work on the fringes of the NeuroML/CodeJam meeting was the updated OpenWorm Browser, where the full cellular structure of the worm can be browsed in 3D.
+
+  - Stephen Larson
+
+* - 11:30
+  - **Open discussion on tool support for large scale neural simulations**
+  -
+
+* - 13:00
+  - **Lunch (provided)**
+  -
+```
+
+#### Afternoon session: Best practices when implementing support for NeuroML in simulators
+Chair: Avrama Blackwell
+
+```{list-table}
+:header-rows: 1
+:widths: 10, 70, 20
+
+* - Time
+  - Session
+  - Speaker
+
+
+* - 14:00
+  - **Introduction to SED-ML ([PDF](https://docs.neuroml.org/_static/NeuroML2012/DWaltemath_sed-ml_edinburgh2012_.pdf))**
+
+    Dagmar gave an overview of the motivation behind the development of SED-ML, the Simulation Experiment Description language , the current status of the specification, and some of the uses it has been put to so far. It compliments a model description in SBML or NeuroML and allow specification of the simulation algorithm used to run the model, any changes made to the parameters specified in the model description, the simulation duration, what variables were saved during the simulation, and how that data was processed.
+
+    In SED-ML you can define a uniform time course with an initial time and start and end time. This needs to be expanded to other possible time courses. Multiple tasks (simulations) can be defined. For example, run the original database model and the changed model. Output can be set up as 2D or 3D plots or a datatable. SED-ML has an elected board of editors. Contribution to SED-ML is encouraged. Sourceforge can be used for feature requests and this will move forward as people contribute.
+
+  - Dagmar Waltemath
+
+
+* - 14:20
+  - **Introduction to CNO: an ontology for annotating computational neuroscience models ([PDF](https://docs.neuroml.org/_static/NeuroML2012/YleFranc_CNO.pdf))**
+
+    Yann presented an introduction to CNO: an ontology for annotating computational neuroscience models. All classes must have a unique identifier, a label (name) and a human-readable definition. Relationships among classes are specified with relations. Examples are subsumption relations, associative relations, etc. We then can associate this semantic information with parts of XML files.
+
+  - Yann le Franc
+
+* - 14:40
+  - **NeuroLex & NIF update ([PPT](https://docs.neuroml.org/_static/NeuroML2012/NeuroLexNIFupdate_3-13-12.ppt))**
+
+    Stephen gave us an update on NeuroLex and the Neuroscience Information Framework (NIF). We need for an online parts list for the brain. NeuroLex is built on Wiki technology with extra functionality to create structured knowledge where anyone can create or edit. It currently as about 18,000 concepts. NIF funds curators from NIH money and also looks for volunteers. In the future they want to dominate Google searches with NeuroLex terms. Looking to Yelp for how they display info including images and related queries and such. Some place for community comments. Another goal is to expose high quality linked data with example of an open linked data graph.
+
+  - Stephen Larson
+
+* - 15:00
+  - **libSBML and SBML L3 ([PDF](https://docs.neuroml.org/_static/NeuroML2012/SKeating_libsbml-and-sbml.pdf))**
+
+    Sarah gave a brief overview of libSBML and SBML Level 3. libSBML, which provides an API for creating, editing and saving SBML in many languages (e.g. C++, Python, Java, Ruby, Perl) has been instrumental in the growth of the number of applications supporting SBML.
+
+    SBML Level 3 has a modular architecture, featuring a core specification (roughly in line with previous SBML releases) and a number of specialist packages, which applications can choose to support or not. Examples of these packages incluse layout for storing the spatial topology of a model's network diagram, comp for defining how a model is composed from other models and spatial for describing models that involve a spatial component. libSBML already has a generic framework to support extensions for generic packages.
+
+  - Sarah Keating
+
+
+* - 15:15
+  - **Coffee**
+  -
+
+* - 15:30
+  - **Break out sessions**
+
+    - How best to map generic model descriptions to a given simulator
+    - Support for morphologies
+
+  -
+
+* - 17:30
+  - **Reconvene and presentated discussions**
+  -
+
+* - 18:00
+  - **Close of meeting**
+  -
+```
+
+### Wednesday 14th March--Friday 16th March
+
+Full details of the meetings from Wed-Fri are available on the [NeuralEnsemble.org webpage](http://neuralensemble.org/meetings/CodeJam5/) for the meeting.
+
+
+## Funding
+
+The NeuroML part of this workshop was made possible with funding from:
+
+- The National Institutes of Health
+- Wellcome
+- The UK Neuroinformatics Node
+- The International Neuroinformatics Co-ordinating Facility (INCF)
