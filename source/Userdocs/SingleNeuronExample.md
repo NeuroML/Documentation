@@ -333,6 +333,7 @@ neuroml.ExplicitInput().info()
 ```
 but `ctinfo` will do this for us:
 ```python
+from neuroml.utils import ctinfo
 ctinfo("ExplicitInput")
 # or the second form:
 # ctinfo(neuroml.ExplicitInput)
