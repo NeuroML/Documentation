@@ -61,3 +61,4 @@ Information and minutes of various NeuroML meetings can be found here.
 * - 2008 CNS Workshop
   - Portland, Oregon, USA
   - Padraig Gleeson and Sharon Crook moderated a workshop on "Interoperability of Software for Computational and Experimental Neuroscience" at the 2008 Computational Neuroscience Meeting.
+```
