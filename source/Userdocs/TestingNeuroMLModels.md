@@ -13,7 +13,7 @@ It is also important to validate that the behaviour of a given NeuroML model rep
 
 See https://github.com/OpenSourceBrain/osb-model-validation.
 
-(userdocs:validating_models)=
+(userdocs:validating_models_bio)=
 ## Validating that NeuroML model reproduce biological activity
 
 ### SciUnit
