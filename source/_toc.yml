@@ -25,6 +25,7 @@ parts:
     - file: Userdocs/VisualisingNeuroMLModels
       sections:
       - file: Userdocs/VisualisingChannels
+      - file: Userdocs/VisualisingCells
     - file: Userdocs/SimulatingNeuroMLModels
     - file: Userdocs/OptimisingNeuroMLModels
     - file: Userdocs/TestingNeuroMLModels
