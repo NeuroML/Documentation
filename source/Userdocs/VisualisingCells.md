@@ -56,8 +56,35 @@ Interactive visualisation of morphology of an example cell on Open Source Brain.
 (userdocs:visualising_cells:ephys)=
 ## Analysing cell electrophysiology
 
-
-
+The core tools also include utilities to aid in the analysis of cell electrophysiology.
+{ref}`pyNeuroML <pyNeuroML>` includes the [generate_current_vs_frequency_curve](https://pyneuroml.readthedocs.io/en/development/pyneuroml.analysis.html#pyneuroml.analysis.generate_current_vs_frequency_curve) utility function that can be used to generate current-frequency, current-sub-threshold voltage, and to plot voltage traces generated at the soma for different current injections.
+For example, we can analyse the {ref}`OLM cell from our tutorial <userdocs:getting_started:multi_compartment_example>`:
 ```
 generate_current_vs_frequency_curve("source/Userdocs/NML2_examples/olm.cell.nml", "olm", simulator="jNeuroML_NEURON", plot_iv=True, plot_if=True, plot_voltage_traces=True)
+```
+
+This will generate these figures:
+
+```{figure} ../images/olm-cell-fi.png
+:alt: F-I curve for OLM cell generated using `generate_current_vs_frequency_curve`.
+:align: center
+:width: 70%
+
+F-I curve for OLM cell generated using `generate_current_vs_frequency_curve`.
+```
+
+```{figure} ../images/olm-cell-subthresholdVi.png
+:alt: Current vs sub-threshold voltage curve for OLM cell generated using `generate_current_vs_frequency_curve`.
+:align: center
+:width: 70%
+
+Current vs sub-threshold voltage curve for OLM cell generated using `generate_current_vs_frequency_curve`.
+```
+
+```{figure} ../images/olm-cell-voltage-traces.png
+:alt: Voltage traces for OLM cell with different injection currents generated using `generate_current_vs_frequency_curve`.
+:align: center
+:width: 70%
+
+Voltage traces for OLM cell with different injection currents generated using `generate_current_vs_frequency_curve`.
 ```
