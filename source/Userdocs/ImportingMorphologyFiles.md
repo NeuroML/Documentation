@@ -1,18 +1,25 @@
 (userdocs:importing_morphology_files)=
-# Importing Morphology Files
+# Handling Morphology Files
 
-A number of formats are used in neuroscience to store neuronal morphologies obtained from experiments involving neuronal reconstructions.
-This page provides general information on these formats, and documents how they may be converted to NeuroML for use in computational models.
+A number of formats are used in neuroscience to encode neuronal morphologies obtained from experiments involving neuronal reconstructions.
+This page provides general information on these formats, and documents how they may be converted to NeuroML 2 for use in computational models.
 
 (userdocs:importing_morphology_files:terminology)=
 ## Terminology
+
+```{figure} ../images/MorphologyNeuroML2.png
+:alt: Morphologies in NeuroML 2.
+:align: center
+
+Specification of morphologies in **NeuroML 2**. More details can be found for each element in the specification, e.g. {ref}`<cell> <schema:cell>`, {ref}`<morphology> <schema:morphology>`, {ref}`<segment> <schema:segment>`, {ref}`<segmentGroup> <schema:segmentGroup>`, {ref}`<proximal> <schema:proximal>`, {ref}`<distal> <schema:distal>`.
+```
 
 ```{figure} ../images/crook2007-morphml-figure1.png
 :alt: Figure 1 from {cite}`Crook2007` showing different representations of neuronal morphology.
 :align: center
 :width: 500px
 
-Figure 1 from {cite}`Crook2007` (all properties of MorphML are now included in NeuroML v2). A schematic comparing handling of morphological information for a simple cell by different applications. a) Original cell structure.  b) Schematic of Neurolucida reconstruction where the soma is represented by an outline and three-dimensional points are specified along each branch. c) NEURON simulator format where cell structure is specified in sections. Only the center of the section is simulated unless the nseg parameter is greater than one. d) GENESIS simulator representation using compartments that are cylinders except for the soma, which can be spherical. The optimal length of each compartment is determined by the electrotonic length. e) MorphML representation where any of the information shown in panels b through d can be encoded.
+Figure 1 from {cite}`Crook2007`, a schematic comparing handling of morphological information for a simple cell by different applications. a) Schematic of biological cell structure to be represented.  b) **Neurolucida reconstruction** where the soma is represented by an outline and three-dimensional points are specified along each branch. c) **NEURON simulator** format where cell structure is specified in _sections_. Only the center of the section is simulated unless the nseg parameter is greater than one. d) **GENESIS simulator representation** using compartments that are cylinders except for the soma, which can be spherical. The optimal length of each compartment is determined by the electrotonic length. e) **MorphML representation** (i.e. NeuroML v1) where any of the information shown in panels b through d can be encoded.
 ```
 
 All formats have their own terminology that is used to refer to different parts of the cell.
@@ -78,6 +85,8 @@ It is used by resources such as NeuroMorpho.org.
 
 Information on the SWC format can be found in the [NeuroMorpho FAQ](http://neuromorpho.org/myfaq.jsp) under the "What is SWC format" entry.
 
+A recommended application for converting SWC into NeuroML is neuroConstruct (see below).
+
 (userdocs:importing_morphology_files:formats:neurolucida)=
 ### Neurolucida
 
@@ -94,7 +103,6 @@ Not all of these features will be relevant when constructing a single cell compu
 
 {ref}`neuroConstruct <userdocs:supporting:apps:neuroconstruct>` includes functionality to interactively import GENESIS, NEURON, CVapp (SWC), Neurolucida, and older MorphML formats to NeuroML2.
 Please see the [neuroConstruct documentation](http://www.neuroconstruct.org/docs/import.html) for more information.
-
 
 Conversion of neuroConstruct's importing functions into pure Python for inclusion in {ref}`pyNeuroML <pyneuroml>` [is a work in progress](https://github.com/NeuroML/pyNeuroML/issues/89).
 Please contact us if you would like to help with this task.
