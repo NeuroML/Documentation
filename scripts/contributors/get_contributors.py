@@ -4,7 +4,7 @@ Get list of NeuroML contributors
 
 File: get-contributors.py
 
-Copyright 2021 Ankur Sinha
+Copyright 2023 Ankur Sinha
 Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 

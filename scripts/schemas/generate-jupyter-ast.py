@@ -5,8 +5,7 @@ their XML sources.
 
 File: generate-jupyter-ast.py
 
-Copyright 2021 Ankur Sinha
-Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
+Copyright 2023 NeuroML contributors
 """
 
 from datetime import date

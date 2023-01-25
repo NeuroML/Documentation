@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Copyright 2020 Ankur Sinha
-# Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
+# Copyright 2023 NeuroML contributors
 # File : build-helper.sh
 #
 # Shell script to build and publish the book when needed

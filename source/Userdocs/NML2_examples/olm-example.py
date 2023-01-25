@@ -4,7 +4,7 @@ Multi-compartmental OLM cell example
 
 File: olm-example.py
 
-Copyright 2022 NeuroML contributors
+Copyright 2023 NeuroML contributors
 Authors: Padraig Gleeson, Ankur Sinha
 """
 
