@@ -100,7 +100,7 @@ We will limit ourselves to pre-defined entities here.
 
 Let us define an Izhikevich cell that we will use to simulate a neuron.
 The Izhikevich neuron model can take sets of parameters to exhibit different types of spiking behaviour.
-Here, we define an component (object) of the general Izhikevich cell using parameters to show regular spiking.
+Here, we define a component (object) of the general Izhikevich cell using parameters to show regular spiking.
 ```{literalinclude} ./NML2_examples/izhikevich-single-neuron.py
 ----
 language: python
