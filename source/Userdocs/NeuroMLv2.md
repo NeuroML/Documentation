@@ -1,9 +1,8 @@
 (userdocs:neuromlv2)=
 # NeuroML v2
 
-
-The current stable version of NeuroML is v2.2, and the schema for this can be seen [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-The following figure, taken from Cannon et al. 2014 ({cite}`Cannon2014`) shows some of the elements defined in NeuroML version 2 (note: these core elements haven't changed since that publication).
+The current stable version of NeuroML is v2.2, and the XSD Schema for this can be found [here](https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
+The following figure, taken from Cannon et al. 2014 ({cite}`Cannon2014`) shows some of the core elements defined in NeuroML version 2 (note: these key elements haven't changed since that publication).
 
 ```{figure} ../images/Figure6a.png
 :alt: Elements defined in the NeuroML schema, version 2.
@@ -58,12 +57,12 @@ Elements in NeuroML v2 are **Components** which have a corresponding structural 
 
 On the left side of the figure, examples are shown of the (truncated) XML representations of:
 
-- (blue) a {ref}`network <schema:network>` containing two {ref}`populations <schema:population>` of {ref}`integrate-and-fire cells <schema:iafCell>` connected by a single {ref}`projection <schema:projection>` between them;
-- (green) a {ref}`spiking neuron model <schema:izhikevichCell>` as described by Izhikevich (2003);
-- (yellow) a {ref}`conductance based synapse <schema:expOneSynapse>` with a single exponential decay waveform.
+- (blue box) a {ref}`network <schema:network>` containing two {ref}`populations <schema:population>` of {ref}`integrate-and-fire cells <schema:iafCell>` connected by a single {ref}`projection <schema:projection>` between them;
+- (green box) a {ref}`spiking neuron model <schema:izhikevichCell>` as described by Izhikevich (2003);
+- (yellow box) a {ref}`conductance based synapse <schema:expOneSynapse>` with a single exponential decay waveform.
 
 On the right, the definition of the structure and dynamics of these elements in the LEMS language is shown.
-Each element has a corresponding **ComponentType** definition, describing the parameters (as well as their dimensions, not shown) and the dynamics in terms of state variables and their derivatives, any derived variables, and the behaviour when certain conditions are met or events are received (for example, the emission of a spike after a given threshold is crossed).
+Each element instance (**Component**) has a corresponding **ComponentType** definition, describing the parameters (as well as their dimensions, not shown) and the dynamics in terms of state variables and their derivatives, any derived variables, and the behaviour when certain conditions are met or events are received (for example, the emission of a spike after a given threshold is crossed).
 
 (userdocs:neuromlv2inlems)=
 ### NeuroML 2 Component Type definitions in LEMS
@@ -173,15 +172,15 @@ A quick reminder that while XML files can be edited in a standard text editor, y
 Using LEMS to specify the core of NeuroML version 2 has the following significant advantages:
 
 - NeuroML 2 XML files can be used standalone by applications (exported/imported) in the same way as NeuroML v1.x, without reference to the LEMS definitions, easing the transition for v1.x compliant applications
-- Any NeuroML 2 **ComponentType** can be extended and will be usable/translatable by any application (e.g. jLEMS) which understands LEMS
+- Any NeuroML 2 **ComponentType** can be extended and will be usable/translatable by any application (e.g. {ref}`jLEMS <jlems>`) which understands LEMS
 
 The first point above means that a parsing application does not necessarily have to natively read the LEMS type definition for, e.g. an {ref}`izhikevich2007Cell <schema:izhikevich2007Cell>` element: it just has to map the NeuroML element parameters onto its own object model implementing that entity.
-Ideally, the behaviour should be the same − which could be ascertained by testing against the reference LEMS interpreter implementation ([jLEMS](http://github.com/LEMS/jLEMS/)).
+Ideally, the behaviour should be the same − which could be ascertained by testing against the reference LEMS interpreter implementation ({ref}`jLEMS <jlems>`).
 
 The second point above means that if an application does support LEMS, it can automatically parse (and generate code for) a wide range of NeuroML 2 cells, channels and synapses, including any new **ComponentType** derived from these, without having to natively know anything about channels, cell models, etc.
 
-```{admonition} jnml and pynml handle both LEMS and NeuroML 2.
+```{admonition} jNeuroML and pyNeuroML handle both LEMS and NeuroML 2.
 :class: tip
-{ref}`jNeuroML <jneuroML>` and {ref}`pynml <pyneuroml>` handle both LEMS and NeuroML 2.
-They bundle jLEMS together with the LEMS definitions for NeuroML 2 ComponentTypes, and can simulate any LEMS model as well as many NeuroML 2 models.
+{ref}`jNeuroML <jneuroML>` and {ref}`pyNeuroML <pyneuroml>` handle both LEMS and NeuroML 2.
+They bundle {ref}`jLEMS <jlems>` together with the LEMS definitions for NeuroML 2 ComponentTypes, and can simulate any LEMS model as well as many NeuroML 2 models.
 ```
