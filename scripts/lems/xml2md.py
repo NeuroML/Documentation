@@ -10,6 +10,7 @@ Copyright 2023 NeuroML contributors
 import xmltodict
 from datetime import date
 import asttemplates
+from collections import OrderedDict
 
 
 # pages to which different sections should belong
@@ -43,6 +44,22 @@ with open(srcfile, 'r') as ast_doc:
             parsed_data[et['@section']] = []
             parsed_data[et['@section']].append(et)
 
+# add Include
+parsed_data['root'].append(
+    OrderedDict(
+        {
+            '@name': 'Include',
+            'Info': 'Include LEMS files in other LEMS files. Files are included where the Include declaration occurs.  The enclosing Lems block is stripped off and the rest of the content included as is',
+            'Property': OrderedDict(
+                {
+                    '@name': 'file',
+                    '@type': 'String',
+                    '#text': 'the name or relative path of a file to be included'
+                }
+            )
+        }
+    )
+)
 
 print(parsed_data)
 

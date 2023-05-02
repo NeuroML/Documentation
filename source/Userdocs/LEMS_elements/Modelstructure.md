@@ -73,3 +73,20 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ```
 ````
 `````
+(lemsschema:include_)=
+## Include
+
+<i>Include LEMS files in other LEMS files. Files are included where the Include declaration occurs.  The enclosing Lems block is stripped off and the rest of the content included as is</i>
+
+`````{tab-set}
+````{tab-item} Properties
+```{csv-table}
+:widths: 1, 2, 7
+:width: 100%
+:delim: $
+
+**file**$ String$ the name or relative path of a file to be included
+
+```
+````
+`````
