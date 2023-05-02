@@ -71,7 +71,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:parameter_)=
 ## Parameter
 
-<i>Sets the name an dimensionality of a parameter that must be supplied when a component is defined curresponding to the enclosing ComponentType</i>
+<i>A quantity, defined by name and dimension, that must be supplied when a Component of the enclosing ComponentType is defined</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -80,8 +80,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ The name of the parameter. This is the attibute name when the parameter is supplied in a component definition
-**dimension**$ String$ The dimension, or 'none'. This should be the ID of a dimension element defined elsewhere
+**name**$ String$ The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition
+**dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
+**description**$ String$ An optional description of the parameter
 
 ```
 ````
@@ -125,7 +126,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:derivedparameter_)=
 ## DerivedParameter
 
-<i>A parameter that comes from other parameter values in the model rather than being set explicitly. Its value can be supplied either with the 'value' attribute that evaluates within the scope of the definition, or with the 'select' attribute which gives a path to 'primary' version of the parameter. For example,  setting select='//MembranePotential[species=channel/species]/reversal' within the appropriate context allows  a channel's reversal potential to taken from a single global setting according to its permeant ion, rather than explicitly supplied locally.</i>
+<i>A parameter that is a function of the Component's Parameters, which does not change with time. Its value can be supplied either with the 'value' attribute that evaluates within the scope of the definition, or with the 'select' attribute which gives a path to 'primary' version of the parameter. For example,  setting select='//MembranePotential[species=channel/species]/reversal' within the appropriate context allows  a channel's reversal potential to taken from a single global setting according to its permeant ion, rather than explicitly supplied locally.</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -134,7 +135,11 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
+**name**$ String$ The name of the derived parameter
+**dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
+**description**$ String$ An optional description of the derived parameter
 **select**$ String$ Path to the parameter that supplies the value. Exactly one of 'select' and 'value' is required.
+**value**$ String$ A string defining the value of the element
 
 ```
 ````
@@ -170,7 +175,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :delim: $
 
 **name**$ String$ name
-**dimension**$ String$ reference to a dimension
+**dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
+**description**$ String$ An optional description of the requirement
 
 ```
 ````
@@ -212,7 +218,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:exposure_)=
 ## Exposure
 
-<i>A quantity that is made available to other component in the simulation. All variables in a Dynamics definition are private. If other components need access to them then the definition has to explicitly link them to an exposure defined in the component class</i>
+<i>A quantity that is made available to other components in the simulation. Note that all variables in a Dynamics definition are private. If other components need access to them, then the definition should explicitly link them to an exposure defined in the component class</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -221,8 +227,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ name
-**dimension**$ String$ Reference to a dimension
+**name**$ String$ Name of the exposure element
+**dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
+**description**$ String$ An optional description of the element
 
 ```
 ````
@@ -239,8 +246,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
+**name**$ String$ Name of the child
 **type**$ String$ Reference to a component class, the value should be the name of the target class.
+**description**$ String$ An optional description of the child
 
 ```
 ````
@@ -257,7 +265,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
+**name**$ String$ Name of the children
 **type**$ String$ The class of component allowed as children.
 
 ```
@@ -275,8 +283,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
-**type**$ String$ Target type
+**name**$ String$ A name for the ComponentReference
+**type**$ String$ The type of the target Component
+**description**$ String$ An optional description of the ComponentReference
 
 ```
 ````
@@ -293,8 +302,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
-**type**$ String$ Target type
+**name**$ String$ A name for the ComponentReference
+**type**$ String$ The type of the target Component
+**description**$ String$ An optional description of the ComponentReference
 
 ```
 ````
@@ -353,7 +363,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:eventport_)=
 ## EventPort
 
-<i>A port on a component that can send or receive events, depending on the direction speicfied.</i>
+<i>A port on a component that can send or receive events, depending on the direction specified</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -362,8 +372,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
+**name**$ String$ Name of the EventPort
 **direction**$ String$ 'IN' or 'OUT'
+**description**$ String$ An optional description of the EventPort
 
 ```
 ````
@@ -380,7 +391,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
+**name**$ String$ The textual content
+**description**$ String$ An optional description of the element
 
 ```
 ````
@@ -414,8 +426,8 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ 
-**type**$ String$ 
+**name**$ String$ A name for the Attachments
+**type**$ String$ The type of the Attachments
 
 ```
 ````
@@ -438,8 +450,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ The name of the parameter. This is the attibute name when the parameter is supplied in a component definition
-**dimension**$ String$ The dimension, or 'none'. This should be the ID of a dimension element defined elsewhere
+**name**$ String$ The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition
+**dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
+**description**$ String$ An optional description of the parameter
 
 ```
 ````
@@ -456,8 +469,9 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
-**name**$ String$ The name of the parameter. This is the attibute name when the parameter is supplied in a component definition
-**dimension**$ String$ The dimension, or 'none'. This should be the ID of a dimension element defined elsewhere
+**name**$ String$ The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition
+**dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
+**description**$ String$ An optional description of the parameter
 
 ```
 ````

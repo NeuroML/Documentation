@@ -121,11 +121,13 @@ The component type that this type inherits field definitions for, if any        
         <ListProperty name="metas" type="Meta"/>
     </ElementType>
     <ElementType name="Parameter" section="componenttypes">
-        <Info>Sets the name an dimensionality of a parameter that must be supplied when a component is defined curresponding to the enclosing ComponentType</Info>
+        <Info>A quantity, defined by name and dimension, that must be supplied when a Component of the enclosing ComponentType is defined</Info>
         <Property name="name" type="String">
-The name of the parameter. This is the attibute name when the parameter is supplied in a component definition        </Property>
+The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition        </Property>
         <Property name="dimension" type="String">
-The dimension, or 'none'. This should be the ID of a dimension element defined elsewhere        </Property>
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the parameter        </Property>
     </ElementType>
     <ElementType name="PathParameter" section="componenttypes">
         <Info>A parameter of which the value is a path expression. When a ComponentType declares a PathParameter, a corresponding Component definition should have an attibute with that name whose value is a path expression that evaluates within the instance tree of the built model. This is used, for example, in the definition of a group component class, where the coresponding component specifies a path over the instance tree which selectesthe items that should go in the group.</Info>
@@ -140,9 +142,17 @@ Name of the parameter        </Property>
 The defaultValue for the property must be a plain number (no units) giving the SI magnitude of the quantity.        </Property>
     </ElementType>
     <ElementType name="DerivedParameter" section="componenttypes">
-        <Info>A parameter that comes from other parameter values in the model rather than being set explicitly. Its value can be supplied either with the 'value' attribute that evaluates within the scope of the definition, or with the 'select' attribute which gives a path to 'primary' version of the parameter. For example,  setting select='//MembranePotential[species=channel/species]/reversal' within the appropriate context allows  a channel's reversal potential to taken from a single global setting according to its permeant ion, rather than explicitly supplied locally.</Info>
+        <Info>A parameter that is a function of the Component's Parameters, which does not change with time. Its value can be supplied either with the 'value' attribute that evaluates within the scope of the definition, or with the 'select' attribute which gives a path to 'primary' version of the parameter. For example,  setting select='//MembranePotential[species=channel/species]/reversal' within the appropriate context allows  a channel's reversal potential to taken from a single global setting according to its permeant ion, rather than explicitly supplied locally.</Info>
+        <Property name="name" type="String">
+The name of the derived parameter        </Property>
+        <Property name="dimension" type="String">
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the derived parameter        </Property>
         <Property name="select" type="String">
 Path to the parameter that supplies the value. Exactly one of 'select' and 'value' is required.        </Property>
+        <Property name="value" type="String">
+A string defining the value of the element        </Property>
     </ElementType>
     <ElementType name="Fixed" section="componenttypes">
         <Info>Fixes the value of a parameter in the parent class, so that it does not have to be supplied separately in component definitions.</Info>
@@ -154,7 +164,9 @@ Path to the parameter that supplies the value. Exactly one of 'select' and 'valu
         <Property name="name" type="String">
 name        </Property>
         <Property name="dimension" type="String">
-reference to a dimension        </Property>
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the requirement        </Property>
     </ElementType>
     <ElementType name="ComponentRequirement" section="componenttypes">
         <Info>The name of a component or component reference that must exist in the component hierarchy</Info>
@@ -167,35 +179,47 @@ name        </Property>
 name        </Property>
     </ElementType>
     <ElementType name="Exposure" section="componenttypes">
-        <Info>A quantity that is made available to other component in the simulation. All variables in a Dynamics definition are private. If other components need access to them then the definition has to explicitly link them to an exposure defined in the component class</Info>
+        <Info>A quantity that is made available to other components in the simulation. Note that all variables in a Dynamics definition are private. If other components need access to them, then the definition should explicitly link them to an exposure defined in the component class</Info>
         <Property name="name" type="String">
-name        </Property>
+Name of the exposure element        </Property>
         <Property name="dimension" type="String">
-Reference to a dimension        </Property>
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the element        </Property>
     </ElementType>
     <ElementType name="Child" section="componenttypes">
         <Info>Specifies that a component can have a child of a particular type. The name supplied here can be used in path expressions to access the component. This is useful, for example, where a component can have multiple children of the same type but with different roles, such as the forward and reverse transition rates in a channel.</Info>
-        <Property name="name" type="String"/>
+        <Property name="name" type="String">
+Name of the child        </Property>
         <Property name="type" type="String">
 Reference to a component class, the value should be the name of the target class.        </Property>
+        <Property name="description" type="String">
+An optional description of the child        </Property>
     </ElementType>
     <ElementType name="Children" section="componenttypes">
         <Info>Specifies that a component can have children of a particular class. The class may refer to an extendedtype, in which case components of any class that extends the specified target class should be valid as child components</Info>
-        <Property name="name" type="String"/>
+        <Property name="name" type="String">
+Name of the children        </Property>
         <Property name="type" type="String">
 The class of component allowed as children.        </Property>
     </ElementType>
     <ElementType name="Link" section="componenttypes">
         <Info>Like a ComponentRef, but resolved relative to the enclosing object so the target must already be in the model. One or the other should be deprecated. The Link element has the same properties as ComponentRef. The Link element just establishes a connection with the target component, but leaves it in its existing place in the hierarchy. Variables in the target component can be accessed via the name of the link element.  </Info>
-        <Property name="name" type="String"/>
+        <Property name="name" type="String">
+A name for the ComponentReference        </Property>
         <Property name="type" type="String">
-Target type        </Property>
+The type of the target Component        </Property>
+        <Property name="description" type="String">
+An optional description of the ComponentReference        </Property>
     </ElementType>
     <ElementType name="ComponentReference" section="componenttypes">
         <Info>A reference to another component. The target component can be accessed with path expressions in the same way as a child component, but can be defined independently</Info>
-        <Property name="name" type="String"/>
+        <Property name="name" type="String">
+A name for the ComponentReference        </Property>
         <Property name="type" type="String">
-Target type        </Property>
+The type of the target Component        </Property>
+        <Property name="description" type="String">
+An optional description of the ComponentReference        </Property>
     </ElementType>
     <ElementType name="ComponentTypeReference" section="componenttypes">
         <Info>This is used in conjunction with PathParameter elements to specify the target class of selections defined within components operating over the instance tree.</Info>
@@ -210,14 +234,20 @@ Target type        </Property>
         <Property name="name" type="String"/>
     </ElementType>
     <ElementType name="EventPort" section="componenttypes">
-        <Info>A port on a component that can send or receive events, depending on the direction speicfied.</Info>
-        <Property name="name" type="String"/>
+        <Info>A port on a component that can send or receive events, depending on the direction specified</Info>
+        <Property name="name" type="String">
+Name of the EventPort        </Property>
         <Property name="direction" type="String">
 'IN' or 'OUT'        </Property>
+        <Property name="description" type="String">
+An optional description of the EventPort        </Property>
     </ElementType>
     <ElementType name="Text" section="componenttypes">
         <Info>Holds textual information that does not change the model but is needed for other purposes such as labelling graphs.</Info>
-        <Property name="name" type="String"/>
+        <Property name="name" type="String">
+The textual content        </Property>
+        <Property name="description" type="String">
+An optional description of the element        </Property>
     </ElementType>
     <ElementType name="Path" section="componenttypes">
         <Info>Duplicates some functionality of PathParameter - the two should be merged.</Info>
@@ -225,26 +255,32 @@ Target type        </Property>
     </ElementType>
     <ElementType name="Attachments" section="componenttypes">
         <Info>Specifies that a component can accept attached components of a particular class. Attached components can be added at build time dependent on other events. For scoping and access purposes they are like child components. The cannonical use of attachments is in adding synapses to a cell when a network connection is made.</Info>
-        <Property name="name" type="String"/>
-        <Property name="type" type="String"/>
+        <Property name="name" type="String">
+A name for the Attachments        </Property>
+        <Property name="type" type="String">
+The type of the Attachments        </Property>
     </ElementType>
     <ElementType name="Insertion" section="componenttypes"/>
     <ElementType name="IntegerParameter" section="componenttypes">
         <Property name="name" type="String">
-The name of the parameter. This is the attibute name when the parameter is supplied in a component definition        </Property>
+The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition        </Property>
         <Property name="dimension" type="String">
-The dimension, or 'none'. This should be the ID of a dimension element defined elsewhere        </Property>
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the parameter        </Property>
     </ElementType>
     <ElementType name="IndexParameter" section="componenttypes">
         <Property name="name" type="String">
-The name of the parameter. This is the attibute name when the parameter is supplied in a component definition        </Property>
+The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition        </Property>
         <Property name="dimension" type="String">
-The dimension, or 'none'. This should be the ID of a dimension element defined elsewhere        </Property>
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the parameter        </Property>
     </ElementType>
     <ElementType name="About" section="componenttypes"/>
     <ElementType name="Meta" section="componenttypes"/>
     <ElementType name="Dynamics" section="dynamics">
-        <Info>Specifies the dynamical behavior of components build from this ComponentType. </Info>
+        <Info>Specifies the dynamical behavior of components build from this ComponentType. Note that all variables in a Dynamics definition are private. If other components need access to them, then the definition should explicitly link them to an Exposure defined in the component class</Info>
         <ListProperty name="supers" type="Super"/>
         <ListProperty name="derivedVariables" type="DerivedVariable"/>
         <ListProperty name="conditionalDerivedVariables" type="ConditionalDerivedVariable"/>
@@ -260,27 +296,46 @@ The dimension, or 'none'. This should be the ID of a dimension element defined e
         <ListProperty name="regimes" type="Regime"/>
     </ElementType>
     <ElementType name="StateVariable" section="dynamics">
-        <Property name="name" type="String"/>
-        <Property name="dimension" type="String"/>
+        <Property name="name" type="String">
+Name of the state variable        </Property>
+        <Property name="dimension" type="String">
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
         <Property name="exposure" type="String">
 If this variable is to be accessed from outside, it should be linked to an Exposure that is defined in the ComponentType.        </Property>
+        <Property name="description" type="String">
+An optional description of the state variable        </Property>
     </ElementType>
     <ElementType name="StateAssignment" section="dynamics">
         <Info>Has 'variable' and 'value' fields</Info>
+        <Property name="variable" type="String">
+The name of the variable        </Property>
+        <Property name="value" type="String">
+A string defining the value of the element        </Property>
     </ElementType>
     <ElementType name="TimeDerivative" section="dynamics">
-        <Info>Has a variable and a value. The value is the rate of change of the variable.</Info>
+        <Info>First order differential equations, functions of StateVariables and Parameters, for how StateVariables change with time. Has a variable and a value. The value is the rate of change of the variable.</Info>
+        <Property name="variable" type="String">
+The name of the variable        </Property>
+        <Property name="value" type="String">
+A string defining the value of the element        </Property>
     </ElementType>
     <ElementType name="DerivedVariable" section="dynamics">
-        <Info>A quantity that depends algebraically on other quantities in the model. The 'value' field can be set to a mathematical expression, or the select field to a path expression. If the path expression produces multiple matches, then the 'reduce' field says how these are reduced to a single value by taking the sum or product. </Info>
-        <Property name="name" type="String"/>
-        <Property name="select" type="String"/>
-        <Property name="dimension" type="String"/>
+        <Info>A quantity that depends algebraically on other quantities in the model. The 'value' field can be set to a mathematical expression, or the 'select' field to a path expression. If the path expression produces multiple matches, then the 'reduce' field says how these are reduced to a single value by taking the sum or product. </Info>
+        <Property name="name" type="String">
+Name of the derived variable        </Property>
+        <Property name="select" type="String">
+A path to the variable that supplies the value. Note that to select a variable from another component, the variable must be marked as an Exposure. Exactly one of 'select' and 'value' is required        </Property>
+        <Property name="dimension" type="String">
+The dimension, or 'none'. This should be the name of an already defined dimension element        </Property>
+        <Property name="description" type="String">
+An optional description of the derived variable        </Property>
         <Property name="reduce" type="String">
 Either 'add' or 'multiply'. This applies if ther are multiple matches to the path or if 'required' is false. In the latter case, for multiply mode, multiplicative expressions in this variable behave as if the term was absent. Additive expressions generate an error. Conversely, if set to 'add' then additive expressions behave as if it was not there and multiplicative ones generateand error.        </Property>
         <Property name="exposure" type="String"/>
         <Property name="required" type="boolean">
 Set to true if it OK for this variable to be absent. See 'reduce' for what happens in this case        </Property>
+        <Property name="value" type="String">
+A string defining the value of the element        </Property>
     </ElementType>
     <ElementType name="OnStart" section="dynamics">
         <ListProperty name="stateAssignments" type="StateAssignment"/>
@@ -302,8 +357,9 @@ the port to listen on        </Property>
     </ElementType>
     <ElementType name="EventOut" section="dynamics"/>
     <ElementType name="KineticScheme" section="dynamics">
-        <Info>A kinetic scheme does not itself introduce any new elements or state variables. It is rather a way of connecting quantities in existing components by saying that quantities in the edge elements should be interpreted as transition rates among quantities in the node elements. </Info>
-        <Property name="name" type="String"/>
+        <Info>Allows the specification of systems that can be in one of a small number of states at any time with probabilistic transitions between states. This includes continuous time Markov processes as are used for stochastic models of ion channels. A kinetic scheme does not itself introduce any new elements or state variables. It is rather a way of connecting quantities in existing components by saying that quantities in the edge elements should be interpreted as transition rates among quantities in the node elements. </Info>
+        <Property name="name" type="String">
+Name of kinetic scheme        </Property>
         <Property name="nodes" type="String">
 Source of notes for scheme        </Property>
         <Property name="edges" type="String">
@@ -320,6 +376,11 @@ Name of forward rate exposure        </Property>
 Name of reverse rate exposure        </Property>
     </ElementType>
     <ElementType name="Regime" section="dynamics">
+        <Info>Allows the dynamics of a ComponentType to be expressed via a finite state machine. Each regime has its internal dynamics, and conditions on which transitions between regimes occur are specified using the OnCondition element</Info>
+        <Property name="name" type="String">
+The name of the regime        </Property>
+        <Property name="initial" type="String">
+'True' if this is the initial regime of the system        </Property>
         <ListProperty name="derivedVariables" type="DerivedVariable"/>
         <ListProperty name="stateVariables" type="StateVariable"/>
         <ListProperty name="timeDerivatives" type="TimeDerivative"/>
@@ -342,7 +403,10 @@ Name of reverse rate exposure        </Property>
         <Property name="exposure" type="String"/>
         <ListProperty name="cases" type="Case"/>
     </ElementType>
-    <ElementType name="Case" section="dynamics"/>
+    <ElementType name="Case" section="dynamics">
+        <Property name="value" type="String">
+A string defining the value of the element        </Property>
+    </ElementType>
     <ElementType name="Equilibrium" section="dynamics">
         <ListProperty name="derivedVariables" type="DerivedVariable"/>
     </ElementType>
@@ -350,6 +414,11 @@ Name of reverse rate exposure        </Property>
     <ElementType name="DerivedScalarField" section="dynamics"/>
     <ElementType name="DerivedPunctateField" section="dynamics"/>
     <ElementType name="Structure" section="structure">
+        <Info>By default, each Component in a model gives rise to a single instance of its state variables when the model is executed. The state variables are then governed by the dynamics definition in the associated ComponentType. Elements in the Structure declaration  can be used to change this behavior, for example to make multiple instances of the state variables, or to instantiate a different component. A typical application for the latter would be a Component that defines a population of cells. The population Component might define the number of cells it contains but would refer to a Component defined elsewhere for the actual cell model to use.</Info>
+        <ListProperty name="buildElements" type="BuildElement"/>
+    </ElementType>
+    <ElementType name="BuildElement" section="structure">
+        <Info>Base class for elements that can be used in Structures</Info>
         <ListProperty name="buildElements" type="BuildElement"/>
     </ElementType>
     <ElementType name="MultiInstantiate" section="structure">
