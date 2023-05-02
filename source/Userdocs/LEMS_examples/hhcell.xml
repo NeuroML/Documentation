@@ -1,0 +1,49 @@
+<Lems>
+
+    <Include file="hhchannel.xml"/>
+
+    <Dimension name="voltage" m="1" l="2" t="-3" i="-1"/>
+    <Dimension name="capacitance" m="-1" l="-2" t="4" i="2"/>
+    <Dimension name="current" i="1"/>
+
+    
+    <ComponentType name="ChannelPopulation">
+        <ComponentReference name="channel" type="HHChannel"/>
+        <Parameter name="number" dimension="none"/>
+        <Parameter name="erev" dimension="voltage"/>
+        <Requirement name="v" dimension="voltage"/>
+        <Exposure name="current" dimension="current"/>
+        <Exposure name="geff" dimension="conductance"/>
+  
+        <Structure>
+            <ChildInstance component="channel"/>
+        </Structure>
+  
+        <Dynamics simultaneous="false">
+            <DerivedVariable name="channelg" dimension="conductance" select="channel/g"/>
+            <DerivedVariable name="geff" exposure="geff" value="channelg * number"/>
+            <DerivedVariable name="current" exposure="current" value="geff * (erev - v)"/>
+        </Dynamics>
+    
+    </ComponentType>
+
+
+    <ComponentType name="HHCell">
+        <Parameter name="capacitance" dimension="capacitance"/>
+        <Children name="populations" type="ChannelPopulation"/>
+        <Parameter name="injection" dimension="current"/>
+        <Parameter name="v0" dimension="voltage"/>
+        <Exposure name="v" dimension="voltage"/>
+    
+        <Dynamics simultaneous="true">
+            <OnStart>
+                <StateAssignment variable="v" value="v0"/>
+            </OnStart>
+  
+            <DerivedVariable name="totcurrent" dimension="current" select="populations[*]/current" reduce="add"/>
+            <StateVariable name="v" exposure="v" dimension="voltage"/> 
+            <TimeDerivative variable="v" value="(totcurrent + injection) / capacitance"/>
+        </Dynamics>
+    </ComponentType>
+ 
+</Lems>
