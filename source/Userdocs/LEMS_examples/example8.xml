@@ -1,0 +1,126 @@
+<Lems>
+
+    <Target component="sim1"/> 
+
+
+    <Include file="ex2dims.xml"/>
+    <Include file="spikegenerators.xml"/>
+    <Include file="misciaf.xml"/>
+
+
+    <ComponentType name="refractiaf">
+        <Parameter name="threshold" dimension="voltage"/>
+        <Parameter name="refractoryPeriod" dimension="time"/>
+        <Parameter name="capacitance" dimension="capacitance"/>
+        <Parameter name="vleak" dimension="voltage"/>
+        <Parameter name="gleak" dimension="conductance"/>
+
+        <Parameter name="current" dimension="current"/>
+        <Parameter name="vreset" dimension="voltage"/>
+        <Parameter name="deltaV" dimension="voltage"/>
+        <Parameter name="v0" dimension="voltage"/>
+
+        <EventPort name="out" direction="out"/>
+        <EventPort name="in" direction="in"/>
+
+        <Exposure name="v" dimension="voltage"/>
+
+        <Dynamics>     
+            <StateVariable name="v" exposure="v" dimension="voltage" /> 
+            <StateVariable name="tin" dimension="time"/>       
+            
+            <OnStart>
+                <StateAssignment variable="v" value="v0"/>
+            </OnStart>
+
+            <Regime name="refr">         
+                <OnEntry>             
+                    <StateAssignment variable="tin" value="t" />             
+                    <StateAssignment variable="v" value="vreset" />          
+                </OnEntry>                   
+                <OnCondition test="t .gt. tin + refractoryPeriod">                 
+                    <Transition regime="int" />             
+                </OnCondition>         
+            </Regime>          
+
+            <Regime name="int" initial="true">         
+                <TimeDerivative variable="v" value="(current + gleak * (vleak - v)) / capacitance" />         
+                <OnCondition test="v .gt. threshold">             
+                    <EventOut port="out" />             
+                    <Transition regime="refr" />         
+                </OnCondition>         
+                <OnEvent port="in">
+                    <StateAssignment variable="v" value="v + deltaV"/>
+                </OnEvent>
+
+            </Regime>
+        </Dynamics>
+
+    </ComponentType>
+
+
+    <Component id="gen1" type="spikeGenerator" period="7ms"/>
+
+    
+    <Component id="multiregime" type="refractiaf" threshold="-50mV" v0="-80mV"
+               refractoryPeriod="20ms" capacitance="1pF" vreset="-80mV" vleak="-90mV" 
+               gleak="5pS" current="0.00001nA" deltaV="5mV"/>
+
+
+    <ComponentType name="Network">
+        <Children name="populations" type="Population"/>
+        <Children name="connectivities" type="EventConnectivity"/>
+    </ComponentType>
+
+
+    <ComponentType name="Population">
+        <ComponentReference name="component" type="Component"/>
+        <Parameter name="size" dimension="none"/>
+        <Structure>
+                <MultiInstantiate number="size" component="component"/>
+        </Structure>
+    </ComponentType>
+
+
+    <ComponentType name="EventConnectivity">
+        <Link name="source" type="Population"/>
+        <Link name="target" type="Population"/>
+        <Child name="Connections" type="ConnectionPattern"/>
+    </ComponentType>
+
+
+    <ComponentType name="ConnectionPattern"/>
+
+
+    <ComponentType name="AllAll" extends="ConnectionPattern">
+        <Structure>
+            <ForEach instances="../source" as="a">
+                <ForEach instances="../target" as="b">
+                    <EventConnection from="a" to="b"/>
+                </ForEach>
+            </ForEach>    
+        </Structure>
+    </ComponentType>
+
+
+    <Network id="net1">
+        <Population id="p1" component="gen1" size="1"/>
+        <Population id="p3" component="multiregime" size="2"/>
+
+        <EventConnectivity id="p1-p3" source="p1" target="p3">
+            <Connections type="AllAll"/>
+        </EventConnectivity>
+    </Network>
+
+
+    <Include file="SingleSimulation.xml" />
+
+    <Simulation id="sim1" length="80ms" step="0.05ms" target="net1">
+        <Display id="d0" title="Example 8: Regimes in dynamics definitions" timeScale="1ms" xmin="-10" xmax="90" ymin="-90" ymax="20">
+            <Line id="gen_vmr" quantity="p3[0]/v" scale="1mV" timeScale="1ms" color="#00c000"/>
+            <Line id="gen_sv" quantity="p1[0]/tsince" scale="1ms" timeScale="1ms" color="#f00000"/>
+        </Display>
+    </Simulation>
+
+
+</Lems>
