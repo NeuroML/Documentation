@@ -368,4 +368,10 @@ These are also user-defined types: their definitions will be presented in exampl
 ```
 That's it. When this model is run it produces the figure shown below (after rescaling a bit).
 
+```{figure} ../Userdocs/LEMS_examples/lems_example4.png
+:alt: LEMS GUI showing simulation output graphs
+:align: center
+
+LEMS GUI showing simulation output graphs
+```
 
