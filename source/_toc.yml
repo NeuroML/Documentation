@@ -46,6 +46,7 @@ parts:
     - file: Userdocs/LEMS
       sections:
         - file: Userdocs/LEMSOverview
+        - file: Userdocs/LEMSExample1
     - file: Userdocs/UsingNeuroMLv2AndLEMS
       sections:
         - file: Userdocs/Conventions
