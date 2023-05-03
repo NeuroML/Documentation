@@ -40,14 +40,6 @@ parts:
         - file: Userdocs/LEMSExample6
         - file: Userdocs/LEMSExample7
         - file: Userdocs/LEMSExample8
-    - file: Userdocs/UsingNeuroMLv2AndLEMS
-      sections:
-        - file: Userdocs/Conventions
-        - file: Userdocs/UnitsAndDimensions
-        - file: Userdocs/Paths
-        - file: Userdocs/QuantitiesAndRecording
-        - file: Userdocs/LEMSSimulation
-        - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Specification
       sections:
         - file: Userdocs/NeuroMLv2
@@ -73,6 +65,14 @@ parts:
             - file: Userdocs/LEMS_elements/Procedure
             - file: Userdocs/LEMS_elements/DefiningComponents
             - file: Userdocs/LEMS_elements/Geometry
+    - file: Userdocs/UsingNeuroMLv2AndLEMS
+      sections:
+        - file: Userdocs/Conventions
+        - file: Userdocs/UnitsAndDimensions
+        - file: Userdocs/Paths
+        - file: Userdocs/QuantitiesAndRecording
+        - file: Userdocs/LEMSSimulation
+        - file: Userdocs/ExtendingNeuroMLv2WithLEMS
     - file: Userdocs/Software/Software
       sections:
         - file: Userdocs/Software/pyNeuroML
