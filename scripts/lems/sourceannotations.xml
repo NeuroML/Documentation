@@ -69,19 +69,6 @@ The name of a dimension        </Property>
         <Property name="matches" type="String">
 An expression involving dimensions. The dimensionality of the expression should match the dimensionality of the dimension reference.        </Property>
     </ElementType>
-    <ElementType name="Component" section="unitsdimensions">
-        <Property name="id" type="String"/>
-        <Property name="name" type="String">
-Name by which the component was declared - this shouldn't be accessible.        </Property>
-        <Property name="declaredType" type="String">
-Name by which the component was declared - this shouldn't be accessible.        </Property>
-        <Property name="type" type="String"/>
-        <Property name="eXtends" type="String"/>
-        <ListProperty name="insertions" type="Insertion"/>
-        <ListProperty name="components" type="Component"/>
-        <ListProperty name="abouts" type="About"/>
-        <ListProperty name="metas" type="Meta"/>
-    </ElementType>
     <ElementType name="ComponentType" section="componenttypes">
         <Info>Root element for defining LEMS Component Types.</Info>
         <Property name="name" type="String">
