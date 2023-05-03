@@ -1,0 +1,29 @@
+<Lems>
+    <Include file="hhchannel.xml"/>
+
+    <Unit symbol="mV" dimension="voltage" power="-3"/> 
+    <Unit symbol="per_ms" dimension="per_time" power="3"/>
+    <Unit symbol="pS" dimension="conductance" power="-12"/>
+
+    
+    <HHChannel id="na" conductance="20pS">
+        <HHGate id="m" power="3">
+            <Forward type="HHExpLinearRate" rate="1.per_ms" midpoint="-40mV" scale="10mV"/>
+            <Reverse type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+        </HHGate>
+    
+        <HHGate id="h" power="1">
+            <Forward type="HHExpRate" rate="0.07per_ms" midpoint="-65.mV" scale="-20.mV"/>
+            <Reverse type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
+        </HHGate>
+    </HHChannel>
+
+
+    <HHChannel id="k" conductance="20pS">
+        <HHGate id="n" power="4">
+            <Forward type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
+            <Reverse type="HHExpRate" rate="0.125per_ms" midpoint="-65mV" scale="-80mV"/>
+        </HHGate>
+    </HHChannel>
+
+</Lems>

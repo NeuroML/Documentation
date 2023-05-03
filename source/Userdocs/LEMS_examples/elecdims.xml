@@ -1,0 +1,8 @@
+<Lems>
+    <Dimension name="voltage" m="1" l="2" t="-3" i="-1"/>
+    <Dimension name="time" t="1"/>
+    <Dimension name="conductance" m="-1" l="-2" t="3" i="2"/>
+    <Dimension name="capacitance" m="-1" l="-2" t="4" i="2"/>
+    <Dimension name="current" i="1"/>
+    
+</Lems>

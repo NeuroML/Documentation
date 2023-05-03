@@ -547,6 +547,7 @@ def main(srcdir, destdir):
                     lemsexamples=comp_type_examples[comp_type.name],
                     pysig=comp_type_py_api[comp_type.name]), file=ast_doc)
 
+            # close the tab set
             if (len(params) > 0 or len(comp_type.constants) > 0 or
                     len(derived_params) > 0 or len(comp_type.texts) > 0 or
                     len(comp_type.paths) > 0 or len(comp_type.component_references) > 0

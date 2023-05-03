@@ -1,0 +1,32 @@
+<Lems>
+    
+    <Include file="elecdims.xml"/>
+   
+
+    <ComponentType name="iaf1">
+        <Parameter name="threshold" dimension="voltage"/>
+        <Parameter name="refractoryPeriod" dimension="time"/>
+        <Parameter name="capacitance" dimension="capacitance"/>
+    </ComponentType>
+
+
+    <ComponentType name="iaf3" extends="iaf1">
+        <Parameter name="leakConductance" dimension="conductance"/>
+        <Parameter name="leakReversal" dimension="voltage"/>
+        <Parameter name="deltaV" dimension="voltage"/>
+        <EventPort name="spikes-in" direction="in"/>
+        <Exposure name="v" dimension="voltage"/>
+
+        <Dynamics>
+            <StateVariable name="v" exposure="v" dimension="voltage"/>
+            <TimeDerivative variable="v" value="leakConductance * (leakReversal - v) / capacitance"/>
+             
+            <OnEvent port="spikes-in">
+                <StateAssignment variable="v" value="v + deltaV"/>
+            </OnEvent>      
+        </Dynamics>
+
+    </ComponentType>
+ 
+
+</Lems>
