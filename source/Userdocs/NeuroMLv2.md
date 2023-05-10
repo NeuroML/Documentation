@@ -37,12 +37,8 @@ NeuroML files containing the XML representation of the model can be {ref}`valida
 ## Defining dynamics in LEMS
 
 While valid NeuroML entities are contained in the schema, their underlying mathematical structure and composition rules must also be defined.
-For this, NeuroML version 2 makes use of [LEMS (Low Entropy Language Specification)](http://lems.github.io/LEMS).
+For this, NeuroML version 2 makes use of {ref}`LEMS <userdocs:lems>`.
 
-```{admonition} LEMS
-:class: dropdown tip
-For an in-depth guide to LEMS, please see the research paper: [LEMS: a language for expressing complex biological models in concise and hierarchical form and its use in underpinning NeuroML 2](https://www.frontiersin.org/articles/10.3389/fninf.2014.00079/full). Documentation on the structure of the LEMS language can be found [here](http://lems.github.io/LEMS/elements.html).
-```
 
 LEMS is an XML based language originally developed by Robert Cannon for specifying generic models of hybrid dynamical systems. Models defined in LEMS can also be simulated directly through a native interpreter.
 
