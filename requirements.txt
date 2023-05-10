@@ -3,3 +3,4 @@ pyneuroml
 neuromllite
 libNeuroML
 NEURON
+pyelectro
