@@ -65,7 +65,7 @@ parts:
             - file: Userdocs/LEMS_elements/Procedure
             - file: Userdocs/LEMS_elements/DefiningComponents
             - file: Userdocs/LEMS_elements/Geometry
-    - file: Userdocs/UsingNeuroMLv2AndLEMS
+    - file: Userdocs/NeuroMLv2AndLEMS
       sections:
         - file: Userdocs/Conventions
         - file: Userdocs/UnitsAndDimensions
