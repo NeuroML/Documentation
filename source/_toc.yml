@@ -72,7 +72,7 @@ parts:
         - file: Userdocs/Paths
         - file: Userdocs/QuantitiesAndRecording
         - file: Userdocs/LEMSSimulation
-        - file: Userdocs/ExtendingNeuroMLv2WithLEMS
+    - file: Userdocs/ExtendingNeuroMLv2
     - file: Userdocs/Software/Software
       sections:
         - file: Userdocs/Software/pyNeuroML
