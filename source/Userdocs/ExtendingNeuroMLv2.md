@@ -27,8 +27,9 @@ For convenience, the NeuroMLv2 schema includes a subset of the {ref}`LEMS elemen
 
 An example of this type of extension of NeuroML can be see [here](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Ca_LVAst.channel.nml#L42) where a new Calcium dependent ion channel Component requires a new ComponentType {code}`Ca_LVAst_m_tau_tau` that implements the time course of the gate.
 
-However, please note that while the ComponentType will be valid NeuroML, the new Component (instance) one creates of this ComponentType *will not*---since the NeuroML schema *does not know of the new ComponentType*.
-Instead, new Component will be valid LEMS (and so must use a {code}`<Lems ..>` root tag in its document).
+However, please note that while the ComponentType will be valid NeuroML, the new Components (instances) one creates of this ComponentType (and models where Components are referenced/used) *will not*---since the NeuroML schema *does not know of the new ComponentType*.
+The new Components (and the models) will be valid LEMS.
+For this reason, while the ComponentType file will use a {code}`<neuroml ..>` root tag, the file containing its instantiated Components will use the {code}`<Lems ..>` root tag.
 
 (userdocs:extending:withlems)=
 ## Creating new ComponentTypes with LEMS elements
