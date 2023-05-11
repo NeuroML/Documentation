@@ -301,6 +301,8 @@ def main(srcdir, destdir):
         destdir = "."
     print("Output files will be written to {} directory".format(destdir))
 
+    links_doc_data = {}
+
     for comp_definition in comp_definitions:
         fullpath = "{}/{}.xml".format(tmpsrcdir, comp_definition)
         outputfile = "{}/{}.md".format(destdir, comp_definition)
@@ -339,6 +341,8 @@ def main(srcdir, destdir):
 
             print(asttemplates.dimension.render(comp_definition=comp_definition,
                                                 dimensions=dimensions, units=units), file=ast_doc)
+            for dim in dimensions:
+                links_doc_data[f'{dim.name.lower()}'] = f'<a name="{dim.name}"/>\n\n- {{ref}}`{dim.name} <schema:dimensions:{dim.name}>`'
 
             # Get factors
             for unit in units:
@@ -386,6 +390,7 @@ def main(srcdir, destdir):
             print(asttemplates.comp.render(comp_definition=comp_definition,
                                            comp_type=comp_type, cno=cno),
                   file=ast_doc)
+            links_doc_data[f'{comp_type.name.lower()}'] = f'<a name="{comp_type.name.lower()}"/>\n\n- {{ref}}`{comp_type.name} <schema:{comp_type.name.lower()}>`'
 
             """Process parameters, derived parameters, texts, paths, expsures,
             requirements and ports"""
@@ -560,6 +565,13 @@ def main(srcdir, destdir):
                 print("""`````""", file=ast_doc)
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
+
+    with open(f"{destdir}/Index.md", 'w') as links_doc:
+        print("# Index\n", file=links_doc)
+        ordered_data = dict(sorted(links_doc_data.items()))
+
+        for name, text in ordered_data.items():
+            print(text, file=links_doc)
 
     if not srcdir:
         tempdir.cleanup()
