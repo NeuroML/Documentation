@@ -571,3 +571,13 @@ examples = env.from_string(textwrap.dedent(
     {%- endif -%}
     """
 ))
+
+schema_quote = env.from_string(textwrap.dedent(
+    """
+    ````{tab-item} Schema
+    ```{code-block} xml
+    {{ schemadoc }}
+    ```
+    ````
+    """
+))
