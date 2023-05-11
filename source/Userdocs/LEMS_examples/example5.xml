@@ -1,0 +1,198 @@
+<Lems>
+
+    <Target component="sim1"/>
+
+    <Include file="ex2dims.xml"/>
+
+    <ComponentType name="Species">
+        <Text name="name"/>
+        <Parameter name="charge" dimension="none"/>
+    </ComponentType>
+
+
+    <ComponentType name="Environment">
+        <Children name="membranePotentials" type="MembranePotential"/>
+    </ComponentType>
+
+
+    <ComponentType name="MembranePotential">
+        <ComponentReference name="species" type="Species"/>
+        <Parameter name="reversal" dimension="voltage"/>
+    </ComponentType>
+
+    <Species id="Na" name="Sodium" charge="1"/>
+    <Species id="K" name="Potassium" charge="1"/>
+    <Species id="Ca" name="Calcium" charge="1"/>
+
+
+    <Environment id="env1">
+        <MembranePotential species="Na" reversal="50mV"/>
+        <MembranePotential species="K" reversal="-80mV"/>    
+    </Environment>
+
+
+    <ComponentType name="KSChannel">
+        <Parameter name="conductance" dimension="conductance"/>
+        <ComponentReference name="species" type="Species"/>
+        <Children name="gates" type="KSGate"/>
+        <Exposure name="g" dimension="conductance"/>
+    
+        <Dynamics>
+            <DerivedVariable name="fopen" dimension="none" select="gates[*]/fopen" reduce="multiply"/>
+            <DerivedVariable name="g" exposure="g" dimension="conductance" value="fopen * conductance"/>
+        </Dynamics>
+    </ComponentType>
+
+
+    
+    <ComponentType name="KSGate">
+        <Parameter name="power" dimension="none"/>
+        <Parameter name="deltaV" dimension="voltage"/>
+        <Children name="states" type="KSState"/>
+        <Children name="transitions" type="KSTransition"/>
+        <Exposure name="fopen" dimension="none"/>
+    
+        <Dynamics>   
+            <KineticScheme name="ks" nodes="states" stateVariable="occupancy"
+                           edges="transitions" edgeSource="from" edgeTarget="to" 
+                           forwardRate="rf" reverseRate="rr" dependency="v" step="deltaV"/>
+    
+            <DerivedVariable name="q" dimension="none" select="states[*]/q" reduce="add"/>
+            <DerivedVariable name="fopen" exposure="fopen" dimension="none" value="q^power"/>
+        </Dynamics>
+    </ComponentType>
+
+    
+    <ComponentType name="KSState">
+        <Parameter name="relativeConductance" dimension="none"/>
+        <Exposure name="q" dimension="none"/>
+        <Exposure name="occupancy" dimension="none"/>
+   
+        <Dynamics>
+            <StateVariable name="occupancy" exposure="occupancy" dimension="none"/>
+            <DerivedVariable name="q" exposure="q" value="relativeConductance * occupancy"/>
+        </Dynamics>
+    </ComponentType>
+
+    <ComponentType name="KSClosedState" extends="KSState">
+        <Fixed parameter="relativeConductance" value="0"/>
+    </ComponentType>
+
+
+    <ComponentType name="KSOpenState" extends="KSState">
+        <Fixed parameter="relativeConductance" value="1"/>
+    </ComponentType>
+
+
+    <ComponentType name="KSTransition">
+        <Link name="from" type="KSState"/>
+        <Link name="to" type="KSState"/>
+        <Exposure name="rf" dimension="per_time"/>
+        <Exposure name="rr" dimension="per_time"/>
+ 
+    </ComponentType>
+
+
+    <ComponentType name="VHalfTransition" extends="KSTransition">
+        <Parameter name="vHalf" dimension="voltage"/>
+        <Parameter name="z" dimension="none"/>
+        <Parameter name="gamma" dimension="none"/>
+        <Parameter name="tau" dimension="time"/>
+        <Parameter name="tauMin" dimension="time"/>
+        <Constant name="kte" dimension="voltage" value="25.3mV"/>
+        <Requirement name="v" dimension="voltage"/>  
+    
+        <Dynamics>
+            <DerivedVariable name="rf0" dimension="per_time" value="exp(z * gamma * (v - vHalf) / kte) / tau"/>
+            <DerivedVariable name="rr0" dimension="per_time" value="exp(-z * (1 - gamma) * (v - vHalf) / kte) / tau"/>
+            <DerivedVariable name="rf" exposure="rf" dimension="per_time" value="1 / (1/rf0 + tauMin)"/>
+            <DerivedVariable name="rr" exposure="rr" dimension="per_time" value="1 / (1/rr0 + tauMin)"/>
+        </Dynamics>
+    </ComponentType>
+
+
+
+
+
+
+    <KSChannel id="na1" conductance="20pS" species="Na">
+        <KSGate power="1" deltaV="0.1mV">
+            <KSClosedState id="c1"/>
+            <KSClosedState id="c2"/>
+            <KSOpenState id="o1" relativeConductance="1"/>
+            <KSClosedState id="c3"/>
+            <VHalfTransition from="c1" to="c2" vHalf = "-35mV" z="2.5" gamma="0.8" tau="0.15ms" tauMin="0.001ms"/>
+            <VHalfTransition from="c2" to="o1" vHalf = "-35mV" z="2.5" gamma="0.8" tau="0.15ms" tauMin="0.001ms"/>
+            <VHalfTransition from="o1" to="c3" vHalf = "-70mV" z="1.1" gamma="0.90" tau="8.0ms" tauMin="0.01ms"/>         
+        </KSGate>
+    </KSChannel>
+
+
+    <KSChannel id="k1" conductance="30pS" species="K">
+        <KSGate power="1" deltaV="0.1mV">
+            <KSClosedState id="c1"/>
+            <KSOpenState id="o1"/>
+            <VHalfTransition from="c1" to="o1" vHalf = "0mV" z="1.5" gamma="0.75" tau="3.2ms" tauMin="0.3ms"/>
+        </KSGate>
+    </KSChannel>
+
+
+
+
+    <ComponentType name="ChannelPopulation">
+        <ComponentReference name="channel" type="KSChannel"/>
+        <Parameter name="number" dimension="none"/>
+        <Requirement name="v" dimension="voltage"/>
+        <Exposure name="current" dimension="current"/>
+        <DerivedParameter name="erev" dimension="voltage" select="//MembranePotential[species=channel/species]/reversal"/>
+        <Dynamics>
+     
+            <DerivedVariable name="channelg" dimension="conductance" select="channel/g"/>
+            <DerivedVariable name="geff" value="channelg * number"/>
+            <DerivedVariable name="current" exposure="current" value="geff * (erev - v)"/>
+        </Dynamics>    
+    
+    
+        <Structure>    
+            <ChildInstance component="channel"/>    
+        </Structure>
+    </ComponentType>
+
+
+
+
+    <ComponentType name="KSCell">
+        <Parameter name="capacitance" dimension="capacitance"/>
+        <ComponentReference name="environment" type="Environment"/>
+        <Children name="populations" type="ChannelPopulation"/>
+        <Parameter name="injection" dimension="current"/>
+        <Parameter name="v0" dimension="voltage"/>
+        <Exposure name="v" dimension="voltage"/>
+        <Dynamics>
+            <OnStart>
+                <StateAssignment variable="v" value="v0"/>
+            </OnStart>
+  
+            <DerivedVariable name="totcurrent" dimension="current" select="populations[*]/current" reduce="add"/>
+            <StateVariable name="v" exposure="v" dimension="voltage"/> 
+            <TimeDerivative variable="v" value="(totcurrent + injection) / capacitance"/>
+        </Dynamics>
+    </ComponentType>
+
+
+
+    <KSCell id="kscell_1" capacitance="0.4pF" injection="1pA" v0="-60mV" environment="env1">
+        <ChannelPopulation channel="na1" number="400"/>
+        <ChannelPopulation channel="k1" number="180"/>
+    </KSCell>
+
+    
+    <Include file="SingleSimulation.xml" />
+    
+    <Simulation id="sim1" length="80ms" step="0.05ms" target="kscell_1">
+        <Display id="d0" title="Example 5: References and paths" timeScale="1ms" xmin="-10" xmax="90" ymin="-90" ymax="60">
+            <Line id="v" quantity="v" scale="1mV" timeScale="1ms" color="#0000f0"/>
+        </Display>
+    </Simulation>
+
+</Lems>

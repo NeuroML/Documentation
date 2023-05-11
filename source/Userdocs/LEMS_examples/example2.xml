@@ -1,0 +1,51 @@
+<Lems>
+ 
+    <Target component="sim1"/>
+ 
+    <Include file="ex2dims.xml"/>
+    <Include file="hhchannel.xml"/> 
+ 
+    <Include file="hhcell.xml"/>
+    <Include file="spikegenerators.xml"/>
+    <Include file="hhmodels.xml"/>
+    <Include file="misciaf.xml"/> 
+
+    <Include file="SimpleNetwork.xml"/>
+
+    <HHCell id="hhcell_1" capacitance="1pF" injection="4pA" v0="-60mV">
+        <ChannelPopulation channel="na" number="6000" erev="50mV"/>
+        <ChannelPopulation channel="k" number="1800" erev="-77mV"/>
+    </HHCell>
+ 
+    <Component id="gen1" type="spikeGenerator" period="30ms"/>
+
+    <Component id="gen2" type="spikeGenerator2" period="32ms"/>
+
+    <Component id="iaf3cpt" type="iaf3" leakReversal="-50mV" deltaV="50mV" threshold="-30mV" leakConductance="50pS"
+           refractoryPeriod="4ms" capacitance="1pF"/>
+
+
+    <Network id="net1">
+        <Population id="p1" component="gen1" size="1"/>
+        <Population id="p2" component="gen2" size="1"/>
+        <Population id="p3" component="iaf3cpt" size="1"/>
+   
+        <Population id="hhpop" component="hhcell_1" size="1"/>
+    
+   
+        <EventConnectivity id="p1-p3" source="p1" target="p3">
+            <Connections type="AllAll"/>
+        </EventConnectivity>
+    </Network>
+    
+    <Include file="SingleSimulation.xml" />
+    
+    <Simulation id="sim1" length="80ms" step="0.01ms" target="net1">
+        <Display id="d0" title="Example 2" timeScale="1ms" xmin="-10" xmax="90" ymin="-90" ymax="60">
+            <Line id="tsince" quantity="p1[0]/tsince" scale="1ms" timeScale="1ms" color="#00c000" />
+            <Line id="p3v" quantity="p3[0]/v" scale="1mV" timeScale="1ms" color="#0000f0" />
+            <Line id="p0v" quantity="hhpop[0]/v" scale="1mV" timeScale="1ms" color="#ff4040" />
+        </Display>
+    </Simulation>
+
+</Lems>
