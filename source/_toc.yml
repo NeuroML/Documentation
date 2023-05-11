@@ -53,6 +53,7 @@ parts:
             - file: Userdocs/Schemas/Networks
             - file: Userdocs/Schemas/PyNN
             - file: Userdocs/Schemas/Simulation
+            - file: Userdocs/Schemas/Index
         - file: Userdocs/NeuroMLv1
         - file: Userdocs/LEMSSchema.md
           sections:
