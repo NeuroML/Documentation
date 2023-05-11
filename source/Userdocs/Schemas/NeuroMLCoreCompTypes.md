@@ -25,7 +25,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 `````{tab-set}
 ````{tab-item} Schema
 ```{code-block} xml
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" name="Notes">
+<xs:simpleType name="Notes">
   <xs:annotation>
     <xs:documentation>Textual human readable notes related to the element in question. It's useful to put these into
          the NeuroML files instead of XML comments, as the notes can be extracted and repeated in the files to which the NeuroML is mapped.

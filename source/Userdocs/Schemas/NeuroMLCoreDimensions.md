@@ -18,14 +18,17 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (schema:dimensions:area)=
 ### area
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:cm2`
 
@@ -33,20 +36,26 @@ L{superscript}`2`
 
 - Defined unit: {ref}`schema:units:um2`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:capacitance)=
 ### capacitance
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`-1` L{superscript}`-2` T{superscript}`4` I{superscript}`2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`-1` L{superscript}`-2` T{superscript}`4` I{superscript}`2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:F`
 
@@ -56,58 +65,87 @@ M{superscript}`-1` L{superscript}`-2` T{superscript}`4` I{superscript}`2`
 
 - Defined unit: {ref}`schema:units:uF`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_capacitance">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(F|uF|nF|pF)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:charge)=
 ### charge
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-T{superscript}`1` I{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+T{superscript}`1` I{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:C`
 
 - Defined unit: {ref}`schema:units:e`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:charge_per_mole)=
 ### charge\_per\_mole
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-T{superscript}`1` I{superscript}`1` N{superscript}`-1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+T{superscript}`1` I{superscript}`1` N{superscript}`-1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:C_per_mol`
 
 - Defined unit: {ref}`schema:units:nA_ms_per_amol`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:concentration)=
 ### concentration
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`-3` N{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`-3` N{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:M`
 
@@ -117,20 +155,37 @@ L{superscript}`-3` N{superscript}`1`
 
 - Defined unit: {ref}`schema:units:mol_per_m3`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_concentration">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(mol_per_m3|mol_per_cm3|M|mM)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:conductance)=
 ### conductance
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`-1` L{superscript}`-2` T{superscript}`3` I{superscript}`2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`-1` L{superscript}`-2` T{superscript}`3` I{superscript}`2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:S`
 
@@ -142,20 +197,37 @@ M{superscript}`-1` L{superscript}`-2` T{superscript}`3` I{superscript}`2`
 
 - Defined unit: {ref}`schema:units:uS`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_conductance">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(S|mS|uS|nS|pS)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:conductanceDensity)=
 ### conductanceDensity
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`-1` L{superscript}`-4` T{superscript}`3` I{superscript}`2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`-1` L{superscript}`-4` T{superscript}`3` I{superscript}`2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:S_per_cm2`
 
@@ -163,39 +235,62 @@ M{superscript}`-1` L{superscript}`-4` T{superscript}`3` I{superscript}`2`
 
 - Defined unit: {ref}`schema:units:mS_per_cm2`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:conductance_per_voltage)=
 ### conductance\_per\_voltage
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`-2` L{superscript}`-4` T{superscript}`6` I{superscript}`3` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`-2` L{superscript}`-4` T{superscript}`6` I{superscript}`3` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:S_per_V`
 
 - Defined unit: {ref}`schema:units:nS_per_mV`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_conductancePerVoltage">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(S_per_V|nS_per_mV)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:current)=
 ### current
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-I{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+I{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:A`
 
@@ -205,20 +300,37 @@ I{superscript}`1`
 
 - Defined unit: {ref}`schema:units:uA`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_current">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(A|uA|nA|pA)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:currentDensity)=
 ### currentDensity
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`-2` I{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`-2` I{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:A_per_m2`
 
@@ -226,37 +338,49 @@ L{superscript}`-2` I{superscript}`1`
 
 - Defined unit: {ref}`schema:units:uA_per_cm2`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:idealGasConstantDims)=
 ### idealGasConstantDims
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`1` L{superscript}`2` T{superscript}`-2` K{superscript}`-1` N{superscript}`-1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`1` L{superscript}`2` T{superscript}`-2` K{superscript}`-1` N{superscript}`-1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:J_per_K_per_mol`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:length)=
 ### length
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:cm`
 
@@ -264,20 +388,37 @@ L{superscript}`1`
 
 - Defined unit: {ref}`schema:units:um`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_length">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(m|cm|um)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:per_time)=
 ### per\_time
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-T{superscript}`-1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+T{superscript}`-1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:Hz`
 
@@ -289,39 +430,62 @@ T{superscript}`-1`
 
 - Defined unit: {ref}`schema:units:per_s`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_pertime">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(per_s|per_ms|Hz)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:per_voltage)=
 ### per\_voltage
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`-1` L{superscript}`-2` T{superscript}`3` I{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`-1` L{superscript}`-2` T{superscript}`3` I{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:per_V`
 
 - Defined unit: {ref}`schema:units:per_mV`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:permeability)=
 ### permeability
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`1` T{superscript}`-1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`1` T{superscript}`-1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:cm_per_ms`
 
@@ -331,20 +495,37 @@ L{superscript}`1` T{superscript}`-1`
 
 - Defined unit: {ref}`schema:units:um_per_ms`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_permeability">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(m_per_s|um_per_ms|cm_per_s|cm_per_ms)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:resistance)=
 ### resistance
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`1` L{superscript}`2` T{superscript}`-3` I{superscript}`-2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`1` L{superscript}`2` T{superscript}`-3` I{superscript}`-2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:Mohm`
 
@@ -352,20 +533,37 @@ M{superscript}`1` L{superscript}`2` T{superscript}`-3` I{superscript}`-2`
 
 - Defined unit: {ref}`schema:units:ohm`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_resistance">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(ohm|kohm|Mohm)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:resistivity)=
 ### resistivity
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`2` L{superscript}`2` T{superscript}`-3` I{superscript}`-2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`2` L{superscript}`2` T{superscript}`-3` I{superscript}`-2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:kohm_cm`
 
@@ -373,94 +571,160 @@ M{superscript}`2` L{superscript}`2` T{superscript}`-3` I{superscript}`-2`
 
 - Defined unit: {ref}`schema:units:ohm_m`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:complexType name="Resistivity">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="value" type="Nml2Quantity_resistivity" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:rho_factor)=
 ### rho\_factor
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`-1` T{superscript}`-1` I{superscript}`-1` N{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`-1` T{superscript}`-1` I{superscript}`-1` N{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:mol_per_cm_per_uA_per_ms`
 
 - Defined unit: {ref}`schema:units:mol_per_m_per_A_per_s`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_rhoFactor">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(mol_per_m_per_A_per_s|mol_per_cm_per_uA_per_ms)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:specificCapacitance)=
 ### specificCapacitance
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`-1` L{superscript}`-4` T{superscript}`4` I{superscript}`2` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`-1` L{superscript}`-4` T{superscript}`4` I{superscript}`2` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:F_per_m2`
 
 - Defined unit: {ref}`schema:units:uF_per_cm2`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:substance)=
 ### substance
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-N{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+N{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:mol`
 
-```
 ````
+
+
+
+`````
 
 (schema:dimensions:temperature)=
 ### temperature
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-K{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+K{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:K`
 
 - Defined unit: {ref}`schema:units:degC`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_temperature">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(degC)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:time)=
 ### time
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-T{superscript}`1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+T{superscript}`1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:hour`
 
@@ -470,39 +734,73 @@ T{superscript}`1`
 
 - Defined unit: {ref}`schema:units:s__`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_time">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(s|ms)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:voltage)=
 ### voltage
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-M{superscript}`1` L{superscript}`2` T{superscript}`-3` I{superscript}`-1` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+M{superscript}`1` L{superscript}`2` T{superscript}`-3` I{superscript}`-1` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:V`
 
 - Defined unit: {ref}`schema:units:mV`
 
+````
+
+
+````{grid-item-card} Schema
+:columns: 12
+```{code-block} xml
+<xs:simpleType name="Nml2Quantity_voltage">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="-?([0-9]*(\.[0-9]+)?)([eE]-?[0-9]+)?[\s]*(V|mV)"/>
+  </xs:restriction>
+</xs:simpleType>
+
 ```
 ````
+
+`````
 
 (schema:dimensions:volume)=
 ### volume
 
-````{grid}
+`````{grid}
 :gutter: 2
 
-```{grid-item-card} Dimensions
-L{superscript}`3` 
-```
 
-```{grid-item-card} Units
+````{grid-item-card} Dimensions
+:columns: 6
+L{superscript}`3` 
+````
+
+````{grid-item-card} Units
+:columns: 6
 
 - Defined unit: {ref}`schema:units:cm3`
 
@@ -512,8 +810,11 @@ L{superscript}`3`
 
 - Defined unit: {ref}`schema:units:um3`
 
-```
 ````
+
+
+
+`````
 
 
 
