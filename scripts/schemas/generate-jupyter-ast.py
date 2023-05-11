@@ -258,8 +258,8 @@ def get_schema_doc(schemafile):
                                       xml_declaration=False)
 
         # needs to be lowerCamelCase to match XML core types
-        type_name = simple_type.attrib['name'].lower()
-        comp_type_schema[type_name] = simple_type_str
+        type_name = simple_type.attrib['name'].lower().replace("nml2quantity_", "")
+        comp_type_schema[type_name] = re.sub(r"Type.*name=",r"Type name=", simple_type_str)
 
     for complex_type in root.findall("xs:complexType", namespaces=namespaces):
         for node in complex_type:
@@ -384,7 +384,9 @@ def main(srcdir, destdir):
                 symbols.append(unit.symbol.lower())
 
             print(asttemplates.dimension.render(comp_definition=comp_definition,
-                                                dimensions=dimensions, units=units), file=ast_doc)
+                                                dimensions=dimensions,
+                                                units=units,
+                                                schemas=comp_type_schema), file=ast_doc)
             for dim in dimensions:
                 links_doc_data[f'{dim.name.lower()}'] = f'<a name="{dim.name}"/>\n\n- {{ref}}`{dim.name} <schema:dimensions:{dim.name}>`'
 
