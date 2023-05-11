@@ -8,8 +8,8 @@
 
 
 Original ComponentType definitions: [PyNN.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//PyNN.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/006aa3af4c62cbd6b442c39d1b82b53693e06e47) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -81,6 +81,23 @@ extends *{ref}`schema:basecellmembpot`*
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="basePyNNCell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="cm" type="xs:float" use="required"/>
+      <xs:attribute name="i_offset" type="xs:float" use="required"/>
+      <xs:attribute name="tau_syn_E" type="xs:float" use="required"/>
+      <xs:attribute name="tau_syn_I" type="xs:float" use="required"/>
+      <xs:attribute name="v_init" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:basepynniafcell)=
@@ -139,6 +156,23 @@ extends *{ref}`schema:basepynncell`*
 **spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 **spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 **spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="basePyNNIaFCell">
+  <xs:complexContent>
+    <xs:extension base="basePyNNCell">
+      <xs:attribute name="tau_m" type="xs:float" use="required"/>
+      <xs:attribute name="tau_refrac" type="xs:float" use="required"/>
+      <xs:attribute name="v_reset" type="xs:float" use="required"/>
+      <xs:attribute name="v_rest" type="xs:float" use="required"/>
+      <xs:attribute name="v_thresh" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -202,6 +236,20 @@ extends *{ref}`schema:basepynniafcell`*
 **spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
 **spike_in_E**$  *(from {ref}`schema:basepynncell`)*$Direction: in
 **spike_in_I**$  *(from {ref}`schema:basepynncell`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="basePyNNIaFCondCell">
+  <xs:complexContent>
+    <xs:extension base="basePyNNIaFCell">
+      <xs:attribute name="e_rev_E" type="xs:float" use="required"/>
+      <xs:attribute name="e_rev_I" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -325,6 +373,18 @@ extends *{ref}`schema:basepynniafcell`*
 : &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
 : <i>**Time Derivatives**</i>
 : &emsp;&emsp; d **v** /dt = (MVOLT * ((i_offset/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IF_curr_alpha">
+  <xs:complexContent>
+    <xs:extension base="basePyNNIaFCell">
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -479,6 +539,18 @@ extends *{ref}`schema:basepynniafcell`*
 : &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v/MVOLT)) / tau_m))/MSEC) + (iSyn / (cm * NFARAD))
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IF_curr_exp">
+  <xs:complexContent>
+    <xs:extension base="basePyNNIaFCell">
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_curr_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -631,6 +703,18 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
 : <i>**Time Derivatives**</i>
 : &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset) / cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IF_cond_alpha">
+  <xs:complexContent>
+    <xs:extension base="basePyNNIaFCondCell">
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -790,6 +874,18 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
 : <i>**Time Derivatives**</i>
 : &emsp;&emsp; d **v** /dt = (MVOLT * (((i_offset)/cm) +  ((v_rest - (v / MVOLT)) / tau_m)) / MSEC) + (iSyn / (cm * NFARAD))
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IF_cond_exp">
+  <xs:complexContent>
+    <xs:extension base="basePyNNIaFCondCell">
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -976,6 +1072,23 @@ extends *{ref}`schema:basepynniafcondcell`*
 : <i>**Time Derivatives**</i>
 : &emsp;&emsp; d **v** /dt = (MVOLT * ((-1 * ((v / MVOLT) - v_rest) + delta_I) / tau_m + (i_offset - w) / cm) / MSEC) + (iSyn / (cm * NFARAD))
 : &emsp;&emsp; d **w** /dt = (1 / tau_w) * (a * ((v / MVOLT) - v_rest) - w) / MSEC
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="EIF_cond_exp_isfa_ista">
+  <xs:complexContent>
+    <xs:extension base="basePyNNIaFCondCell">
+      <xs:attribute name="a" type="xs:float" use="required"/>
+      <xs:attribute name="b" type="xs:float" use="required"/>
+      <xs:attribute name="delta_T" type="xs:float" use="required"/>
+      <xs:attribute name="tau_w" type="xs:float" use="required"/>
+      <xs:attribute name="v_spike" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1170,6 +1283,18 @@ extends *{ref}`schema:basepynniafcondcell`*
 : &emsp;&emsp; d **w** /dt = (1/ tau_w) * (a*((v/MVOLT)-v_rest) - w) /MSEC
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="EIF_cond_alpha_isfa_ista">
+  <xs:complexContent>
+    <xs:extension base="EIF_cond_exp_isfa_ista">
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=EIF_cond_alpha_isfa_ista" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1339,6 +1464,27 @@ extends *{ref}`schema:basepynncell`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HH_cond_exp">
+  <xs:complexContent>
+    <xs:extension base="basePyNNCell">
+      <xs:attribute name="v_offset" type="xs:float" use="required"/>
+      <xs:attribute name="e_rev_E" type="xs:float" use="required"/>
+      <xs:attribute name="e_rev_I" type="xs:float" use="required"/>
+      <xs:attribute name="e_rev_K" type="xs:float" use="required"/>
+      <xs:attribute name="e_rev_Na" type="xs:float" use="required"/>
+      <xs:attribute name="e_rev_leak" type="xs:float" use="required"/>
+      <xs:attribute name="g_leak" type="xs:float" use="required"/>
+      <xs:attribute name="gbar_K" type="xs:float" use="required"/>
+      <xs:attribute name="gbar_Na" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=HH_cond_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1443,6 +1589,19 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BasePynnSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+      <xs:attribute name="tau_syn" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -1578,6 +1737,19 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ExpCondSynapse">
+  <xs:complexContent>
+    <xs:extension base="BasePynnSynapse">
+      <xs:attribute name="e_rev" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpCondSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1710,6 +1882,19 @@ extends *{ref}`schema:basepynnsynapse`*
     : d **I** /dt = -I / (tau_syn*MSEC)
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ExpCurrSynapse">
+  <xs:complexContent>
+    <xs:extension base="BasePynnSynapse">
+
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1850,6 +2035,19 @@ extends *{ref}`schema:basepynnsynapse`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="AlphaCondSynapse">
+  <xs:complexContent>
+    <xs:extension base="BasePynnSynapse">
+      <xs:attribute name="e_rev" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCondSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1985,6 +2183,19 @@ extends *{ref}`schema:basepynnsynapse`*
     : d **A** /dt = -A /(tau_syn*MSEC)
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="AlphaCurrSynapse">
+  <xs:complexContent>
+    <xs:extension base="BasePynnSynapse">
+
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2136,6 +2347,21 @@ extends *{ref}`schema:basespikesource`*
     : d **tnextIdeal** /dt = 0
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeSourcePoisson">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="start" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="rate" type="Nml2Quantity_pertime" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python

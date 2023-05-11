@@ -8,8 +8,8 @@
 
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Inputs.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/006aa3af4c62cbd6b442c39d1b82b53693e06e47) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -327,6 +327,19 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeGenerator">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="period" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -455,6 +468,20 @@ extends *{ref}`schema:basespikesource`*
     : d **tnext** /dt = 0
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeGeneratorRandom">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="maxISI" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="minISI" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -592,6 +619,19 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeGeneratorPoisson">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="averageRate" type="Nml2Quantity_pertime" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -727,6 +767,19 @@ extends {ref}`schema:spikegeneratorpoisson`
     : d **tnextIdeal** /dt = 0
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeGeneratorRefPoisson">
+  <xs:complexContent>
+    <xs:extension base="SpikeGeneratorPoisson">
+      <xs:attribute name="minimumISI" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -934,6 +987,21 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
     : d **tnextIdeal** /dt = 0
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="PoissonFiringSynapse">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="averageRate" type="Nml2Quantity_pertime" use="required"/>
+      <xs:attribute name="synapse" type="xs:string" use="required"/>
+      <xs:attribute name="spikeTarget" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1147,6 +1215,23 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="TransientPoissonFiringSynapse">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="averageRate" type="Nml2Quantity_pertime" use="required"/>
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="synapse" type="xs:string" use="required"/>
+      <xs:attribute name="spikeTarget" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TransientPoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1319,6 +1404,23 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="TimedSynapticInput">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="spike" type="Spike" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="synapse" type="NmlId" use="required"/>
+      <xs:attribute name="spikeTarget" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TimedSynapticInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1447,6 +1549,21 @@ extends *{ref}`schema:basespikesource`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeArray">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="spike" type="Spike" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1570,6 +1687,19 @@ extends *{ref}`schema:basespikesource`*
     : d **tsince** /dt = 1
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Spike">
+  <xs:complexContent>
+    <xs:extension base="BaseNonNegativeIntegerId">
+      <xs:attribute name="time" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1700,6 +1830,21 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="PulseGenerator">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="amplitude" type="Nml2Quantity_current" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1821,6 +1966,23 @@ extends *{ref}`schema:basepointcurrent`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="CompoundInput">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="pulseGenerator" type="PulseGenerator" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="sineGenerator" type="SineGenerator" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="rampGenerator" type="RampGenerator" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1938,6 +2100,23 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="CompoundInputDL">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="pulseGeneratorDL" type="PulseGeneratorDL" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="sineGeneratorDL" type="SineGeneratorDL" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="rampGeneratorDL" type="RampGeneratorDL" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2063,6 +2242,21 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="PulseGeneratorDL">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="amplitude" type="Nml2Quantity_none" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2186,6 +2380,23 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SineGenerator">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="phase" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="amplitude" type="Nml2Quantity_current" use="required"/>
+      <xs:attribute name="period" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2323,6 +2534,23 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SineGeneratorDL">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="phase" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="amplitude" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="period" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2450,6 +2678,23 @@ extends *{ref}`schema:basepointcurrent`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="RampGenerator">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="startAmplitude" type="Nml2Quantity_current" use="required"/>
+      <xs:attribute name="finishAmplitude" type="Nml2Quantity_current" use="required"/>
+      <xs:attribute name="baselineAmplitude" type="Nml2Quantity_current" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2584,6 +2829,23 @@ extends *{ref}`schema:basepointcurrentdl`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="RampGeneratorDL">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="startAmplitude" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="finishAmplitude" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="baselineAmplitude" type="Nml2Quantity_none" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2723,6 +2985,22 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="VoltageClamp">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="targetVoltage" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="simpleSeriesResistance" type="Nml2Quantity_resistance" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClamp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2860,6 +3138,25 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="VoltageClampTriple">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="active" type="ZeroOrOne" use="required"/>
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="duration" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="conditioningVoltage" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="testingVoltage" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="returnVoltage" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="simpleSeriesResistance" type="Nml2Quantity_resistance" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python

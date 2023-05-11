@@ -6,8 +6,8 @@
 
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/006aa3af4c62cbd6b442c39d1b82b53693e06e47) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -23,6 +23,20 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 
 `````{tab-set}
+````{tab-item} Schema
+```{code-block} xml
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" name="Notes">
+  <xs:annotation>
+    <xs:documentation>Textual human readable notes related to the element in question. It's useful to put these into
+         the NeuroML files instead of XML comments, as the notes can be extracted and repeated in the files to which the NeuroML is mapped.
+            </xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string"/>
+</xs:simpleType>
+
+```
+````
+
 
 ````{tab-item} Usage: XML
 ```{code-block} xml
@@ -66,6 +80,21 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :delim: $
 
 **property**$  $ {ref}`schema:property`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Annotation">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:sequence>
+        <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -118,6 +147,20 @@ variable = Annotation(
 **tag**$ Name of the property
 **value**$ Value of the property
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Property">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="tag" type="xs:string" use="required"/>
+      <xs:attribute name="value" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -654,6 +697,22 @@ extends *{ref}`schema:basebqbiol`*
 ```
 &emsp;&emsp;&emsp;**zLength** = MICRON * z
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Point3DWithDiam">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="x" type="xs:double" use="required"/>
+      <xs:attribute name="y" type="xs:double" use="required"/>
+      <xs:attribute name="z" type="xs:double" use="required"/>
+      <xs:attribute name="diameter" type="DoubleGreaterThanZero" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python

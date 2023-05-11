@@ -8,8 +8,8 @@
 
 
 Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Cells.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/006aa3af4c62cbd6b442c39d1b82b53693e06e47) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -29,6 +29,19 @@ extends *{ref}`schema:basestandalone`*
 
 
 `````{tab-set}
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseCell">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -294,6 +307,30 @@ extends *{ref}`schema:basechannelpopulation`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelPopulation">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="variableParameter" type="VariableParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="number" type="NonNegativeInteger" use="required"/>
+      <xs:attribute name="erev" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+      <xs:attribute name="segment" type="NonNegativeInteger" use="optional"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelPopulation" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -549,6 +586,19 @@ extends *{ref}`schema:basechanneldensity`*
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="VariableParameter">
+  <xs:sequence>
+    <xs:element name="inhomogeneousValue" type="InhomogeneousValue" minOccurs="0"/>
+  </xs:sequence>
+  <xs:attribute name="parameter" type="xs:string" use="required"/>
+  <xs:attribute name="segmentGroup" type="xs:string" use="required"/>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VariableParameter" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -590,6 +640,20 @@ variable = VariableParameter(
 **inhomogeneousParameter**$ 
 **value**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="InhomogeneousValue">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="inhomogeneousParameter" type="xs:string" use="required"/>
+      <xs:attribute name="value" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -714,6 +778,27 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityNonUniform">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="variableParameter" type="VariableParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="erev" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniform" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -832,6 +917,26 @@ extends *{ref}`schema:basechanneldensity`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityNonUniformNernst">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="variableParameter" type="VariableParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformNernst" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -938,6 +1043,26 @@ extends *{ref}`schema:basechanneldensity`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityNonUniformGHK">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="variableParameter" type="VariableParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1052,6 +1177,30 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensity">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="variableParameter" type="VariableParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="condDensity" type="Nml2Quantity_conductanceDensity" use="optional"/>
+      <xs:attribute name="erev" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+      <xs:attribute name="segment" type="NonNegativeInteger" use="optional"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensity" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1141,6 +1290,19 @@ extends {ref}`schema:channeldensity`
 :delim: $
 
 **v**$  *(from {ref}`schema:basechanneldensity`)* ${ref}`schema:dimensions:voltage`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityVShift">
+  <xs:complexContent>
+    <xs:extension base="ChannelDensity">
+      <xs:attribute name="vShift" type="Nml2Quantity_voltage" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -1279,6 +1441,29 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityNernst">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="variableParameter" type="VariableParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="condDensity" type="Nml2Quantity_conductanceDensity" use="optional"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+      <xs:attribute name="segment" type="NmlId" use="optional"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernst" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1412,6 +1597,18 @@ extends *{ref}`schema:basechanneldensitycond`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityNernstCa2">
+  <xs:complexContent>
+    <xs:extension base="ChannelDensityNernst">
+      </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernstCa2" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1534,6 +1731,26 @@ extends *{ref}`schema:basechanneldensity`*
 : &emsp; **iDensity** = 0 &emsp;(exposed as **iDensity**)
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityGHK">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="permeability" type="Nml2Quantity_permeability" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+      <xs:attribute name="segment" type="NmlId" use="optional"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1666,6 +1883,26 @@ extends *{ref}`schema:basechanneldensitycond`*
 : &emsp; **iDensity** = 0 &emsp;(exposed as **iDensity**)
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ChannelDensityGHK2">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:attribute name="ionChannel" type="NmlId" use="required"/>
+      <xs:attribute name="condDensity" type="Nml2Quantity_conductanceDensity" use="optional"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+      <xs:attribute name="segment" type="NmlId" use="optional"/>
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2226,6 +2463,25 @@ extends {ref}`schema:point3dwithdiam`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Segment">
+  <xs:complexContent>
+    <xs:extension base="BaseNonNegativeIntegerId">
+      <xs:sequence>
+        <xs:element name="parent" type="SegmentParent" minOccurs="0"/>
+        <xs:element name="proximal" type="Point3DWithDiam" minOccurs="0"/>
+        <xs:element name="distal" type="Point3DWithDiam" minOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Segment" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2315,6 +2571,29 @@ variable = Segment(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SegmentGroup">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="annotation" type="Annotation" minOccurs="0"/>
+        <xs:element name="member" type="Member" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="include" type="Include" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="path" type="Path" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="subTree" type="SubTree" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="inhomogeneousParameter" type="InhomogeneousParameter" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SegmentGroup" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2374,6 +2653,19 @@ variable = SegmentGroup(
 
 **segment**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Member">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="segment" type="NonNegativeInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2482,6 +2774,19 @@ variable = Member(
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Include">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="segmentGroup" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Include" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2528,6 +2833,22 @@ variable = Include(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Path">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:sequence>
+        <xs:element name="from" type="SegmentEndPoint" minOccurs="0"/>
+        <xs:element name="to" type="SegmentEndPoint" minOccurs="0"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Path" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2567,6 +2888,22 @@ variable = Path(
 :delim: $
 
 **from**$  $ {ref}`schema:from`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SubTree">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:choice>
+        <xs:element name="from" type="SegmentEndPoint" minOccurs="0"/>
+        <xs:element name="to" type="SegmentEndPoint" minOccurs="0"/>
+      </xs:choice>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -2621,6 +2958,24 @@ variable = SubTree(
 
 **proximal**$  $ {ref}`schema:proximalproperties`
 **distal**$  $ {ref}`schema:distalproperties`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="InhomogeneousParameter">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="proximal" type="ProximalDetails" minOccurs="0"/>
+        <xs:element name="distal" type="DistalDetails" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="variable" type="xs:string" use="required"/>
+      <xs:attribute name="metric" type="Metric" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -2715,6 +3070,22 @@ variable = InhomogeneousParameter(
 
 **segments**$  $ {ref}`schema:segment`
 **segmentGroups**$  $ {ref}`schema:segmentgroup`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Morphology">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="segment" type="Segment" maxOccurs="unbounded"/>
+        <xs:element name="segmentGroup" type="SegmentGroup" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -2883,6 +3254,20 @@ variable = Morphology(
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpecificCapacitance">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="value" type="Nml2Quantity_specificCapacitance" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpecificCapacitance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2929,6 +3314,20 @@ variable = SpecificCapacitance(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="InitMembPotential">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="value" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InitMembPotential" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2968,6 +3367,20 @@ variable = InitMembPotential(
 :delim: $
 
 **value**$  ${ref}`schema:dimensions:voltage`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SpikeThresh">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="value" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -3076,6 +3489,32 @@ variable = SpikeThresh(
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="MembraneProperties">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:sequence>
+        <xs:element name="channelPopulation" type="ChannelPopulation" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensity" type="ChannelDensity" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityVShift" type="ChannelDensityVShift" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityNernst" type="ChannelDensityNernst" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityGHK" type="ChannelDensityGHK" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityGHK2" type="ChannelDensityGHK2" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityNonUniform" type="ChannelDensityNonUniform" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityNonUniformNernst" type="ChannelDensityNonUniformNernst" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="channelDensityNonUniformGHK" type="ChannelDensityNonUniformGHK" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="spikeThresh" type="SpikeThresh" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="specificCapacitance" type="SpecificCapacitance" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="initMembPotential" type="InitMembPotential" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -3228,6 +3667,21 @@ extends {ref}`schema:membraneproperties`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="MembraneProperties2CaPools">
+  <xs:complexContent>
+    <xs:extension base="MembraneProperties">
+      <xs:sequence>
+        <xs:element name="channelDensityNernstCa2" type="ChannelDensityNernstCa2" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -3303,6 +3757,23 @@ variable = MembraneProperties2CaPools(
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BiophysicalProperties">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="membraneProperties" type="MembraneProperties"/>
+        <xs:element name="intracellularProperties" type="IntracellularProperties" minOccurs="0"/>
+        <xs:element name="extracellularProperties" type="ExtracellularProperties" minOccurs="0"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -3426,6 +3897,23 @@ variable = BiophysicalProperties(
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BiophysicalProperties2CaPools">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="membraneProperties2CaPools" type="MembraneProperties2CaPools"/>
+        <xs:element name="intracellularProperties2CaPools" type="IntracellularProperties2CaPools" minOccurs="0"/>
+        <xs:element name="extracellularProperties" type="ExtracellularProperties" minOccurs="0"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -3498,6 +3986,22 @@ variable = BiophysicalProperties2CaPools(
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IntracellularProperties">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:sequence>
+        <xs:element name="species" type="Species" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="resistivity" type="Resistivity" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -3596,6 +4100,18 @@ extends {ref}`schema:intracellularproperties`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IntracellularProperties2CaPools">
+  <xs:complexContent>
+    <xs:extension base="IntracellularProperties">
+      </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -3639,6 +4155,20 @@ variable = IntracellularProperties2CaPools(
 
 **segmentGroup**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Resistivity">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="value" type="Nml2Quantity_resistivity" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -3865,6 +4395,25 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="DecayingPoolConcentrationModel">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="restingConc" type="Nml2Quantity_concentration" use="required"/>
+      <xs:attribute name="decayConstant" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="shellThickness" type="Nml2Quantity_length" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DecayingPoolConcentrationModel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -3989,6 +4538,25 @@ extends {ref}`schema:concentrationmodel`
     : d **concentration** /dt = (iCa/surfaceArea) * rho - ((concentration - restingConc) / decayConstant)
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="FixedFactorConcentrationModel">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="ion" type="NmlId" use="required">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="restingConc" type="Nml2Quantity_concentration" use="required"/>
+      <xs:attribute name="decayConstant" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="rho" type="Nml2Quantity_rhoFactor" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -4198,6 +4766,26 @@ extends {ref}`schema:concentrationmodel`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Species">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:attribute name="concentrationModel" type="NmlId" use="required"/>
+      <xs:attribute name="ion" type="NmlId" use="optional">
+        <xs:annotation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="initialConcentration" type="Nml2Quantity_concentration" use="required"/>
+      <xs:attribute name="initialExtConcentration" type="Nml2Quantity_concentration" use="required"/>
+      <xs:attribute name="segmentGroup" type="NmlId" use="optional" default="all"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Species" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -4349,6 +4937,30 @@ extends *{ref}`schema:basecellmembpot`*
     : d **v** /dt = (iChannels + iSyn) / totCap
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Cell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:sequence>
+        <xs:element name="morphology" type="Morphology" minOccurs="0"/>
+        <xs:element name="biophysicalProperties" type="BiophysicalProperties" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="morphology" type="NmlId" use="optional">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="biophysicalProperties" type="NmlId" use="optional">
+        <xs:annotation>
+            </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -4635,6 +5247,21 @@ extends {ref}`schema:cell`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Cell2CaPools">
+  <xs:complexContent>
+    <xs:extension base="Cell">
+      <xs:sequence>
+        <xs:element name="biophysicalProperties2CaPools" type="BiophysicalProperties2CaPools" minOccurs="0"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -4703,6 +5330,25 @@ extends *{ref}`schema:basecellmembpot`*
 :delim: $
 
 **spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseCellMembPotCap">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="C" type="Nml2Quantity_capacitance" use="required">
+        <xs:annotation>
+          <xs:appinfo>
+            <jxb:property name="Cap"/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -4866,6 +5512,22 @@ extends *{ref}`schema:baseiaf`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IafTauCell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="leakReversal" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="thresh" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="reset" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="tau" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -4987,6 +5649,19 @@ extends {ref}`schema:iaftaucell`
 : &emsp;&emsp;&emsp;&emsp;TRANSITION to REGIME **refractory**
 : <i>**Time Derivatives**</i>
 : &emsp;&emsp; d **v** /dt = (leakReversal - v) / tau
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IafTauRefCell">
+  <xs:complexContent>
+    <xs:extension base="IafTauCell">
+      <xs:attribute name="refract" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -5179,6 +5854,23 @@ extends *{ref}`schema:baseiafcapcell`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IafCell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="leakReversal" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="thresh" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="reset" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="C" type="Nml2Quantity_capacitance" use="required"/>
+      <xs:attribute name="leakConductance" type="Nml2Quantity_conductance" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -5329,6 +6021,19 @@ extends {ref}`schema:iafcell`
 : &emsp;&emsp; d **v** /dt = iMemb / C
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IafRefCell">
+  <xs:complexContent>
+    <xs:extension base="IafCell">
+      <xs:attribute name="refract" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafRefCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -5406,7 +6111,7 @@ extends *{ref}`schema:basecellmembpot`*
 :width: 100 %
 :delim: $
 
-**U**$  $Dimensionless
+**U**$ Membrane recovery variable $Dimensionless
 **v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
@@ -5482,6 +6187,24 @@ extends *{ref}`schema:basecellmembpot`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IzhikevichCell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="v0" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="thresh" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="a" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="b" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="c" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="d" type="Nml2Quantity_none" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IzhikevichCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -5532,15 +6255,15 @@ extends *{ref}`schema:basecellmembpotcap`*
 :delim: $
 
 **C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
-**a**$  ${ref}`schema:dimensions:per_time`
-**b**$  ${ref}`schema:dimensions:conductance`
-**c**$  ${ref}`schema:dimensions:voltage`
-**d**$  ${ref}`schema:dimensions:current`
+**a**$ Time scale of recovery variable u ${ref}`schema:dimensions:per_time`
+**b**$ Sensitivity of recovery variable u to subthreshold fluctuations of membrane potential v ${ref}`schema:dimensions:conductance`
+**c**$ After-spike reset value of v ${ref}`schema:dimensions:voltage`
+**d**$ After-spike increase to u ${ref}`schema:dimensions:current`
 **k**$  ${ref}`schema:dimensions:conductance_per_voltage`
-**v0**$  ${ref}`schema:dimensions:voltage`
-**vpeak**$  ${ref}`schema:dimensions:voltage`
-**vr**$  ${ref}`schema:dimensions:voltage`
-**vt**$  ${ref}`schema:dimensions:voltage`
+**v0**$ Initial membrane potential ${ref}`schema:dimensions:voltage`
+**vpeak**$ Peak action potential value ${ref}`schema:dimensions:voltage`
+**vr**$ Resting membrane potential ${ref}`schema:dimensions:voltage`
+**vt**$ Spike threshold ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -5553,7 +6276,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 **iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
 **iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
-**u**$  ${ref}`schema:dimensions:current`
+**u**$ Membrane recovery variable ${ref}`schema:dimensions:current`
 **v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
 
 ```
@@ -5630,6 +6353,27 @@ extends *{ref}`schema:basecellmembpotcap`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Izhikevich2007Cell">
+  <xs:complexContent>
+    <xs:extension base="BaseCellMembPotCap">
+      <xs:attribute name="v0" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="k" type="Nml2Quantity_conductancePerVoltage" use="required"/>
+      <xs:attribute name="vr" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="vt" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="vpeak" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="a" type="Nml2Quantity_pertime" use="required"/>
+      <xs:attribute name="b" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="c" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="d" type="Nml2Quantity_current" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Izhikevich2007Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -5684,16 +6428,16 @@ extends *{ref}`schema:basecellmembpotcap`*
 :delim: $
 
 **C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
-**EL**$  ${ref}`schema:dimensions:voltage`
-**VT**$  ${ref}`schema:dimensions:voltage`
-**a**$  ${ref}`schema:dimensions:conductance`
-**b**$  ${ref}`schema:dimensions:current`
-**delT**$  ${ref}`schema:dimensions:voltage`
-**gL**$  ${ref}`schema:dimensions:conductance`
-**refract**$  ${ref}`schema:dimensions:time`
-**reset**$  ${ref}`schema:dimensions:voltage`
-**tauw**$  ${ref}`schema:dimensions:time`
-**thresh**$  ${ref}`schema:dimensions:voltage`
+**EL**$ Leak reversal potential ${ref}`schema:dimensions:voltage`
+**VT**$ Spike threshold ${ref}`schema:dimensions:voltage`
+**a**$ Sub-threshold adaptation variable ${ref}`schema:dimensions:conductance`
+**b**$ Spike-triggered adaptation variable ${ref}`schema:dimensions:current`
+**delT**$ Slope factor ${ref}`schema:dimensions:voltage`
+**gL**$ Leak conductance ${ref}`schema:dimensions:conductance`
+**refract**$ Refractory period ${ref}`schema:dimensions:time`
+**reset**$ Reset potential ${ref}`schema:dimensions:voltage`
+**tauw**$ Adaptation time constant ${ref}`schema:dimensions:time`
+**thresh**$ Spike detection threshold ${ref}`schema:dimensions:voltage`
 
 ```
 ````
@@ -5707,7 +6451,7 @@ extends *{ref}`schema:basecellmembpotcap`*
 **iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
 **iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
 **v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
-**w**$  ${ref}`schema:dimensions:current`
+**w**$ Adaptation current ${ref}`schema:dimensions:current`
 
 ```
 ````
@@ -5788,6 +6532,28 @@ extends *{ref}`schema:basecellmembpotcap`*
 : <i>**Time Derivatives**</i>
 : &emsp;&emsp; d **v** /dt = iMemb / C
 : &emsp;&emsp; d **w** /dt = (a * (v - EL) - w) / tauw
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="AdExIaFCell">
+  <xs:complexContent>
+    <xs:extension base="BaseCellMembPotCap">
+      <xs:attribute name="gL" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="EL" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="reset" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="VT" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="thresh" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="delT" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="tauw" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="refract" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="a" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="b" type="Nml2Quantity_current" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -5907,6 +6673,19 @@ extends *{ref}`schema:basecellmembpotdl`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="FitzHughNagumoCell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="I" type="Nml2Quantity_none" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FitzHughNagumoCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -5941,7 +6720,7 @@ extends *{ref}`schema:basecellmembpot`*
 
 
 
-<i>Reduced CA3 cell model from Pinsky and Rinzel 1994. See https://github.com/OpenSourceBrain/PinskyRinzelModel.</i>
+<i>Reduced CA3 cell model from Pinsky, P.F., Rinzel, J. Intrinsic and network rhythmogenesis in a reduced traub model for CA3 neurons. J Comput Neurosci 1, 39-60 ( 1994 ). See https://github.com/OpenSourceBrain/PinskyRinzelModel.</i>
 
 
 `````{tab-set}
@@ -6001,8 +6780,8 @@ extends *{ref}`schema:basecellmembpot`*
 **Cad**$  $Dimensionless
 **ICad**$  ${ref}`schema:dimensions:currentDensity`
 **Si**$  $Dimensionless
-**Vd**$  ${ref}`schema:dimensions:voltage`
-**Vs**$  ${ref}`schema:dimensions:voltage`
+**Vd**$ Dendritic membrane potential ${ref}`schema:dimensions:voltage`
+**Vs**$ Somatic membrane potential ${ref}`schema:dimensions:voltage`
 **Wi**$  $Dimensionless
 **cd**$  $Dimensionless
 **hs**$  $Dimensionless
@@ -6115,6 +6894,39 @@ extends *{ref}`schema:basecellmembpot`*
     : d **Wi** /dt = -Wi/2.0
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="PinskyRinzelCA3Cell">
+  <xs:complexContent>
+    <xs:extension base="BaseCell">
+      <xs:attribute name="iSoma" type="Nml2Quantity_currentDensity" use="required"/>
+      <xs:attribute name="iDend" type="Nml2Quantity_currentDensity" use="required"/>
+      <xs:attribute name="gc" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gLs" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gLd" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gNa" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gKdr" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gCa" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gKahp" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gKC" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gNmda" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="gAmpa" type="Nml2Quantity_conductanceDensity" use="required"/>
+      <xs:attribute name="eNa" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="eCa" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="eK" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="eL" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="qd0" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="pp" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="alphac" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="betac" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="cm" type="Nml2Quantity_specificCapacitance" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python

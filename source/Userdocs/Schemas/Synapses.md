@@ -8,8 +8,8 @@
 
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/006aa3af4c62cbd6b442c39d1b82b53693e06e47) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -49,6 +49,19 @@ extends *{ref}`schema:basepointcurrent`*
 :delim: $
 
 **in**$ $Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseSynapse">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -115,6 +128,19 @@ extends *{ref}`schema:basesynapse`*
 :delim: $
 
 **in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseVoltageDepSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -210,6 +236,19 @@ extends *{ref}`schema:basesynapse`*
 :delim: $
 
 **in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseCurrentBasedSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -337,6 +376,20 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="AlphaCurrentSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseCurrentBasedSynapse">
+      <xs:attribute name="tau" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="ibase" type="Nml2Quantity_current" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCurrentSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -415,6 +468,20 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseConductanceBasedSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseVoltageDepSynapse">
+      <xs:attribute name="gbase" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="erev" type="Nml2Quantity_voltage" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -499,6 +566,21 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 :delim: $
 
 **in**$  *(from {ref}`schema:basesynapse`)*$Direction: in
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BaseConductanceBasedSynapseTwo">
+  <xs:complexContent>
+    <xs:extension base="BaseVoltageDepSynapse">
+      <xs:attribute name="gbase1" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="gbase2" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="erev" type="Nml2Quantity_voltage" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -637,6 +719,19 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
     : d **g** /dt = -g / tauDecay
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ExpOneSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseConductanceBasedSynapse">
+      <xs:attribute name="tauDecay" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -786,6 +881,19 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
     : d **A** /dt = -A / tau
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="AlphaSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseConductanceBasedSynapse">
+      <xs:attribute name="tau" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -954,6 +1062,20 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
     : d **B** /dt = -B / tauDecay
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ExpTwoSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseConductanceBasedSynapse">
+      <xs:attribute name="tauDecay" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="tauRise" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1150,6 +1272,21 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
     : d **C** /dt = -C / tauDecay2
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ExpThreeSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseConductanceBasedSynapseTwo">
+      <xs:attribute name="tauDecay1" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="tauDecay2" type="Nml2Quantity_time" use="required"/>
+      <xs:attribute name="tauRise" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1683,6 +1820,22 @@ extends {ref}`schema:exptwosynapse`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="BlockingPlasticSynapse">
+  <xs:complexContent>
+    <xs:extension base="ExpTwoSynapse">
+      <xs:sequence>
+        <xs:element name="plasticityMechanism" type="PlasticityMechanism" minOccurs="0"/>
+        <xs:element name="blockMechanism" type="BlockMechanism" minOccurs="0"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BlockingPlasticSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1860,6 +2013,22 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="DoubleSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseVoltageDepSynapse">
+      <xs:attribute name="synapse1" type="NmlId" use="required"/>
+      <xs:attribute name="synapse2" type="NmlId" use="required"/>
+      <xs:attribute name="synapse1Path" type="xs:string" use="required"/>
+      <xs:attribute name="synapse2Path" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2136,6 +2305,19 @@ extends *{ref}`schema:basesynapse`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GapJunction">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+      <xs:attribute name="conductance" type="Nml2Quantity_conductance" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GapJunction" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2279,6 +2461,19 @@ extends *{ref}`schema:basegradedsynapse`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SilentSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SilentSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2395,6 +2590,19 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="LinearGradedSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+      <xs:attribute name="conductance" type="Nml2Quantity_conductance" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2544,6 +2752,23 @@ extends *{ref}`schema:basegradedsynapse`*
     : d **s** /dt = s_rate
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GradedSynapse">
+  <xs:complexContent>
+    <xs:extension base="BaseSynapse">
+      <xs:attribute name="conductance" type="Nml2Quantity_conductance" use="required"/>
+      <xs:attribute name="delta" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="Vth" type="Nml2Quantity_voltage" use="required"/>
+      <xs:attribute name="k" type="Nml2Quantity_pertime" use="required"/>
+      <xs:attribute name="erev" type="Nml2Quantity_voltage" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
