@@ -39,7 +39,8 @@ More details on the structure of LEMS and how it is used in NeuroML2 can be foun
 
 In parallel with development of NeuroML2 and LEMS, software libraries for reading, writing and running simulations using the languages are under active development in Java ({ref}`jNeuroML <jNeuroML>`) and Python ({ref}`libNeuroML <libNeuroML>` and {ref}`pyLEMS <pyLEMS>` (see Vella et al. 2014 {cite}`Vella2014`) and {ref}`pyNeuroML <pyNeuroML>`).
 
-The NeuroML specifications are currently being developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>`, overseen by the NeuroML specifications are developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>` and overseen by its {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`. NeuroML specifications and the associated libraries are developed on GitHub and an overview of current activities can be found [here](https://github.com/NeuroML/NeuroML2/projects/1).
+The NeuroML specifications are developed by the {ref}`NeuroML Editorial Board <neuromlorg:board>` and overseen by its {ref}`Scientific Committee <neuromlorg:ScientificCommittee>`.
+NeuroML specifications and the associated libraries are developed on GitHub and an overview of current activities can be found [here](https://github.com/NeuroML/NeuroML2/projects/1).
 
 
 ```{admonition} Recent releases of NeuroML2
