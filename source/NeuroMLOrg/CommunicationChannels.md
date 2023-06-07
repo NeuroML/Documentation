@@ -6,17 +6,17 @@ We're happy to talk with users, developers and modellers about using NeuroML in 
 (contact:ml)=
 ## Mailing list
 
-For general discussion, queries, and troubleshooting related to NeuroML please use the mailing list: [https://lists.sourceforge.net/lists/listinfo/neuroml-technology](https://lists.sourceforge.net/lists/listinfo/neuroml-technology).
+For announcements, general discussion, queries, and troubleshooting related to NeuroML please use the mailing list: [https://lists.sourceforge.net/lists/listinfo/neuroml-technology](https://lists.sourceforge.net/lists/listinfo/neuroml-technology).
 
 (contact:chat)=
 ## Chat channels
 
-Chat channels for quick queries are also available on:
+A Gitter/Matrix chat channels for queries are also available.
+One can access it either via Gitter or Matrix/Element.
 
 - [Gitter](https://gitter.im/NeuroML/community)
 - [Matrix/Element](https://matrix.to/#/!EQLdKYsJxEfGHAybdP:gitter.im?via=gitter.im&via=matrix.org)
 
-The two rooms are bridged, so you can use either.
 Please note that activity in these rooms depends on time zones and the availability of community members.
 So, if you do not get a response soon, please post to the mailing list listed above or file an issue on GitHub as noted below.
 
