@@ -4,7 +4,7 @@ Example file showing the tuning of an Izhikevich neuron using pyNeuroML.
 
 File: source/Userdocs/NML2_examples/tune-izhikevich.py
 
-Copyright 2021 NeuroML contributors
+Copyright 2023 NeuroML contributors
 """
 
 

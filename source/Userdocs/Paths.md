@@ -1,14 +1,42 @@
 (userdocs:paths)=
 # Paths
 
-Since NeuroMLv2 and LEMS are both XML based, entities in models and simulations must be referred to using *paths*.
+Since NeuroMLv2 and LEMS are both XML based, entities in models and simulations must be referred to using *paths* ([XPath](https://en.wikipedia.org/wiki/XPath) like).
 This page documents how paths can be constructed, and how they can be used to refer to entities in NeuroML/LEMS based models and simulations (e.g. in a {ref}`LEMS Simulation file <userdocs:lemssimulation>`).
 
-(userdocs:constructingpaths)=
-## Constructing paths
+```{list-table}
+:header-rows: 1
+:name: paths-operators
+
+* - operator
+  - description
+  - function
+  - example
+* - {code}`/`
+  - forward slash
+  - used to split the levels in a path string
+  - see {ref}`below <userdocs:paths:example>`
+* - {code}`.`
+  - single period
+  - refers to the level of the current node (usually omitted)
+  - see {ref}`below <userdocs:paths:example>`
+* - {code}`..`
+  - two periods
+  - refers to the level of the current node's parent node
+  - see {ref}`below <userdocs:paths:example>`
+* - {code}`[x]`
+  - square brackets
+  - used to refer to a particular instance (in this case, {code}`x`) in Components/Elements that have a `size` attribute (like {ref}`population <schema:population>`)
+  - see {ref}`below <userdocs:paths:example>`
+* - {code}`:`
+  - colon
+  - used to refer to a particular Component instance for {code}`attachments`
+  - [ex](https://github.com/NeuroML/NeuroML2/blob/master/LEMSexamples/LEMS_NML2_Ex25_MultiComp.xml#L45)
+```
 Paths start from any element and ascend/descend to refer to the entity that is to be referenced.
 
-The `.` and `..` path constructs are special constructs that mean "the current node" and "the parent node" respectively.
+(userdocs:paths:example)=
+## Example
 
 For example, in the following block of code, based on the  {ref}`Izhikevich network example <userdocs:gettingstarted:izhikevichnetwork>`, a network is defined in NeuroML with 2 populations:
 ```{code-block} xml
@@ -61,18 +89,8 @@ Therefore, for the `connection` nodes, the `population` nodes are at the *parent
 `../` can be used as many times as required and wherever required in the path.
 For example, `../../../` would mean "go up three levels".
 
-Additionally, when constructing the path:
-
-- for any `child` elements, the *name* of the element should be used in the path
-- for `children` elements, the *id* of the element should be used in the path (because all children will have the same name)
-- for elements that have a `size` attribute like {ref}`population <schema:population>`, individual elements should be referred to using the `[]` operator (these elements instantiate multiple instances of the provided component without the user having the specify each instance explicitly)
-
-Note the difference in the paths used for the `population` and `populationList` components.
-Whereas `population` uses the `size` attribute to instantiate multiple instances of the cell, each instance must be explicitly mentioned when using the `populationList` component.
-This is because unlike `population`, in `populationList` all `instance` elements are `children` elements.
-
-(userdocs:constructingpaths:pyneuroml)=
-### Helper functions in pyNeuroML
+(userdocs:pyneuroml)=
+## Helper functions in pyNeuroML
 
 ```{note}
 These functions require {ref}`pyNeuroML <pyneuroml>` version 0.5.18+, and {ref}`pylems <pylems>` version 0.5.8+.

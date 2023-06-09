@@ -29,6 +29,17 @@ parts:
     - file: Userdocs/SimulatingNeuroMLModels
     - file: Userdocs/OptimisingNeuroMLModels
     - file: Userdocs/TestingNeuroMLModels
+    - file: Userdocs/LEMS
+      sections:
+        - file: Userdocs/LEMSOverview
+        - file: Userdocs/LEMSExample1
+        - file: Userdocs/LEMSExample2
+        - file: Userdocs/LEMSExample3
+        - file: Userdocs/LEMSExample4
+        - file: Userdocs/LEMSExample5
+        - file: Userdocs/LEMSExample6
+        - file: Userdocs/LEMSExample7
+        - file: Userdocs/LEMSExample8
     - file: Userdocs/Specification
       sections:
         - file: Userdocs/NeuroMLv2
@@ -42,15 +53,27 @@ parts:
             - file: Userdocs/Schemas/Networks
             - file: Userdocs/Schemas/PyNN
             - file: Userdocs/Schemas/Simulation
+            - file: Userdocs/Schemas/Index
         - file: Userdocs/NeuroMLv1
-    - file: Userdocs/UsingNeuroMLv2AndLEMS
+        - file: Userdocs/LEMSSchema.md
+          sections:
+            - file: Userdocs/LEMS_elements/Modelstructure
+            - file: Userdocs/LEMS_elements/Unitsanddimensions
+            - file: Userdocs/LEMS_elements/Definingcomponenttypes
+            - file: Userdocs/LEMS_elements/Dynamics
+            - file: Userdocs/LEMS_elements/Structure
+            - file: Userdocs/LEMS_elements/Simulation
+            - file: Userdocs/LEMS_elements/Procedure
+            - file: Userdocs/LEMS_elements/DefiningComponents
+            - file: Userdocs/LEMS_elements/Geometry
+    - file: Userdocs/NeuroMLv2AndLEMS
       sections:
         - file: Userdocs/Conventions
         - file: Userdocs/UnitsAndDimensions
         - file: Userdocs/Paths
         - file: Userdocs/QuantitiesAndRecording
         - file: Userdocs/LEMSSimulation
-        - file: Userdocs/ExtendingNeuroMLv2WithLEMS
+    - file: Userdocs/ExtendingNeuroMLv2
     - file: Userdocs/Software/Software
       sections:
         - file: Userdocs/Software/pyNeuroML

@@ -1,0 +1,23 @@
+<Lems> 
+
+    <Dimension name="voltage" m="1" l="2" t="-3" i="-1"/>
+    <Dimension name="time" t="1"/>
+    <Dimension name="per_time" t="-1"/>
+    <Dimension name="conductance" m="-1" l="-2" t="3" i="2"/>
+    <Dimension name="capacitance" m="-1" l="-2" t="4" i="2"/>
+    <Dimension name="current" i="1"/>
+    <Dimension name="temperature" k="1"/>
+
+    <Unit symbol="mV" dimension="voltage" power="-3"/> 
+    <Unit symbol="ms" dimension="time" power="-3"/> 
+    <Unit symbol="pS" dimension="conductance" power="-12"/>
+    <Unit symbol="nS" dimension="conductance" power="-9"/>
+    <Unit symbol="uF" dimension="capacitance" power="-6"/>
+    <Unit symbol="nF" dimension="capacitance" power="-9"/>
+    <Unit symbol="pF" dimension="capacitance" power="-12"/>
+    <Unit symbol="per_ms" dimension="per_time" power="3"/>
+    <Unit symbol="pA" dimension="current" power="-12"/>
+    <Unit symbol="nA" dimension="current" power="-9"/>
+    <Unit symbol="degC" dimension="temperature" offset="273.15"/>
+
+</Lems>

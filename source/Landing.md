@@ -17,7 +17,7 @@
 ```{image} images/slider/endorsed.png
 :alt: NeuroML is endorsed by the INCF.
 :class: d-block w-100
-:target: #
+:target: https://www.incf.org/neuroml
 ```
 
   </div>
