@@ -70,6 +70,16 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "ramcdougal",
+      "name": "Robert A McDougal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6668090?v=4",
+      "profile": "https://github.com/ramcdougal",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
