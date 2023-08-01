@@ -60,6 +60,16 @@
         "content",
         "review"
       ]
+    },
+    {
+      "login": "shayan823",
+      "name": "Shayan Shafquat",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16141677?v=4",
+      "profile": "https://github.com/shayan823",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
