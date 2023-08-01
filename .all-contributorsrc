@@ -29,6 +29,26 @@
         "test",
         "tutorial"
       ]
+    },
+    {
+      "login": "sanjayankur31",
+      "name": "Ankur Sinha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/102575?v=4",
+      "profile": "https://ankursinha.in/",
+      "contributions": [
+        "code",
+        "content",
+        "data",
+        "doc",
+        "example",
+        "ideas",
+        "infra",
+        "maintenance",
+        "question",
+        "research",
+        "test",
+        "tutorial"
+      ]
     }
   ],
   "contributorsPerLine": 7,
