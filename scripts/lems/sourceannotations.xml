@@ -265,7 +265,9 @@ The dimension, or 'none'. This should be the name of an already defined dimensio
 An optional description of the parameter        </Property>
     </ElementType>
     <ElementType name="About" section="componenttypes"/>
-    <ElementType name="Meta" section="componenttypes"/>
+    <ElementType name="Meta" section="componenttypes">
+        <Info>Meta element to provide arbitrary metadata to LEMS simulations. Note that this is not processed by the LEMS interpreter.</Info>
+    </ElementType>
     <ElementType name="Dynamics" section="dynamics">
         <Info>Specifies the dynamical behavior of components build from this ComponentType. Note that all variables in a Dynamics definition are private. If other components need access to them, then the definition should explicitly link them to an Exposure defined in the component class</Info>
         <ListProperty name="supers" type="Super"/>
