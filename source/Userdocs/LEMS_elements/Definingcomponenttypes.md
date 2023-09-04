@@ -4,7 +4,7 @@
 
 
 
-Generated on 03/05/23.
+Generated on 22/08/23.
 Please file any issues or questions at the [issue tracker here](https://github.com/LEMS/LEMS/issues).
 
 ---
@@ -485,5 +485,5 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:meta_)=
 ## Meta
 
-<i></i>
+<i>Meta element to provide arbitrary metadata to LEMS simulations. Note that this is not processed by the LEMS interpreter.</i>
 
