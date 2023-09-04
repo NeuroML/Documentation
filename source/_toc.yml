@@ -119,6 +119,7 @@ parts:
       - file: NeuroMLOrg/Funding
       - file: NeuroMLOrg/OutreachTraining
       - file: NeuroMLOrg/Contributors
+      - file: NeuroMLOrg/Repositories
       - file: NeuroMLOrg/CoC
   - caption: Developer documentation
     chapters:
