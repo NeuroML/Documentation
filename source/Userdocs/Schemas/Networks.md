@@ -8,8 +8,8 @@
 
 
 Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Networks.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -43,6 +43,34 @@ extends *{ref}`schema:basestandalone`*
 **continuousProjection**$  $ {ref}`schema:continuousprojection`
 **explicitInputs**$  $ {ref}`schema:explicitinput`
 **inputs**$  $ {ref}`schema:inputlist`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Network">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="space" type="Space" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="region" type="Region" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="extracellularProperties" type="ExtracellularPropertiesLocal" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="population" type="Population" maxOccurs="unbounded"/>
+        <xs:element name="cellSet" type="CellSet" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="synapticConnection" type="SynapticConnection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="projection" type="Projection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="electricalProjection" type="ElectricalProjection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="continuousProjection" type="ContinuousProjection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="explicitInput" type="ExplicitInput" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="inputList" type="InputList" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="type" type="networkTypes" use="optional"/>
+      <xs:attribute name="temperature" type="Nml2Quantity_temperature" use="optional"/>
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -229,6 +257,27 @@ extends *{ref}`schema:basepopulation`*
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Population">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:choice>
+        <xs:element name="layout" type="Layout" minOccurs="0"/>
+        <xs:element name="instance" type="Instance" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="component" type="NmlId" use="required"/>
+      <xs:attribute name="size" type="NonNegativeInteger" use="optional"/>
+      <xs:attribute name="type" type="populationTypes" use="optional"/>
+      <xs:attribute name="extracellularProperties" type="NmlId" use="optional"/>
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Population" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -322,6 +371,25 @@ extends *{ref}`schema:basepopulation`*
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Instance">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:sequence>
+        <xs:element name="location" type="Location"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="i" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="j" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="k" type="xs:nonNegativeInteger"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Instance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -379,6 +447,21 @@ variable = Instance(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Location">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="x" type="xs:float" use="required"/>
+      <xs:attribute name="y" type="xs:float" use="required"/>
+      <xs:attribute name="z" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Location" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -422,6 +505,22 @@ variable = Location(
 :delim: $
 
 **rectangularExtent**$  $ {ref}`schema:rectangularextent`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Region">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="space" type="NmlId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -509,6 +608,23 @@ variable = Region(
 
 **connections**$  $ {ref}`schema:connection`
 **connectionsWD**$  $ {ref}`schema:connectionwd`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Projection">
+  <xs:complexContent>
+    <xs:extension base="BaseProjection">
+      <xs:sequence>
+        <xs:element name="connection" type="Connection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="connectionWD" type="ConnectionWD" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="synapse" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -619,6 +735,18 @@ variable = Projection(
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Connection">
+  <xs:complexContent>
+    <xs:extension base="BaseConnectionOldFormat">
+            </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Connection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -692,6 +820,23 @@ extends {ref}`schema:explicitconnection`
 :delim: $
 
 **synapse**$  $ {ref}`schema:basesynapse`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SynapticConnection">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+      <xs:attribute name="from" type="xs:string" use="required"/>
+      <xs:attribute name="to" type="xs:string" use="required"/>
+      <xs:attribute name="synapse" type="xs:string" use="required"/>
+      <xs:attribute name="destination" type="NmlId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -803,6 +948,20 @@ extends {ref}`schema:connection`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ConnectionWD">
+  <xs:complexContent>
+    <xs:extension base="BaseConnectionOldFormat">
+      <xs:attribute name="weight" type="xs:float" use="required"/>
+      <xs:attribute name="delay" type="Nml2Quantity_time" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ConnectionWD" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -853,6 +1012,19 @@ variable = ConnectionWD(
 :delim: $
 
 **synapse**$  $ {ref}`schema:gapjunction`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ElectricalConnection">
+  <xs:complexContent>
+    <xs:extension base="BaseConnectionNewFormat">
+      <xs:attribute name="synapse" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -925,6 +1097,17 @@ variable = ElectricalConnection(
 :delim: $
 
 **synapse**$  $ {ref}`schema:gapjunction`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ElectricalConnectionInstance">
+  <xs:complexContent>
+    <xs:extension base="ElectricalConnection"/>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -1005,6 +1188,19 @@ extends {ref}`schema:electricalconnectioninstance`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ElectricalConnectionInstanceW">
+  <xs:complexContent>
+    <xs:extension base="ElectricalConnectionInstance">
+      <xs:attribute name="weight" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstanceW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1061,6 +1257,23 @@ variable = ElectricalConnectionInstanceW(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ElectricalProjection">
+  <xs:complexContent>
+    <xs:extension base="BaseProjection">
+      <xs:sequence>
+        <xs:element name="electricalConnection" type="ElectricalConnection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="electricalConnectionInstance" type="ElectricalConnectionInstance" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="electricalConnectionInstanceW" type="ElectricalConnectionInstanceW" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalProjection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1109,6 +1322,20 @@ variable = ElectricalProjection(
 
 **preComponent**$  $ {ref}`schema:basegradedsynapse`
 **postComponent**$  $ {ref}`schema:basegradedsynapse`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ContinuousConnection">
+  <xs:complexContent>
+    <xs:extension base="BaseConnectionNewFormat">
+      <xs:attribute name="preComponent" type="NmlId" use="required"/>
+      <xs:attribute name="postComponent" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -1190,6 +1417,17 @@ variable = ContinuousConnection(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ContinuousConnectionInstance">
+  <xs:complexContent>
+    <xs:extension base="ContinuousConnection"/>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1262,6 +1500,19 @@ extends {ref}`schema:continuousconnectioninstance`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ContinuousConnectionInstanceW">
+  <xs:complexContent>
+    <xs:extension base="ContinuousConnectionInstance">
+      <xs:attribute name="weight" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstanceW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1320,6 +1571,23 @@ variable = ContinuousConnectionInstanceW(
 
 **connections**$  $ {ref}`schema:continuousconnection`
 **connectionInstances**$  $ {ref}`schema:continuousconnectioninstance`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ContinuousProjection">
+  <xs:complexContent>
+    <xs:extension base="BaseProjection">
+      <xs:sequence>
+        <xs:element name="continuousConnection" type="ContinuousConnection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="continuousConnectionInstance" type="ContinuousConnectionInstance" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="continuousConnectionInstanceW" type="ContinuousConnectionInstanceW" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -1402,6 +1670,21 @@ variable = ContinuousProjection(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ExplicitInput">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="target" type="xs:string" use="required"/>
+      <xs:attribute name="input" type="xs:string" use="required"/>
+      <xs:attribute name="destination" type="xs:string"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExplicitInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1470,6 +1753,24 @@ variable = ExplicitInput(
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="InputList">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="input" type="Input" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="inputW" type="InputW" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="population" type="NmlId" use="required"/>
+      <xs:attribute name="component" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputList" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1534,6 +1835,22 @@ variable = InputList(
 
 **target**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Input">
+  <xs:complexContent>
+    <xs:extension base="BaseNonNegativeIntegerId">
+      <xs:attribute name="target" type="xs:string" use="required"/>
+      <xs:attribute name="destination" type="NmlId" use="required"/>
+      <xs:attribute name="segmentId" type="NonNegativeInteger"/>
+      <xs:attribute name="fractionAlong" type="ZeroToOne"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1608,6 +1925,19 @@ extends {ref}`schema:input`
 
 **target**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="InputW">
+  <xs:complexContent>
+    <xs:extension base="Input">
+      <xs:attribute name="weight" type="xs:float" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python

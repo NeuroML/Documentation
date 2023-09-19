@@ -1,5 +1,5 @@
 (userdocs:extending)=
-# Extending NeuroML with LEMS
+# Extending NeuroML
 
 As a language, LEMS defines a set of built-in `types` which can be used together to build more user-defined types.
 For example, Python defines `int`, `float`, `str` and so on as built-in types, and these can then be combined to define user defined types, classes.
@@ -10,28 +10,45 @@ They define the membership structure of the type, but they do not specify values
 Once a ComponentType has been defined, an instance of it can be created by setting values for its members.
 This object is referred to as a **Component** in LEMS.
 
-The NeuroML2 standard is a list of {ref}`curated ComponentTypes <userdocs:neuromlv2>`.
-In cases where the set of ComponentTypes defined in the NeuroML standard is not sufficient for a particular modelling project, new ComponentTypes can be defined in LEMS to extend the NeuroMLv2 standard.
+Having definitions in LEMS allows their re-use, and all new ComponentTypes can be submitted for inclusion to the NeuroMLv2 specification to be made accessible to other users.
 
-Having definitions in LEMS allows their re-use, and these new ComponentTypes can be submitted for inclusion to the NeuroMLv2 specification to be made accessible to other users.
+- Like NeuroML, LEMS also has a [well defined schema](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS) (XSD) that is used to validate LEMS XML files.
+- Also similar to NeuroML, you can use the {ref}`LEMS Python tools <pylems>` to work with LEMS and do not need to work directly with the XML files.
 
-- Like NeuroML, LEMS files are also XML files.
-- Next, like NeuroML, LEMS also has a [well defined schema](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS) (XSD) that is used to validate LEMS XML files.
-- However, also similar to NeuroML, you can use the {ref}`LEMS Python tools <pylems>` to work with LEMS and do not need to work directly with the XML files.
+The NeuroML2 standard is a list of {ref}`curated LEMS ComponentTypes <userdocs:neuromlv2>`.
+In cases where the set of ComponentTypes defined in the NeuroML standard is not sufficient for a particular modelling project, new ComponentTypes can be defined to extend the NeuroMLv2 standard.
 
-(userdocs:extending:types)=
-## LEMS elements
+(userdocs:extending:withneuroml)=
+## Creating new ComponentTypes with existing NeuroML ComponentTypes
 
-The list of built-in types provided by LEMS can be seen [in the LEMS documentation](http://lems.github.io/LEMS/elements.html).
+Existing ComponentTypes defined in the NeuroMLv2 standard, when sufficient, should be used to create new ComponentTypes.
+These new ComponentTypes, since they consist of NeuroMLv2 ComponentTypes, *will be valid against the NeuroMLv2 schema* (must use a {code}`<neuroml ..>` root element).
+For convenience, the NeuroMLv2 schema includes a subset of the {ref}`LEMS elements <userdocs:lemsschema>`.
+
+An example of this type of extension of NeuroML can be see [here](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Ca_LVAst.channel.nml#L42) where a new Calcium dependent ion channel Component requires a new ComponentType {code}`Ca_LVAst_m_tau_tau` that implements the time course of the gate.
+
+However, please note that while the ComponentType will be valid NeuroML, the new Components (instances) one creates of this ComponentType (and models where Components are referenced/used) *will not*---since the NeuroML schema *does not know of the new ComponentType*.
+The new Components (and the models) will be valid LEMS.
+For this reason, while the ComponentType file will use a {code}`<neuroml ..>` root tag, the file containing its instantiated Components will use the {code}`<Lems ..>` root tag.
+
+(userdocs:extending:withlems)=
+## Creating new ComponentTypes with LEMS elements
+
+When ComponentTypes from the NeuroMLv2 standard are not sufficient for the creation of new ComponentTypes, one must use LEMS elements to do so.
+The definitions of the {ref}`NeuroMLv2 standard core ComponentTypes <userdocs:neuromlv2inlems>` are examples of this.
+
+(userdocs:extending:withlems:types)=
+### LEMS elements
+
+The list of built-in types provided by LEMS can be seen {ref}`in the LEMS documentation <userdocs:lemsschema>`.
 As the documentation notes, a ComponentType is the "Root element for defining component types".
 It must contain a `name`, and can `extend` another ComponentType, thus inheriting its members/attributes.
 Each ComponentType can contain members of other LEMS types: `Parameter`, `DerivedParameter`, `Dynamics`, `Exposure` and so on.
-These are also all documented in the [LEMS documentation](http://lems.github.io/LEMS/elements.html).
 
-(userdocs:extending:examplexml)=
-## Example: Lorenz model for cellular convection
+(userdocs:extending:withlems:examplexml)=
+### Example: Lorenz model for cellular convection
 
-Let us create a new LEMS ComponentType, one that is not neuroscience specific.
+To see how to create new ComponentTypes using LEMS, let us create one that is not neuroscience specific.
 We will first create it using the plain XML and then see how it can be done using the Python pyLEMS API.
 
 For this example, we will use the Lorenz model for cellular convection {cite}`Lorenz1963`.

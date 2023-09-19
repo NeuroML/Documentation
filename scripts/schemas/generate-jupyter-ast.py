@@ -18,7 +18,9 @@ import subprocess
 import asttemplates
 # lxml supports recursive searching which the python xml module does not seem
 # to include
+import lxml
 import lxml.etree as ET
+from lxml import objectify
 import os
 import re
 import neuroml
@@ -42,9 +44,10 @@ comp_type_py_api = {}
 comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
+comp_type_schema = {}
 
 nml_branch = "master"
-nml_version = "2.2"
+nml_version = "2.3"
 GitHubCompSources = ("https://github.com/NeuroML/NeuroML2/blob/" + nml_branch +
                      "/NeuroML2CoreTypes/")
 GitHubCompSourcesRaw = ("https://raw.githubusercontent.com/NeuroML/NeuroML2/" +
@@ -52,7 +55,6 @@ GitHubCompSourcesRaw = ("https://raw.githubusercontent.com/NeuroML/NeuroML2/" +
 GitHubRepo = "https://github.com/NeuroML/NeuroML2.git"
 nml_date = date.today().strftime("%d/%m/%y")
 nml_commit = ""
-
 
 def format_description(text):
     """Format the description.
@@ -234,6 +236,44 @@ def get_component_types(srcdir):
         ordered_comp_types[comp_definition] = ordered_comp_type_list
 
 
+def get_schema_doc(schemafile):
+    """Get schemas for everything
+
+    :param schemafile: path to the XSD schema file
+    """
+    print(ET.__file__)
+    parser = lxml.etree.XMLParser(remove_comments=True,
+                                  remove_blank_text=True, ns_clean=True)
+    try:
+        tree = ET.parse(schemafile, parser=parser)
+        root = tree.getroot()
+    except ET.XMLSyntaxError as e:
+        print(f"Could not parse file {schemafile}: {e}")
+    namespaces = root.nsmap
+
+    # currently unused
+    for simple_type in root.findall("xs:simpleType", namespaces=namespaces):
+        simple_type_str = ET.tostring(simple_type, pretty_print=True,
+                                      encoding="unicode",
+                                      xml_declaration=False)
+
+        # needs to be lowerCamelCase to match XML core types
+        type_name = simple_type.attrib['name'].lower().replace("nml2quantity_", "")
+        comp_type_schema[type_name] = re.sub(r"Type.*name=",r"Type name=", simple_type_str)
+
+    for complex_type in root.findall("xs:complexType", namespaces=namespaces):
+        for node in complex_type:
+            if "annotation" in str(node.tag) or "documentation" in str(node.tag):
+                complex_type.remove(node)
+
+        complex_type_str = ET.tostring(complex_type, pretty_print=True,
+                                       encoding="unicode",
+                                       xml_declaration=False)
+        # needs to be lowerCamelCase to match XML core types
+        type_name = complex_type.attrib['name'].lower()
+        comp_type_schema[type_name] = re.sub(r"Type.*name=",r"Type name=", complex_type_str)
+
+
 def get_extended_from_comp_type(comp_type_name):
     """Get name of the parent ComponentType.
 
@@ -280,6 +320,7 @@ def main(srcdir, destdir):
     # and when it is LEMS so it can point to the correct docs.
     #  exampledirs = [tmpsrcdir + "/examples/", tmpsrcdir + "/LEMSexamples/"]
     exampledirs = [tmpsrcdir + "/examples/"]
+    xsdsrc = tmpsrcdir + f"/Schemas/NeuroML2/NeuroML_v{nml_version}.xsd"
     tmpsrcdir = tmpsrcdir + "/NeuroML2CoreTypes/"
 
     # Get current commit
@@ -297,9 +338,14 @@ def main(srcdir, destdir):
     # get python signatures
     get_libneuroml_signatures()
 
+    # get schema docs
+    get_schema_doc(xsdsrc)
+
     if not destdir or destdir == "":
         destdir = "."
     print("Output files will be written to {} directory".format(destdir))
+
+    links_doc_data = {}
 
     for comp_definition in comp_definitions:
         fullpath = "{}/{}.xml".format(tmpsrcdir, comp_definition)
@@ -338,7 +384,11 @@ def main(srcdir, destdir):
                 symbols.append(unit.symbol.lower())
 
             print(asttemplates.dimension.render(comp_definition=comp_definition,
-                                                dimensions=dimensions, units=units), file=ast_doc)
+                                                dimensions=dimensions,
+                                                units=units,
+                                                schemas=comp_type_schema), file=ast_doc)
+            for dim in dimensions:
+                links_doc_data[f'{dim.name.lower()}'] = f'<a name="{dim.name}"/>\n\n- {{ref}}`{dim.name} <schema:dimensions:{dim.name}>`'
 
             # Get factors
             for unit in units:
@@ -386,6 +436,7 @@ def main(srcdir, destdir):
             print(asttemplates.comp.render(comp_definition=comp_definition,
                                            comp_type=comp_type, cno=cno),
                   file=ast_doc)
+            links_doc_data[f'{comp_type.name.lower()}'] = f'<a name="{comp_type.name.lower()}"/>\n\n- {{ref}}`{comp_type.name} <schema:{comp_type.name.lower()}>`'
 
             """Process parameters, derived parameters, texts, paths, expsures,
             requirements and ports"""
@@ -532,6 +583,15 @@ def main(srcdir, destdir):
                 print(asttemplates.dynamics.render(title="Dynamics",
                                                    comp_type=comp_type), file=ast_doc)
 
+            # if the component has schema documentation, add that, otherwise
+            comp_type_schemadoc = None
+            # skip
+            try:
+                comp_type_schemadoc = comp_type_schema[comp_type.name.lower()]
+                print(asttemplates.schema_quote.render(schemadoc=comp_type_schemadoc), file=ast_doc)
+            except KeyError:
+                print(f"No schema doc found for {comp_type.name}")
+
             # Examples
             """
             print("{} has: ".format(comp_type.name))
@@ -556,16 +616,24 @@ def main(srcdir, destdir):
                     or len(comp_type.attachments) > 0 or comp_type.dynamics and
                     comp_type.dynamics.has_content() or
                     comp_type_py_api[comp_type.name] or
-                    len(comp_type_examples[comp_type.name]) > 0):
+                    len(comp_type_examples[comp_type.name]) > 0 or
+                    comp_type_schemadoc is not None):
                 print("""`````""", file=ast_doc)
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
+
+    with open(f"{destdir}/Index.md", 'w') as links_doc:
+        print("# Index\n", file=links_doc)
+        ordered_data = dict(sorted(links_doc_data.items()))
+
+        for name, text in ordered_data.items():
+            print(text, file=links_doc)
 
     if not srcdir:
         tempdir.cleanup()
 
 
 if __name__ == "__main__":
-    src = ""
+    src = "/home/asinha/Documents/02_Code/00_mine/NeuroML/software/NeuroML2/"
     destdir = "../../source/Userdocs/Schemas/"
     main(src, destdir)

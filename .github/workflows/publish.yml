@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.9
     - name: Set up JDK 11 for jNeuroML etc
@@ -24,8 +24,9 @@ jobs:
         python -m pip install --upgrade pip
         # pip install -r requirements.txt
         pip install -r requirements-book.txt
-        sudo apt-get install build-essential
-        sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex latexmk
+        sudo apt-get update -y
+        sudo apt-get install build-essential -y
+        sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex latexmk -y
     - name: Disable building jupyter-books
       run: |
         sed -i "s/execute_notebooks.*/execute_notebooks: 'off'/" source/_config.yml

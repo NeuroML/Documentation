@@ -53,6 +53,7 @@ parts:
             - file: Userdocs/Schemas/Networks
             - file: Userdocs/Schemas/PyNN
             - file: Userdocs/Schemas/Simulation
+            - file: Userdocs/Schemas/Index
         - file: Userdocs/NeuroMLv1
         - file: Userdocs/LEMSSchema.md
           sections:
@@ -65,14 +66,14 @@ parts:
             - file: Userdocs/LEMS_elements/Procedure
             - file: Userdocs/LEMS_elements/DefiningComponents
             - file: Userdocs/LEMS_elements/Geometry
-    - file: Userdocs/UsingNeuroMLv2AndLEMS
+    - file: Userdocs/NeuroMLv2AndLEMS
       sections:
         - file: Userdocs/Conventions
         - file: Userdocs/UnitsAndDimensions
         - file: Userdocs/Paths
         - file: Userdocs/QuantitiesAndRecording
         - file: Userdocs/LEMSSimulation
-        - file: Userdocs/ExtendingNeuroMLv2WithLEMS
+    - file: Userdocs/ExtendingNeuroMLv2
     - file: Userdocs/Software/Software
       sections:
         - file: Userdocs/Software/pyNeuroML
@@ -118,6 +119,7 @@ parts:
       - file: NeuroMLOrg/Funding
       - file: NeuroMLOrg/OutreachTraining
       - file: NeuroMLOrg/Contributors
+      - file: NeuroMLOrg/Repositories
       - file: NeuroMLOrg/CoC
   - caption: Developer documentation
     chapters:

@@ -106,10 +106,15 @@ dimension = env.from_string(textwrap.dedent(
     (schema:dimensions:{{ dim.name }})=
     ### {{ dim.name | replace("_", "\_") }}
 
-    ````{grid}
+    `````{grid}
+    {% if schemas['dim.name'] %}
+    :gutter: 3
+    {%- else -%}
     :gutter: 2
+    {% endif %}
 
-    ```{grid-item-card} Dimensions
+    ````{grid-item-card} Dimensions
+    :columns: 6
     {% if dim.m is not none and dim.m != 0 -%}
     M{superscript}{{ "`%s` "|format(dim.m)  }}
     {%- endif -%}
@@ -128,16 +133,27 @@ dimension = env.from_string(textwrap.dedent(
     {%- if dim.n is not none and dim.n != 0 -%}
     N{superscript}{{ "`%s` "|format(dim.n)  }}
     {%- endif %}
-    ```
+    ````
 
-    ```{grid-item-card} Units
+    ````{grid-item-card} Units
+    :columns: 6
     {% for unit in units %}
     {%- if unit.dimension == dim.name %}
     - Defined unit: {ref}`schema:units:{{ unit.symbol }}`
     {% endif -%}
     {%- endfor %}
+    ````
+
+    {% if schemas["{}".format(dim.name).replace("_", "")] %}
+    ````{grid-item-card} Schema
+    :columns: 12
+    ```{code-block} xml
+    {{ schemas["{}".format(dim.name).replace("_", "")] }}
     ```
     ````
+    {%- endif %}
+
+    `````
     {% endfor %}
 
     """
@@ -569,5 +585,15 @@ examples = env.from_string(textwrap.dedent(
     {% endfor -%}
     ````
     {%- endif -%}
+    """
+))
+
+schema_quote = env.from_string(textwrap.dedent(
+    """
+    ````{tab-item} Schema
+    ```{code-block} xml
+    {{ schemadoc }}
+    ```
+    ````
     """
 ))

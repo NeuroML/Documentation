@@ -51,8 +51,8 @@ for repo in all_repos:
             master_list[contributor['login']] = contributor['html_url']
 
 # Write docs page
-docs_page = "../../source/NeuroMLOrg/Contributors.md"
-with open(docs_page, 'w') as f:
+contributors_page = "../../source/NeuroMLOrg/Contributors.md"
+with open(contributors_page, 'w') as f:
     print(textwrap.dedent(
         """\
         (neuromlorg:contributors)=
@@ -60,6 +60,7 @@ with open(docs_page, 'w') as f:
 
         This page lists contributors to the various NeuroML and related repositories, listed in no particular order.
         It is generated periodically, most recently on {}. See also the current {{ref}}`NeuroML Editorial Board<neuromlorg:board>` and the {{ref}}`Scientific Committee <neuromlorg:ScientificCommittee>`.
+        The list of repositories can be seen on {{ref}}`the repositories page <neuromlorg:repositories>`.
 
         """.format(todays_date)), file=f)
     # A blank line
@@ -68,12 +69,20 @@ with open(docs_page, 'w') as f:
     for key, val in master_list.items():
         print("- [@{}]({})".format(key, val), file=f)
 
+repositories_page = "../../source/NeuroMLOrg/Repositories.md"
+with open(repositories_page, 'w') as f:
     print(textwrap.dedent(
         """
-        ## Repositories
+        (neuromlorg:repositories)=
+        # NeuroML repositories
+
+        This page lists repositories related to NeuroML, listed in no particular order.
+        It is generated periodically, most recently on {}.  A complete list of contributors can be seen {{ref}}`here <neuromlorg:contributors>`.
+
+        For the status of tests on standardized NeuroML models on Open Source Brain, please see this page: https://github.com/OpenSourceBrain/.github/blob/main/testsheet/README.md.
 
         """
-    ), file=f)
+    ).format(todays_date), file=f)
 
     for repo in all_repos:
         print("- [{}]({})".format(repo['full_name'], repo['html_url']), file=f)

@@ -8,8 +8,8 @@
 
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Channels.xml).
-Schema against which NeuroML based on these should be valid: [NeuroML_v2.2.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.2.xsd).
-Generated on 19/10/22 from [this](https://github.com/NeuroML/NeuroML2/commit/2c397d00bd4b9aa03313165777d6ca4cfa437755) commit.
+Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
+Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -1125,6 +1125,20 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Q10ConductanceScaling">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="q10Factor" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="experimentalTemp" type="Nml2Quantity_temperature" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Q10ConductanceScaling" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -1369,6 +1383,25 @@ extends {ref}`schema:gate`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHRates">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="forwardRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="reverseRate" type="HHRate" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 
 ````{tab-item} Usage: XML
 ```{code-block} xml
@@ -1495,6 +1528,25 @@ extends {ref}`schema:gate`
     
 
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHTauInf">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="timeCourse" type="HHTime" minOccurs="1"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:gatehhinstantaneous)=
@@ -1579,6 +1631,23 @@ extends {ref}`schema:gate`
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHInstantaneous">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -1704,6 +1773,26 @@ extends {ref}`schema:gate`
     
 
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHRatesTau">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="forwardRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="reverseRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="timeCourse" type="HHTime" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:gatehhratesinf)=
@@ -1812,6 +1901,26 @@ extends {ref}`schema:gate`
     : d **q** /dt = (inf - q) / tau
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHRatesInf">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="forwardRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="reverseRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -1924,6 +2033,27 @@ extends {ref}`schema:gate`
     
 
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHRatesTauInf">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="forwardRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="reverseRate" type="HHRate" minOccurs="1"/>
+        <xs:element name="timeCourse" type="HHTime" minOccurs="1"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:gatefractional)=
@@ -1996,6 +2126,24 @@ extends {ref}`schema:gate`
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateFractional">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="subGate" type="GateFractionalSubgate" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2355,6 +2503,17 @@ extends *{ref}`schema:baseionchannel`*
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IonChannelHH">
+  <xs:complexContent>
+    <xs:extension base="IonChannel"/>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelHH" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2477,6 +2636,31 @@ extends {ref}`schema:ionchannelhh`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IonChannel">
+  <xs:complexContent>
+    <xs:extension base="IonChannelScalable">
+      <xs:choice>
+        <xs:element name="gate" type="GateHHUndetermined" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateHHrates" type="GateHHRates" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateHHratesTau" type="GateHHRatesTau" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateHHtauInf" type="GateHHTauInf" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateHHratesInf" type="GateHHRatesInf" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateHHratesTauInf" type="GateHHRatesTauInf" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateHHInstantaneous" type="GateHHInstantaneous" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gateFractional" type="GateFractional" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="species" type="NmlId" use="optional"/>
+      <xs:attribute name="type" type="channelTypes" use="optional"/>
+      <xs:attribute name="conductance" type="Nml2Quantity_conductance" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2563,6 +2747,19 @@ extends {ref}`schema:ionchannel`
 :delim: $
 
 **v**$  *(from {ref}`schema:baseionchannel`)* ${ref}`schema:dimensions:voltage`
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IonChannelVShift">
+  <xs:complexContent>
+    <xs:extension base="IonChannel">
+      <xs:attribute name="vShift" type="Nml2Quantity_voltage" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -2693,6 +2890,18 @@ extends {ref}`schema:ksstate`
 ```
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ClosedState">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ClosedState" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -2739,6 +2948,18 @@ extends {ref}`schema:ksstate`
 
 **occupancy**$  *(from {ref}`schema:ksstate`)* $Dimensionless
 **q**$  *(from {ref}`schema:ksstate`)* $Dimensionless
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="OpenState">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -2844,6 +3065,24 @@ extends *{ref}`schema:baseionchannel`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IonChannelKS">
+  <xs:complexContent>
+    <xs:extension base="Standalone">
+      <xs:sequence>
+        <xs:element name="gateKS" type="GateKS" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="species" type="NmlId" use="optional"/>
+      <xs:attribute name="conductance" type="Nml2Quantity_conductance" use="optional"/>
+      <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -2960,6 +3199,23 @@ extends {ref}`schema:kstransition`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ForwardTransition">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="from" type="NmlId" use="required"/>
+      <xs:attribute name="to" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ForwardTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -3043,6 +3299,23 @@ extends {ref}`schema:kstransition`
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ReverseTransition">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="from" type="NmlId" use="required"/>
+      <xs:attribute name="to" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
@@ -3208,6 +3481,24 @@ extends {ref}`schema:kstransition`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="TauInfTransition">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="steadyState" type="HHVariable"/>
+        <xs:element name="timeCourse" type="HHTime"/>
+      </xs:all>
+      <xs:attribute name="from" type="NmlId" use="required"/>
+      <xs:attribute name="to" type="NmlId" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 ````{tab-item} Usage: Python
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TauInfTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
@@ -3295,6 +3586,29 @@ extends *{ref}`schema:basegate`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateKS">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="closedState" type="ClosedState" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="openState" type="OpenState" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+          <xs:group ref="ForwardReverseTransition"/>
+          <xs:element name="tauInfTransition" type="TauInfTransition"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
