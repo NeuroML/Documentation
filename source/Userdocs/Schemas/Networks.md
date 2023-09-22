@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Networks.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
+Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -830,9 +830,9 @@ extends {ref}`schema:explicitconnection`
   <xs:complexContent>
     <xs:extension base="BaseWithoutId">
       <xs:attribute name="neuroLexId" type="NeuroLexId" use="optional"/>
-      <xs:attribute name="from" type="xs:string" use="required"/>
-      <xs:attribute name="to" type="xs:string" use="required"/>
-      <xs:attribute name="synapse" type="xs:string" use="required"/>
+      <xs:attribute name="from" type="Nml2PopulationReferencePath" use="required"/>
+      <xs:attribute name="to" type="Nml2PopulationReferencePath" use="required"/>
+      <xs:attribute name="synapse" type="NmlId" use="required"/>
       <xs:attribute name="destination" type="NmlId" use="optional"/>
     </xs:extension>
   </xs:complexContent>
@@ -1675,9 +1675,9 @@ variable = ContinuousProjection(
 <xs:complexType name="ExplicitInput">
   <xs:complexContent>
     <xs:extension base="BaseWithoutId">
-      <xs:attribute name="target" type="xs:string" use="required"/>
-      <xs:attribute name="input" type="xs:string" use="required"/>
-      <xs:attribute name="destination" type="xs:string"/>
+      <xs:attribute name="target" type="Nml2PopulationReferencePath" use="required"/>
+      <xs:attribute name="input" type="NmlId" use="required"/>
+      <xs:attribute name="destination" type="NmlId"/>
     </xs:extension>
   </xs:complexContent>
 </xs:complexType>
@@ -1842,7 +1842,7 @@ variable = InputList(
 <xs:complexType name="Input">
   <xs:complexContent>
     <xs:extension base="BaseNonNegativeIntegerId">
-      <xs:attribute name="target" type="xs:string" use="required"/>
+      <xs:attribute name="target" type="Nml2PopulationReferencePath" use="required"/>
       <xs:attribute name="destination" type="NmlId" use="required"/>
       <xs:attribute name="segmentId" type="NonNegativeInteger"/>
       <xs:attribute name="fractionAlong" type="ZeroToOne"/>
