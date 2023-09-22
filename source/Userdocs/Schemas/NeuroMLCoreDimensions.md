@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreDimensions.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreDimensions.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
+Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -126,6 +126,8 @@ T{superscript}`1` I{superscript}`1` N{superscript}`-1`
 
 - Defined unit: {ref}`schema:units:nA_ms_per_amol`
 
+- Defined unit: {ref}`schema:units:pC_per_umol`
+
 ````
 
 
@@ -234,6 +236,8 @@ M{superscript}`-1` L{superscript}`-4` T{superscript}`3` I{superscript}`2`
 - Defined unit: {ref}`schema:units:S_per_m2`
 
 - Defined unit: {ref}`schema:units:mS_per_cm2`
+
+- Defined unit: {ref}`schema:units:uS_per_cm2`
 
 ````
 
@@ -360,6 +364,8 @@ M{superscript}`1` L{superscript}`2` T{superscript}`-2` K{superscript}`-1` N{supe
 :columns: 6
 
 - Defined unit: {ref}`schema:units:J_per_K_per_mol`
+
+- Defined unit: {ref}`schema:units:fJ_per_K_per_umol`
 
 ````
 
@@ -609,6 +615,8 @@ L{superscript}`-1` T{superscript}`-1` I{superscript}`-1` N{superscript}`1`
 - Defined unit: {ref}`schema:units:mol_per_cm_per_uA_per_ms`
 
 - Defined unit: {ref}`schema:units:mol_per_m_per_A_per_s`
+
+- Defined unit: {ref}`schema:units:umol_per_cm_per_nA_per_ms`
 
 ````
 
@@ -903,6 +911,7 @@ L{superscript}`3`
 ```{grid-item-card} Conversions
 
 - 1 C_per_mol = 1e-06 {ref}`schema:units:nA_ms_per_amol`
+- 1 C_per_mol = 1.00e+06 {ref}`schema:units:pC_per_umol`
 
 ```
 ````
@@ -986,6 +995,12 @@ L{superscript}`3`
 - Power of 10: 0
 
 
+
+```
+
+```{grid-item-card} Conversions
+
+- 1 J_per_K_per_mol = 1.00e+09 {ref}`schema:units:fJ_per_K_per_umol`
 
 ```
 ````
@@ -1119,6 +1134,7 @@ L{superscript}`3`
 
 - 1 S_per_cm2 = 10000 {ref}`schema:units:S_per_m2`
 - 1 S_per_cm2 = 1000 {ref}`schema:units:mS_per_cm2`
+- 1 S_per_cm2 = 1.00e+06 {ref}`schema:units:uS_per_cm2`
 
 ```
 ````
@@ -1141,6 +1157,7 @@ L{superscript}`3`
 
 - 1 S_per_m2 = 0.0001 {ref}`schema:units:S_per_cm2`
 - 1 S_per_m2 = 0.1 {ref}`schema:units:mS_per_cm2`
+- 1 S_per_m2 = 100 {ref}`schema:units:uS_per_cm2`
 
 ```
 ````
@@ -1320,6 +1337,27 @@ L{superscript}`3`
 ```{grid-item-card} Conversions
 
 - 1 e = 1.6022e-19 {ref}`schema:units:C`
+
+```
+````
+
+(schema:units:fJ_per_K_per_umol)=
+### fJ_per_K_per_umol
+
+````{grid}
+:gutter: 2
+
+```{grid-item-card} Summary
+- Dimension: {ref}`schema:dimensions:idealGasConstantDims`
+- Power of 10: -9
+
+
+
+```
+
+```{grid-item-card} Conversions
+
+- 1 fJ_per_K_per_umol = 1e-09 {ref}`schema:units:J_per_K_per_mol`
 
 ```
 ````
@@ -1570,6 +1608,7 @@ L{superscript}`3`
 
 - 1 mS_per_cm2 = 0.001 {ref}`schema:units:S_per_cm2`
 - 1 mS_per_cm2 = 10 {ref}`schema:units:S_per_m2`
+- 1 mS_per_cm2 = 1000 {ref}`schema:units:uS_per_cm2`
 
 ```
 ````
@@ -1698,6 +1737,7 @@ L{superscript}`3`
 ```{grid-item-card} Conversions
 
 - 1 mol_per_cm_per_uA_per_ms = 1.00e+11 {ref}`schema:units:mol_per_m_per_A_per_s`
+- 1 mol_per_cm_per_uA_per_ms = 1000 {ref}`schema:units:umol_per_cm_per_nA_per_ms`
 
 ```
 ````
@@ -1742,6 +1782,7 @@ L{superscript}`3`
 ```{grid-item-card} Conversions
 
 - 1 mol_per_m_per_A_per_s = 1e-11 {ref}`schema:units:mol_per_cm_per_uA_per_ms`
+- 1 mol_per_m_per_A_per_s = 1e-08 {ref}`schema:units:umol_per_cm_per_nA_per_ms`
 
 ```
 ````
@@ -1809,6 +1850,7 @@ L{superscript}`3`
 ```{grid-item-card} Conversions
 
 - 1 nA_ms_per_amol = 1.00e+06 {ref}`schema:units:C_per_mol`
+- 1 nA_ms_per_amol = 1.00e+12 {ref}`schema:units:pC_per_umol`
 
 ```
 ````
@@ -1966,6 +2008,28 @@ L{superscript}`3`
 - 1 pA = 1e-12 {ref}`schema:units:A`
 - 1 pA = 0.001 {ref}`schema:units:nA`
 - 1 pA = 1e-06 {ref}`schema:units:uA`
+
+```
+````
+
+(schema:units:pC_per_umol)=
+### pC_per_umol
+
+````{grid}
+:gutter: 2
+
+```{grid-item-card} Summary
+- Dimension: {ref}`schema:dimensions:charge_per_mole`
+- Power of 10: -6
+
+
+
+```
+
+```{grid-item-card} Conversions
+
+- 1 pC_per_umol = 1e-06 {ref}`schema:units:C_per_mol`
+- 1 pC_per_umol = 1e-12 {ref}`schema:units:nA_ms_per_amol`
 
 ```
 ````
@@ -2295,6 +2359,29 @@ L{superscript}`3`
 ```
 ````
 
+(schema:units:uS_per_cm2)=
+### uS_per_cm2
+
+````{grid}
+:gutter: 2
+
+```{grid-item-card} Summary
+- Dimension: {ref}`schema:dimensions:conductanceDensity`
+- Power of 10: -2
+
+
+
+```
+
+```{grid-item-card} Conversions
+
+- 1 uS_per_cm2 = 1e-06 {ref}`schema:units:S_per_cm2`
+- 1 uS_per_cm2 = 0.01 {ref}`schema:units:S_per_m2`
+- 1 uS_per_cm2 = 0.001 {ref}`schema:units:mS_per_cm2`
+
+```
+````
+
 (schema:units:um)=
 ### um
 
@@ -2381,6 +2468,28 @@ L{superscript}`3`
 - 1 um_per_ms = 0.0001 {ref}`schema:units:cm_per_ms`
 - 1 um_per_ms = 0.1 {ref}`schema:units:cm_per_s`
 - 1 um_per_ms = 0.001 {ref}`schema:units:m_per_s`
+
+```
+````
+
+(schema:units:umol_per_cm_per_nA_per_ms)=
+### umol_per_cm_per_nA_per_ms
+
+````{grid}
+:gutter: 2
+
+```{grid-item-card} Summary
+- Dimension: {ref}`schema:dimensions:rho_factor`
+- Power of 10: 8
+
+
+
+```
+
+```{grid-item-card} Conversions
+
+- 1 umol_per_cm_per_nA_per_ms = 0.001 {ref}`schema:units:mol_per_cm_per_uA_per_ms`
+- 1 umol_per_cm_per_nA_per_ms = 1.00e+08 {ref}`schema:units:mol_per_m_per_A_per_s`
 
 ```
 ````

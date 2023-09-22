@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Simulation.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Simulation.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
+Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -64,6 +64,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :width: 100%
 :delim: $
 
+**metas**$  $ {ref}`schema:meta`
 **displays**$  $ {ref}`schema:display`
 **outputs**$  $ {ref}`schema:outputfile`
 **events**$  $ {ref}`schema:eventoutputfile`
@@ -301,6 +302,31 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :delim: $
 
 **select**$ The cell which will be emitting the events
+
+````
+`````
+
+(schema:meta)=
+
+## Meta
+
+
+
+
+<i>Metadata to add to simulation.</i>
+
+
+`````{tab-set}
+````{tab-item} Text fields
+```{csv-table}
+:widths: 1, 7
+:width: 100%
+:delim: $
+
+**for**$ Simulator name
+**method**$ Integration method to use
+**abs_tolerance**$ Absolute tolerance for NEURON's cvode method
+**rel_tolerance**$ Relative tolerance for NEURON's cvode method
 
 ````
 `````

@@ -39,7 +39,7 @@
     "sections" : [ "dend_0", "dend_1" ]
   }, {
     "name" : "all",
-    "sections" : [ "soma_0", "soma_0", "axon_0", "axon_0", "dend_0", "dend_0", "dend_1", "dend_1" ]
+    "sections" : [ "soma_0", "axon_0", "dend_0", "dend_1" ]
   } ],
   "specificCapacitance" : [ {
     "group" : "all",
@@ -160,7 +160,7 @@ objref soma_group
 objref axon_group
 // Group: {name=dendrite_group, groups=[], sections=[dend_0, dend_1]}
 objref dendrite_group
-// Group: {name=all, sections=[soma_0, soma_0, axon_0, axon_0, dend_0, dend_0, dend_1, dend_1]}
+// Group: {name=all, sections=[soma_0, axon_0, dend_0, dend_1]}
 objref all
 
 objref synlist
@@ -238,15 +238,11 @@ proc subsets() { local i
     dend_0 dendrite_group.append()
     dend_1 dendrite_group.append()
 
-    // Group: {name=all, sections=[soma_0, soma_0, axon_0, axon_0, dend_0, dend_0, dend_1, dend_1]}
+    // Group: {name=all, sections=[soma_0, axon_0, dend_0, dend_1]}
     all = new SectionList()
     soma_0 all.append()
-    soma_0 all.append()
-    axon_0 all.append()
     axon_0 all.append()
     dend_0 all.append()
-    dend_0 all.append()
-    dend_1 all.append()
     dend_1 all.append()
 
 }

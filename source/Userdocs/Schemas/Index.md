@@ -318,9 +318,9 @@
 <a name="distal"/>
 
 - {ref}`distal <schema:distal>`
-<a name="distalproperties"/>
+<a name="distaldetails"/>
 
-- {ref}`distalProperties <schema:distalproperties>`
+- {ref}`distalDetails <schema:distaldetails>`
 <a name="doublesynapse"/>
 
 - {ref}`doubleSynapse <schema:doublesynapse>`
@@ -441,6 +441,9 @@
 <a name="hhsigmoidvariable"/>
 
 - {ref}`HHSigmoidVariable <schema:hhsigmoidvariable>`
+<a name="hindmarshrose1984cell"/>
+
+- {ref}`hindmarshRose1984Cell <schema:hindmarshrose1984cell>`
 <a name="iafcell"/>
 
 - {ref}`iafCell <schema:iafcell>`
@@ -546,6 +549,9 @@
 <a name="membraneproperties2capools"/>
 
 - {ref}`membraneProperties2CaPools <schema:membraneproperties2capools>`
+<a name="meta"/>
+
+- {ref}`Meta <schema:meta>`
 <a name="morphology"/>
 
 - {ref}`morphology <schema:morphology>`
@@ -612,9 +618,9 @@
 <a name="proximal"/>
 
 - {ref}`proximal <schema:proximal>`
-<a name="proximalproperties"/>
+<a name="proximaldetails"/>
 
-- {ref}`proximalProperties <schema:proximalproperties>`
+- {ref}`proximalDetails <schema:proximaldetails>`
 <a name="pulsegenerator"/>
 
 - {ref}`pulseGenerator <schema:pulsegenerator>`

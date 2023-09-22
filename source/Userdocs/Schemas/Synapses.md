@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
+Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -2397,6 +2397,17 @@ extends *{ref}`schema:basegradedsynapse`*
 
 
 `````{tab-set}
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**AMP** = 1A$  $ {ref}`schema:dimensions:current`
+
+```
+````
+
 ````{tab-item} Properties
 ```{csv-table}
 :widths: 3, 5, 2
@@ -2452,7 +2463,7 @@ extends *{ref}`schema:basegradedsynapse`*
 
 <i>**Derived Variables**</i>
     : **vpeer** =&nbsp;peer->v
-    : **i** =&nbsp;0&emsp;(exposed as **i**)
+    : **i** =&nbsp;0 * AMP&emsp;(exposed as **i**)
     
 
 
