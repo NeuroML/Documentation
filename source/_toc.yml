@@ -24,6 +24,7 @@ parts:
       - file: Userdocs/VisualisingChannels
     - file: Userdocs/SimulatingNeuroMLModels
     - file: Userdocs/OptimisingNeuroMLModels
+    - file: Userdocs/AddingMetadataToNeuroMLModels
     - file: Userdocs/Specification
       sections:
         - file: Userdocs/NeuroMLv2
