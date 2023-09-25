@@ -57,3 +57,12 @@ The sixth election of an editorial board for NeuroML took place in Nov/Dec 2021.
 - The three candidates who received the highest number of votes would serve three year terms.
 - Salvador Dura-Bernal and Ankur Sinha were nominated, and eventually all elected to serve as editors.
 - Sharon Crook was the returning officer for this election.
+
+## Election of editors (2024)
+The seventh election of an editorial board for NeuroML took place in Nov/Dec 2023.
+
+- The electorate consisted of the members of the NeuroML mailing lists as well as anyone who had made significant contributions to any of the NeuroML GitHub repositories in the past 3 years.
+- Anyone on the electorate could nominate someone to be an editor. Self nominations were also allowed.
+- The three candidates who received the highest number of votes would serve three year terms.
+- Padraig Gleeson, Boris Marin, Sotirios Panagiotou and Subhasis Ray were nominated. Padraig Gleeson, Boris Marin, Sotirios Panagiotou received highest votes and were elected to serve as editors.
+- Cengiz Gunay was the returning officer for this election.

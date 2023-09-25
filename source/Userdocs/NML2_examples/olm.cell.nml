@@ -15,7 +15,7 @@
                 <distal x="0.0" y="20.0" z="0.0" diameter="10.0"/>
             </segment>
             <segment id="2" name="Seg0_axon_0">
-                <parent segment="0" fractionAlong="0."/>
+                <parent segment="0" fractionAlong="0.0"/>
                 <proximal x="0.0" y="0.0" z="0.0" diameter="1.5"/>
                 <distal x="0.0" y="-75.0" z="0.0" diameter="1.5"/>
             </segment>
@@ -77,10 +77,11 @@
                 <include segmentGroup="dend_1"/>
             </segmentGroup>
             <segmentGroup id="all">
-                <include segmentGroup="soma_0"/>
+                <notes>Default segment group for all segments in the cell</notes>
                 <include segmentGroup="axon_0"/>
                 <include segmentGroup="dend_0"/>
                 <include segmentGroup="dend_1"/>
+                <include segmentGroup="soma_0"/>
             </segmentGroup>
         </morphology>
         <biophysicalProperties id="biophys">

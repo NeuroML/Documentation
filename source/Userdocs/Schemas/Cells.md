@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Cells.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 11/05/23 from [this](https://github.com/NeuroML/NeuroML2/commit/d5b7b1fde43c075ee741e71971526e20d64f9562) commit.
+Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -2956,8 +2956,8 @@ variable = SubTree(
 :width: 100%
 :delim: $
 
-**proximal**$  $ {ref}`schema:proximalproperties`
-**distal**$  $ {ref}`schema:distalproperties`
+**proximal**$  $ {ref}`schema:proximaldetails`
+**distal**$  $ {ref}`schema:distaldetails`
 
 ```
 ````
@@ -3007,9 +3007,9 @@ variable = InhomogeneousParameter(
 ````
 `````
 
-(schema:proximalproperties)=
+(schema:proximaldetails)=
 
-## proximalProperties
+## proximalDetails
 
 
 
@@ -3027,11 +3027,35 @@ variable = InhomogeneousParameter(
 **translationStart**$ 
 
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ProximalDetails">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="translationStart" type="xs:double" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ProximalDetails" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import ProximalDetails
+
+variable = ProximalDetails(
+    translation_start: 'a double (required)' = None,
+)
+```
+````
 `````
 
-(schema:distalproperties)=
+(schema:distaldetails)=
 
-## distalProperties
+## distalDetails
 
 
 
@@ -3048,6 +3072,30 @@ variable = InhomogeneousParameter(
 
 **normalizationEnd**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="DistalDetails">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="normalizationEnd" type="xs:double" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DistalDetails" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import DistalDetails
+
+variable = DistalDetails(
+    normalization_end: 'a double (required)' = None,
+)
+```
 ````
 `````
 
@@ -3346,6 +3394,9 @@ variable = InitMembPotential(
 ```{code-block} xml
 <initMembPotential value="-65mV"/>
 ```
+```{code-block} xml
+<initMembPotential value="-65mV"/>
+```
 ````
 `````
 
@@ -3397,6 +3448,9 @@ variable = SpikeThresh(
 ```
 ````
 ````{tab-item} Usage: XML
+```{code-block} xml
+<spikeThresh value="-20mV"/>
+```
 ```{code-block} xml
 <spikeThresh value="-20mV"/>
 ```
@@ -6968,6 +7022,179 @@ variable = PinskyRinzelCA3Cell(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <pinskyRinzelCA3Cell id="pr2A" iSoma="0.75 uA_per_cm2" iDend="0 uA_per_cm2" gc="2.1 mS_per_cm2" qd0="0" gLs="0.1 mS_per_cm2" gLd="0.1 mS_per_cm2" gNa="30 mS_per_cm2" gKdr="15 mS_per_cm2" gCa="10 mS_per_cm2" gKahp="0.8 mS_per_cm2" gKC="15 mS_per_cm2" eNa="60 mV" eCa="80 mV" eK="-75 mV" eL="-60 mV" pp="0.5" cm="3 uF_per_cm2" alphac="2" betac="0.1" gNmda="0 mS_per_cm2" gAmpa="0 mS_per_cm2"/>
+```
+````
+`````
+
+(schema:hindmarshrose1984cell)=
+
+## hindmarshRose1984Cell
+
+
+
+
+extends *{ref}`schema:basecellmembpotcap`*
+
+
+
+<i>The Hindmarsh Rose model is a simplified point cell model which captures complex firing patterns of single neurons, such as periodic and chaotic bursting. It has a fast spiking subsystem, which is a generalization of the FitzHugh-Nagumo system, coupled to a slower subsystem which allows the model to fire bursts. The dynamical variables x, y, z correspond to the membrane potential, a recovery variable, and a slower adaptation current, respectively. See Hindmarsh J. L., and Rose R. M. ( 1984 ) A model of neuronal bursting using three coupled first order differential equations. Proc. R. Soc. London, Ser. B 221:87–102.</i>
+
+
+`````{tab-set}
+````{tab-item} Parameters
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**C**$ Total capacitance of the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:capacitance`
+**a**$ cubic term in x nullcline $Dimensionless
+**b**$ quadratic term in x nullcline $Dimensionless
+**c**$ constant term in y nullcline $Dimensionless
+**d**$ quadratic term in y nullcline $Dimensionless
+**r**$ timescale separation between slow and fast subsystem (r greater than 0; r much less than 1) $Dimensionless
+**s**$ related to adaptation $Dimensionless
+**v_scaling**$ scaling of x for physiological membrane potential ${ref}`schema:dimensions:voltage`
+**x0**$  $Dimensionless
+**x1**$ related to the system's resting potential $Dimensionless
+**y0**$  $Dimensionless
+**z0**$  $Dimensionless
+
+```
+````
+
+````{tab-item} Constants
+```{csv-table}
+:widths: 3, 5, 2
+:width: 100%
+:delim: $
+
+**MSEC** = 1ms$  $ {ref}`schema:dimensions:time`
+
+```
+````
+
+````{tab-item} Exposures
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**chi**$  $Dimensionless
+**iMemb**$ Total current crossing the cell membrane *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**iSyn**$ Total current due to synaptic inputs *(from {ref}`schema:basecellmembpotcap`)* ${ref}`schema:dimensions:current`
+**phi**$  $Dimensionless
+**rho**$  $Dimensionless
+**spiking**$  $Dimensionless
+**v**$ Membrane potential *(from {ref}`schema:basecellmembpot`)* ${ref}`schema:dimensions:voltage`
+**x**$  $Dimensionless
+**y**$  $Dimensionless
+**z**$  $Dimensionless
+
+```
+````
+
+````{tab-item} Event Ports
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100 %
+:delim: $
+
+**spike**$ Spike event *(from {ref}`schema:basespikingcell`)*$Direction: out
+
+```
+````
+
+````{tab-item} Attachments
+```{csv-table}
+:widths: 1, 7, 2
+:width: 100%
+:delim: $
+
+**synapses**$  $ {ref}`schema:basepointcurrent`
+
+```
+````
+
+````{tab-item} Dynamics
+
+
+
+<i>**State Variables**</i>
+: **v**: {ref}`schema:dimensions:voltage` &emsp;(exposed as **v**)
+: **y**: Dimensionless &emsp;(exposed as **y**)
+: **z**: Dimensionless &emsp;(exposed as **z**)
+: **spiking**: Dimensionless &emsp;(exposed as **spiking**)
+
+
+
+
+
+
+
+
+
+<i>**On Start**</i>
+: **v** = x0 * v_scaling
+: **y** = y0
+: **z** = z0
+
+
+
+<i>**On Conditions**</i>
+
+: IF v &gt; 0 AND spiking &lt; 0.5 THEN
+: &emsp;&emsp;&emsp;**spiking** = 1
+: &emsp;&emsp;&emsp;EVENT OUT on port: **spike**
+
+: IF v &lt; 0 THEN
+: &emsp;&emsp;&emsp;**spiking** = 0
+
+
+
+
+
+<i>**Derived Variables**</i>
+    : **iSyn** =&nbsp;synapses[*]->i(reduce method: add)&emsp;(exposed as **iSyn**)
+    : **x** =&nbsp;v / v_scaling&emsp;(exposed as **x**)
+    : **phi** =&nbsp;y - a * x^3 + b * x^2&emsp;(exposed as **phi**)
+    : **chi** =&nbsp;c - d * x^2 - y&emsp;(exposed as **chi**)
+    : **rho** =&nbsp;s * ( x - x1 ) - z&emsp;(exposed as **rho**)
+    : **iMemb** =&nbsp;(C * (v_scaling * (phi - z) / MSEC)) + iSyn&emsp;(exposed as **iMemb**)
+    
+
+
+
+
+
+<i>**Time Derivatives**</i>
+    : d **v** /dt = iMemb/C
+    : d **y** /dt = chi / MSEC
+    : d **z** /dt = r * rho / MSEC
+    
+
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HindmarshRose1984Cell">
+  <xs:complexContent>
+    <xs:extension base="BaseCellMembPotCap">
+      <xs:attribute name="a" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="b" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="c" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="d" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="s" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="x1" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="r" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="x0" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="y0" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="z0" type="Nml2Quantity_none" use="required"/>
+      <xs:attribute name="v_scaling" type="Nml2Quantity_voltage" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
 ```
 ````
 `````
