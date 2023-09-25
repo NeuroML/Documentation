@@ -9,9 +9,9 @@ You can learn more about the project on their website.
 
 ```{admonition} Close the left hand side bar by clicking the left facing arrow in the top panel.
 :class: tip
-You can close the left hand side bar by clicking the left facing arrow in the top panel.
+You can close the left hand side bar by clicking the burger menu on the left side of the top panel.
 This increases the width of the middle section of the documentation and can be helpful on smaller screens.
-You can click the hamburger menu that replaces the left facing arrow to open the left hand side bar when required.
+Clicking the hamburger menu again will re-open it.
 ```
 
 The documentation is divided into a few parts that can be seen in the *left hand side navigation bar*:
