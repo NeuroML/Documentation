@@ -7,7 +7,7 @@ You can learn more about the project on their website.
 (userdocs:usage:structure)=
 ## Structure and navigation
 
-```{admonition} Close the left hand side bar by clicking the left facing arrow in the top panel.
+```{admonition} Close the left hand side bar using the burger menu on the left side of the top panel.
 :class: tip
 You can close the left hand side bar by clicking the burger menu on the left side of the top panel.
 This increases the width of the middle section of the documentation and can be helpful on smaller screens.
