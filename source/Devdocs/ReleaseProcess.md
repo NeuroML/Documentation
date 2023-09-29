@@ -31,11 +31,11 @@ These are the steps required for a new release of the NeuroML development tools.
 | Rebuild jNeuroML & commit to [jNeuroMLJar](https://sourceforge.net/p/neuroml/code/HEAD/tree/jNeuroMLJar/) and use latest for [jNeuroML for OMV](https://github.com/OpenSourceBrain/osb-model-validation/blob/master/omv/engines/getjnml.py#L8) | v2.3 |
 | Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.3 |
 | Update version used in [neuroConstruct](https://github.com/NeuralEnsemble/neuroConstruct) | v2.3 |
-| Update docs on [http://www.neuroml.org](https://www.neuroml.org) | v2.2 |
+| Update docs on [http://docs.neuroml.org](https://docs.neuroml.org) | v2.3 |
 | Update version on [COMBINE website](https://github.com/combine-org/combine-org.github.io/blob/master/content/authors/NeuroML/_index.md) | v2.2 |
 | ANNOUNCE (mailing list, Twitter) | v2.2 |
-| Increment version numbers in all development branches | v2.1 |
-| DOI on [Zenodo](https://doi.org/10.5281/zenodo.4627568) | v2.1 |
+| Increment version numbers in all development branches | v2.3 |
+| DOI on [Zenodo](https://doi.org/10.5281/zenodo.593108) | v2.3 |
 | Update NeuroML [milestones](https://github.com/NeuroML/NeuroML2/milestones) | v2.2 |
-| New release of neuroConstruct | v2.0 |
+| New release of [neuroConstruct](https://github.com/NeuralEnsemble/neuroConstruct/releases) | v2.3 |
 | Test toolchain on Windows... | v2.0 |
