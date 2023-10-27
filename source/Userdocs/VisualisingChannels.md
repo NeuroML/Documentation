@@ -66,10 +66,11 @@ For example, the figure below shows the distribution of the Ih channel in the la
 
 This functionality is also available as a [Python function](https://pyneuroml.readthedocs.io/en/stable/pyneuroml.analysis.html#pyneuroml.analysis.ChannelDensityPlot.plot_channel_densities) for use in scripts.
 
-### 4) Load cell model on to OSBv1 & analyse the channels...
+### 4) Load cell model on to OSBv1 & analyse the channels
 
-<img width="848" alt="Screenshot 2022-05-19 at 18 06 16" src="https://user-images.githubusercontent.com/1556687/169357686-261069d7-ab7d-47ad-80cf-da6e622d8f51.png">
+Open Source Brain (version 1) includes channel analysis functionalities.
 
+![osb_channel_analysis](../images/osb-channel-analysis.png)
 
 ### 5) Export to one of the supported simulators
 
