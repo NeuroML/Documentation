@@ -118,4 +118,8 @@ hhcell_eqs=Equations('''
 
 Both very verbose, but it's possible to see at least what explicit expressions are being used for the channels...
 
-### TODO: Add details of analysis options on https://neuroml-db.org...
+### 6) Use NeuroML-DB
+
+[NeuroML-DB](https://neuroml-db.org) also provides analysis features for Ion channels.
+
+![neuromldb-channel-analysis](../images/neuromldb-channel-analysis.png)
