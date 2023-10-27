@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Cells.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Cells.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
+Generated on 27/10/23 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -3394,9 +3394,6 @@ variable = InitMembPotential(
 ```{code-block} xml
 <initMembPotential value="-65mV"/>
 ```
-```{code-block} xml
-<initMembPotential value="-65mV"/>
-```
 ````
 `````
 
@@ -3448,9 +3445,6 @@ variable = SpikeThresh(
 ```
 ````
 ````{tab-item} Usage: XML
-```{code-block} xml
-<spikeThresh value="-20mV"/>
-```
 ```{code-block} xml
 <spikeThresh value="-20mV"/>
 ```
@@ -7195,6 +7189,34 @@ extends *{ref}`schema:basecellmembpotcap`*
   </xs:complexContent>
 </xs:complexType>
 
+```
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=HindmarshRose1984Cell" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import HindmarshRose1984Cell
+
+variable = HindmarshRose1984Cell(
+    id: 'a NmlId (required)' = None,
+    metaid: 'a MetaId (optional)' = None,
+    notes: 'a string (optional)' = None,
+    properties: 'list of Property(s) (optional)' = None,
+    annotation: 'a Annotation (optional)' = None,
+    neuro_lex_id: 'a NeuroLexId (optional)' = None,
+    C: 'a Nml2Quantity_capacitance (required)' = None,
+    a: 'a Nml2Quantity_none (required)' = None,
+    b: 'a Nml2Quantity_none (required)' = None,
+    c: 'a Nml2Quantity_none (required)' = None,
+    d: 'a Nml2Quantity_none (required)' = None,
+    s: 'a Nml2Quantity_none (required)' = None,
+    x1: 'a Nml2Quantity_none (required)' = None,
+    r: 'a Nml2Quantity_none (required)' = None,
+    x0: 'a Nml2Quantity_none (required)' = None,
+    y0: 'a Nml2Quantity_none (required)' = None,
+    z0: 'a Nml2Quantity_none (required)' = None,
+    v_scaling: 'a Nml2Quantity_voltage (required)' = None,
+)
 ```
 ````
 `````
