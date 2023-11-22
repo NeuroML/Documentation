@@ -28,23 +28,6 @@ Morphology of example cell plotted with `plot_2D` in the X-Y plane.
     <i>Morphology of example cell visualised interactively using `plot_interactive_3D`</i>
 </center>
 
-These tools also allow plotting of networks.
-
-```{figure} ../images/pynml-plotmorph-2.png
-:alt: A network visualised with `plot_interactive_3D`
-:align: center
-:width: 70%
-
-Interactive visualisation of a network with `plot_interactive_3D`.
-```
-
-<center>
-    <video src="../_static/files/20231122-HL23-network.webm" width="70%"  controls loop>
-        Your browser does not support the video tag
-    </video><br />
-    <i>Example network visualised interactively using `plot_interactive_3D`</i>
-</center>
-
 
 (userdocs:visualising_cells:morph:nmldb)=
 ### Visualising morphology of multi-compartmental cell models in NeuroML-db

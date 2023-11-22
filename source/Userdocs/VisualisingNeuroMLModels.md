@@ -95,6 +95,29 @@ This generates the following image showing different views of the network :
 Graphical view of the Auditory Cortex model generated with pynml
 ```
 
+An visualiser is also included in pyneuroml as `pynml-plotmorph` which includes both 2D and 3D views:
+
+```{code-block} console
+Usage:
+pynml-plotmorph <NeuroML file>
+pynml-plotmorph -i <NeuroML file>
+```
+
+```{figure} ../images/20231122-ACNet.png
+:alt: A network visualised with `pynml-plotmorph`
+:align: center
+:width: 30%
+
+Matplotlib based 2D visualisation of a network with `pynml-plotmorph`.
+```
+<center>
+    <video src="../_static/files/20231122-ACNet.webm" width="70%"  controls loop>
+        Your browser does not support the video tag
+    </video><br />
+    <i>Example network visualised interactively using `pynml-plotmorph`</i><br /><br />
+</center>
+
+
 You can also generate graphical representations that can be viewed with the [Persistence of Vision Raytracer (POV-Ray)](http://povray.org/) tool using the `pynml-povray` tool.
 For example:
 
@@ -125,16 +148,20 @@ sudo dnf install povray
 (userdoc:visualising_models:png:pyNeuroML)=
 ### Using pyNeuroML
 
-You can also generated these figures from within your {ref}`pyNeuroML <pyneuroml>` script itself using the `nml2_to_png` and `nml2_to_svg` functions:
+These functions are also exposed as Python functions in {ref}`pyNeuroML <pyneuroml>`, so that you can use them directly in Python scripts:
 
 ```{code-block} python
 import pyneuroml.pynml
 
-...
-
-
 pyneuroml.pynml.nml2_to_png(nml2_doc)
 pyneuroml.pynml.nml2_to_svg(nml2_doc)
+
+
+from pyneuroml.plot.PlotMorphology import plot_2D
+from pyneuroml.plot.PlotMorphologyVispy import plot_interactive_3D
+
+plot_2D(nml2_doc)
+plot_interactive_3D(nml2_doc)
 ```
 
 ```{admonition} Open Source Brain uses NeuroML.
