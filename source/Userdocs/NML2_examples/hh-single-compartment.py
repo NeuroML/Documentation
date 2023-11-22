@@ -121,7 +121,7 @@ def create_na_channel():
     )
     gate_m = component_factory(
         "GateHHRates",
-        id="na_m",
+        id="m",
         instances="3",
         notes="m gate for na channel",
         validate=False,
@@ -139,7 +139,7 @@ def create_na_channel():
 
     gate_h = component_factory(
         "GateHHRates",
-        id="na_h",
+        id="h",
         instances="1",
         notes="h gate for na channel",
         validate=False,
@@ -186,7 +186,7 @@ def create_k_channel():
     )
     gate_n = component_factory(
         "GateHHRates",
-        id="k_n",
+        id="n",
         instances="4",
         notes="n gate for k channel",
         validate=False,
