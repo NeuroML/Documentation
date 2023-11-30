@@ -193,6 +193,13 @@ Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [he
 See for example https://biosimulators.org/simulators/pyneuroml/latest.
 
 
+(userdocs:supporting:apps:N2A)=
+### N2A
+
+"Neurons to Algorithms" (N2A) is a language for modeling neural systems, along with a software tool for editing models and simulating them.
+
+There is a **dedicated page on N2A/NeuroML interactions** {ref}`here <userdocs:n2a>`.
+
 
 (userdocs:supporting:apps:neuronland)=
 ### NeuronLand
