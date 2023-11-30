@@ -135,6 +135,15 @@ There is a **dedicated page on Arbor/NeuroML interactions** {ref}`here <userdocs
 
 More info on the latest support for running NeuroML models in PyNN and vice versa can be found [here](https://github.com/NeuroML/NeuroML2/issues/73).
 
+(userdocs:supporting:apps:nest)=
+### NEST
+
+![NEST logo](../../images/tools/nest-logo.png)
+
+NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.
+
+There is a **dedicated page on NEST/NeuroML interactions** {ref}`here <userdocs:nest>`.
+
 (userdocs:supporting:apps:openworm)=
 ### OpenWorm
 
