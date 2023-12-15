@@ -1,11 +1,11 @@
 <Lems>
-    
+
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v1.1.1 (libNeuroML v0.5.5)
+        This LEMS file has been automatically generated using PyNeuroML v1.1.10 (libNeuroML v0.5.8)
 
      -->
-    
+
     <!-- Specify which component to run -->
     <Target component="example-single-izhikevich2007cell-sim"/>
 
@@ -13,15 +13,14 @@
     <Include file="Cells.xml"/>
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
-    
+
     <Include file="izhikevich2007_single_cell_network.nml"/>
-   
+
     <Simulation id="example-single-izhikevich2007cell-sim" length="1000ms" step="0.1ms" target="IzNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
-        
         <OutputFile id="output0" fileName="example-single-izhikevich2007cell-sim.v.dat">
-            <OutputColumn id="IzhPop0[0]" quantity="IzhPop0[0]/v"/> 
+            <OutputColumn id="IzhPop0[0]" quantity="IzhPop0[0]/v"/>
         </OutputFile>
-        
+
     </Simulation>
 
 </Lems>
