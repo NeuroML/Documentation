@@ -1,11 +1,11 @@
 <Lems>
-    
+
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v1.1.1 (libNeuroML v0.5.5)
+        This LEMS file has been automatically generated using PyNeuroML v1.1.10 (libNeuroML v0.5.8)
 
      -->
-    
+
     <!-- Specify which component to run -->
     <Target component="HH_single_compartment_example_sim"/>
 
@@ -13,22 +13,21 @@
     <Include file="Cells.xml"/>
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
-    
+
     <Include file="HH_example_net.nml"/>
     <Include file="HH_example_cell.nml"/>
     <Include file="HH_example_na_channel.nml"/>
     <Include file="HH_example_k_channel.nml"/>
     <Include file="HH_example_leak_channel.nml"/>
-   
+
     <Simulation id="HH_single_compartment_example_sim" length="300ms" step="0.01ms" target="single_hh_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
-        
         <OutputFile id="output0" fileName="HH_single_compartment_example_sim.dat">
-            <OutputColumn id="pop0[0]/v" quantity="pop0[0]/v"/> 
-            <OutputColumn id="pop0[0]/iChannels" quantity="pop0[0]/iChannels"/> 
-            <OutputColumn id="pop0[0]/na/iDensity" quantity="pop0[0]/hh_b_prop/membraneProperties/na_channels/iDensity/"/> 
-            <OutputColumn id="pop0[0]/k/iDensity" quantity="pop0[0]/hh_b_prop/membraneProperties/k_channels/iDensity/"/> 
+            <OutputColumn id="pop0[0]/v" quantity="pop0[0]/v"/>
+            <OutputColumn id="pop0[0]/iChannels" quantity="pop0[0]/iChannels"/>
+            <OutputColumn id="pop0[0]/na/iDensity" quantity="pop0[0]/hh_b_prop/membraneProperties/na_channels/iDensity/"/>
+            <OutputColumn id="pop0[0]/k/iDensity" quantity="pop0[0]/hh_b_prop/membraneProperties/k_channels/iDensity/"/>
         </OutputFile>
-        
+
     </Simulation>
 
 </Lems>

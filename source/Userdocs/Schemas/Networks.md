@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Networks.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 20/09/23 from [this](https://github.com/NeuroML/NeuroML2/commit/4039f943edeac10c2f173a9d2e7834a7a8b9ba8a) commit.
+Generated on 05/12/23 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -755,10 +755,10 @@ from neuroml import Connection
 variable = Connection(
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
-    pre_cell_id: 'a string (required)' = None,
+    pre_cell_id: 'a Nml2PopulationReferencePath (required)' = None,
     pre_segment_id: 'a NonNegativeInteger (optional)' = '0',
     pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
-    post_cell_id: 'a string (required)' = None,
+    post_cell_id: 'a Nml2PopulationReferencePath (required)' = None,
     post_segment_id: 'a NonNegativeInteger (optional)' = '0',
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
 )
@@ -848,9 +848,9 @@ from neuroml import SynapticConnection
 
 variable = SynapticConnection(
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
-    from_: 'a string (required)' = None,
-    to: 'a string (required)' = None,
-    synapse: 'a string (required)' = None,
+    from_: 'a Nml2PopulationReferencePath (required)' = None,
+    to: 'a Nml2PopulationReferencePath (required)' = None,
+    synapse: 'a NmlId (required)' = None,
     destination: 'a NmlId (optional)' = None,
 )
 ```
@@ -970,10 +970,10 @@ from neuroml import ConnectionWD
 variable = ConnectionWD(
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
-    pre_cell_id: 'a string (required)' = None,
+    pre_cell_id: 'a Nml2PopulationReferencePath (required)' = None,
     pre_segment_id: 'a NonNegativeInteger (optional)' = '0',
     pre_fraction_along: 'a ZeroToOne (optional)' = '0.5',
-    post_cell_id: 'a string (required)' = None,
+    post_cell_id: 'a Nml2PopulationReferencePath (required)' = None,
     post_segment_id: 'a NonNegativeInteger (optional)' = '0',
     post_fraction_along: 'a ZeroToOne (optional)' = '0.5',
     weight: 'a float (required)' = None,
@@ -1691,9 +1691,9 @@ variable = ContinuousProjection(
 from neuroml import ExplicitInput
 
 variable = ExplicitInput(
-    target: 'a string (required)' = None,
-    input: 'a string (required)' = None,
-    destination: 'a string (optional)' = None,
+    target: 'a Nml2PopulationReferencePath (required)' = None,
+    input: 'a NmlId (required)' = None,
+    destination: 'a NmlId (optional)' = None,
 )
 ```
 ````
@@ -1860,7 +1860,7 @@ from neuroml import Input
 
 variable = Input(
     id: 'a NonNegativeInteger (required)' = None,
-    target: 'a string (required)' = None,
+    target: 'a Nml2PopulationReferencePath (required)' = None,
     destination: 'a NmlId (required)' = None,
     segment_id: 'a NonNegativeInteger (optional)' = None,
     fraction_along: 'a ZeroToOne (optional)' = None,
@@ -1947,7 +1947,7 @@ from neuroml import InputW
 
 variable = InputW(
     id: 'a NonNegativeInteger (required)' = None,
-    target: 'a string (required)' = None,
+    target: 'a Nml2PopulationReferencePath (required)' = None,
     destination: 'a NmlId (required)' = None,
     segment_id: 'a NonNegativeInteger (optional)' = None,
     fraction_along: 'a ZeroToOne (optional)' = None,

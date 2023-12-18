@@ -2,12 +2,12 @@
     <notes>Na channel for HH neuron</notes>
     <ionChannelHH id="na_channel" species="na" conductance="10pS">
         <notes>Sodium channel for HH cell</notes>
-        <gateHHrates id="na_m" instances="3">
+        <gateHHrates id="m" instances="3">
             <notes>m gate for na channel</notes>
             <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
             <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
         </gateHHrates>
-        <gateHHrates id="na_h" instances="1">
+        <gateHHrates id="h" instances="1">
             <notes>h gate for na channel</notes>
             <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
             <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>

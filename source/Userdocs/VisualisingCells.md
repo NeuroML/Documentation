@@ -11,8 +11,7 @@ E.g., {ref}`NetPyNE and NetPyNE-UI <userdocs:supporting:apps:netpyne>`, {ref}`ne
 ## Visualising morphology of multi-compartmental cell models
 
 Multi-compartmental cells can be visualised using the [plot_2D](https://pyneuroml.readthedocs.io/en/development/pyneuroml.plot.html#pyneuroml.plot.PlotMorphology.plot_2D) and [plot_interactive_3D](https://pyneuroml.readthedocs.io/en/development/pyneuroml.plot.html#pyneuroml.plot.PlotMorphology.plot_interactive_3D) methods included in {ref}`pyNeuroML <pyNeuroML>`.
-(Note that the 3D plotter, while interactive, may require considerable hardware resources to plot larger, more complex cell morphologies).
-
+This functionality is also exposed via the `pynml-plotmorph` command line tool.
 
 ```{figure} ../images//test_morphology_plot_2d_Cell_497232312_cell_nml_xy.png
 :alt: Morphology of example cell plotted with `plot_2D`
@@ -21,13 +20,14 @@ Multi-compartmental cells can be visualised using the [plot_2D](https://pyneurom
 
 Morphology of example cell plotted with `plot_2D` in the X-Y plane.
 ```
-```{figure} ../images//test_morphology_plot_3d_Cell_497232312_cell_nml.png
-:alt: Morphology of example cell plotted with `plot_3D`
-:align: center
-:width: 70%
 
-Interactive visualisation of morphology of an example cell `plot_3D` in a web-browser.
-```
+<center>
+    <video src="../_static/files/20231122-HL23PYR.webm" width="70%"  controls loop>
+        Your browser does not support the video tag
+    </video><br />
+    <i>Morphology of example cell visualised interactively using `plot_interactive_3D`</i>
+</center>
+
 
 (userdocs:visualising_cells:morph:nmldb)=
 ### Visualising morphology of multi-compartmental cell models in NeuroML-db

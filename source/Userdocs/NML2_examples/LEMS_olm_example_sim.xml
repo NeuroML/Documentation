@@ -1,11 +1,11 @@
 <Lems>
-    
+
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v1.1.1 (libNeuroML v0.5.5)
+        This LEMS file has been automatically generated using PyNeuroML v1.1.10 (libNeuroML v0.5.8)
 
      -->
-    
+
     <!-- Specify which component to run -->
     <Target component="olm_example_sim"/>
 
@@ -13,7 +13,7 @@
     <Include file="Cells.xml"/>
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
-    
+
     <Include file="olm_example_net.nml"/>
     <Include file="olm.cell.nml"/>
     <Include file="olm-example/leak_chan.channel.nml"/>
@@ -21,21 +21,20 @@
     <Include file="olm-example/Kdrfast.channel.nml"/>
     <Include file="olm-example/KvAolm.channel.nml"/>
     <Include file="olm-example/Nav.channel.nml"/>
-   
+
     <Simulation id="olm_example_sim" length="600ms" step="0.01ms" target="single_olm_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
-        
         <OutputFile id="output0" fileName="olm_example_sim.dat">
-            <OutputColumn id="pop0_0_v" quantity="pop0[0]/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_soma_0" quantity="pop0/0/olm/0/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_soma_0" quantity="pop0/0/olm/1/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_axon_0" quantity="pop0/0/olm/2/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_axon_0" quantity="pop0/0/olm/3/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_dend_0" quantity="pop0/0/olm/4/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_dend_0" quantity="pop0/0/olm/6/v"/> 
-            <OutputColumn id="pop0_0_v_Seg0_dend_1" quantity="pop0/0/olm/5/v"/> 
-            <OutputColumn id="pop0_0_v_Seg1_dend_1" quantity="pop0/0/olm/7/v"/> 
+            <OutputColumn id="pop0_0_v" quantity="pop0[0]/v"/>
+            <OutputColumn id="pop0_0_v_Seg0_soma_0" quantity="pop0/0/olm/0/v"/>
+            <OutputColumn id="pop0_0_v_Seg1_soma_0" quantity="pop0/0/olm/1/v"/>
+            <OutputColumn id="pop0_0_v_Seg0_axon_0" quantity="pop0/0/olm/2/v"/>
+            <OutputColumn id="pop0_0_v_Seg1_axon_0" quantity="pop0/0/olm/3/v"/>
+            <OutputColumn id="pop0_0_v_Seg0_dend_0" quantity="pop0/0/olm/4/v"/>
+            <OutputColumn id="pop0_0_v_Seg1_dend_0" quantity="pop0/0/olm/6/v"/>
+            <OutputColumn id="pop0_0_v_Seg0_dend_1" quantity="pop0/0/olm/5/v"/>
+            <OutputColumn id="pop0_0_v_Seg1_dend_1" quantity="pop0/0/olm/7/v"/>
         </OutputFile>
-        
+
     </Simulation>
 
 </Lems>

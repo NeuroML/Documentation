@@ -634,6 +634,7 @@ def main(srcdir, destdir):
 
 
 if __name__ == "__main__":
-    src = "/home/asinha/Documents/02_Code/00_mine/NeuroML/software/NeuroML2/"
+    # src = "/home/asinha/Documents/02_Code/00_mine/NeuroML/software/NeuroML2/"
+    src = None
     destdir = "../../source/Userdocs/Schemas/"
     main(src, destdir)

@@ -39,30 +39,40 @@ Ion Channel NaConductance:
 ```
 
 (userdoc:pynml-channelanalysis)=
-### 2) Use pynml-channelanalysis in pyNeuroML
+### 2) Use pynml utilities in pyNeuroML
 
-{ref}`pyNeuroML <pyneuroml>`  comes with 2 utilities which help enable examination of the properties of ion channels, both based on NeuroML and NEURON mod files.
+{ref}`pyNeuroML <pyneuroml>`  comes with 3 utilities which help enable examination of the properties of ion channels, both based on NeuroML and NEURON mod files.
 
 ```
 pynml-channelanalysis NaConductance.channel.nml   # Analyse a NeuroML 2 channel
+pynml-plotchan cell.nml   # Plot distribution of peak channel conductances over cell morphology
 pynml-modchananalysis NaConductance               # Analyse a NEURON channel e.g. from NaConductance.mod
 
 ```
-![pynml_analyse](../images/pynml-channelanalysis.png)
+![pynml_channelanalyse](../images/pynml-channelanalysis.png)
 
 `pynml-channelanalysis` includes a number of options for generating graphs of channel activity under different conditions (see [here](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/tree/master/NMC/NeuroML2#analyse-channel-properties) for details).
 
 ```
 pynml-channelanalysis NaTa_t.channel.nml  -erev 55 -stepTargetVoltage 10 -clampDuration 5 -i -duration 7 -clampDelay 1
 ```
-![pynml_analyse](../images/NaTa.png)
-
-### 3) Load cell model on to OSBv1 & analyse the channels...
-
-<img width="848" alt="Screenshot 2022-05-19 at 18 06 16" src="https://user-images.githubusercontent.com/1556687/169357686-261069d7-ab7d-47ad-80cf-da6e622d8f51.png">
+![pynml_analyse_Na](../images/NaTa.png)
 
 
-### 4) Export to one of the supported simulators
+`pynml-plotchan` will plot the distribution of peak conductances of all channels in a cell over its morphology, and also show distribution as a function of distance from the soma.
+For example, the figure below shows the distribution of the Ih channel in the layer 5 pyramidal neuron model on the neuronal morphology on the left, and the value at different distances from the soma on the right.
+
+![pynml_analyse_plotchan](../images/Ih-combined.png)
+
+This functionality is also available as a [Python function](https://pyneuroml.readthedocs.io/en/stable/pyneuroml.analysis.html#pyneuroml.analysis.ChannelDensityPlot.plot_channel_densities) for use in scripts.
+
+### 4) Load cell model on to OSBv1 & analyse the channels
+
+Open Source Brain (version 1) includes channel analysis functionalities.
+
+![osb_channel_analysis](../images/osb-channel-analysis.png)
+
+### 5) Export to one of the supported simulators
 
 Exporting to Neuron say (`jnml LEMS_NML2_Ex5_DetCell.xml -neuron`) will produce mod files with the "flattened" equations:
 ```
@@ -108,4 +118,8 @@ hhcell_eqs=Equations('''
 
 Both very verbose, but it's possible to see at least what explicit expressions are being used for the channels...
 
-### TODO: Add details of analysis options on https://neuroml-db.org...
+### 6) Use NeuroML-DB
+
+[NeuroML-DB](https://neuroml-db.org) also provides analysis features for Ion channels.
+
+![neuromldb-channel-analysis](../images/neuromldb-channel-analysis.png)

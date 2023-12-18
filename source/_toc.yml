@@ -21,6 +21,7 @@ parts:
     - file: Userdocs/CreatingNeuroMLModels
       sections:
       - file: Userdocs/ImportingMorphologyFiles
+      - file: Userdocs/HDF5
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
       sections:
@@ -94,6 +95,8 @@ parts:
             - file: Userdocs/Software/Tools/MOOSE
             - file: Userdocs/Software/Tools/EDEN
             - file: Userdocs/Software/Tools/Arbor
+            - file: Userdocs/Software/Tools/N2A
+            - file: Userdocs/Software/Tools/NEST
     - file: Userdocs/Publications
     - file: Userdocs/FAQ
   - caption: NeuroML events

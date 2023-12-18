@@ -135,6 +135,15 @@ There is a **dedicated page on Arbor/NeuroML interactions** {ref}`here <userdocs
 
 More info on the latest support for running NeuroML models in PyNN and vice versa can be found [here](https://github.com/NeuroML/NeuroML2/issues/73).
 
+(userdocs:supporting:apps:nest)=
+### NEST
+
+![NEST logo](../../images/tools/nest-logo.png)
+
+NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.
+
+There is a **dedicated page on NEST/NeuroML interactions** {ref}`here <userdocs:nest>`.
+
 (userdocs:supporting:apps:openworm)=
 ### OpenWorm
 
@@ -183,6 +192,13 @@ Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found [he
 
 See for example https://biosimulators.org/simulators/pyneuroml/latest.
 
+
+(userdocs:supporting:apps:N2A)=
+### N2A
+
+"Neurons to Algorithms" (N2A) is a language for modeling neural systems, along with a software tool for editing models and simulating them.
+
+There is a **dedicated page on N2A/NeuroML interactions** {ref}`here <userdocs:n2a>`.
 
 
 (userdocs:supporting:apps:neuronland)=
