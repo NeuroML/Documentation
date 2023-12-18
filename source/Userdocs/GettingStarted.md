@@ -6,7 +6,7 @@ We present below a set of step-by-step guides to illustrate how models are writt
 
 <table>
 <tr>
-<td><a href="https://docs.neuroml.org/Userdocs/SingleNeuronExample.html"><img src="../_images/example-single-izhikevich2007cell-sim-v.png" height=150 title="Guide 1"/></a>&nbsp;&nbsp;</td>
+<td><a href="https://docs.neuroml.org/Userdocs/NML2_examples/SingleNeuron.html"><img src="../_images/example-single-izhikevich2007cell-sim-v.png" height=150 title="Guide 1"/></a>&nbsp;&nbsp;</td>
 <td><a href="https://docs.neuroml.org/Userdocs/IzhikevichNetworkExample.html"><img src="../_images/example_izhikevich2007network_sim-spikes.png" height=150 title="Guide 2"/></a>&nbsp;&nbsp;</td>
 <td><a href="https://docs.neuroml.org/Userdocs/SingleCompartmentHHExample.html"><img src="../_images/HH_single_compartment_example_sim-v.png" height=150 title="Guide 3"/></a>&nbsp;&nbsp;</td>
 <td><a href="https://docs.neuroml.org/Userdocs/MultiCompartmentOLMexample.html"><img src="../_images/olm.cell.xy.png" height=150 title="Guide 4"/></a>&nbsp;&nbsp;</td>
@@ -16,7 +16,7 @@ We present below a set of step-by-step guides to illustrate how models are writt
 
 | Link to guide    | Description | Model life cycle stages |
 | :------ | ----------- | ----------------------- |
-| [Guide 1](https://docs.neuroml.org/Userdocs/SingleNeuronExample.html) | Create and simulate a simple regular spiking Izhikevich neuron in NeuroML | Create, Validate, Simulate |
+| [Guide 1](https://docs.neuroml.org/Userdocs/NML2_examples/SingleNeuron.html) | Create and simulate a simple regular spiking Izhikevich neuron in NeuroML | Create, Validate, Simulate |
 | [Guide 2](https://docs.neuroml.org/Userdocs/IzhikevichNetworkExample.html) | Create a network of two synaptically connected populations of Izhikevich neurons  | Create, Validate, Visualise, Simulate |
 | [Guide 3](https://docs.neuroml.org/Userdocs/SingleCompartmentHHExample.html) | Build and simulate a single compartment Hodgkin-Huxley neuron | Create, Validate, Visualise, Simulate |
 | [Guide 4](https://docs.neuroml.org/Userdocs/MultiCompartmentOLMexample.html) | Create and simulate a multi compartment hippocampal OLM neuron | Create, Validate, Visualise, Simulate |
