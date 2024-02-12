@@ -4,7 +4,7 @@
 *A model description language for computational neuroscience.*
 
 
-```{admonition} Read the pre-print on biorxiv
+```{admonition} Read the latest NeuroML preprint on bioRxiv
 :class: attention
 [The NeuroML ecosystem for standardized multi-scale modeling in neuroscience](https://www.biorxiv.org/content/10.1101/2023.12.07.570537v1)
 ```
