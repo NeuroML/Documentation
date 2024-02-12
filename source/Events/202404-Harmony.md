@@ -1,5 +1,5 @@
 (neuromlevents:202404harmony)=
-# April 2024: NeuroML development workshop at HARMONY 2024
+# April 2024: NeuroML hackathon at HARMONY 2024
 
 ```{admonition} Registration for the COMBINE initiative's HARMONY 2024 meeting is free.
 :class: tip
@@ -7,8 +7,11 @@ Please register for the COMBINE HARMONY 2024 meeting [here](https://co.mbine.org
 Registration for HARMONY is free.
 ```
 
-We will be running a NeuroML development workshop during the upcoming [COMBINE network's HARMONY 2024](https://co.mbine.org/author/harmony-2024/) meeting on Tues 9th April 2024 in London.
-This will be an opportunity for anyone interested in developing NeuroML or adding support for the format to their application talk about their work and hear about other developments.
+We will be running a NeuroML  workshop during the upcoming [COMBINE network's HARMONY 2024](https://co.mbine.org/author/harmony-2024/) meeting on Tues 9th April 2024 in London, entitled:
+
+**NeuroML hackathon: convert your neuron and network models to open, standardised, reusable formats**
+
+This will be an opportunity for developers of models in computational neuroscience to get an introduction to the aims and structure of NeuroML, a guide to the tools available for building/converting their models to NeuroML, and to receive hands on help with expressing their models (or other published models they are interested in) in NeuroML format, making them more open, accessible and reusable. 
 
 (neuromlevents:202404harmony:agenda)=
 ## Agenda
