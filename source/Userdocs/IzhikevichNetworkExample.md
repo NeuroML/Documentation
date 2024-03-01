@@ -12,7 +12,10 @@ We will create a small network of cells, simulate this network, and generate a p
 Spike times of neurons in 2 populations recorded from the simulation.
 ```
 
-The Python script used to create the model, simulate it, and generate this plot is below:
+The Python script used to create the model, simulate it, and generate this plot is below.
+Please note that this example uses the {ref}`NEURON <userdocs:neuron>` simulator to simulate the model.
+Please ensure that the `NEURON_HOME` environment variable is correctly set as noted {ref}`here <userdocs:neuron:envvar>`.
+
 ```{literalinclude} ./NML2_examples/izhikevich-network.py
 ----
 language: python
