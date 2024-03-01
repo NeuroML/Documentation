@@ -6,7 +6,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/NeuroML?style=social)](https://twitter.com/NeuroML)
 [![Gitter](https://badges.gitter.im/NeuroML/community.svg)](https://gitter.im/NeuroML/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -37,6 +37,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/borismarin"><img src="https://avatars.githubusercontent.com/u/3452783?v=4?s=100" width="100px;" alt="Boris Marin"/><br /><sub><b>Boris Marin</b></sub></a><br /><a href="https://github.com/NeuroML/Documentation/commits?author=borismarin" title="Code">💻</a> <a href="#content-borismarin" title="Content">🖋</a> <a href="https://github.com/NeuroML/Documentation/pulls?q=is%3Apr+reviewed-by%3Aborismarin" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/shayan823"><img src="https://avatars.githubusercontent.com/u/16141677?v=4?s=100" width="100px;" alt="Shayan Shafquat"/><br /><sub><b>Shayan Shafquat</b></sub></a><br /><a href="https://github.com/NeuroML/Documentation/commits?author=shayan823" title="Code">💻</a> <a href="#content-shayan823" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ramcdougal"><img src="https://avatars.githubusercontent.com/u/6668090?v=4?s=100" width="100px;" alt="Robert A McDougal"/><br /><sub><b>Robert A McDougal</b></sub></a><br /><a href="https://github.com/NeuroML/Documentation/commits?author=ramcdougal" title="Code">💻</a> <a href="#content-ramcdougal" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/erik-ski"><img src="https://avatars.githubusercontent.com/u/108799727?v=4?s=100" width="100px;" alt="erik-ski"/><br /><sub><b>erik-ski</b></sub></a><br /><a href="https://github.com/NeuroML/Documentation/issues?q=author%3Aerik-ski" title="Bug reports">🐛</a> <a href="https://github.com/NeuroML/Documentation/pulls?q=is%3Apr+reviewed-by%3Aerik-ski" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
   <tfoot>
