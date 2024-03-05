@@ -67,24 +67,29 @@ pip install pyneuroml
 By default, this will only install the minimal set of packages required to use pyNeuroML.
 To use pyNeuroML with specific {ref}`supporting tools <userdocs:supporting:apps>`, please install them as required:
 
-For {ref}`NEURON <userdocs:supporting:apps:neuron>`
-
 ```{code-block} console
-pip install NEURON
+pip install pyneuroml[neuron]       # for NEURON simulation backend
+pip install pyneuroml[brian]        # for Brian2 simulation backend
+pip install pyneuroml[netpyne]      # for NetPyNE simulation backend
+pip install pyneuroml[povray]       # for povray functions
+pip install pyneuroml[hdf5]         # for HDF5 support
+pip install pyneuroml[analysis]     # for analysis functions
+pip install pyneuroml[tune]         # for tuning/fitting functions
+pip install pyneuroml[vispy]        # for 3D interactive morphology plotting using vispy
+pip install pyneuroml[plotly]       # for interactive plotting with plotly
+pip install pyneuroml[nsg]          # pulls in pynsgr to use NSG
+pip install pyneuroml[combine]      # includes libsbml, libsedml
+pip install pyneuroml[tellurium]    # for Tellurium simulation backend
+pip install pyneuroml[all]          # installs all of the above
+pip install pyneuroml[dev]          # installs the above and other test related packages
+pip install pyneuroml[doc]          # for building documentation
 ```
 
-For compiling NEURON mod files, you also need a C compiler and the make utility installed on your computer.
+Please note that for compiling NEURON mod files, you also need a C compiler and the `make` utility installed on your computer.
 Additionally, to run parallel simulations the [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) libraries are also needed.
 Please see the [NEURON installation documentation](https://www.neuron.yale.edu/neuron/download) for more information on installing NEURON on your computer.
 
-{ref}`Brian <userdocs:supporting:apps:brian>`, {ref}`NetPyNE <userdocs:supporting:apps:netpyne>` can also be similarly installed:
-
-```
-pip install netpyne
-pip install brian2
-```
-
-For more information, please refer to their respective documentations.
+For more information on individual simulation backends, please refer to their respective documentations.
 
 (pyneuroml:install_fedora)=
 ### Installation on Fedora Linux
