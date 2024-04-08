@@ -1,0 +1,63 @@
+[
+  {
+    "selector": "node",
+    "style": {
+        "label": "data(id)"
+    }
+  },
+  {
+    "selector": "edge",
+    "style": {
+        "curve-style": "unbundled-bezier",
+        "label": "data(id)",
+        "target-arrow-shape": "triangle",
+        "font-size": 8,
+        "min-zoomed-font-size": 36
+    }
+  },
+  {
+      "selector": ".standard",
+      "style": {
+          "background-color": "darkblue",
+          "color": "darkblue"
+      }
+  },
+  {
+      "selector": ".frontend",
+      "style": {
+          "shape": "triangle"
+      }
+  },
+  {
+      "selector": ".simulator",
+      "style": {
+          "background-color": "darkred",
+          "color": "darkred"
+      }
+  },
+  {
+      "selector": ".library",
+      "style": {
+          "background-color": "darkblue",
+          "color": "darkblue"
+      }
+  },
+  {
+      "selector": ".API",
+      "style": {
+          "shape": "rectangle"
+      }
+  },
+  {
+      "selector": ":selected",
+      "style": {
+          "outline-color": "darkorange",
+          "outline-style": "solid",
+          "outline-width": 3,
+          "color": "darkorange",
+          "line-color": "darkorange",
+          "target-arrow-color": "darkorange"
+      }
+  }
+]
+

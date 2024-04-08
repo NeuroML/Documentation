@@ -25,6 +25,7 @@ import os
 import re
 import neuroml
 import inspect
+import json
 
 
 # To display correct conversion values, we limit the precision context to 2
@@ -45,6 +46,9 @@ comp_type_src = {}
 comp_type_desc = {}
 ordered_comp_types = {}
 comp_type_schema = {}
+
+cy_nodes = []
+cy_edges = []
 
 nml_branch = "master"
 nml_version = "2.3"
@@ -347,6 +351,7 @@ def main(srcdir, destdir):
 
     links_doc_data = {}
 
+    outputfile_json = "{}/neuroml.json".format("../../source/_static")
     for comp_definition in comp_definitions:
         fullpath = "{}/{}.xml".format(tmpsrcdir, comp_definition)
         outputfile = "{}/{}.md".format(destdir, comp_definition)
@@ -422,6 +427,12 @@ def main(srcdir, destdir):
             o_comp_type = o_comp_type.replace('rdf:', 'rdf_')
             comp_type = model.component_types[o_comp_type]
 
+            cy_nodes.append({
+                "data": {
+                    "id": comp_type.name
+                }
+            })
+
             """Header"""
             cno = None
             if " cno_00" in str(comp_type.description):
@@ -466,9 +477,17 @@ def main(srcdir, destdir):
 
             """Get parent ComponentType if derived from one."""
             extd_comp_type = get_extended_from_comp_type(comp_type.name)
-
+            current = comp_type
             """Recursively go up the tree and get attributes inherited from ancestors."""
             while extd_comp_type is not None:
+                # cytoscape js
+                cy_edges.append({
+                    "data": {
+                        "id": f"e{len(cy_edges) + 1}",
+                        "source": extd_comp_type.name,
+                        "target": current.name
+                    }
+                })
                 for param in extd_comp_type.parameters:
                     pk = params.copy().keys()
                     for pp0 in pk:
@@ -493,7 +512,8 @@ def main(srcdir, destdir):
                     eventPorts[ep] = extd_comp_type.name
 
                 """Recurse up the next parent"""
-                extd_comp_type = get_extended_from_comp_type(extd_comp_type.name)
+                current = extd_comp_type
+                extd_comp_type = get_extended_from_comp_type(current.name)
 
             if (len(params) > 0 or len(comp_type.constants) > 0 or
                     len(derived_params) > 0 or len(comp_type.texts) > 0 or
@@ -542,6 +562,15 @@ def main(srcdir, destdir):
                         childlist.append(child_or_children)
                     else:
                         childrenlist.append(child_or_children)
+
+                    # cytoscape json
+                    cy_edges.append({
+                        "data": {
+                            "id": f"e{len(cy_edges) + 1}",
+                            "source": comp_type.name,
+                            "target": child_or_children.type.replace(":", "_")
+                        }
+                    })
 
                 if len(childlist) > 0:
                     print(asttemplates.misc3c.render(title="Child list",
@@ -628,6 +657,10 @@ def main(srcdir, destdir):
 
         for name, text in ordered_data.items():
             print(text, file=links_doc)
+
+    with open(outputfile_json, 'w') as json_f:
+        cy_data = cy_nodes + cy_edges
+        json.dump(cy_data, json_f, indent=2)
 
     if not srcdir:
         tempdir.cleanup()
