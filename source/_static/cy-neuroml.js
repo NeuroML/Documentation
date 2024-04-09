@@ -27,12 +27,10 @@ Promise.all([
     //     event.target.unlock();
     // });
     cy_layout = cy.layout({
-        name: "cola",
-        animate: "end",
-        padding: 50,
+        name: "concentric",
         avoidOverlap: true,
-        nodeDimensionsIncludeLabels: true,
-        centerGraph: false,
+        centerGraph: true,
+        fit: true,
     });
     cy_layout.run();
     }

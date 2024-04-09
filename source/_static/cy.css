@@ -1,6 +1,6 @@
 #cy {
-    width: 800px;
-    height: 600px;
+    width: 100vw;
+    height: 90vh;
     border: 1px solid darkgrey;
     display: block;
     }
