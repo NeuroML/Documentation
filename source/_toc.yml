@@ -20,6 +20,7 @@ parts:
     - file: Userdocs/FindingNeuroMLModels
     - file: Userdocs/CreatingNeuroMLModels
       sections:
+      - file: Userdocs/ConvertingModels
       - file: Userdocs/ImportingMorphologyFiles
       - file: Userdocs/HDF5
     - file: Userdocs/ValidatingNeuroMLModels
