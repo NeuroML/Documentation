@@ -13,11 +13,16 @@ Procedures and tools to convert models from native formats to NeuroML and PyNN (
 
 ### Step 1) Find the original model code
 
-While it should in principle be possible to create the model based only on the description in the accompanying publication, having the original code will be invaluable for identifying all parameters related to the model and being able to verify the dynamical behaviour of the NeuroML equivalent against the original version.
+While it should in principle be possible to create the model based only on the description in the accompanying publication, having the original code is invaluable.
+The original code allows the identification of all parameters related to the model, and it is required to verify the dynamical behaviour of the NeuroML equivalent.
 
-Scripts for an increasing number of published models are available on [ModelDB](https://senselab.med.yale.edu/ModelDB/default), or the authors can be contacted to obtain the original scripts.
+Scripts for an increasing number of published models are available on [ModelDB](https://modeldb.science).
+ModelDB models are also published as [GitHub repositories](https://github.com/ModelDBRepository).
+Forks of these are also managed in the [Open Source Brain GitHub organization](https://github.com/opensourcebrain/) and indexed on [Open Source Brain version 2](https://v2.opensourcebrain.org/).
 
-Verifying that these scripts reproduces some aspect of the published model by running them locally is an important first step.
+
+So, the first step is to obtain the original model code and verify that this can be run to reproduce the published results.
+
 
 (userdocs:creating_models:converting_conductance:github)=
 ### Step 2) Create GitHub and OSB accounts for sharing the code
