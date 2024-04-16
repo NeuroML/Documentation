@@ -213,14 +213,11 @@ These are included in the `mod` folder.
 An inspection tells us that these are all Hodgkin-Huxley type ion channels that use similar formalisms.
 
 The first thing to do is to generate plots of time courses and steady states of the various ion channels.
-These can be done easily using `pynml-modchannelanalysis` command line tool included in pyNeuroML.
-Note that this tool takes the name of the ion channel as an argument, and this must match the name of the mod file.
-So we must rename the mod files to use it.
+These can be done easily using `pynml-modchananalysis` command line tool included in pyNeuroML.
 We begin with the `nas` channel:
 
 ```{code-block}
-mv nas_wustenberg.mod nas.mod
-pynml-modchananalysis nas
+pynml-modchananalysis -modFile nas_wustenberg.mod nas
 ```
 
 This will generate two plots, one for the steady state dynamics (`inf`), and one for the time course (`tau`) for activation variables in the channels:
