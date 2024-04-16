@@ -5,8 +5,8 @@ On inspection of the model, we see that it has two biophysically detailed cell m
 - the GGN (Giant GABAergic Neuron)
 - the KC (Kenyon cell)
 
-## 3a) Converting the Giant GABAergic Neuron
-### i) Exporting morphology of the GGN
+## Step 1) Converting the Giant GABAergic Neuron
+### 1a) Exporting morphology of the GGN
 
 Let's start with the GGN first.
 It's morphology is defined as an SWC file in [this file](https://github.com/OpenSourceBrain/262670/blob/master/NEURON/mb/cell_templates/GGN_20170309_sc.swc).
@@ -51,7 +51,7 @@ pynml-plotmorph -i GGN.morph.cell.nml
 Visualisation of the GGN using `pynml-plotmorph`
 ```
 
-### ii) Adding biophysics to the GGN
+### 1b) Adding biophysics to the GGN
 
 Now that we have the morphology of the GGN exported, we can add the biophysics.
 We need to inspect the original model code to learn about the biophysics.
@@ -158,8 +158,9 @@ The rest are membrane properties--resistivity, specific capacitance and so on.
 Once this is set up, we write the cell to a new file.
 
 The GGN cell has now been converted.
+Since the GGN is a simple passive cell, we won't test its biophysics just yet.
 
-## 3c) Converting the Kenyon Cell
+## Step 2) Converting the Kenyon Cell
 
 The KC cell is defined in the `kc_1_comp.hoc` file.
 Whereas the GGN cell had a complex morphology but passive biophysics, the KC cell has very simple morphology---a single compartment---but does contain active channels:
@@ -205,7 +206,7 @@ proc biophys() {
 
 ```
 
-### i) Converting ion channels
+### 2a) Converting ion channels
 
 For this cell, we will first convert the various ion channel models.
 These are included in the `mod` folder.
@@ -432,7 +433,7 @@ We have two cases here:
 - if `v` is greater than `table_max` (which is 40mV), the rate is the value at `v=40mV`
 - otherwise, the rate is calculated from the value of `v`
 
-#### Kv, Naf, Kst
+#### i) Kv, Naf, Kst
 
 The nas channel is now done.
 If we look at the other channels---naf, kv, and kst---they follow similar formalisms.
@@ -484,7 +485,7 @@ Time course of activation variables of kv channel, generated with pynml-channela
 
 In these graphs, the effect of the conditional at 40mV becomes more apparent.
 
-#### Ka
+#### ii) Ka
 
 The last remaining channel is the ka channel.
 It's dynamics are defined in the mod file as:
@@ -564,7 +565,7 @@ Even though the [NMODL language](https://nrn.readthedocs.io/en/8.2.2/python/mode
 This means that different people can write the same dynamics in different ways.
 On the other hand, NeuroML and LEMS are more formal with more strict structures, and once channels are converted to these formats, they are much easier to understand.
 
-### ii) Creating the morphology
+### 2b) Creating the morphology
 
 Since the morphology of the KC is a single compartment, we don't need to export it from NEURON.
 We can create it ourselves.
@@ -671,7 +672,7 @@ Now that we have the morphology and the ion channels for the KC, we can add the 
 This completes the cell.
 We export it to a NeuroML file.
 
-### iii) Testing the model
+### 2c) Testing the model
 
 Finally, we want to test our NeuroML conversion against the original cell to see that it exhibits the same dynamics.
 The `test_kc.py` script runs a simple step current simulation with a single KC cell and shows its membrane potentials:
