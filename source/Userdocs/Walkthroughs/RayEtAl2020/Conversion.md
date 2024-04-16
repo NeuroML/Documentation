@@ -205,19 +205,19 @@ proc biophys() {
 
 ```
 
-### i) Converting Ion channels
+### i) Converting ion channels
 
 For this cell, we will first convert the various ion channel models.
 These are included in the `mod` folder.
-A quick inspection tells us that these are all Hodgkin-Huxley type ion channels that use similar formalisms.
+An inspection tells us that these are all Hodgkin-Huxley type ion channels that use similar formalisms.
 
 The first thing to do is to generate plots of time courses and steady states of the various ion channels.
 These can be done easily using `pynml-modchannelanalysis` command line tool included in pyNeuroML.
 Note that this tool takes the name of the ion channel as an argument, and this must match the name of the mod file.
-So we must rename the mod files to use it:
+So we must rename the mod files to use it.
+We begin with the `nas` channel:
 
 ```{code-block}
-
 mv nas_wustenberg.mod nas.mod
 pynml-modchananalysis nas
 ```
@@ -241,7 +241,6 @@ Steady state dynamics of activation variables of nas channel, generated with pyn
 ```
 The mod file defining the nas channel is shown below:
 
-
 ```{literalinclude} ./scripts/nas_wustenberg.mod
 ```
 
@@ -254,14 +253,14 @@ Perhaps the cell's membrane potential does not go beyond 40mV.
 We will attempt to remain faithful to the mod file in our conversion, so we will also incorporate this feature.
 
 Since we know this is a Hodgkin Huxley type channel, we can search the schema to see if there are any elements that can describe it.
-A search on https://docs.neuroml.org will show us that [ionChannelHH](https://docs.neuroml.org/Userdocs/Schemas/Channels.html#ionchannelhh) exists.
+A search shows us that the [ionChannelHH](https://docs.neuroml.org/Userdocs/Schemas/Channels.html#ionchannelhh) component type exists in the schema/standard.
 In the schema, this is identical to [ionChannel](https://docs.neuroml.org/Userdocs/Schemas/Channels.html#ionchannel).
 The usage examples included in the documentation indicate that we can use these elements from the standard to describe the ion channel here.
 We need to:
 
 - include the `m` gate, which has 3 sub units (`m^3`)
 - include the `h` gate, which has 1 sub unit (`h^1`)
-- formalise the equations that are used to calculate the steady state (`inf`)and time course (`tau`) for these gates/activation variables
+- formalise the equations that are used to calculate the steady state (`inf`)and time course (`tau`) for these gates/activation variables.
 
 To begin with, let us ignore the restriction included in the mod file at 40mV.
 Our NeuroML description will look something like this:
@@ -326,10 +325,11 @@ The time course is given by:
 taum = (taumax - taumin) / (1 + exp((V - Vh1) / s1)) + taumin
 ```
 Even though this is also a sigmoid, it is not, unfortunately, a standard form.
-A component type does not exist in the NeuroML standard that can encapsulate this form.
+A component type does not exist in the NeuroML standard that can encapsulate this form
+(It has more parameters, and has an additional `+ taumin`).
 
 This is not a problem, though, because NeuroML can be easily extended using {ref}`LEMS <userdocs:lems>`.
-We can write a new component type to encapsulate this based on the [LEMS definition](https://github.com/NeuroML/NeuroML2/blob/development/NeuroML2CoreTypes/Channels.xml#L99) of the [HHSigmoidVariable](https://docs.neuroml.org/Userdocs/Schemas/Channels.html#hhsigmoidvariable) component type:
+We can write a new component type to encapsulate these dynamics based on the [LEMS definition](https://github.com/NeuroML/NeuroML2/blob/development/NeuroML2CoreTypes/Channels.xml#L99) of the [HHSigmoidVariable](https://docs.neuroml.org/Userdocs/Schemas/Channels.html#hhsigmoidvariable) component type:
 
 ```{code-block} xml
 <ComponentType name="HHSigmoidVariable"
@@ -365,6 +365,10 @@ Our new component will be this, and we will save it in a different file that we 
 
 Note that it is very similar to the HHSigmoidVariable definition.
 The only difference is that we have had to define additional parameters to use in our equation.
+Also note that `HHSigmoidVariable` extends `baseHHVariable` which extends `baseVoltageDepVariable`.
+However, since we know that `tau` is a time value, we extend the `baseVoltageDepTime` component type instead.
+This is very similar to `baseVoltageDepVariable`, but is designed for component types producing time values, such as the time course here.
+
 We save this as a different component type (a class), and we will provide it parameters to create our time courses for both `m` and `h` activation variables.
 Our completed file will look like this:
 
@@ -409,23 +413,156 @@ Since the `HHSigmoidVariable` we have used for the steady state does not allow m
         extends="baseVoltageDepVariable"
         description="Inf parameter for Ray et al 2020" >
 
-        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="table_max" dimension="voltage" value="40 mV"/>
         <Parameter name="rate" dimension="none"/>
         <Parameter name="midpoint" dimension="voltage"/>
         <Parameter name="scale" dimension="voltage"/>
         <Dynamics>
             <ConditionalDerivedVariable name="x" dimension="per_time" exposure="x">
-                <Case condition="v .gt. table_max" value="(rate / (1 + exp(0 - (table_max - midpoint) / scale)))/TIME_SCALE"/>
-                <Case value="(rate / (1 + exp(0 - (v - midpoint) / scale)))/TIME_SCALE"/>
+                <Case condition="v .gt. table_max" value="(rate / (1 + exp(0 - (table_max - midpoint) / scale)))"/>
+                <Case value="(rate / (1 + exp(0 - (v - midpoint) / scale)))"/>
             </ConditionalDerivedVariable>
         </Dynamics>
     </ComponentType>
 <neuroml/>
 ```
 
-The only difference here is that instead of the `DerivedVariable`, we have used a `ConditionalDerivedVariable` that conditional dynamics.
+The only difference here is that instead of the `DerivedVariable`, we have used a `ConditionalDerivedVariable` that allows conditional dynamics.
+We have two cases here:
+- if `v` is greater than `table_max` (which is 40mV), the rate is the value at `v=40mV`
+- otherwise, the rate is calculated from the value of `v`
 
+#### Kv, Naf, Kst
+
+The nas channel is now done.
+If we look at the other channels---naf, kv, and kst---they follow similar formalisms.
+So, we can re-use our newly created component types, `Ray_inf` and `Ray_tau`.
+In fact, we consolidate them in a single file, `RaySigmoid.nml`, and "include" this in the channel definition files.
+For example, here is `kv.channel.nml`:
+
+```{code-block} xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="NeuroML_ionChannel">
+
+    <notes>NeuroML file containing a single ion channel</notes>
+    <include href="RaySigmoid.nml" />
+
+    <ionChannel id="kv" conductance="1pS" type="ionChannelHH" species="k">
+
+        <notes>
+                Implementation of A type K+ channel ( KV ) from Wustenberg DG, Boytcheva M, Grunewald B, Byrne JH, Menzel R, Baxter DA.
+                This is a delayed rectifier type K+ channel in Apis mellifera Kenyon cells (cultured).
+        </notes>
+
+        <!-- custom component types because the tables in the mod files only go to 40 -->
+        <gate id="m" type="gateHHtauInf" instances="4">
+            <steadyState type="Ray_inf" rate="1.0" midpoint="-37.6mV" scale="27.24mV"/>
+            <timeCourse type="Ray_tau" min_tau="1.85 ms" max_tau="3.53 ms" midpoint="45.0 mV" scale="-13.71mV"/>
+        </gate>
+
+    </ionChannel>
+</neuroml>
+```
+
+Plots for the steady state and time course are:
+
+```{figure} ../../../images/Steady_state(s)_of_activation_variables_of_kv_from_kv.channel.nml_at_6.3_degC.png
+:alt: Image showing steady state dynamics of activation variables of kv channel, generated with pynml-channelanalysis
+:align: center
+:scale: 40 %
+
+Steady state dynamics of activation variables of kv channel, generated with pynml-channelanalysis
+```
+
+```{figure} ../../../images/Time_Course(s)_of_activation_variables_of_kv_from_kv.channel.nml_at_6.3_degC.png
+:alt: Image showing time course of activation variables of kv channel, generated with pynml-channelanalysis
+:align: center
+:scale: 40 %
+
+Time course of activation variables of kv channel, generated with pynml-channelanalysis
+```
+
+In these graphs, the effect of the conditional at 40mV becomes more apparent.
+
+#### Ka
+
+The last remaining channel is the ka channel.
+It's dynamics are defined in the mod file as:
+
+```{code-block}
+PROCEDURE settables(v (mV)) { 
+UNITSOFF
+        TABLE minf, hinf, mtau, htau FROM -120 TO 40 WITH 641
+        minf  = 1.0 / (1 + exp((-20.1 - v)/16.1))
+        hinf  = 1.0 / ( 1 + exp( ( v + 74.7 ) / 7 ) )
+        mtau = (1.65 - 0.35) / ((1 + exp(- (v + 70) / 4.0)) * (1 + exp((v + 20) / 12.0))) + 0.35
+        htau = (90 - 2.5) / ((1 + exp(- (v + 60) / 25.0)) * (1 + exp((v + 62) / 16.0))) + 2.5
+UNITSON
+}
+```
+The steady state here follows the same formalism, but the time course does not.
+So, we need to create new component type to encapsulate the time courses here, similar to the `Ray_tau` component type that we did before:
+
+```{code-block} xml
+    <ComponentType name="Ray_ka_tau"
+                   extends="baseVoltageDepTime"
+                   description="Tau parameter to describe ka">
+
+        <Parameter name="max_tau" dimension="time"/>
+        <Parameter name="min_tau" dimension="time"/>
+        <Parameter name="midpoint1" dimension="voltage"/>
+        <Parameter name="scale1" dimension="voltage"/>
+        <Parameter name="midpoint2" dimension="voltage"/>
+        <Parameter name="scale2" dimension="voltage"/>
+        <Constant name="table_max" dimension="voltage" value="40 mV"/>
+        <Dynamics>
+            <ConditionalDerivedVariable name="t" dimension="time" exposure="t" >
+                <Case condition="v .gt. table_max" value="(max_tau - min_tau) / ((1 + exp(-(table_max + midpoint1) / scale1)) * ( 1 + exp((table_max + midpoint2) / scale2))) + min_tau"/>
+                <Case value="(max_tau - min_tau) / ((1 + exp(-(v + midpoint1) / scale1)) * ( 1 + exp((v + midpoint2) / scale2))) + min_tau"/>
+
+            </ConditionalDerivedVariable>
+        </Dynamics>
+    </ComponentType>
+
+```
+We also add this to our `RaySigmoid.nml` file.
+The ka.channel.nml file will, finally, look like this:
+
+```{code-block} xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="NeuroML_ionChannel">
+
+    <notes>NeuroML file containing a single ion channel</notes>
+    <include href="RaySigmoid.nml" />
+
+    <ionChannel id="ka" conductance="1pS" type="ionChannelHH" species="k">
+
+        <notes>
+                Implementation of A type K+ channel ( KA ) from Wustenberg DG, Boytcheva M, Grunewald B, Byrne JH, Menzel R, Baxter DA.
+                This is transient A type K+ channel in Apis mellifera Kenyon cells (cultured).
+        </notes>
+
+        <!-- custom component types because the tables in the mod files only go to 40 -->
+        <gate id="m" type="gateHHtauInf" instances="3">
+            <timeCourse type="Ray_ka_tau" midpoint1="70mV" midpoint2="2.0mV" scale1="4.0mV" scale2="12.0mV" min_tau="0.35ms" max_tau="1.65ms"/>
+            <steadyState type="Ray_inf" rate="1.0" midpoint="-20.1mV" scale="16.1mV"/>
+        </gate>
+
+        <gate id="h" type="gateHHtauInf" instances="1">
+            <timeCourse type="Ray_ka_tau" midpoint1="60mV" midpoint2="62.0mV" scale1="25.0mV" scale2="16.0mV" min_tau="2.5ms" max_tau="90.0ms"/>
+            <steadyState type="Ray_inf" rate="1.0" midpoint="-74.7mV" scale="-7.0mV"/>
+        </gate>
+
+    </ionChannel>
+</neuroml>
+```
+
+That is all the ion channels converted.
+
+The ion channels are usually the most involved to convert because one must understand their initial descriptions in the mod files.
+Even though the [NMODL language](https://nrn.readthedocs.io/en/8.2.2/python/modelspec/programmatic/mechanisms/nmodl.html#nmodl) used in mod files does have a well defined structure, like general programming languages, it is free-flowing.
+This means that different people can write the same dynamics in different ways.
+On the other hand, NeuroML and LEMS are more formal with more strict structures, and once channels are converted to these formats, they are much easier to understand.
 
 ### ii) Creating the morphology
 
@@ -455,3 +592,173 @@ We can create this using a Python script:
 ```
 
 The `setup_nml_cell` and `add_segment` methods are part of the [Cell class in the standard API](https://libneuroml.readthedocs.io/en/latest/userdocs/coreclasses.html#cell).
+
+Now that we have the morphology and the ion channels for the KC, we can add the biophysics to the morphology to complete the cell:
+
+```{code-block} python
+    # biophysics
+    # all
+    cell.set_resistivity("35.4 ohm_cm", group_id="all")
+    cell.set_specific_capacitance("1 uF_per_cm2", group_id="all")
+    cell.set_init_memb_potential("-70mV")
+    cell.set_spike_thresh("-10mV")
+
+    cell.add_channel_density(
+        nml_cell_doc=celldoc,
+        cd_id="pas",
+        ion_channel="pas",
+        cond_density="9.75e-5 S_per_cm2",
+        erev="-70 mV",
+        group_id="all",
+        ion="non_specific",
+        ion_chan_def_file="channels/pas.channel.nml",
+    )
+
+    # K
+    cell.add_channel_density(
+        nml_cell_doc=celldoc,
+        cd_id="kv",
+        ion_channel="kv",
+        cond_density="1.5e-3 S_per_cm2",
+        erev="-81 mV",
+        group_id="all",
+        ion="k",
+        ion_chan_def_file="channels/kv.channel.nml",
+    )
+    cell.add_channel_density(
+        nml_cell_doc=celldoc,
+        cd_id="ka",
+        ion_channel="ka",
+        cond_density="1.4525e-2 S_per_cm2",
+        erev="-81 mV",
+        group_id="all",
+        ion="k",
+        ion_chan_def_file="channels/ka.channel.nml",
+    )
+    cell.add_channel_density(
+        nml_cell_doc=celldoc,
+        cd_id="kst",
+        ion_channel="kst",
+        cond_density="2.0275e-3 S_per_cm2",
+        erev="-81 mV",
+        group_id="all",
+        ion="k",
+        ion_chan_def_file="channels/kst.channel.nml",
+    )
+    # Na
+    cell.add_channel_density(
+        nml_cell_doc=celldoc,
+        cd_id="naf",
+        ion_channel="naf",
+        cond_density="3.5e-2 S_per_cm2",
+        erev="58 mV",
+        group_id="all",
+        ion="na",
+        ion_chan_def_file="channels/naf.channel.nml",
+    )
+    cell.add_channel_density(
+        nml_cell_doc=celldoc,
+        cd_id="nas",
+        ion_channel="nas",
+        cond_density="3e-3 S_per_cm2",
+        erev="58 mV",
+        group_id="all",
+        ion="na",
+        ion_chan_def_file="channels/nas.channel.nml",
+    )
+```
+
+This completes the cell.
+We export it to a NeuroML file.
+
+### iii) Testing the model
+
+Finally, we want to test our NeuroML conversion against the original cell to see that it exhibits the same dynamics.
+The `test_kc.py` script runs a simple step current simulation with a single KC cell and shows its membrane potentials:
+
+```{figure} ../../../images/KC-NEURON.png
+:alt: Image showing the membrane potential of the NEURON implementation of the KC cell model with a step current.
+:align: center
+:scale: 40 %
+
+The membrane potential of the NEURON implementation of the KC cell model with a step current.
+```
+
+
+We write a quick simulation to reproduce these using our NeuroML model:
+
+```{code-block} python
+def step_current_omv_kc():
+    """Create a step current simulation OMV LEMS file"""
+    # read the cell file, modify it, write a new one
+    netdoc = read_neuroml2_file("KC.cell.nml")
+    kc_cell = netdoc.cells[0]
+    net = netdoc.add(neuroml.Network, id="KC_net", validate=False)
+    pop = net.add(neuroml.Population, id="KC_pop", component=kc_cell.id, size=1)
+
+    # should be same as test_kc.py
+    pg = netdoc.add(
+        neuroml.PulseGenerator(
+            id="pg", delay="100ms", duration="500ms",
+            amplitude="16pA"
+        )
+    )
+
+    # Add these to cells
+    input_list = net.add(
+        neuroml.InputList(id="input_list", component=pg.id, populations=pop.id)
+    )
+    aninput = input_list.add(
+        neuroml.Input(
+            id="0",
+            target="../%s[0]" % (pop.id),
+            destination="synapses",
+            segment_id="0",
+        )
+    )
+    write_neuroml2_file(netdoc, "KC.net.nml")
+
+    generate_lems_file_for_neuroml(
+        sim_id="KC_step_test",
+        target=net.id,
+        neuroml_file="KC.net.nml",
+        duration="700ms",
+        dt="0.01ms",
+        lems_file_name="LEMS_KC_step_test.xml",
+        nml_doc=netdoc,
+        gen_spike_saves_for_all_somas=True,
+        target_dir=".",
+        gen_saves_for_quantities={
+            "k.dat": ["KC_pop[0]/biophys/membraneProperties/kv/iDensity"]
+        },
+        copy_neuroml=False
+    )
+
+    data = run_lems_with_jneuroml_neuron(
+        "LEMS_KC_step_test.xml", load_saved_data=True, compile_mods=True
+    )
+
+    generate_plot(
+        xvalues=[data["t"]],
+        yvalues=[data["KC_pop[0]/v"]],
+        title="Membrane potential: KC",
+    )
+```
+
+This will generate graphs of the KC's membrane potential.
+```{figure} ../../../images/KC-NeuroML.png
+:alt: Image showing the membrane potential of the NeuroML implementation of the KC cell model with a step current.
+:align: center
+:scale: 40 %
+
+The membrane potential of the NeuroML implementation of the KC cell model with a step current.
+```
+
+As we can see, the membrane potentials look very similar.
+In the next page, we will also set up some more validation tests to better verify that the NEURON and NeuroML implementations produce the same dynamics.
+
+Since this writes a LEMS simulation file also, we can also run the LEMS file directly for later verification:
+
+```
+pynml LEMS_KC_step_test.xml -neuron -nogui
+```
