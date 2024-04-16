@@ -153,7 +153,7 @@ The [OpenWorm] project aims to create a simulation platform to build digital <i>
 
 The [c302 subproject](https://github.com/openworm/c302) in OpenWorm has the latest developments in the NeuroML version of the worm nervous system.
 
- Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see [Geppetto](#geppetto)).
+ Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see {ref}`Geppetto <userdocs:supporting:apps:geppetto>`.
 
 
 
@@ -258,7 +258,7 @@ The latest version of the TREES toolbox includes basic functionality for exporti
 
 ![Geppetto logo](../../images/tools/geppetto.png)
 
-[Geppetto] is a web-based multi-algorithm, multi-scale simulation platform designed to support the simulation of complex biological systems and their surrounding environment. It is open source and is being developed as part of the [OpenWorm project](#openworm) to create an _in-silico_ model of the nematode _C. elegans_. It has had inbuilt support for NeuroML 2/LEMS from the start, and is suitable for many other types of neuronal models.
+[Geppetto] is a web-based multi-algorithm, multi-scale simulation platform designed to support the simulation of complex biological systems and their surrounding environment. It is open source and is being developed as part of the {ref}`OpenWorm project <userdocs:supporting:apps:openworm>` to create an _in-silico_ model of the nematode _C. elegans_. It has had inbuilt support for NeuroML 2/LEMS from the start, and is suitable for many other types of neuronal models.
 
 (userdocs:supporting:other)=
 ## Other/legacy tools
@@ -333,7 +333,7 @@ It provides a user-friendly interface, which can be used to both create and edit
 
 (userdocs:supporting:other:moogli)=
 ### Moogli
-[Moogli] (a sister project of [MOOSE](#moose)) is a simulator independent OpenGL based visualization tool for neural simulations.
+[Moogli] (a sister project of {ref}`MOOSE <userdocs:supporting:apps:moose>` is a simulator independent OpenGL based visualization tool for neural simulations.
 Moogli can visualize morphology of single/multiple neurons or network of neurons, and can also visualize activity in these cells.
 Loading of morphologies in MorphML and NeuroML formats is supported.
 
