@@ -55,7 +55,7 @@ Then, we create and add a new {ref}`Cell <schema:cell>` using the `add` method t
 We also provide a `neuro_lex_id` here, which is the [NeuroLex ontology identifier](https://scicrunch.org/scicrunch/interlex/view/ilx_0105030?searchTerm=oriens-lacunosum%20moleculare).
 This allows us to better connect models to biological concepts.
 
-As we have seen in the {ref}`single Izhikevich neuron example <userdocs:getting_started:single_example:declaring:add>`, the `add` method calls the `component_factory` to create the component object for us.
+As we have seen in the {ref}`single Izhikevich neuron example <userdocs:getting_started:single_example:supplementary:add>`, the `add` method calls the `component_factory` to create the component object for us.
 For the `Cell` component type, it does a number of extra things for us to set up, or initialise, the cell.
 
 We have a number of ways of inspecting the cell.
@@ -70,7 +70,7 @@ This is useful to quickly get a high level overview of it:
 * SegmentGroups: 4
 *******************************************************
 ```
-We can also use the general {ref}`info function <userdocs:getting_started:single_example:declaring:info>` to inspect the cell:
+We can also use the general {ref}`info function <userdocs:getting_started:single_example:supplementary:info>` to inspect the cell:
 ```pycon
 >>> cell.info(show_contents=True)
 Cell -- Cell with  **segment** s specified in a  **morphology**  element along with details on its  **biophysicalProperties** . NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v**  of this cell represents the membrane potential in that isopotential segment.

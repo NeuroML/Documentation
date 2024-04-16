@@ -1,5 +1,5 @@
 (userdocs:creating_models:converting_conductance)=
-## Converting models to NeuroML and sharing them on Open Source Brain
+# Converting models to NeuroML and sharing them on Open Source Brain
 
 The figure below is taken from the supplementary information of the {ref}`Open Source Brain paper <papers:osb>`, and gives a quick overview of the steps required and tools available for converting a model to NeuroML and sharing it on the OSB platform.
 
@@ -11,7 +11,7 @@ The figure below is taken from the supplementary information of the {ref}`Open S
 Procedures and tools to convert models from native formats to NeuroML and PyNN (Taken from Gleeson et al. 2019 {cite}`Gleeson2019`)
 ```
 
-### Step 1) Find the original model code
+## Step 1) Find the original model code
 
 While it should in principle be possible to create the model based only on the description in the accompanying publication, having the original code is invaluable.
 The original code allows the identification of all parameters related to the model, and it is required to verify the dynamical behaviour of the NeuroML equivalent.
@@ -25,29 +25,29 @@ So, the first step is to obtain the original model code and verify that this can
 
 
 (userdocs:creating_models:converting_conductance:github)=
-### Step 2) Create GitHub and OSB accounts for sharing the code
+## Step 2) Create GitHub and OSB accounts for sharing the code
 
-#### 2a) Sign up to GitHub and OSB
+### 2a) Sign up to GitHub and OSB
 
 Sign up to [GitHub](https://github.com/signup) to be able to share the updated code publicly. Next, sign up to [Open Source Brain](https://www.opensourcebrain.org/account/register), and adding a reference to your GitHub user account will help link between the two resources.
 
-#### 2b) Create GitHub repository
+### 2b) Create GitHub repository
 
 Create a new [GitHub repository](https://docs.github.com/en/repositories) for your new model. There are plenty of examples of repositories containing NeuroML [on OSB](https://github.com/orgs/OpenSourceBrain/repositories). It's fine to share the code under your own user account, but if you would like to host it at https://github.com/OpenSourceBrain, please [get in contact with the OSB team](https://docs.opensourcebrain.org/General/Contacts.html).
 
 Now you can commit the scripts for original version of the model to your GitHub repository. **Please check what the license/redistribution conditions are for the code!** Authors who have shared their code on [ModelDB](https://senselab.med.yale.edu/ModelDB/default) are generally happy for the code to be reused, but it is good to get in contact with them as a courtesy to let them know your plans with the model. They will generally be very supportive as long as the original publications are referenced, and will often have useful information on any updated versions of the model. Adding or updating a [README file](https://docs.opensourcebrain.org/OSBv1/Write_Your_Project_Documentation.html#add-a-readme-file-in-your-github-repository-and-reuse-it-on-your-osb-projects) will be valuable for anyone who comes across the model on GitHub.
 
-#### 2c) Create OSB project
+### 2c) Create OSB project
 
 Now you can create a project on OSB which will point to the GitHub repository and will be able to find any NeuroML models committed to it. You can also add a link back to the original archived version on ModelDB, and even reuse your README on GitHub as a description. For more details on this see [here](https://docs.opensourcebrain.org/OSBv1/Creating_Your_Own_Project.html).
 
 
-### Step 3) Improve and test original model code
+## Step 3) Improve and test original model code
 
 With the original simulator code shared on GitHub, and a README updated to describe it, new users will be able to clone the repository and start using the code as shared by the authors. Some updates may be required and any changes from the original version will be recorded under the Git history visible on GitHub.
 
 
-#### 3a) Make simpler/modularised versions of original model scripts
+### 3a) Make simpler/modularised versions of original model scripts
 
 Many of the model scripts which get released on ModelDB aim to reproduce one or two of the figures from the associated publication. However, these scripts can be quite complex, and mix simulation with some analysis of the results. They don't always provide a single, simple run of the model with standard parameters, which would be the target for a first version of the model in NeuroML.
 
@@ -61,7 +61,7 @@ Therefore it would be useful to create some additional scripts (reusing cell/cha
 These will be much easier to compare to equivalents in NeuroML.
 
 (userdocs:creating_models:converting_conductance:add_omv_tests)=
-#### 3b) Add OMV tests
+### 3b) Add OMV tests
 
 ```{admonition} Optional, but recommended.
 :class: dropdown tip
@@ -78,9 +78,9 @@ Add OMV tests for your native simulator scripts ([example](https://github.com/Op
 Later, you can add OMV tests too for the equivalent NeuroML versions, reusing the Model Emergent Property (`*.mep`) file ([example](https://github.com/mbezaire/ca1/blob/development/NeuroML2/cells/tests/.test.sca.jnmlnrn.omt)), thus testing that the behaviours of the 2 versions are the same (within a certain tolerance).
 
 (userdocs:creating_models:converting_conductance:initialnml2)=
-### 4) Create a version of the model in NeuroML 2
+## 4) Create a version of the model in NeuroML 2
 
-#### 4a) Create a LEMS Simulation file to run the model
+### 4a) Create a LEMS Simulation file to run the model
 
 A {ref}`LEMS Simulation file <userdocs:lemssimulation>` is required to specify how to run a simulation of the NeuroML model, how long to run, what to plot/save etc. Create a LEMS*.xml ([example](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/LEMS_Soma_AllNML2.xml)) with *.net.nml ([example](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.net.nml)) and *.cell.nml ([example](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.cell.nml)) for **a cell with only a soma** (don't try to match a full multi-compartmental cell with all channels to the original version at this early stage).
 
@@ -94,7 +94,7 @@ When ready, commit the LEMS/NeuroML code to GitHub.
 
 
 (userdocs:creating_models:converting_conductance:convert_channels)=
-#### 4b) Convert channels to NeuroML
+### 4b) Convert channels to NeuroML
 
 Restructure/annotate/comment channel files in the original model to be as clear as possible and ideally have all use the same overall structure (e.g. see mod files [here](https://github.com/mbezaire/ca1/tree/development)).
 
@@ -110,7 +110,7 @@ Create a script to load the output of mod analysis and nml analysis and compare 
 
 
 (userdocs:creating_models:converting_conductance:compare_single_comp)=
-#### 4c) Compare single compartment cell with channels
+### 4c) Compare single compartment cell with channels
 
 Ensure you have a passive soma example in NeuroML which reproduces the behaviour of an equivalent passibe version inthe original format (from steps 3a and 4a above).
 
@@ -122,7 +122,7 @@ When you are happy with each of the channels, try the soma with all of the chann
 
 
 (userdocs:creating_models:converting_conductance:compare_multi_comp)=
-#### 4d) Compare multi-compartmental cell incorporating channels
+### 4d) Compare multi-compartmental cell incorporating channels
 
 If the model was created in NEURON, export the 3D morphology from the original NEURON scripts using pyNeuroML ([example](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py)); this will be easier if there is a hoc script with just a single cell instance as in section 1). While there is the option to use `includeBiophysicalProperties=True` and this will attempt to export the conductance densities on different groups, it may be better to consolidate these and add them afterwards using correctly named groups and the most efficient representation of conductance density to group relationships ([example](https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/Python/Export/export_mitral.py)).
 
@@ -143,24 +143,24 @@ Many projects on OSB were originally converted from the original format (NEURON,
 Note: you can also export other morphologies from [NeuroMorpho.org](https://neuromorpho.org) in NeuroML2 format ([example](https://github.com/NeuralEnsemble/NeuroinformaticsTutorial/blob/master/Exercises/Exercise1_NeuroMorpho_to_OSB.md)) to try out different reconstructions of the same cell type with your complement of channels.
 
 (userdocs:creating_models:converting_conductance:reoptimise)=
-### 4e) (Re)optimising cell models
+## 4e) (Re)optimising cell models
 
 You can use [Neurotune](https://github.com/NeuralEnsemble/neurotune/) inside pyNeuroML to re-optimise your cell models. An example is [here](https://github.com/NeuroML/pyNeuroML/blob/master/examples/tuneHHCell.py), and a full sequence of optimising a NeuroML model against data in NWB can be found {ref}`here <userdocs:optimising>`.
 
 
-### 4f) Create an equivalent network model in NeuroML
+## 4f) Create an equivalent network model in NeuroML
 
 Creating an equivalent of a complex network model originally built in hoc for example in NeuroML is not trivial. The guide to network building with libNeuroML {ref}`here <userdocs:gettingstarted:izhikevichnetwork>` is a good place to start.
 
 See also {ref}`NeuroMLlite <neuromllite>`.
 
-### 5) Access, view and run your model on OSB
+## 5) Access, view and run your model on OSB
 
 When you're happy that a version of the model is behaving correctly in NeuroML, you can try visualising it on OSB.
 
 See [here](https://docs.opensourcebrain.org/OSBv1/Five_Minute_Introduction.html) for more details about viewing and simulating projects on OSB.
 
-### 6) Share and collaborate
+## 6) Share and collaborate
 
 There is more information on how you can disseminate and promote your model once it is on OSB in the main documentation for that platform:
 https://docs.opensourcebrain.org.
