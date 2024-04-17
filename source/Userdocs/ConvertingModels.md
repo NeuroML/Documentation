@@ -1,6 +1,10 @@
 (userdocs:creating_models:converting_conductance)=
 # Converting models to NeuroML and sharing them on Open Source Brain
 
+```{admonition} Walk throughs available
+:class: tip
+Look at the {ref}`Walkthroughs chapter <userdocs:walkthroughs>` for worked examples.
+```
 The figure below is taken from the supplementary information of the {ref}`Open Source Brain paper <papers:osb>`, and gives a quick overview of the steps required and tools available for converting a model to NeuroML and sharing it on the OSB platform.
 
 ```{figure} ../images/osb-conversion.png
