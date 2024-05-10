@@ -23,7 +23,7 @@ So, if you do not get a response soon, please post to the mailing list listed ab
 (contact:issues)=
 ##  Issues related to the libraries or specification
 
-- Please file general issues related to NeuroML at the [NeuroML/NeuroML2 repository on GitHub](https://github.com/NeuroML/Neu.oML2/issues).
+- Please file general issues related to NeuroML at the [NeuroML/NeuroML2 repository on GitHub](https://github.com/NeuroML/NeuroML2/issues).
 - Please file issues related to LEMS and jLEMS at the [LEMS/jLEMS repository on GitHub](https://github.com/LEMS/jLEMS/issues).
 - Additionally, please file issues related to the different NeuroML core tools at their individual {ref}`GitHub repositories <userdocs:software>`.
 
