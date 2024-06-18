@@ -21,7 +21,7 @@ from collections import OrderedDict
 
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.WARNING)
 
 
 # pages to which different sections should belong
