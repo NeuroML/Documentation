@@ -7,7 +7,7 @@
 
 Original ComponentType definitions: [NeuroMLCoreCompTypes.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//NeuroMLCoreCompTypes.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 05/12/23 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
+Generated on 18/06/24 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -112,17 +112,16 @@ variable = Annotation(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <annotation>
-            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-              <rdf:Description rdf:about="HippoCA1Cell">
-                <bqbiol:is>
-                  <rdf:Bag>
-                    
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="HippoCA1Cell">
+            <bqbiol:is>
+                <rdf:Bag>
                     <rdf:li rdf:resource="urn:miriam:neurondb:258"/>
-                  </rdf:Bag>
-                </bqbiol:is>
-              </rdf:Description>
-            </rdf:RDF>
-        </annotation>
+                </rdf:Bag>
+            </bqbiol:is>
+        </rdf:Description>
+    </rdf:RDF>
+</annotation>
 ```
 ````
 `````

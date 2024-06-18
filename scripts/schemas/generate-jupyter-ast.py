@@ -180,6 +180,7 @@ def get_comp_examples(srcdirs, examples_max=3):
                     examples.sort(key=len, reverse=True)
                     # Let's only keep the first 5 examples
                     for example in examples:
+                        ET.indent(example, space="    ")
                         if len(comp_type_examples[comp_type]) < examples_max:
                             comp_type_examples[comp_type].append(
                                 ET.tostring(example, pretty_print=True,

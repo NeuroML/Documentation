@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Synapses.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Synapses.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 05/12/23 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
+Generated on 18/06/24 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -917,8 +917,8 @@ variable = AlphaSynapse(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <alphaSynapse id="synalpha" gbase="0.5nS" erev="0mV" tau="2ms">
-        <notes>An alpha synapse with time for rise equal to decay.</notes>
-    </alphaSynapse>
+    <notes>An alpha synapse with time for rise equal to decay.</notes>
+</alphaSynapse>
 ```
 ````
 `````
@@ -1316,8 +1316,8 @@ variable = ExpThreeSynapse(
 ```
 ```{code-block} xml
 <expThreeSynapse id="AMPA" gbase1="1.5nS" tauRise="0.1ms" tauDecay1="0.7ms" gbase2="0.5nS" tauDecay2="2.5ms" erev="0mV">
-        <notes>A synapse consisting of one rise and two decay time courses.</notes>
-    </expThreeSynapse>
+    <notes>A synapse consisting of one rise and two decay time courses.</notes>
+</expThreeSynapse>
 ```
 ````
 `````
@@ -1860,23 +1860,23 @@ variable = BlockingPlasticSynapse(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <blockingPlasticSynapse id="NMDA" gbase=".8nS" tauRise="1e-3s" tauDecay="13.3333e-3s" erev="0V">
-        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2mM" scalingConc="1.9205441817997078mM" scalingVolt="0.016129032258064516V"/>
-    </blockingPlasticSynapse>
+    <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2mM" scalingConc="1.9205441817997078mM" scalingVolt="0.016129032258064516V"/>
+</blockingPlasticSynapse>
 ```
 ```{code-block} xml
 <blockingPlasticSynapse id="blockStpSynDep" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
-        <notes>A biexponential blocking synapse, with STD.</notes>
-        <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
-        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
-    </blockingPlasticSynapse>
+    <notes>A biexponential blocking synapse, with STD.</notes>
+    <plasticityMechanism type="tsodyksMarkramDepMechanism" initReleaseProb="0.5" tauRec="120 ms"/>
+    <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+</blockingPlasticSynapse>
 ```
 ```{code-block} xml
 <blockingPlasticSynapse id="blockStpSynDepFac" gbase="1nS" erev="0mV" tauRise="0.1ms" tauDecay="2ms">
-        <notes>A biexponential blocking synapse with short term
+    <notes>A biexponential blocking synapse with short term
             depression and facilitation.</notes>
-        <plasticityMechanism type="tsodyksMarkramDepFacMechanism" initReleaseProb="0.5" tauRec="120 ms" tauFac="10 ms"/>
-        <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
-    </blockingPlasticSynapse>
+    <plasticityMechanism type="tsodyksMarkramDepFacMechanism" initReleaseProb="0.5" tauRec="120 ms" tauFac="10 ms"/>
+    <blockMechanism type="voltageConcDepBlockMechanism" species="mg" blockConcentration="1.2 mM" scalingConc="1.920544 mM" scalingVolt="16.129 mV"/>
+</blockingPlasticSynapse>
 ```
 ````
 `````
@@ -2053,8 +2053,8 @@ variable = DoubleSynapse(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <doubleSynapse id="AMPA_NMDA" synapse1="AMPA" synapse1Path="./AMPA" synapse2="NMDA" synapse2Path="./NMDA">
-        <notes>A single "synapse" which contains both AMPA and NMDA. It is planned that the need for extra synapse1Path/synapse2Path attributes can be removed in later versions.</notes>
-    </doubleSynapse>
+    <notes>A single "synapse" which contains both AMPA and NMDA. It is planned that the need for extra synapse1Path/synapse2Path attributes can be removed in later versions.</notes>
+</doubleSynapse>
 ```
 ````
 `````

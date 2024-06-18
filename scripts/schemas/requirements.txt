@@ -1,2 +1,4 @@
 libneuroml
 pylems
+jinja2
+lxml

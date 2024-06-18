@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Inputs.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Inputs.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 05/12/23 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
+Generated on 18/06/24 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -256,7 +256,7 @@ extends *{ref}`schema:basespikesource`*
 :width: 100%
 :delim: $
 
-**SMALL_TIME** = 1e-9ms$  $ {ref}`schema:dimensions:time`
+**SMALL_TIME** = 1e-9ms$ A useful constant for use as a non zero time increment $ {ref}`schema:dimensions:time`
 
 ```
 ````
@@ -395,7 +395,7 @@ extends *{ref}`schema:basespikesource`*
 :width: 100%
 :delim: $
 
-**MSEC** = 1ms$  $ {ref}`schema:dimensions:time`
+**MSEC** = 1ms$ Required for converting time values to/from dimensionless quantities $ {ref}`schema:dimensions:time`
 
 ```
 ````
@@ -1441,23 +1441,23 @@ variable = TimedSynapticInput(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <timedSynapticInput id="synTrain" synapse="synInputFastTwo" spikeTarget="./synInputFastTwo">
-        <spike id="0" time="2 ms"/>
-        <spike id="1" time="15 ms"/>
-        <spike id="2" time="27 ms"/>
-        <spike id="3" time="40 ms"/>
-        <spike id="4" time="45 ms"/>
-        <spike id="5" time="50 ms"/>
-        <spike id="6" time="52 ms"/>
-        <spike id="7" time="54 ms"/>
-        <spike id="8" time="54.5 ms"/>
-        <spike id="9" time="54.6 ms"/>
-        <spike id="10" time="54.7 ms"/>
-        <spike id="11" time="54.8 ms"/>
-        <spike id="12" time="54.9 ms"/>
-        <spike id="13" time="55 ms"/>
-        <spike id="14" time="55.1 ms"/>
-        <spike id="15" time="55.2 ms"/>
-    </timedSynapticInput>
+    <spike id="0" time="2 ms"/>
+    <spike id="1" time="15 ms"/>
+    <spike id="2" time="27 ms"/>
+    <spike id="3" time="40 ms"/>
+    <spike id="4" time="45 ms"/>
+    <spike id="5" time="50 ms"/>
+    <spike id="6" time="52 ms"/>
+    <spike id="7" time="54 ms"/>
+    <spike id="8" time="54.5 ms"/>
+    <spike id="9" time="54.6 ms"/>
+    <spike id="10" time="54.7 ms"/>
+    <spike id="11" time="54.8 ms"/>
+    <spike id="12" time="54.9 ms"/>
+    <spike id="13" time="55 ms"/>
+    <spike id="14" time="55.1 ms"/>
+    <spike id="15" time="55.2 ms"/>
+</timedSynapticInput>
 ```
 ````
 `````
@@ -1582,12 +1582,12 @@ variable = SpikeArray(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <spikeArray id="spkArr">
-      <spike id="0" time="50 ms"/>
-      <spike id="1" time="100 ms"/>
-      <spike id="2" time="150 ms"/>
-      <spike id="3" time="155 ms"/>
-      <spike id="4" time="250 ms"/>
-    </spikeArray>
+    <spike id="0" time="50 ms"/>
+    <spike id="1" time="100 ms"/>
+    <spike id="2" time="150 ms"/>
+    <spike id="3" time="155 ms"/>
+    <spike id="4" time="250 ms"/>
+</spikeArray>
 ```
 ````
 `````
@@ -2003,10 +2003,10 @@ variable = CompoundInput(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <compoundInput id="ci0">
-        <pulseGenerator id="pg1" delay="50ms" duration="200ms" amplitude=".8 nA"/>
-        <pulseGenerator id="pg2" delay="100ms" duration="100ms" amplitude=".4 nA"/>
-        <sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
-    </compoundInput>
+    <pulseGenerator id="pg1" delay="50ms" duration="200ms" amplitude=".8 nA"/>
+    <pulseGenerator id="pg2" delay="100ms" duration="100ms" amplitude=".4 nA"/>
+    <sineGenerator id="sg0" phase="0" delay="125ms" duration="50ms" amplitude=".4nA" period="25ms"/>
+</compoundInput>
 ```
 ````
 `````

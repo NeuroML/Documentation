@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Networks.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Networks.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 05/12/23 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
+Generated on 18/06/24 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -106,50 +106,48 @@ variable = Network(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <network id="net1">
-        <population id="iafPop1" component="iaf" size="1"/>
-        <population id="iafPop2" component="iaf" size="1"/>
-        <population id="iafPop3" component="iaf" size="1"/>
-        <continuousProjection id="testLinearGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
-        </continuousProjection>
-        <continuousProjection id="testGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop3">
-            <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent2" postComponent="gs2"/>
-        </continuousProjection>
-        <explicitInput target="iafPop1[0]" input="pulseGen1" destination="synapses"/>
-        <explicitInput target="iafPop1[0]" input="pulseGen2" destination="synapses"/>
-        <explicitInput target="iafPop1[0]" input="pulseGen3" destination="synapses"/>
-    </network>
+    <population id="iafPop1" component="iaf" size="1"/>
+    <population id="iafPop2" component="iaf" size="1"/>
+    <population id="iafPop3" component="iaf" size="1"/>
+    <continuousProjection id="testLinearGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
+        <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
+    </continuousProjection>
+    <continuousProjection id="testGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop3">
+        <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent2" postComponent="gs2"/>
+    </continuousProjection>
+    <explicitInput target="iafPop1[0]" input="pulseGen1" destination="synapses"/>
+    <explicitInput target="iafPop1[0]" input="pulseGen2" destination="synapses"/>
+    <explicitInput target="iafPop1[0]" input="pulseGen3" destination="synapses"/>
+</network>
 ```
 ```{code-block} xml
 <network id="net2">
-        <population id="hhPop1" component="hhcell" size="1" type="populationList">
-            <instance id="0">
-                <location x="0" y="0" z="0"/>
-            </instance>
-        </population>
-        <population id="hhPop2" component="hhcell" size="1" type="populationList">
-            <instance id="0">
-                <location x="100" y="0" z="0"/>
-            </instance>
-        </population>
-        <continuousProjection id="testGradedConn" presynapticPopulation="hhPop1" postsynapticPopulation="hhPop2">
-            <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
-        </continuousProjection>
-        <inputList id="i1" component="pulseGen1" population="hhPop1">
-            <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
-        </inputList>
-    </network>
+    <population id="hhPop1" component="hhcell" size="1" type="populationList">
+        <instance id="0">
+            <location x="0" y="0" z="0"/>
+        </instance>
+    </population>
+    <population id="hhPop2" component="hhcell" size="1" type="populationList">
+        <instance id="0">
+            <location x="100" y="0" z="0"/>
+        </instance>
+    </population>
+    <continuousProjection id="testGradedConn" presynapticPopulation="hhPop1" postsynapticPopulation="hhPop2">
+        <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
+    </continuousProjection>
+    <inputList id="i1" component="pulseGen1" population="hhPop1">
+        <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
+    </inputList>
+</network>
 ```
 ```{code-block} xml
-<network id="PyrCellNet">   
-    
-        
-        <population id="Population1" component="PyrCell" extracellularProperties="extracellular" size="9"> 
+<network id="PyrCellNet">
+    <population id="Population1" component="PyrCell" extracellularProperties="extracellular" size="9"> 
         </population>
-        <projection id="Proj1" presynapticPopulation="Population1" postsynapticPopulation="Population1" synapse="AMPA">
+    <projection id="Proj1" presynapticPopulation="Population1" postsynapticPopulation="Population1" synapse="AMPA">
            
         </projection>
-    </network>
+</network>
 ```
 ````
 `````
@@ -407,18 +405,18 @@ variable = Instance(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <instance id="0">
-                <location x="0" y="0" z="0"/>
-            </instance>
+    <location x="0" y="0" z="0"/>
+</instance>
 ```
 ```{code-block} xml
 <instance id="0">
-                <location x="100" y="0" z="0"/>
-            </instance>
+    <location x="100" y="0" z="0"/>
+</instance>
 ```
 ```{code-block} xml
 <instance id="0">
-                <location x="0" y="0" z="0"/>
-            </instance>
+    <location x="0" y="0" z="0"/>
+</instance>
 ```
 ````
 `````
@@ -652,16 +650,14 @@ variable = Projection(
 ```
 ```{code-block} xml
 <projection id="internal1" presynapticPopulation="iafCells" postsynapticPopulation="iafCells" synapse="syn1">
-            <!--TODO: Fix! want to define synapse in here, so that multiple synapses per connection can be defined
             <synapseComponent component="syn1"/>-->
-            
-            <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/1/iaf"/>
-        </projection>
+    <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/1/iaf"/>
+</projection>
 ```
 ```{code-block} xml
 <projection id="internal2" presynapticPopulation="iafCells" postsynapticPopulation="iafCells" synapse="syn2">
-            <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/2/iaf"/>
-        </projection>
+    <connection id="0" preCellId="../iafCells/0/iaf" postCellId="../iafCells/2/iaf"/>
+</projection>
 ```
 ````
 `````
@@ -1292,13 +1288,13 @@ variable = ElectricalProjection(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
-        </electricalProjection>
+    <electricalConnectionInstance id="0" preCell="../iafPop1/0/iaf" postCell="../iafPop2/0/iaf" preSegment="0" preFractionAlong="0.5" postSegment="0" postFractionAlong="0.5" synapse="gj1"/>
+</electricalProjection>
 ```
 ```{code-block} xml
 <electricalProjection id="testGJconn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
-        </electricalProjection>
+    <electricalConnection id="0" preCell="0" postCell="0" synapse="gj1"/>
+</electricalProjection>
 ```
 ````
 `````
@@ -1610,18 +1606,18 @@ variable = ContinuousProjection(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <continuousProjection id="testLinearGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop2">
-            <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
-        </continuousProjection>
+    <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent1" postComponent="gs1"/>
+</continuousProjection>
 ```
 ```{code-block} xml
 <continuousProjection id="testGradedConn" presynapticPopulation="iafPop1" postsynapticPopulation="iafPop3">
-            <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent2" postComponent="gs2"/>
-        </continuousProjection>
+    <continuousConnection id="0" preCell="0" postCell="0" preComponent="silent2" postComponent="gs2"/>
+</continuousProjection>
 ```
 ```{code-block} xml
 <continuousProjection id="testGradedConn" presynapticPopulation="hhPop1" postsynapticPopulation="hhPop2">
-            <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
-        </continuousProjection>
+    <continuousConnectionInstanceW id="0" preCell="../hhPop1/0/hhcell" postCell="../hhPop2/0/hhcell" preComponent="silent1" postComponent="gs1" weight="1"/>
+</continuousProjection>
 ```
 ````
 `````
@@ -1788,18 +1784,18 @@ variable = InputList(
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <inputList id="i1" component="pulseGen1" population="hhPop1">
-            <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
-        </inputList>
+    <input id="0" target="../hhPop1/0/hhcell" destination="synapses"/>
+</inputList>
 ```
 ```{code-block} xml
 <inputList id="i1" component="pulseGen1" population="iafPop1">
-            <input id="0" target="../iafPop1/0/iaf" destination="synapses"/>
-        </inputList>
+    <input id="0" target="../iafPop1/0/iaf" destination="synapses"/>
+</inputList>
 ```
 ```{code-block} xml
 <inputList id="i2" component="pulseGen2" population="iafPop2">
-            <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
-        </inputList>
+    <input id="0" target="../iafPop2/0/iaf" destination="synapses"/>
+</inputList>
 ```
 ````
 `````
