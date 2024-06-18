@@ -6,7 +6,8 @@
 
 ---
 
-Generated on 22/08/23.
+Schema against which LEMS based on these should be valid: [LEMS_v0.7.6.xsd](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS/LEMS_v0.7.6.xsd).
+Generated on 18/06/24 from [this](https://github.com/LEMS/LEMS/commit/fd7b30eceb6735ac343745c8f6992bdde72b248b) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/LEMS/LEMS/issues).
 
 ---
@@ -52,6 +53,44 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Target">
+  <xs:attribute name="component" type="xs:string" use="required"/>
+  <xs:attribute name="reportFile" type="xs:string" use="optional">
+    <xs:annotation>
+      <xs:documentation>jLEMS only optional attribute to also write a short report with simulation duration, version, etc.</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+  <xs:attribute name="timesFile" type="xs:string" use="optional">
+    <xs:annotation>
+      <xs:documentation>jLEMS only optional attribute to also write a file containing actual times used in the simulation.</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Target component="sim1"/>
+```
+```{code-block} xml
+<Target component="sim1"/>
+```
+```{code-block} xml
+<Target component="sim1"/>
+```
+```{code-block} xml
+<Target component="sim1"/>
+```
+```{code-block} xml
+<Target component="sim1"/>
+```
+````
 `````
 (lemsschema:constant_)=
 ## Constant
@@ -72,6 +111,28 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Constant">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="dimension" type="xs:string" use="optional" default="none"/>
+  <xs:attribute name="value" type="PhysicalQuantity" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Constant name="kte" dimension="voltage" value="25.3mV"/>
+```
+```{code-block} xml
+<Constant name="kte" dimension="voltage" value="25.3mV"/>
+```
+````
 `````
 (lemsschema:include_)=
 ## Include
@@ -87,6 +148,34 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 **file**$ String$ the name or relative path of a file to be included
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Include">
+  <xs:attribute name="file" type="xs:string" use="required"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Include file="SimpleNetwork.xml"/>
+```
+```{code-block} xml
+<Include file="SingleSimulation.xml"/>
+```
+```{code-block} xml
+<Include file="ex2dims.xml"/>
+```
+```{code-block} xml
+<Include file="hhchannel.xml"/>
+```
+```{code-block} xml
+<Include file="hhcell.xml"/>
 ```
 ````
 `````

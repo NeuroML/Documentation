@@ -4,7 +4,8 @@
 
 
 
-Generated on 22/08/23.
+Schema against which LEMS based on these should be valid: [LEMS_v0.7.6.xsd](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS/LEMS_v0.7.6.xsd).
+Generated on 18/06/24 from [this](https://github.com/LEMS/LEMS/commit/fd7b30eceb6735ac343745c8f6992bdde72b248b) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/LEMS/LEMS/issues).
 
 ---
@@ -67,6 +68,81 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ComponentType">
+  <xs:sequence>
+    <xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Parameter" type="Parameter" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="DerivedParameter" type="DerivedParameter" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="IndexParameter" type="IndexParameter" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Constant" type="Constant" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Child" type="Child" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Children" type="Children" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Fixed" type="Fixed" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Link" type="Link" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="ComponentReference" type="ComponentReference" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Attachments" type="Attachments" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="EventPort" type="EventPort" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Exposure" type="Exposure" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Requirement" type="Requirement" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="ComponentRequirement" type="ComponentRequirement" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="InstanceRequirement" type="InstanceRequirement" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Path" type="Path" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Text" type="Text" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Dynamics" type="Dynamics" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="Structure" type="Structure" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="Simulation" type="Simulation" minOccurs="0" maxOccurs="1"/>
+  </xs:sequence>
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="extends" type="xs:string" use="optional"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<ComponentType name="Population">
+        <ComponentReference name="component" type="Component"/>
+        <Parameter name="size" dimension="none"/>
+        <Structure>
+            <MultiInstantiate number="size" component="component"/>
+        </Structure>
+    </ComponentType>
+```
+```{code-block} xml
+<ComponentType name="EventConnectivity">
+        <Link name="source" type="Population"/>
+        <Link name="target" type="Population"/>
+        <Child name="Connections" type="ConnectionPattern"/>
+    </ComponentType>
+```
+```{code-block} xml
+<ComponentType name="Network">
+        <Children name="populations" type="Population"/>
+        <Children name="connectivities" type="EventConnectivity"/>
+    </ComponentType>
+```
+```{code-block} xml
+<ComponentType name="AllAll" extends="ConnectionPattern">
+        <Structure>
+            <ForEach instances="../source" as="a">
+                <ForEach instances="../target" as="b">
+                    <EventConnection from="a" to="b"/>
+                </ForEach>
+            </ForEach>    
+        </Structure>
+       
+    </ComponentType>
+```
+```{code-block} xml
+<ComponentType name="ConnectionPattern"/>
+```
+````
 `````
 (lemsschema:parameter_)=
 ## Parameter
@@ -84,6 +160,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
 **description**$ String$ An optional description of the parameter
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Parameter">
+  <xs:complexContent>
+    <xs:extension base="NamedDimensionalType"/>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Parameter name="size" dimension="none"/>
+```
+```{code-block} xml
+<Parameter name="xmin" dimension="none"/>
+```
+```{code-block} xml
+<Parameter name="xmax" dimension="none"/>
+```
+```{code-block} xml
+<Parameter name="ymin" dimension="none"/>
+```
+```{code-block} xml
+<Parameter name="ymax" dimension="none"/>
 ```
 ````
 `````
@@ -122,6 +228,18 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Property">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="dimension" type="xs:string" use="optional" default="none"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+  <xs:attribute name="defaultValue" type="xs:double" use="optional"/>
+</xs:complexType>
+
+```
+````
 `````
 (lemsschema:derivedparameter_)=
 ## DerivedParameter
@@ -143,6 +261,25 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="DerivedParameter">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="dimension" type="xs:string" use="optional" default="none"/>
+  <xs:attribute name="value" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<DerivedParameter name="erev" dimension="voltage" select="//MembranePotential[species=channel/species]/reversal"/>
+```
+````
 `````
 (lemsschema:fixed_)=
 ## Fixed
@@ -159,6 +296,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **parameter**$ String$ 
 **value**$ String$ 
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Fixed">
+  <xs:attribute name="parameter" type="xs:string" use="required"/>
+  <xs:attribute name="value" type="PhysicalQuantity" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Fixed parameter="threshold" value="-45mV"/>
+```
+```{code-block} xml
+<Fixed parameter="relativeConductance" value="0"/>
+```
+```{code-block} xml
+<Fixed parameter="relativeConductance" value="1"/>
+```
+```{code-block} xml
+<Fixed parameter="relativeConductance" value="0"/>
+```
+```{code-block} xml
+<Fixed parameter="relativeConductance" value="1"/>
 ```
 ````
 `````
@@ -180,6 +347,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Requirement">
+  <xs:complexContent>
+    <xs:extension base="NamedDimensionalType"/>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Requirement name="v" dimension="voltage"/>
+```
+```{code-block} xml
+<Requirement name="v" dimension="voltage"/>
+```
+```{code-block} xml
+<Requirement name="v" dimension="voltage"/>
+```
+```{code-block} xml
+<Requirement name="v" dimension="voltage"/>
+```
+```{code-block} xml
+<Requirement name="v" dimension="voltage"/>
+```
+````
 `````
 (lemsschema:componentrequirement_)=
 ## ComponentRequirement
@@ -197,6 +394,15 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ComponentRequirement">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+</xs:complexType>
+
+```
+````
 `````
 (lemsschema:instancerequirement_)=
 ## InstanceRequirement
@@ -211,6 +417,16 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 :delim: $
 
 **name**$ String$ name
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="InstanceRequirement">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="type" type="xs:string" use="required"/>
+</xs:complexType>
 
 ```
 ````
@@ -233,6 +449,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Exposure">
+  <xs:complexContent>
+    <xs:extension base="NamedDimensionalType"/>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Exposure name="v" dimension="voltage"/>
+```
+```{code-block} xml
+<Exposure name="tsince" dimension="time"/>
+```
+```{code-block} xml
+<Exposure name="r" dimension="per_time"/>
+```
+```{code-block} xml
+<Exposure name="fcond" dimension="none"/>
+```
+```{code-block} xml
+<Exposure name="fcond" dimension="none"/>
+```
+````
 `````
 (lemsschema:child_)=
 ## Child
@@ -252,6 +498,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Child">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="type" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Child name="Connections" type="ConnectionPattern"/>
+```
+```{code-block} xml
+<Child name="Forward" type="HHRate"/>
+```
+```{code-block} xml
+<Child name="Reverse" type="HHRate"/>
+```
+```{code-block} xml
+<Child name="Forward" type="HHRate"/>
+```
+```{code-block} xml
+<Child name="Reverse" type="HHRate"/>
+```
+````
 `````
 (lemsschema:children_)=
 ## Children
@@ -268,6 +544,38 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **name**$ String$ Name of the children
 **type**$ String$ The class of component allowed as children.
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Children">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="type" type="xs:string" use="optional"/>
+  <xs:attribute name="min" type="xs:integer" use="optional"/>
+  <xs:attribute name="max" type="xs:integer" use="optional"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Children name="populations" type="Population"/>
+```
+```{code-block} xml
+<Children name="connectivities" type="EventConnectivity"/>
+```
+```{code-block} xml
+<Children name="lines" type="Line"/>
+```
+```{code-block} xml
+<Children name="outputColumn" type="OutputColumn"/>
+```
+```{code-block} xml
+<Children name="displays" type="Display"/>
 ```
 ````
 `````
@@ -289,6 +597,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Link">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="type" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Link name="source" type="Population"/>
+```
+```{code-block} xml
+<Link name="target" type="Population"/>
+```
+```{code-block} xml
+<Link name="from" type="KSState"/>
+```
+```{code-block} xml
+<Link name="to" type="KSState"/>
+```
+```{code-block} xml
+<Link name="from" type="KSState"/>
+```
+````
 `````
 (lemsschema:componentreference_)=
 ## ComponentReference
@@ -306,6 +644,37 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **type**$ String$ The type of the target Component
 **description**$ String$ An optional description of the ComponentReference
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="ComponentReference">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="type" type="xs:string" use="required"/>
+  <xs:attribute name="local" type="xs:string" use="optional"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<ComponentReference name="component" type="Component"/>
+```
+```{code-block} xml
+<ComponentReference name="target" type="Component"/>
+```
+```{code-block} xml
+<ComponentReference name="channel" type="HHChannel"/>
+```
+```{code-block} xml
+<ComponentReference name="component" type="Component"/>
+```
+```{code-block} xml
+<ComponentReference name="synapse" type="Synapse"/>
 ```
 ````
 `````
@@ -378,6 +747,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="EventPort">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="direction" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<EventPort name="spikes-in" direction="in"/>
+```
+```{code-block} xml
+<EventPort name="a" direction="out"/>
+```
+```{code-block} xml
+<EventPort name="in" direction="in"/>
+```
+```{code-block} xml
+<EventPort name="out" direction="out"/>
+```
+```{code-block} xml
+<EventPort name="in" direction="in"/>
+```
+````
 `````
 (lemsschema:text_)=
 ## Text
@@ -394,6 +793,35 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **name**$ String$ The textual content
 **description**$ String$ An optional description of the element
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Text">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Text name="title"/>
+```
+```{code-block} xml
+<Text name="color"/>
+```
+```{code-block} xml
+<Text name="path"/>
+```
+```{code-block} xml
+<Text name="fileName"/>
+```
+```{code-block} xml
+<Text name="destination"/>
 ```
 ````
 `````
@@ -413,6 +841,35 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Path">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Path name="quantity"/>
+```
+```{code-block} xml
+<Path name="quantity"/>
+```
+```{code-block} xml
+<Path name="from"/>
+```
+```{code-block} xml
+<Path name="to"/>
+```
+```{code-block} xml
+<Path name="quantity"/>
+```
+````
 `````
 (lemsschema:attachments_)=
 ## Attachments
@@ -429,6 +886,24 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **name**$ String$ A name for the Attachments
 **type**$ String$ The type of the Attachments
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Attachments">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="type" type="xs:string" use="required"/>
+  <xs:attribute name="description" type="xs:string" use="optional"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Attachments name="synapses" type="Synapse"/>
 ```
 ````
 `````
@@ -475,6 +950,15 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="IndexParameter">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+</xs:complexType>
+
+```
+````
 `````
 (lemsschema:about_)=
 ## About
@@ -487,3 +971,16 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 <i>Meta element to provide arbitrary metadata to LEMS simulations. Note that this is not processed by the LEMS interpreter.</i>
 
+`````{tab-set}
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Meta">
+  <xs:sequence>
+    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+  </xs:sequence>
+  <xs:anyAttribute processContents="skip"/>
+</xs:complexType>
+
+```
+````
+`````

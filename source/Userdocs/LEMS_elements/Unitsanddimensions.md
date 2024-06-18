@@ -4,7 +4,8 @@
 
 
 
-Generated on 22/08/23.
+Schema against which LEMS based on these should be valid: [LEMS_v0.7.6.xsd](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS/LEMS_v0.7.6.xsd).
+Generated on 18/06/24 from [this](https://github.com/LEMS/LEMS/commit/fd7b30eceb6735ac343745c8f6992bdde72b248b) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/LEMS/LEMS/issues).
 
 ---
@@ -32,6 +33,40 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Dimension">
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="m" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="l" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="t" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="i" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="k" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="n" type="xs:integer" use="optional" default="0"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Dimension name="voltage" m="1" l="2" t="-3" i="-1"/>
+```
+```{code-block} xml
+<Dimension name="time" t="1"/>
+```
+```{code-block} xml
+<Dimension name="conductance" m="-1" l="-2" t="3" i="2"/>
+```
+```{code-block} xml
+<Dimension name="capacitance" m="-1" l="-2" t="4" i="2"/>
+```
+```{code-block} xml
+<Dimension name="current" i="1"/>
+```
+````
 `````
 (lemsschema:unit_)=
 ## Unit
@@ -52,6 +87,42 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **scale**$ double$ Scale, only to be used for scales which are not powers of ten
 **offset**$ double$ Offset for non zero-offset units
 
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Unit">
+  <xs:attribute name="symbol" type="xs:string" use="required"/>
+  <xs:attribute name="dimension" type="xs:string" use="required"/>
+  <xs:attribute name="power" type="xs:integer" use="optional" default="0">
+    <xs:annotation>
+      <xs:documentation>Some have asked whether fractional dimensions should be allowed. Disallowing it until needed...</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+  <xs:attribute name="scale" type="xs:float" use="optional" default="1"/>
+  <xs:attribute name="offset" type="xs:float" use="optional" default="0"/>
+</xs:complexType>
+
+```
+````
+
+
+````{tab-item} Usage: XML
+```{code-block} xml
+<Unit symbol="mV" dimension="voltage" power="-3"/>
+```
+```{code-block} xml
+<Unit symbol="ms" dimension="time" power="-3"/>
+```
+```{code-block} xml
+<Unit symbol="pS" dimension="conductance" power="-12"/>
+```
+```{code-block} xml
+<Unit symbol="nS" dimension="conductance" power="-9"/>
+```
+```{code-block} xml
+<Unit symbol="uF" dimension="capacitance" power="-6"/>
 ```
 ````
 `````

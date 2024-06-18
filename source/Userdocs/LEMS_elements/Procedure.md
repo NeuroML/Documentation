@@ -4,7 +4,8 @@
 
 
 
-Generated on 22/08/23.
+Schema against which LEMS based on these should be valid: [LEMS_v0.7.6.xsd](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS/LEMS_v0.7.6.xsd).
+Generated on 18/06/24 from [this](https://github.com/LEMS/LEMS/commit/fd7b30eceb6735ac343745c8f6992bdde72b248b) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/LEMS/LEMS/issues).
 
 ---
