@@ -25,7 +25,8 @@ page_header = env.from_string(textwrap.dedent(
     ---
     {%- endif %}
 
-    Generated on {{ todays_date }}.
+    Schema against which LEMS based on these should be valid: [LEMS_v{{ lems_version }}.xsd](https://github.com/LEMS/LEMS/tree/{{ lems_branch }}/Schemas/LEMS/LEMS_v{{ lems_version }}.xsd).
+    Generated on {{ lems_date }} from [this](https://github.com/LEMS/LEMS/commit/{{ lems_commit }}) commit.
     Please file any issues or questions at the [issue tracker here](https://github.com/LEMS/LEMS/issues).
 
     ---
