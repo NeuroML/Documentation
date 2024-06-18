@@ -62,47 +62,47 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <Dynamics>
-            <StateVariable name="t" dimension="time"/>
-        </Dynamics>
+    <StateVariable name="t" dimension="time"/>
+</Dynamics>
 ```
 ```{code-block} xml
 <Dynamics>
-            <StateVariable name="x" dimension="none"/>
-            <DerivedVariable name="ex" dimension="none" value="exp(x)"/>
-            <DerivedVariable name="q" dimension="none" value="ex / (1 + ex)"/>
-            <DerivedVariable name="rf" dimension="per_time" select="Forward/r"/>
-            <DerivedVariable name="rr" dimension="per_time" select="Reverse/r"/>
-            <TimeDerivative variable="x" value="(1 + ex)^2 / ex * (rf * (1 - q) - rr * q)"/>
-            <DerivedVariable name="fcond" dimension="none" exposure="fcond" value="q^power"/>
-        </Dynamics>
+    <StateVariable name="x" dimension="none"/>
+    <DerivedVariable name="ex" dimension="none" value="exp(x)"/>
+    <DerivedVariable name="q" dimension="none" value="ex / (1 + ex)"/>
+    <DerivedVariable name="rf" dimension="per_time" select="Forward/r"/>
+    <DerivedVariable name="rr" dimension="per_time" select="Reverse/r"/>
+    <TimeDerivative variable="x" value="(1 + ex)^2 / ex * (rf * (1 - q) - rr * q)"/>
+    <DerivedVariable name="fcond" dimension="none" exposure="fcond" value="q^power"/>
+</Dynamics>
 ```
 ```{code-block} xml
 <Dynamics>
-            <StateVariable name="q" dimension="none"/>
-            <DerivedVariable dimension="per_time" name="rf" select="Forward/r"/>
-            <DerivedVariable dimension="per_time" name="rr" select="Reverse/r"/>
-            <TimeDerivative variable="q" value="rf * (1 - q) - rr * q"/>
-            <DerivedVariable name="fcond" dimension="none" exposure="fcond" value="q^power"/>
-        </Dynamics>
+    <StateVariable name="q" dimension="none"/>
+    <DerivedVariable dimension="per_time" name="rf" select="Forward/r"/>
+    <DerivedVariable dimension="per_time" name="rr" select="Reverse/r"/>
+    <TimeDerivative variable="q" value="rf * (1 - q) - rr * q"/>
+    <DerivedVariable name="fcond" dimension="none" exposure="fcond" value="q^power"/>
+</Dynamics>
 ```
 ```{code-block} xml
 <Dynamics>
-            <OnStart>
-                <StateAssignment variable="v" value="v0"/>
-            </OnStart>
-            <DerivedVariable name="totcurrent" dimension="current" select="populations[*]/current" reduce="add"/>
-            <StateVariable name="v" exposure="v" dimension="voltage"/>
-            <TimeDerivative variable="v" value="(totcurrent + injection) / capacitance"/>
-        </Dynamics>
+    <OnStart>
+        <StateAssignment variable="v" value="v0"/>
+    </OnStart>
+    <DerivedVariable name="totcurrent" dimension="current" select="populations[*]/current" reduce="add"/>
+    <StateVariable name="v" exposure="v" dimension="voltage"/>
+    <TimeDerivative variable="v" value="(totcurrent + injection) / capacitance"/>
+</Dynamics>
 ```
 ```{code-block} xml
 <Dynamics>
-            <StateVariable name="v" exposure="v" dimension="voltage"/>
-            <TimeDerivative variable="v" value="leakConductance * (leakReversal - v) / capacitance"/>
-            <OnEvent port="spikes-in">
-                <StateAssignment variable="v" value="v + deltaV"/>
-            </OnEvent>
-        </Dynamics>
+    <StateVariable name="v" exposure="v" dimension="voltage"/>
+    <TimeDerivative variable="v" value="leakConductance * (leakReversal - v) / capacitance"/>
+    <OnEvent port="spikes-in">
+        <StateAssignment variable="v" value="v + deltaV"/>
+    </OnEvent>
+</Dynamics>
 ```
 ````
 `````
@@ -344,28 +344,28 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <OnStart>
-                <StateAssignment variable="v" value="v0"/>
-            </OnStart>
+    <StateAssignment variable="v" value="v0"/>
+</OnStart>
 ```
 ```{code-block} xml
 <OnStart>
-                <StateAssignment variable="geff" value="0"/>
-            </OnStart>
+    <StateAssignment variable="geff" value="0"/>
+</OnStart>
 ```
 ```{code-block} xml
 <OnStart>
-                <StateAssignment variable="v" value="v0"/>
-            </OnStart>
+    <StateAssignment variable="v" value="v0"/>
+</OnStart>
 ```
 ```{code-block} xml
 <OnStart>
-                <StateAssignment variable="v" value="v0"/>
-            </OnStart>
+    <StateAssignment variable="v" value="v0"/>
+</OnStart>
 ```
 ```{code-block} xml
 <OnStart>
-                <StateAssignment variable="v" value="v0"/>
-            </OnStart>
+    <StateAssignment variable="v" value="v0"/>
+</OnStart>
 ```
 ````
 `````
@@ -406,32 +406,32 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <OnCondition test="tsince .gt. period">
-                <StateAssignment variable="tsince" value="0"/>
-                <EventOut port="a"/>
-            </OnCondition>
+    <StateAssignment variable="tsince" value="0"/>
+    <EventOut port="a"/>
+</OnCondition>
 ```
 ```{code-block} xml
 <OnCondition test="t - tlast .gt. period">
-                <StateAssignment variable="tlast" value="t"/>
-                <EventOut port="a"/>
-            </OnCondition>
+    <StateAssignment variable="tlast" value="t"/>
+    <EventOut port="a"/>
+</OnCondition>
 ```
 ```{code-block} xml
-<OnCondition test="v .gt. threshold">             
-                    <EventOut port="out"/>             
-                    <Transition regime="refr"/>         
-                </OnCondition>
+<OnCondition test="v .gt. threshold">
+    <EventOut port="out"/>
+    <Transition regime="refr"/>
+</OnCondition>
 ```
 ```{code-block} xml
-<OnCondition test="t .gt. tin + refractoryPeriod">                 
-                    <Transition regime="int"/>             
-                </OnCondition>
+<OnCondition test="t .gt. tin + refractoryPeriod">
+    <Transition regime="int"/>
+</OnCondition>
 ```
 ```{code-block} xml
 <OnCondition test="tsince .gt. period">
-                <StateAssignment variable="tsince" value="0"/>
-                <EventOut port="a"/>
-            </OnCondition>
+    <StateAssignment variable="tsince" value="0"/>
+    <EventOut port="a"/>
+</OnCondition>
 ```
 ````
 `````
@@ -482,23 +482,23 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <OnEvent port="spikes-in">
-                <StateAssignment variable="v" value="v + deltaV"/>
-            </OnEvent>
+    <StateAssignment variable="v" value="v + deltaV"/>
+</OnEvent>
 ```
 ```{code-block} xml
 <OnEvent port="in">
-                <StateAssignment variable="geff" value="geff + deltaG"/>
-            </OnEvent>
+    <StateAssignment variable="geff" value="geff + deltaG"/>
+</OnEvent>
 ```
 ```{code-block} xml
 <OnEvent port="in">
-                    <StateAssignment variable="v" value="v + deltaV"/>
-                </OnEvent>
+    <StateAssignment variable="v" value="v + deltaV"/>
+</OnEvent>
 ```
 ```{code-block} xml
 <OnEvent port="spikes-in">
-                <StateAssignment variable="v" value="v + deltaV"/>
-            </OnEvent>
+    <StateAssignment variable="v" value="v + deltaV"/>
+</OnEvent>
 ```
 ````
 `````
@@ -640,27 +640,27 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````{tab-item} Usage: XML
 ```{code-block} xml
-<Regime name="int" initial="true">         
-                <TimeDerivative variable="v" value="(current + gleak * (vleak - v)) / capacitance"/>         
-                <OnCondition test="v .gt. threshold">             
-                    <EventOut port="out"/>             
-                    <Transition regime="refr"/>         
-                </OnCondition>         
-                <OnEvent port="in">
-                    <StateAssignment variable="v" value="v + deltaV"/>
-                </OnEvent>
-            </Regime>
+<Regime name="int" initial="true">
+    <TimeDerivative variable="v" value="(current + gleak * (vleak - v)) / capacitance"/>
+    <OnCondition test="v .gt. threshold">
+        <EventOut port="out"/>
+        <Transition regime="refr"/>
+    </OnCondition>
+    <OnEvent port="in">
+        <StateAssignment variable="v" value="v + deltaV"/>
+    </OnEvent>
+</Regime>
 ```
 ```{code-block} xml
-<Regime name="refr">         
-                <OnEntry>             
-                    <StateAssignment variable="tin" value="t"/>             
-                    <StateAssignment variable="v" value="vreset"/>          
-                </OnEntry>                   
-                <OnCondition test="t .gt. tin + refractoryPeriod">                 
-                    <Transition regime="int"/>             
-                </OnCondition>         
-            </Regime>
+<Regime name="refr">
+    <OnEntry>
+        <StateAssignment variable="tin" value="t"/>
+        <StateAssignment variable="v" value="vreset"/>
+    </OnEntry>
+    <OnCondition test="t .gt. tin + refractoryPeriod">
+        <Transition regime="int"/>
+    </OnCondition>
+</Regime>
 ```
 ````
 `````
@@ -697,10 +697,10 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 
 ````{tab-item} Usage: XML
 ```{code-block} xml
-<OnEntry>             
-                    <StateAssignment variable="tin" value="t"/>             
-                    <StateAssignment variable="v" value="vreset"/>          
-                </OnEntry>
+<OnEntry>
+    <StateAssignment variable="tin" value="t"/>
+    <StateAssignment variable="v" value="vreset"/>
+</OnEntry>
 ```
 ````
 `````

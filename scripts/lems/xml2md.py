@@ -110,13 +110,14 @@ def get_lems_examples(srcdirs, examples_max=5):
                     examples.sort(key=len, reverse=True)
                     # Let's only keep the first 5 examples
                     for example in examples:
+                        ET.indent(example, space="    ")
                         if len(lems_element_examples[lems_element]) < examples_max:
-                            lems_element_examples[lems_element].append(
-                                ET.tostring(example, pretty_print=True,
-                                            encoding="unicode", with_comments="False"
-                                            )
-                            )
-    #  print(lems_element_examples)
+                            example_string = ET.tostring(example, pretty_print=True,
+                                                         encoding="unicode", with_comments="False"
+                                                         )
+                            lems_element_examples[lems_element].append(example_string)
+                            print(example_string)
+    # print(lems_element_examples)
 
 
 def get_schema_doc(schemafile):
@@ -294,7 +295,7 @@ def main(srcdir, destdir):
 # print(parsed_data)
 
 if __name__ == "__main__":
-    # src = "/home/asinha/Documents/02_Code/00_mine/NeuroML/software/NeuroML2/"
+    # src = "/home/asinha/Documents/02_Code/00_mine/NeuroML/software/LEMS/"
     src = None
     destdir = "../../source/Userdocs/LEMS_elements/"
     main(src, destdir)

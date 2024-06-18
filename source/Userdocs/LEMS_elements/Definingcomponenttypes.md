@@ -107,37 +107,36 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <ComponentType name="Population">
-        <ComponentReference name="component" type="Component"/>
-        <Parameter name="size" dimension="none"/>
-        <Structure>
-            <MultiInstantiate number="size" component="component"/>
-        </Structure>
-    </ComponentType>
+    <ComponentReference name="component" type="Component"/>
+    <Parameter name="size" dimension="none"/>
+    <Structure>
+        <MultiInstantiate number="size" component="component"/>
+    </Structure>
+</ComponentType>
 ```
 ```{code-block} xml
 <ComponentType name="EventConnectivity">
-        <Link name="source" type="Population"/>
-        <Link name="target" type="Population"/>
-        <Child name="Connections" type="ConnectionPattern"/>
-    </ComponentType>
+    <Link name="source" type="Population"/>
+    <Link name="target" type="Population"/>
+    <Child name="Connections" type="ConnectionPattern"/>
+</ComponentType>
 ```
 ```{code-block} xml
 <ComponentType name="Network">
-        <Children name="populations" type="Population"/>
-        <Children name="connectivities" type="EventConnectivity"/>
-    </ComponentType>
+    <Children name="populations" type="Population"/>
+    <Children name="connectivities" type="EventConnectivity"/>
+</ComponentType>
 ```
 ```{code-block} xml
 <ComponentType name="AllAll" extends="ConnectionPattern">
-        <Structure>
-            <ForEach instances="../source" as="a">
-                <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
-            </ForEach>    
-        </Structure>
-       
-    </ComponentType>
+    <Structure>
+        <ForEach instances="../source" as="a">
+            <ForEach instances="../target" as="b">
+                <EventConnection from="a" to="b"/>
+            </ForEach>
+        </ForEach>
+    </Structure>
+</ComponentType>
 ```
 ```{code-block} xml
 <ComponentType name="ConnectionPattern"/>

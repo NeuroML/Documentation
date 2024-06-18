@@ -47,35 +47,34 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <Structure>
-            <MultiInstantiate number="size" component="component"/>
-        </Structure>
+    <MultiInstantiate number="size" component="component"/>
+</Structure>
 ```
 ```{code-block} xml
 <Structure>
-            <ForEach instances="../source" as="a">
-                <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
-            </ForEach>    
-        </Structure>
+    <ForEach instances="../source" as="a">
+        <ForEach instances="../target" as="b">
+            <EventConnection from="a" to="b"/>
+        </ForEach>
+    </ForEach>
+</Structure>
 ```
 ```{code-block} xml
 <Structure>
-            <ChildInstance component="channel"/>
-        </Structure>
+    <ChildInstance component="channel"/>
+</Structure>
 ```
 ```{code-block} xml
 <Structure>
-            <With instance="from" as="a"/>
-            <With instance="to" as="b"/>
-            <EventConnection from="a" to="b" receiver="synapse" receiverContainer="destination" sourcePort="sourcePort" targetPort="targetPort"/>
-        
-        </Structure>
+    <With instance="from" as="a"/>
+    <With instance="to" as="b"/>
+    <EventConnection from="a" to="b" receiver="synapse" receiverContainer="destination" sourcePort="sourcePort" targetPort="targetPort"/>
+</Structure>
 ```
 ```{code-block} xml
 <Structure>
-            <MultiInstantiate number="size" component="component"/>
-        </Structure>
+    <MultiInstantiate number="size" component="component"/>
+</Structure>
 ```
 ````
 `````
@@ -268,34 +267,34 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <ForEach instances="../source" as="a">
-                <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
-            </ForEach>
+    <ForEach instances="../target" as="b">
+        <EventConnection from="a" to="b"/>
+    </ForEach>
+</ForEach>
 ```
 ```{code-block} xml
 <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
+    <EventConnection from="a" to="b"/>
+</ForEach>
 ```
 ```{code-block} xml
 <ForEach instances="../source" as="a">
-                <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
-            </ForEach>
+    <ForEach instances="../target" as="b">
+        <EventConnection from="a" to="b"/>
+    </ForEach>
+</ForEach>
 ```
 ```{code-block} xml
 <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
+    <EventConnection from="a" to="b"/>
+</ForEach>
 ```
 ```{code-block} xml
 <ForEach instances="../source" as="a">
-                <ForEach instances="../target" as="b">
-                    <EventConnection from="a" to="b"/>
-                </ForEach>
-            </ForEach>
+    <ForEach instances="../target" as="b">
+        <EventConnection from="a" to="b"/>
+    </ForEach>
+</ForEach>
 ```
 ````
 `````

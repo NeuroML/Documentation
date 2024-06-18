@@ -53,28 +53,28 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <Simulation>
-            <DataDisplay title="title" dataRegion="xmin,xmax,ymin,ymax"/>
-        </Simulation>
+    <DataDisplay title="title" dataRegion="xmin,xmax,ymin,ymax"/>
+</Simulation>
 ```
 ```{code-block} xml
 <Simulation>
-            <Record quantity="quantity" timeScale="timeScale" scale="scale" color="color"/>
-        </Simulation>
+    <Record quantity="quantity" timeScale="timeScale" scale="scale" color="color"/>
+</Simulation>
 ```
 ```{code-block} xml
 <Simulation>
-            <DataWriter path="path" fileName="fileName"/>
-        </Simulation>
+    <DataWriter path="path" fileName="fileName"/>
+</Simulation>
 ```
 ```{code-block} xml
 <Simulation>
-            <Record quantity="quantity"/>
-        </Simulation>
+    <Record quantity="quantity"/>
+</Simulation>
 ```
 ```{code-block} xml
 <Simulation>
-            <Run component="target" variable="t" increment="step" total="length"/>
-        </Simulation>
+    <Run component="target" variable="t" increment="step" total="length"/>
+</Simulation>
 ```
 ````
 `````
