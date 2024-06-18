@@ -89,3 +89,17 @@ schema_quote = env.from_string(textwrap.dedent(
     ````
     """
 ))
+
+examples = env.from_string(textwrap.dedent(
+    """
+    {% if lemsexamples|length > 0 %}
+    ````{tab-item} {{ title }}: XML
+    {% for e in lemsexamples -%}
+    ```{code-block} xml
+    {{ e|trim }}
+    ```
+    {% endfor -%}
+    ````
+    {%- endif -%}
+    """
+))
