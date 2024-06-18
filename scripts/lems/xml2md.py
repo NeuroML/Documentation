@@ -7,6 +7,7 @@ File: scripts/lems/xml2md.py
 Copyright 2023 NeuroML contributors
 """
 
+import logging
 import tempfile
 import subprocess
 import re
@@ -16,6 +17,10 @@ import xmltodict
 from datetime import date
 import asttemplates
 from collections import OrderedDict
+
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.DEBUG)
 
 
 # pages to which different sections should belong
@@ -84,7 +89,7 @@ def get_schema_doc(schemafile):
 
 
 def main(srcdir, destdir):
-    """TODO: Docstring for main.
+    """Main runner function.
 
     :param arg1: TODO
     :returns: TODO
@@ -111,9 +116,6 @@ def main(srcdir, destdir):
     output = subprocess.run(commit_command, capture_output=True,
                             cwd=tmpsrcdir, text=True)
     lems_commit = output.stdout
-
-    # start
-    get_schema_doc(xsdsrc)
 
     # populate our page info
     with open(srcfile, 'r') as ast_doc:
@@ -142,7 +144,10 @@ def main(srcdir, destdir):
         )
     )
 
-    print(parsed_data)
+    logger.debug(parsed_data)
+
+    # start
+    get_schema_doc(xsdsrc)
 
     # render templates
     for pg, pginfo in sections_pages.items():
@@ -160,7 +165,18 @@ def main(srcdir, destdir):
                 print(
                     asttemplates.elementtype.render(et=et),
                     file=ast_doc)
-                if 'Property' in et or 'ListProperty' in et:
+
+                # if the component has schema documentation, add that, otherwise
+                comp_type_schemadoc = None
+                # skip
+                try:
+                    comp_type_schemadoc = comp_type_schema[et['@name'].lower()]
+                    logger.debug(f"Schema doc for {et['@name']}")
+                    logger.debug(comp_type_schemadoc)
+                except KeyError:
+                    logger.warning(f"No schema doc found for {et['@name']}")
+
+                if 'Property' in et or 'ListProperty' in et or comp_type_schemadoc is not None:
                     print("""`````{tab-set}""", end="", file=ast_doc)
 
                 try:
@@ -187,8 +203,11 @@ def main(srcdir, destdir):
                 except KeyError:
                     pass
 
+                if comp_type_schemadoc is not None:
+                    print(asttemplates.schema_quote.render(schemadoc=comp_type_schemadoc), file=ast_doc)
+
                 # process them, close tab-set
-                if 'Property' in et or 'ListProperty' in et:
+                if 'Property' in et or 'ListProperty' in et or comp_type_schemadoc is not None:
                     print("""`````""", end="", file=ast_doc)
 
 
