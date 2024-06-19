@@ -66,6 +66,66 @@ The NeuroML validation tools will check for some of these and report errors wher
 (userdocs:importing_morphology_files:formats)=
 ## Formats
 
+(userdocs:importing_morphology_files:formats:neuroml)=
+### NeuroML2
+
+In NeuroML, morphologies are encapsulated in the {ref}`morphology <schema:morphology>` modelling element.
+A morphology includes {ref}`segments <schema:segment>` and {ref}`segments groups <schema:segmentgroup>`, and these can be used to refer to parts of the cell's morphology, for example, when placing ionic conductances.
+A number of conventions for use in morphologies are listed {ref}`here <userdocs:conventions:segments>`.
+
+(userdocs:importing_morphology_files:formats:neuroml:external)=
+#### Morphologies can be stored in external files
+
+```{admonition} Requires jNeuroML v0.13.2, pyNeuroML v1.3.2
+:class: note
+The functionality to store morphology information in external files was implemented in jNeuroML v0.13.2, and pyNeuroML v1.3.2. Please ensure you are using these or newer versions to use this feature.
+```
+
+Usually, morphologies are embedded in NeuroML cell definition files, {ref}`for example <userdocs:getting_started:multi_compartment_example>`:
+
+```{code-block} xml
+
+    <cell id="pyr_soma_m_in_b_in">
+    <!-- ... -->
+
+        <morphology id="morph0">
+
+            <segment >
+            <!-- more segments and segment groups -->
+
+        </morphology>
+
+        <biophysicalProperties id="biophys1">
+            <!-- biophysical properties contents -->
+        </biophysicalProperties>
+
+    </cell>
+```
+
+However, morphologies (and {ref}`biophysical properties <schema:biophysicalproperties>`) can also be stored as "standalone" entities outside the cell definition and referred to.
+Further, they can also be stored in external files that may be "included" in the cell definition file (using the [IncludeType](https://libneuroml.readthedocs.io/en/latest/userdocs/coreclasses.html#includetype) model element).
+This allows the re-use of morphology and biophysical properties in multiple cell models:
+
+```{code-block} xml
+    <cell id="pyr_soma_m_out_b_out" morphology="morph0" biophysicalProperties="biophys1">
+        <!-- cell contents without morphology and biophysical properties -->
+    </cell>
+
+    <!-- Potentially in other files... -->
+
+    <morphology id="morph0">
+
+        <segment >
+        <!-- more segments and segment groups -->
+
+    </morphology>
+
+    <biophysicalProperties id="biophys1">
+        <!-- biophysical properties contents -->
+    </biophysicalProperties>
+
+```
+
 (userdocs:importing_morphology_files:formats:neuron)=
 ### NEURON
 
