@@ -140,12 +140,8 @@ The format for a GENESIS cell description is given [here](http://www.genesis-sim
 (userdocs:importing_morphology_files:formats:cvapp_swc)=
 ### CVApp/SWC files
 
-The SWC format was developed to cover most of the information common between Neurolucida, NEURON, and GENESIS formats.
-It is used by resources such as NeuroMorpho.org.
+Please see this {ref}`page <userdocs:cvapp>`.
 
-Information on the SWC format can be found in the [NeuroMorpho FAQ](http://neuromorpho.org/myfaq.jsp) under the "What is SWC format" entry.
-
-Recommended applications for converting SWC into NeuroML are CVApp and neuroConstruct (see below).
 
 (userdocs:importing_morphology_files:formats:neurolucida)=
 ### Neurolucida
@@ -169,9 +165,6 @@ For more information, please see this {ref}`page <userdocs:cvapp>`.
 
 {ref}`neuroConstruct <userdocs:supporting:apps:neuroconstruct>` includes functionality to interactively import GENESIS, NEURON, CVapp (SWC), Neurolucida, and older MorphML formats to NeuroML2.
 Please see the [neuroConstruct documentation](http://www.neuroconstruct.org/docs/import.html) for more information.
-
-Conversion of neuroConstruct's importing functions into pure Python for inclusion in {ref}`pyNeuroML <pyneuroml>` [is a work in progress](https://github.com/NeuroML/pyNeuroML/issues/89).
-Please contact us if you would like to help with this task.
 
 (userdocs:importing_morphology_files:tools:pyneuroml)=
 ### pyNeuroML
