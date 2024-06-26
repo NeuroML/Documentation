@@ -98,6 +98,7 @@ parts:
             - file: Userdocs/Software/Tools/Arbor
             - file: Userdocs/Software/Tools/N2A
             - file: Userdocs/Software/Tools/NEST
+            - file: Userdocs/Software/Tools/CVApp
     - file: Userdocs/Publications
     - file: Userdocs/FAQ
     - file: Userdocs/Walkthroughs/Walkthroughs
