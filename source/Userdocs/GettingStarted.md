@@ -17,16 +17,16 @@ We present below a set of step-by-step guides to illustrate how models are writt
 | Link to guide    | Description | Model life cycle stages |
 | :------ | ----------- | ----------------------- |
 | | **Introductory guides** ||
-| [Guide 1](https://docs.neuroml.org/Userdocs/NML2_examples/SingleNeuron.html) | Create and simulate a simple regular spiking Izhikevich neuron in NeuroML | Create, Validate, Simulate |
-| [Guide 2](https://docs.neuroml.org/Userdocs/IzhikevichNetworkExample.html) | Create a network of two synaptically connected populations of Izhikevich neurons  | Create, Validate, Visualise, Simulate |
-| [Guide 3](https://docs.neuroml.org/Userdocs/SingleCompartmentHHExample.html) | Build and simulate a single compartment Hodgkin-Huxley neuron | Create, Validate, Visualise, Simulate |
-| [Guide 4](https://docs.neuroml.org/Userdocs/MultiCompartmentOLMexample.html) | Create and simulate a multi compartment hippocampal OLM neuron | Create, Validate, Visualise, Simulate |
-| [Guide 5](https://docs.neuroml.org/Userdocs/NML2_examples/NeuroML-DB.html) | Create novel NeuroML models from components on NeuroML-DB | Reuse, Create, Validate, Simulate |
+| {ref}`Guide 1 <userdocs:getting_started:single_example>` | Create and simulate a simple regular spiking Izhikevich neuron in NeuroML | Create, Validate, Simulate |
+| {ref}`Guide 2 <userdocs:gettingstarted:izhikevichnetwork>`| Create a network of two synaptically connected populations of Izhikevich neurons  | Create, Validate, Visualise, Simulate |
+| {ref}`Guide 3 <userdocs:getting_started:single_compartment_example>`| Build and simulate a single compartment Hodgkin-Huxley neuron | Create, Validate, Visualise, Simulate |
+| {ref}`Guide 4 <userdocs:getting_started:multi_compartment_example>`| Create and simulate a multi compartment hippocampal OLM neuron | Create, Validate, Visualise, Simulate |
 | | **Advanced guides** ||
-| [Guide 6](https://docs.neuroml.org/Userdocs/OptimisingNeuroMLModels) | Optimise/fit NeuroML models to experimental data | Create, Validate, Simulate, Fit |
-| [Guide 7](https://docs.neuroml.org/Userdocs/CreatingNeuroMLModels.html\#converting-cell-models-to-neuroml-and-sharing-them-on-open-source-brain) | Guide to converting cell models to NeuroML and sharing them on Open Source Brain | Create, Validate, Simulate, Share |
-| [Guide 8](https://docs.neuroml.org/Userdocs/ExtendingNeuroMLv2.html\#example-lorenz-model-for-cellular-convection) | Extend NeuroML by creating a novel model type in LEMS  | Create, Simulate |
+| [Guide 5](https://docs.neuroml.org/Userdocs/NML2_examples/NeuroML-DB.html) | Create novel NeuroML models from components on NeuroML-DB | Reuse, Create, Validate, Simulate |
+| {ref}`Guide 6 <userdocs:optimising>` | Optimise/fit NeuroML models to experimental data | Create, Validate, Simulate, Fit |
+| {ref}`Guide 7 <userdocs:extending>`| Extend NeuroML by creating a novel model type in LEMS  | Create, Simulate |
 | | **Step by step walkthroughs** ||
+| {ref}`Guide 8 <userdocs:creating_models:converting_conductance>`| Guide to converting cell models to NeuroML and sharing them on Open Source Brain | Create, Validate, Simulate, Share |
 | {ref}`Guide 9 <userdocs:walkthroughs:rayetal2020>`| Conversion of Ray et al 2020 {cite}`Ray2020` to NeuroML | Create, Validate, Visualise, Simulate, Extend using LEMS |
 
 

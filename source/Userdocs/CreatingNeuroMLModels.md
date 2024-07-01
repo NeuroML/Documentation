@@ -12,6 +12,7 @@ There are an increasing number of resources where you can find and analyse previ
 
 The toolchain around NeuroML means that it is possible to create a model in NeuroML format from the start. Please see the {ref}`Getting Started with NeuroML section <userdocs:getting_started_neuroml>` for quick examples on how you can use {ref}`pyNeuroML <pyneuroml>` to create NeuroML models and run them.
 
+(userdocs:creating_models:from_published)=
 **3) Convert a published model developed in a simulator specific format to NeuroML**
 
 Most computational models used in publications are released in the particular format used by the authors during their research, often in a general purpose simulator like {ref}`NEURON <userdocs:supporting:apps:neuron>`. Many of these can be found on [ModelDB](https://senselab.med.yale.edu/ModelDB/default). Converting one of these to NeuroML format will mean that all further developments/modifications of the model will be standards compliant, and will give access to all of the NeuroML compliant tools for visualising/analysing/optimising/sharing the model, as well as providing multiple options for executing the model across multiple simulators.
