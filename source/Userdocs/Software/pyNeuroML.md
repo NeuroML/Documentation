@@ -67,29 +67,80 @@ pip install pyneuroml
 By default, this will only install the minimal set of packages required to use pyNeuroML.
 To use pyNeuroML with specific {ref}`supporting tools <userdocs:supporting:apps>`, please install them as required:
 
-```{code-block} console
-pip install pyneuroml[neuron]       # for NEURON simulation backend
-pip install pyneuroml[brian]        # for Brian2 simulation backend
-pip install pyneuroml[netpyne]      # for NetPyNE simulation backend
-pip install pyneuroml[povray]       # for povray functions
-pip install pyneuroml[hdf5]         # for HDF5 support
-pip install pyneuroml[analysis]     # for analysis functions
-pip install pyneuroml[tune]         # for tuning/fitting functions
-pip install pyneuroml[vispy]        # for 3D interactive morphology plotting using vispy
-pip install pyneuroml[plotly]       # for interactive plotting with plotly
-pip install pyneuroml[nsg]          # pulls in pynsgr to use NSG
-pip install pyneuroml[combine]      # includes libsbml, libsedml
-pip install pyneuroml[tellurium]    # for Tellurium simulation backend
-pip install pyneuroml[all]          # installs all of the above
-pip install pyneuroml[dev]          # installs the above and other test related packages
-pip install pyneuroml[doc]          # for building documentation
-```
 
-Please note that for compiling NEURON mod files, you also need a C compiler and the `make` utility installed on your computer.
+- simulation backends
+
+  - {code}`pip install pyneuroml[neuron]`:       NEURON
+  - {code}`pip install pyneuroml[brian]`:        Brian2
+  - {code}`pip install pyneuroml[netpyne]`:      NetPyNE
+  - {code}`pip install pyneuroml[tellurium]`:    Tellurium
+
+- COMBINE formats (SEDML/SBML):
+
+  - {code}`pip install pyneuroml[combine]`
+
+- analysis and visualization
+
+  - {code}`pip install pyneuroml[analysis]`
+
+- visualization
+
+  - VisPy:
+
+    - {code}`pip install pyneuroml[vispy]`:        Qt6 (default): 
+    - {code}`pip install pyneuroml[vispy-qt5]`  :   Qt5
+    - {code}`pip install pyneuroml[vispy-common]`: to manually use another [supported backend](https://vispy.org/installation): 
+
+  - {code}`pip install pyneuroml[povray]`:         Povray
+  - {code}`pip install pyneuroml[plotly]`:       PlotLy
+
+- model fitting
+
+  - {code}`pip install pyneuroml[tune]`
+
+- HDF5 support
+
+  - {code}`pip install pyneuroml[hdf5]`
+
+- Neuroscience Gateway (NSG) support
+
+  - {code}`pip install pyneuroml[nsg]`
+
+- RDF annotations
+
+  - {code}`pip install pyneuroml[annotations]`
+
+A number of "meta" packages are also available:
+
+- {code}`pip install pyneuroml[all]`: install everything
+- {code}`pip install pyneuroml[dev]`: install for development
+- {code}`pip install pyneuroml[doc]`: install for building documentation
+
+(pyneuroml:optional)=
+### Installing optional dependencies
+
+The optional "extras" provided by pyNeuroML may require some additional software to be installed that is not Python based, and so cannot be automatically installed using {code}`pip`:
+
+
+#### NEURON
+
+For compiling NEURON mod files, you also need a C compiler and the `make` utility installed on your computer.
 Additionally, to run parallel simulations the [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) libraries are also needed.
 Please see the [NEURON installation documentation](https://www.neuron.yale.edu/neuron/download) for more information on installing NEURON on your computer.
 
-For more information on individual simulation backends, please refer to their respective documentations.
+#### Povray
+
+Requires the installation of the [Povray](http://www.povray.org/) tool.
+
+#### Vispy
+
+Requires installation of a [back end](https://vispy.org/installation).
+The default is [Qt6](https://www.qt.io/), but one can also use Qt5, or a different back end.
+Vispy also makes use of GPUs via [OpenGL](https://en.wikipedia.org/wiki/OpenGL).
+So a recent GPU is recommended for larger scale models.
+
+
+For more information on individual simulation backends and extras, please refer to their respective documentations.
 
 (pyneuroml:install_fedora)=
 ### Installation on Fedora Linux

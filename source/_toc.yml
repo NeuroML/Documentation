@@ -6,6 +6,7 @@ parts:
     chapters:
     - file: Userdocs/MissionAndAims
     - file: Userdocs/Usage
+    - file: Userdocs/GetNeuroML
     - file: Userdocs/GettingStarted
       sections:
       - file: Userdocs/SingleNeuronExample
