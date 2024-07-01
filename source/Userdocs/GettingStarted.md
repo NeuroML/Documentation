@@ -16,14 +16,19 @@ We present below a set of step-by-step guides to illustrate how models are writt
 
 | Link to guide    | Description | Model life cycle stages |
 | :------ | ----------- | ----------------------- |
+| | **Introductory guides** ||
 | [Guide 1](https://docs.neuroml.org/Userdocs/NML2_examples/SingleNeuron.html) | Create and simulate a simple regular spiking Izhikevich neuron in NeuroML | Create, Validate, Simulate |
 | [Guide 2](https://docs.neuroml.org/Userdocs/IzhikevichNetworkExample.html) | Create a network of two synaptically connected populations of Izhikevich neurons  | Create, Validate, Visualise, Simulate |
 | [Guide 3](https://docs.neuroml.org/Userdocs/SingleCompartmentHHExample.html) | Build and simulate a single compartment Hodgkin-Huxley neuron | Create, Validate, Visualise, Simulate |
 | [Guide 4](https://docs.neuroml.org/Userdocs/MultiCompartmentOLMexample.html) | Create and simulate a multi compartment hippocampal OLM neuron | Create, Validate, Visualise, Simulate |
-| [Guide 5](https://docs.neuroml.org/Userdocs/OptimisingNeuroMLModels) | Optimise/fit NeuroML models to experimental data | Create, Validate, Simulate, Fit |
-| [Guide 6](https://docs.neuroml.org/Userdocs/CreatingNeuroMLModels.html\#converting-cell-models-to-neuroml-and-sharing-them-on-open-source-brain) | Guide to converting cell models to NeuroML and sharing them on Open Source Brain | Create, Validate, Simulate, Share |
-| [Guide 7](https://docs.neuroml.org/Userdocs/NML2_examples/NeuroML-DB.html) | Create novel NeuroML models from components on NeuroML-DB | Reuse, Create, Validate, Simulate |
+| [Guide 5](https://docs.neuroml.org/Userdocs/NML2_examples/NeuroML-DB.html) | Create novel NeuroML models from components on NeuroML-DB | Reuse, Create, Validate, Simulate |
+| | **Advanced guides** ||
+| [Guide 6](https://docs.neuroml.org/Userdocs/OptimisingNeuroMLModels) | Optimise/fit NeuroML models to experimental data | Create, Validate, Simulate, Fit |
+| [Guide 7](https://docs.neuroml.org/Userdocs/CreatingNeuroMLModels.html\#converting-cell-models-to-neuroml-and-sharing-them-on-open-source-brain) | Guide to converting cell models to NeuroML and sharing them on Open Source Brain | Create, Validate, Simulate, Share |
 | [Guide 8](https://docs.neuroml.org/Userdocs/ExtendingNeuroMLv2.html\#example-lorenz-model-for-cellular-convection) | Extend NeuroML by creating a novel model type in LEMS  | Create, Simulate |
+| | **Step by step walkthroughs** ||
+| {ref}`Guide 9 <userdocs:walkthroughs:rayetal2020>`| Conversion of Ray et al 2020 {cite}`Ray2020` to NeuroML | Create, Validate, Visualise, Simulate, Extend using LEMS |
 
 
-You do not need to install any software on your computers to run many of the examples above. These examples are followed by a [Jupyter notebook](https://jupyter.org/index.html) for you to experiment with inside your browser ({ref}`more info <userdocs:usage:jupyterbooks>`).
+You do not need to install any software on your computers to run many of the examples above.
+These examples are followed by a [Jupyter notebook](https://jupyter.org/index.html) for you to experiment with inside your browser ({ref}`more info <userdocs:usage:jupyterbooks>`).
