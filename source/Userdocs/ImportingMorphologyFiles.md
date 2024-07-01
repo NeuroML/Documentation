@@ -140,7 +140,7 @@ The format for a GENESIS cell description is given [here](http://www.genesis-sim
 (userdocs:importing_morphology_files:formats:cvapp_swc)=
 ### CVApp/SWC files
 
-Please see this {ref}`page <userdocs:cvapp>`.
+Please see this {ref}`page <userdocs:swc>`.
 
 
 (userdocs:importing_morphology_files:formats:neurolucida)=
@@ -158,7 +158,7 @@ Not all of these features will be relevant when constructing a single cell compu
 ### CVApp
 
 The standalone [CVApp](https://github.com/pgleeson/Cvapp-NeuroMorpho.org) tool provides an interface to visualize SWC files and export them into NeuroML2.
-For more information, please see this {ref}`page <userdocs:cvapp>`.
+For more information, please see this {ref}`page <userdocs:swc>`.
 
 (userdocs:importing_morphology_files:tools:neuroconstruct)=
 ### neuroConstruct

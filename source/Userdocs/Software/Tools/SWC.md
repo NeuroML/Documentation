@@ -1,5 +1,5 @@
-(userdocs:cvapp)=
-# CVApp (SWC) and NeuroML
+(userdocs:swc)=
+# SWC and NeuroML
 
 The SWC format was developed to cover most of the information common between Neurolucida, NEURON, and GENESIS formats.
 It is used by resources such as NeuroMorpho.org.
