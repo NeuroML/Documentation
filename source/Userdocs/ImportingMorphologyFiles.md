@@ -157,7 +157,7 @@ Not all of these features will be relevant when constructing a single cell compu
 (userdocs:importing_morphology_files:tools:cvapp)=
 ### CVApp
 
-The standalone [CVApp](https://github.com/pgleeson/Cvapp-NeuroMorpho.org) tool provides an interface to visualize SWC files and export them into NeuroML2.
+The standalone [CVApp](https://github.com/NeuroML/Cvapp-NeuroMorpho.org) tool provides an interface to visualize SWC files and export them into NeuroML2.
 For more information, please see this {ref}`page <userdocs:swc>`.
 
 (userdocs:importing_morphology_files:tools:neuroconstruct)=

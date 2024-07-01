@@ -15,7 +15,7 @@ A number of tools support conversion of SWC to NeuroML.
 (userdocs:cvapp:tools:cvapp)=
 ### CVApp
 
-[CVApp](https://github.com/pgleeson/Cvapp-NeuroMorpho.org) is a standalone Java tool that can visualize SWC files (for example from [NeuroMorpho.org](https://neuromorpho.org)) and export them into NeuroML2.
+[CVApp](https://github.com/NeuroML/Cvapp-NeuroMorpho.org) is a standalone Java tool that can visualize SWC files (for example from [NeuroMorpho.org](https://neuromorpho.org)) and export them into NeuroML2.
 
 ```{figure} ../../../images/cvapp.png
 :alt: Screenshot of CVApp
