@@ -24,6 +24,7 @@ parts:
       - file: Userdocs/ConvertingModels
       - file: Userdocs/ImportingMorphologyFiles
       - file: Userdocs/HDF5
+      - file: Userdocs/Provenance
     - file: Userdocs/ValidatingNeuroMLModels
     - file: Userdocs/VisualisingNeuroMLModels
       sections:
