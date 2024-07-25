@@ -112,6 +112,7 @@ parts:
             - file: Userdocs/Walkthroughs/RayEtAl2020/OMV
   - caption: NeuroML events
     chapters:
+      - file: Events/Events
       - file: Events/202407-CNS2024
       - file: Events/202404-Harmony
       - file: Events/20220630-CNS2022
