@@ -3,11 +3,12 @@
 # NeuroML repositories
 
 This page lists repositories related to NeuroML, listed in no particular order.
-It is generated periodically, most recently on 04/09/23.  A complete list of contributors can be seen {ref}`here <neuromlorg:contributors>`.
+It is generated periodically, most recently on 29/07/24.  A complete list of contributors can be seen {ref}`here <neuromlorg:contributors>`.
 
 For the status of tests on standardized NeuroML models on Open Source Brain, please see this page: https://github.com/OpenSourceBrain/.github/blob/main/testsheet/README.md.
 
 
+- [NeuroML/Cvapp-NeuroMorpho.org](https://github.com/NeuroML/Cvapp-NeuroMorpho.org)
 - [NeuroML/org.neuroml.model](https://github.com/NeuroML/org.neuroml.model)
 - [NeuroML/org.neuroml.model.injectingplugin](https://github.com/NeuroML/org.neuroml.model.injectingplugin)
 - [NeuroML/org.neuroml1.model](https://github.com/NeuroML/org.neuroml1.model)
@@ -30,6 +31,10 @@ For the status of tests on standardized NeuroML models on Open Source Brain, ple
 - [NeuroML/NeuroMLlite](https://github.com/NeuroML/NeuroMLlite)
 - [NeuroML/Documentation](https://github.com/NeuroML/Documentation)
 - [NeuroML/.github](https://github.com/NeuroML/.github)
+- [NeuroML/stochdiff](https://github.com/NeuroML/stochdiff)
+- [NeuroML/xppy](https://github.com/NeuroML/xppy)
+- [NeuroML/n2a](https://github.com/NeuroML/n2a)
+- [NeuroML/xppaut](https://github.com/NeuroML/xppaut)
 - [LEMS/pylems](https://github.com/LEMS/pylems)
 - [LEMS/jLEMS](https://github.com/LEMS/jLEMS)
 - [LEMS/LEMS](https://github.com/LEMS/LEMS)
@@ -178,6 +183,8 @@ For the status of tests on standardized NeuroML models on Open Source Brain, ple
 - [OpenSourceBrain/NeuroDataShare](https://github.com/OpenSourceBrain/NeuroDataShare)
 - [OpenSourceBrain/OSB_homepage](https://github.com/OpenSourceBrain/OSB_homepage)
 - [OpenSourceBrain/pynsgr](https://github.com/OpenSourceBrain/pynsgr)
+- [OpenSourceBrain/BarrelCortexInSilicoShowcase](https://github.com/OpenSourceBrain/BarrelCortexInSilicoShowcase)
+- [OpenSourceBrain/Maki-MarttunenEtAl2020](https://github.com/OpenSourceBrain/Maki-MarttunenEtAl2020)
 - [NeuralEnsemble/libNeuroML](https://github.com/NeuralEnsemble/libNeuroML)
 - [scrook/neuroml-db](https://github.com/scrook/neuroml-db)
 - [NeuralEnsemble/neurotune](https://github.com/NeuralEnsemble/neurotune)
