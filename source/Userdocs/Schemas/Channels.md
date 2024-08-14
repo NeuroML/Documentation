@@ -2567,6 +2567,22 @@ variable = GateFractional(
 
 ```
 ````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractionalSubgate" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateFractionalSubgate
+
+variable = GateFractionalSubgate(
+    id: 'a NmlId (required)' = None,
+    fractional_conductance: 'a Nml2Quantity_none (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+    time_course: 'a HHTime (required)' = None,
+)
+```
+````
 `````
 
 (schema:baseionchannel)=

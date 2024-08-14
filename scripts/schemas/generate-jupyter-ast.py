@@ -68,7 +68,7 @@ schema_mappings = {
 # mappings b/w components type names and what their Python mappings are
 pyapi_mappings = {
     "gate": "GateHHUndetermined",
-    "SubGate": "GateFractionalSubgate",
+    "subGate": "GateFractionalSubgate",
 }
 
 comp_types = {}
