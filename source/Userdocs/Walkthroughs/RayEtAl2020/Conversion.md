@@ -240,6 +240,7 @@ Steady state dynamics of activation variables of nas channel, generated with pyn
 The mod file defining the nas channel is shown below:
 
 ```{code-block}
+
 : nas_wustenberg.mod --- 
 : 
 : Filename: nas_wustenberg.mod
