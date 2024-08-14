@@ -1274,6 +1274,26 @@ extends *{ref}`schema:basegate`*
 
 ```
 ````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHUndetermined" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateHHUndetermined
+
+variable = GateHHUndetermined(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    type: 'a gateTypes (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    forward_rate: 'a HHRate (optional)' = None,
+    reverse_rate: 'a HHRate (optional)' = None,
+    time_course: 'a HHTime (optional)' = None,
+    steady_state: 'a HHVariable (optional)' = None,
+    sub_gates: 'list of GateFractionalSubgate(s) (optional)' = None,
+)
+```
+````
 `````
 
 (schema:gatehhrates)=
@@ -2341,6 +2361,25 @@ variable = GateFractional(
     : d **q** /dt = (inf - q) / tau
     
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateFractionalSubgate">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:all>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="1"/>
+        <xs:element name="timeCourse" type="HHTime" minOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="fractionalConductance" type="Nml2Quantity_none" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 ````{tab-item} Usage: Python
