@@ -9,7 +9,7 @@
 
 Original ComponentType definitions: [Channels.xml](https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes//Channels.xml).
 Schema against which NeuroML based on these should be valid: [NeuroML_v2.3.xsd](https://github.com/NeuroML/NeuroML2/tree/master/Schemas/NeuroML2/NeuroML_v2.3.xsd).
-Generated on 18/06/24 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
+Generated on 14/08/24 from [this](https://github.com/NeuroML/NeuroML2/commit/352244cff605cb1ba24fa7c11757dc818fe90fd2) commit.
 Please file any issues or questions at the [issue tracker here](https://github.com/NeuroML/NeuroML2/issues).
 
 ---
@@ -1402,7 +1402,21 @@ extends {ref}`schema:gate`
 ```
 ````
 
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRates" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateHHRates
 
+variable = GateHHRates(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    forward_rate: 'a HHRate (required)' = None,
+    reverse_rate: 'a HHRate (required)' = None,
+)
+```
+````
 ````{tab-item} Usage: XML
 ```{code-block} xml
 <gateHHrates id="m" instances="3">
@@ -1545,6 +1559,22 @@ extends {ref}`schema:gate`
   </xs:complexContent>
 </xs:complexType>
 
+```
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHTauInf" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateHHTauInf
+
+variable = GateHHTauInf(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    time_course: 'a HHTime (required)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+)
 ```
 ````
 `````
@@ -1793,6 +1823,23 @@ extends {ref}`schema:gate`
 
 ```
 ````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRatesTau" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateHHRatesTau
+
+variable = GateHHRatesTau(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    forward_rate: 'a HHRate (required)' = None,
+    reverse_rate: 'a HHRate (required)' = None,
+    time_course: 'a HHTime (required)' = None,
+)
+```
+````
 `````
 
 (schema:gatehhratesinf)=
@@ -1920,6 +1967,23 @@ extends {ref}`schema:gate`
   </xs:complexContent>
 </xs:complexType>
 
+```
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRatesInf" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateHHRatesInf
+
+variable = GateHHRatesInf(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    forward_rate: 'a HHRate (required)' = None,
+    reverse_rate: 'a HHRate (required)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+)
 ```
 ````
 `````
@@ -2052,6 +2116,24 @@ extends {ref}`schema:gate`
   </xs:complexContent>
 </xs:complexType>
 
+```
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRatesTauInf" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateHHRatesTauInf
+
+variable = GateHHRatesTauInf(
+    id: 'a NmlId (required)' = None,
+    instances: 'a PositiveInteger (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    forward_rate: 'a HHRate (required)' = None,
+    reverse_rate: 'a HHRate (required)' = None,
+    time_course: 'a HHTime (required)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+)
 ```
 ````
 `````
@@ -2259,6 +2341,22 @@ variable = GateFractional(
     : d **q** /dt = (inf - q) / tau
     
 
+````
+
+````{tab-item} Usage: Python
+*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractionalSubgate" target="_blank">Go to the libNeuroML documentation</a>*
+```{code-block} python
+from neuroml import GateFractionalSubgate
+
+variable = GateFractionalSubgate(
+    id: 'a NmlId (required)' = None,
+    fractional_conductance: 'a Nml2Quantity_none (required)' = None,
+    notes: 'a string (optional)' = None,
+    q10_settings: 'a Q10Settings (optional)' = None,
+    steady_state: 'a HHVariable (required)' = None,
+    time_course: 'a HHTime (required)' = None,
+)
+```
 ````
 `````
 
