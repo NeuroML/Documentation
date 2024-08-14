@@ -16,11 +16,11 @@ from lems.model.model import Model
 import tempfile
 import subprocess
 import asttemplates
+
 # lxml supports recursive searching which the python xml module does not seem
 # to include
 import lxml
 import lxml.etree as ET
-from lxml import objectify
 import os
 import re
 import neuroml
@@ -37,7 +37,17 @@ import inspect
 getcontext().prec = 5
 
 # Main worker bits start here
-comp_definitions = ["Cells", "Synapses", "Channels", "Inputs", "Networks", "PyNN", "NeuroMLCoreDimensions", "NeuroMLCoreCompTypes", "Simulation"]
+comp_definitions = [
+    "Cells",
+    "Synapses",
+    "Channels",
+    "Inputs",
+    "Networks",
+    "PyNN",
+    "NeuroMLCoreDimensions",
+    "NeuroMLCoreCompTypes",
+    "Simulation",
+]
 comp_types = {}
 comp_type_examples = {}
 comp_type_py_api = {}
@@ -48,13 +58,18 @@ comp_type_schema = {}
 
 nml_branch = "master"
 nml_version = "2.3"
-GitHubCompSources = ("https://github.com/NeuroML/NeuroML2/blob/" + nml_branch +
-                     "/NeuroML2CoreTypes/")
-GitHubCompSourcesRaw = ("https://raw.githubusercontent.com/NeuroML/NeuroML2/" +
-                        nml_branch + "/NeuroML2CoreTypes/")
+GitHubCompSources = (
+    "https://github.com/NeuroML/NeuroML2/blob/" + nml_branch + "/NeuroML2CoreTypes/"
+)
+GitHubCompSourcesRaw = (
+    "https://raw.githubusercontent.com/NeuroML/NeuroML2/"
+    + nml_branch
+    + "/NeuroML2CoreTypes/"
+)
 GitHubRepo = "https://github.com/NeuroML/NeuroML2.git"
 nml_date = date.today().strftime("%d/%m/%y")
 nml_commit = ""
+
 
 def format_description(text):
     """Format the description.
@@ -85,12 +100,12 @@ def format_description(text):
     text2 = ""
     for word in words:
         if len(word) > 0:
-            if word.count('_') == 2:
-                pre = word[0:word.find('_')]
-                ct = word[word.find('_') + 1:word.rfind('_')]
-                post = word[word.rfind('_') + 1:]
+            if word.count("_") == 2:
+                pre = word[0 : word.find("_")]
+                ct = word[word.find("_") + 1 : word.rfind("_")]
+                post = word[word.rfind("_") + 1 :]
                 word = "{} {{ref}}`schema:{}`{}".format(pre, ct.lower(), post)
-            elif word[0] == '_':
+            elif word[0] == "_":
                 word = "**{}**".format(word[1:])
 
         text2 = text2 + word + " "
@@ -98,8 +113,7 @@ def format_description(text):
 
 
 def get_libneuroml_signatures():
-    """Get signatures for component types from libNeuroML
-    """
+    """Get signatures for component types from libNeuroML"""
     # Initialise
     all_py_classes = inspect.getmembers(neuroml, inspect.isclass)
     class_dict = {key: val for key, val in all_py_classes}
@@ -114,7 +128,7 @@ def get_libneuroml_signatures():
         try:
             class_sig = class_dict[comp_type_upper]
             constructor_sig = inspect.signature(class_sig)
-            params = str(constructor_sig)[1:][:-1].split(', ')
+            params = str(constructor_sig)[1:][:-1].split(", ")
             filtered_params = []
             for p in params:
                 if "gds_collector_" not in p and "kwargs_" not in p:
@@ -142,22 +156,22 @@ def get_comp_examples(srcdirs, examples_max=3):
             if ".nml" in f or ".xml" in f:
                 srcfile = srcdir + "/" + f
                 print("Processing example file: {}".format(srcfile))
-                fh = open(srcfile, 'r')
+                fh = open(srcfile, "r")
 
                 # Replace xmlns bits, we can't do it using lxml
                 # So we need to read the file, do some regular expression
                 # substitutions, and then start the XML bits
                 data = fh.read()
-                data = re.sub('xmlns=".*"', '', data)
-                data = re.sub('xmlns:xsi=".*"', '', data)
-                data = re.sub('xsi:schemaLocation=".*"', '', data)
+                data = re.sub('xmlns=".*"', "", data)
+                data = re.sub('xmlns:xsi=".*"', "", data)
+                data = re.sub('xsi:schemaLocation=".*"', "", data)
                 # Remove comment lines
-                data = re.sub('<!--.*-->', '', data)
+                data = re.sub("<!--.*-->", "", data)
                 # Strip empty lines
                 data = os.linesep.join([s for s in data.splitlines() if s])
 
                 try:
-                    root = ET.fromstring(bytes(data, 'utf-8'))
+                    root = ET.fromstring(bytes(data, "utf-8"))
                 except ET.XMLSyntaxError as e:
                     print(f"Could not parse file {srcfile}: {e}")
                     continue
@@ -183,9 +197,12 @@ def get_comp_examples(srcdirs, examples_max=3):
                         ET.indent(example, space="    ")
                         if len(comp_type_examples[comp_type]) < examples_max:
                             comp_type_examples[comp_type].append(
-                                ET.tostring(example, pretty_print=True,
-                                            encoding="unicode", with_comments="False"
-                                            )
+                                ET.tostring(
+                                    example,
+                                    pretty_print=True,
+                                    encoding="unicode",
+                                    with_comments="False",
+                                )
                             )
     #  print(comp_type_examples)
 
@@ -222,17 +239,21 @@ def get_component_types(srcdir):
         for comp_type in model.component_types:
             comp_types[comp_type.name] = comp_type
             comp_type_src[comp_type.name] = comp_definition
-            comp_type_desc[comp_type.name] = comp_type.description if comp_type.description is not None else "ComponentType: " + comp_type.name
+            comp_type_desc[comp_type.name] = (
+                comp_type.description
+                if comp_type.description is not None
+                else "ComponentType: " + comp_type.name
+            )
 
         """Stage 2"""
         ordered_comp_type_list = []
         with open(fullpath) as fp:
             for line in fp:
-                s = '<ComponentType name='
+                s = "<ComponentType name="
                 if s in line:
                     i = line.index(s)
                     e = line.find('"', i + len(s) + 1)
-                    comp_type_defined = line[i + len(s) + 1: e]
+                    comp_type_defined = line[i + len(s) + 1 : e]
                     ordered_comp_type_list.append(comp_type_defined)
         ordered_comp_types[comp_definition] = ordered_comp_type_list
 
@@ -243,8 +264,9 @@ def get_schema_doc(schemafile):
     :param schemafile: path to the XSD schema file
     """
     print(ET.__file__)
-    parser = lxml.etree.XMLParser(remove_comments=True,
-                                  remove_blank_text=True, ns_clean=True)
+    parser = lxml.etree.XMLParser(
+        remove_comments=True, remove_blank_text=True, ns_clean=True
+    )
     try:
         tree = ET.parse(schemafile, parser=parser)
         root = tree.getroot()
@@ -254,25 +276,29 @@ def get_schema_doc(schemafile):
 
     # currently unused
     for simple_type in root.findall("xs:simpleType", namespaces=namespaces):
-        simple_type_str = ET.tostring(simple_type, pretty_print=True,
-                                      encoding="unicode",
-                                      xml_declaration=False)
+        simple_type_str = ET.tostring(
+            simple_type, pretty_print=True, encoding="unicode", xml_declaration=False
+        )
 
         # needs to be lowerCamelCase to match XML core types
-        type_name = simple_type.attrib['name'].lower().replace("nml2quantity_", "")
-        comp_type_schema[type_name] = re.sub(r"Type.*name=",r"Type name=", simple_type_str)
+        type_name = simple_type.attrib["name"].lower().replace("nml2quantity_", "")
+        comp_type_schema[type_name] = re.sub(
+            r"Type.*name=", r"Type name=", simple_type_str
+        )
 
     for complex_type in root.findall("xs:complexType", namespaces=namespaces):
         for node in complex_type:
             if "annotation" in str(node.tag) or "documentation" in str(node.tag):
                 complex_type.remove(node)
 
-        complex_type_str = ET.tostring(complex_type, pretty_print=True,
-                                       encoding="unicode",
-                                       xml_declaration=False)
+        complex_type_str = ET.tostring(
+            complex_type, pretty_print=True, encoding="unicode", xml_declaration=False
+        )
         # needs to be lowerCamelCase to match XML core types
-        type_name = complex_type.attrib['name'].lower()
-        comp_type_schema[type_name] = re.sub(r"Type.*name=",r"Type name=", complex_type_str)
+        type_name = complex_type.attrib["name"].lower()
+        comp_type_schema[type_name] = re.sub(
+            r"Type.*name=", r"Type name=", complex_type_str
+        )
 
 
 def get_extended_from_comp_type(comp_type_name):
@@ -308,7 +334,16 @@ def main(srcdir, destdir):
         tempdir = tempfile.TemporaryDirectory()
         tmpsrcdir = tempdir.name
         print("Temporariy directory: {}".format(tmpsrcdir))
-        clone_command = ["git", "clone", "--depth", "1", "--branch", nml_branch, GitHubRepo, tmpsrcdir]
+        clone_command = [
+            "git",
+            "clone",
+            "--depth",
+            "1",
+            "--branch",
+            nml_branch,
+            GitHubRepo,
+            tmpsrcdir,
+        ]
         subprocess.run(clone_command)
     else:
         tmpsrcdir = srcdir
@@ -326,8 +361,9 @@ def main(srcdir, destdir):
 
     # Get current commit
     commit_command = ["git", "log", "-1", "--pretty=format:%H"]
-    output = subprocess.run(commit_command, capture_output=True,
-                            cwd=tmpsrcdir, text=True)
+    output = subprocess.run(
+        commit_command, capture_output=True, cwd=tmpsrcdir, text=True
+    )
     nml_commit = output.stdout
 
     # read the downloaded files
@@ -357,17 +393,21 @@ def main(srcdir, destdir):
 
         print("Processing {}".format(fullpath))
         print("Writing output to {}".format(outputfile))
-        ast_doc = open(outputfile, 'w')
+        ast_doc = open(outputfile, "w")
 
         """Page header"""
-        print(asttemplates.page_header.render(
-            comp_definition=comp_definition,
-            comp_description=format_description(model.description),
-            GitHubCompSources=GitHubCompSources,
-            nml_version=nml_version, nml_branch=nml_branch,
-            nml_date=nml_date,
-            nml_commit=nml_commit
-        ), file=ast_doc)
+        print(
+            asttemplates.page_header.render(
+                comp_definition=comp_definition,
+                comp_description=format_description(model.description),
+                GitHubCompSources=GitHubCompSources,
+                nml_version=nml_version,
+                nml_branch=nml_branch,
+                nml_date=nml_date,
+                nml_commit=nml_commit,
+            ),
+            file=ast_doc,
+        )
 
         """Dimensions and units"""
         if "Dimensions" in comp_definition:
@@ -384,21 +424,35 @@ def main(srcdir, destdir):
                     unit.symbol = unit.symbol + "__"
                 symbols.append(unit.symbol.lower())
 
-            print(asttemplates.dimension.render(comp_definition=comp_definition,
-                                                dimensions=dimensions,
-                                                units=units,
-                                                schemas=comp_type_schema), file=ast_doc)
+            print(
+                asttemplates.dimension.render(
+                    comp_definition=comp_definition,
+                    dimensions=dimensions,
+                    units=units,
+                    schemas=comp_type_schema,
+                ),
+                file=ast_doc,
+            )
             for dim in dimensions:
-                links_doc_data[f'{dim.name.lower()}'] = f'<a name="{dim.name}"/>\n\n- {{ref}}`{dim.name} <schema:dimensions:{dim.name}>`'
+                links_doc_data[f"{dim.name.lower()}"] = (
+                    f'<a name="{dim.name}"/>\n\n- {{ref}}`{dim.name} <schema:dimensions:{dim.name}>`'
+                )
 
             # Get factors
             for unit in units:
                 unit.factors = []
                 for unit2 in units:
-                    if unit.symbol != unit2.symbol and unit.dimension == unit2.dimension:
-
-                        si_val = model.get_numeric_value("1%s" % unit.symbol.replace("__", ""), unit.dimension)
-                        unit_val = ((Decimal(si_val) / Decimal(math.pow(10, unit2.power))) / Decimal(unit2.scale)) - Decimal(unit2.offset)
+                    if (
+                        unit.symbol != unit2.symbol
+                        and unit.dimension == unit2.dimension
+                    ):
+                        si_val = model.get_numeric_value(
+                            "1%s" % unit.symbol.replace("__", ""), unit.dimension
+                        )
+                        unit_val = (
+                            (Decimal(si_val) / Decimal(math.pow(10, unit2.power)))
+                            / Decimal(unit2.scale)
+                        ) - Decimal(unit2.offset)
                         conversion = float(unit_val)
 
                         # to catch 60.0001 etc.
@@ -407,20 +461,22 @@ def main(srcdir, destdir):
                                 conversion = int(conversion)
 
                         if conversion > 10000:
-                            conversion = '%.2e' % conversion
+                            conversion = "%.2e" % conversion
                         else:
-                            conversion = '%s' % conversion
-                        if conversion.endswith('.0'):
+                            conversion = "%s" % conversion
+                        if conversion.endswith(".0"):
                             conversion = conversion[:-2]
 
                         unit.factors.append([conversion, unit2.symbol])
 
-            print(asttemplates.unit.render(comp_definition=comp_definition,
-                                           units=units), file=ast_doc)
+            print(
+                asttemplates.unit.render(comp_definition=comp_definition, units=units),
+                file=ast_doc,
+            )
 
         """Component Types"""
         for o_comp_type in ordered_comp_types[comp_definition]:
-            o_comp_type = o_comp_type.replace('rdf:', 'rdf_')
+            o_comp_type = o_comp_type.replace("rdf:", "rdf_")
             comp_type = model.component_types[o_comp_type]
 
             """Header"""
@@ -434,10 +490,15 @@ def main(srcdir, destdir):
                     comp_type.description += "."
             else:
                 comp_type.description = ""
-            print(asttemplates.comp.render(comp_definition=comp_definition,
-                                           comp_type=comp_type, cno=cno),
-                  file=ast_doc)
-            links_doc_data[f'{comp_type.name.lower()}'] = f'<a name="{comp_type.name.lower()}"/>\n\n- {{ref}}`{comp_type.name} <schema:{comp_type.name.lower()}>`'
+            print(
+                asttemplates.comp.render(
+                    comp_definition=comp_definition, comp_type=comp_type, cno=cno
+                ),
+                file=ast_doc,
+            )
+            links_doc_data[f"{comp_type.name.lower()}"] = (
+                f'<a name="{comp_type.name.lower()}"/>\n\n- {{ref}}`{comp_type.name} <schema:{comp_type.name.lower()}>`'
+            )
 
             """Process parameters, derived parameters, texts, paths, expsures,
             requirements and ports"""
@@ -496,44 +557,84 @@ def main(srcdir, destdir):
                 """Recurse up the next parent"""
                 extd_comp_type = get_extended_from_comp_type(extd_comp_type.name)
 
-            if (len(params) > 0 or len(comp_type.constants) > 0 or
-                    len(derived_params) > 0 or len(comp_type.texts) > 0 or
-                    len(comp_type.paths) > 0 or len(comp_type.component_references) > 0
-                    or len(comp_type.children) > 0 or len(comp_type.properties) > 0 or
-                    len(exposures) > 0 or len(requirements) > 0 or len(eventPorts) > 0
-                    or len(comp_type.attachments) > 0 or comp_type.dynamics and
-                    comp_type.dynamics.has_content() or
-                    comp_type_py_api[comp_type.name] or
-                    len(comp_type_examples[comp_type.name]) > 0):
+            if (
+                len(params) > 0
+                or len(comp_type.constants) > 0
+                or len(derived_params) > 0
+                or len(comp_type.texts) > 0
+                or len(comp_type.paths) > 0
+                or len(comp_type.component_references) > 0
+                or len(comp_type.children) > 0
+                or len(comp_type.properties) > 0
+                or len(exposures) > 0
+                or len(requirements) > 0
+                or len(eventPorts) > 0
+                or len(comp_type.attachments) > 0
+                or comp_type.dynamics
+                and comp_type.dynamics.has_content()
+                or comp_type_py_api[comp_type.name]
+                or len(comp_type_examples[comp_type.name]) > 0
+            ):
                 print("""`````{tab-set}""", end="", file=ast_doc)
 
             if len(params) > 0:
                 keysort = sorted(params.keys(), key=lambda param: param.name)
-                print(asttemplates.params.render(title="Parameters",
-                                                 comp_type=comp_type,
-                                                 entries=params,
-                                                 keysort=keysort), file=ast_doc)
+                print(
+                    asttemplates.params.render(
+                        title="Parameters",
+                        comp_type=comp_type,
+                        entries=params,
+                        keysort=keysort,
+                    ),
+                    file=ast_doc,
+                )
 
             if len(comp_type.constants) > 0:
-                print(asttemplates.constants.render(title="Constants",
-                                                    textlist=comp_type.constants), file=ast_doc)
+                print(
+                    asttemplates.constants.render(
+                        title="Constants", textlist=comp_type.constants
+                    ),
+                    file=ast_doc,
+                )
 
             if len(derived_params) > 0:
-                keysort = sorted(derived_params.keys(), key=lambda derived_param: derived_param.name)
-                print(asttemplates.derived_params.render(title="Derived parameters",
-                                                         comp_type=comp_type,
-                                                         entries=derived_params,
-                                                         keysort=keysort), file=ast_doc)
+                keysort = sorted(
+                    derived_params.keys(), key=lambda derived_param: derived_param.name
+                )
+                print(
+                    asttemplates.derived_params.render(
+                        title="Derived parameters",
+                        comp_type=comp_type,
+                        entries=derived_params,
+                        keysort=keysort,
+                    ),
+                    file=ast_doc,
+                )
 
-            if len(comp_type.texts) > 0:  # TODO: Check if Text elements are inherited...
-                print(asttemplates.misc2c.render(title="Text fields",
-                                                 textlist=comp_type.texts), file=ast_doc)
-            if len(comp_type.paths) > 0:  # TODO: Check if Path elements are inherited...
-                print(asttemplates.misc2c.render(title="Paths",
-                                                 textlist=comp_type.paths), file=ast_doc)
+            if (
+                len(comp_type.texts) > 0
+            ):  # TODO: Check if Text elements are inherited...
+                print(
+                    asttemplates.misc2c.render(
+                        title="Text fields", textlist=comp_type.texts
+                    ),
+                    file=ast_doc,
+                )
+            if (
+                len(comp_type.paths) > 0
+            ):  # TODO: Check if Path elements are inherited...
+                print(
+                    asttemplates.misc2c.render(title="Paths", textlist=comp_type.paths),
+                    file=ast_doc,
+                )
             if len(comp_type.component_references) > 0:
-                print(asttemplates.misc3c.render(title="Component References",
-                                                 textlist=comp_type.component_references), file=ast_doc)
+                print(
+                    asttemplates.misc3c.render(
+                        title="Component References",
+                        textlist=comp_type.component_references,
+                    ),
+                    file=ast_doc,
+                )
 
             if len(comp_type.children) > 0:
                 childlist = []
@@ -545,51 +646,87 @@ def main(srcdir, destdir):
                         childrenlist.append(child_or_children)
 
                 if len(childlist) > 0:
-                    print(asttemplates.misc3c.render(title="Child list",
-                                                     textlist=childlist), file=ast_doc)
+                    print(
+                        asttemplates.misc3c.render(
+                            title="Child list", textlist=childlist
+                        ),
+                        file=ast_doc,
+                    )
                 if len(childrenlist) > 0:
-                    print(asttemplates.misc3c.render(title="Children list",
-                                                     textlist=childrenlist), file=ast_doc)
+                    print(
+                        asttemplates.misc3c.render(
+                            title="Children list", textlist=childrenlist
+                        ),
+                        file=ast_doc,
+                    )
 
             if len(comp_type.properties) > 0:
-                print(asttemplates.properties.render(title="Properties",
-                                                     textlist=comp_type.properties), file=ast_doc)
+                print(
+                    asttemplates.properties.render(
+                        title="Properties", textlist=comp_type.properties
+                    ),
+                    file=ast_doc,
+                )
 
             if len(exposures) > 0:
                 keysort = sorted(exposures, key=lambda entry: entry.name)
-                print(asttemplates.exposures.render(title="Exposures",
-                                                    comp_type=comp_type,
-                                                    entries=exposures,
-                                                    keysort=keysort), file=ast_doc)
+                print(
+                    asttemplates.exposures.render(
+                        title="Exposures",
+                        comp_type=comp_type,
+                        entries=exposures,
+                        keysort=keysort,
+                    ),
+                    file=ast_doc,
+                )
 
             if len(requirements) > 0:
                 keysort = sorted(requirements, key=lambda entry: entry.name)
-                print(asttemplates.requirements.render(title="Requirements",
-                                                       comp_type=comp_type,
-                                                       entries=requirements,
-                                                       keysort=keysort), file=ast_doc)
+                print(
+                    asttemplates.requirements.render(
+                        title="Requirements",
+                        comp_type=comp_type,
+                        entries=requirements,
+                        keysort=keysort,
+                    ),
+                    file=ast_doc,
+                )
 
             if len(eventPorts) > 0:
                 keysort = sorted(eventPorts, key=lambda entry: entry.name)
-                print(asttemplates.eventPorts.render(title="Event Ports",
-                                                     comp_type=comp_type,
-                                                     entries=eventPorts,
-                                                     keysort=keysort), file=ast_doc)
+                print(
+                    asttemplates.eventPorts.render(
+                        title="Event Ports",
+                        comp_type=comp_type,
+                        entries=eventPorts,
+                        keysort=keysort,
+                    ),
+                    file=ast_doc,
+                )
 
             if len(comp_type.attachments) > 0:
-                print(asttemplates.misc3c.render(title="Attachments",
-                                                 textlist=comp_type.attachments), file=ast_doc)
+                print(
+                    asttemplates.misc3c.render(
+                        title="Attachments", textlist=comp_type.attachments
+                    ),
+                    file=ast_doc,
+                )
 
             if comp_type.dynamics and comp_type.dynamics.has_content():
-                print(asttemplates.dynamics.render(title="Dynamics",
-                                                   comp_type=comp_type), file=ast_doc)
+                print(
+                    asttemplates.dynamics.render(title="Dynamics", comp_type=comp_type),
+                    file=ast_doc,
+                )
 
             # if the component has schema documentation, add that, otherwise
             comp_type_schemadoc = None
             # skip
             try:
                 comp_type_schemadoc = comp_type_schema[comp_type.name.lower()]
-                print(asttemplates.schema_quote.render(schemadoc=comp_type_schemadoc), file=ast_doc)
+                print(
+                    asttemplates.schema_quote.render(schemadoc=comp_type_schemadoc),
+                    file=ast_doc,
+                )
             except KeyError:
                 print(f"No schema doc found for {comp_type.name}")
 
@@ -602,28 +739,45 @@ def main(srcdir, destdir):
                 print("\t{} XML examples".format(len(comp_type_examples[comp_type.name])))
 
             """
-            if comp_type_py_api[comp_type.name] or len(comp_type_examples[comp_type.name]) > 0:
-                print(asttemplates.examples.render(
-                    title="Usage", comp_type=comp_type,
-                    lemsexamples=comp_type_examples[comp_type.name],
-                    pysig=comp_type_py_api[comp_type.name]), file=ast_doc)
+            if (
+                comp_type_py_api[comp_type.name]
+                or len(comp_type_examples[comp_type.name]) > 0
+            ):
+                print(
+                    asttemplates.examples.render(
+                        title="Usage",
+                        comp_type=comp_type,
+                        lemsexamples=comp_type_examples[comp_type.name],
+                        pysig=comp_type_py_api[comp_type.name],
+                    ),
+                    file=ast_doc,
+                )
 
             # close the tab set
-            if (len(params) > 0 or len(comp_type.constants) > 0 or
-                    len(derived_params) > 0 or len(comp_type.texts) > 0 or
-                    len(comp_type.paths) > 0 or len(comp_type.component_references) > 0
-                    or len(comp_type.children) > 0 or len(comp_type.properties) > 0 or
-                    len(exposures) > 0 or len(requirements) > 0 or len(eventPorts) > 0
-                    or len(comp_type.attachments) > 0 or comp_type.dynamics and
-                    comp_type.dynamics.has_content() or
-                    comp_type_py_api[comp_type.name] or
-                    len(comp_type_examples[comp_type.name]) > 0 or
-                    comp_type_schemadoc is not None):
+            if (
+                len(params) > 0
+                or len(comp_type.constants) > 0
+                or len(derived_params) > 0
+                or len(comp_type.texts) > 0
+                or len(comp_type.paths) > 0
+                or len(comp_type.component_references) > 0
+                or len(comp_type.children) > 0
+                or len(comp_type.properties) > 0
+                or len(exposures) > 0
+                or len(requirements) > 0
+                or len(eventPorts) > 0
+                or len(comp_type.attachments) > 0
+                or comp_type.dynamics
+                and comp_type.dynamics.has_content()
+                or comp_type_py_api[comp_type.name]
+                or len(comp_type_examples[comp_type.name]) > 0
+                or comp_type_schemadoc is not None
+            ):
                 print("""`````""", file=ast_doc)
         ast_doc.close()
         print("Finished processing {}".format(fullpath))
 
-    with open(f"{destdir}/Index.md", 'w') as links_doc:
+    with open(f"{destdir}/Index.md", "w") as links_doc:
         print("# Index\n", file=links_doc)
         ordered_data = dict(sorted(links_doc_data.items()))
 
