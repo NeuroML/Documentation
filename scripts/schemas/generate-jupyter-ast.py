@@ -19,6 +19,7 @@ import asttemplates
 
 # lxml supports recursive searching which the python xml module does not seem
 # to include
+import json
 import lxml
 import lxml.etree as ET
 import os
@@ -57,11 +58,15 @@ schema_mappings = {
     "GateFractionalSubgate": ["subGate"],
     "SegmentEndPoint": ["from", "to"],
     "HHRate": ["baseHHRate", "HHExpRate", "HHSigmoidRate", "HHExpLinearRate"],
-    "HHVariable": ["baseHHVariable", "HHExpVariable", "HHSigmoidVariable",
-                   "HHExpLinearVariable"],
+    "HHVariable": [
+        "baseHHVariable",
+        "HHExpVariable",
+        "HHSigmoidVariable",
+        "HHExpLinearVariable",
+    ],
     "Q10Settings": ["baseQ10Settings"],
     "HHTime": ["timeCourse"],
-    "Standalone": ["baseStandalone"]
+    "Standalone": ["baseStandalone"],
 }
 
 
@@ -153,11 +158,12 @@ def get_libneuroml_signatures():
             # capitalise the first one
             comp_type_upper = comp_type[0].capitalize() + comp_type[1:]
 
-
         # ensure that we get GateHHRates and not GateHHrates (also applies for
         # a bunch of other gates)
         if "GateHH" in comp_type_upper:
-            comp_type_upper = "GateHH" + comp_type_upper[6].capitalize() + comp_type_upper[7:]
+            comp_type_upper = (
+                "GateHH" + comp_type_upper[6].capitalize() + comp_type_upper[7:]
+            )
 
         try:
             class_sig = class_dict[comp_type_upper]
@@ -345,8 +351,6 @@ def get_schema_doc(schemafile):
         except KeyError:
             pass
 
-
-
         # needs to be lowerCamelCase to match XML core types
         type_name = type_name.lower()
 
@@ -437,7 +441,6 @@ def main(srcdir, destdir):
         links_doc_data[x.lower()] = (
             f'<a name="{x.lower()}"/>\n\n- {{ref}}`{x} <schema:{x.lower()}>`'
         )
-
 
     for comp_definition in comp_definitions:
         fullpath = "{}/{}.xml".format(tmpsrcdir, comp_definition)
@@ -844,6 +847,9 @@ def main(srcdir, destdir):
 
         for name, text in ordered_data.items():
             print(text, file=links_doc)
+
+    with open("component-list.json", "w") as f:
+        json.dump(ordered_comp_types, f)
 
     if not srcdir:
         tempdir.cleanup()
