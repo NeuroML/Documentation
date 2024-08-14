@@ -59,7 +59,7 @@ schema_mappings = {
     "HHRate": ["baseHHRate", "HHExpRate", "HHSigmoidRate", "HHExpLinearRate"],
     "HHVariable": ["baseHHVariable", "HHExpVariable", "HHSigmoidVariable",
                    "HHExpLinearVariable"],
-    "Q10Settings": ["baseQ10Settings", "q10Fixed", "q10ExpTemp"],
+    "Q10Settings": ["baseQ10Settings"],
     "HHTime": ["timeCourse"],
     "Standalone": ["baseStandalone"]
 }

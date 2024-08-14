@@ -1070,18 +1070,6 @@ extends *{ref}`schema:baseq10settings`*
 
 
 ````
-
-````{tab-item} Schema
-```{code-block} xml
-<xs:complexType name="Q10Settings">
-  <xs:attribute name="type" type="NmlId" use="required"/>
-  <xs:attribute name="fixedQ10" type="Nml2Quantity_none" use="optional"/>
-  <xs:attribute name="q10Factor" type="Nml2Quantity_none" use="optional"/>
-  <xs:attribute name="experimentalTemp" type="Nml2Quantity_temperature" use="optional"/>
-</xs:complexType>
-
-```
-````
 `````
 
 (schema:q10exptemp)=
@@ -1161,18 +1149,6 @@ extends *{ref}`schema:baseq10settings`*
 
 
 
-````
-
-````{tab-item} Schema
-```{code-block} xml
-<xs:complexType name="Q10Settings">
-  <xs:attribute name="type" type="NmlId" use="required"/>
-  <xs:attribute name="fixedQ10" type="Nml2Quantity_none" use="optional"/>
-  <xs:attribute name="q10Factor" type="Nml2Quantity_none" use="optional"/>
-  <xs:attribute name="experimentalTemp" type="Nml2Quantity_temperature" use="optional"/>
-</xs:complexType>
-
-```
 ````
 `````
 
