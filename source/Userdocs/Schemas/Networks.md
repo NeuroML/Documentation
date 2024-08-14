@@ -79,8 +79,10 @@ extends *{ref}`schema:basestandalone`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Network" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Network
+from neuroml.utils import component_factory
 
-variable = Network(
+variable = component_factory(
+    Network,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -280,8 +282,10 @@ extends *{ref}`schema:basepopulation`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Population" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Population
+from neuroml.utils import component_factory
 
-variable = Population(
+variable = component_factory(
+    Population,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -392,8 +396,10 @@ extends *{ref}`schema:basepopulation`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Instance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Instance
+from neuroml.utils import component_factory
 
-variable = Instance(
+variable = component_factory(
+    Instance,
     id: 'a nonNegativeInteger (optional)' = None,
     i: 'a nonNegativeInteger (optional)' = None,
     j: 'a nonNegativeInteger (optional)' = None,
@@ -464,8 +470,10 @@ variable = Instance(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Location" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Location
+from neuroml.utils import component_factory
 
-variable = Location(
+variable = component_factory(
+    Location,
     x: 'a float (required)' = None,
     y: 'a float (required)' = None,
     z: 'a float (required)' = None,
@@ -527,8 +535,10 @@ variable = Location(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Region" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Region
+from neuroml.utils import component_factory
 
-variable = Region(
+variable = component_factory(
+    Region,
     id: 'a NmlId (required)' = None,
     spaces: 'a NmlId (optional)' = None,
     anytypeobjs_=None,
@@ -631,8 +641,10 @@ variable = Region(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Projection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Projection
+from neuroml.utils import component_factory
 
-variable = Projection(
+variable = component_factory(
+    Projection,
     id: 'a NmlId (required)' = None,
     presynaptic_population: 'a NmlId (required)' = None,
     postsynaptic_population: 'a NmlId (required)' = None,
@@ -747,8 +759,10 @@ variable = Projection(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Connection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Connection
+from neuroml.utils import component_factory
 
-variable = Connection(
+variable = component_factory(
+    Connection,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell_id: 'a Nml2PopulationReferencePath (required)' = None,
@@ -841,8 +855,10 @@ extends {ref}`schema:explicitconnection`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SynapticConnection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SynapticConnection
+from neuroml.utils import component_factory
 
-variable = SynapticConnection(
+variable = component_factory(
+    SynapticConnection,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     from_: 'a Nml2PopulationReferencePath (required)' = None,
     to: 'a Nml2PopulationReferencePath (required)' = None,
@@ -962,8 +978,10 @@ extends {ref}`schema:connection`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ConnectionWD" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ConnectionWD
+from neuroml.utils import component_factory
 
-variable = ConnectionWD(
+variable = component_factory(
+    ConnectionWD,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell_id: 'a Nml2PopulationReferencePath (required)' = None,
@@ -1029,8 +1047,10 @@ variable = ConnectionWD(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalConnection
+from neuroml.utils import component_factory
 
-variable = ElectricalConnection(
+variable = component_factory(
+    ElectricalConnection,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell: 'a string (required)' = None,
@@ -1112,8 +1132,10 @@ variable = ElectricalConnection(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalConnectionInstance
+from neuroml.utils import component_factory
 
-variable = ElectricalConnectionInstance(
+variable = component_factory(
+    ElectricalConnectionInstance,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell: 'a string (required)' = None,
@@ -1201,8 +1223,10 @@ extends {ref}`schema:electricalconnectioninstance`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalConnectionInstanceW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalConnectionInstanceW
+from neuroml.utils import component_factory
 
-variable = ElectricalConnectionInstanceW(
+variable = component_factory(
+    ElectricalConnectionInstanceW,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell: 'a string (required)' = None,
@@ -1274,8 +1298,10 @@ variable = ElectricalConnectionInstanceW(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ElectricalProjection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ElectricalProjection
+from neuroml.utils import component_factory
 
-variable = ElectricalProjection(
+variable = component_factory(
+    ElectricalProjection,
     id: 'a NmlId (required)' = None,
     presynaptic_population: 'a NmlId (required)' = None,
     postsynaptic_population: 'a NmlId (required)' = None,
@@ -1340,8 +1366,10 @@ variable = ElectricalProjection(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousConnection
+from neuroml.utils import component_factory
 
-variable = ContinuousConnection(
+variable = component_factory(
+    ContinuousConnection,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell: 'a string (required)' = None,
@@ -1428,8 +1456,10 @@ variable = ContinuousConnection(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousConnectionInstance
+from neuroml.utils import component_factory
 
-variable = ContinuousConnectionInstance(
+variable = component_factory(
+    ContinuousConnectionInstance,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell: 'a string (required)' = None,
@@ -1513,8 +1543,10 @@ extends {ref}`schema:continuousconnectioninstance`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousConnectionInstanceW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousConnectionInstanceW
+from neuroml.utils import component_factory
 
-variable = ContinuousConnectionInstanceW(
+variable = component_factory(
+    ContinuousConnectionInstanceW,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     pre_cell: 'a string (required)' = None,
@@ -1592,8 +1624,10 @@ variable = ContinuousConnectionInstanceW(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ContinuousProjection" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ContinuousProjection
+from neuroml.utils import component_factory
 
-variable = ContinuousProjection(
+variable = component_factory(
+    ContinuousProjection,
     id: 'a NmlId (required)' = None,
     presynaptic_population: 'a NmlId (required)' = None,
     postsynaptic_population: 'a NmlId (required)' = None,
@@ -1685,8 +1719,10 @@ variable = ContinuousProjection(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExplicitInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExplicitInput
+from neuroml.utils import component_factory
 
-variable = ExplicitInput(
+variable = component_factory(
+    ExplicitInput,
     target: 'a Nml2PopulationReferencePath (required)' = None,
     input: 'a NmlId (required)' = None,
     destination: 'a NmlId (optional)' = None,
@@ -1771,8 +1807,10 @@ variable = ExplicitInput(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputList" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InputList
+from neuroml.utils import component_factory
 
-variable = InputList(
+variable = component_factory(
+    InputList,
     id: 'a NonNegativeInteger (required)' = None,
     populations: 'a NmlId (required)' = None,
     component: 'a NmlId (required)' = None,
@@ -1853,8 +1891,10 @@ variable = InputList(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Input" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Input
+from neuroml.utils import component_factory
 
-variable = Input(
+variable = component_factory(
+    Input,
     id: 'a NonNegativeInteger (required)' = None,
     target: 'a Nml2PopulationReferencePath (required)' = None,
     destination: 'a NmlId (required)' = None,
@@ -1940,8 +1980,10 @@ extends {ref}`schema:input`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InputW" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InputW
+from neuroml.utils import component_factory
 
-variable = InputW(
+variable = component_factory(
+    InputW,
     id: 'a NonNegativeInteger (required)' = None,
     target: 'a Nml2PopulationReferencePath (required)' = None,
     destination: 'a NmlId (required)' = None,

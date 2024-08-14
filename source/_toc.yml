@@ -48,6 +48,7 @@ parts:
       sections:
         - file: Userdocs/NeuroMLv2
           sections:
+            - file: Userdocs/Schemas/NeuroMLDocument
             - file: Userdocs/Schemas/NeuroMLCoreDimensions
             - file: Userdocs/Schemas/NeuroMLCoreCompTypes
             - file: Userdocs/Schemas/Cells

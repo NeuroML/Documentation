@@ -567,8 +567,10 @@ examples = env.from_string(textwrap.dedent(
     *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q={{ pysig[0] }}" target="_blank">Go to the libNeuroML documentation</a>*
     ```{code-block} python
     from neuroml import {{ pysig[0] }}
+    from neuroml.utils import component_factory
 
-    variable = {{ pysig[0] }}(
+    variable = component_factory(
+        {{ pysig[0] }},
     {%- for sig in pysig[1] %}
         {{ sig | indent(4) }},
     {%- endfor %}

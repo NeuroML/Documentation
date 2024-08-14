@@ -46,8 +46,10 @@ extends *{ref}`schema:basestandalone`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseCell
+from neuroml.utils import component_factory
 
-variable = BaseCell(
+variable = component_factory(
+    BaseCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -335,8 +337,10 @@ extends *{ref}`schema:basechannelpopulation`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelPopulation" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelPopulation
+from neuroml.utils import component_factory
 
-variable = ChannelPopulation(
+variable = component_factory(
+    ChannelPopulation,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     number: 'a NonNegativeInteger (required)' = None,
@@ -603,8 +607,10 @@ extends *{ref}`schema:basechanneldensity`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VariableParameter" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VariableParameter
+from neuroml.utils import component_factory
 
-variable = VariableParameter(
+variable = component_factory(
+    VariableParameter,
     parameter: 'a string (required)' = None,
     segment_groups: 'a string (required)' = None,
     inhomogeneous_value: 'a InhomogeneousValue (optional)' = None,
@@ -660,8 +666,10 @@ variable = VariableParameter(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InhomogeneousValue" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InhomogeneousValue
+from neuroml.utils import component_factory
 
-variable = InhomogeneousValue(
+variable = component_factory(
+    InhomogeneousValue,
     inhomogeneous_parameters: 'a string (required)' = None,
     value: 'a string (required)' = None,
 )
@@ -803,8 +811,10 @@ extends *{ref}`schema:basechanneldensity`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniform" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniform
+from neuroml.utils import component_factory
 
-variable = ChannelDensityNonUniform(
+variable = component_factory(
+    ChannelDensityNonUniform,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     erev: 'a Nml2Quantity_voltage (required)' = None,
@@ -941,8 +951,10 @@ extends *{ref}`schema:basechanneldensity`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformNernst" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniformNernst
+from neuroml.utils import component_factory
 
-variable = ChannelDensityNonUniformNernst(
+variable = component_factory(
+    ChannelDensityNonUniformNernst,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     ion: 'a NmlId (required)' = None,
@@ -1069,8 +1081,10 @@ extends *{ref}`schema:basechanneldensity`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNonUniformGHK" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNonUniformGHK
+from neuroml.utils import component_factory
 
-variable = ChannelDensityNonUniformGHK(
+variable = component_factory(
+    ChannelDensityNonUniformGHK,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     ion: 'a NmlId (required)' = None,
@@ -1205,8 +1219,10 @@ extends *{ref}`schema:basechanneldensitycond`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensity" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensity
+from neuroml.utils import component_factory
 
-variable = ChannelDensity(
+variable = component_factory(
+    ChannelDensity,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
@@ -1311,8 +1327,10 @@ extends {ref}`schema:channeldensity`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityVShift" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityVShift
+from neuroml.utils import component_factory
 
-variable = ChannelDensityVShift(
+variable = component_factory(
+    ChannelDensityVShift,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
@@ -1468,8 +1486,10 @@ extends *{ref}`schema:basechanneldensitycond`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernst" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNernst
+from neuroml.utils import component_factory
 
-variable = ChannelDensityNernst(
+variable = component_factory(
+    ChannelDensityNernst,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
@@ -1613,8 +1633,10 @@ extends *{ref}`schema:basechanneldensitycond`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityNernstCa2" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityNernstCa2
+from neuroml.utils import component_factory
 
-variable = ChannelDensityNernstCa2(
+variable = component_factory(
+    ChannelDensityNernstCa2,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
@@ -1757,8 +1779,10 @@ extends *{ref}`schema:basechanneldensity`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityGHK" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityGHK
+from neuroml.utils import component_factory
 
-variable = ChannelDensityGHK(
+variable = component_factory(
+    ChannelDensityGHK,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     permeability: 'a Nml2Quantity_permeability (required)' = None,
@@ -1909,8 +1933,10 @@ extends *{ref}`schema:basechanneldensitycond`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ChannelDensityGHK2" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ChannelDensityGHK2
+from neuroml.utils import component_factory
 
-variable = ChannelDensityGHK2(
+variable = component_factory(
+    ChannelDensityGHK2,
     id: 'a NmlId (required)' = None,
     ion_channel: 'a NmlId (required)' = None,
     cond_density: 'a Nml2Quantity_conductanceDensity (optional)' = None,
@@ -2500,8 +2526,10 @@ extends {ref}`schema:point3dwithdiam`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Segment" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Segment
+from neuroml.utils import component_factory
 
-variable = Segment(
+variable = component_factory(
+    Segment,
     id: 'a NonNegativeInteger (required)' = None,
     name: 'a string (optional)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
@@ -2610,8 +2638,10 @@ variable = Segment(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SegmentGroup" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SegmentGroup
+from neuroml.utils import component_factory
 
-variable = SegmentGroup(
+variable = component_factory(
+    SegmentGroup,
     id: 'a NonNegativeInteger (required)' = None,
     neuro_lex_id: 'a NeuroLexId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2684,8 +2714,10 @@ variable = SegmentGroup(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Member" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Member
+from neuroml.utils import component_factory
 
-variable = Member(
+variable = component_factory(
+    Member,
     segments: 'a NonNegativeInteger (required)' = None,
 )
 ```
@@ -2829,8 +2861,10 @@ variable = Member(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Include" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Include
+from neuroml.utils import component_factory
 
-variable = Include(
+variable = component_factory(
+    Include,
     segment_groups: 'a NmlId (required)' = None,
 )
 ```
@@ -2891,8 +2925,10 @@ variable = Include(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Path" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Path
+from neuroml.utils import component_factory
 
-variable = Path(
+variable = component_factory(
+    Path,
     from_: 'a SegmentEndPoint (optional)' = None,
     to: 'a SegmentEndPoint (optional)' = None,
 )
@@ -2950,8 +2986,10 @@ variable = Path(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SubTree" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SubTree
+from neuroml.utils import component_factory
 
-variable = SubTree(
+variable = component_factory(
+    SubTree,
     from_: 'a SegmentEndPoint (optional)' = None,
     to: 'a SegmentEndPoint (optional)' = None,
 )
@@ -3022,8 +3060,10 @@ variable = SubTree(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InhomogeneousParameter" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InhomogeneousParameter
+from neuroml.utils import component_factory
 
-variable = InhomogeneousParameter(
+variable = component_factory(
+    InhomogeneousParameter,
     id: 'a NmlId (required)' = None,
     variable: 'a string (required)' = None,
     metric: 'a Metric (required)' = None,
@@ -3083,8 +3123,10 @@ variable = InhomogeneousParameter(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ProximalDetails" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ProximalDetails
+from neuroml.utils import component_factory
 
-variable = ProximalDetails(
+variable = component_factory(
+    ProximalDetails,
     translation_start: 'a double (required)' = None,
 )
 ```
@@ -3129,8 +3171,10 @@ variable = ProximalDetails(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DistalDetails" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import DistalDetails
+from neuroml.utils import component_factory
 
-variable = DistalDetails(
+variable = component_factory(
+    DistalDetails,
     normalization_end: 'a double (required)' = None,
 )
 ```
@@ -3180,8 +3224,10 @@ variable = DistalDetails(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Morphology" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Morphology
+from neuroml.utils import component_factory
 
-variable = Morphology(
+variable = component_factory(
+    Morphology,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3345,8 +3391,10 @@ variable = Morphology(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpecificCapacitance" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpecificCapacitance
+from neuroml.utils import component_factory
 
-variable = SpecificCapacitance(
+variable = component_factory(
+    SpecificCapacitance,
     value: 'a Nml2Quantity_specificCapacitance (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
 )
@@ -3405,8 +3453,10 @@ variable = SpecificCapacitance(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=InitMembPotential" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import InitMembPotential
+from neuroml.utils import component_factory
 
-variable = InitMembPotential(
+variable = component_factory(
+    InitMembPotential,
     value: 'a Nml2Quantity_voltage (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
 )
@@ -3462,8 +3512,10 @@ variable = InitMembPotential(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeThresh" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeThresh
+from neuroml.utils import component_factory
 
-variable = SpikeThresh(
+variable = component_factory(
+    SpikeThresh,
     value: 'a Nml2Quantity_voltage (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
 )
@@ -3594,8 +3646,10 @@ variable = SpikeThresh(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import MembraneProperties
+from neuroml.utils import component_factory
 
-variable = MembraneProperties(
+variable = component_factory(
+    MembraneProperties,
     channel_populations: 'list of ChannelPopulation(s) (optional)' = None,
     channel_densities: 'list of ChannelDensity(s) (optional)' = None,
     channel_density_v_shifts: 'list of ChannelDensityVShift(s) (optional)' = None,
@@ -3756,8 +3810,10 @@ extends {ref}`schema:membraneproperties`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=MembraneProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import MembraneProperties2CaPools
+from neuroml.utils import component_factory
 
-variable = MembraneProperties2CaPools(
+variable = component_factory(
+    MembraneProperties2CaPools,
     channel_populations: 'list of ChannelPopulation(s) (optional)' = None,
     channel_densities: 'list of ChannelDensity(s) (optional)' = None,
     channel_density_v_shifts: 'list of ChannelDensityVShift(s) (optional)' = None,
@@ -3850,8 +3906,10 @@ variable = MembraneProperties2CaPools(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BiophysicalProperties
+from neuroml.utils import component_factory
 
-variable = BiophysicalProperties(
+variable = component_factory(
+    BiophysicalProperties,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3985,8 +4043,10 @@ variable = BiophysicalProperties(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BiophysicalProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BiophysicalProperties2CaPools
+from neuroml.utils import component_factory
 
-variable = BiophysicalProperties2CaPools(
+variable = component_factory(
+    BiophysicalProperties2CaPools,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -4075,8 +4135,10 @@ variable = BiophysicalProperties2CaPools(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IntracellularProperties
+from neuroml.utils import component_factory
 
-variable = IntracellularProperties(
+variable = component_factory(
+    IntracellularProperties,
     species: 'list of Species(s) (optional)' = None,
     resistivities: 'list of Resistivity(s) (optional)' = None,
     extensiontype_=None,
@@ -4183,8 +4245,10 @@ extends {ref}`schema:intracellularproperties`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IntracellularProperties2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IntracellularProperties2CaPools
+from neuroml.utils import component_factory
 
-variable = IntracellularProperties2CaPools(
+variable = component_factory(
+    IntracellularProperties2CaPools,
     species: 'list of Species(s) (optional)' = None,
     resistivities: 'list of Resistivity(s) (optional)' = None,
 )
@@ -4242,8 +4306,10 @@ variable = IntracellularProperties2CaPools(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Resistivity" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Resistivity
+from neuroml.utils import component_factory
 
-variable = Resistivity(
+variable = component_factory(
+    Resistivity,
     value: 'a Nml2Quantity_resistivity (required)' = None,
     segment_groups: 'a NmlId (optional)' = 'all',
 )
@@ -4485,8 +4551,10 @@ extends {ref}`schema:concentrationmodel`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DecayingPoolConcentrationModel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import DecayingPoolConcentrationModel
+from neuroml.utils import component_factory
 
-variable = DecayingPoolConcentrationModel(
+variable = component_factory(
+    DecayingPoolConcentrationModel,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -4630,8 +4698,10 @@ extends {ref}`schema:concentrationmodel`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FixedFactorConcentrationModel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import FixedFactorConcentrationModel
+from neuroml.utils import component_factory
 
-variable = FixedFactorConcentrationModel(
+variable = component_factory(
+    FixedFactorConcentrationModel,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -4857,8 +4927,10 @@ extends {ref}`schema:concentrationmodel`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Species" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Species
+from neuroml.utils import component_factory
 
-variable = Species(
+variable = component_factory(
+    Species,
     id: 'a NmlId (required)' = None,
     concentration_model: 'a NmlId (required)' = None,
     ion: 'a NmlId (optional)' = None,
@@ -5034,8 +5106,10 @@ extends *{ref}`schema:basecellmembpot`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Cell
+from neuroml.utils import component_factory
 
-variable = Cell(
+variable = component_factory(
+    Cell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -5319,8 +5393,10 @@ extends {ref}`schema:cell`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Cell2CaPools" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Cell2CaPools
+from neuroml.utils import component_factory
 
-variable = Cell2CaPools(
+variable = component_factory(
+    Cell2CaPools,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -5410,8 +5486,10 @@ extends *{ref}`schema:basecellmembpot`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCellMembPotCap" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseCellMembPotCap
+from neuroml.utils import component_factory
 
-variable = BaseCellMembPotCap(
+variable = component_factory(
+    BaseCellMembPotCap,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -5585,8 +5663,10 @@ extends *{ref}`schema:baseiaf`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafTauCell
+from neuroml.utils import component_factory
 
-variable = IafTauCell(
+variable = component_factory(
+    IafTauCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -5721,8 +5801,10 @@ extends {ref}`schema:iaftaucell`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafTauRefCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafTauRefCell
+from neuroml.utils import component_factory
 
-variable = IafTauRefCell(
+variable = component_factory(
+    IafTauRefCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -5928,8 +6010,10 @@ extends *{ref}`schema:baseiafcapcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafCell
+from neuroml.utils import component_factory
 
-variable = IafCell(
+variable = component_factory(
+    IafCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -6091,8 +6175,10 @@ extends {ref}`schema:iafcell`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IafRefCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IafRefCell
+from neuroml.utils import component_factory
 
-variable = IafRefCell(
+variable = component_factory(
+    IafRefCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -6262,8 +6348,10 @@ extends *{ref}`schema:basecellmembpot`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IzhikevichCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IzhikevichCell
+from neuroml.utils import component_factory
 
-variable = IzhikevichCell(
+variable = component_factory(
+    IzhikevichCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -6431,8 +6519,10 @@ extends *{ref}`schema:basecellmembpotcap`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Izhikevich2007Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Izhikevich2007Cell
+from neuroml.utils import component_factory
 
-variable = Izhikevich2007Cell(
+variable = component_factory(
+    Izhikevich2007Cell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -6613,8 +6703,10 @@ extends *{ref}`schema:basecellmembpotcap`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AdExIaFCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AdExIaFCell
+from neuroml.utils import component_factory
 
-variable = AdExIaFCell(
+variable = component_factory(
+    AdExIaFCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -6743,8 +6835,10 @@ extends *{ref}`schema:basecellmembpotdl`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=FitzHughNagumoCell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import FitzHughNagumoCell
+from neuroml.utils import component_factory
 
-variable = FitzHughNagumoCell(
+variable = component_factory(
+    FitzHughNagumoCell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -6986,8 +7080,10 @@ extends *{ref}`schema:basecellmembpot`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PinskyRinzelCA3Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PinskyRinzelCA3Cell
+from neuroml.utils import component_factory
 
-variable = PinskyRinzelCA3Cell(
+variable = component_factory(
+    PinskyRinzelCA3Cell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -7201,8 +7297,10 @@ extends *{ref}`schema:basecellmembpotcap`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=HindmarshRose1984Cell" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import HindmarshRose1984Cell
+from neuroml.utils import component_factory
 
-variable = HindmarshRose1984Cell(
+variable = component_factory(
+    HindmarshRose1984Cell,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,

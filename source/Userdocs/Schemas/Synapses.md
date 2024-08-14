@@ -70,8 +70,10 @@ extends *{ref}`schema:basepointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseSynapse
+from neuroml.utils import component_factory
 
-variable = BaseSynapse(
+variable = component_factory(
+    BaseSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -149,8 +151,10 @@ extends *{ref}`schema:basesynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseVoltageDepSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseVoltageDepSynapse
+from neuroml.utils import component_factory
 
-variable = BaseVoltageDepSynapse(
+variable = component_factory(
+    BaseVoltageDepSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -257,8 +261,10 @@ extends *{ref}`schema:basesynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseCurrentBasedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseCurrentBasedSynapse
+from neuroml.utils import component_factory
 
-variable = BaseCurrentBasedSynapse(
+variable = component_factory(
+    BaseCurrentBasedSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -394,8 +400,10 @@ extends *{ref}`schema:basecurrentbasedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCurrentSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaCurrentSynapse
+from neuroml.utils import component_factory
 
-variable = AlphaCurrentSynapse(
+variable = component_factory(
+    AlphaCurrentSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -490,8 +498,10 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseConductanceBasedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseConductanceBasedSynapse
+from neuroml.utils import component_factory
 
-variable = BaseConductanceBasedSynapse(
+variable = component_factory(
+    BaseConductanceBasedSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -589,8 +599,10 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BaseConductanceBasedSynapseTwo" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BaseConductanceBasedSynapseTwo
+from neuroml.utils import component_factory
 
-variable = BaseConductanceBasedSynapseTwo(
+variable = component_factory(
+    BaseConductanceBasedSynapseTwo,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -738,8 +750,10 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpOneSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpOneSynapse
+from neuroml.utils import component_factory
 
-variable = ExpOneSynapse(
+variable = component_factory(
+    ExpOneSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -900,8 +914,10 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaSynapse
+from neuroml.utils import component_factory
 
-variable = AlphaSynapse(
+variable = component_factory(
+    AlphaSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1082,8 +1098,10 @@ extends *{ref}`schema:baseconductancebasedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpTwoSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpTwoSynapse
+from neuroml.utils import component_factory
 
-variable = ExpTwoSynapse(
+variable = component_factory(
+    ExpTwoSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1293,8 +1311,10 @@ extends *{ref}`schema:baseconductancebasedsynapsetwo`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpThreeSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpThreeSynapse
+from neuroml.utils import component_factory
 
-variable = ExpThreeSynapse(
+variable = component_factory(
+    ExpThreeSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1840,8 +1860,10 @@ extends {ref}`schema:exptwosynapse`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BlockingPlasticSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BlockingPlasticSynapse
+from neuroml.utils import component_factory
 
-variable = BlockingPlasticSynapse(
+variable = component_factory(
+    BlockingPlasticSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2035,8 +2057,10 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=DoubleSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import DoubleSynapse
+from neuroml.utils import component_factory
 
-variable = DoubleSynapse(
+variable = component_factory(
+    DoubleSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2322,8 +2346,10 @@ extends *{ref}`schema:basesynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GapJunction" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GapJunction
+from neuroml.utils import component_factory
 
-variable = GapJunction(
+variable = component_factory(
+    GapJunction,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2489,8 +2515,10 @@ extends *{ref}`schema:basegradedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SilentSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SilentSynapse
+from neuroml.utils import component_factory
 
-variable = SilentSynapse(
+variable = component_factory(
+    SilentSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2620,8 +2648,10 @@ extends *{ref}`schema:basegradedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=LinearGradedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import LinearGradedSynapse
+from neuroml.utils import component_factory
 
-variable = LinearGradedSynapse(
+variable = component_factory(
+    LinearGradedSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2786,8 +2816,10 @@ extends *{ref}`schema:basegradedsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GradedSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GradedSynapse
+from neuroml.utils import component_factory
 
-variable = GradedSynapse(
+variable = component_factory(
+    GradedSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,

@@ -103,8 +103,10 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Annotation" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Annotation
+from neuroml.utils import component_factory
 
-variable = Annotation(
+variable = component_factory(
+    Annotation,
     anytypeobjs_=None,
 )
 ```
@@ -166,8 +168,10 @@ variable = Annotation(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Property" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Property
+from neuroml.utils import component_factory
 
-variable = Property(
+variable = component_factory(
+    Property,
     tag: 'a string (required)' = None,
     value: 'a string (required)' = None,
 )
@@ -736,8 +740,10 @@ extends *{ref}`schema:basebqbiol`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Point3DWithDiam" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Point3DWithDiam
+from neuroml.utils import component_factory
 
-variable = Point3DWithDiam(
+variable = component_factory(
+    Point3DWithDiam,
     x: 'a double (required)' = None,
     y: 'a double (required)' = None,
     z: 'a double (required)' = None,

@@ -1283,8 +1283,10 @@ extends *{ref}`schema:baseconductancescaling`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Q10ConductanceScaling" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Q10ConductanceScaling
+from neuroml.utils import component_factory
 
-variable = Q10ConductanceScaling(
+variable = component_factory(
+    Q10ConductanceScaling,
     q10_factor: 'a Nml2Quantity_none (required)' = None,
     experimental_temp: 'a Nml2Quantity_temperature (required)' = None,
 )
@@ -1465,8 +1467,10 @@ extends *{ref}`schema:basegate`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHUndetermined" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHUndetermined
+from neuroml.utils import component_factory
 
-variable = GateHHUndetermined(
+variable = component_factory(
+    GateHHUndetermined,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     type: 'a gateTypes (required)' = None,
@@ -1612,8 +1616,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRates" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHRates
+from neuroml.utils import component_factory
 
-variable = GateHHRates(
+variable = component_factory(
+    GateHHRates,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -1772,8 +1778,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHTauInf" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHTauInf
+from neuroml.utils import component_factory
 
-variable = GateHHTauInf(
+variable = component_factory(
+    GateHHTauInf,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -1890,8 +1898,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHInstantaneous" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHInstantaneous
+from neuroml.utils import component_factory
 
-variable = GateHHInstantaneous(
+variable = component_factory(
+    GateHHInstantaneous,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -2034,8 +2044,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRatesTau" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHRatesTau
+from neuroml.utils import component_factory
 
-variable = GateHHRatesTau(
+variable = component_factory(
+    GateHHRatesTau,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -2180,8 +2192,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRatesInf" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHRatesInf
+from neuroml.utils import component_factory
 
-variable = GateHHRatesInf(
+variable = component_factory(
+    GateHHRatesInf,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -2329,8 +2343,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateHHRatesTauInf" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateHHRatesTauInf
+from neuroml.utils import component_factory
 
-variable = GateHHRatesTauInf(
+variable = component_factory(
+    GateHHRatesTauInf,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -2438,8 +2454,10 @@ extends {ref}`schema:gate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractional" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateFractional
+from neuroml.utils import component_factory
 
-variable = GateFractional(
+variable = component_factory(
+    GateFractional,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,
@@ -2572,8 +2590,10 @@ variable = GateFractional(
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractionalSubgate" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateFractionalSubgate
+from neuroml.utils import component_factory
 
-variable = GateFractionalSubgate(
+variable = component_factory(
+    GateFractionalSubgate,
     id: 'a NmlId (required)' = None,
     fractional_conductance: 'a Nml2Quantity_none (required)' = None,
     notes: 'a string (optional)' = None,
@@ -2841,8 +2861,10 @@ extends *{ref}`schema:baseionchannel`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelHH" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannelHH
+from neuroml.utils import component_factory
 
-variable = IonChannelHH(
+variable = component_factory(
+    IonChannelHH,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2988,8 +3010,10 @@ extends {ref}`schema:ionchannelhh`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannel" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannel
+from neuroml.utils import component_factory
 
-variable = IonChannel(
+variable = component_factory(
+    IonChannel,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3091,8 +3115,10 @@ extends {ref}`schema:ionchannel`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelVShift" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannelVShift
+from neuroml.utils import component_factory
 
-variable = IonChannelVShift(
+variable = component_factory(
+    IonChannelVShift,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3229,8 +3255,10 @@ extends {ref}`schema:ksstate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ClosedState" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ClosedState
+from neuroml.utils import component_factory
 
-variable = ClosedState(
+variable = component_factory(
+    ClosedState,
     id: 'a NmlId (required)' = None,
 )
 ```
@@ -3291,8 +3319,10 @@ extends {ref}`schema:ksstate`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=OpenState" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import OpenState
+from neuroml.utils import component_factory
 
-variable = OpenState(
+variable = component_factory(
+    OpenState,
     id: 'a NmlId (required)' = None,
 )
 ```
@@ -3412,8 +3442,10 @@ extends *{ref}`schema:baseionchannel`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IonChannelKS" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IonChannelKS
+from neuroml.utils import component_factory
 
-variable = IonChannelKS(
+variable = component_factory(
+    IonChannelKS,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3543,8 +3575,10 @@ extends {ref}`schema:kstransition`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ForwardTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ForwardTransition
+from neuroml.utils import component_factory
 
-variable = ForwardTransition(
+variable = component_factory(
+    ForwardTransition,
     id: 'a NmlId (required)' = None,
     from_: 'a NmlId (required)' = None,
     to: 'a NmlId (required)' = None,
@@ -3645,8 +3679,10 @@ extends {ref}`schema:kstransition`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ReverseTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ReverseTransition
+from neuroml.utils import component_factory
 
-variable = ReverseTransition(
+variable = component_factory(
+    ReverseTransition,
     id: 'a NmlId (required)' = None,
     from_: 'a NmlId (required)' = None,
     to: 'a NmlId (required)' = None,
@@ -3826,8 +3862,10 @@ extends {ref}`schema:kstransition`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TauInfTransition" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TauInfTransition
+from neuroml.utils import component_factory
 
-variable = TauInfTransition(
+variable = component_factory(
+    TauInfTransition,
     id: 'a NmlId (required)' = None,
     from_: 'a NmlId (required)' = None,
     to: 'a NmlId (required)' = None,
@@ -3938,8 +3976,10 @@ extends *{ref}`schema:basegate`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateKS" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import GateKS
+from neuroml.utils import component_factory
 
-variable = GateKS(
+variable = component_factory(
+    GateKS,
     id: 'a NmlId (required)' = None,
     instances: 'a PositiveInteger (required)' = None,
     notes: 'a string (optional)' = None,

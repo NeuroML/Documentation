@@ -391,8 +391,10 @@ extends *{ref}`schema:basepynniafcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_curr_alpha" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_curr_alpha
+from neuroml.utils import component_factory
 
-variable = IF_curr_alpha(
+variable = component_factory(
+    IF_curr_alpha,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -555,8 +557,10 @@ extends *{ref}`schema:basepynniafcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_curr_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_curr_exp
+from neuroml.utils import component_factory
 
-variable = IF_curr_exp(
+variable = component_factory(
+    IF_curr_exp,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -721,8 +725,10 @@ extends *{ref}`schema:basepynniafcondcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_cond_alpha" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_cond_alpha
+from neuroml.utils import component_factory
 
-variable = IF_cond_alpha(
+variable = component_factory(
+    IF_cond_alpha,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -892,8 +898,10 @@ extends *{ref}`schema:basepynniafcondcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=IF_cond_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import IF_cond_exp
+from neuroml.utils import component_factory
 
-variable = IF_cond_exp(
+variable = component_factory(
+    IF_cond_exp,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1095,8 +1103,10 @@ extends *{ref}`schema:basepynniafcondcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=EIF_cond_exp_isfa_ista" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import EIF_cond_exp_isfa_ista
+from neuroml.utils import component_factory
 
-variable = EIF_cond_exp_isfa_ista(
+variable = component_factory(
+    EIF_cond_exp_isfa_ista,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1299,8 +1309,10 @@ extends *{ref}`schema:basepynniafcondcell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=EIF_cond_alpha_isfa_ista" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import EIF_cond_alpha_isfa_ista
+from neuroml.utils import component_factory
 
-variable = EIF_cond_alpha_isfa_ista(
+variable = component_factory(
+    EIF_cond_alpha_isfa_ista,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1489,8 +1501,10 @@ extends *{ref}`schema:basepynncell`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=HH_cond_exp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import HH_cond_exp
+from neuroml.utils import component_factory
 
-variable = HH_cond_exp(
+variable = component_factory(
+    HH_cond_exp,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1610,8 +1624,10 @@ extends *{ref}`schema:basevoltagedepsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=BasePynnSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import BasePynnSynapse
+from neuroml.utils import component_factory
 
-variable = BasePynnSynapse(
+variable = component_factory(
+    BasePynnSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1754,8 +1770,10 @@ extends *{ref}`schema:basepynnsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpCondSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpCondSynapse
+from neuroml.utils import component_factory
 
-variable = ExpCondSynapse(
+variable = component_factory(
+    ExpCondSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1901,8 +1919,10 @@ extends *{ref}`schema:basepynnsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=ExpCurrSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import ExpCurrSynapse
+from neuroml.utils import component_factory
 
-variable = ExpCurrSynapse(
+variable = component_factory(
+    ExpCurrSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2052,8 +2072,10 @@ extends *{ref}`schema:basepynnsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCondSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaCondSynapse
+from neuroml.utils import component_factory
 
-variable = AlphaCondSynapse(
+variable = component_factory(
+    AlphaCondSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2202,8 +2224,10 @@ extends *{ref}`schema:basepynnsynapse`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=AlphaCurrSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import AlphaCurrSynapse
+from neuroml.utils import component_factory
 
-variable = AlphaCurrSynapse(
+variable = component_factory(
+    AlphaCurrSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2368,8 +2392,10 @@ extends *{ref}`schema:basespikesource`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeSourcePoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeSourcePoisson
+from neuroml.utils import component_factory
 
-variable = SpikeSourcePoisson(
+variable = component_factory(
+    SpikeSourcePoisson,
     id: 'a NonNegativeInteger (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,

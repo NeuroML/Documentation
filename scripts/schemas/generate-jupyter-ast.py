@@ -433,6 +433,11 @@ def main(srcdir, destdir):
     print("Output files will be written to {} directory".format(destdir))
 
     links_doc_data = {}
+    for x in ["IncludeType", "NeuroMLDocument"]:
+        links_doc_data[x.lower()] = (
+            f'<a name="{x.lower()}"/>\n\n- {{ref}}`{x} <schema:{x.lower()}>`'
+        )
+
 
     for comp_definition in comp_definitions:
         fullpath = "{}/{}.xml".format(tmpsrcdir, comp_definition)

@@ -344,8 +344,10 @@ extends *{ref}`schema:basespikesource`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGenerator
+from neuroml.utils import component_factory
 
-variable = SpikeGenerator(
+variable = component_factory(
+    SpikeGenerator,
     id: 'a NonNegativeInteger (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -488,8 +490,10 @@ extends *{ref}`schema:basespikesource`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRandom" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorRandom
+from neuroml.utils import component_factory
 
-variable = SpikeGeneratorRandom(
+variable = component_factory(
+    SpikeGeneratorRandom,
     id: 'a NonNegativeInteger (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -636,8 +640,10 @@ extends *{ref}`schema:basespikesource`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorPoisson
+from neuroml.utils import component_factory
 
-variable = SpikeGeneratorPoisson(
+variable = component_factory(
+    SpikeGeneratorPoisson,
     id: 'a NonNegativeInteger (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -786,8 +792,10 @@ extends {ref}`schema:spikegeneratorpoisson`
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeGeneratorRefPoisson" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeGeneratorRefPoisson
+from neuroml.utils import component_factory
 
-variable = SpikeGeneratorRefPoisson(
+variable = component_factory(
+    SpikeGeneratorRefPoisson,
     id: 'a NonNegativeInteger (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1008,8 +1016,10 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PoissonFiringSynapse
+from neuroml.utils import component_factory
 
-variable = PoissonFiringSynapse(
+variable = component_factory(
+    PoissonFiringSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1236,8 +1246,10 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TransientPoissonFiringSynapse" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TransientPoissonFiringSynapse
+from neuroml.utils import component_factory
 
-variable = TransientPoissonFiringSynapse(
+variable = component_factory(
+    TransientPoissonFiringSynapse,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1425,8 +1437,10 @@ extends *{ref}`schema:basevoltagedeppointcurrentspiking`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=TimedSynapticInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import TimedSynapticInput
+from neuroml.utils import component_factory
 
-variable = TimedSynapticInput(
+variable = component_factory(
+    TimedSynapticInput,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1568,8 +1582,10 @@ extends *{ref}`schema:basespikesource`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SpikeArray" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SpikeArray
+from neuroml.utils import component_factory
 
-variable = SpikeArray(
+variable = component_factory(
+    SpikeArray,
     id: 'a NonNegativeInteger (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1706,8 +1722,10 @@ extends *{ref}`schema:basespikesource`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=Spike" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import Spike
+from neuroml.utils import component_factory
 
-variable = Spike(
+variable = component_factory(
+    Spike,
     id: 'a NonNegativeInteger (required)' = None,
     time: 'a Nml2Quantity_time (required)' = None,
 )
@@ -1849,8 +1867,10 @@ extends *{ref}`schema:basepointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PulseGenerator
+from neuroml.utils import component_factory
 
-variable = PulseGenerator(
+variable = component_factory(
+    PulseGenerator,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -1987,8 +2007,10 @@ extends *{ref}`schema:basepointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInput" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import CompoundInput
+from neuroml.utils import component_factory
 
-variable = CompoundInput(
+variable = component_factory(
+    CompoundInput,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2123,8 +2145,10 @@ extends *{ref}`schema:basepointcurrentdl`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=CompoundInputDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import CompoundInputDL
+from neuroml.utils import component_factory
 
-variable = CompoundInputDL(
+variable = component_factory(
+    CompoundInputDL,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2261,8 +2285,10 @@ extends *{ref}`schema:basepointcurrentdl`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=PulseGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import PulseGeneratorDL
+from neuroml.utils import component_factory
 
-variable = PulseGeneratorDL(
+variable = component_factory(
+    PulseGeneratorDL,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2403,8 +2429,10 @@ extends *{ref}`schema:basepointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SineGenerator
+from neuroml.utils import component_factory
 
-variable = SineGenerator(
+variable = component_factory(
+    SineGenerator,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2555,8 +2583,10 @@ extends *{ref}`schema:basepointcurrentdl`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=SineGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import SineGeneratorDL
+from neuroml.utils import component_factory
 
-variable = SineGeneratorDL(
+variable = component_factory(
+    SineGeneratorDL,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2701,8 +2731,10 @@ extends *{ref}`schema:basepointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGenerator" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import RampGenerator
+from neuroml.utils import component_factory
 
-variable = RampGenerator(
+variable = component_factory(
+    RampGenerator,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -2852,8 +2884,10 @@ extends *{ref}`schema:basepointcurrentdl`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=RampGeneratorDL" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import RampGeneratorDL
+from neuroml.utils import component_factory
 
-variable = RampGeneratorDL(
+variable = component_factory(
+    RampGeneratorDL,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3005,8 +3039,10 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClamp" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VoltageClamp
+from neuroml.utils import component_factory
 
-variable = VoltageClamp(
+variable = component_factory(
+    VoltageClamp,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,
@@ -3163,8 +3199,10 @@ extends *{ref}`schema:basevoltagedeppointcurrent`*
 *<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=VoltageClampTriple" target="_blank">Go to the libNeuroML documentation</a>*
 ```{code-block} python
 from neuroml import VoltageClampTriple
+from neuroml.utils import component_factory
 
-variable = VoltageClampTriple(
+variable = component_factory(
+    VoltageClampTriple,
     id: 'a NmlId (required)' = None,
     metaid: 'a MetaId (optional)' = None,
     notes: 'a string (optional)' = None,

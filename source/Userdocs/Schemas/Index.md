@@ -474,6 +474,9 @@
 <a name="include"/>
 
 - {ref}`include <schema:include>`
+<a name="includetype"/>
+
+- {ref}`IncludeType <schema:includetype>`
 <a name="inhomogeneousparameter"/>
 
 - {ref}`inhomogeneousParameter <schema:inhomogeneousparameter>`
@@ -561,6 +564,9 @@
 <a name="networkwithtemperature"/>
 
 - {ref}`networkWithTemperature <schema:networkwithtemperature>`
+<a name="neuromldocument"/>
+
+- {ref}`NeuroMLDocument <schema:neuromldocument>`
 <a name="notes"/>
 
 - {ref}`notes <schema:notes>`
