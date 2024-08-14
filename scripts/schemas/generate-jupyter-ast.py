@@ -48,6 +48,29 @@ comp_definitions = [
     "NeuroMLCoreCompTypes",
     "Simulation",
 ]
+
+
+# mappings between complex types and component types that represent them
+schema_mappings = {
+    "SegmentParent": ["parent"],
+    "GateHHUndetermined": ["gate", "baseGate"],
+    "GateFractionalSubgate": ["subGate"],
+    "SegmentEndPoint": ["from", "to"],
+    "HHRate": ["baseHHRate", "HHExpRate", "HHSigmoidRate", "HHExpLinearRate"],
+    "HHVariable": ["baseHHVariable", "HHExpVariable", "HHSigmoidVariable",
+                   "HHExpLinearVariable"],
+    "Q10Settings": ["baseQ10Settings", "q10Fixed", "q10ExpTemp"],
+    "HHTime": ["timeCourse"],
+    "Standalone": ["baseStandalone"]
+}
+
+
+# mappings b/w components type names and what their Python mappings are
+pyapi_mappings = {
+    "gate": "GateHHUndetermined",
+    "SubGate": "GateFractionalSubgate",
+}
+
 comp_types = {}
 comp_type_examples = {}
 comp_type_py_api = {}
@@ -118,29 +141,23 @@ def get_libneuroml_signatures():
     all_py_classes = inspect.getmembers(neuroml, inspect.isclass)
     class_dict = {key: val for key, val in all_py_classes}
 
-    # new mapping to create to match schema: existing Python class
-    other_mappings = {
-        "Gate": "GateHHUndetermined",
-        "SubGate": "GateFractionalSubgate"
-    }
-
     for comp_type in comp_types.keys():
         # Component Types in the XML definitions use camel case but the Python
         # API also capitalises the first letter.
 
-        # Built in methods change the whole string, but we only need to
-        # capitalise the first one
-        comp_type_upper = comp_type[0].capitalize() + comp_type[1:]
+        # See if it's mapped to something else in the Python API
+        try:
+            comp_type_upper = pyapi_mappings[comp_type]
+        except KeyError:
+            # Built in methods change the whole string, but we only need to
+            # capitalise the first one
+            comp_type_upper = comp_type[0].capitalize() + comp_type[1:]
+
 
         # ensure that we get GateHHRates and not GateHHrates (also applies for
         # a bunch of other gates)
         if "GateHH" in comp_type_upper:
             comp_type_upper = "GateHH" + comp_type_upper[6].capitalize() + comp_type_upper[7:]
-
-        try:
-            comp_type_upper = other_mappings[comp_type_upper]
-        except KeyError:
-            pass
 
         try:
             class_sig = class_dict[comp_type_upper]
@@ -280,9 +297,6 @@ def get_schema_doc(schemafile):
 
     :param schemafile: path to the XSD schema file
     """
-    # mappings between schema and XML where it's more than just lower case.
-    mappings = {"GateFractionalSubgate": "subGate"}
-
     print(ET.__file__)
     parser = lxml.etree.XMLParser(
         remove_comments=True, remove_blank_text=True, ns_clean=True
@@ -317,16 +331,24 @@ def get_schema_doc(schemafile):
 
         # get type name, see if there's a mapping
         type_name = complex_type.attrib["name"]
+        comp_type_schema[type_name.lower()] = re.sub(
+            r"Type.*name=", r"Type name=", complex_type_str
+        )
+
+        # add others that refer to the same one
         try:
-            type_name = mappings[type_name]
+            alternatives = schema_mappings[type_name]
+            for al in alternatives:
+                comp_type_schema[al.lower()] = re.sub(
+                    r"Type.*name=", r"Type name=", complex_type_str
+                )
         except KeyError:
             pass
 
+
+
         # needs to be lowerCamelCase to match XML core types
         type_name = type_name.lower()
-        comp_type_schema[type_name] = re.sub(
-            r"Type.*name=", r"Type name=", complex_type_str
-        )
 
 
 def get_extended_from_comp_type(comp_type_name):
@@ -767,6 +789,12 @@ def main(srcdir, destdir):
                 print("\t{} XML examples".format(len(comp_type_examples[comp_type.name])))
 
             """
+
+            # let us know if Python API isn't found for an component type
+            if comp_type_py_api[comp_type.name] is None:
+                print(f"No Python API found for {comp_type.name}")
+
+            # process py api and examples
             if (
                 comp_type_py_api[comp_type.name]
                 or len(comp_type_examples[comp_type.name]) > 0
