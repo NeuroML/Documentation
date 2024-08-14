@@ -118,6 +118,10 @@ def get_libneuroml_signatures():
     all_py_classes = inspect.getmembers(neuroml, inspect.isclass)
     class_dict = {key: val for key, val in all_py_classes}
 
+    # new mapping to create to match schema: existing Python class
+    other_mappings = {"Gate": "GateHHUndetermined"}
+    other_mappings = {"SubGate": "GateFractionalSubgate"}
+
     for comp_type in comp_types.keys():
         # Component Types in the XML definitions use camel case but the Python
         # API also capitalises the first letter.
@@ -125,6 +129,17 @@ def get_libneuroml_signatures():
         # Built in methods change the whole string, but we only need to
         # capitalise the first one
         comp_type_upper = comp_type[0].capitalize() + comp_type[1:]
+
+        # ensure that we get GateHHRates and not GateHHrates (also applies for
+        # a bunch of other gates)
+        if "GateHH" in comp_type_upper:
+            comp_type_upper = "GateHH" + comp_type_upper[6].capitalize() + comp_type_upper[7:]
+
+        try:
+            comp_type_upper = other_mappings[comp_type_upper]
+        except KeyError:
+            pass
+
         try:
             class_sig = class_dict[comp_type_upper]
             constructor_sig = inspect.signature(class_sig)
