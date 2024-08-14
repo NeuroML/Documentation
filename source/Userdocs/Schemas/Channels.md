@@ -136,6 +136,22 @@ extends *{ref}`schema:basevoltagedeprate`*
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHRate">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="Nml2Quantity_pertime" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:hhexprate)=
@@ -206,6 +222,22 @@ extends *{ref}`schema:basehhrate`*
 
 
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHRate">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="Nml2Quantity_pertime" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:hhsigmoidrate)=
@@ -275,6 +307,22 @@ extends *{ref}`schema:basehhrate`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHRate">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="Nml2Quantity_pertime" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -351,6 +399,22 @@ extends *{ref}`schema:basehhrate`*
 : &emsp; **r** = rate &emsp;(exposed as **r**)
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHRate">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="Nml2Quantity_pertime" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -476,6 +540,22 @@ extends *{ref}`schema:basevoltagedepvariable`*
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHVariable">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="xs:float" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:hhexpvariable)=
@@ -545,6 +625,22 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHVariable">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="xs:float" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -616,6 +712,22 @@ extends *{ref}`schema:basehhvariable`*
 
 
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHVariable">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="xs:float" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:hhexplinearvariable)=
@@ -686,6 +798,22 @@ extends *{ref}`schema:basehhvariable`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="HHVariable">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="type" type="NmlId" use="required"/>
+      <xs:attribute name="rate" type="xs:float" use="optional"/>
+      <xs:attribute name="midpoint" type="Nml2Quantity_voltage" use="optional"/>
+      <xs:attribute name="scale" type="Nml2Quantity_voltage" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -862,6 +990,18 @@ extends *{ref}`schema:basevoltagedeptime`*
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Q10Settings">
+  <xs:attribute name="type" type="NmlId" use="required"/>
+  <xs:attribute name="fixedQ10" type="Nml2Quantity_none" use="optional"/>
+  <xs:attribute name="q10Factor" type="Nml2Quantity_none" use="optional"/>
+  <xs:attribute name="experimentalTemp" type="Nml2Quantity_temperature" use="optional"/>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:q10fixed)=
@@ -929,6 +1069,18 @@ extends *{ref}`schema:baseq10settings`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Q10Settings">
+  <xs:attribute name="type" type="NmlId" use="required"/>
+  <xs:attribute name="fixedQ10" type="Nml2Quantity_none" use="optional"/>
+  <xs:attribute name="q10Factor" type="Nml2Quantity_none" use="optional"/>
+  <xs:attribute name="experimentalTemp" type="Nml2Quantity_temperature" use="optional"/>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -1009,6 +1161,18 @@ extends *{ref}`schema:baseq10settings`*
 
 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Q10Settings">
+  <xs:attribute name="type" type="NmlId" use="required"/>
+  <xs:attribute name="fixedQ10" type="Nml2Quantity_none" use="optional"/>
+  <xs:attribute name="q10Factor" type="Nml2Quantity_none" use="optional"/>
+  <xs:attribute name="experimentalTemp" type="Nml2Quantity_temperature" use="optional"/>
+</xs:complexType>
+
+```
 ````
 `````
 
@@ -1235,6 +1399,29 @@ extends *{ref}`schema:baseconductancescaling`*
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHUndetermined">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="forwardRate" type="HHRate" minOccurs="0"/>
+        <xs:element name="reverseRate" type="HHRate" minOccurs="0"/>
+        <xs:element name="timeCourse" type="HHTime" minOccurs="0"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="0"/>
+        <xs:element name="subGate" type="GateFractionalSubgate" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+      <xs:attribute name="type" type="gateTypes" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:gate)=
@@ -1271,6 +1458,29 @@ extends *{ref}`schema:basegate`*
 
 **fcond**$  *(from {ref}`schema:basegate`)* $Dimensionless
 **q**$  *(from {ref}`schema:basegate`)* $Dimensionless
+
+```
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="GateHHUndetermined">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="q10Settings" type="Q10Settings" minOccurs="0"/>
+        <xs:element name="forwardRate" type="HHRate" minOccurs="0"/>
+        <xs:element name="reverseRate" type="HHRate" minOccurs="0"/>
+        <xs:element name="timeCourse" type="HHTime" minOccurs="0"/>
+        <xs:element name="steadyState" type="HHVariable" minOccurs="0"/>
+        <xs:element name="subGate" type="GateFractionalSubgate" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="instances" type="PositiveInteger" use="required"/>
+      <xs:attribute name="type" type="gateTypes" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 ```
 ````
@@ -2379,22 +2589,6 @@ variable = GateFractional(
   </xs:complexContent>
 </xs:complexType>
 
-```
-````
-
-````{tab-item} Usage: Python
-*<a href="https://libneuroml.readthedocs.io/en/latest/search.html?q=GateFractionalSubgate" target="_blank">Go to the libNeuroML documentation</a>*
-```{code-block} python
-from neuroml import GateFractionalSubgate
-
-variable = GateFractionalSubgate(
-    id: 'a NmlId (required)' = None,
-    fractional_conductance: 'a Nml2Quantity_none (required)' = None,
-    notes: 'a string (optional)' = None,
-    q10_settings: 'a Q10Settings (optional)' = None,
-    steady_state: 'a HHVariable (required)' = None,
-    time_course: 'a HHTime (required)' = None,
-)
 ```
 ````
 `````

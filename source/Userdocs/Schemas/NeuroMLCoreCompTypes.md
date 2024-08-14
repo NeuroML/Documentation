@@ -213,6 +213,24 @@ variable = Property(
 
 ```
 ````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="Standalone">
+  <xs:complexContent>
+    <xs:extension base="Base">
+      <xs:sequence>
+        <xs:element name="notes" type="Notes" minOccurs="0"/>
+        <xs:element name="property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="annotation" type="Annotation" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="metaid" type="MetaId" use="optional"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
 `````
 
 (schema:rdf_rdf)=

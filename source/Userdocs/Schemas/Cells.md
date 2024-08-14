@@ -2359,6 +2359,20 @@ extends {ref}`schema:point3dwithdiam`
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SegmentParent">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="segment" type="NonNegativeInteger" use="required"/>
+      <xs:attribute name="fractionAlong" type="ZeroToOne" use="optional" default="1"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 
 ````{tab-item} Usage: XML
 ```{code-block} xml
@@ -2710,6 +2724,19 @@ variable = Member(
 
 ````
 
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SegmentEndPoint">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="segment" type="NonNegativeInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
+````
+
 
 ````{tab-item} Usage: XML
 ```{code-block} xml
@@ -2740,6 +2767,19 @@ variable = Member(
 
 **segment**$ 
 
+````
+
+````{tab-item} Schema
+```{code-block} xml
+<xs:complexType name="SegmentEndPoint">
+  <xs:complexContent>
+    <xs:extension base="BaseWithoutId">
+      <xs:attribute name="segment" type="NonNegativeInteger" use="required"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+```
 ````
 
 
