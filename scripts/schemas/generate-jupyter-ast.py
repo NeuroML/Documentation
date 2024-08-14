@@ -119,8 +119,10 @@ def get_libneuroml_signatures():
     class_dict = {key: val for key, val in all_py_classes}
 
     # new mapping to create to match schema: existing Python class
-    other_mappings = {"Gate": "GateHHUndetermined"}
-    other_mappings = {"SubGate": "GateFractionalSubgate"}
+    other_mappings = {
+        "Gate": "GateHHUndetermined",
+        "SubGate": "GateFractionalSubgate"
+    }
 
     for comp_type in comp_types.keys():
         # Component Types in the XML definitions use camel case but the Python
@@ -278,6 +280,9 @@ def get_schema_doc(schemafile):
 
     :param schemafile: path to the XSD schema file
     """
+    # mappings between schema and XML where it's more than just lower case.
+    mappings = {"GateFractionalSubgate": "subGate"}
+
     print(ET.__file__)
     parser = lxml.etree.XMLParser(
         remove_comments=True, remove_blank_text=True, ns_clean=True
@@ -309,8 +314,16 @@ def get_schema_doc(schemafile):
         complex_type_str = ET.tostring(
             complex_type, pretty_print=True, encoding="unicode", xml_declaration=False
         )
+
+        # get type name, see if there's a mapping
+        type_name = complex_type.attrib["name"]
+        try:
+            type_name = mappings[type_name]
+        except KeyError:
+            pass
+
         # needs to be lowerCamelCase to match XML core types
-        type_name = complex_type.attrib["name"].lower()
+        type_name = type_name.lower()
         comp_type_schema[type_name] = re.sub(
             r"Type.*name=", r"Type name=", complex_type_str
         )
