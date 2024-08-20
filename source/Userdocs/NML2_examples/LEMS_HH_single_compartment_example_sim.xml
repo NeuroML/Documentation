@@ -2,7 +2,7 @@
 
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v1.1.13 (libNeuroML v0.5.8)
+        This LEMS file has been automatically generated using PyNeuroML v1.3.7 (libNeuroML v0.6.3)
 
      -->
 
@@ -20,7 +20,7 @@
     <Include file="HH_example_k_channel.nml"/>
     <Include file="HH_example_leak_channel.nml"/>
 
-    <Simulation id="HH_single_compartment_example_sim" length="300ms" step="0.01ms" target="single_hh_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="HH_single_compartment_example_sim" length="300.0ms" step="0.01ms" target="single_hh_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
         <OutputFile id="output0" fileName="HH_single_compartment_example_sim.dat">
             <OutputColumn id="pop0[0]/v" quantity="pop0[0]/v"/>
             <OutputColumn id="pop0[0]/iChannels" quantity="pop0[0]/iChannels"/>
