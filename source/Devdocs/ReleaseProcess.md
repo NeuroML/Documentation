@@ -14,24 +14,26 @@ These are the steps required for a new release of the NeuroML development tools.
 
 | Task | Version this was last done |
 | --- | --- |
-| Commit final stable work in development branches | v2.3 |
-| Make releases (not just tag - generates DOI) previous development versions of individual repos | v2.3 |
-| Increment all version numbers - to distinguish release from previous development version | v2.3 |
-| Test all development branches - rerun GitHub Actions at least once | v2.3 |
-| Recheck all READMEs & docs | v2.3 |
-| Run & check [test.py](https://github.com/NeuroML/NeuroML2/blob/master/test.py) in NeuroML2 repo | v2.3 |
-| Check through issues for closed & easily closable ones | v2.3 |
-| Update version in {ref}`documentation pages <userdocs:neuromlv2>` | v2.3 |
-| Update [HISTORY.md](https://github.com/NeuroML/NeuroML2/blob/master/HISTORY.md) in NeuroML2 | v2.3 |
-| pylems: Update README; Merge to master; Tag release; Release to pip | v2.3 |
-| libNeuroML:  Update README; Retest; Merge to master; Tag release; Release to pip; Check [installation docs](https://libneuroml.readthedocs.org/en/latest/install.html) | v2.3 |
-| pyNeuroML: Update Readme; Tag release; Release to pip | v2.3 |
-| NeuroMLlite: Update Readme; Tag release; Release to pip | v2.3 |
-| Java repositories ({ref}`jNeuroML <jNeuroML>`, org.neuroml.* etc.): Merge development to master; Tag releases | v2.3 |
-| Rebuild jNeuroML & commit to [jNeuroMLJar](https://sourceforge.net/p/neuroml/code/HEAD/tree/jNeuroMLJar/) and use latest for [jNeuroML for OMV](https://github.com/OpenSourceBrain/osb-model-validation/blob/master/omv/engines/getjnml.py#L8) | v2.3 |
-| Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.3 |
-| Update version used in [neuroConstruct](https://github.com/NeuralEnsemble/neuroConstruct) | v2.3 |
-| Update docs on [http://docs.neuroml.org](https://docs.neuroml.org) | v2.3 |
+| Commit final stable work in development branches | v2.3.1 |
+| Make releases (not just tag - generates DOI) previous development versions of individual repos | v2.3.1 |
+| Increment all version numbers - to distinguish release from previous development version | v2.3.1 |
+| Test all development branches - rerun GitHub Actions at least once | v2.3.1 |
+| Recheck all READMEs & docs | v2.3.1 |
+| Run & check [test.py](https://github.com/NeuroML/NeuroML2/blob/master/test.py) in NeuroML2 repo | v2.3.1 |
+| Check through issues for closed & easily closable ones | v2.3.1 |
+| Update version in {ref}`documentation pages <userdocs:neuromlv2>` | v2.3.1 |
+| Update [HISTORY.md](https://github.com/NeuroML/NeuroML2/blob/master/HISTORY.md) in NeuroML2 | v2.3.1 |
+| LEMS: Update README; Merge to master; Tag release | v2.3.1 |
+| pylems: Update README; Merge to master; Tag release; Release to pip | v2.3.1 |
+| libNeuroML:  Update README; Retest; Merge to master; Tag release; Release to pip; Check [installation docs](https://docs.neuroml.org/Userdocs/Software/libNeuroML.html) | v2.3.1 |
+| pyNeuroML: Update Readme; Tag release; Release to pip | v2.3.1 |
+| NeuroMLlite: Update Readme; Tag release; Release to pip | v2.3.1 |
+| Java repositories ({ref}`jNeuroML <jNeuroML>`, org.neuroml.* etc.): Merge development to master; Tag releases | v2.3.1 |
+| Rebuild jNeuroML & commit to [jNeuroMLJar](https://sourceforge.net/p/neuroml/code/HEAD/tree/jNeuroMLJar/) and use latest for [jNeuroML for OMV](https://github.com/OpenSourceBrain/osb-model-validation/blob/master/omv/engines/getjnml.py#L8) | v2.3.1 |
+| Add new binary release on [https://github.com/NeuroML/jNeuroML/releases](https://github.com/NeuroML/jNeuroML/releases) | v2.3.1 |
+| Update C++. Matlab | ?? |
+| Update version used in [neuroConstruct](https://github.com/NeuralEnsemble/neuroConstruct) | v2.3.1 |
+| Update docs on [http://docs.neuroml.org](https://docs.neuroml.org) | v2.3.1 |
 | Update version on [COMBINE website](https://github.com/combine-org/combine-org.github.io/blob/master/content/authors/NeuroML/_index.md) | v2.2 |
 | ANNOUNCE (mailing list, Twitter) | v2.2 |
 | Increment version numbers in all development branches | v2.3 |
