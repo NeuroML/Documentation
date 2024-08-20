@@ -45,6 +45,8 @@ NeuroML specifications and the associated libraries are developed on GitHub and 
 
 ```{admonition} Recent releases of NeuroML2
 For full details on the recent releases of NeuroML see: [here](https://github.com/NeuroML/NeuroML2/blob/master/HISTORY.md).
+
+Note: the NeuroML Python libraries have regular updates which happen between the "full" NeuroML specification version [releases](https://github.com/NeuroML/NeuroML2/blob/master/HISTORY.md), adding new features and better support for simulators, see for example [here](https://pypi.org/project/pyNeuroML/#history). 
 ```
 
 
