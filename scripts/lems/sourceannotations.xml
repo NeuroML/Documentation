@@ -29,7 +29,7 @@ The value of a constant must be a plain number (no units) giving the SI magnitud
         <Property name="dimension" type="String"/>
     </ElementType>
     <ElementType name="Dimension" section="unitsdimensions">
-        <Info>A Dimenson element associated a name with a particular combination of  the standards SI base dimensions, mass, lenght, time, current, temperature and amount if substance (moles). Fractional dimensions are not currently supported.</Info>
+        <Info>A Dimenson element associated a name with a particular combination of  the standards SI base dimensions, mass, length, time, current, temperature and amount if substance (moles). Fractional dimensions are not currently supported.</Info>
         <Property name="name" type="String">
 The name to be used when referring to this dimension from variable declaration or units        </Property>
         <Property name="m" type="int">
@@ -48,7 +48,7 @@ Amount of substance        </Property>
 Luminous intensity        </Property>
     </ElementType>
     <ElementType name="Unit" section="unitsdimensions">
-        <Info>A Unit asociates a symbol with a dimension and a power of ten. For non-metric units a scale can be provided, as in '1 inch = 0.0254 m'. In this case there is a degeneracy between the power and the scale which is best resolved by not using the two together. The offset parameter is available for units which are not zero-offset, such as farenheit.</Info>
+        <Info>A Unit associates a symbol with a dimension and a power of ten. For non-metric units a scale can be provided, as in '1 inch = 0.0254 m'. In this case there is a degeneracy between the power and the scale which is best resolved by not using the two together. The offset parameter is available for units which are not zero-offset, such as fahrenheit.</Info>
         <Property name="name" type="String">
 As with constants, units are only referred to within expressions using their symbols, so the name is just for readability.        </Property>
         <Property name="symbol" type="String">
@@ -89,13 +89,13 @@ The component type that this type inherits field definitions for, if any        
         <ListProperty name="componentReferences" type="ComponentReference"/>
         <ListProperty name="componentTypeReferences" type="ComponentTypeReference"/>
         <ListProperty name="locations" type="Location"/>
-        <ListProperty name="propertys" type="Property"/>
+        <ListProperty name="properties" type="Property"/>
         <ListProperty name="dynamicses" type="Dynamics"/>
         <ListProperty name="structures" type="Structure"/>
         <ListProperty name="simulations" type="Simulation"/>
         <ListProperty name="equilibriums" type="Equilibrium"/>
         <ListProperty name="procedures" type="Procedure"/>
-        <ListProperty name="geometrys" type="Geometry"/>
+        <ListProperty name="geometries" type="Geometry"/>
         <ListProperty name="fixeds" type="Fixed"/>
         <ListProperty name="constants" type="Constant"/>
         <ListProperty name="attachmentses" type="Attachments"/>
@@ -117,7 +117,7 @@ The dimension, or 'none'. This should be the name of an already defined dimensio
 An optional description of the parameter        </Property>
     </ElementType>
     <ElementType name="PathParameter" section="componenttypes">
-        <Info>A parameter of which the value is a path expression. When a ComponentType declares a PathParameter, a corresponding Component definition should have an attibute with that name whose value is a path expression that evaluates within the instance tree of the built model. This is used, for example, in the definition of a group component class, where the coresponding component specifies a path over the instance tree which selectesthe items that should go in the group.</Info>
+        <Info>A parameter of which the value is a path expression. When a ComponentType declares a PathParameter, a corresponding Component definition should have an attribute with that name whose value is a path expression that evaluates within the instance tree of the built model. This is used, for example, in the definition of a group component class, where the corresponding component specifies a path over the instance tree which selectesthe items that should go in the group.</Info>
         <Property name="name" type="String">
 Name of the parameter        </Property>
     </ElementType>
@@ -213,7 +213,7 @@ An optional description of the ComponentReference        </Property>
         <Property name="name" type="String"/>
     </ElementType>
     <ElementType name="Collection" section="componenttypes">
-        <Info>Specifies that instances of components based on this class can containe a named collection of other instances. This provides for containers for oprating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</Info>
+        <Info>Specifies that instances of components based on this class can contain a named collection of other instances. This provides for containers for operating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</Info>
         <Property name="name" type="String"/>
     </ElementType>
     <ElementType name="PairCollection" section="componenttypes">
@@ -241,7 +241,7 @@ An optional description of the element        </Property>
         <Property name="name" type="String"/>
     </ElementType>
     <ElementType name="Attachments" section="componenttypes">
-        <Info>Specifies that a component can accept attached components of a particular class. Attached components can be added at build time dependent on other events. For scoping and access purposes they are like child components. The cannonical use of attachments is in adding synapses to a cell when a network connection is made.</Info>
+        <Info>Specifies that a component can accept attached components of a particular class. Attached components can be added at build time dependent on other events. For scoping and access purposes they are like child components. The canonical use of attachments is in adding synapses to a cell when a network connection is made.</Info>
         <Property name="name" type="String">
 A name for the Attachments        </Property>
         <Property name="type" type="String">
@@ -319,7 +319,7 @@ The dimension, or 'none'. This should be the name of an already defined dimensio
         <Property name="description" type="String">
 An optional description of the derived variable        </Property>
         <Property name="reduce" type="String">
-Either 'add' or 'multiply'. This applies if ther are multiple matches to the path or if 'required' is false. In the latter case, for multiply mode, multiplicative expressions in this variable behave as if the term was absent. Additive expressions generate an error. Conversely, if set to 'add' then additive expressions behave as if it was not there and multiplicative ones generateand error.        </Property>
+Either 'add' or 'multiply'. This applies if there are multiple matches to the path or if 'required' is false. In the latter case, for multiply mode, multiplicative expressions in this variable behave as if the term was absent. Additive expressions generate an error. Conversely, if set to 'add' then additive expressions behave as if it was not there and multiplicative ones generateand error.        </Property>
         <Property name="exposure" type="String"/>
         <Property name="required" type="boolean">
 Set to true if it OK for this variable to be absent. See 'reduce' for what happens in this case        </Property>
@@ -358,7 +358,7 @@ Name of state variable in state elements        </Property>
         <Property name="edgeSource" type="String">
 The name of the attribute in the rate element that defines the source of the transition        </Property>
         <Property name="edgeTarget" type="String">
-Attribute tha defines the target        </Property>
+Attribute that defines the target        </Property>
         <Property name="forwardRate" type="String">
 Name of forward rate exposure        </Property>
         <Property name="reverseRate" type="String">

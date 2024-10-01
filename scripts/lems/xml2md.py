@@ -56,7 +56,7 @@ lems_element_examples = {}
 def get_lems_examples(srcdirs, examples_max=5):
     """Get examples for component types
 
-    :param srcdirs: directores where examples are
+    :param srcdirs: directories where examples are
     :type srcdir: list(str)
     :param examples_max: maximum number of examples to store
     :type examples_max: int

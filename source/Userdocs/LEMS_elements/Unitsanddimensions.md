@@ -13,7 +13,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:dimension_)=
 ## Dimension
 
-<i>A Dimenson element associated a name with a particular combination of  the standards SI base dimensions, mass, lenght, time, current, temperature and amount if substance (moles). Fractional dimensions are not currently supported.</i>
+<i>A Dimenson element associated a name with a particular combination of  the standards SI base dimensions, mass, length, time, current, temperature and amount if substance (moles). Fractional dimensions are not currently supported.</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -71,7 +71,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:unit_)=
 ## Unit
 
-<i>A Unit asociates a symbol with a dimension and a power of ten. For non-metric units a scale can be provided, as in '1 inch = 0.0254 m'. In this case there is a degeneracy between the power and the scale which is best resolved by not using the two together. The offset parameter is available for units which are not zero-offset, such as farenheit.</i>
+<i>A Unit associates a symbol with a dimension and a power of ten. For non-metric units a scale can be provided, as in '1 inch = 0.0254 m'. In this case there is a degeneracy between the power and the scale which is best resolved by not using the two together. The offset parameter is available for units which are not zero-offset, such as fahrenheit.</i>
 
 `````{tab-set}
 ````{tab-item} Properties

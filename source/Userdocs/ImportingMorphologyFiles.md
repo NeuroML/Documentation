@@ -104,7 +104,7 @@ Usually, morphologies are embedded in NeuroML cell definition files, {ref}`for e
 
 However, morphologies (and {ref}`biophysical properties <schema:biophysicalproperties>`) can also be stored as "standalone" entities outside the cell definition and referred to.
 Further, they can also be stored in external files that may be "included" in the cell definition file (using the [IncludeType](https://libneuroml.readthedocs.io/en/latest/userdocs/coreclasses.html#includetype) model element).
-This allows the re-use of morphology and biophysical properties in multiple cell models:
+This allows the reuse of morphology and biophysical properties in multiple cell models:
 
 ```{code-block} xml
     <cell id="pyr_soma_m_out_b_out" morphology="morph0" biophysicalProperties="biophys1">
