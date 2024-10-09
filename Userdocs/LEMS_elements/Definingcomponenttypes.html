@@ -1,0 +1,2028 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Defining component types &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/LEMS_elements/Definingcomponenttypes';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Dynamics" href="Dynamics.html" />
+    <link rel="prev" title="Units and dimensions" href="Unitsanddimensions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/LEMS_elements/Definingcomponenttypes.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/LEMS_elements/Definingcomponenttypes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/LEMS_elements/Definingcomponenttypes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Defining component types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componenttype">ComponentType</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter">Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pathparameter">PathParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property">Property</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedparameter">DerivedParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirement">Requirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentrequirement">ComponentRequirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instancerequirement">InstanceRequirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exposure">Exposure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#child">Child</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#children">Children</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link">Link</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentreference">ComponentReference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componenttypereference">ComponentTypeReference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection">Collection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paircollection">PairCollection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eventport">EventPort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text">Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#path">Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attachments">Attachments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion">Insertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integerparameter">IntegerParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexparameter">IndexParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about">About</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta">Meta</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="defining-component-types">
+<span id="lemsschema-page-defining-component-types"></span><h1>Defining component types<a class="headerlink" href="#defining-component-types" title="Link to this heading">#</a></h1>
+<p>Schema against which LEMS based on these should be valid: <a class="reference external" href="https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS/LEMS_v0.7.6.xsd">LEMS_v0.7.6.xsd</a>.
+Generated on 18/06/24 from <a class="reference external" href="https://github.com/LEMS/LEMS/commit/fd7b30eceb6735ac343745c8f6992bdde72b248b">this</a> commit.
+Please file any issues or questions at the <a class="reference external" href="https://github.com/LEMS/LEMS/issues">issue tracker here</a>.</p>
+<hr class="docutils" />
+<section id="componenttype">
+<span id="lemsschema-componenttype"></span><h2>ComponentType<a class="headerlink" href="#componenttype" title="Link to this heading">#</a></h2>
+<p><i>Root element for defining LEMS Component Types.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the component type. This can be uses as an XML element name in the shorthand form whendefining components.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>eXtends</strong></p></td>
+<td><p>String</p></td>
+<td><p>The component type that this type inherits field definitions for, if any</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>parameters</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-parameter"><span class="std std-ref">Parameter</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>indexParameters</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-indexparameter"><span class="std std-ref">IndexParameter</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>derivedParameters</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-derivedparameter"><span class="std std-ref">DerivedParameter</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>pathParameters</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-pathparameter"><span class="std std-ref">PathParameter</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>requirements</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-requirement"><span class="std std-ref">Requirement</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>componentRequirements</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-componentrequirement"><span class="std std-ref">ComponentRequirement</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>instanceRequirements</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-instancerequirement"><span class="std std-ref">InstanceRequirement</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>exposures</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-exposure"><span class="std std-ref">Exposure</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>childs</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-child"><span class="std std-ref">Child</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>childrens</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-children"><span class="std std-ref">Children</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>links</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-link"><span class="std std-ref">Link</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>componentReferences</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-componentreference"><span class="std std-ref">ComponentReference</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>componentTypeReferences</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-componenttypereference"><span class="std std-ref">ComponentTypeReference</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>locations</strong></p></td>
+<td><p><a class="reference internal" href="Geometry.html#lemsschema-location"><span class="std std-ref">Location</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>propertys</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-property"><span class="std std-ref">Property</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dynamicses</strong></p></td>
+<td><p><a class="reference internal" href="Dynamics.html#lemsschema-dynamics"><span class="std std-ref">Dynamics</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>structures</strong></p></td>
+<td><p><a class="reference internal" href="Structure.html#lemsschema-structure"><span class="std std-ref">Structure</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>simulations</strong></p></td>
+<td><p><a class="reference internal" href="Simulation.html#lemsschema-simulation"><span class="std std-ref">Simulation</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>equilibriums</strong></p></td>
+<td><p><a class="reference internal" href="Dynamics.html#lemsschema-equilibrium"><span class="std std-ref">Equilibrium</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>procedures</strong></p></td>
+<td><p><a class="reference internal" href="Procedure.html#lemsschema-procedure"><span class="std std-ref">Procedure</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>geometrys</strong></p></td>
+<td><p><a class="reference internal" href="Geometry.html#lemsschema-geometry"><span class="std std-ref">Geometry</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>fixeds</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-fixed"><span class="std std-ref">Fixed</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>constants</strong></p></td>
+<td><p><a class="reference internal" href="Modelstructure.html#lemsschema-constant"><span class="std std-ref">Constant</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>attachmentses</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-attachments"><span class="std std-ref">Attachments</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>eventPorts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-eventport"><span class="std std-ref">EventPort</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>paths</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-path"><span class="std std-ref">Path</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>texts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-text"><span class="std std-ref">Text</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>collections</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-collection"><span class="std std-ref">Collection</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>pairCollections</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-paircollection"><span class="std std-ref">PairCollection</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>abouts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-about"><span class="std std-ref">About</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>metas</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-meta"><span class="std std-ref">Meta</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ComponentType&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Property&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Property&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Parameter&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Parameter&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DerivedParameter&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;DerivedParameter&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;IndexParameter&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;IndexParameter&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Constant&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Constant&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Child&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Child&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Children&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Children&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Fixed&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Fixed&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Link&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Link&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ComponentReference&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ComponentReference&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Attachments&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Attachments&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EventPort&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EventPort&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Exposure&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Exposure&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Requirement&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Requirement&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ComponentRequirement&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ComponentRequirement&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;InstanceRequirement&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;InstanceRequirement&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Path&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Path&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Text&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Text&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Dynamics&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Dynamics&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Structure&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Structure&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Simulation&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Simulation&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;extends&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Population&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;component&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Component&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;size&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Structure&gt;</span>
+<span class="w">        </span><span class="nt">&lt;MultiInstantiate</span><span class="w"> </span><span class="na">number=</span><span class="s">&quot;size&quot;</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;component&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Structure&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EventConnectivity&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;source&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Population&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;target&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Population&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Child</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Connections&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ConnectionPattern&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Network&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;populations&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Population&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;connectivities&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EventConnectivity&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;AllAll&quot;</span><span class="w"> </span><span class="na">extends=</span><span class="s">&quot;ConnectionPattern&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Structure&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ForEach</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;../source&quot;</span><span class="w"> </span><span class="na">as=</span><span class="s">&quot;a&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ForEach</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;../target&quot;</span><span class="w"> </span><span class="na">as=</span><span class="s">&quot;b&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;EventConnection</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;b&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/ForEach&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/ForEach&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Structure&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ConnectionPattern&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parameter">
+<span id="lemsschema-parameter"></span><h2>Parameter<a class="headerlink" href="#parameter" title="Link to this heading">#</a></h2>
+<p><i>A quantity, defined by name and dimension, that must be supplied when a Component of the enclosing ComponentType is defined</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the parameter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Parameter&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexContent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:extension</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;NamedDimensionalType&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexContent&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;size&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xmin&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xmax&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ymin&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ymax&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pathparameter">
+<span id="lemsschema-pathparameter"></span><h2>PathParameter<a class="headerlink" href="#pathparameter" title="Link to this heading">#</a></h2>
+<p><i>A parameter of which the value is a path expression. When a ComponentType declares a PathParameter, a corresponding Component definition should have an attibute with that name whose value is a path expression that evaluates within the instance tree of the built model. This is used, for example, in the definition of a group component class, where the coresponding component specifies a path over the instance tree which selectesthe items that should go in the group.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the parameter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="property">
+<span id="lemsschema-property"></span><h2>Property<a class="headerlink" href="#property" title="Link to this heading">#</a></h2>
+<p><i>An property on an instance of a component. Unlike a Parameter, a Property can very from instance to instance. It should be set with an Assign element within the build specification.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>defaultValue</strong></p></td>
+<td><p>String</p></td>
+<td><p>The defaultValue for the property must be a plain number (no units) giving the SI magnitude of the quantity.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Property&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dimension&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;defaultValue&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:double&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivedparameter">
+<span id="lemsschema-derivedparameter"></span><h2>DerivedParameter<a class="headerlink" href="#derivedparameter" title="Link to this heading">#</a></h2>
+<p><i>A parameter that is a function of the Component’s Parameters, which does not change with time. Its value can be supplied either with the ‘value’ attribute that evaluates within the scope of the definition, or with the ‘select’ attribute which gives a path to ‘primary’ version of the parameter. For example,  setting select=‘//MembranePotential[species=channel/species]/reversal’ within the appropriate context allows  a channel’s reversal potential to taken from a single global setting according to its permeant ion, rather than explicitly supplied locally.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the derived parameter</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the derived parameter</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>select</strong></p></td>
+<td><p>String</p></td>
+<td><p>Path to the parameter that supplies the value. Exactly one of ‘select’ and ‘value’ is required.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>value</strong></p></td>
+<td><p>String</p></td>
+<td><p>A string defining the value of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DerivedParameter&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dimension&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-12" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedParameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;erev&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;//MembranePotential[species=channel/species]/reversal&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fixed">
+<span id="lemsschema-fixed"></span><h2>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">#</a></h2>
+<p><i>Fixes the value of a parameter in the parent class, so that it does not have to be supplied separately in component definitions.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-13" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>parameter</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>value</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-14" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Fixed&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;parameter&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;PhysicalQuantity&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-15" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;threshold&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-45mV&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="requirement">
+<span id="lemsschema-requirement"></span><h2>Requirement<a class="headerlink" href="#requirement" title="Link to this heading">#</a></h2>
+<p><i>A Requirement gives the name and dimension of a quantity (parameter or variable) that should be accessible within the scope of a model component. This is only applicable for elements that can be included as children of other elements, where the scope comprises its own parameters and those in the scope of its enclosing element. Once a requirement has been declared, then the quantity can be used within the Dynamics definition of the component. It is the responsibility of an implementation to check that the component is only used in a context in which the requirement is met. A typical example is in defining membrand bound components which require access to the membrane potential  but where the variable that holds the potential itself is defined in the top level component.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>name</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the requirement</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-17" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-17">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Requirement&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexContent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:extension</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;NamedDimensionalType&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexContent&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-18" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-18">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="componentrequirement">
+<span id="lemsschema-componentrequirement"></span><h2>ComponentRequirement<a class="headerlink" href="#componentrequirement" title="Link to this heading">#</a></h2>
+<p><i>The name of a component or component reference that must exist in the component hierarchy</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-19" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-19">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>name</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-20" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-20">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ComponentRequirement&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="instancerequirement">
+<span id="lemsschema-instancerequirement"></span><h2>InstanceRequirement<a class="headerlink" href="#instancerequirement" title="Link to this heading">#</a></h2>
+<p><i>An instance that must be supplied at build time. Expressions can contain references to quantities in the instance</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-21" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-21">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>name</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-22" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-22">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;InstanceRequirement&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exposure">
+<span id="lemsschema-exposure"></span><h2>Exposure<a class="headerlink" href="#exposure" title="Link to this heading">#</a></h2>
+<p><i>A quantity that is made available to other components in the simulation. Note that all variables in a Dynamics definition are private. If other components need access to them, then the definition should explicitly link them to an exposure defined in the component class</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-23" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-23">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the exposure element</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-24" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-24">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Exposure&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexContent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:extension</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;NamedDimensionalType&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexContent&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-25" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-25">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fcond&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fcond&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="child">
+<span id="lemsschema-child"></span><h2>Child<a class="headerlink" href="#child" title="Link to this heading">#</a></h2>
+<p><i>Specifies that a component can have a child of a particular type. The name supplied here can be used in path expressions to access the component. This is useful, for example, where a component can have multiple children of the same type but with different roles, such as the forward and reverse transition rates in a channel.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-26" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-26">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the child</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p>String</p></td>
+<td><p>Reference to a component class, the value should be the name of the target class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the child</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-27" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-27">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Child&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-28" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-28">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Child</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Connections&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ConnectionPattern&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Child</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Forward&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHRate&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Child</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Reverse&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHRate&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Child</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Forward&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHRate&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Child</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Reverse&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHRate&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="children">
+<span id="lemsschema-children"></span><h2>Children<a class="headerlink" href="#children" title="Link to this heading">#</a></h2>
+<p><i>Specifies that a component can have children of a particular class. The class may refer to an extendedtype, in which case components of any class that extends the specified target class should be valid as child components</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-29" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-29">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the children</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p>String</p></td>
+<td><p>The class of component allowed as children.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-30" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-30">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Children&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-31" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-31">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;populations&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Population&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;connectivities&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EventConnectivity&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lines&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Line&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;outputColumn&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;OutputColumn&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;displays&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Display&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="link">
+<span id="lemsschema-link"></span><h2>Link<a class="headerlink" href="#link" title="Link to this heading">#</a></h2>
+<p><i>Like a ComponentRef, but resolved relative to the enclosing object so the target must already be in the model. One or the other should be deprecated. The Link element has the same properties as ComponentRef. The Link element just establishes a connection with the target component, but leaves it in its existing place in the hierarchy. Variables in the target component can be accessed via the name of the link element.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-32" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-32">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>A name for the ComponentReference</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p>String</p></td>
+<td><p>The type of the target Component</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the ComponentReference</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-33" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-33">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Link&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-34" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-34">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;source&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Population&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;target&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Population&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;from&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSState&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;to&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSState&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;from&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSState&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="componentreference">
+<span id="lemsschema-componentreference"></span><h2>ComponentReference<a class="headerlink" href="#componentreference" title="Link to this heading">#</a></h2>
+<p><i>A reference to another component. The target component can be accessed with path expressions in the same way as a child component, but can be defined independently</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-35" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-35">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>A name for the ComponentReference</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p>String</p></td>
+<td><p>The type of the target Component</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the ComponentReference</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-36" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-36">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ComponentReference&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;local&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-37" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-37">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;component&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Component&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;target&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Component&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;channel&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHChannel&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;component&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Component&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;synapse&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Synapse&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="componenttypereference">
+<span id="lemsschema-componenttypereference"></span><h2>ComponentTypeReference<a class="headerlink" href="#componenttypereference" title="Link to this heading">#</a></h2>
+<p><i>This is used in conjunction with PathParameter elements to specify the target class of selections defined within components operating over the instance tree.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-38" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-38">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="collection">
+<span id="lemsschema-collection"></span><h2>Collection<a class="headerlink" href="#collection" title="Link to this heading">#</a></h2>
+<p><i>Specifies that instances of components based on this class can containe a named collection of other instances. This provides for containers for oprating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-39" name="sd-tab-set-15" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-39">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="paircollection">
+<span id="lemsschema-paircollection"></span><h2>PairCollection<a class="headerlink" href="#paircollection" title="Link to this heading">#</a></h2>
+<p><i>Defines a named collection of paris of instances, similar to the Collection element.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-40" name="sd-tab-set-16" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-40">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="eventport">
+<span id="lemsschema-eventport"></span><h2>EventPort<a class="headerlink" href="#eventport" title="Link to this heading">#</a></h2>
+<p><i>A port on a component that can send or receive events, depending on the direction specified</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-41" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-41">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the EventPort</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>direction</strong></p></td>
+<td><p>String</p></td>
+<td><p>‘IN’ or ‘OUT’</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the EventPort</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-42" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-42">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EventPort&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;direction&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-43" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-43">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventPort</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;spikes-in&quot;</span><span class="w"> </span><span class="na">direction=</span><span class="s">&quot;in&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventPort</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="na">direction=</span><span class="s">&quot;out&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventPort</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;in&quot;</span><span class="w"> </span><span class="na">direction=</span><span class="s">&quot;in&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventPort</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;out&quot;</span><span class="w"> </span><span class="na">direction=</span><span class="s">&quot;out&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventPort</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;in&quot;</span><span class="w"> </span><span class="na">direction=</span><span class="s">&quot;in&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="text">
+<span id="lemsschema-text"></span><h2>Text<a class="headerlink" href="#text" title="Link to this heading">#</a></h2>
+<p><i>Holds textual information that does not change the model but is needed for other purposes such as labelling graphs.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-44" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-44">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The textual content</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-45" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-45">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Text&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-46" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-46">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;title&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;color&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;path&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fileName&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;destination&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="path">
+<span id="lemsschema-path"></span><h2>Path<a class="headerlink" href="#path" title="Link to this heading">#</a></h2>
+<p><i>Duplicates some functionality of PathParameter - the two should be merged.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-47" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-47">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-48" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-48">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Path&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-49" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-49">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Path</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;quantity&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Path</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;quantity&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Path</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;from&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Path</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;to&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Path</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;quantity&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="attachments">
+<span id="lemsschema-attachments"></span><h2>Attachments<a class="headerlink" href="#attachments" title="Link to this heading">#</a></h2>
+<p><i>Specifies that a component can accept attached components of a particular class. Attached components can be added at build time dependent on other events. For scoping and access purposes they are like child components. The cannonical use of attachments is in adding synapses to a cell when a network connection is made.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-50" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-50">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>A name for the Attachments</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p>String</p></td>
+<td><p>The type of the Attachments</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-51" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-51">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Attachments&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-52" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-52">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Attachments</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;synapses&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Synapse&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="insertion">
+<span id="lemsschema-insertion"></span><h2>Insertion<a class="headerlink" href="#insertion" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+</section>
+<section id="integerparameter">
+<span id="lemsschema-integerparameter"></span><h2>IntegerParameter<a class="headerlink" href="#integerparameter" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-53" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-53">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the parameter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="indexparameter">
+<span id="lemsschema-indexparameter"></span><h2>IndexParameter<a class="headerlink" href="#indexparameter" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-54" name="sd-tab-set-22" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-54">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the parameter. This is the name of the attribute to be used when the parameter is supplied in a component definition</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the parameter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-55" name="sd-tab-set-22" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-55">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;IndexParameter&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="about">
+<span id="lemsschema-about"></span><h2>About<a class="headerlink" href="#about" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+</section>
+<section id="meta">
+<span id="lemsschema-meta"></span><h2>Meta<a class="headerlink" href="#meta" title="Link to this heading">#</a></h2>
+<p><i>Meta element to provide arbitrary metadata to LEMS simulations. Note that this is not processed by the LEMS interpreter.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-56" name="sd-tab-set-23" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-56">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Meta&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:any</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="w"> </span><span class="na">processContents=</span><span class="s">&quot;lax&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:anyAttribute</span><span class="w"> </span><span class="na">processContents=</span><span class="s">&quot;skip&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/LEMS_elements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Unitsanddimensions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Units and dimensions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Dynamics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dynamics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componenttype">ComponentType</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter">Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pathparameter">PathParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property">Property</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedparameter">DerivedParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirement">Requirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentrequirement">ComponentRequirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instancerequirement">InstanceRequirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exposure">Exposure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#child">Child</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#children">Children</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link">Link</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentreference">ComponentReference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componenttypereference">ComponentTypeReference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collection">Collection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paircollection">PairCollection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eventport">EventPort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text">Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#path">Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attachments">Attachments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion">Insertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integerparameter">IntegerParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexparameter">IndexParameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about">About</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta">Meta</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

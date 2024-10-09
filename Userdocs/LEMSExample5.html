@@ -1,0 +1,943 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Example 5: References and paths &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/LEMSExample5';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example 6: User defined types for simulation and display" href="LEMSExample6.html" />
+    <link rel="prev" title="Example 4: Kinetic schemes" href="LEMSExample4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="LEMS.html">LEMS: Low Entropy Model Specification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/LEMSExample5.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/LEMSExample5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Userdocs/LEMSExample5.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example 5: References and paths</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="example-5-references-and-paths">
+<span id="userdocs-lemsexample5"></span><h1>Example 5: References and paths<a class="headerlink" href="#example-5-references-and-paths" title="Link to this heading">#</a></h1>
+<p>The ChannelPopulation type used earlier repeats a common model specification error in that it makes the reversal potential of a population of channels a parameter of the population (often it is made a parameter of the channel specification, which is equally bad):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ChannelPopulation&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;ComponentRef</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;channel&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSChannel&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;number&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;erev&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<p>In fact, of course, the reversal potential is not a property of a channel population, or of a channel.
+It depends on the environment the channel is put in and the ions it is permeable to.
+But, it is needed in the Dynamics specification for the population so just putting it in as a parameter solves the immediate problem.
+In the process, however, it introduces the potential for easily creating contradictory models, by, for example setting different reversals for populations of the same type of channel.</p>
+<p>A much better approach is to let the channel just say what it is permeable to.
+Some other element in the model can define the membrane reversal potentials for different channels, and the channel population object should then look up the relevant value for the permeant ion of its channel.
+This provides a cleaner expression of what is there, removes redundancy and lowers the entropy of the model specification.</p>
+<p>The following three types are sufficient to provide a simple framework to centralize the definitions of species and reversal potentials on one place:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Species&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;charge&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+<span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Environment&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;membranePotentials&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;MembranePotential&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+<span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MembranePotential&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;ComponentRef</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;species&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Species&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reversal&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<p>Once these are available, they can be used to define some species, and to create an environment component that sets their reversal potentials:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Species</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Na&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Sodium&quot;</span><span class="w"> </span><span class="na">charge=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Species</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;K&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Potassium&quot;</span><span class="w"> </span><span class="na">charge=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Species</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Ca&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Calcium&quot;</span><span class="w"> </span><span class="na">charge=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Environment</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;env1&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;MembranePotential</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;Na&quot;</span><span class="w"> </span><span class="na">reversal=</span><span class="s">&quot;50mV&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;MembranePotential</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;K&quot;</span><span class="w"> </span><span class="na">reversal=</span><span class="s">&quot;-80mV&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Environment&gt;</span>
+</pre></div>
+</div>
+<p>The next step is to add a species reference to the channel type, so that channel definitions can say what species they are permeant to.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSChannel&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;ComponentRef</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;species&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Species&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gates&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSGate&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fopen&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;gates[*]/fopen&quot;</span><span class="w"> </span><span class="na">reduce=</span><span class="s">&quot;multiply&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;fopen * conductance&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<p>Finally the channel population type needs modifying to add a derived parameter that addresses the reversal potential from the membrane properties:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ChannelPopulation&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;ComponentRef</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;channel&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSChannel&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;number&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;DerivedParameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;erev&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;//MenbranePotential[species = channel/species]/reversal&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;channelg&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;channel/g&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;geff&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;channelg * number&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;current&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geff * (erev - v)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<p>This introduces a new construct, the DerivedParameter specification that defines a local parameter “erev” to hold the quantity from the specified path:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedParameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;erev&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;//MenbranePotential[species = channel/species]/reversal&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>The path here uses XPath like syntax operating on the component tree in the model.
+In this case, it finds all the elements of thpe MembranePotential in the model.
+The predicate selects the one for which the species is the same as the species referred to from the channel used for this population.
+Finally, it takes the “reversal” parameter from the membrane potential component.
+This is made locally available as the parameter “erev”.</p>
+<p>The Dynamics of this model is exactly the same as example 4.
+The full model including both the type definitions and the components is included below.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Lems&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Target</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;sim1&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;ex2dims.xml&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Species&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;charge&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Environment&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;membranePotentials&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;MembranePotential&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MembranePotential&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;species&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Species&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reversal&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Species</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Na&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Sodium&quot;</span><span class="w"> </span><span class="na">charge=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Species</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;K&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Potassium&quot;</span><span class="w"> </span><span class="na">charge=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Species</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Ca&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Calcium&quot;</span><span class="w"> </span><span class="na">charge=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;Environment</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;env1&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;MembranePotential</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;Na&quot;</span><span class="w"> </span><span class="na">reversal=</span><span class="s">&quot;50mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;MembranePotential</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;K&quot;</span><span class="w"> </span><span class="na">reversal=</span><span class="s">&quot;-80mV&quot;</span><span class="nt">/&gt;</span><span class="w">    </span>
+<span class="w">    </span><span class="nt">&lt;/Environment&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSChannel&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;species&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Species&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gates&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSGate&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fopen&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;gates[*]/fopen&quot;</span><span class="w"> </span><span class="na">reduce=</span><span class="s">&quot;multiply&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;fopen * conductance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSGate&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;power&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;deltaV&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;states&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSState&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;transitions&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSTransition&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fopen&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span><span class="w">   </span>
+<span class="w">            </span><span class="nt">&lt;KineticScheme</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ks&quot;</span><span class="w"> </span><span class="na">nodes=</span><span class="s">&quot;states&quot;</span><span class="w"> </span><span class="na">stateVariable=</span><span class="s">&quot;occupancy&quot;</span>
+<span class="w">                           </span><span class="na">edges=</span><span class="s">&quot;transitions&quot;</span><span class="w"> </span><span class="na">edgeSource=</span><span class="s">&quot;from&quot;</span><span class="w"> </span><span class="na">edgeTarget=</span><span class="s">&quot;to&quot;</span><span class="w"> </span>
+<span class="w">                           </span><span class="na">forwardRate=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">reverseRate=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">dependency=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">step=</span><span class="s">&quot;deltaV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;states[*]/q&quot;</span><span class="w"> </span><span class="na">reduce=</span><span class="s">&quot;add&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fopen&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;fopen&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;q^power&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSState&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;occupancy&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">   </span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;occupancy&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;occupancy&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;relativeConductance * occupancy&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSClosedState&quot;</span><span class="w"> </span><span class="na">extends=</span><span class="s">&quot;KSState&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSOpenState&quot;</span><span class="w"> </span><span class="na">extends=</span><span class="s">&quot;KSState&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Fixed</span><span class="w"> </span><span class="na">parameter=</span><span class="s">&quot;relativeConductance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSTransition&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;from&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSState&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;to&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSState&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="nt">/&gt;</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;VHalfTransition&quot;</span><span class="w"> </span><span class="na">extends=</span><span class="s">&quot;KSTransition&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;vHalf&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gamma&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tau&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tauMin&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Constant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kte&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;25.3mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">    </span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rf0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;exp(z * gamma * (v - vHalf) / kte) / tau&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rr0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;exp(-z * (1 - gamma) * (v - vHalf) / kte) / tau&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1 / (1/rf0 + tauMin)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1 / (1/rr0 + tauMin)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+
+
+
+
+<span class="w">    </span><span class="nt">&lt;KSChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;na1&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;20pS&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;Na&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;KSGate</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">deltaV=</span><span class="s">&quot;0.1mV&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;KSClosedState</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;c1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;KSClosedState</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;c2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;KSOpenState</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;o1&quot;</span><span class="w"> </span><span class="na">relativeConductance=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;KSClosedState</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;c3&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;VHalfTransition</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;c1&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;c2&quot;</span><span class="w"> </span><span class="na">vHalf =</span><span class="w"> </span><span class="s">&quot;-35mV&quot;</span><span class="w"> </span><span class="na">z=</span><span class="s">&quot;2.5&quot;</span><span class="w"> </span><span class="na">gamma=</span><span class="s">&quot;0.8&quot;</span><span class="w"> </span><span class="na">tau=</span><span class="s">&quot;0.15ms&quot;</span><span class="w"> </span><span class="na">tauMin=</span><span class="s">&quot;0.001ms&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;VHalfTransition</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;c2&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;o1&quot;</span><span class="w"> </span><span class="na">vHalf =</span><span class="w"> </span><span class="s">&quot;-35mV&quot;</span><span class="w"> </span><span class="na">z=</span><span class="s">&quot;2.5&quot;</span><span class="w"> </span><span class="na">gamma=</span><span class="s">&quot;0.8&quot;</span><span class="w"> </span><span class="na">tau=</span><span class="s">&quot;0.15ms&quot;</span><span class="w"> </span><span class="na">tauMin=</span><span class="s">&quot;0.001ms&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;VHalfTransition</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;o1&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;c3&quot;</span><span class="w"> </span><span class="na">vHalf =</span><span class="w"> </span><span class="s">&quot;-70mV&quot;</span><span class="w"> </span><span class="na">z=</span><span class="s">&quot;1.1&quot;</span><span class="w"> </span><span class="na">gamma=</span><span class="s">&quot;0.90&quot;</span><span class="w"> </span><span class="na">tau=</span><span class="s">&quot;8.0ms&quot;</span><span class="w"> </span><span class="na">tauMin=</span><span class="s">&quot;0.01ms&quot;</span><span class="nt">/&gt;</span><span class="w">         </span>
+<span class="w">        </span><span class="nt">&lt;/KSGate&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/KSChannel&gt;</span>
+
+
+<span class="w">    </span><span class="nt">&lt;KSChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;k1&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;30pS&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;K&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;KSGate</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">deltaV=</span><span class="s">&quot;0.1mV&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;KSClosedState</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;c1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;KSOpenState</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;o1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;VHalfTransition</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;c1&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;o1&quot;</span><span class="w"> </span><span class="na">vHalf =</span><span class="w"> </span><span class="s">&quot;0mV&quot;</span><span class="w"> </span><span class="na">z=</span><span class="s">&quot;1.5&quot;</span><span class="w"> </span><span class="na">gamma=</span><span class="s">&quot;0.75&quot;</span><span class="w"> </span><span class="na">tau=</span><span class="s">&quot;3.2ms&quot;</span><span class="w"> </span><span class="na">tauMin=</span><span class="s">&quot;0.3ms&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/KSGate&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/KSChannel&gt;</span>
+
+
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ChannelPopulation&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;channel&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KSChannel&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;number&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Requirement</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;current&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;current&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;DerivedParameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;erev&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;//MembranePotential[species=channel/species]/reversal&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">     </span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;channelg&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;conductance&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;channel/g&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;geff&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;channelg * number&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;current&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;current&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geff * (erev - v)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span><span class="w">    </span>
+<span class="w">    </span>
+<span class="w">    </span>
+<span class="w">        </span><span class="nt">&lt;Structure&gt;</span><span class="w">    </span>
+<span class="w">            </span><span class="nt">&lt;ChildInstance</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;channel&quot;</span><span class="nt">/&gt;</span><span class="w">    </span>
+<span class="w">        </span><span class="nt">&lt;/Structure&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KSCell&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;capacitance&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;capacitance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ComponentReference</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;environment&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Environment&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Children</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;populations&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ChannelPopulation&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;injection&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;current&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">                </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/OnStart&gt;</span>
+<span class="w">  </span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;totcurrent&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;current&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;populations[*]/current&quot;</span><span class="w"> </span><span class="na">reduce=</span><span class="s">&quot;add&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(totcurrent + injection) / capacitance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+
+
+
+<span class="w">    </span><span class="nt">&lt;KSCell</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;kscell_1&quot;</span><span class="w"> </span><span class="na">capacitance=</span><span class="s">&quot;0.4pF&quot;</span><span class="w"> </span><span class="na">injection=</span><span class="s">&quot;1pA&quot;</span><span class="w"> </span><span class="na">v0=</span><span class="s">&quot;-60mV&quot;</span><span class="w"> </span><span class="na">environment=</span><span class="s">&quot;env1&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ChannelPopulation</span><span class="w"> </span><span class="na">channel=</span><span class="s">&quot;na1&quot;</span><span class="w"> </span><span class="na">number=</span><span class="s">&quot;400&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ChannelPopulation</span><span class="w"> </span><span class="na">channel=</span><span class="s">&quot;k1&quot;</span><span class="w"> </span><span class="na">number=</span><span class="s">&quot;180&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/KSCell&gt;</span>
+
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&lt;Include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;SingleSimulation.xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">&lt;Simulation</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;sim1&quot;</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;80ms&quot;</span><span class="w"> </span><span class="na">step=</span><span class="s">&quot;0.05ms&quot;</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;kscell_1&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Display</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;d0&quot;</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Example 5: References and paths&quot;</span><span class="w"> </span><span class="na">timeScale=</span><span class="s">&quot;1ms&quot;</span><span class="w"> </span><span class="na">xmin=</span><span class="s">&quot;-10&quot;</span><span class="w"> </span><span class="na">xmax=</span><span class="s">&quot;90&quot;</span><span class="w"> </span><span class="na">ymin=</span><span class="s">&quot;-90&quot;</span><span class="w"> </span><span class="na">ymax=</span><span class="s">&quot;60&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Line</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">quantity=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;1mV&quot;</span><span class="w"> </span><span class="na">timeScale=</span><span class="s">&quot;1ms&quot;</span><span class="w"> </span><span class="na">color=</span><span class="s">&quot;#0000f0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Display&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Simulation&gt;</span>
+
+<span class="nt">&lt;/Lems&gt;</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LEMSExample4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Example 4: Kinetic schemes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="LEMSExample6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example 6: User defined types for simulation and display</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Adding OMV tests &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/Walkthroughs/RayEtAl2020/OMV';</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="NeuroML outreach and events" href="../../../Events/Events.html" />
+    <link rel="prev" title="Converting to NeuroML" href="Conversion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Walkthroughs.html">Walk throughs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/Walkthroughs/RayEtAl2020/OMV.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Walkthroughs/RayEtAl2020/OMV.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Userdocs/Walkthroughs/RayEtAl2020/OMV.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Adding OMV tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-getting-spike-data-from-the-neuron-model">Step 1) Getting spike data from the NEURON model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-adding-tests">Step 2) Adding tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-setting-up-continuous-testing-on-github-actions">Step 3) Setting up continuous testing on GitHub Actions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="adding-omv-tests">
+<h1>Adding OMV tests<a class="headerlink" href="#adding-omv-tests" title="Link to this heading">#</a></h1>
+<p>Now that we have converted the cell models to NeuroML, we want to ensure that we get the same behaviour from the NeuroML converted cell model as from the original NEURON code.
+For this, we have the <a class="reference external" href="https://github.com/OpenSourceBrain/osb-model-validation/">Open Source Model Validation (OMV) framework</a>.
+The idea here is that we write simple test files that <code class="docutils literal notranslate"><span class="pre">omv</span></code> will run, and we provide data that <code class="docutils literal notranslate"><span class="pre">omv</span></code> can check against to see if the tests results are correct.</p>
+<p>We will add OMV tests for the KC here.</p>
+<section id="step-1-getting-spike-data-from-the-neuron-model">
+<h2>Step 1) Getting spike data from the NEURON model<a class="headerlink" href="#step-1-getting-spike-data-from-the-neuron-model" title="Link to this heading">#</a></h2>
+<p>For <code class="docutils literal notranslate"><span class="pre">omv</span></code> to test the model against, we need to generate some spike data that it knows to be the expected values.
+The <code class="docutils literal notranslate"><span class="pre">test_kc.py</span></code> script already provides us with the spike data.
+So, we can run the script and note down the spike times in a Model Emergent Properties (MEP) file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Testing a detailed cell</span>
+
+<span class="nt">experiments</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stepKC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">expected</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">spike times</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">144.45000000000556</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">177.64999999997536</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">210.29999999994567</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">242.74999999991616</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">275.0499999998868</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">307.19999999985754</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">339.2249999998284</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">371.07499999979945</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">402.74999999977064</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">434.1499999997421</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">465.2249999997138</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">495.87499999968594</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">525.9749999997221</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">555.3499999998289</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">583.8499999999326</span><span class="p p-Indicator">]</span>
+
+<span class="c1"># generated from test-kc.py</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-adding-tests">
+<h2>Step 2) Adding tests<a class="headerlink" href="#step-2-adding-tests" title="Link to this heading">#</a></h2>
+<p>Next, we can write a OSB Model Test (OMT) file to test the model using the step current simulation we had written before:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LEMS_KC_step_test.xml</span>
+<span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jNeuroML_NEURON</span>
+<span class="nt">mep</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.test.kc.mep</span>
+<span class="nt">experiments</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stepKC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">observables</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">spike times</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">file</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KC_step_test.KC_pop.v.dat</span>
+<span class="w">          </span><span class="nt">columns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">]</span>
+<span class="w">          </span><span class="nt">scaling</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nv">1000</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">spike detection</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">threshold</span>
+<span class="w">          </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-10.</span>
+<span class="w">        </span><span class="nt">tolerance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00</span>
+</pre></div>
+</div>
+<p>Note that we start with a tolerance of 0 here.
+Let us run the test and see what we get:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>omv<span class="w"> </span><span class="nb">test</span><span class="w"> </span>.test.kc.jnmlneuron.omt
+
+<span class="go">[omv]</span>
+<span class="go">[omv] Running the tests defined in .test.kc.jnmlnrn.omt</span>
+<span class="go">[omv] =================================================</span>
+<span class="go">[omv]   Found 1 experiment(s) to run on engine: jNeuroML_NEURON</span>
+<span class="go">[omv] PATH: :/home/asinha/.local/share/virtualenvs/neuroml-311-dev/bin</span>
+<span class="go">[omv] Env vars: {&#39;PYTHONPATH&#39;: &#39;/home/asinha/local/lib/python/site-packages&#39;, &#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)}</span>
+<span class="go">[omv]   Running file ./LEMS_KC_step_test.xml with jNeuroML_NEURON, env: {&#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)}</span>
+<span class="go">[omv]     Running the commands: [/usr/bin/jnml /home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/LEMS_KC_step_test.xml -neuron -nogui -run] in (/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; cwd=/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; shell=False; env={&#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)})</span>
+<span class="go">[omv]     Commands: [&#39;/usr/bin/jnml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/LEMS_KC_step_test.xml&#39;, &#39;-neuron&#39;, &#39;-nogui&#39;, &#39;-run&#39;] completed successfully</span>
+<span class="go">[omv]   Success with running jNeuroML_NEURON</span>
+<span class="go">[omv]   Running checks for experiment: stepKC</span>
+<span class="go">[omv]</span>
+<span class="go">[omv] Comparison of</span>
+<span class="go">                    (observed data): [143.95, 176.76, 209.23, 241.52, 273.66, 305.68, 337.57, 369.33, 400.94, 432.38, 463.62, 494.59999999999997, 525.28, 555.59, 585.45]</span>
+<span class="go">                    and</span>
+<span class="go">                    (expected data): [144.45000000000556, 177.64999999997536, 210.29999999994567, 242.74999999991616, 275.0499999998868, 307.19999999985754, 339.2249999998284, 371.07499999979945, 402.74999999977064, 434.1499999997421, 465.2249999997138, 495.87499999968594, 525.9749999997221, 555.3499999998289, 583.8499999999326]</span>
+<span class="go">                    failed against tolerance 0</span>
+<span class="go">[omv]   A better tolerance to try is: 0.005087969567027844</span>
+<span class="go">[omv]       Observable                        Test Passed</span>
+<span class="go">[omv]       --------------------------------------------------</span>
+<span class="go">[omv]       spike times                            ✘</span>
+<span class="go">[omv]       +++++++++++++++++++++ Error info ++++++++++++++++++</span>
+<span class="go">[omv]        Return code: 0</span>
+</pre></div>
+</div>
+<p>We see that there’s a slight difference in the spike times we obtain from our implementation.
+This is not unexpected.
+Small variations in how the mod files are written, or how the morphology is set up can result in small variations in the spike times.
+<code class="docutils literal notranslate"><span class="pre">omv</span></code> will suggest a tolerance value for us to use.
+The smaller the tolerance, the better.</p>
+<p>We update our file to use the suggested tolerance and re-run the test:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>omv<span class="w"> </span><span class="nb">test</span><span class="w"> </span>.test.kc.jnmlnrn.omt
+<span class="go">[omv]</span>
+<span class="go">[omv] Running the tests defined in .test.kc.jnmlnrn.omt</span>
+<span class="go">[omv] =================================================</span>
+<span class="go">[omv]   Found 1 experiment(s) to run on engine: jNeuroML_NEURON</span>
+<span class="go">[omv] PATH: :/home/asinha/.local/share/virtualenvs/neuroml-311-dev/bin</span>
+<span class="go">[omv] Env vars: {&#39;PYTHONPATH&#39;: &#39;/home/asinha/local/lib/python/site-packages&#39;, &#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)}</span>
+<span class="go">[omv]   Running file ./LEMS_KC_step_test.xml with jNeuroML_NEURON, env: {&#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)}</span>
+<span class="go">[omv]     Running the commands: [/usr/bin/jnml /home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/LEMS_KC_step_test.xml -neuron -nogui -run] in (/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; cwd=/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; shell=False; env={&#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)})</span>
+<span class="go">[omv]     Commands: [&#39;/usr/bin/jnml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/LEMS_KC_step_test.xml&#39;, &#39;-neuron&#39;, &#39;-nogui&#39;, &#39;-run&#39;] completed successfully</span>
+<span class="go">[omv]   Success with running jNeuroML_NEURON</span>
+<span class="go">[omv]   Running checks for experiment: stepKC</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]       Observable                        Test Passed</span>
+<span class="go">[omv]       --------------------------------------------------</span>
+<span class="go">[omv]       spike times                            ✔</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]                   =================================</span>
+<span class="go">[omv]                   Test passed: .test.kc.jnmlnrn.omt</span>
+</pre></div>
+</div>
+<p>We can also add a simple validation test that will allow <code class="docutils literal notranslate"><span class="pre">omv</span></code> to validate the various NeuroML files in the repository:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;*.c*.nml&quot;</span>
+<span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jNeuroML_validate</span>
+</pre></div>
+</div>
+<p>One can run all the OMV tests in a repository at once:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>omv<span class="w"> </span>all
+<span class="go">[omv] Python 3. Ignoring tests for non Py3 compatible engines: False</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]</span>
+<span class="go">[omv] Running the tests defined in ./.test.kc.jnmlnrn.omt</span>
+<span class="go">[omv] ===================================================</span>
+<span class="go">[omv]   Found 1 experiment(s) to run on engine: jNeuroML_NEURON</span>
+<span class="go">[omv] PATH: :/home/asinha/.local/share/virtualenvs/neuroml-311-dev/bin</span>
+<span class="go">[omv] Env vars: {&#39;PYTHONPATH&#39;: &#39;/home/asinha/local/lib/python/site-packages&#39;, &#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)}</span>
+<span class="go">[omv]   Running file ./LEMS_KC_step_test.xml with jNeuroML_NEURON, env: {&#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)}</span>
+<span class="go">[omv]     Running the commands: [/usr/bin/jnml /home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/LEMS_KC_step_test.xml -neuron -nogui -run] in (/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; cwd=/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; shell=False; env={&#39;NEURON_HOME&#39;: &#39;/home/asinha/.local/share/virtualenvs/neuroml-311-dev&#39;, &#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)})</span>
+<span class="go">[omv]     Commands: [&#39;/usr/bin/jnml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/LEMS_KC_step_test.xml&#39;, &#39;-neuron&#39;, &#39;-nogui&#39;, &#39;-run&#39;] completed successfully</span>
+<span class="go">[omv]   Success with running jNeuroML_NEURON</span>
+<span class="go">[omv]   Running checks for experiment: stepKC</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]       Observable                        Test Passed</span>
+<span class="go">[omv]       --------------------------------------------------</span>
+<span class="go">[omv]       spike times                            ✔</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]       [ Test 1 of 2 complete - failed so far: 0 ]</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]</span>
+<span class="go">[omv] Running the tests defined in ./.test.validate.omt</span>
+<span class="go">[omv] =================================================</span>
+<span class="go">[omv]   No mep file specified. Will only run simulation using: jNeuroML_validate</span>
+<span class="go">[omv]   Found 1 experiment(s) to run on engine: jNeuroML_validate</span>
+<span class="go">[omv]   Running with jNeuroML_validate, using: [&#39;/usr/bin/jnml&#39;, &#39;-validate&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/GGN.morph.cell.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/GGN.cell.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/KC.cell.nml&#39;]...</span>
+<span class="go">[omv]     Running the commands: [/usr/bin/jnml -validate /home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/GGN.morph.cell.nml /home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/GGN.cell.nml /home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/KC.cell.nml] in (/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; cwd=/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2; shell=False; env={&#39;JNML_HOME&#39;: PosixPath(&#39;/usr/bin&#39;)})</span>
+<span class="go">[omv]     Commands: [&#39;/usr/bin/jnml&#39;, &#39;-validate&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/GGN.morph.cell.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/GGN.cell.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/models/RayEtAl2020/NeuroML2/KC.cell.nml&#39;] completed successfully</span>
+<span class="go">[omv]   Running checks for experiment: Dry run</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]       Observable                        Test Passed</span>
+<span class="go">[omv]       --------------------------------------------------</span>
+<span class="go">[omv]       dry                                    ✔</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]       [ Test 2 of 2 complete - failed so far: 0 ]</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]                             -------------</span>
+<span class="go">[omv]                             2 test(s) run</span>
+<span class="go">[omv]                             -------------</span>
+<span class="go">[omv]</span>
+<span class="go">[omv]                           All tests passing!</span>
+<span class="go">[omv]                           ==================</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-setting-up-continuous-testing-on-github-actions">
+<h2>Step 3) Setting up continuous testing on GitHub Actions<a class="headerlink" href="#step-3-setting-up-continuous-testing-on-github-actions" title="Link to this heading">#</a></h2>
+<p>Now that we have set up OMV test, we want to set up <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_testing">“continuous testing” (CT)</a>.
+What this means is that we want these test to run automatically whenever we make any changes.
+On GitHub, we can do these using <a class="reference external" href="https://docs.github.com/en/actions">GitHub Actions</a>.</p>
+<p>To set up a GitHub Action, we need to set up a “workflow file” in the <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> directory.
+We create one called <code class="docutils literal notranslate"><span class="pre">omv-ci.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Continuous build using OMV</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">*/2</span><span class="nv"> </span><span class="s">*&quot;</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">master</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">development</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">experimental</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">master</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">development</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">experimental</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fail-fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">jNeuroML_validate</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jNeuroML_NEURON</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python  ${{ matrix.python-version }}</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install OMV</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pip install OSBModelValidation</span>
+<span class="w">        </span><span class="no">pip install scipy sympy matplotlib cython pandas tables</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run OMV tests on engine ${{ matrix.engine }}</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">omv all -V --engine=${{ matrix.engine }}</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OMV final version info</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">omv list -V # list installed engines</span>
+<span class="w">        </span><span class="no">env</span>
+</pre></div>
+</div>
+<p>This installs OMV and runs all test using it in the repository.
+Additionally, it tests this out on a couple of Python versions.</p>
+<p>Now, whenever we make a change to the repository—either as a pull request, or as a direct push of a commit, these tests will be run immediately to tell us if the model is still working as it should.
+These can be seen in the <a class="reference external" href="https://github.com/OpenSourceBrain/262670/actions">“actions” tab in the GitHub Repository</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/Walkthroughs/RayEtAl2020"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Conversion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Converting to NeuroML</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../Events/Events.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">NeuroML outreach and events</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-getting-spike-data-from-the-neuron-model">Step 1) Getting spike data from the NEURON model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-adding-tests">Step 2) Adding tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-setting-up-continuous-testing-on-github-actions">Step 3) Setting up continuous testing on GitHub Actions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

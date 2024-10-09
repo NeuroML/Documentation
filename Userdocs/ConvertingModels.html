@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Converting models to NeuroML and sharing them on Open Source Brain &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/ConvertingModels';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Handling Morphology Files" href="ImportingMorphologyFiles.html" />
+    <link rel="prev" title="Creating NeuroML models" href="CreatingNeuroMLModels.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="CreatingNeuroMLModels.html">Creating NeuroML models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/ConvertingModels.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/ConvertingModels.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Userdocs/ConvertingModels.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Converting models to NeuroML and sharing them on Open Source Brain</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-original-model-code">Step 1) Find the original model code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-github-and-osb-accounts-for-sharing-the-code">Step 2) Create GitHub and OSB accounts for sharing the code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sign-up-to-github-and-osb">2a) Sign up to GitHub and OSB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-create-github-repository">2b) Create GitHub repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-create-osb-project">2c) Create OSB project</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-improve-and-test-original-model-code">Step 3) Improve and test original model code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-make-simpler-modularised-versions-of-original-model-scripts">3a) Make simpler/modularised versions of original model scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-add-omv-tests">3b) Add OMV tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-version-of-the-model-in-neuroml-2">4) Create a version of the model in NeuroML 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-create-a-lems-simulation-file-to-run-the-model">4a) Create a LEMS Simulation file to run the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-convert-channels-to-neuroml">4b) Convert channels to NeuroML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-compare-single-compartment-cell-with-channels">4c) Compare single compartment cell with channels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-compare-multi-compartmental-cell-incorporating-channels">4d) Compare multi-compartmental cell incorporating channels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-re-optimising-cell-models">4e) (Re)optimising cell models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-create-an-equivalent-network-model-in-neuroml">4f) Create an equivalent network model in NeuroML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-view-and-run-your-model-on-osb">5) Access, view and run your model on OSB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#share-and-collaborate">6) Share and collaborate</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="converting-models-to-neuroml-and-sharing-them-on-open-source-brain">
+<span id="userdocs-creating-models-converting-conductance"></span><h1>Converting models to NeuroML and sharing them on Open Source Brain<a class="headerlink" href="#converting-models-to-neuroml-and-sharing-them-on-open-source-brain" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Walk throughs available</p>
+<p>Look at the <a class="reference internal" href="Walkthroughs/Walkthroughs.html#userdocs-walkthroughs"><span class="std std-ref">Walkthroughs chapter</span></a> for worked examples.</p>
+</div>
+<p>The figure below is taken from the supplementary information of the <a class="reference internal" href="Publications.html#papers-osb"><span class="std std-ref">Open Source Brain paper</span></a>, and gives a quick overview of the steps required and tools available for converting a model to NeuroML and sharing it on the OSB platform.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/osb-conversion.png"><img alt="Schamatic of process of converting models to NeuroML" src="../_images/osb-conversion.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Procedures and tools to convert models from native formats to NeuroML and PyNN (Taken from Gleeson et al. 2019 <span id="id1">[<a class="reference internal" href="../Reference/zBibliography.html#id12" title="Padraig Gleeson, Matteo Cantarelli, Boris Marin, Adrian Quintana, Matt Earnshaw, Sadra Sadeh, Eugenio Piasini, Justas Birgiolas, Robert C. Cannon, N. Alex Cayco-Gajic, Sharon Crook, Andrew P. Davison, Salvador Dura-Bernal, András Ecker, Michael L. Hines, Giovanni Idili, Frederic Lanore, Stephen D. Larson, William W. Lytton, Amitava Majumdar, Robert A. McDougal, Subhashini Sivagnanam, Sergio Solinas, Rokas Stanislovas, Sacha J. van Albada, Werner van Geit, and R. Angus Silver. Open source brain: a collaborative resource for visualizing, analyzing, simulating, and developing standardized models of neurons and circuits. Neuron, 103(3):395–411, 2019. doi:10.1016/j.neuron.2019.05.019.">GCM+19</a>]</span>)</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="step-1-find-the-original-model-code">
+<h2>Step 1) Find the original model code<a class="headerlink" href="#step-1-find-the-original-model-code" title="Link to this heading">#</a></h2>
+<p>While it should in principle be possible to create the model based only on the description in the accompanying publication, having the original code is invaluable.
+The original code allows the identification of all parameters related to the model, and it is required to verify the dynamical behaviour of the NeuroML equivalent.</p>
+<p>Scripts for an increasing number of published models are available on <a class="reference external" href="https://modeldb.science">ModelDB</a>.
+ModelDB models are also published as <a class="reference external" href="https://github.com/ModelDBRepository">GitHub repositories</a>.
+Forks of these are also managed in the <a class="reference external" href="https://github.com/opensourcebrain/">Open Source Brain GitHub organization</a> and indexed on <a class="reference external" href="https://v2.opensourcebrain.org/">Open Source Brain version 2</a>.</p>
+<p>So, the first step is to obtain the original model code and verify that this can be run to reproduce the published results.</p>
+</section>
+<section id="step-2-create-github-and-osb-accounts-for-sharing-the-code">
+<span id="userdocs-creating-models-converting-conductance-github"></span><h2>Step 2) Create GitHub and OSB accounts for sharing the code<a class="headerlink" href="#step-2-create-github-and-osb-accounts-for-sharing-the-code" title="Link to this heading">#</a></h2>
+<section id="a-sign-up-to-github-and-osb">
+<h3>2a) Sign up to GitHub and OSB<a class="headerlink" href="#a-sign-up-to-github-and-osb" title="Link to this heading">#</a></h3>
+<p>Sign up to <a class="reference external" href="https://github.com/signup">GitHub</a> to be able to share the updated code publicly. Next, sign up to <a class="reference external" href="https://www.opensourcebrain.org/account/register">Open Source Brain</a>, and adding a reference to your GitHub user account will help link between the two resources.</p>
+</section>
+<section id="b-create-github-repository">
+<h3>2b) Create GitHub repository<a class="headerlink" href="#b-create-github-repository" title="Link to this heading">#</a></h3>
+<p>Create a new <a class="reference external" href="https://docs.github.com/en/repositories">GitHub repository</a> for your new model. There are plenty of examples of repositories containing NeuroML <a class="reference external" href="https://github.com/orgs/OpenSourceBrain/repositories">on OSB</a>. It’s fine to share the code under your own user account, but if you would like to host it at <a class="github reference external" href="https://github.com/OpenSourceBrain">OpenSourceBrain</a>, please <a class="reference external" href="https://docs.opensourcebrain.org/General/Contacts.html">get in contact with the OSB team</a>.</p>
+<p>Now you can commit the scripts for original version of the model to your GitHub repository. <strong>Please check what the license/redistribution conditions are for the code!</strong> Authors who have shared their code on <a class="reference external" href="https://senselab.med.yale.edu/ModelDB/default">ModelDB</a> are generally happy for the code to be reused, but it is good to get in contact with them as a courtesy to let them know your plans with the model. They will generally be very supportive as long as the original publications are referenced, and will often have useful information on any updated versions of the model. Adding or updating a <a class="reference external" href="https://docs.opensourcebrain.org/OSBv1/Write_Your_Project_Documentation.html#add-a-readme-file-in-your-github-repository-and-reuse-it-on-your-osb-projects">README file</a> will be valuable for anyone who comes across the model on GitHub.</p>
+</section>
+<section id="c-create-osb-project">
+<h3>2c) Create OSB project<a class="headerlink" href="#c-create-osb-project" title="Link to this heading">#</a></h3>
+<p>Now you can create a project on OSB which will point to the GitHub repository and will be able to find any NeuroML models committed to it. You can also add a link back to the original archived version on ModelDB, and even reuse your README on GitHub as a description. For more details on this see <a class="reference external" href="https://docs.opensourcebrain.org/OSBv1/Creating_Your_Own_Project.html">here</a>.</p>
+</section>
+</section>
+<section id="step-3-improve-and-test-original-model-code">
+<h2>Step 3) Improve and test original model code<a class="headerlink" href="#step-3-improve-and-test-original-model-code" title="Link to this heading">#</a></h2>
+<p>With the original simulator code shared on GitHub, and a README updated to describe it, new users will be able to clone the repository and start using the code as shared by the authors. Some updates may be required and any changes from the original version will be recorded under the Git history visible on GitHub.</p>
+<section id="a-make-simpler-modularised-versions-of-original-model-scripts">
+<h3>3a) Make simpler/modularised versions of original model scripts<a class="headerlink" href="#a-make-simpler-modularised-versions-of-original-model-scripts" title="Link to this heading">#</a></h3>
+<p>Many of the model scripts which get released on ModelDB aim to reproduce one or two of the figures from the associated publication. However, these scripts can be quite complex, and mix simulation with some analysis of the results. They don’t always provide a single, simple run of the model with standard parameters, which would be the target for a first version of the model in NeuroML.</p>
+<p>Therefore it would be useful to create some additional scripts (reusing cell/channel definition files as much as possible) illustrating the baseline behaviour of the model, including:</p>
+<ul class="simple">
+<li><p>A simple script with a single cell (or one for each if multiple cells present) - applying a simple current pulse into each (e.g. <a class="reference external" href="https://github.com/mbezaire/ca1/blob/development/NeuroML2/olm.hoc">example1</a>, <a class="reference external" href="https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/NEURON/mitral.hoc">example2</a>)</p></li>
+<li><p>A single compartment (soma only) example with all the ion channels (ideally one where channels can easily be added/commented out) - apply current pulse (<a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NEURON/Test_Soma.hoc">example</a> in NEURON)</p></li>
+<li><p>A passive version of multi-compartmental cell with multiple locations recorded</p></li>
+<li><p>A multi-compartmental cell with multiple channels and calcium dynamics, with the channels specified in separate files</p></li>
+</ul>
+<p>These will be much easier to compare to equivalents in NeuroML.</p>
+</section>
+<section id="b-add-omv-tests">
+<span id="userdocs-creating-models-converting-conductance-add-omv-tests"></span><h3>3b) Add OMV tests<a class="headerlink" href="#b-add-omv-tests" title="Link to this heading">#</a></h3>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Optional, but recommended.</p>
+<p>This step is optional, but highly recommended to create automated tests on the behaviour of the model.</p>
+</div>
+<p>Once you have some scripts which illustrate (in plots/saved data) the baseline expected behaviour of your model (spiketimes, rate of firing etc.), it would be good to put some checks in place which can be run to ensure this behaviour stays consistent across changes/commits to your repository, different versions of the underlying simulator, as well as providing a target for what the NeuroML version of the model should produce.</p>
+<p>The <strong><a class="reference external" href="https://github.com/OpenSourceBrain/osb-model-validation">Open Source Brain Model validation framework</a> (OMV)</strong> is designed for exactly this, allowing small scripts to be added to your repository stating what files to execute in what simulation engine and what the expected properties of generated output should be. These tests can be run on your local machine during development, but can also be easily integrated with <a class="reference external" href="https://github.com/features/actions">GitHub Actions</a>, allowing tests across multiple simulators to be run every time there is a commit to the repository (<a class="reference external" href="https://github.com/OpenSourceBrain/IzhikevichModel/actions/runs/1520638984">example</a>).</p>
+<p>To start using this for your project, install OMV and test running it on your local machine (<code class="docutils literal notranslate"><span class="pre">omv</span> <span class="pre">all</span></code>) on some standard examples (e.g. <a class="reference external" href="https://github.com/OpenSourceBrain/L5bPyrCellHayEtAl2011">Hay et al.</a>).</p>
+<p>Add OMV tests for your native simulator scripts (<a class="reference external" href="https://github.com/OpenSourceBrain/GranCellSolinasEtAl10/blob/master/NEURON/.test.nrnpy.omt">example</a>), e.g. test the spike times of cell when simple current pulse applied. Commit this file to GitHub, along with a GitHub Actions workflow (<a class="reference external" href="https://github.com/OpenSourceBrain/IzhikevichModel/blob/master/.github/workflows/omv-ci.yml">example</a>), and look for runs under the Actions tab of your project on GitHub.</p>
+<p>Later, you can add OMV tests too for the equivalent NeuroML versions, reusing the Model Emergent Property (<code class="docutils literal notranslate"><span class="pre">*.mep</span></code>) file (<a class="reference external" href="https://github.com/mbezaire/ca1/blob/development/NeuroML2/cells/tests/.test.sca.jnmlnrn.omt">example</a>), thus testing that the behaviours of the 2 versions are the same (within a certain tolerance).</p>
+</section>
+</section>
+<section id="create-a-version-of-the-model-in-neuroml-2">
+<span id="userdocs-creating-models-converting-conductance-initialnml2"></span><h2>4) Create a version of the model in NeuroML 2<a class="headerlink" href="#create-a-version-of-the-model-in-neuroml-2" title="Link to this heading">#</a></h2>
+<section id="a-create-a-lems-simulation-file-to-run-the-model">
+<h3>4a) Create a LEMS Simulation file to run the model<a class="headerlink" href="#a-create-a-lems-simulation-file-to-run-the-model" title="Link to this heading">#</a></h3>
+<p>A <a class="reference internal" href="LEMSSimulation.html#userdocs-lemssimulation"><span class="std std-ref">LEMS Simulation file</span></a> is required to specify how to run a simulation of the NeuroML model, how long to run, what to plot/save etc. Create a LEMS*.xml (<a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/LEMS_Soma_AllNML2.xml">example</a>) with *.net.nml (<a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.net.nml">example</a>) and *.cell.nml (<a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.cell.nml">example</a>) for <strong>a cell with only a soma</strong> (don’t try to match a full multi-compartmental cell with all channels to the original version at this early stage).</p>
+<p>Start off with only passive parameters (capacitance, axial resistance and 1 leak current) set; gradually add channels as in 4b) below; apply a current pulse and save soma membrane potential to file.</p>
+<p>Ensure all <code class="docutils literal notranslate"><span class="pre">*nml</span></code> files are <a class="reference internal" href="ValidatingNeuroMLModels.html#userdocs-validating-models"><span class="std std-ref">valid</span></a>. Ensure the <code class="docutils literal notranslate"><span class="pre">LEMS*.xml</span></code> runs with <code class="docutils literal notranslate"><span class="pre">jnml</span></code>; visually compare the behaviour with original simple script from the previous section.</p>
+<p>Ensure the <code class="docutils literal notranslate"><span class="pre">LEMS*.xml</span></code> runs with <code class="docutils literal notranslate"><span class="pre">jnml</span> <span class="pre">-neuron</span></code>, producing similar behaviour. If there is a good correspondence, add OMV tests for the NeuroML version, using the Model Emergent Property (<code class="docutils literal notranslate"><span class="pre">*.mep</span></code>) file from the original script’s test.</p>
+<p>When ready, commit the LEMS/NeuroML code to GitHub.</p>
+</section>
+<section id="b-convert-channels-to-neuroml">
+<span id="userdocs-creating-models-converting-conductance-convert-channels"></span><h3>4b) Convert channels to NeuroML<a class="headerlink" href="#b-convert-channels-to-neuroml" title="Link to this heading">#</a></h3>
+<p>Restructure/annotate/comment channel files in the original model to be as clear as possible and ideally have all use the same overall structure (e.g. see mod files <a class="reference external" href="https://github.com/mbezaire/ca1/tree/development">here</a>).</p>
+<p>(Optional) Create a (Python) script/notebook which contains the core activation variable expressions for the channels; this can be useful to restructure/test/plot/alter units of the expressions before generating the equivalent in NeuroML (<a class="reference external" href="https://github.com/OpenSourceBrain/PINGnets/blob/master/NeuroML2/ConvertChannels.ipynb">example</a>).</p>
+<p>If you are using NEURON, use <code class="docutils literal notranslate"><span class="pre">pynml-modchananalysis</span></code> to generate plots of the activation variables for the channels in the mod files (<a class="reference external" href="https://github.com/NeuroML/pyNeuroML/blob/master/examples/analyseNaMod.sh">example1</a>, <a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NEURON/analyse.sh">example2</a>).</p>
+<p>Start from an existing similar example of an ion channel in NeuroML (<a class="reference external" href="https://github.com/OpenSourceBrain/AllenInstituteNeuroML/tree/master/CellTypesDatabase/models/NeuroML2">examples1</a>, <a class="reference external" href="https://github.com/RokasSt/Thalamocortical/tree/master/NeuroML2/channels">examples2</a>, <a class="reference external" href="https://github.com/mbezaire/ca1/tree/development/NeuroML2/channels">examples3</a>).</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pynml-channelanalysis</span></code> to generate similar plots for your NeuroML based channels as your mod channels; these can easily be plotted for adding to your GitHub repo as summary pages (<a class="reference external" href="https://github.com/mbezaire/ca1/blob/development/NeuroML2/channels/channel_summary/README.md">example1</a>, <a class="reference external" href="https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/NeuroML2/Channels/channel_summary/README.md">example2</a>).</p>
+<p>Create a script to load the output of mod analysis and nml analysis and compare the outputs (<a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/compare_nml2_mods.py">example</a>).</p>
+</section>
+<section id="c-compare-single-compartment-cell-with-channels">
+<span id="userdocs-creating-models-converting-conductance-compare-single-comp"></span><h3>4c) Compare single compartment cell with channels<a class="headerlink" href="#c-compare-single-compartment-cell-with-channels" title="Link to this heading">#</a></h3>
+<p>Ensure you have a passive soma example in NeuroML which reproduces the behaviour of an equivalent passibe version inthe original format (from steps 3a and 4a above).</p>
+<p>Gradually test the cell with passive conductance and <em>each channel individually</em>. Plot v along with rate variables for each channel &amp; compare how they look during current pulse (<a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NEURON/Test_Soma.hoc">example in NEURON</a> vs <a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.cell.nml">example in NeuroML</a> and <a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/LEMS_Soma_AllNML2.xml">LEMS</a>)</p>
+<p>Test these in <code class="docutils literal notranslate"><span class="pre">jnml</span></code> first, then in Neuron with <code class="docutils literal notranslate"><span class="pre">jnml</span> <span class="pre">-neuron</span></code>.</p>
+<p>When you are happy with each of the channels, try the soma with all of the channels in place, with the same channel density as present in the soma of the original cell.</p>
+</section>
+<section id="d-compare-multi-compartmental-cell-incorporating-channels">
+<span id="userdocs-creating-models-converting-conductance-compare-multi-comp"></span><h3>4d) Compare multi-compartmental cell incorporating channels<a class="headerlink" href="#d-compare-multi-compartmental-cell-incorporating-channels" title="Link to this heading">#</a></h3>
+<p>If the model was created in NEURON, export the 3D morphology from the original NEURON scripts using pyNeuroML (<a class="reference external" href="https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/export_nml2.py">example</a>); this will be easier if there is a hoc script with just a single cell instance as in section 1). While there is the option to use <code class="docutils literal notranslate"><span class="pre">includeBiophysicalProperties=True</span></code> and this will attempt to export the conductance densities on different groups, it may be better to consolidate these and add them afterwards using correctly named groups and the most efficient representation of conductance density to group relationships (<a class="reference external" href="https://github.com/OpenSourceBrain/MiglioreEtAl14_OlfactoryBulb3D/blob/master/Python/Export/export_mitral.py">example</a>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyneuroml.neuron</span> <span class="kn">import</span> <span class="n">export_to_neuroml2</span>
+<span class="o">..</span>
+<span class="n">export_to_neuroml2</span><span class="p">(</span><span class="s2">&quot;test.hoc&quot;</span><span class="p">,</span> <span class="s2">&quot;test.morphonly.cell.nml&quot;</span><span class="p">,</span> <span class="n">includeBiophysicalProperties</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively manually add the <code class="docutils literal notranslate"><span class="pre">&lt;channelDensity&gt;</span></code> elements to the cell file (as <a class="reference external" href="https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/L23_NoHotSpot.cell.nml#L16711">here</a>).</p>
+<p>You can use the tools for <a class="reference internal" href="VisualisingNeuroMLModels.html#userdocs-visualising-models"><span class="std std-ref">visualising NeuroML Models</span></a> to compare how these versions look agains the originals.</p>
+<p>As with the single compartment example, it’s best to <strong>start off with the passive case</strong>, i.e no active channels on the soma or dendrites, and compare that to the original code (for membrane potential at multiple locations!), and gradually add channels.</p>
+<p>Many projects on OSB were originally converted from the original format (NEURON, GENESIS, etc.) to NeuroML v1 using <a class="reference internal" href="Software/SupportingTools.html#userdocs-supporting-apps-neuroconstruct"><span class="std std-ref">neuroConstruct</span></a> (see <a class="reference external" href="http://www.opensourcebrain.org/search_custom_field?f%5B%5D=43&amp;amp;op%5B43%5D=~&amp;amp;v%5B43%5D%5B%5D=neuroConstruct">here</a> for a list of these). neuroConstruct has good support for export to NeuroML v2, and this code could form the basis for your conversion. More on using neuroConstruct <a class="reference external" href="http://www.opensourcebrain.org/docs#Using_neuroConstruct_Based_Projects">here</a> and details on conversion of models to NeuroML v1 <a class="reference external" href="http://www.neuroconstruct.org/docs/importneuron.html#Converting+mod+file%2FGENESIS+script+channels+into+ChannelML">here</a>.</p>
+<p>Note: you can also export other morphologies from <a class="reference external" href="https://neuromorpho.org">NeuroMorpho.org</a> in NeuroML2 format (<a class="reference external" href="https://github.com/NeuralEnsemble/NeuroinformaticsTutorial/blob/master/Exercises/Exercise1_NeuroMorpho_to_OSB.md">example</a>) to try out different reconstructions of the same cell type with your complement of channels.</p>
+</section>
+</section>
+<section id="e-re-optimising-cell-models">
+<span id="userdocs-creating-models-converting-conductance-reoptimise"></span><h2>4e) (Re)optimising cell models<a class="headerlink" href="#e-re-optimising-cell-models" title="Link to this heading">#</a></h2>
+<p>You can use <a class="reference external" href="https://github.com/NeuralEnsemble/neurotune/">Neurotune</a> inside pyNeuroML to re-optimise your cell models. An example is <a class="reference external" href="https://github.com/NeuroML/pyNeuroML/blob/master/examples/tuneHHCell.py">here</a>, and a full sequence of optimising a NeuroML model against data in NWB can be found <a class="reference internal" href="OptimisingNeuroMLModels.html#userdocs-optimising"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="f-create-an-equivalent-network-model-in-neuroml">
+<h2>4f) Create an equivalent network model in NeuroML<a class="headerlink" href="#f-create-an-equivalent-network-model-in-neuroml" title="Link to this heading">#</a></h2>
+<p>Creating an equivalent of a complex network model originally built in hoc for example in NeuroML is not trivial. The guide to network building with libNeuroML <a class="reference internal" href="IzhikevichNetworkExample.html#userdocs-gettingstarted-izhikevichnetwork"><span class="std std-ref">here</span></a> is a good place to start.</p>
+<p>See also <a class="reference internal" href="Software/NeuroMLlite.html#neuromllite"><span class="std std-ref">NeuroMLlite</span></a>.</p>
+</section>
+<section id="access-view-and-run-your-model-on-osb">
+<h2>5) Access, view and run your model on OSB<a class="headerlink" href="#access-view-and-run-your-model-on-osb" title="Link to this heading">#</a></h2>
+<p>When you’re happy that a version of the model is behaving correctly in NeuroML, you can try visualising it on OSB.</p>
+<p>See <a class="reference external" href="https://docs.opensourcebrain.org/OSBv1/Five_Minute_Introduction.html">here</a> for more details about viewing and simulating projects on OSB.</p>
+</section>
+<section id="share-and-collaborate">
+<h2>6) Share and collaborate<a class="headerlink" href="#share-and-collaborate" title="Link to this heading">#</a></h2>
+<p>There is more information on how you can disseminate and promote your model once it is on OSB in the main documentation for that platform:
+<a class="reference external" href="https://docs.opensourcebrain.org">https://docs.opensourcebrain.org</a>.</p>
+<p>Consider sharing parts of the model on <a class="reference internal" href="FindingNeuroMLModels.html#userdocs-finding-models"><span class="std std-ref">other NeuroML supporting resources</span></a> (e.g. cell and channel files on NeuroML-DB).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="CreatingNeuroMLModels.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Creating NeuroML models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ImportingMorphologyFiles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Handling Morphology Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-original-model-code">Step 1) Find the original model code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-github-and-osb-accounts-for-sharing-the-code">Step 2) Create GitHub and OSB accounts for sharing the code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sign-up-to-github-and-osb">2a) Sign up to GitHub and OSB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-create-github-repository">2b) Create GitHub repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-create-osb-project">2c) Create OSB project</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-improve-and-test-original-model-code">Step 3) Improve and test original model code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-make-simpler-modularised-versions-of-original-model-scripts">3a) Make simpler/modularised versions of original model scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-add-omv-tests">3b) Add OMV tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-version-of-the-model-in-neuroml-2">4) Create a version of the model in NeuroML 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-create-a-lems-simulation-file-to-run-the-model">4a) Create a LEMS Simulation file to run the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-convert-channels-to-neuroml">4b) Convert channels to NeuroML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-compare-single-compartment-cell-with-channels">4c) Compare single compartment cell with channels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-compare-multi-compartmental-cell-incorporating-channels">4d) Compare multi-compartmental cell incorporating channels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-re-optimising-cell-models">4e) (Re)optimising cell models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-create-an-equivalent-network-model-in-neuroml">4f) Create an equivalent network model in NeuroML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-view-and-run-your-model-on-osb">5) Access, view and run your model on OSB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#share-and-collaborate">6) Share and collaborate</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

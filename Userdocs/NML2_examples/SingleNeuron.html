@@ -1,0 +1,1090 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Interactive single Izhikevich neuron NeuroML example &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/NML2_examples/SingleNeuron';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A two population network of regular spiking Izhikevich neurons" href="../IzhikevichNetworkExample.html" />
+    <link rel="prev" title="Simulating a regular spiking Izhikevich neuron" href="../SingleNeuronExample.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NeuroML/Documentation/main?urlpath=tree/source/Userdocs/NML2_examples/SingleNeuron.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/NeuroML/Documentation/blob/main/source/Userdocs/NML2_examples/SingleNeuron.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/NML2_examples/SingleNeuron.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/NML2_examples/SingleNeuron.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/NML2_examples/SingleNeuron.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interactive single Izhikevich neuron NeuroML example</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup-and-library-installs">1) Initial setup and library installs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-neuroml-model">2) Declaring the NeuroML model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-neuroml-document">Create a NeuroML document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-izhikevich-cell-and-add-it-to-the-model">Define the Izhikevich cell and add it to the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-network-and-add-it-to-the-model">Create a network and add it to the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-population-of-defined-cells-and-add-it-to-the-model">Create a population of defined cells and add it to the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-an-external-stimulus-and-add-it-to-the-model">Define an external stimulus and add it to the model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-print-and-validate-the-generated-file">3) Write, print and validate the generated file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-neuroml-model-to-a-file">Write the NeuroML model to a file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-out-the-file">Print out the file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-the-neuroml-model">Validate the NeuroML model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-model">4) Simulating the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-simulation-instance-of-the-model">Create a simulation instance of the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-output-file-to-store-simulation-outputs">Define the output file to store simulation outputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-simulation-to-a-file">Save the simulation to a file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation-using-the-jneuroml-simulator">Run the simulation using the jNeuroML simulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-recorded-data">Plot the recorded data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interactive-single-izhikevich-neuron-neuroml-example">
+<h1>Interactive single Izhikevich neuron NeuroML example<a class="headerlink" href="#interactive-single-izhikevich-neuron-neuroml-example" title="Link to this heading">#</a></h1>
+<p>To run this interactive Jupyter Notebook when viewing the online NeuroML documentation (e.g. via Binder or Google Colab), please click on the rocket icon 🚀 in the top panel. For more information, please see <a class="reference internal" href="../Usage.html#userdocs-usage-jupyterbooks"><span class="std std-ref">how to use this documentation</span></a>.</p>
+<p>This notebook creates a simple model in <a class="reference external" href="https://docs.neuroml.org/Userdocs/NeuroMLv2.html">NeuroML version 2</a>. It adds a <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#schema-izhikevich2007cell">simple spiking neuron model</a> to a <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Networks.html#schema-population">population</a> and then the population to a <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Networks.html#network">network</a>. Then we create a <a class="reference external" href="https://docs.neuroml.org/Userdocs/LEMSSimulation.html">LEMS simulation file</a> to specify how to to a simulate the model, and finally we execute it using <a class="reference external" href="https://docs.neuroml.org/Userdocs/Software/jNeuroML.html#jneuroml">jNeuroML</a>.  The results of that simulation are plotted below.</p>
+<center>
+<img src="https://raw.githubusercontent.com/NeuroML/Documentation/development/source/Userdocs/NML2_examples/SingleNeuron.png" alt="NeuroML Simulation Plot">
+</center>
+<p>See also a <a class="reference internal" href="../SingleNeuronExample.html#userdocs-getting-started-single-example"><span class="std std-ref">more detailed introduction to NeuroML and LEMS using this example</span></a>.</p>
+<section id="initial-setup-and-library-installs">
+<h2>1) Initial setup and library installs<a class="headerlink" href="#initial-setup-and-library-installs" title="Link to this heading">#</a></h2>
+<p>Please uncomment the line below if you use the Google Colab (it does not include these packages by default).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install pyneuroml neuromllite NEURON</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">NeuroMLDocument</span>
+<span class="kn">import</span> <span class="nn">neuroml.writers</span> <span class="k">as</span> <span class="nn">writers</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">component_factory</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">validate_neuroml2</span>
+<span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.lems</span> <span class="kn">import</span> <span class="n">LEMSSimulation</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="declaring-the-neuroml-model">
+<h2>2) Declaring the NeuroML model<a class="headerlink" href="#declaring-the-neuroml-model" title="Link to this heading">#</a></h2>
+<section id="create-a-neuroml-document">
+<h3>Create a NeuroML document<a class="headerlink" href="#create-a-neuroml-document" title="Link to this heading">#</a></h3>
+<p>This is the container document to which the cells and the network will be added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nml_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="n">NeuroMLDocument</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzhSingleNeuron&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-izhikevich-cell-and-add-it-to-the-model">
+<h3>Define the Izhikevich cell and add it to the model<a class="headerlink" href="#define-the-izhikevich-cell-and-add-it-to-the-model" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://www.izhikevich.org/publications/spikes.htm">Izhikevich model</a> is a simple, 2 variable neuron model exhibiting a range of neurophysiologically realistic spiking behaviours depending on the parameters given. We use the <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Cells.html#izhikevich2007cell">izhikevich2007cell</a> version here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">izh0</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Izhikevich2007Cell&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;izh2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-network-and-add-it-to-the-model">
+<h3>Create a network and add it to the model<a class="headerlink" href="#create-a-network-and-add-it-to-the-model" title="Link to this heading">#</a></h3>
+<p>We add a <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Networks.html#network">network</a> to the document created above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-population-of-defined-cells-and-add-it-to-the-model">
+<h3>Create a population of defined cells and add it to the model<a class="headerlink" href="#create-a-population-of-defined-cells-and-add-it-to-the-model" title="Link to this heading">#</a></h3>
+<p>A <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Networks.html#schema-population">population</a> of size 1 of these cells is created and then added to the network.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">pop0</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzhPop0&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">izh0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-an-external-stimulus-and-add-it-to-the-model">
+<h3>Define an external stimulus and add it to the model<a class="headerlink" href="#define-an-external-stimulus-and-add-it-to-the-model" title="Link to this heading">#</a></h3>
+<p>On its own the cell will not spike, so we add a small current to it in the form of a <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Inputs.html#pulsegenerator">pulse generator</a> which will apply a square pulse of current.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pg</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pulseGen_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="mi">0</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;0ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;1000ms&quot;</span><span class="p">,</span>
+    <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;0.07 nA&quot;</span>
+<span class="p">)</span>
+<span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="write-print-and-validate-the-generated-file">
+<h2>3) Write, print and validate the generated file<a class="headerlink" href="#write-print-and-validate-the-generated-file" title="Link to this heading">#</a></h2>
+<section id="write-the-neuroml-model-to-a-file">
+<h3>Write the NeuroML model to a file<a class="headerlink" href="#write-the-neuroml-model-to-a-file" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nml_file</span> <span class="o">=</span> <span class="s1">&#39;izhikevich2007_single_cell_network.nml&#39;</span>
+<span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">nml_file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written network file to: &quot;</span> <span class="o">+</span> <span class="n">nml_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Written network file to: izhikevich2007_single_cell_network.nml
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="print-out-the-file">
+<h3>Print out the file<a class="headerlink" href="#print-out-the-file" title="Link to this heading">#</a></h3>
+<p>Here we print the XML for the saved NeuroML file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> 
+   <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;neuroml xmlns=&quot;http://www.neuroml.org/schema/neuroml2&quot;  xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot; id=&quot;IzhSingleNeuron&quot;&gt;
+    &lt;izhikevich2007Cell id=&quot;izh2007RS0&quot; C=&quot;100pF&quot; v0=&quot;-60mV&quot; k=&quot;0.7nS_per_mV&quot; vr=&quot;-60mV&quot; vt=&quot;-40mV&quot; vpeak=&quot;35mV&quot; a=&quot;0.03per_ms&quot; b=&quot;-2nS&quot; c=&quot;-50.0mV&quot; d=&quot;100pA&quot;/&gt;
+    &lt;pulseGenerator id=&quot;pulseGen_0&quot; delay=&quot;0ms&quot; duration=&quot;1000ms&quot; amplitude=&quot;0.07 nA&quot;/&gt;
+    &lt;network id=&quot;IzNet&quot;&gt;
+        &lt;population id=&quot;IzhPop0&quot; component=&quot;izh2007RS0&quot; size=&quot;1&quot;/&gt;
+        &lt;explicitInput target=&quot;IzhPop0[0]&quot; input=&quot;pulseGen_0&quot;/&gt;
+    &lt;/network&gt;
+&lt;/neuroml&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="validate-the-neuroml-model">
+<h3>Validate the NeuroML model<a class="headerlink" href="#validate-the-neuroml-model" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s valid!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="simulating-the-model">
+<h2>4) Simulating the model<a class="headerlink" href="#simulating-the-model" title="Link to this heading">#</a></h2>
+<section id="create-a-simulation-instance-of-the-model">
+<h3>Create a simulation instance of the model<a class="headerlink" href="#create-a-simulation-instance-of-the-model" title="Link to this heading">#</a></h3>
+<p>The NeuroML file does not contain any information on how long to simulate the model for or what to save etc. For this we will need a <a class="reference external" href="https://docs.neuroml.org/Userdocs/LEMSSimulation.html">LEMS simulation file</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation_id</span> <span class="o">=</span> <span class="s2">&quot;example-single-izhikevich2007cell-sim&quot;</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">simulation_id</span><span class="p">,</span>
+                            <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/izhikevich2007_single_cell_network.nml
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-output-file-to-store-simulation-outputs">
+<h3>Define the output file to store simulation outputs<a class="headerlink" href="#define-the-output-file-to-store-simulation-outputs" title="Link to this heading">#</a></h3>
+<p>Here, we record the neuron’s membrane potential to the specified data file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span>
+    <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span>
+<span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="s1">&#39;IzhPop0[0]&#39;</span><span class="p">,</span> <span class="s1">&#39;IzhPop0[0]/v&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="save-the-simulation-to-a-file">
+<h3>Save the simulation to a file<a class="headerlink" href="#save-the-simulation-to-a-file" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lems_simulation_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">lems_simulation_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> 
+   <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Lems&gt;
+
+    &lt;!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v1.1.10 (libNeuroML v0.5.8)
+
+     --&gt;
+
+    &lt;!-- Specify which component to run --&gt;
+    &lt;Target component=&quot;example-single-izhikevich2007cell-sim&quot;/&gt;
+
+    &lt;!-- Include core NeuroML2 ComponentType definitions --&gt;
+    &lt;Include file=&quot;Cells.xml&quot;/&gt;
+    &lt;Include file=&quot;Networks.xml&quot;/&gt;
+    &lt;Include file=&quot;Simulation.xml&quot;/&gt;
+
+    &lt;Include file=&quot;izhikevich2007_single_cell_network.nml&quot;/&gt;
+
+    &lt;Simulation id=&quot;example-single-izhikevich2007cell-sim&quot; length=&quot;1000ms&quot; step=&quot;0.1ms&quot; target=&quot;IzNet&quot; seed=&quot;123&quot;&gt;  &lt;!-- Note seed: ensures same random numbers used every run --&gt;
+        &lt;OutputFile id=&quot;output0&quot; fileName=&quot;example-single-izhikevich2007cell-sim.v.dat&quot;&gt;
+            &lt;OutputColumn id=&quot;IzhPop0[0]&quot; quantity=&quot;IzhPop0[0]/v&quot;/&gt;
+        &lt;/OutputFile&gt;
+
+    &lt;/Simulation&gt;
+
+&lt;/Lems&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="run-the-simulation-using-the-jneuroml-simulator">
+<h2>Run the simulation using the jNeuroML simulator<a class="headerlink" href="#run-the-simulation-using-the-jneuroml-simulator" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml</span><span class="p">(</span>
+    <span class="n">lems_simulation_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: LEMS_example-single-izhikevich2007cell-sim.xml and running with jNeuroML
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx2G  -Djava.awt.headless=true -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot;  LEMS_example-single-izhikevich2007cell-sim.xml  -nogui -I &#39;&#39;) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-recorded-data">
+<h2>Plot the recorded data<a class="headerlink" href="#plot-the-recorded-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data from the file and plot the graph for the membrane potential</span>
+<span class="c1"># using the pynml generate_plot utility function.</span>
+<span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span>
+    <span class="s2">&quot;Membrane potential&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">,</span>
+    <span class="n">save_figure_to</span><span class="o">=</span><span class="s2">&quot;SingleNeuron.png&quot;</span>
+    
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential
+pyNeuroML &gt;&gt;&gt; INFO - Saving image to /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SingleNeuron.png of plot: Membrane potential
+pyNeuroML &gt;&gt;&gt; INFO - Saved image to SingleNeuron.png of plot: Membrane potential
+</pre></div>
+</div>
+<img alt="../../_images/b6da95dd80b21f297a7f10e0e0d2a1138c26f6aaa4a683d91e4e0827969083ac.png" src="../../_images/b6da95dd80b21f297a7f10e0e0d2a1138c26f6aaa4a683d91e4e0827969083ac.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;time (s)&#39;, ylabel=&#39;membrane potential (V)&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/NML2_examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../SingleNeuronExample.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simulating a regular spiking Izhikevich neuron</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../IzhikevichNetworkExample.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A two population network of regular spiking Izhikevich neurons</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup-and-library-installs">1) Initial setup and library installs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-neuroml-model">2) Declaring the NeuroML model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-neuroml-document">Create a NeuroML document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-izhikevich-cell-and-add-it-to-the-model">Define the Izhikevich cell and add it to the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-network-and-add-it-to-the-model">Create a network and add it to the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-population-of-defined-cells-and-add-it-to-the-model">Create a population of defined cells and add it to the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-an-external-stimulus-and-add-it-to-the-model">Define an external stimulus and add it to the model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-print-and-validate-the-generated-file">3) Write, print and validate the generated file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-neuroml-model-to-a-file">Write the NeuroML model to a file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-out-the-file">Print out the file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-the-neuroml-model">Validate the NeuroML model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-model">4) Simulating the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-simulation-instance-of-the-model">Create a simulation instance of the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-output-file-to-store-simulation-outputs">Define the output file to store simulation outputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-simulation-to-a-file">Save the simulation to a file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation-using-the-jneuroml-simulator">Run the simulation using the jNeuroML simulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-recorded-data">Plot the recorded data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
