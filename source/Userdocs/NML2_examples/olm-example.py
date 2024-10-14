@@ -196,6 +196,7 @@ def create_olm_cell():
     cell.set_init_memb_potential("-67mV")
     cell.set_resistivity("0.15 kohm_cm")
     cell.set_specific_capacitance("1.3 uF_per_cm2")
+    cell.set_spike_thresh("-20 mV")
 
     # channels
     # leak

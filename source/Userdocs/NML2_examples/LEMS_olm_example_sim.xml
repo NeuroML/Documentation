@@ -2,7 +2,7 @@
 
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v1.1.13 (libNeuroML v0.5.8)
+        This LEMS file has been automatically generated using PyNeuroML v1.3.13 (libNeuroML v0.6.6)
 
      -->
 
@@ -22,7 +22,7 @@
     <Include file="olm-example/KvAolm.channel.nml"/>
     <Include file="olm-example/Nav.channel.nml"/>
 
-    <Simulation id="olm_example_sim" length="600ms" step="0.01ms" target="single_olm_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="olm_example_sim" length="600.0ms" step="0.01ms" target="single_olm_cell_network" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
         <OutputFile id="output0" fileName="olm_example_sim.dat">
             <OutputColumn id="pop0_0_v" quantity="pop0[0]/v"/>
             <OutputColumn id="pop0_0_v_Seg0_soma_0" quantity="pop0/0/olm/0/v"/>
