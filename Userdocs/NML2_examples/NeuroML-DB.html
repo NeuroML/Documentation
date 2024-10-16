@@ -1,0 +1,1836 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Create novel NeuroML models from components on NeuroML-DB &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/NML2_examples/NeuroML-DB';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Finding and sharing NeuroML models" href="../FindingNeuroMLModels.html" />
+    <link rel="prev" title="Interactive multi-compartment OLM cell example" href="OLM.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NeuroML/Documentation/main?urlpath=tree/source/Userdocs/NML2_examples/NeuroML-DB.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/NeuroML/Documentation/blob/main/source/Userdocs/NML2_examples/NeuroML-DB.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/NML2_examples/NeuroML-DB.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/NML2_examples/NeuroML-DB.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/NML2_examples/NeuroML-DB.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Create novel NeuroML models from components on NeuroML-DB</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-download-and-analyse-channels-accessed-via-the-neuroml-db-api">1) Search for, download and analyse channels accessed via the NeuroML-DB API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-in-the-database-for-a-particular-type-of-channel">1.1) Search in the database for a particular type of channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-one-of-these-results-and-download-it-and-browse-the-contents">1.2) Select one of these results and download it, and browse the contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-time-course-and-steady-state-of-this-channel">1.3) Plot the time course and steady state of this channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-potassium-channel">1.4) Find a Potassium channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-passive-leak-current">1.5)  Find a passive (leak) current</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-cell-model-using-these-channels">2) Create a new cell model using these channels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-cell-object-add-channels-and-save-to-file">2.1) Create the Cell object, add channels and save to file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-plot-of-the-actvity-of-the-cell-under-current-clamp-input">2.2) Generate a plot of the actvity of the cell under current clamp input</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-download-and-analyse-a-complete-neuroml-cell">3) Search for, download and analyse a complete NeuroML cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-and-download-the-cell">3.1) Search for and download the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-3d-views-of-the-cell">3.2) Generate 3D views of the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-cell-spiking-behaviour">3.3) Analyse cell spiking behaviour</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-small-network-using-the-cells">4) Create a small network using the cells</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-neuroml-network">4.1) Generate the NeuroML network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-views-of-the-network">4.2) Generate views of the network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-lems-file-to-simulate-the-network">4.3) Generate LEMS file to simulate the network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-simulation-of-the-network-using-neuron">4.4) Run simulation of the network using NEURON</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="create-novel-neuroml-models-from-components-on-neuroml-db">
+<h1>Create novel NeuroML models from components on NeuroML-DB<a class="headerlink" href="#create-novel-neuroml-models-from-components-on-neuroml-db" title="Link to this heading">#</a></h1>
+<p>This notebook demonstrates how to access the <a class="reference external" href="https://neuroml-db.org">NeuroML-DB database</a>, extract elements in NeuroML format and use them to create new models</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span> <span class="nn">json</span> 
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="search-for-download-and-analyse-channels-accessed-via-the-neuroml-db-api">
+<h2>1) Search for, download and analyse channels accessed via the NeuroML-DB API<a class="headerlink" href="#search-for-download-and-analyse-channels-accessed-via-the-neuroml-db-api" title="Link to this heading">#</a></h2>
+<section id="search-in-the-database-for-a-particular-type-of-channel">
+<h3>1.1) Search in the database for a particular type of channel<a class="headerlink" href="#search-in-the-database-for-a-particular-type-of-channel" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cell&#39;</span><span class="p">:</span><span class="s1">&#39;NMLCL&#39;</span><span class="p">,</span><span class="s1">&#39;channel&#39;</span><span class="p">:</span><span class="s1">&#39;NMLCH&#39;</span><span class="p">}</span>
+
+<span class="c1"># Helper method for search</span>
+<span class="k">def</span> <span class="nf">search_neuromldb</span><span class="p">(</span><span class="n">search_term</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://neuroml-db.org/api/search?q=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">search_term</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;%20&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="o">==</span><span class="n">type_</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">types</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[</span><span class="s1">&#39;Model_ID&#39;</span><span class="p">]:</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;Model_ID&#39;</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;First_Author&#39;</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;Second_Author&#39;</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;Publication_Year&#39;</span><span class="p">]))</span>
+        
+    <span class="k">return</span> <span class="n">data</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">search_neuromldb</span><span class="p">(</span><span class="s2">&quot;Fast Sodium&quot;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NMLCH000023: NaF Inactivating Fast Sodium, Maex De Schutter 1998
+NMLCH001490: NaTs Fast Inactivating Sodium, Gouwens Berg 2018
+NMLCH001398: NaTa Fast Inactivating Sodium, Hay Hill 2011
+NMLCH000171: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000170: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000169: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000168: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000167: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000166: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000165: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000164: NaP Persistent Noninactivating Sodium, Traub Buhl 2003
+NMLCH000163: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000162: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000161: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000160: NaF Fast Transient Inactivating Sodium, Traub Buhl 2003
+NMLCH000159: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000158: NaF Fast Transient Inactivating Sodium, Traub Contreras 2005
+NMLCH000157: NaF Fast Transient Inactivating Sodium, Traub Buhl 2003
+NMLCH000131: NaF Fast Sodium, Pospischil Toledo-Rodriguez 2008
+NMLCH000111: NaTs Fast Inactivating Sodium, Colbert Pan 2002
+NMLCH000110: NaTa Fast Inactivating Sodium, Colbert Pan 2002
+NMLCH000008: NaF Inactivating Fast Sodium, Maex De Schutter 1998
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="select-one-of-these-results-and-download-it-and-browse-the-contents">
+<h3>1.2) Select one of these results and download it, and browse the contents<a class="headerlink" href="#select-one-of-these-results-and-download-it-and-browse-the-contents" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helper method to retrieve a NeuroML file based on modelID</span>
+<span class="k">def</span> <span class="nf">get_model_from_neuromldb</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+  
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">.nml&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://neuroml-db.org/render_xml_file?modelID=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">model_id</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span> <span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pynml</span><span class="o">.</span><span class="n">read_neuroml2_file</span><span class="p">(</span><span class="n">fname</span><span class="p">),</span> <span class="n">fname</span>
+
+
+<span class="c1"># Choose one of the channels</span>
+<span class="n">chan_model_id</span> <span class="o">=</span> <span class="s1">&#39;NMLCH001398&#39;</span>
+
+<span class="n">na_chan_doc</span><span class="p">,</span> <span class="n">na_chan_fname_orig</span> <span class="o">=</span> <span class="n">get_model_from_neuromldb</span><span class="p">(</span><span class="n">chan_model_id</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
+
+<span class="n">na_chan</span> <span class="o">=</span> <span class="n">na_chan_doc</span><span class="o">.</span><span class="n">ion_channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># select the first/only ion channel in the nml doc</span>
+
+<span class="n">na_chan_fname</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.channel.nml&#39;</span><span class="o">%</span><span class="k">na_chan</span>.id
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">na_chan_fname_orig</span><span class="p">,</span> <span class="n">na_chan_fname</span><span class="p">)</span> <span class="c1"># Rename for clarity</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel </span><span class="si">%s</span><span class="s1"> (in file </span><span class="si">%s</span><span class="s1">) has notes: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">na_chan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">na_chan_fname</span><span class="p">,</span> <span class="n">na_chan</span><span class="o">.</span><span class="n">notes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: NMLCH001398.channel.nml
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Channel NaTa_t (in file NaTa_t.channel.nml) has notes: Fast inactivating Na+ current
+            
+Comment from original mod file: 
+:Reference :Colbert and Pan 2002
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-time-course-and-steady-state-of-this-channel">
+<h3>1.3) Plot the time course and steady state of this channel<a class="headerlink" href="#plot-the-time-course-and-steady-state-of-this-channel" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyneuroml.analysis.NML2ChannelAnalysis</span> <span class="kn">import</span> <span class="n">run</span>
+
+<span class="n">na_erev</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># mV</span>
+<span class="n">run</span><span class="p">(</span><span class="n">channel_files</span><span class="o">=</span><span class="p">[</span><span class="n">na_chan_fname</span><span class="p">],</span> <span class="n">ivCurve</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">erev</span><span class="o">=</span><span class="n">na_erev</span><span class="p">,</span> <span class="n">clampDelay</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">clampDuration</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/LEMS_Test_NaTa_t.xml and running with jNeuroML
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -Djava.awt.headless=true -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot;  /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/LEMS_Test_NaTa_t.xml  -nogui -I &#39;&#39;) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+</pre></div>
+</div>
+<img alt="../../_images/4a56a474313c1712b353a7a3f085449661b7fd7bd3ad4890b429cf4953c34026.png" src="../../_images/4a56a474313c1712b353a7a3f085449661b7fd7bd3ad4890b429cf4953c34026.png" />
+<img alt="../../_images/56d999547a37a2d351ead4521d2cd3a85d2739d8e00846d41c37a75edf9b698c.png" src="../../_images/56d999547a37a2d351ead4521d2cd3a85d2739d8e00846d41c37a75edf9b698c.png" />
+<img alt="../../_images/b2aa4981e8cb6b519d72cd0d1e76aa6759e3e3913d827eeee9b12defecf38c63.png" src="../../_images/b2aa4981e8cb6b519d72cd0d1e76aa6759e3e3913d827eeee9b12defecf38c63.png" />
+<img alt="../../_images/5532522cf7b99fb6f0dead129fa2c8e0c46d4a126add2a89309fec5a8405545b.png" src="../../_images/5532522cf7b99fb6f0dead129fa2c8e0c46d4a126add2a89309fec5a8405545b.png" />
+<img alt="../../_images/d3d84013cc4343a3e29f989e171b2aa9d3a91931c647b322d965986c06ad3967.png" src="../../_images/d3d84013cc4343a3e29f989e171b2aa9d3a91931c647b322d965986c06ad3967.png" />
+</div>
+</div>
+</section>
+<section id="find-a-potassium-channel">
+<h3>1.4) Find a Potassium channel<a class="headerlink" href="#find-a-potassium-channel" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">search_neuromldb</span><span class="p">(</span><span class="s2">&quot;Fast Potassium&quot;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NMLCH000113: K Fast Noninactivating Potassium, Rettig Wunder 1992
+NMLCH001627: KDr Fast Delayed Rectifier Potassium , Bezaire Raikov 2016
+NMLCH001611: KDr Fast Delayed Rectifier Potassium, Bezaire Raikov 2016
+NMLCH001609: KDr Fast Delayed Rectifier Potassium , Bezaire Raikov 2016
+NMLCH001549: K Fast Potassium, Boyle Cohen 2008
+NMLCH001529: KT Fast Inactivating Potassium, Gouwens Berg 2018
+NMLCH001465: K Fast Noninactivating Potassium, Gouwens Berg 2018
+NMLCH001400: KTst Fast Inactivating Potassium, Hay Hill 2011
+NMLCH001394: K Fast Noninactivating Potassium, Hay Hill 2011
+NMLCH000156: IM M Type Potassium, Traub Buhl 2003
+NMLCH000155: KDr Delayed Rectifier Potassium, Traub Buhl 2003
+NMLCH000154: KDr Delayed Rectifier Potassium Channel for Fast Spiking (FS) Interneurons, Traub Contreras 2005
+NMLCH000153: KCa BK Type Fast Calcium Dependent Potassium, Traub Buhl 2003
+NMLCH000152: KCa BK Type Fast Calcium Dependent Potassium, Traub Buhl 2003
+NMLCH000151: KCa AHP Type Calcium Dependent Potassium, Traub Buhl 2003
+NMLCH000149: KCa Slow AHP Type Calcium Dependent Potassium, Traub Buhl 2003
+NMLCH000148: IA A Type Potassium, Traub Buhl 2003
+NMLCH000146: K2 Type Slowly Activating and Inactivating Potassium, Traub Buhl 2003
+NMLCH000123: K Fast Potassium, Korngreen Sakmann 2000
+NMLCH000108: KTst Fast Inactivating Potassium, Korngreen Sakmann 2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download one of these</span>
+
+<span class="n">k_chan_doc</span><span class="p">,</span> <span class="n">k_chan_fname_orig</span> <span class="o">=</span> <span class="n">get_model_from_neuromldb</span><span class="p">(</span><span class="s1">&#39;NMLCH000113&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
+
+<span class="n">k_chan</span> <span class="o">=</span> <span class="n">k_chan_doc</span><span class="o">.</span><span class="n">ion_channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># select the first ion channel in the nml doc</span>
+
+<span class="n">k_chan_fname</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.channel.nml&#39;</span><span class="o">%</span><span class="k">k_chan</span>.id
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">k_chan_fname_orig</span><span class="p">,</span> <span class="n">k_chan_fname</span><span class="p">)</span> <span class="c1"># Rename for clarity</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel </span><span class="si">%s</span><span class="s1"> (in file </span><span class="si">%s</span><span class="s1">) has notes: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k_chan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">k_chan_fname</span><span class="p">,</span> <span class="n">k_chan</span><span class="o">.</span><span class="n">notes</span><span class="p">))</span>
+
+<span class="n">k_erev</span> <span class="o">=</span> <span class="o">-</span><span class="mi">77</span>
+<span class="n">run</span><span class="p">(</span><span class="n">channel_files</span><span class="o">=</span><span class="p">[</span><span class="n">k_chan_fname</span><span class="p">],</span> <span class="n">ivCurve</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">erev</span><span class="o">=</span><span class="n">k_erev</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: NMLCH000113.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/LEMS_Test_SKv3_1.xml and running with jNeuroML
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -Djava.awt.headless=true -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot;  /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/LEMS_Test_SKv3_1.xml  -nogui -I &#39;&#39;) in directory: .
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Channel SKv3_1 (in file SKv3_1.channel.nml) has notes: Fast, non inactivating K+ current
+            
+Comment from original mod file: 
+:Reference : :		Characterization of a Shaw-related potassium channel family in rat brain, The EMBO Journal, vol.11, no.7,2473-2486 (1992)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+</pre></div>
+</div>
+<img alt="../../_images/39f32324242c88ea6fbae0ad8a168db12e69b5d4003d3aea56582b6a8dd6d1cd.png" src="../../_images/39f32324242c88ea6fbae0ad8a168db12e69b5d4003d3aea56582b6a8dd6d1cd.png" />
+<img alt="../../_images/e7d9d45258035bf5b93bf809355fac7ebbf1889be2e005ea86bf616c5ae186cb.png" src="../../_images/e7d9d45258035bf5b93bf809355fac7ebbf1889be2e005ea86bf616c5ae186cb.png" />
+<img alt="../../_images/b1d3fc1ed74d01cb82fe356e2a98ce3ecc57e951417ad2310ba7caa0587cc44c.png" src="../../_images/b1d3fc1ed74d01cb82fe356e2a98ce3ecc57e951417ad2310ba7caa0587cc44c.png" />
+<img alt="../../_images/09b056ba3bcee90926ca2d8092d94e42615a0c2169f2d563a24732ed19aaf577.png" src="../../_images/09b056ba3bcee90926ca2d8092d94e42615a0c2169f2d563a24732ed19aaf577.png" />
+<img alt="../../_images/fb5a80742e218f1e3932e62a5e81cb3c1b8b113c9dc0e6a3645ac2459f3c02d7.png" src="../../_images/fb5a80742e218f1e3932e62a5e81cb3c1b8b113c9dc0e6a3645ac2459f3c02d7.png" />
+</div>
+</div>
+</section>
+<section id="find-a-passive-leak-current">
+<h3>1.5)  Find a passive (leak) current<a class="headerlink" href="#find-a-passive-leak-current" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">search_neuromldb</span><span class="p">(</span><span class="s2">&quot;Leak&quot;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
+
+<span class="n">pas_chan_doc</span><span class="p">,</span> <span class="n">pas_chan_fname</span> <span class="o">=</span> <span class="n">get_model_from_neuromldb</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Model_ID&#39;</span><span class="p">],</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
+<span class="n">pas_chan</span> <span class="o">=</span> <span class="n">pas_chan_doc</span><span class="o">.</span><span class="n">ion_channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># select the first ion channel in the nml doc</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel </span><span class="si">%s</span><span class="s1"> has notes: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">pas_chan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pas_chan</span><span class="o">.</span><span class="n">notes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NMLCH000015: Passive Leak, Maex De Schutter 1998
+NMLCH001623: Passive Leak, Bezaire Raikov 2016
+NMLCH001601: Passive Leak, Smith Smith 2013
+NMLCH001590: Passive Leak, Prinz Bucher 2004
+NMLCH001545: Passive Leak, Boyle Cohen 2008
+NMLCH001471: Passive Leak, Gouwens Berg 2018
+NMLCH001427: Passive Leak, Hodgkin Huxley 1952
+NMLCH001403: Passive Leak, Hay Hill 2011
+NMLCH000172: Passive Leak, Traub Contreras 2005
+NMLCH000130: Passive Leak, Pospischil Toledo-Rodriguez 2008
+NMLCH000114: Passive Leak, Hodgkin Huxley 1952
+NMLCH000095: Passive Leak, Vervaeke Lorincz 2010
+NMLCH000027: Passive Leak, De Schutter Bower 1994
+NMLCH000024: Passive Leak, Maex De Schutter 1998
+NMLCH000016: Passive Leak, Maex De Schutter 1998
+NMLCH000007: Passive Leak, Migliore Ferrante 2005
+NMLCH000139: Passive Leak, Hodgkin Huxley 1952
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: NMLCH000015.channel.nml
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Channel GranPassiveCond has notes: Simple leak conductance for Granule cell
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="create-a-new-cell-model-using-these-channels">
+<h2>2) Create a new cell model using these channels<a class="headerlink" href="#create-a-new-cell-model-using-these-channels" title="Link to this heading">#</a></h2>
+<section id="create-the-cell-object-add-channels-and-save-to-file">
+<h3>2.1) Create the Cell object, add channels and save to file<a class="headerlink" href="#create-the-cell-object-add-channels-and-save-to-file" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">component_factory</span>
+<span class="kn">import</span> <span class="nn">neuroml.writers</span> <span class="k">as</span> <span class="nn">writers</span>
+
+
+<span class="n">nml_doc</span> <span class="o">=</span> <span class="n">NeuroMLDocument</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;TestCell&quot;</span><span class="p">)</span>
+
+<span class="n">cell</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;Cell&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;novel_cell&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+
+<span class="n">cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span><span class="n">prox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">17.841242</span><span class="p">],</span> 
+                 <span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">17.841242</span><span class="p">],</span> 
+                 <span class="n">seg_type</span><span class="o">=</span><span class="s1">&#39;soma&#39;</span><span class="p">)</span>
+
+<span class="n">cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s1">&#39;0.03 kohm_cm&#39;</span><span class="p">)</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s1">&#39;-65mV&#39;</span><span class="p">)</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s1">&#39;1.0 uF_per_cm2&#39;</span><span class="p">)</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">set_spike_thresh</span><span class="p">(</span><span class="s1">&#39;0mV&#39;</span><span class="p">)</span>
+
+
+<span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span>
+                        <span class="n">cd_id</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_chans&#39;</span><span class="o">%</span><span class="k">na_chan</span>.id,
+                        <span class="n">ion_channel</span><span class="o">=</span><span class="n">na_chan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                        <span class="n">cond_density</span><span class="o">=</span><span class="s1">&#39;150 mS_per_cm2&#39;</span><span class="p">,</span>
+                        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">na_chan_fname</span><span class="p">,</span>
+                        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> mV&quot;</span><span class="o">%</span><span class="k">na_erev</span>)
+
+<span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span>
+                        <span class="n">cd_id</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_chans&#39;</span><span class="o">%</span><span class="k">k_chan</span>.id,
+                        <span class="n">ion_channel</span><span class="o">=</span><span class="n">k_chan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                        <span class="n">cond_density</span><span class="o">=</span><span class="s1">&#39;36 mS_per_cm2&#39;</span><span class="p">,</span>
+                        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">k_chan_fname</span><span class="p">,</span>
+                        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> mV&quot;</span><span class="o">%</span><span class="k">k_erev</span>)
+
+<span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span>
+                        <span class="n">cd_id</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_chans&#39;</span><span class="o">%</span><span class="k">pas_chan</span>.id,
+                        <span class="n">ion_channel</span><span class="o">=</span><span class="n">pas_chan</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                        <span class="n">cond_density</span><span class="o">=</span><span class="s1">&#39;0.3 mS_per_cm2&#39;</span><span class="p">,</span>
+                        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">pas_chan_fname</span><span class="p">,</span>
+                        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-65 mV&quot;</span><span class="p">)</span>
+
+
+
+<span class="n">cell_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.cell.nml&quot;</span><span class="o">%</span><span class="k">nml_doc</span>.id
+<span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">cell_file</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written cell file to: &quot;</span> <span class="o">+</span> <span class="n">cell_file</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">validate_neuroml2</span>
+
+<span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">cell_file</span><span class="p">)</span>
+
+<span class="c1">#!cat TestCell.cell.nml</span>
+
+
+<span class="n">pynml</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: Segment group all already exists.
+Warning: Segment group soma_group already exists.
+Written cell file to: TestCell.cell.nml
+It&#39;s valid!
+*******************************************************
+* NeuroMLDocument: TestCell
+*
+*
+*  Cell: novel_cell
+*    &lt;Segment|0|Seg0&gt;
+*      Parent segment: None (root segment)
+*      (0.0, 0.0, 0.0), diam 17.841242um -&gt; (0.0, 0.0, 0.0), diam 17.841242um; seg length: 0.0 um
+*      Surface area: 1000.0000939925986 um2, volume: 2973.540612824116 um3
+*    Total length of 1 segment: 0.0 um; total area: 1000.0000939925986 um2
+*  
+*    SegmentGroup: soma_group,	1 member(s),	0 included group(s);	contains 1 segment, id: 0
+*    SegmentGroup: all,	1 member(s),	0 included group(s);	contains 1 segment, id: 0
+*  
+*    Channel density: NaTa_t_chans on all;	conductance of 150 mS_per_cm2 through ion chan NaTa_t with ion non_specific, erev: 50 mV
+*      Channel is on &lt;Segment|0|Seg0&gt;,	total conductance: 1500.0 S_per_m2 x 1.0000000939925986e-09 m2 = 1.500000140988898e-06 S (1500000.140988898 pS)
+*    Channel density: SKv3_1_chans on all;	conductance of 36 mS_per_cm2 through ion chan SKv3_1 with ion non_specific, erev: -77 mV
+*      Channel is on &lt;Segment|0|Seg0&gt;,	total conductance: 360.0 S_per_m2 x 1.0000000939925986e-09 m2 = 3.600000338373355e-07 S (360000.0338373355 pS)
+*    Channel density: GranPassiveCond_chans on all;	conductance of 0.3 mS_per_cm2 through ion chan GranPassiveCond with ion non_specific, erev: -65 mV
+*      Channel is on &lt;Segment|0|Seg0&gt;,	total conductance: 3.0 S_per_m2 x 1.0000000939925986e-09 m2 = 3.000000281977796e-09 S (3000.000281977796 pS)
+*  
+*    Specific capacitance on all: 1.0 uF_per_cm2
+*      Capacitance of &lt;Segment|0|Seg0&gt;,	total capacitance: 0.01 F_per_m2 x 1.0000000939925986e-09 m2 = 1.0000000939925987e-11 F (10.000000939925988 pF)
+*
+*******************************************************
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/neuroml/nml/generatedssupersuper.py:176: UserWarning: morphology has already been assigned.  Use `force=True` to overwrite. Hint: you can make changes to the already added object as required without needing to re-add it because only references to the objects are added, not their values.
+  warnings.warn(
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/neuroml/nml/generatedssupersuper.py:176: UserWarning: biophysical_properties has already been assigned.  Use `force=True` to overwrite. Hint: you can make changes to the already added object as required without needing to re-add it because only references to the objects are added, not their values.
+  warnings.warn(
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/neuroml/nml/generatedssupersuper.py:176: UserWarning: intracellular_properties has already been assigned.  Use `force=True` to overwrite. Hint: you can make changes to the already added object as required without needing to re-add it because only references to the objects are added, not their values.
+  warnings.warn(
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/neuroml/nml/generatedssupersuper.py:176: UserWarning: membrane_properties has already been assigned.  Use `force=True` to overwrite. Hint: you can make changes to the already added object as required without needing to re-add it because only references to the objects are added, not their values.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-a-plot-of-the-actvity-of-the-cell-under-current-clamp-input">
+<h3>2.2) Generate a plot of the actvity of the cell under current clamp input<a class="headerlink" href="#generate-a-plot-of-the-actvity-of-the-cell-under-current-clamp-input" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyneuroml.analysis</span> <span class="kn">import</span> <span class="n">generate_current_vs_frequency_curve</span>
+
+<span class="n">generate_current_vs_frequency_curve</span><span class="p">(</span><span class="n">cell_file</span><span class="p">,</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="n">start_amp_nA</span><span class="o">=-</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="n">end_amp_nA</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span>
+    <span class="n">step_nA</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">pre_zero_pulse</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">post_zero_pulse</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">analysis_duration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="s1">&#39;34degC&#39;</span><span class="p">,</span>
+    <span class="n">plot_voltage_traces</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/TestCell.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NMLCH000015.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot; -validate iv_novel_cell.net.nml ) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/iv_novel_cell.net.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/TestCell.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NMLCH000015.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: LEMS_iv_novel_cell.xml and running with jNeuroML
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -Djava.awt.headless=true -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot;  LEMS_iv_novel_cell.xml  -nogui -I &#39;&#39;) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3432: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/numpy/core/_methods.py:190: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential traces for: TestCell.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Firing frequency versus injected current for: TestCell.cell.nml
+</pre></div>
+</div>
+<img alt="../../_images/6fa63944a2646426dff6ade512d68a6ba6a53b9b7057c9bcd55eea8f8e1dba21.png" src="../../_images/6fa63944a2646426dff6ade512d68a6ba6a53b9b7057c9bcd55eea8f8e1dba21.png" />
+<img alt="../../_images/d3f762fb7ec27fd7339831d1e89aa8dd8020512703457350a7edf9b4b328f4ff.png" src="../../_images/d3f762fb7ec27fd7339831d1e89aa8dd8020512703457350a7edf9b4b328f4ff.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{-0.02: 0.0,
+ -0.01: 0.0,
+ 0.0: 0.0,
+ 0.01: 0.0,
+ 0.02: 0.0,
+ 0.03: 50.0,
+ 0.04: 70.0,
+ 0.05: 90.0}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="search-for-download-and-analyse-a-complete-neuroml-cell">
+<h2>3) Search for, download and analyse a complete NeuroML cell<a class="headerlink" href="#search-for-download-and-analyse-a-complete-neuroml-cell" title="Link to this heading">#</a></h2>
+<section id="search-for-and-download-the-cell">
+<h3>3.1) Search for and download the cell<a class="headerlink" href="#search-for-and-download-the-cell" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">search_neuromldb</span><span class="p">(</span><span class="s2">&quot;Burst Accommodating Martinotti&quot;</span><span class="p">,</span> <span class="s1">&#39;cell&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NMLCL000109: Layer 2/3 Burst Accommodating Martinotti Cell (3), Markram Muller 2015
+NMLCL000395: Layer 6 Burst Non-accommodating Martinotti Cell (4), Markram Muller 2015
+NMLCL000393: Layer 6 Burst Non-accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000345: Layer 4 Burst Non-accommodating Martinotti Cell (4), Markram Muller 2015
+NMLCL000343: Layer 4 Burst Non-accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000315: Layer 2/3 Burst Non-accommodating Martinotti Cell (4), Markram Muller 2015
+NMLCL000313: Layer 2/3 Burst Non-accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000191: Layer 6 Burst Accommodating Martinotti Cell (5), Markram Muller 2015
+NMLCL000190: Layer 6 Burst Accommodating Martinotti Cell (4), Markram Muller 2015
+NMLCL000188: Layer 6 Burst Accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000161: Layer 5 Burst Accommodating Martinotti Cell (5), Markram Muller 2015
+NMLCL000160: Layer 5 Burst Accommodating Martinotti Cell (4), Markram Muller 2015
+NMLCL000158: Layer 5 Burst Accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000157: Layer 5 Burst Accommodating Martinotti Cell (1), Markram Muller 2015
+NMLCL000136: Layer 4 Burst Accommodating Martinotti Cell (5), Markram Muller 2015
+NMLCL000134: Layer 4 Burst Accommodating Martinotti Cell (3), Markram Muller 2015
+NMLCL000133: Layer 4 Burst Accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000111: Layer 2/3 Burst Accommodating Martinotti Cell (5), Markram Muller 2015
+NMLCL000108: Layer 2/3 Burst Accommodating Martinotti Cell (2), Markram Muller 2015
+NMLCL000187: Layer 6 Burst Accommodating Martinotti Cell (1), Markram Muller 2015
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_id</span> <span class="o">=</span> <span class="s1">&#39;NMLCL000109&#39;</span>
+
+<span class="k">def</span> <span class="nf">get_model_details_from_neuromldb</span><span class="p">(</span><span class="n">model_id</span><span class="p">):</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://neuroml-db.org/api/model?id=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">model_id</span>
+    
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+        <span class="n">model_details</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">model_details</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">model_details</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]))</span>
+        
+    <span class="k">return</span> <span class="n">model_details</span>
+    
+
+<span class="n">model_details</span> <span class="o">=</span> <span class="n">get_model_details_from_neuromldb</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model_ID:	NMLCL000109
+Status:	CURRENT
+Errors:	None
+Status_Timestamp:	2018-12-24T16:29:21+00:00
+Type:	Cell
+Equations:	2061
+Runtime_Per_Step:	0.000510815108024267
+Max_Stable_DT:	0.0625
+Max_Stable_DT_Error:	0.969373115260111
+Max_Stable_DT_Benchmark_RunTime:	4.903825037032964
+Optimal_DT:	0.00781557069252977
+Optimal_DT_Error:	0.122802372280653
+Optimal_DT_Benchmark_RunTime:	39.21518682026722
+Optimal_DT_a:	0.000968992248062015
+Optimal_DT_b:	15.8634962901345
+Optimal_DT_c:	-0.0136485748710791
+CVODE_baseline_step_frequency:	13111.7719061286
+CVODE_steps_per_spike:	766.973690134512
+CVODE_Benchmark_RunTime:	10.615508666396945
+Name:	Layer 2/3 Burst Accommodating Martinotti Cell (3)
+Directory_Path:	/var/www/NeuroMLmodels/NMLCL000109
+File_Name:	bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+File_Updated:	None
+File_MD5_Checksum:	bcf74ccd8c6840f6c8f7551084c989b7
+File:	/var/www/NeuroMLmodels/NMLCL000109/bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+Publication_ID:	6000246
+Upload_Time:	2016-12-14T14:29:41+00:00
+Notes:	None
+ID_Helper:	175
+Sections:	40
+Compartments:	204
+Stability_Range_Low:	None
+Stability_Range_High:	None
+Is_Passive:	0
+Is_Intrinsically_Spiking:	0
+Resting_Voltage:	-71.2726975181673
+Rheobase_Low:	0.0469207763671875
+Rheobase_High:	0.048065185546875
+Threshold_Current_Low:	0.234375
+Threshold_Current_High:	0.29296875
+Bias_Voltage:	-80.0
+Bias_Current:	-0.0221022438906573
+CVODE_Active:	None
+Threshold:	None
+Is_GLIF:	0
+V_Variable:	None
+Steady_State_Delay:	None
+AP12AmplitudeDrop:	1.2698800006924
+AP1SSAmplitudeChange:	2.3903765783198
+AP1Amplitude:	72.1822400011024
+AP1WidthHalfHeight:	0.53
+AP1WidthPeakToTrough:	5.03000000000009
+AP1RateOfChangePeakToTrough:	-17.8182926253306
+AP1AHPDepth:	17.4437719043123
+AP2Amplitude:	70.91236000041
+AP2WidthHalfHeight:	0.55
+AP2WidthPeakToTrough:	6.22000000000003
+AP2RateOfChangePeakToTrough:	-14.2206642462703
+AP2AHPDepth:	17.5401716113915
+AP12AmplitudeChangePercent:	-1.75926931704115
+AP12HalfWidthChangePercent:	3.77358490566034
+AP12RateOfChangePeakToTroughPercentChange:	-20.1906459541805
+AP12AHPDepthPercentChange:	0.552631091532312
+InputResistance:	386.187465741356
+AP1DelayMean:	20.6200000000001
+AP1DelaySD:	0.0
+AP2DelayMean:	72.1300000000001
+AP2DelaySD:	0.0
+Burst1ISIMean:	60.255
+Burst1ISISD:	0.0
+InitialAccommodationMean:	-75.0
+SSAccommodationMean:	-50.0
+AccommodationRateToSS:	-0.143802128271498
+AccommodationAtSSMean:	-83.5991575049674
+AccommodationRateMeanAtSS:	166.006825685025
+ISICV:	2.95112315366106
+ISIMedian:	216.41
+ISIBurstMeanChange:	33.954571927781
+SpikeRateStrongStim:	10.0
+AP1DelayMeanStrongStim:	7.30999999999995
+AP1DelaySDStrongStim:	0.0
+AP2DelayMeanStrongStim:	33.8900000000001
+AP2DelaySDStrongStim:	0.0
+Burst1ISIMeanStrongStim:	28.135
+Burst1ISISDStrongStim:	0.0
+RampFirstSpike:	2046.34
+FrequencyFilterType:	Low-Pass
+FrequencyPassAbove:	29.0
+FrequencyPassBelow:	58.7316087498722
+Ephyz_Cluster_ID:	/3/1/4/
+Channel_Type:	None
+Time_Step:	None
+Max_Stable_DT_Benchmark_RunTime_HH:	911.1330720253954
+Optimal_DT_Benchmark_RunTime_HH:	466.46500114887556
+CVODE_Benchmark_RunTime_HH:	498.01998845545205
+Stability_Range_Low_Corr:	-1.875
+Stability_Range_High_Corr:	15.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_full_model_from_neuromldb</span><span class="p">(</span><span class="n">model_id</span><span class="p">):</span>
+    
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.nml.zip&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://neuroml-db.org/GetModelZip?modelID=</span><span class="si">%s</span><span class="s1">&amp;version=NeuroML&#39;</span><span class="o">%</span><span class="k">model_id</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span> <span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    
+
+    <span class="kn">import</span> <span class="nn">zipfile</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Saved as </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">fname</span>)
+    
+<span class="n">get_full_model_from_neuromldb</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+
+<span class="n">detailed_cell_file</span> <span class="o">=</span> <span class="n">model_details</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">][</span><span class="s1">&#39;File_Name&#39;</span><span class="p">]</span>
+
+<span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">detailed_cell_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saved as NMLCL000109.nml.zip
+It&#39;s valid!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-3d-views-of-the-cell">
+<h3>3.2) Generate 3D views of the cell<a class="headerlink" href="#generate-3d-views-of-the-cell" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyneuroml.plot.PlotMorphology</span> <span class="kn">import</span> <span class="n">plot_2D</span>
+
+<span class="n">planes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yz&#39;</span><span class="p">,</span> <span class="s1">&#39;xz&#39;</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">plane</span> <span class="ow">in</span> <span class="n">planes</span><span class="p">:</span>
+
+    <span class="n">plot_2D</span><span class="p">(</span><span class="n">detailed_cell_file</span><span class="p">,</span>
+            <span class="n">plane2d</span>  <span class="o">=</span> <span class="n">plane</span><span class="p">,</span>
+            <span class="n">min_width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">nogui</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">square</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">detailed_cell_doc</span> <span class="o">=</span> <span class="n">pynml</span><span class="o">.</span><span class="n">read_neuroml2_file</span><span class="p">(</span><span class="n">detailed_cell_file</span><span class="p">)</span>
+<span class="n">detailed_cell</span> <span class="o">=</span> <span class="n">detailed_cell_doc</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+</pre></div>
+</div>
+<img alt="../../_images/311f26e8521b553eb3294ccf6409e24912e380c92535323da32bd6aa0111080a.png" src="../../_images/311f26e8521b553eb3294ccf6409e24912e380c92535323da32bd6aa0111080a.png" />
+<img alt="../../_images/10f7b384128918f1a4783bb32cf043728fd73a477f08fda6a6c09e9f49a0dd1d.png" src="../../_images/10f7b384128918f1a4783bb32cf043728fd73a477f08fda6a6c09e9f49a0dd1d.png" />
+<img alt="../../_images/65f04ed77b9509a582a77992bacb723f0ebc056e88ab96c78af71d744f2150dd.png" src="../../_images/65f04ed77b9509a582a77992bacb723f0ebc056e88ab96c78af71d744f2150dd.png" />
+</div>
+</div>
+</section>
+<section id="analyse-cell-spiking-behaviour">
+<h3>3.3) Analyse cell spiking behaviour<a class="headerlink" href="#analyse-cell-spiking-behaviour" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">martinotti_cell</span> <span class="o">=</span> <span class="n">detailed_cell_doc</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">generate_current_vs_frequency_curve</span><span class="p">(</span><span class="n">detailed_cell_file</span><span class="p">,</span>
+    <span class="n">martinotti_cell</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="n">start_amp_nA</span><span class="o">=-</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="n">end_amp_nA</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">step_nA</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="n">pre_zero_pulse</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">post_zero_pulse</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">analysis_duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">plot_voltage_traces</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">simulator</span><span class="o">=</span><span class="s1">&#39;jNeuroML_NEURON&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/K_Tst.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Nap_Et2.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NaTs2_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Ih.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/pas.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Im.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Ca_LVAst.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SK_E2.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/K_Pst.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/CaDynamics_E2_NML2.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Ca.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot; -validate iv_bAC217_L23_MC_40be3bf0e8_0_0.net.nml ) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/iv_bAC217_L23_MC_40be3bf0e8_0_0.net.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/K_Tst.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SKv3_1.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Nap_Et2.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NaTs2_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Ih.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/pas.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Im.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NaTa_t.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Ca_LVAst.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/SK_E2.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/K_Pst.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/CaDynamics_E2_NML2.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/Ca.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: LEMS_iv_bAC217_L23_MC_40be3bf0e8_0_0.xml and running with jNeuroML_NEURON
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -Djava.awt.headless=true -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot;  LEMS_iv_bAC217_L23_MC_40be3bf0e8_0_0.xml  -neuron -run -compile -nogui -I &#39;&#39;) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/numpy/core/fromnumeric.py:3432: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/numpy/core/_methods.py:190: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential traces for: bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Firing frequency versus injected current for: bAC217_L23_MC_40be3bf0e8_0_0.cell.nml
+</pre></div>
+</div>
+<img alt="../../_images/486734328bf2595816a031df84ce456e26a3f31c3bce9e2f25b38ae50d9bf955.png" src="../../_images/486734328bf2595816a031df84ce456e26a3f31c3bce9e2f25b38ae50d9bf955.png" />
+<img alt="../../_images/1921130adb0e4a2f5e4ebd1edccbfa8c217b6321b08f07a04036b3eca21588d9.png" src="../../_images/1921130adb0e4a2f5e4ebd1edccbfa8c217b6321b08f07a04036b3eca21588d9.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{-0.02: 0.0, 0.0: 0.0, 0.02: 0.0, 0.04: 0.0, 0.06: 5.0, 0.08: 8.0, 0.1: 10.0}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="create-a-small-network-using-the-cells">
+<h2>4) Create a small network using the cells<a class="headerlink" href="#create-a-small-network-using-the-cells" title="Link to this heading">#</a></h2>
+<section id="generate-the-neuroml-network">
+<h3>4.1) Generate the NeuroML network<a class="headerlink" href="#generate-the-neuroml-network" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">component_factory</span>
+<span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.lems</span> <span class="kn">import</span> <span class="n">LEMSSimulation</span>
+<span class="kn">import</span> <span class="nn">neuroml.writers</span> <span class="k">as</span> <span class="nn">writers</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">nml_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;NML_DB_Net&quot;</span><span class="p">)</span>
+
+
+<span class="c1">### Create the network</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;NML_DB_Net&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">type</span><span class="o">=</span><span class="s2">&quot;networkWithTemperature&quot;</span> 
+<span class="n">net</span><span class="o">.</span><span class="n">temperature</span><span class="o">=</span><span class="s2">&quot;34.0degC&quot;</span>
+
+<span class="c1">### Add a synapse</span>
+<span class="n">syn0</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;ExpOneSynapse&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;syn0&quot;</span><span class="p">,</span> <span class="n">gbase</span><span class="o">=</span><span class="s2">&quot;65nS&quot;</span><span class="p">,</span> <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;0mV&quot;</span><span class="p">,</span> <span class="n">tau_decay</span><span class="o">=</span><span class="s2">&quot;3ms&quot;</span>
+<span class="p">)</span>
+
+
+<span class="c1">## Create the first population</span>
+<span class="n">size_exc</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;IncludeType&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">cell_file</span><span class="p">)</span>
+
+<span class="n">pop_exc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Exc&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">cell</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size_exc</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;population&quot;</span><span class="p">)</span>
+<span class="c1"># Set optional color property. Note: used later when generating plots</span>
+<span class="c1">##pop0.add(&quot;Property&quot;, tag=&quot;color&quot;, value=&quot;0 0 .8&quot;)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pop_exc</span><span class="p">)</span>
+
+<span class="c1">## Create the second population</span>
+<span class="n">size_inh</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;IncludeType&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">detailed_cell_file</span><span class="p">)</span>
+
+<span class="n">pop_inh</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Inh&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">detailed_cell</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size_inh</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;population&quot;</span><span class="p">)</span>
+<span class="c1"># Set optional color property. Note: used later when generating plots</span>
+<span class="c1">##pop1.add(&quot;Property&quot;, tag=&quot;color&quot;, value=&quot;0 0 .8&quot;)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pop_inh</span><span class="p">)</span>
+
+<span class="c1">## Create connections and inputs</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">prob_connection</span> <span class="o">=</span> <span class="mf">0.8</span>
+
+<span class="n">proj_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">projection</span> <span class="o">=</span> <span class="n">Projection</span><span class="p">(</span>
+                    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Proj_exc_inh&quot;</span><span class="p">,</span>
+                    <span class="n">presynaptic_population</span><span class="o">=</span><span class="n">pop_exc</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="n">postsynaptic_population</span><span class="o">=</span><span class="n">pop_inh</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="n">synapse</span><span class="o">=</span><span class="n">syn0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="p">)</span>
+
+<span class="n">net</span><span class="o">.</span><span class="n">projections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">projection</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_exc</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_inh</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">prob_connection</span><span class="p">:</span> <span class="c1"># probablistic connection...</span>
+            <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionWD</span><span class="p">(</span>
+                <span class="nb">id</span><span class="o">=</span><span class="n">proj_count</span><span class="p">,</span>
+                <span class="n">pre_cell_id</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop_exc</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span>
+                <span class="n">post_cell_id</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop_inh</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span>
+                <span class="n">weight</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span>
+                <span class="n">delay</span><span class="o">=</span><span class="s1">&#39;0ms&#39;</span>
+            <span class="p">)</span>
+            <span class="n">projection</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+            <span class="n">proj_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_exc</span><span class="p">):</span>
+    <span class="c1"># pulse generator as explicit stimulus</span>
+    <span class="n">pg</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pg_exc_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span>
+        <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;20ms&quot;</span><span class="p">,</span>
+        <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;260ms&quot;</span><span class="p">,</span>
+        <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> nA&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">0.03</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()),</span>
+    <span class="p">)</span>
+    
+    <span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop_exc</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_inh</span><span class="p">):</span>
+    <span class="c1"># pulse generator as explicit stimulus</span>
+    <span class="n">pg</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pg_inh_</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">i</span>,
+        <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;20ms&quot;</span><span class="p">,</span>
+        <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;260ms&quot;</span><span class="p">,</span>
+        <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> nA&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">0.02</span> <span class="o">+</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()),</span>
+    <span class="p">)</span>
+    
+    <span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop_inh</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nml_doc</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="n">nml_net_file</span> <span class="o">=</span> <span class="s1">&#39;NML_DB_network.net.nml&#39;</span>
+<span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">nml_net_file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written network file to: &quot;</span> <span class="o">+</span> <span class="n">nml_net_file</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">nml_net_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot; -validate NML_DB_network.net.nml ) in directory: .
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*******************************************************
+* NeuroMLDocument: NML_DB_Net
+*
+*  ExpOneSynapse: [&#39;syn0&#39;]
+*  IncludeType: [&#39;TestCell.cell.nml&#39;, &#39;bAC217_L23_MC_40be3bf0e8_0_0.cell.nml&#39;]
+*  PulseGenerator: [&#39;pg_exc_0&#39;, &#39;pg_exc_1&#39;, &#39;pg_exc_2&#39;, &#39;pg_exc_3&#39;, &#39;pg_inh_0&#39;, &#39;pg_inh_1&#39;, &#39;pg_inh_2&#39;, &#39;pg_inh_3&#39;]
+*
+*  Network: NML_DB_Net (temperature: 34.0degC)
+*
+*   8 cells in 2 populations 
+*     Population: Exc with 4 components of type novel_cell
+*     Population: Inh with 4 components of type bAC217_L23_MC_40be3bf0e8_0_0
+*
+*   13 connections in 1 projections 
+*     Projection: Proj_exc_inh from Exc to Inh, synapse: syn0
+*       13 connections (wd): [(Connection 0: 0 -&gt; 0, weight: 0.087187, delay: 0.00000 ms), ...]
+*
+*   0 inputs in 0 input lists 
+*
+*   8 explicit inputs (outside of input lists)
+*     Explicit Input of type pg_exc_0 to Exc(cell 0), destination: unspecified
+*     Explicit Input of type pg_exc_1 to Exc(cell 1), destination: unspecified
+*     Explicit Input of type pg_exc_2 to Exc(cell 2), destination: unspecified
+*     Explicit Input of type pg_exc_3 to Exc(cell 3), destination: unspecified
+*     Explicit Input of type pg_inh_0 to Inh(cell 0), destination: unspecified
+*     Explicit Input of type pg_inh_1 to Inh(cell 1), destination: unspecified
+*     Explicit Input of type pg_inh_2 to Inh(cell 2), destination: unspecified
+*     Explicit Input of type pg_inh_3 to Inh(cell 3), destination: unspecified
+*
+*******************************************************
+Written network file to: NML_DB_network.net.nml
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+pyNeuroML &gt;&gt;&gt; INFO - Output: 
+  jNeuroML &gt;&gt;   jNeuroML v0.13.0
+  jNeuroML &gt;&gt;  Validating: /Users/padraig/git/Documentation/source/Userdocs/NML2_examples/NML_DB_network.net.nml
+  jNeuroML &gt;&gt;  Valid against schema and all tests
+  jNeuroML &gt;&gt;  No warnings
+  jNeuroML &gt;&gt;  
+  jNeuroML &gt;&gt;  Validated 1 files: All valid and no warnings
+  jNeuroML &gt;&gt;  
+  jNeuroML &gt;&gt;  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-views-of-the-network">
+<h3>4.2) Generate views of the network<a class="headerlink" href="#generate-views-of-the-network" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyneuroml.pynml</span> <span class="kn">import</span> <span class="n">generate_nmlgraph</span>
+
+<span class="n">generate_nmlgraph</span><span class="p">(</span><span class="n">nml_net_file</span><span class="p">,</span> <span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.gv.png&#39;</span><span class="o">%</span><span class="k">net</span>.id,width=500)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Converting NML_DB_network.net.nml to graphical form, level -1, engine dot
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>neuromllite &gt;&gt;&gt; Initiating GraphViz handler, level -1, engine: dot, seed: 1234
+Parsing: NML_DB_network.net.nml
+Loaded: NML_DB_network.net.nml as NeuroMLDocument
+neuromllite &gt;&gt;&gt; Document: NML_DB_Net
+neuromllite &gt;&gt;&gt; Network: NML_DB_Net
+neuromllite &gt;&gt;&gt; Population: Exc, component: novel_cell (Cell), size: 4 cells, properties: {}
+neuromllite &gt;&gt;&gt; Population: Inh, component: bAC217_L23_MC_40be3bf0e8_0_0 (Cell), size: 4 cells, properties: {}
+neuromllite &gt;&gt;&gt; GRAPH PROJ: Proj_exc_inh (Exc (4) -&gt; Inh (4), projection): w 1.0; wtot: 4.849021209484878; sign: 1; cond: 65.0 nS (65nS); all: {&#39;projection&#39;: 58.85091239849243, &#39;inhibitory&#39;: -1e+100, &#39;excitatory&#39;: -1e+100, &#39;electricalProjection&#39;: -1e+100, &#39;continuousProjection&#39;: -1e+100} -&gt; {&#39;projection&#39;: 1.380338363104285, &#39;inhibitory&#39;: 1e+100, &#39;excitatory&#39;: 1e+100, &#39;electricalProjection&#39;: 1e+100, &#39;continuousProjection&#39;: 1e+100}
+neuromllite &gt;&gt;&gt;  - conn Exc_0 -&gt; Inh_0: 5.66713403897108 (5.66713403897108)
+neuromllite &gt;&gt;&gt;  - conn Exc_0 -&gt; Inh_1: 7.000515270998535 (7.000515270998535)
+neuromllite &gt;&gt;&gt;  - conn Exc_0 -&gt; Inh_3: 34.85313260220526 (34.85313260220526)
+neuromllite &gt;&gt;&gt;  - conn Exc_1 -&gt; Inh_0: 55.385630230408985 (55.385630230408985)
+neuromllite &gt;&gt;&gt;  - conn Exc_1 -&gt; Inh_1: 21.91908271210294 (21.91908271210294)
+neuromllite &gt;&gt;&gt;  - conn Exc_1 -&gt; Inh_2: 15.935617913644716 (15.935617913644716)
+neuromllite &gt;&gt;&gt;  - conn Exc_1 -&gt; Inh_3: 28.357926571989168 (28.357926571989168)
+neuromllite &gt;&gt;&gt;  - conn Exc_2 -&gt; Inh_0: 38.84396519171941 (38.84396519171941)
+neuromllite &gt;&gt;&gt;  - conn Exc_2 -&gt; Inh_1: 20.504833292831094 (20.504833292831094)
+neuromllite &gt;&gt;&gt;  - conn Exc_2 -&gt; Inh_2: 58.85091239849243 (58.85091239849243)
+neuromllite &gt;&gt;&gt;  - conn Exc_2 -&gt; Inh_3: 9.241379188047565 (9.241379188047565)
+neuromllite &gt;&gt;&gt;  - conn Exc_3 -&gt; Inh_0: 1.380338363104285 (1.380338363104285)
+neuromllite &gt;&gt;&gt;  - conn Exc_3 -&gt; Inh_2: 17.245910842001596 (17.245910842001596)
+neuromllite &gt;&gt;&gt; Generating graph for: NML_DB_Net
+neuromllite &gt;&gt;&gt; **************************************
+neuromllite &gt;&gt;&gt; * Settings for GraphVizHandler: 
+neuromllite &gt;&gt;&gt; *
+neuromllite &gt;&gt;&gt; *    engine:                  dot
+neuromllite &gt;&gt;&gt; *    level:                   -1
+neuromllite &gt;&gt;&gt; *    is_cell_level:           True
+neuromllite &gt;&gt;&gt; *    CUTOFF_INH_SYN_MV:       -50
+neuromllite &gt;&gt;&gt; *    include_ext_inputs:      True
+neuromllite &gt;&gt;&gt; *    include_input_pops:      True
+neuromllite &gt;&gt;&gt; *    scale_by_post_pop_size:  True
+neuromllite &gt;&gt;&gt; *    scale_by_post_pop_cond:  True
+neuromllite &gt;&gt;&gt; *    min_weight_to_show:      0
+neuromllite &gt;&gt;&gt; *    show_chem_conns:         True
+neuromllite &gt;&gt;&gt; *    show_elect_conns:        True
+neuromllite &gt;&gt;&gt; *    show_cont_conns:         True
+neuromllite &gt;&gt;&gt; *    output_format:           png
+neuromllite &gt;&gt;&gt; *
+neuromllite &gt;&gt;&gt; * Used values: 
+neuromllite &gt;&gt;&gt; *    syn_conds_used:          syn0:	 65.0 nS (65nS)
+neuromllite &gt;&gt;&gt; *
+neuromllite &gt;&gt;&gt; **************************************
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/subprocess.py:1052: ResourceWarning: subprocess 25497 is still running
+  _warn(&quot;subprocess %s is still running&quot; % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+pyNeuroML &gt;&gt;&gt; INFO - Done with GraphViz...
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/cbcc1f3b0b4c7e625953206eac46859f31f199aa62d7a8ea9eb208ec67dda9c9.png"><img alt="../../_images/cbcc1f3b0b4c7e625953206eac46859f31f199aa62d7a8ea9eb208ec67dda9c9.png" src="../../_images/cbcc1f3b0b4c7e625953206eac46859f31f199aa62d7a8ea9eb208ec67dda9c9.png" style="width: 500px;" /></a>
+</div>
+</div>
+</section>
+<section id="generate-lems-file-to-simulate-the-network">
+<h3>4.3) Generate LEMS file to simulate the network<a class="headerlink" href="#generate-lems-file-to-simulate-the-network" title="Link to this heading">#</a></h3>
+<p>See documentation about <a class="reference external" href="https://docs.neuroml.org/Userdocs/LEMSSimulation.html">LEMS Simulation files</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation_id</span> <span class="o">=</span> <span class="s2">&quot;NML_DB_network_sim&quot;</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">simulation_id</span><span class="p">,</span>
+                            <span class="n">duration</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">nml_net_file</span><span class="p">,</span> <span class="n">include_included</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<span class="n">pops</span> <span class="o">=</span> <span class="p">[</span><span class="n">pop_exc</span><span class="p">,</span> <span class="n">pop_inh</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">pops</span><span class="p">:</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">create_event_output_file</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">_spikes&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">.spikes&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ID_TIME&#39;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">pre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pop</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">next_cell</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">[</span><span class="si">{}</span><span class="s1">]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="n">pre</span><span class="p">)</span>
+        <span class="n">simulation</span><span class="o">.</span><span class="n">add_selection_to_event_output_file</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">_spikes&quot;</span><span class="p">,</span> <span class="n">pop</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">next_cell</span><span class="p">,</span> <span class="s1">&#39;spike&#39;</span><span class="p">)</span>
+
+        <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;v</span><span class="si">{</span><span class="n">pre</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">next_cell</span><span class="si">}</span><span class="s2">/v&quot;</span><span class="p">)</span>
+    
+    
+<span class="n">lems_simulation_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved LEMS Simulation file to: </span><span class="si">{</span><span class="n">lems_simulation_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saved LEMS Simulation file to: LEMS_NML_DB_network_sim.xml
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-simulation-of-the-network-using-neuron">
+<h3>4.4) Run simulation of the network using NEURON<a class="headerlink" href="#run-simulation-of-the-network-using-neuron" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traces</span> <span class="o">=</span> <span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml_neuron</span><span class="p">(</span>
+    <span class="n">lems_simulation_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">load_saved_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: LEMS_NML_DB_network_sim.xml and running with jNeuroML_NEURON
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx2G  -Djava.awt.headless=true -jar  &quot;/opt/homebrew/anaconda3/envs/py39n/lib/python3.9/site-packages/pyneuroml/lib/jNeuroML-0.13.0-jar-with-dependencies.jar&quot;  LEMS_NML_DB_network_sim.xml  -neuron -run -compile -nogui -I &#39;&#39;) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed successfully!
+pyNeuroML &gt;&gt;&gt; WARNING - Reloading: Data loaded from ./Exc.v.dat (jNeuroML_NEURON)
+pyNeuroML &gt;&gt;&gt; WARNING - Reloading: Data loaded from ./Inh.v.dat (jNeuroML_NEURON)
+</pre></div>
+</div>
+<img alt="../../_images/b2f5f0a7b7b908b19a44be5ea8289dfd0fe0d44b6e3017b6dbd63b20f3e06d2f.png" src="../../_images/b2f5f0a7b7b908b19a44be5ea8289dfd0fe0d44b6e3017b6dbd63b20f3e06d2f.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/NML2_examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="OLM.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interactive multi-compartment OLM cell example</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../FindingNeuroMLModels.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Finding and sharing NeuroML models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-download-and-analyse-channels-accessed-via-the-neuroml-db-api">1) Search for, download and analyse channels accessed via the NeuroML-DB API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-in-the-database-for-a-particular-type-of-channel">1.1) Search in the database for a particular type of channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-one-of-these-results-and-download-it-and-browse-the-contents">1.2) Select one of these results and download it, and browse the contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-time-course-and-steady-state-of-this-channel">1.3) Plot the time course and steady state of this channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-potassium-channel">1.4) Find a Potassium channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-passive-leak-current">1.5)  Find a passive (leak) current</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-cell-model-using-these-channels">2) Create a new cell model using these channels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-cell-object-add-channels-and-save-to-file">2.1) Create the Cell object, add channels and save to file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-plot-of-the-actvity-of-the-cell-under-current-clamp-input">2.2) Generate a plot of the actvity of the cell under current clamp input</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-download-and-analyse-a-complete-neuroml-cell">3) Search for, download and analyse a complete NeuroML cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-and-download-the-cell">3.1) Search for and download the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-3d-views-of-the-cell">3.2) Generate 3D views of the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-cell-spiking-behaviour">3.3) Analyse cell spiking behaviour</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-small-network-using-the-cells">4) Create a small network using the cells</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-neuroml-network">4.1) Generate the NeuroML network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-views-of-the-network">4.2) Generate views of the network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-lems-file-to-simulate-the-network">4.3) Generate LEMS file to simulate the network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-simulation-of-the-network-using-neuron">4.4) Run simulation of the network using NEURON</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

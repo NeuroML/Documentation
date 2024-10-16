@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tools and resources with NeuroML support &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/Software/SupportingTools';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Approaches to adding NeuroML support" href="Tools/Approaches.html" />
+    <link rel="prev" title="MatLab NeuroML Toolbox" href="MatLab.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Software.html">Software and Tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Tools and resources with NeuroML support</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/Software/SupportingTools.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Software/SupportingTools.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/Software/SupportingTools.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tools and resources with NeuroML support</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-with-neuroml-support">Applications with NeuroML support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuron">NEURON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#netpyne">NetPyNE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroconstruct">neuroConstruct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genesis">GENESIS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moose">MOOSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brian">BRIAN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eden">EDEN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arbor">Arbor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pynn">PyNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nest">NEST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openworm">OpenWorm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-description-format-mdf">Model Description Format (MDF)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-virtual-brain">The Virtual Brain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lfpy">LFPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biosimulators">BioSimulators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n2a">N2A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronland">NeuronLand</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cx3d">CX3D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trees-toolbox">TREES toolbox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trakem2">TrakEM2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronvisio">Neuronvisio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catmaid">CATMAID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myokit">Myokit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geppetto">Geppetto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-legacy-tools">Other/legacy tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psics">PSICS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whole-brain-catalogue">Whole Brain Catalogue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcsim">PCSIM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuromantic">Neuromantic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neurospaces-genesis-3">Neurospaces/ GENESIS 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitneuron">SplitNeuron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuranim">NeurAnim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnrun">CNrun</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neugen">NeuGen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#morphforge">morphforge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neurotranslate">NeuroTranslate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moogli">Moogli</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tools-and-resources-with-neuroml-support">
+<span id="userdocs-supporting"></span><h1>Tools and resources with NeuroML support<a class="headerlink" href="#tools-and-resources-with-neuroml-support" title="Link to this heading">#</a></h1>
+<p>Apart from the <strong><a class="reference internal" href="Software.html#userdocs-software"><span class="std std-ref">core NeuroML tools</span></a></strong> (e.g. <a class="reference internal" href="pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a>, <a class="reference internal" href="jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a>) there are many
+other applications, libraries and databases which support NeuroML 2 and LEMS.</p>
+<p><a href="#neuron"><img alt="h" src="../../_images/neuron.png" /></a>
+<a href="#neuroconstruct"><img alt="h" src="../../_images/neuroconstruct.png" /></a>
+<a href="#netpyne"><img alt="h" src="../../_images/netpyne.png" /></a>
+<a href="#genesis"><img alt="h" src="../../_images/genesis.png" /></a>
+<a href="#moose"><img alt="h" src="../../_images/moose.jpg" /></a>
+<a href="#brian"><img alt="h" src="../../_images/brian2.png" /></a>
+<a href="#arbor"><img alt="h" src="../../_images/arbor.png" /></a>
+<a href="#pynn"><img alt="h" src="../../_images/pynn.png" /></a>
+<a href="#model-description-format-mdf"><img alt="h" src="../../_images/mdf.png" /></a>
+<a href="#openworm"><img alt="h" src="../../_images/openworm.png" /></a>
+<a href="#the-virtual-brain"><img alt="h" src="../../_images/tvb.png" /></a>
+<a href="#lfpy"><img alt="h" src="../../_images/lfpy.png" /></a>
+<a href="#biosimulators"><img alt="h" src="../../_images/biosimulators.png" /></a>
+<a href="#neuronland"><img alt="h" src="../../_images/neuronland.png" /></a>
+<a href="#cx3d"><img alt="h" src="../../_images/cx3d.png" /></a>
+<a href="#trees"><img alt="h" src="../../_images/trees.png" /></a>
+<a href="#trakem2"><img alt="h" src="../../_images/trakem2.png" /></a>
+<a href="#neuronvisio"><img alt="h" src="../../_images/neuronvisio.png" /></a>
+<a href="#myokit"><img alt="h" src="../../_images/myokit.png" /></a>
+<a href="#geppetto"><img alt="h" src="../../_images/geppetto.png" /></a>
+<a href="#catmaid"><img alt="h" src="../../_images/catmaid.png" /></a></p>
+<p>These tools take a <a class="reference internal" href="Tools/Approaches.html#userdocs-neuroml-support-approaches"><span class="std std-ref">number of different approaches</span></a> to adding NeuroML support, from dealing with the format natively to allowing import/export of (subsets of) the language, to an external application generating scripts/code for use in the simulator.</p>
+<div class="note admonition">
+<p class="admonition-title">Please help us keep this page up to date.</p>
+<p>Tools listed here may have moved to new locations, or may no longer be maintained, and others may be missing.
+Please <a class="reference external" href="https://github.com/NeuroML/Documentation/issues/new/choose">file issues</a> if you can help update this information.</p>
+</div>
+<section id="applications-with-neuroml-support">
+<span id="userdocs-supporting-apps"></span><h2>Applications with NeuroML support<a class="headerlink" href="#applications-with-neuroml-support" title="Link to this heading">#</a></h2>
+<section id="neuron">
+<span id="userdocs-supporting-apps-neuron"></span><h3>NEURON<a class="headerlink" href="#neuron" title="Link to this heading">#</a></h3>
+<p><img alt="NEURON logo" src="../../_images/neuron.png" /></p>
+<p>The <a class="reference external" href="http://www.neuron.yale.edu/neuron/">NEURON</a> simulation environment is one of the main target platforms for a standard facilitating exchange of neuronal models. <a class="reference internal" href="jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a> can be used to convert NeuroML2/LEMS models to NEURON. NEURON simulations can also be generated from NeuroML model components by <a class="reference external" href="http://www.neuroconstruct.org">neuroConstruct</a>.</p>
+<p>See also <a class="reference internal" href="Tools/NetPyNE.html#userdocs-netpyne"><span class="std std-ref">NetPyNE</span></a>, which builds on NEURON.</p>
+<p>There is a <strong>dedicated page on NEURON/NeuroML interactions</strong> <a class="reference internal" href="Tools/NEURON.html#userdocs-neuron"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="netpyne">
+<span id="userdocs-supporting-apps-netpyne"></span><h3>NetPyNE<a class="headerlink" href="#netpyne" title="Link to this heading">#</a></h3>
+<p><img alt="NetPyNE logo" src="../../_images/netpyne.png" /></p>
+<p><a class="reference external" href="http://netpyne.org/">NetPyNE</a> is a Python package to facilitate the development, simulation, parallelization, analysis, and optimization of biological neuronal networks using the NEURON simulator. NetPyNE can import from and export to NeuroML. NetPyNE also provides a web based <a class="reference external" href="https://github.com/MetaCell/NetPyNE-UI/wiki">Graphical User Interface</a>.</p>
+<p>There is a <strong>dedicated page on NetPyNE/NeuroML interactions</strong> <a class="reference internal" href="Tools/NetPyNE.html#userdocs-netpyne"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="neuroconstruct">
+<span id="userdocs-supporting-apps-neuroconstruct"></span><h3>neuroConstruct<a class="headerlink" href="#neuroconstruct" title="Link to this heading">#</a></h3>
+<p><img alt="Neuroconstruct logo" src="../../_images/neuroconstruct.png" /></p>
+<p><a class="reference external" href="http://www.neuroconstruct.org">neuroConstruct</a> is a Java based application for constructing 3D networks of biologically realistic neurons. The current version can generate code for the <a class="reference external" href="http://www.neuron.yale.edu/neuron/">NEURON</a>, <a class="reference external" href="http://genesis-sim.org/">GENESIS</a>, <a class="reference external" href="http://www.psics.org/index.html">PSICS</a> and <a class="reference external" href="http://neuralensemble.org/PyNN/">PyNN</a> platforms and also provides import/export support for MorphML, ChannelML and NetworkML (from NeuroML v1) and for NeuroMLv2 cells and networks.</p>
+<p>More info on the support for NeuroML in neuroConstruct is available <a class="reference external" href="http://www.neuroconstruct.org/docs/neuroml.html">here</a>.</p>
+</section>
+<section id="genesis">
+<span id="userdocs-supporting-apps-genesis"></span><h3>GENESIS<a class="headerlink" href="#genesis" title="Link to this heading">#</a></h3>
+<p><img alt="GENESIS logo" src="../../_images/genesis.png" /></p>
+<p><a class="reference external" href="http://genesis-sim.org/">GENESIS</a> is a commonly used neuronal simulation environment and was a main target platform for the NeuroMLv1 specifications. Full GENESIS simulations can be generated from NeuroMLv1 model components by <a class="reference external" href="http://www.neuroconstruct.org">neuroConstruct</a>.</p>
+<p>Due to the lack of active development of GENESIS, support for mapping to GENESIS in NeuroMLv2 has been deprecated in favour of <a class="reference internal" href="#userdocs-supporting-apps-moose"><span class="std std-ref">MOOSE</span></a>.</p>
+</section>
+<section id="moose">
+<span id="userdocs-supporting-apps-moose"></span><h3>MOOSE<a class="headerlink" href="#moose" title="Link to this heading">#</a></h3>
+<p><img alt="MOOSE logo" src="../../_images/moose.jpg" /></p>
+<p><a class="reference external" href="https://moose.ncbs.res.in/">MOOSE</a> is the Multiscale Object-Oriented Simulation Environment. It is the base and numerical core for large, detailed multi-scale simulations that span computational neuroscience and systems biology. It is based on a complete reimplementation of the GENESIS 2 core.</p>
+<p>More information on running NeuroML models in MOOSE can be found <a class="reference internal" href="../SimulatingNeuroMLModels.html#userdocs-simulating-models-moose"><span class="std std-ref">here</span></a>.</p>
+<p>There is a <strong>dedicated page on MOOSE/NeuroML interactions</strong> <a class="reference internal" href="Tools/MOOSE.html#userdocs-moose"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="brian">
+<span id="userdocs-supporting-apps-brian"></span><h3>BRIAN<a class="headerlink" href="#brian" title="Link to this heading">#</a></h3>
+<p><img alt="Brian logo" src="../../_images/brian2.png" /></p>
+<p><a class="reference external" href="https://briansimulator.org/">Brian</a> is an easy to use, Python based simulator of spiking networks.</p>
+<p>There is a <strong>dedicated page on Brian/NeuroML interactions</strong> <a class="reference internal" href="Tools/Brian.html#userdocs-brian"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="eden">
+<span id="userdocs-supporting-apps-eden"></span><h3>EDEN<a class="headerlink" href="#eden" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://gitlab.com/neurocomputing-lab/Inferior_OliveEMC/eden">EDEN</a> is a recently developed simulation engine which incorporates native NeuroML 2 support from the start.</p>
+<p>Initial tests of using EDEN with NeuroML models and example code can be found <a class="reference external" href="https://github.com/OpenSourceBrain/EDENShowcase">here</a>.</p>
+<p>There is a <strong>dedicated page on EDEN/NeuroML interactions</strong> <a class="reference internal" href="Tools/EDEN.html#userdocs-eden"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="arbor">
+<span id="userdocs-supporting-apps-arbor"></span><h3>Arbor<a class="headerlink" href="#arbor" title="Link to this heading">#</a></h3>
+<p><img alt="Arbor logo" src="../../_images/arbor.png" /></p>
+<p><a class="reference external" href="https://arbor-sim.org/">Arbor</a> is a high performance multicompartmental neural simulation library. Addition of support for NeuroML2 and LEMS is under active development.
+See <a class="reference external" href="https://docs.arbor-sim.org/en/stable/fileformat/neuroml.html">here</a>.</p>
+<p>Example code for interactions between NeuroML models and Arbor can be found <a class="reference external" href="https://github.com/OpenSourceBrain/ArborShowcase">here</a>.</p>
+<p>There is a <strong>dedicated page on Arbor/NeuroML interactions</strong> <a class="reference internal" href="Tools/Arbor.html#userdocs-arbor"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="pynn">
+<span id="userdocs-supporting-apps-pynn"></span><h3>PyNN<a class="headerlink" href="#pynn" title="Link to this heading">#</a></h3>
+<p><img alt="PyNN logo" src="../../_images/pynn.png" /></p>
+<p><a class="reference external" href="http://neuralensemble.org/PyNN/">PyNN</a> is a Python package for simulator independent specification of neuronal network models. Model code can be developed using the PyNN API and then run using <a class="reference external" href="http://www.neuron.yale.edu/neuron/">NEURON</a>, <a class="reference external" href="https://nest-simulator.org/">NEST</a> or <a class="reference external" href="https://briansimulator.org/">Brian</a>. The developed model also can be stored as a NeuroML document. The latest version of <a class="reference external" href="http://www.neuroconstruct.org">neuroConstruct</a> can be used to generate executable scripts for PyNN based simulators based on NeuroML components, although the majority of multicompartmental conductance based models which are available in neuroConstruct are outside the current scope of the PyNN API.</p>
+<p>More info on the latest support for running NeuroML models in PyNN and vice versa can be found <a class="reference external" href="https://github.com/NeuroML/NeuroML2/issues/73">here</a>.</p>
+</section>
+<section id="nest">
+<span id="userdocs-supporting-apps-nest"></span><h3>NEST<a class="headerlink" href="#nest" title="Link to this heading">#</a></h3>
+<p><img alt="NEST logo" src="../../_images/nest-logo.png" /></p>
+<p>NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.</p>
+<p>There is a <strong>dedicated page on NEST/NeuroML interactions</strong> <a class="reference internal" href="Tools/NEST.html#userdocs-nest"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="openworm">
+<span id="userdocs-supporting-apps-openworm"></span><h3>OpenWorm<a class="headerlink" href="#openworm" title="Link to this heading">#</a></h3>
+<p><img alt="OpenWorm logo" src="../../_images/openworm.png" /></p>
+<p>The <a class="reference external" href="http://openworm.org/">OpenWorm</a> project aims to create a simulation platform to build digital <i>in-silico</i> living systems, starting with a <i>C. elegans</i> virtual organism simulation. The simulations and associated tools are being developed in a fully open source manner. NeuroML is being used for the description of the 302 neurons in the worm’s nervous system, both for morphological description of the cells and their electrical properties.</p>
+<p>The <a class="reference external" href="https://github.com/openworm/c302">c302 subproject</a> in OpenWorm has the latest developments in the NeuroML version of the worm nervous system.</p>
+<p>Members of the OpenWorm project are also creating a general purpose neuronal simulator (for both electrical and physical simulations) which will have parallelism and native support for NeuroML built in from the start (see <a class="reference internal" href="#userdocs-supporting-apps-geppetto"><span class="std std-ref">Geppetto</span></a>.</p>
+</section>
+<section id="model-description-format-mdf">
+<span id="userdocs-supporting-apps-mdf"></span><h3>Model Description Format (MDF)<a class="headerlink" href="#model-description-format-mdf" title="Link to this heading">#</a></h3>
+<p><img alt="MDF logo" src="../../_images/mdf.png" /></p>
+<p><a class="reference external" href="https://github.com/ModECI/MDF">ModECI Model Description Format (MDF)</a> is an open source, community-supported standard and associated library of tools for expressing computational models in a form that allows them to be exchanged between diverse programming languages and execution environments, with a particular focus on machine learning, artificial intelligence and computational neuroscience.</p>
+<p>There will be full compatibility between NeuroML and MDF for specifying neuronal models. See <a class="reference external" href="https://github.com/ModECI/MDF/blob/main/examples/NeuroML/README.md">here</a> for ongoing work in this direction.</p>
+</section>
+<section id="the-virtual-brain">
+<span id="userdocs-supporting-apps-tvb"></span><h3>The Virtual Brain<a class="headerlink" href="#the-virtual-brain" title="Link to this heading">#</a></h3>
+<p><img alt="TVB logo" src="../../_images/tvb.png" /></p>
+<p><a class="reference external" href="https://www.thevirtualbrain.org">The Virtual Brain (TVB)</a> offers a simulation environment for large-scale brain networks. It allows network properties, in particular the brain’s structural connectivity, to be incorporated into models, and so TVB can simulate whole brain behaviour as is commonly observed in clinical scanners (e.g. EEG, MEG, fMRI).</p>
+<p>Initial work mapping networks in TVB to/from NeuroML 2 and LEMS can be found <a class="reference external" href="https://github.com/OpenSourceBrain/TheVirtualBrainShowcase">here</a>. See also the work of the <a class="reference external" href="https://github.com/NeuralEnsemble/Networks_SIG/issues?q=is%3Aissue+is%3Aopen+label%3ATVB">INCF Network Specification Working Group in this area</a>.</p>
+</section>
+<section id="lfpy">
+<span id="userdocs-supporting-apps-lfpy"></span><h3>LFPy<a class="headerlink" href="#lfpy" title="Link to this heading">#</a></h3>
+<p><img alt="LFPy logo" src="../../_images/lfpy.png" /></p>
+<p><a class="reference external" href="https://lfpy.readthedocs.io/en/latest/">LFPy</a> is a Python package for calculation of extracellular potentials from multicompartment neuron models. It relies on the NEURON simulator and uses the Python interface it provides. LFPy provides a set of easy to use Python classes for setting up the model, running simulations and calculating the extracellular potentials arising from activity in the model neuron. Initial support for loading of NeuroML morphologies has been added.</p>
+</section>
+<section id="biosimulators">
+<span id="userdocs-supporting-apps-biosimulators"></span><h3>BioSimulators<a class="headerlink" href="#biosimulators" title="Link to this heading">#</a></h3>
+<p><img alt="BioSimulators logo" src="../../_images/biosimulators.png" /></p>
+<p><a class="reference external" href="https://biosimulators.org/">BioSimulators</a> provides a registry and platform supporting a broad range of modeling frameworks, model formats, simulation algorithms, and simulation tools.</p>
+<p>See for example <a class="reference external" href="https://biosimulators.org/simulators/pyneuroml/latest">https://biosimulators.org/simulators/pyneuroml/latest</a>.</p>
+</section>
+<section id="n2a">
+<span id="userdocs-supporting-apps-n2a"></span><h3>N2A<a class="headerlink" href="#n2a" title="Link to this heading">#</a></h3>
+<p>“Neurons to Algorithms” (N2A) is a language for modeling neural systems, along with a software tool for editing models and simulating them.</p>
+<p>There is a <strong>dedicated page on N2A/NeuroML interactions</strong> <a class="reference internal" href="Tools/N2A.html#userdocs-n2a"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="neuronland">
+<span id="userdocs-supporting-apps-neuronland"></span><h3>NeuronLand<a class="headerlink" href="#neuronland" title="Link to this heading">#</a></h3>
+<p><img alt="NeuronLand logo" src="../../_images/neuronland.png" /></p>
+<p><a class="reference external" href="http://neuronland.org/">NeuronLand</a> provides NLMorphologyConverter, which is a command line program for converting between over 20 different 3D neuron morphology formats, and NLMorphologyViewer, which provides a simple interface for viewing these data. Both of these tools provide import and export of MorphML.</p>
+</section>
+<section id="cx3d">
+<span id="userdocs-supporting-apps-cx3d"></span><h3>CX3D<a class="headerlink" href="#cx3d" title="Link to this heading">#</a></h3>
+<p><img alt="CX3D logo" src="../../_images/cx3d.png" /></p>
+<p><a class="reference external" href="http://www.ini.uzh.ch/~amw/seco/cx3d/">CX3D</a> is a tool for simulating the growth of cortex in 3D. There was a preliminary implementation of export of generated networks to NeuroML in CX3D.</p>
+</section>
+<section id="trees-toolbox">
+<span id="userdocs-supporting-apps-trees"></span><h3>TREES toolbox<a class="headerlink" href="#trees-toolbox" title="Link to this heading">#</a></h3>
+<p><img alt="Trees logo" src="../../_images/trees.png" /></p>
+<p>The <a class="reference external" href="https://github.com/cuntzlab/treestoolbox">TREES toolbox</a> is an application in MATLAB which allows: automatic reconstruction of neuronal branching from microscopy image stacks and generation of synthetic axonal and dendritic trees; visualisation, editing and analysis of neuronal trees; comparison of branching patterns between neurons; and investigation of how dendritic and axonal branching depends on local optimization of total wiring and conduction distance.</p>
+<p>The latest version of the TREES toolbox includes basic functionality for exporting cells in NeuroML v1.x Level 1 (MorphML) or as a NeuroML v2alpha morphology file.</p>
+</section>
+<section id="trakem2">
+<span id="userdocs-supporting-apps-trackem"></span><h3>TrakEM2<a class="headerlink" href="#trakem2" title="Link to this heading">#</a></h3>
+<p><img alt="TrakEM2 logo" src="../../_images/trakem2.png" /></p>
+<p><a class="reference external" href="http://www.ini.uzh.ch/~acardona/trakem2.html">TrakEM2</a> is an ImageJ plugin for morphological data mining, three-dimensional modelling and image stitching, registration, editing and annotation. As of v0.8n, a menu item “Export - NeuroML…” gives an option to export to MorphML (the anatomy of the arbors only) or NeuroML (the whole network with anatomy and synapses), for the selected trees or all trees.</p>
+</section>
+<section id="neuronvisio">
+<span id="userdocs-supporting-apps-neurovisio"></span><h3>Neuronvisio<a class="headerlink" href="#neuronvisio" title="Link to this heading">#</a></h3>
+<p><img alt="Neuronvisio logo" src="../../_images/neuronvisio.png" /></p>
+<p><a class="reference external" href="http://neuronvisio.org/">Neuronvisio</a> is a Graphical User Interface for NEURON simulator environment with 3D capabilities. Neuronvisio makes easy to select and investigate sections’ properties, it offers easy integration with matplotlib for the plotting the results. It can save the geometry using NeuroML and the simulation results in a customised and extensible HDF5 format; the results can then be reload in the software and analysed at a later stage, without re-running the simulation.</p>
+</section>
+<section id="catmaid">
+<span id="userdocs-supporting-apps-catmaid"></span><h3>CATMAID<a class="headerlink" href="#catmaid" title="Link to this heading">#</a></h3>
+<p><img alt="CATMAID logo" src="../../_images/catmaid.png" /></p>
+<p><a class="reference external" href="https://catmaid.readthedocs.io/en/stable/">CATMAID</a> is the Collaborative Annotation Toolkit for Massive Amounts of Image Data, and is a widely used tool for online reconstruction and annotation of connectomics data. Initial support for export of reconstructed neurons in NeuroML format has been added.</p>
+</section>
+<section id="myokit">
+<span id="userdocs-supporting-apps-myokit"></span><h3>Myokit<a class="headerlink" href="#myokit" title="Link to this heading">#</a></h3>
+<p><img alt="Myokit logo" src="../../_images/myokit.png" /></p>
+<p><a class="reference external" href="http://myokit.org/">Myokit</a> (the Maastricht Myocyte Toolkit) is a Python-based software package created by Michael Clerx to simplify the use of numerical models in the analysis of cardiac myocytes. Initial support for importing ChannelML <a class="reference external" href="https://myokit.readthedocs.io/en/stable/api_formats/index.html#api-formats">has been added</a>.</p>
+</section>
+<section id="geppetto">
+<span id="userdocs-supporting-apps-geppetto"></span><h3>Geppetto<a class="headerlink" href="#geppetto" title="Link to this heading">#</a></h3>
+<p><img alt="Geppetto logo" src="../../_images/geppetto.png" /></p>
+<p><a class="reference external" href="http://www.geppetto.org/">Geppetto</a> is a web-based multi-algorithm, multi-scale simulation platform designed to support the simulation of complex biological systems and their surrounding environment. It is open source and is being developed as part of the <a class="reference internal" href="#userdocs-supporting-apps-openworm"><span class="std std-ref">OpenWorm project</span></a> to create an <em>in-silico</em> model of the nematode <em>C. elegans</em>. It has had inbuilt support for NeuroML 2/LEMS from the start, and is suitable for many other types of neuronal models.</p>
+</section>
+</section>
+<section id="other-legacy-tools">
+<span id="userdocs-supporting-other"></span><h2>Other/legacy tools<a class="headerlink" href="#other-legacy-tools" title="Link to this heading">#</a></h2>
+<div class="admonition-older-applications admonition">
+<p class="admonition-title">Older applications</p>
+<p>Note: many of the applications listed below are no longer in active development or links no longer work.</p>
+</div>
+<section id="psics">
+<span id="userdocs-supporting-other-psics"></span><h3>PSICS<a class="headerlink" href="#psics" title="Link to this heading">#</a></h3>
+<p>The latest version of <a class="reference external" href="http://www.neuroconstruct.org">neuroConstruct</a> can be used to generate executable scripts for <a class="reference external" href="http://www.psics.org/index.html">PSICS</a> based on NeuroML components.</p>
+</section>
+<section id="whole-brain-catalogue">
+<span id="userdocs-supporting-other-wbc"></span><h3>Whole Brain Catalogue<a class="headerlink" href="#whole-brain-catalogue" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://twitter.com/braincatalog">Whole Brain Catalog</a> was a graphical interface that allowed multiscale neuroscience data to be visualised relative to a 3D brain atlas.</p>
+</section>
+<section id="pcsim">
+<span id="userdocs-supporting-other-pcsim"></span><h3>PCSIM<a class="headerlink" href="#pcsim" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="http://www.lsm.tugraz.at/pcsim/">PCSIM</a> is a tool in C++ for simulating large scale networks of cells and synapses.</p>
+</section>
+<section id="neuromantic">
+<span id="userdocs-supporting-other-neuromantic"></span><h3>Neuromantic<a class="headerlink" href="#neuromantic" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://sourceforge.net/projects/neuromantic/">Neuromantic</a> is a freeware tool for neuronal reconstruction (similar in some ways to part of Neurolucida’s functionality).
+Neuromantic mainly uses SWC/Cvapp format, but the latest version can import and export MorphML.</p>
+</section>
+<section id="neurospaces-genesis-3">
+<span id="userdocs-supporting-other-neurospaces"></span><h3>Neurospaces/ GENESIS 3<a class="headerlink" href="#neurospaces-genesis-3" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="http://neurospaces.sourceforge.net/">Neurospaces/ GENESIS 3</a> project is developing a modular reimplementation of the core of GENESIS 2 along with a number of other components for computational neuroscience as part of the GENESIS 3 initiative.
+Neurospaces/GENESIS 3 currently supports reading of passive models in NeuroML format (morphology + passive parameters).</p>
+</section>
+<section id="splitneuron">
+<span id="userdocs-supporting-other-splitneuron"></span><h3>SplitNeuron<a class="headerlink" href="#splitneuron" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://sourceforge.net/projects/splitneuron/">SplitNeuron</a> is a library written in C for data structures and functions extending SQLite to simulate large-scale networks of Izhikevich Simple Model compartments.
+SplitNeuron answers a fundamental issue in large-scale simulation, data transfer between storage and functional software: it uses database not only for data storage but also as simulation engine, moving computation to data rather than using storage systems only for data holding.
+This choice offers more features with less code to write and a unique way of accessing data for further analysis.
+Features under development include direct import and cell/network creation from NeuroML.</p>
+</section>
+<section id="neuranim">
+<span id="userdocs-supporting-other-neuranim"></span><h3>NeurAnim<a class="headerlink" href="#neuranim" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://sourceforge.net/projects/neuranim/">NeurAnim</a> is a research aid for computational neuroscience.
+It is used to visualise and animate neural network simulations in 3D, and to render movies of these animations for use in presentations.
+Networks stored in the instance based representation of NetworkML can be loaded and visualised.</p>
+</section>
+<section id="cnrun">
+<span id="userdocs-supporting-other-cnrun"></span><h3>CNrun<a class="headerlink" href="#cnrun" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="http://johnhommer.com/academic/code/cnrun/">CNrun</a> is a neuronal network model simulator, similar in purpose to NEURON except that individual neurons are not compartmentalised.
+It was built from refactored code written by Thomas Nowotny.
+It reads in network topology description from a NeuroML file, where the cell_type attribute determines the unit class, one of the in-built neuron types of CNrun (e.g. Hodgkin Huxley cell by Traub and Miles (1991), Poisson oscillator, van der Pol oscillator).</p>
+</section>
+<section id="neugen">
+<span id="userdocs-supporting-other-neugen"></span><h3>NeuGen<a class="headerlink" href="#neugen" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://durus.gcsc.uni-frankfurt.de/~neugen/">NeuGen</a> is an application in Java which is able to generate networks of synaptically connected morphologically detailed neurons, as in a cortical column.
+NeuGen generates sets of neurons of the different morphological classes of the cortex, e.g. pyramidal cells and stellate neurons, and connects these networks in 3D.
+The latest version of NeuGen can export the generated networks to NeuroML.
+Some manual editing of the generated files is required to make them valid.
+The developers have been informed of the required updates which will be incorporated soon.</p>
+</section>
+<section id="morphforge">
+<span id="userdocs-supporting-other-morphforge"></span><h3>morphforge<a class="headerlink" href="#morphforge" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://github.com/mikehulluk/morphforge">morphforge</a> is a high level, simulator independent, Python library for building simulations of small populations of multi-compartmental neurons.
+It was built as part of the PhD thesis of Mike Hull (Uni.
+Edinburgh): Investigating the role of electrical coupling in small populations of interneurons in Xenopus laevis tadpoles.
+Loading of morphologies in MorphML format is supported, and loading of channel descriptions from ChannelML is in progress.
+Future development of morphforge will be closely aligned with the development of the multicompartmental modelling API in Python (libNeuroML).</p>
+</section>
+<section id="neurotranslate">
+<span id="userdocs-supporting-other-neurotranslate"></span><h3>NeuroTranslate<a class="headerlink" href="#neurotranslate" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://github.com/nathanjordan/NeuroTranslate">NeuroTranslate</a> is a tool that translates input files between two different languages, the NCS (Neo-Cortical Simulator) input language and NeuroML format.
+It provides a user-friendly interface, which can be used to both create and edit simulations.</p>
+</section>
+<section id="moogli">
+<span id="userdocs-supporting-other-moogli"></span><h3>Moogli<a class="headerlink" href="#moogli" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://moose.ncbs.res.in/readthedocs/user/py/graphics/index_graphics.html">Moogli</a> (a sister project of <a class="reference internal" href="#userdocs-supporting-apps-moose"><span class="std std-ref">MOOSE</span></a> is a simulator independent OpenGL based visualization tool for neural simulations.
+Moogli can visualize morphology of single/multiple neurons or network of neurons, and can also visualize activity in these cells.
+Loading of morphologies in MorphML and NeuroML formats is supported.</p>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/Software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="MatLab.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MatLab NeuroML Toolbox</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tools/Approaches.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Approaches to adding NeuroML support</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-with-neuroml-support">Applications with NeuroML support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuron">NEURON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#netpyne">NetPyNE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroconstruct">neuroConstruct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genesis">GENESIS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moose">MOOSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brian">BRIAN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eden">EDEN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arbor">Arbor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pynn">PyNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nest">NEST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openworm">OpenWorm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-description-format-mdf">Model Description Format (MDF)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-virtual-brain">The Virtual Brain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lfpy">LFPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biosimulators">BioSimulators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n2a">N2A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronland">NeuronLand</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cx3d">CX3D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trees-toolbox">TREES toolbox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trakem2">TrakEM2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronvisio">Neuronvisio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catmaid">CATMAID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myokit">Myokit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geppetto">Geppetto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-legacy-tools">Other/legacy tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psics">PSICS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whole-brain-catalogue">Whole Brain Catalogue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcsim">PCSIM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuromantic">Neuromantic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neurospaces-genesis-3">Neurospaces/ GENESIS 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitneuron">SplitNeuron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuranim">NeurAnim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnrun">CNrun</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neugen">NeuGen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#morphforge">morphforge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neurotranslate">NeuroTranslate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moogli">Moogli</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

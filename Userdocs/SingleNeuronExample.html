@@ -1,0 +1,1444 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Simulating a regular spiking Izhikevich neuron &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/SingleNeuronExample';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interactive single Izhikevich neuron NeuroML example" href="NML2_examples/SingleNeuron.html" />
+    <link rel="prev" title="Getting started with NeuroML" href="GettingStarted.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="GettingStarted.html">Getting started with NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/SingleNeuronExample.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/SingleNeuronExample.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Userdocs/SingleNeuronExample.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simulating a regular spiking Izhikevich neuron</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-model-in-neuroml">Declaring the model in NeuroML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-model">Simulating the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-recorded-membrane-potential">Plotting the recorded membrane potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-information">Supplementary information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-generated-neuroml-model-xml">The generated NeuroML model XML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-schema">The schema</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-generated-lems-xml">The generated LEMS XML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-component-factory-function">The component_factory() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-add-function">The add() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-info-function">The info() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ctinfo-function">The ctinfo() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-validate-function">The validate() function</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simulating-a-regular-spiking-izhikevich-neuron">
+<span id="userdocs-getting-started-single-example"></span><h1>Simulating a regular spiking Izhikevich neuron<a class="headerlink" href="#simulating-a-regular-spiking-izhikevich-neuron" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">See also the interactive version.</p>
+<p>Note: this is a more detailed description of the first example which is available as an <a class="reference internal" href="NML2_examples/SingleNeuron.html"><span class="doc">interactive Juptyer notebook</span></a> on the next page.</p>
+</div>
+<p>In this section, we wish to simulate a single regular spiking Izhikevich neuron (<span id="id1">[<a class="reference internal" href="../Reference/zBibliography.html#id2" title="Eugene M. Izhikevich. Dynamical systems in neuroscience. MIT Press, 2007.">Izh07</a>]</span>) and record/visualise its membrane potential (as shown in the figure below):</p>
+<figure class="align-center" id="id2">
+<img alt="Membrane potential for neuron recorded from the simulation" src="../_images/example-single-izhikevich2007cell-sim-v.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Membrane potential of the simulated regular spiking Izhikevich neuron.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This plot, saved as <code class="docutils literal notranslate"><span class="pre">example-single-izhikevich2007cell-sim-v.png</span></code>, is generated using the following Python NeuroML script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simulating a regular spiking Izhikevich neuron with NeuroML.</span>
+
+<span class="sd">File: izhikevich-single-neuron.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">NeuroMLDocument</span>
+<span class="kn">import</span> <span class="nn">neuroml.writers</span> <span class="k">as</span> <span class="nn">writers</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">component_factory</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">validate_neuroml2</span>
+<span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.lems</span> <span class="kn">import</span> <span class="n">LEMSSimulation</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="c1"># Create a new NeuroML model document</span>
+<span class="c1"># component_factory: form one: provide name of NeuroML class as string</span>
+<span class="c1"># advantage of this form: do not need to import all the ComponentType classes</span>
+<span class="c1"># before using them</span>
+<span class="n">nml_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzhSingleNeuron&quot;</span><span class="p">)</span>
+<span class="c1"># component_factory: form two: provide class as argument</span>
+<span class="c1"># nml_doc = component_factory(NeuroMLDocument, id=&quot;IzhSingleNeuron&quot;)</span>
+
+<span class="c1"># Inspect it:</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># Also see contents:</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Define the Izhikevich cell and add it to the model in the document</span>
+<span class="c1"># the `add` will create and validate the new component, and add it to the</span>
+<span class="c1"># parent (nml_doc)</span>
+<span class="n">izh0</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Izhikevich2007Cell&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;izh2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+
+<span class="c1"># Exercise 1: give wrong units of a parameter/parameters</span>
+<span class="c1"># Exercise 2: skip out a few parameters</span>
+
+<span class="c1"># Inspect the component</span>
+<span class="n">izh0</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># Inspect the component, also show all members:</span>
+<span class="n">izh0</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># inspect the document</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create a network and add it to the model</span>
+<span class="c1"># net = component_factory(&quot;Network&quot;, id=&quot;IzNet&quot;)</span>
+<span class="c1"># Throws an error: why?</span>
+<span class="c1"># Because a Population is necessary in a Network, but we have not provided one.</span>
+<span class="c1"># Two workarounds:</span>
+<span class="c1"># - create population first, and pass that to component_factory here</span>
+<span class="c1"># - disable validation</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Create a population of defined cells and add it to the model</span>
+<span class="n">size0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">pop0</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzhPop0&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">izh0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size0</span><span class="p">)</span>
+
+<span class="c1"># Define an external stimulus and add it to the model</span>
+<span class="n">pg</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pulseGen_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="mi">0</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;0ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;1000ms&quot;</span><span class="p">,</span>
+    <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;0.07 nA&quot;</span>
+<span class="p">)</span>
+<span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+<span class="c1"># Write the NeuroML model to a file</span>
+<span class="n">nml_file</span> <span class="o">=</span> <span class="s1">&#39;izhikevich2007_single_cell_network.nml&#39;</span>
+<span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">nml_file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written network file to: &quot;</span> <span class="o">+</span> <span class="n">nml_file</span><span class="p">)</span>
+
+<span class="c1"># Validate the NeuroML model against the NeuroML schema</span>
+<span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+
+<span class="c1">################################################################################</span>
+<span class="c1"># The NeuroML file has now been created and validated. The rest of the code</span>
+<span class="c1"># involves writing a LEMS simulation file to run an instance of the model</span>
+
+<span class="c1"># Create a simulation instance of the model</span>
+<span class="n">simulation_id</span> <span class="o">=</span> <span class="s2">&quot;example-single-izhikevich2007cell-sim&quot;</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">simulation_id</span><span class="p">,</span>
+                            <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+
+<span class="c1"># Define the output file to store simulation outputs</span>
+<span class="c1"># we record the neuron&#39;s membrane potential</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span>
+    <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span>
+<span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="s1">&#39;IzhPop0[0]&#39;</span><span class="p">,</span> <span class="s1">&#39;IzhPop0[0]/v&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the simulation to a file</span>
+<span class="n">lems_simulation_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+
+<span class="c1"># Run the simulation using the jNeuroML simulator</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml</span><span class="p">(</span>
+    <span class="n">lems_simulation_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1"># Load the data from the file and plot the graph for the membrane potential</span>
+<span class="c1"># using the pynml generate_plot utility function.</span>
+<span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span>
+    <span class="s2">&quot;Membrane potential&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_figure_to</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-v.png&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<section id="declaring-the-model-in-neuroml">
+<span id="userdocs-getting-started-single-example-declaring"></span><h2>Declaring the model in NeuroML<a class="headerlink" href="#declaring-the-model-in-neuroml" title="Link to this heading">#</a></h2>
+<div class="admonition-python-is-the-suggested-programming-language-to-use-for-working-with-neuroml admonition">
+<p class="admonition-title">Python is the suggested programming language to use for working with NeuroML.</p>
+<p>The Python NeuroML tools and libraries provide a convenient, easy to use interface to use NeuroML.</p>
+</div>
+<p>Let us step through the different sections of the Python script.
+To start writing a model in NeuroML, we first create a <code class="docutils literal notranslate"><span class="pre">NeuroMLDocument</span></code>.
+This “document” represents the complete model and is the top level container for everything that the model should contain.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nml_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzhSingleNeuron&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let us define an Izhikevich cell that we will use to simulate a neuron.
+The Izhikevich neuron model can take sets of parameters to exhibit different types of spiking behaviour.
+Here, we define a component (object) of the general Izhikevich cell using parameters to show regular spiking.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">izh0</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Izhikevich2007Cell&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;izh2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Now that the neuron has been defined and added to the document, we declare a <a class="reference internal" href="Schemas/Networks.html#schema-network"><span class="std std-ref">network</span></a> with a <a class="reference internal" href="Schemas/Networks.html#schema-population"><span class="std std-ref">population</span></a> of these neurons to create a network in a similar way.
+Here, our model includes one network which includes only one population, which in turn only consists of a single neuron.
+Once the network, its populations, and their neurons have been declared, we again add them to our model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Create a population of defined cells and add it to the model</span>
+<span class="n">size0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">pop0</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzhPop0&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">izh0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Question: why did we disable validation when we created the new network component?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let us try creating a network without disabling validation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;IzNet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It will throw a validation error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Validation</span> <span class="n">failed</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">values</span> <span class="k">for</span> <span class="n">populations</span> <span class="ow">is</span> <span class="n">below</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">allowed</span><span class="p">,</span> <span class="n">expected</span> <span class="n">at</span> <span class="n">least</span> <span class="mi">1</span><span class="p">,</span> <span class="n">found</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>This is because a network must have at least one population for it to be valid.
+To fix this, we can either create the population before the network, or we can disable validation.
+Here we chose to disable validation because we knew we were immediately creating our population and adding it to our network.</p>
+<p>Moving on, since we are providing a single input to the single cell in our network, we can add an <code class="docutils literal notranslate"><span class="pre">ExplicitInput</span></code> to our network.
+See the supplementary section on the <code class="docutils literal notranslate"><span class="pre">info</span></code> function below to learn how you can find out that <code class="docutils literal notranslate"><span class="pre">ExplicitInput</span></code> could be used here.</p>
+<p>The list of inputs included in the NeuroML specification can be found on the <a class="reference internal" href="Schemas/Inputs.html#schema-inputs"><span class="std std-ref">inputs</span></a> page.
+We use a <a class="reference internal" href="Schemas/Inputs.html#schema-pulsegenerator"><span class="std std-ref">pulse generator</span></a> here, creating a new component and adding it to our NeuroML document.
+To connect it to our neuron, we specify the neuron as the <code class="docutils literal notranslate"><span class="pre">target</span></code> using an <a class="reference internal" href="Schemas/Networks.html#schema-explicitinput"><span class="std std-ref">explicit input</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an external stimulus and add it to the model</span>
+<span class="n">pg</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pulseGen_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="mi">0</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;0ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;1000ms&quot;</span><span class="p">,</span>
+    <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;0.07 nA&quot;</span>
+<span class="p">)</span>
+<span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">[</span><span class="si">%i</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>This completes our model.
+It includes a single network, with one population of one neuron that is driven by one pulse generator.
+At this point, we can save our model to a file and validate it again to check if it conforms to the NeuroML schema (more on this <a class="reference internal" href="ValidatingNeuroMLModels.html#userdocs-validating-models"><span class="std std-ref">later</span></a>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">writers</span><span class="o">.</span><span class="n">NeuroMLWriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">nml_doc</span><span class="p">,</span> <span class="n">nml_file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Written network file to: &quot;</span> <span class="o">+</span> <span class="n">nml_file</span><span class="p">)</span>
+
+<span class="c1"># Validate the NeuroML model against the NeuroML schema</span>
+<span class="n">validate_neuroml2</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the validation here will re-run the tests our component factory and other methods use, but it also runs a series of additional tests that can only be run on the complete model.
+So, it is necessary to validate the model after it has been fully constructed.</p>
+</section>
+<section id="simulating-the-model">
+<span id="userdocs-getting-started-single-example-simulating"></span><h2>Simulating the model<a class="headerlink" href="#simulating-the-model" title="Link to this heading">#</a></h2>
+<p>Until now, we have just declared the model in NeuroML. We have not, however, included any information related to the simulation of this model, e.g. how long to run it for, what to save from the simulation etc.</p>
+<p>With NeuroML v2, the information required to simulate the model is provided using a <a class="reference internal" href="LEMSSimulation.html#userdocs-lemssimulation"><span class="std std-ref">LEMS Simulation file</span></a>.
+We will not go into the details of LEMS just yet.
+We will limit ourselves to the bits necessary to simulate our Izhikevich neuron only.</p>
+<p>The following lines of code instantiate a new simulation with certain simulation parameters: <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">dt</span></code>, <code class="docutils literal notranslate"><span class="pre">simulation_seed</span></code>.
+Additionally, they also define what information is being recorded from the simulation.
+In this case, we create an output file, and then add a new column to record the membrane potential <code class="docutils literal notranslate"><span class="pre">v</span></code> from our one neuron in the one population in it.
+You can read more about recording from NeuroML simulations <a class="reference internal" href="QuantitiesAndRecording.html#userdocs-quantitiesandrecording"><span class="std std-ref">here</span></a>.</p>
+<p>Finally, like we had saved our NeuroML model to a file, we also save our LEMS document to a file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">simulation_id</span> <span class="o">=</span> <span class="s2">&quot;example-single-izhikevich2007cell-sim&quot;</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">simulation_id</span><span class="p">,</span>
+                            <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">nml_file</span><span class="p">)</span>
+
+<span class="c1"># Define the output file to store simulation outputs</span>
+<span class="c1"># we record the neuron&#39;s membrane potential</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span>
+    <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span>
+<span class="p">)</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="s1">&#39;IzhPop0[0]&#39;</span><span class="p">,</span> <span class="s1">&#39;IzhPop0[0]/v&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the simulation to a file</span>
+<span class="n">lems_simulation_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Finally, <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a> also includes functions that allow you to run the simulation from the Python script itself:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml</span><span class="p">(</span>
+    <span class="n">lems_simulation_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we are running our simulation using the <a class="reference internal" href="Software/jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a> simulator, which is bundled with <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a>.
+Since NeuroML is a well defined standard, models defined in NeuroML can also be run using other <a class="reference internal" href="SimulatingNeuroMLModels.html#userdocs-simulators"><span class="std std-ref">supported simulators</span></a>.</p>
+</section>
+<section id="plotting-the-recorded-membrane-potential">
+<span id="userdocs-getting-started-single-example-plotting"></span><h2>Plotting the recorded membrane potential<a class="headerlink" href="#plotting-the-recorded-membrane-potential" title="Link to this heading">#</a></h2>
+<p>Once we have simulated our model and the data has been collected in the specified file, we can analyse the data.
+pyNeuroML also includes some helpful functions to quickly plot various recorded variables.
+The last few lines of code shows how the membrane potential plot at the top of the page is generated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.v.dat&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">)</span>
+<span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span>
+    <span class="s2">&quot;Membrane potential&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_figure_to</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-v.png&quot;</span> <span class="o">%</span> <span class="n">simulation_id</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>On the next page, you will find an interactive Jupyter notebook where you can play with this example.
+Click the “launch” button in the top right hand corner to run the notebook in a configured service.
+<em>You do not need to install any software on your computer to run these notebooks.</em></p>
+</section>
+<section id="supplementary-information">
+<span id="userdocs-getting-started-single-example-supplementary"></span><h2>Supplementary information<a class="headerlink" href="#supplementary-information" title="Link to this heading">#</a></h2>
+<p>The sections here explain concepts that have been used above.
+These will help give you a deeper understanding of NeuroML, so we do suggest you go through them also.</p>
+<section id="the-generated-neuroml-model-xml">
+<span id="userdocs-getting-started-single-example-supplementary-model"></span><h3>The generated NeuroML model XML<a class="headerlink" href="#the-generated-neuroml-model-xml" title="Link to this heading">#</a></h3>
+<p>Let us investigate the generated NeuroML XML file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzhSingleNeuron&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;izhikevich2007Cell</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;izh2007RS0&quot;</span><span class="w"> </span><span class="na">C=</span><span class="s">&quot;100pF&quot;</span><span class="w"> </span><span class="na">v0=</span><span class="s">&quot;-60mV&quot;</span><span class="w"> </span><span class="na">k=</span><span class="s">&quot;0.7nS_per_mV&quot;</span><span class="w"> </span><span class="na">vr=</span><span class="s">&quot;-60mV&quot;</span><span class="w"> </span><span class="na">vt=</span><span class="s">&quot;-40mV&quot;</span><span class="w"> </span><span class="na">vpeak=</span><span class="s">&quot;35mV&quot;</span><span class="w"> </span><span class="na">a=</span><span class="s">&quot;0.03per_ms&quot;</span><span class="w"> </span><span class="na">b=</span><span class="s">&quot;-2nS&quot;</span><span class="w"> </span><span class="na">c=</span><span class="s">&quot;-50.0mV&quot;</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;100pA&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pulseGenerator</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;pulseGen_0&quot;</span><span class="w"> </span><span class="na">delay=</span><span class="s">&quot;0ms&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;1000ms&quot;</span><span class="w"> </span><span class="na">amplitude=</span><span class="s">&quot;0.07 nA&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;network</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzNet&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;population</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzhPop0&quot;</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;izh2007RS0&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;explicitInput</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;IzhPop0[0]&quot;</span><span class="w"> </span><span class="na">input=</span><span class="s">&quot;pulseGen_0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/network&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>NeuroML files are written in XML.
+So, they consist of tags and attributes and can be processed by general purpose XML tools.
+Each entity between chevrons is a <em>tag</em>: <code class="docutils literal notranslate"><span class="pre">&lt;..&gt;</span></code>, and each tag may have multiple <em>attributes</em> that are defined using the <code class="docutils literal notranslate"><span class="pre">name=value</span></code> format.
+For example <code class="docutils literal notranslate"><span class="pre">&lt;neuroml</span> <span class="pre">..&gt;</span></code> is a tag, that contains the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute with value <code class="docutils literal notranslate"><span class="pre">NML2_SimpleIonChannel</span></code>.</p>
+<div class="admonition-xml-tutorial admonition">
+<p class="admonition-title">XML Tutorial</p>
+<p>For details on XML, have a look through <a class="reference external" href="https://www.w3schools.com/xml/">this tutorial</a>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Is this XML well-formed?</p>
+<p>A NeuroML file needs to be both 1) well-formed, as in complies with the general rules of the XML language syntax, and 2) valid, i.e. contains the expected NeuroML specific tags/attributes.</p>
+<p>Is the XML shown above well-formed? See for yourself. Copy the NeuroML file listed above and check it using an <a class="reference external" href="https://www.w3schools.com/xml/xml_validator.asp">online XML syntax checker</a>.</p>
+</div>
+<p>Let us step through this file to understand the different constructs used in it.
+The first segment introduces the <code class="docutils literal notranslate"><span class="pre">neuroml</span></code> tag that includes information on the specification that this NeuroML file adheres to.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzhSingleNeuron&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>The first attribute, <code class="docutils literal notranslate"><span class="pre">xmlns</span></code> defines the XML <em>namespace</em>.
+All the tags that are defined for use in NeuroML are defined for use in the NeuroML namespace.
+This prevents conflicts with other XML schemas that may use the same tags.
+Read more on XML namespaces <a class="reference external" href="https://en.wikipedia.org/wiki/XML_namespace">here</a>.</p>
+<p>The remaining lines in this snippet refer to the <em>XML Schema</em> that is defined for NeuroML.
+XML itself does not define any tags, so any tags can be used in a general XML document.
+Here is an example of a valid XML document, a simple HTML snippet:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;</span>A<span class="w"> </span>title<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>NeuroML, however, does not use these tags.
+It defines its own set of standard tags using an <a class="reference external" href="http://www.w3.org/2001/XMLSchema-instance">XML Schema</a>.
+In other words, the NeuroML XML schema defines the structure and contents of a valid NeuroML document.
+Various tools can then compare NeuroML documents to the NeuroML Schema to validate them.</p>
+<div class="admonition-purpose-of-the-neuroml-schema admonition">
+<p class="admonition-title">Purpose of the NeuroML schema</p>
+<p>The NeuroML Schema defines the structure and contents of a valid NeuroML document.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xmlns:xi</span></code> attribute documents that NeuroML has a defined XML Schema.
+The next attribute, <code class="docutils literal notranslate"><span class="pre">xsi:schemaLocation</span></code> tells us the locations of the NeuroML Schema.
+Here, two locations are provided:</p>
+<ul class="simple">
+<li><p>the Web URL: <a class="reference external" href="http://www.neuroml.org/schema/neuroml2">http://www.neuroml.org/schema/neuroml2</a>,</p></li>
+<li><p>and the location of the Schema Definition file (an <code class="docutils literal notranslate"><span class="pre">xsd</span></code> file) relative to this example file in the GitHub repository.</p></li>
+</ul>
+<p>We will look at the NeuroML schema in detail in later sections.
+All NeuroML files must include the <code class="docutils literal notranslate"><span class="pre">neuroml</span></code> tag, and the attributes related to the NeuroML Schema.
+The last attribute, <code class="docutils literal notranslate"><span class="pre">id</span></code> is the identification (or the name) of this particular NeuroML document.</p>
+<p>The remaining part of the file is the <em>declaration</em> of the model and its dynamics:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;izhikevich2007Cell</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;izh2007RS0&quot;</span><span class="w"> </span><span class="na">C=</span><span class="s">&quot;100pF&quot;</span><span class="w"> </span><span class="na">v0=</span><span class="s">&quot;-60mV&quot;</span><span class="w"> </span><span class="na">k=</span><span class="s">&quot;0.7nS_per_mV&quot;</span><span class="w"> </span><span class="na">vr=</span><span class="s">&quot;-60mV&quot;</span><span class="w"> </span><span class="na">vt=</span><span class="s">&quot;-40mV&quot;</span><span class="w"> </span><span class="na">vpeak=</span><span class="s">&quot;35mV&quot;</span><span class="w"> </span><span class="na">a=</span><span class="s">&quot;0.03per_ms&quot;</span><span class="w"> </span><span class="na">b=</span><span class="s">&quot;-2nS&quot;</span><span class="w"> </span><span class="na">c=</span><span class="s">&quot;-50.0mV&quot;</span><span class="w"> </span><span class="na">d=</span><span class="s">&quot;100pA&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pulseGenerator</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;pulseGen_0&quot;</span><span class="w"> </span><span class="na">delay=</span><span class="s">&quot;0ms&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;1000ms&quot;</span><span class="w"> </span><span class="na">amplitude=</span><span class="s">&quot;0.07 nA&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;network</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzNet&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;population</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzhPop0&quot;</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;izh2007RS0&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;explicitInput</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;IzhPop0[0]&quot;</span><span class="w"> </span><span class="na">input=</span><span class="s">&quot;pulseGen_0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/network&gt;</span>
+</pre></div>
+</div>
+<p>The cell, is defined in the <code class="docutils literal notranslate"><span class="pre">izhikevich2007Cell</span></code> tag, which has a number of attributes as we saw before (see <a class="reference internal" href="Schemas/Cells.html#schema-izhikevich2007cell"><span class="std std-ref">here</span></a> for the schema definition):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: the name that we want to give to this cell. To refer to it later, for example,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v0</span></code>: the initial membrane potential for the cell,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: the leak conductance,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: conductance per voltage,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vr</span></code>: the membrane potential after a spike,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vt</span></code>: the threshold membrane potential, to detect a spike,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vpeak</span></code>: the peak membrane potential,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, and <code class="docutils literal notranslate"><span class="pre">d</span></code>: are parameters of the Izhikevich neuron model.</p></li>
+</ul>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">pulseGenerator</span></code> is also defined, and the <code class="docutils literal notranslate"><span class="pre">network</span></code> tag includes the <code class="docutils literal notranslate"><span class="pre">population</span></code> and <code class="docutils literal notranslate"><span class="pre">explicitInput</span></code>.
+We observe that even though we have declared the entities, and the values for parameters that govern them, we do not state what and how these parameters are used.
+This is because NeuroML is a <a class="reference external" href="https://en.wikipedia.org/wiki/Declarative_programming">declarative language</a> that defines the structure of models.
+We do not need to define how the dynamics of the different parts of the model are implemented.
+As we will see further below, these are already defined in NeuroML.</p>
+<div class="admonition-neuroml-is-a-declarative-language admonition">
+<p class="admonition-title">NeuroML is a declarative language.</p>
+<p>Users describe the various components of the model but do not need to worry about how they are implemented.</p>
+</div>
+<p>We have seen how an Izhikevich cell can be declared in NeuroML, with all its parameters.</p>
+<p>As is evident, XML files are excellent for storing structured data, but may not be easy to write by hand.
+However, NeuroML users <em>are not expected</em> to write in XML.
+They should use the Python tools as demonstrated here.</p>
+</section>
+<section id="the-schema">
+<span id="userdocs-getting-started-single-example-supplementary-schema"></span><h3>The schema<a class="headerlink" href="#the-schema" title="Link to this heading">#</a></h3>
+<p>Given that NeuroML develops a standard and defines what tags and attributes can be used, let us see how these are defined for the Izhikevich cell.
+The Izhikevich cell is defined in version 2 of the NeuroML schema <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.0.xsd#L1422">here</a>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Izhikevich2007Cell&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:complexContent&gt;</span>
+<span class="w">            </span><span class="nt">&lt;xs:extension</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;BaseCellMembPotCap&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v0&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_voltage&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;k&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_conductancePerVoltage&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;vr&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_voltage&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;vt&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_voltage&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;vpeak&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_voltage&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_pertime&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;b&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_conductance&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_voltage&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;d&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Nml2Quantity_current&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/xs:extension&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/xs:complexContent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xs:</span></code> prefix indicates that these are all part of an XML Schema.
+The Izhikevich cell and all its parameters are defined in the schema.
+As we saw before, parameters of the model are defined as attributes in NeuroML files.
+So, here in the schema, they are also defined as <code class="docutils literal notranslate"><span class="pre">attributes</span></code> of the <code class="docutils literal notranslate"><span class="pre">complexType</span></code> that the schema describes.
+The schema also specifies which of the parameters are necessary, and what their dimensions (units) are using the <code class="docutils literal notranslate"><span class="pre">use</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span></code> properties.</p>
+<p>This schema gives us all the information we need to describe an Izhikevich cell in NeuroML.
+Using the specification in the Schema, any number of Izhikevich cells can be defined in a NeuroML file with the necessary parameter sets to create networks of Izhikevich cells.</p>
+</section>
+<section id="the-generated-lems-xml">
+<span id="userdocs-getting-started-single-example-supplementary-lems"></span><h3>The generated LEMS XML<a class="headerlink" href="#the-generated-lems-xml" title="Link to this heading">#</a></h3>
+<p>The generated LEMS simulation file is shown below:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Lems&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- </span>
+
+<span class="cm">        This LEMS file has been automatically generated using PyNeuroML v1.1.13 (libNeuroML v0.5.8)</span>
+
+<span class="cm">     --&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Specify which component to run --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Target</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;example-single-izhikevich2007cell-sim&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Include core NeuroML2 ComponentType definitions --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;Cells.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;Networks.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;Simulation.xml&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;izhikevich2007_single_cell_network.nml&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Simulation</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;example-single-izhikevich2007cell-sim&quot;</span><span class="w"> </span><span class="na">length=</span><span class="s">&quot;1000ms&quot;</span><span class="w"> </span><span class="na">step=</span><span class="s">&quot;0.1ms&quot;</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;IzNet&quot;</span><span class="w"> </span><span class="na">seed=</span><span class="s">&quot;123&quot;</span><span class="nt">&gt;</span><span class="w">  </span><span class="cm">&lt;!-- Note seed: ensures same random numbers used every run --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;OutputFile</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;output0&quot;</span><span class="w"> </span><span class="na">fileName=</span><span class="s">&quot;example-single-izhikevich2007cell-sim.v.dat&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;OutputColumn</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IzhPop0[0]&quot;</span><span class="w"> </span><span class="na">quantity=</span><span class="s">&quot;IzhPop0[0]/v&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/OutputFile&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;/Simulation&gt;</span>
+
+<span class="nt">&lt;/Lems&gt;</span>
+</pre></div>
+</div>
+<p>Similar to NeuroML, a <a class="reference internal" href="LEMSSimulation.html#userdocs-lemssimulation"><span class="std std-ref">LEMS Simulation file</span></a> also has a well defined structure, i.e., a set of valid tags which define the contents of the LEMS file.
+We observe that whereas the NeuroML tags were related to the modelling parameters, the LEMS tags are related to simulation.
+We also note that our NeuroML model has been “included” in the LEMS file, so that all entities defined there are now known to the LEMS simulation also.
+Like NeuroML, <em>users are not expected to write the LEMS XML component by hand</em>.
+They should continue to use the NeuroML Python tools.</p>
+</section>
+<section id="the-component-factory-function">
+<span id="userdocs-getting-started-single-example-supplementary-component-factory"></span><h3>The component_factory() function<a class="headerlink" href="#the-component-factory-function" title="Link to this heading">#</a></h3>
+<p>In the code above, we’ve used the <code class="code docutils literal notranslate"><span class="pre">component_factory</span></code> utility function that is included in the <code class="code docutils literal notranslate"><span class="pre">neuroml.utils</span></code> module.
+This is, as the name notes, a “factory function”.
+When we provide the name of a NeuroML component type (the Python class) to it
+as the first argument along with any parameters, it will create a new component
+(Python object) and return it to us to use, after running a few checks under
+the hood:</p>
+<ul class="simple">
+<li><p>is the created component valid?</p></li>
+<li><p>are all the necessary parameters set?</p></li>
+<li><p>are any extra parameters given?</p></li>
+</ul>
+<p>We will see some of these checks in action later as we create more components for our model.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">component_factory</span></code> can accept two forms.
+We can either pass the component type (class) to the function, or we can pass its name as a string.
+The difference is that we do not need to <code class="docutils literal notranslate"><span class="pre">import</span></code> the class in our script before using it if we specify its name as a string.
+The component factory function will import the class for us for us internally.
+Either form works, so you can choose which you prefer.
+It is important to only remain consistent and use one form to aid readability.</p>
+</section>
+<section id="the-add-function">
+<span id="userdocs-getting-started-single-example-supplementary-add"></span><h3>The add() function<a class="headerlink" href="#the-add-function" title="Link to this heading">#</a></h3>
+<p>We’ve used another utility method in the code above: <code class="docutils literal notranslate"><span class="pre">add</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">add</span></code> method calls the <code class="docutils literal notranslate"><span class="pre">component_factory</span></code> for us internally to create a new object of the required component.</p>
+<p>We could also use the <code class="docutils literal notranslate"><span class="pre">component_factory</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">add</span></code>, which would result in the same thing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">izh0</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+    <span class="s2">&quot;Izhikevich2007Cell&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;izh2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">izh0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In fact, we could do it all without using either method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from neuroml import Izhikevich2007Cell</span>
+<span class="n">izh0</span> <span class="o">=</span> <span class="n">neuroml</span><span class="o">.</span><span class="n">Izhikevich2007Cell</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;izh2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100pA&quot;</span><span class="p">)</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">izhikevich2007_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">izh0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This last form is not suggested because here, the extra checks that the <code class="docutils literal notranslate"><span class="pre">component_factory</span></code> and <code class="docutils literal notranslate"><span class="pre">add</span></code> methods run are not carried out.
+You also need to know the name of the variable in the <code class="docutils literal notranslate"><span class="pre">nml_doc</span></code> object to be able to append to it.
+The output of the <code class="docutils literal notranslate"><span class="pre">info</span></code> method will list all the member names, but the <code class="docutils literal notranslate"><span class="pre">add</span></code> method inspects the parent component and places the child in the right place for us.</p>
+<p>An exercise here would be to try providing invalid arguments to the <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">component_factory</span></code> methods.
+For example:</p>
+<ul class="simple">
+<li><p>try giving the wrong units for a parameter</p></li>
+<li><p>try leaving out a parameter</p></li>
+</ul>
+<p>What happens?</p>
+<p>For example, I have used the wrong units for the <code class="docutils literal notranslate"><span class="pre">d</span></code> parameter here, <code class="docutils literal notranslate"><span class="pre">ms</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pA</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># or</span>
+<span class="c1"># izh0 = component_factory(</span>
+<span class="n">izh0</span> <span class="o">=</span> <span class="n">nml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Izhikevich2007Cell&quot;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;izh2007RS0&quot;</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="s2">&quot;100pF&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s2">&quot;0.7nS_per_mV&quot;</span><span class="p">,</span> <span class="n">vr</span><span class="o">=</span><span class="s2">&quot;-60mV&quot;</span><span class="p">,</span>
+    <span class="n">vt</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">vpeak</span><span class="o">=</span><span class="s2">&quot;35mV&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;0.03per_ms&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;-2nS&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-50.0mV&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and it will throw a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> telling us that this does not match the expected string for <code class="docutils literal notranslate"><span class="pre">d</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Validation</span> <span class="n">failed</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Value</span> <span class="s2">&quot;100ms&quot;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="n">xsd</span> <span class="n">pattern</span> <span class="n">restrictions</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;^(-?([0-9]*(</span><span class="se">\\</span><span class="s1">.[0-9]+)?)([eE]-?[0-9]+)?[</span><span class="se">\\</span><span class="s1">s]*(A|uA|nA|pA))$&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>The specific error here includes the “pattern restrictions” (<a class="reference external" href="https://docs.python.org/3/howto/regex.html#regex-howto">regular expression</a>) for valid values of the <code class="docutils literal notranslate"><span class="pre">d</span></code> parameter.
+There are a number of tutorials on regular expressions on the internet that you can use to learn more about the meaning of the provided pattern restriction.
+The one restriction that we are interested in here is that the value of <code class="docutils literal notranslate"><span class="pre">d</span></code> must end in one of <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">uA</span></code>, <code class="docutils literal notranslate"><span class="pre">nA</span></code>, or <code class="docutils literal notranslate"><span class="pre">pA</span></code>.
+Anything else will result in an invalid value, and the factory will throw a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p>The NeuroML specification declares valid units for all its components.
+This allows us to validate models and components while building the model—even before we have a complete model that we want to simulate.
+In fact, NeuroML also defines a list of units and dimensions that can be used.</p>
+<div class="admonition-units-in-neuroml admonition">
+<p class="admonition-title">Units in NeuroML</p>
+<p>NeuroML defines a <a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html#schema-neuromlcoredimensions"><span class="std std-ref">standard set of units</span></a> that can be used in models.
+Learn more about units and dimensions in NeuroML and LEMS <a class="reference internal" href="UnitsAndDimensions.html#userdocs-unitsanddimensions"><span class="std std-ref">here</span></a>.</p>
+</div>
+</section>
+<section id="the-info-function">
+<span id="userdocs-getting-started-single-example-supplementary-info"></span><h3>The info() function<a class="headerlink" href="#the-info-function" title="Link to this heading">#</a></h3>
+<p>Now that we have a document, what if we want to inspect it to see what components it can hold, and what its current contents are?
+Each NeuroML component type includes the <code class="code docutils literal notranslate"><span class="pre">info</span></code> function that gives us a quick summary of information about the component:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nml_doc</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># Also see contents:</span>
+<span class="n">nml_doc</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will be of this form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">NeuroML</span> <span class="n">standard</span> <span class="n">schema</span> <span class="n">documentation</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">neuroml</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Userdocs</span><span class="o">/</span><span class="n">NeuroMLv2</span><span class="o">.</span><span class="n">html</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Valid</span> <span class="n">members</span> <span class="k">for</span> <span class="n">NeuroMLDocument</span> <span class="n">are</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">poisson_firing_synapses</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">PoissonFiringSynapse</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">fixed_factor_concentration_models</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">FixedFactorConcentrationModel</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">transient_poisson_firing_synapses</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">TransientPoissonFiringSynapse</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">alpha_current_synapses</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">AlphaCurrentSynapse</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">IF_curr_alpha</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">IF_curr_alpha</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">alpha_synapses</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">AlphaSynapse</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>This shows all the valid NeuroML components that the top level <code class="docutils literal notranslate"><span class="pre">NeuroMLDocument</span></code> component can directly contain.
+It also tells us the component type (class) corresponding to the component (object).
+It also tells us whether this component is optional or required.</p>
+<p>In the second form, where we also pass <code class="docutils literal notranslate"><span class="pre">show_contents=True</span></code>, it will also show the contents of each member if any.
+We can use this to inspect our created Izhikevich cell component:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">izh0</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Izhikevich2007Cell</span> <span class="o">--</span> <span class="n">Cell</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">modified</span> <span class="n">Izhikevich</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">Izhikevich</span> <span class="mi">2007</span><span class="p">,</span> <span class="n">Dynamical</span> <span class="n">systems</span> <span class="ow">in</span> <span class="n">neuroscience</span><span class="p">,</span> <span class="n">MIT</span> <span class="n">Press</span>
+
+<span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">NeuroML</span> <span class="n">standard</span> <span class="n">schema</span> <span class="n">documentation</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">neuroml</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Userdocs</span><span class="o">/</span><span class="n">NeuroMLv2</span><span class="o">.</span><span class="n">html</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Valid</span> <span class="n">members</span> <span class="k">for</span> <span class="n">Izhikevich2007Cell</span> <span class="n">are</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">annotation</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Annotation</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">b</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_conductance</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">-</span><span class="mi">2</span><span class="n">nS</span>
+
+<span class="o">*</span> <span class="n">c</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_voltage</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">-</span><span class="mf">50.0</span><span class="n">mV</span>
+
+<span class="o">*</span> <span class="n">d</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_current</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="mi">100</span><span class="n">pA</span>
+
+<span class="o">*</span> <span class="n">C</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_capacitance</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="mi">100</span><span class="n">pF</span>
+
+<span class="o">*</span> <span class="n">v0</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_voltage</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">-</span><span class="mi">60</span><span class="n">mV</span>
+
+<span class="o">*</span> <span class="n">k</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_conductancePerVoltage</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="mf">0.7</span><span class="n">nS_per_mV</span>
+
+<span class="o">*</span> <span class="n">vr</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_voltage</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">-</span><span class="mi">60</span><span class="n">mV</span>
+
+<span class="o">*</span> <span class="n">neuro_lex_id</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NeuroLexId</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">metaid</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">MetaId</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">vt</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_voltage</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">-</span><span class="mi">40</span><span class="n">mV</span>
+
+<span class="o">*</span> <span class="nb">id</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NmlId</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="n">izh2007RS0</span>
+
+<span class="o">*</span> <span class="n">notes</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">xs</span><span class="p">:</span><span class="n">string</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">vpeak</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_voltage</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="mi">35</span><span class="n">mV</span>
+
+<span class="o">*</span> <span class="n">properties</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Property</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">a</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_pertime</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="mf">0.03</span><span class="n">per_ms</span>
+</pre></div>
+</div>
+<p>We can see that all the required parameters are correctly set for this component.</p>
+<p>We can also inspect the full document:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nml_doc</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Try running this at the beginning of the script right after creating the document, and at the end when the model has been completed.
+You should notice a major change, that our cell has been correctly added to the document.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="o">*</span> <span class="n">izhikevich2007_cells</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Izhikevich2007Cell</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span>         <span class="o">*</span> <span class="n">Contents</span> <span class="p">(</span><span class="s1">&#39;ids&#39;</span><span class="o">/&lt;</span><span class="n">objects</span><span class="o">&gt;</span><span class="p">):</span> <span class="p">[</span><span class="s1">&#39;izh2007RS0&#39;</span><span class="p">]</span>
+<span class="o">*</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">info()</span></code> function is very useful to see what components can belong to another.
+For example, to see what components can be added to our <code class="docutils literal notranslate"><span class="pre">net</span></code> network, we can run this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="n">Network</span> <span class="o">--</span> <span class="n">Network</span> <span class="n">containing</span><span class="p">:</span>  <span class="o">**</span><span class="n">population</span><span class="o">**</span> <span class="n">s</span> <span class="p">(</span> <span class="n">potentially</span> <span class="n">of</span> <span class="nb">type</span>  <span class="o">**</span><span class="n">populationList</span><span class="o">**</span> <span class="p">,</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">specifying</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">cell</span>  <span class="o">**</span><span class="n">location</span><span class="o">**</span> <span class="n">s</span> <span class="p">);</span>  <span class="o">**</span><span class="n">projection</span><span class="o">**</span> <span class="n">s</span> <span class="p">(</span> <span class="k">with</span> <span class="n">lists</span> <span class="n">of</span>  <span class="o">**</span><span class="n">connection</span><span class="o">**</span> <span class="n">s</span> <span class="p">)</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span>  <span class="o">**</span><span class="n">explicitConnection</span><span class="o">**</span> <span class="n">s</span><span class="p">;</span> <span class="ow">and</span>  <span class="o">**</span><span class="n">inputList</span><span class="o">**</span> <span class="n">s</span> <span class="p">(</span> <span class="k">with</span> <span class="n">lists</span> <span class="n">of</span>  <span class="o">**</span><span class="nb">input</span><span class="o">**</span> <span class="n">s</span> <span class="p">)</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span>  <span class="o">**</span><span class="n">explicitInput</span><span class="o">**</span> <span class="n">s</span><span class="o">.</span> <span class="n">Note</span><span class="p">:</span> <span class="n">often</span> <span class="ow">in</span> <span class="n">NeuroML</span> <span class="n">this</span> <span class="n">will</span> <span class="n">be</span> <span class="n">of</span> <span class="nb">type</span>  <span class="o">**</span><span class="n">networkWithTemperature</span><span class="o">**</span>  <span class="k">if</span> <span class="n">there</span> <span class="n">are</span> <span class="n">temperature</span> <span class="n">dependent</span> <span class="n">elements</span> <span class="p">(</span> <span class="n">e</span><span class="o">.</span> <span class="n">g</span><span class="o">.</span> <span class="n">ion</span> <span class="n">channels</span> <span class="p">)</span><span class="o">.</span>
+
+<span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">NeuroML</span> <span class="n">standard</span> <span class="n">schema</span> <span class="n">documentation</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">neuroml</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Userdocs</span><span class="o">/</span><span class="n">NeuroMLv2</span><span class="o">.</span><span class="n">html</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Valid</span> <span class="n">members</span> <span class="k">for</span> <span class="n">Network</span> <span class="n">are</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">metaid</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">MetaId</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">notes</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">xs</span><span class="p">:</span><span class="n">string</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">properties</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Property</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">annotation</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Annotation</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="nb">type</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">networkTypes</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">temperature</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Nml2Quantity_temperature</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">neuro_lex_id</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NeuroLexId</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">spaces</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Space</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">regions</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Region</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">extracellular_properties</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">ExtracellularPropertiesLocal</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">populations</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Population</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">cell_sets</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">CellSet</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="nb">id</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NmlId</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">synaptic_connections</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">SynapticConnection</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">projections</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Projection</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">electrical_projections</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">ElectricalProjection</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">continuous_projections</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">ContinuousProjection</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">explicit_inputs</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">ExplicitInput</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">input_lists</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">InputList</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tells us what <code class="docutils literal notranslate"><span class="pre">net</span></code> can contain.
+For setting the input, for example, it would seem that we should use one of either <code class="docutils literal notranslate"><span class="pre">ExplicitInput</span></code> or <code class="docutils literal notranslate"><span class="pre">InputList</span></code> here.
+The <code class="docutils literal notranslate"><span class="pre">ctinfo</span></code> function can be used to get more information about these (next).</p>
+</section>
+<section id="the-ctinfo-function">
+<span id="userdocs-getting-started-single-example-supplementary-ctinfo"></span><h3>The ctinfo() function<a class="headerlink" href="#the-ctinfo-function" title="Link to this heading">#</a></h3>
+<p>There are multiple ways of getting information on a component type.
+The first, of course, is to look at the <a class="reference internal" href="NeuroMLv2.html#userdocs-neuromlv2"><span class="std std-ref">schema</span></a> documentation online.
+The documentation for ExplicitInput is <a class="reference internal" href="Schemas/Networks.html#schema-explicitinput"><span class="std std-ref">here</span></a>, and for InputList is <a class="reference internal" href="Schemas/Networks.html#schema-inputlist"><span class="std std-ref">here</span></a>.
+The schema documentation will also include examples of usage for most component types under the “Usage:Python” tab.</p>
+<p><code class="docutils literal notranslate"><span class="pre">neuroml</span></code> includes the <code class="docutils literal notranslate"><span class="pre">ctinfo()</span></code> utility function, that like the <code class="docutils literal notranslate"><span class="pre">info()</span></code> method, provides information about component types (<code class="docutils literal notranslate"><span class="pre">ct</span></code> in <code class="docutils literal notranslate"><span class="pre">ctinfo</span></code> stands for <code class="docutils literal notranslate"><span class="pre">component</span> <span class="pre">type</span></code>).
+Note that component types are classes and the <code class="docutils literal notranslate"><span class="pre">info()</span></code> method cannot be used on them.
+It can only be used once objects have been created from the component type classes.</p>
+<p>So, we could do (create a new dummy object of the class and call <code class="docutils literal notranslate"><span class="pre">info()</span></code> on it):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">neuroml</span><span class="o">.</span><span class="n">ExplicitInput</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>but <code class="docutils literal notranslate"><span class="pre">ctinfo</span></code> will do this for us:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">ctinfo</span>
+<span class="n">ctinfo</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">)</span>
+<span class="c1"># or the second form:</span>
+<span class="c1"># ctinfo(neuroml.ExplicitInput)</span>
+<span class="n">ExplicitInput</span> <span class="o">--</span> <span class="n">An</span> <span class="n">explicit</span> <span class="nb">input</span> <span class="p">(</span> <span class="n">anything</span> <span class="n">which</span> <span class="n">extends</span>  <span class="o">**</span><span class="n">basePointCurrent</span><span class="o">**</span>  <span class="p">)</span> <span class="n">to</span> <span class="n">a</span> <span class="n">target</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">population</span>
+
+<span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">NeuroML</span> <span class="n">standard</span> <span class="n">schema</span> <span class="n">documentation</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">neuroml</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Userdocs</span><span class="o">/</span><span class="n">NeuroMLv2</span><span class="o">.</span><span class="n">html</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Valid</span> <span class="n">members</span> <span class="k">for</span> <span class="n">ExplicitInput</span> <span class="n">are</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">destination</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">xs</span><span class="p">:</span><span class="n">string</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">target</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">xs</span><span class="p">:</span><span class="n">string</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+<span class="o">*</span> <span class="nb">input</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">xs</span><span class="p">:</span><span class="n">string</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+
+
+<span class="n">ctinfo</span><span class="p">(</span><span class="s2">&quot;InputList&quot;</span><span class="p">)</span>
+<span class="n">InputList</span> <span class="o">--</span> <span class="n">An</span> <span class="n">explicit</span> <span class="nb">list</span> <span class="n">of</span>  <span class="o">**</span><span class="nb">input</span><span class="o">**</span> <span class="n">s</span> <span class="n">to</span> <span class="n">a</span> <span class="o">**</span><span class="n">population</span><span class="o">.**</span>
+
+<span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">NeuroML</span> <span class="n">standard</span> <span class="n">schema</span> <span class="n">documentation</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">neuroml</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Userdocs</span><span class="o">/</span><span class="n">NeuroMLv2</span><span class="o">.</span><span class="n">html</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Valid</span> <span class="n">members</span> <span class="k">for</span> <span class="n">InputList</span> <span class="n">are</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">populations</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NmlId</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">component</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NmlId</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+<span class="o">*</span> <span class="nb">input</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">input_ws</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">InputW</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+<span class="o">*</span> <span class="nb">id</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">NmlId</span><span class="p">,</span> <span class="n">Required</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, for completeness, we can also get information from the API documentation for libNeuroML <a class="reference external" href="https://libneuroml.readthedocs.io/en/latest/">here</a>.
+Since this is documentation that is “embedded” in the Python classes, we can also use the Python <a class="reference external" href="https://docs.python.org/3/library/functions.html#help">in-built help function</a> to see it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">ExplicitInput</span><span class="p">)</span>
+<span class="n">Help</span> <span class="n">on</span> <span class="k">class</span> <span class="nc">ExplicitInput</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">neuroml</span><span class="o">.</span><span class="n">nml</span><span class="o">.</span><span class="n">nml</span><span class="p">:</span>
+
+<span class="k">class</span> <span class="nc">ExplicitInput</span><span class="p">(</span><span class="n">BaseWithoutId</span><span class="p">)</span>
+ <span class="o">|</span>  <span class="n">ExplicitInput</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="s1">&#39;one str (required)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;one str (required)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="p">:</span> <span class="s1">&#39;one str (optional)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">gds_collector_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_</span><span class="p">)</span>
+ <span class="o">|</span>  
+ <span class="o">|</span>  <span class="n">ExplicitInput</span> <span class="o">--</span> <span class="n">An</span> <span class="n">explicit</span> <span class="nb">input</span> <span class="p">(</span> <span class="n">anything</span> <span class="n">which</span> <span class="n">extends</span>  <span class="o">**</span><span class="n">basePointCurrent</span><span class="o">**</span>  <span class="p">)</span> <span class="n">to</span> <span class="n">a</span> <span class="n">target</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">population</span>
+ <span class="o">|</span>  
+ <span class="o">...</span>
+
+
+
+<span class="n">help</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">InputList</span><span class="p">)</span>
+<span class="n">Help</span> <span class="n">on</span> <span class="k">class</span> <span class="nc">InputList</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">neuroml</span><span class="o">.</span><span class="n">nml</span><span class="o">.</span><span class="n">nml</span><span class="p">:</span>
+
+<span class="k">class</span> <span class="nc">InputList</span><span class="p">(</span><span class="n">Base</span><span class="p">)</span>
+ <span class="o">|</span>  <span class="n">InputList</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="s1">&#39;one NonNegativeInteger (required)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">populations</span><span class="p">:</span> <span class="s1">&#39;one NmlId (required)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="s1">&#39;one NmlId (required)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;list of Input(s) (optional)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">input_ws</span><span class="p">:</span> <span class="s1">&#39;list of InputW(s) (optional)&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">gds_collector_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_</span><span class="p">)</span>
+ <span class="o">|</span>  
+ <span class="o">|</span>  <span class="n">InputList</span> <span class="o">--</span> <span class="n">An</span> <span class="n">explicit</span> <span class="nb">list</span> <span class="n">of</span>  <span class="o">**</span><span class="nb">input</span><span class="o">**</span> <span class="n">s</span> <span class="n">to</span> <span class="n">a</span> <span class="o">**</span><span class="n">population</span><span class="o">.**</span>
+ <span class="o">...</span>
+</pre></div>
+</div>
+<p>The information provided by the different sources will be similar, but <code class="docutils literal notranslate"><span class="pre">ctinfo()</span></code> is perhaps the most NeuroML specific (whereas the Python <code class="docutils literal notranslate"><span class="pre">help()</span></code> function provides Python language related information also.)</p>
+<div class="tip admonition">
+<p class="admonition-title">Use an integrated development environment (IDE):</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python">IDEs</a> make programming easier. For example, a good IDE will show you the documentation that the <code class="docutils literal notranslate"><span class="pre">help</span></code> Python function shows.</p>
+</div>
+<p>Another useful function is the <code class="docutils literal notranslate"><span class="pre">ctparentinfo()</span></code> function.
+Like <code class="docutils literal notranslate"><span class="pre">info()</span></code> it provides some information about the component/object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctparentinfo</span><span class="p">(</span><span class="s2">&quot;InputList&quot;</span><span class="p">)</span>
+<span class="n">InputList</span> <span class="o">--</span> <span class="n">An</span> <span class="n">explicit</span> <span class="nb">list</span> <span class="n">of</span>  <span class="o">**</span><span class="nb">input</span><span class="o">**</span> <span class="n">s</span> <span class="n">to</span> <span class="n">a</span> <span class="o">**</span><span class="n">population</span><span class="o">.**</span>
+
+<span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">NeuroML</span> <span class="n">standard</span> <span class="n">schema</span> <span class="n">documentation</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">neuroml</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Userdocs</span><span class="o">/</span><span class="n">NeuroMLv2</span><span class="o">.</span><span class="n">html</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Valid</span> <span class="n">parents</span> <span class="k">for</span> <span class="n">InputList</span> <span class="n">are</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">Network</span>
+        <span class="o">*</span> <span class="n">input_lists</span> <span class="p">(</span><span class="n">class</span><span class="p">:</span> <span class="n">InputList</span><span class="p">,</span> <span class="n">Optional</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tells us that components of type <code class="docutils literal notranslate"><span class="pre">InputList</span></code> can be added to components of the <code class="docutils literal notranslate"><span class="pre">Network</span></code> type, in the <code class="docutils literal notranslate"><span class="pre">input_list</span></code> member.
+Of course, we will use the <code class="docutils literal notranslate"><span class="pre">add</span></code> function in our network object <code class="docutils literal notranslate"><span class="pre">net</span></code>, and that will add the component to the correct member.</p>
+</section>
+<section id="the-validate-function">
+<span id="userdocs-getting-started-single-example-supplementary-validate"></span><h3>The validate() function<a class="headerlink" href="#the-validate-function" title="Link to this heading">#</a></h3>
+<p>We can check whether each component is valid using the <code class="docutils literal notranslate"><span class="pre">validate</span></code> function that each component has.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This function does not return anything if the component is valid.
+(Technically, if a function does not return anything in Python, it returns
+<code class="docutils literal notranslate"><span class="pre">None</span></code> by default, so this returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the component is valid.)
+However, if it is not valid, it will throw a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="GettingStarted.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting started with NeuroML</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="NML2_examples/SingleNeuron.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interactive single Izhikevich neuron NeuroML example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-model-in-neuroml">Declaring the model in NeuroML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-model">Simulating the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-recorded-membrane-potential">Plotting the recorded membrane potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-information">Supplementary information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-generated-neuroml-model-xml">The generated NeuroML model XML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-schema">The schema</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-generated-lems-xml">The generated LEMS XML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-component-factory-function">The component_factory() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-add-function">The add() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-info-function">The info() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ctinfo-function">The ctinfo() function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-validate-function">The validate() function</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

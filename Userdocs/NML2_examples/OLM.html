@@ -1,0 +1,1292 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Interactive multi-compartment OLM cell example &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/NML2_examples/OLM';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Create novel NeuroML models from components on NeuroML-DB" href="NeuroML-DB.html" />
+    <link rel="prev" title="Simulating a multi compartment OLM neuron" href="../MultiCompartmentOLMexample.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/NeuroML/Documentation/main?urlpath=tree/source/Userdocs/NML2_examples/OLM.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/NeuroML/Documentation/blob/main/source/Userdocs/NML2_examples/OLM.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/NML2_examples/OLM.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/NML2_examples/OLM.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/NML2_examples/OLM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interactive multi-compartment OLM cell example</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-neuroml-model">Declaring the NeuroML model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-cell">Create the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-network">Create the network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-we-record">Plot the data we record</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-run-the-simulaton">Create and run the simulaton</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interactive-multi-compartment-olm-cell-example">
+<h1>Interactive multi-compartment OLM cell example<a class="headerlink" href="#interactive-multi-compartment-olm-cell-example" title="Link to this heading">#</a></h1>
+<p>To run this interactive Jupyter Notebook, please click on the rocket icon 🚀 in the top panel. For more information, please see <a class="reference internal" href="../Usage.html#userdocs-usage-jupyterbooks"><span class="std std-ref">how to use this documentation</span></a>. Please uncomment the line below if you use the Google Colab. (It does not include these packages by default).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install pyneuroml neuromllite NEURON</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Multi-compartmental OLM cell example</span>
+
+<span class="sd">File: olm-example.py</span>
+
+<span class="sd">Copyright 2023 NeuroML contributors</span>
+<span class="sd">Authors: Padraig Gleeson, Ankur Sinha</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">neuroml</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">NeuroMLDocument</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">component_factory</span>
+<span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.lems</span> <span class="kn">import</span> <span class="n">LEMSSimulation</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.plot.PlotMorphology</span> <span class="kn">import</span> <span class="n">plot_2D</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The CellBuilder module file can be found in the same folder as the Python script. It is used to define the helper functions that we use in our main file.</p>
+<section id="declaring-the-neuroml-model">
+<h2>Declaring the NeuroML model<a class="headerlink" href="#declaring-the-neuroml-model" title="Link to this heading">#</a></h2>
+<section id="create-the-cell">
+<h3>Create the cell<a class="headerlink" href="#create-the-cell" title="Link to this heading">#</a></h3>
+<p>In this example, we do not create the ion channels. We include ion channels that are already provided in NeuroML files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_olm_cell</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the complete cell.</span>
+
+<span class="sd">    :returns: cell object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nml_cell_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;oml_cell&quot;</span><span class="p">)</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">nml_cell_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Cell&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;olm&quot;</span><span class="p">,</span> <span class="n">neuro_lex_id</span><span class="o">=</span><span class="s2">&quot;NLXCELL:091206&quot;</span><span class="p">)</span>  <span class="c1"># type neuroml.Cell</span>
+    <span class="n">nml_cell_file</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s2">&quot;.cell.nml&quot;</span>
+
+    <span class="n">cell</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add two soma segments to an unbranched segment group</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_unbranched_segment_group</span><span class="p">(</span><span class="s2">&quot;soma_0&quot;</span><span class="p">)</span>
+    <span class="n">diam</span> <span class="o">=</span> <span class="mf">10.0</span>
+    <span class="n">soma_0</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span>
+        <span class="n">prox</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Seg0_soma_0&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;soma_0&quot;</span><span class="p">,</span>
+        <span class="n">seg_type</span><span class="o">=</span><span class="s2">&quot;soma&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">soma_1</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span>
+        <span class="n">prox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.</span> <span class="o">+</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Seg1_soma_0&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">soma_0</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;soma_0&quot;</span><span class="p">,</span>
+        <span class="n">seg_type</span><span class="o">=</span><span class="s2">&quot;soma&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add axon segments</span>
+    <span class="n">diam</span> <span class="o">=</span> <span class="mf">1.5</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_unbranched_segments</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">75</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">soma_0</span><span class="p">,</span>
+        <span class="n">fraction_along</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;axon_0&quot;</span><span class="p">,</span>
+        <span class="n">seg_type</span><span class="o">=</span><span class="s2">&quot;axon&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add 2 dendrite segments, using the branching utility function</span>
+
+    <span class="n">diam</span> <span class="o">=</span> <span class="mf">3.0</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_unbranched_segments</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">177</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">soma_1</span><span class="p">,</span>
+        <span class="n">fraction_along</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;dend_0&quot;</span><span class="p">,</span>
+        <span class="n">seg_type</span><span class="o">=</span><span class="s2">&quot;dendrite&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_unbranched_segments</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">177</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">soma_1</span><span class="p">,</span>
+        <span class="n">fraction_along</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;dend_1&quot;</span><span class="p">,</span>
+        <span class="n">seg_type</span><span class="o">=</span><span class="s2">&quot;dendrite&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># color groups for morphology plots</span>
+    <span class="n">den_seg_group</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">get_segment_group</span><span class="p">(</span><span class="s2">&quot;dendrite_group&quot;</span><span class="p">)</span>
+    <span class="n">den_seg_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;0.8 0 0&quot;</span><span class="p">)</span>
+
+    <span class="n">ax_seg_group</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">get_segment_group</span><span class="p">(</span><span class="s2">&quot;axon_group&quot;</span><span class="p">)</span>
+    <span class="n">ax_seg_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;0 0.8 0&quot;</span><span class="p">)</span>
+
+    <span class="n">soma_seg_group</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">get_segment_group</span><span class="p">(</span><span class="s2">&quot;soma_group&quot;</span><span class="p">)</span>
+    <span class="n">soma_seg_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;0 0 0.8&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Other cell properties</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s2">&quot;-67mV&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s2">&quot;0.15 kohm_cm&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s2">&quot;1.3 uF_per_cm2&quot;</span><span class="p">)</span>
+
+    <span class="c1"># channels</span>
+    <span class="c1"># leak</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;leak_all&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;0.01 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;leak_chan&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/leak_chan.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-67mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;non_specific&quot;</span><span class="p">)</span>
+    <span class="c1"># HCNolm_soma</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;HCNolm_soma&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;0.5 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;HCNolm&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/HCNolm.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-32.9mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;soma_group&quot;</span><span class="p">)</span>
+    <span class="c1"># Kdrfast_soma</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;Kdrfast_soma&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;73.37 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;Kdrfast&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/Kdrfast.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;soma_group&quot;</span><span class="p">)</span>
+    <span class="c1"># Kdrfast_dendrite</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;Kdrfast_dendrite&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;105.8 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;Kdrfast&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/Kdrfast.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;dendrite_group&quot;</span><span class="p">)</span>
+    <span class="c1"># Kdrfast_axon</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;Kdrfast_axon&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;117.392 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;Kdrfast&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/Kdrfast.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;axon_group&quot;</span><span class="p">)</span>
+    <span class="c1"># KvAolm_soma</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;KvAolm_soma&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;4.95 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;KvAolm&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/KvAolm.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;soma_group&quot;</span><span class="p">)</span>
+    <span class="c1"># KvAolm_dendrite</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;KvAolm_dendrite&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;2.8 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;KvAolm&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/KvAolm.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;dendrite_group&quot;</span><span class="p">)</span>
+    <span class="c1"># Nav_soma</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;Nav_soma&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;10.7 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;Nav&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/Nav.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;50mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;soma_group&quot;</span><span class="p">)</span>
+    <span class="c1"># Nav_dendrite</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;Nav_dendrite&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;23.4 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;Nav&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/Nav.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;50mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;dendrite_group&quot;</span><span class="p">)</span>
+    <span class="c1"># Nav_axon</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span>
+                             <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;Nav_axon&quot;</span><span class="p">,</span>
+                             <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;17.12 mS_per_cm2&quot;</span><span class="p">,</span>
+                             <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;Nav&quot;</span><span class="p">,</span>
+                             <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;olm-example/Nav.channel.nml&quot;</span><span class="p">,</span>
+                             <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;50mV&quot;</span><span class="p">,</span>
+                             <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+                             <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;axon_group&quot;</span><span class="p">)</span>
+
+    <span class="n">cell</span><span class="o">.</span><span class="n">optimise_segment_groups</span><span class="p">()</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span><span class="n">nml_cell_doc</span><span class="p">,</span> <span class="n">nml_cell_file</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">plot_2D</span><span class="p">(</span><span class="n">nml_cell_file</span><span class="p">,</span> <span class="n">plane2d</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">save_to_file</span><span class="o">=</span><span class="s2">&quot;olm.cell.xy.png&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nml_cell_file</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-the-network">
+<h3>Create the network<a class="headerlink" href="#create-the-network" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_olm_network</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the network</span>
+
+<span class="sd">    :returns: name of network nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">net_doc</span> <span class="o">=</span> <span class="n">NeuroMLDocument</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;network&quot;</span><span class="p">,</span>
+                              <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;OLM cell network&quot;</span><span class="p">)</span>
+    <span class="n">net_doc_fn</span> <span class="o">=</span> <span class="s2">&quot;olm_example_net.nml&quot;</span>
+    <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;IncludeType&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">create_olm_cell</span><span class="p">())</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;single_olm_cell_network&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Create a population: convenient to create many cells of the same type</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pop0&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;A population for our cell&quot;</span><span class="p">,</span>
+                  <span class="n">component</span><span class="o">=</span><span class="s2">&quot;olm&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;populationList&quot;</span><span class="p">,</span>
+                  <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Instance&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">component_factory</span><span class="p">(</span><span class="s2">&quot;Location&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.</span><span class="p">))</span>
+    <span class="c1"># Input</span>
+    <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pg_olm&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Simple pulse generator&quot;</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;0.08nA&quot;</span><span class="p">)</span>
+
+    <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;pop0[0]&quot;</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;pg_olm&quot;</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span><span class="n">nml2_doc</span><span class="o">=</span><span class="n">net_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">net_doc_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">net_doc_fn</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plot-the-data-we-record">
+<h2>Plot the data we record<a class="headerlink" href="#plot-the-data-we-record" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">sim_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the sim data.</span>
+
+<span class="sd">    Load the data from the file and plot the graph for the membrane potential</span>
+<span class="sd">    using the pynml generate_plot utility function.</span>
+
+<span class="sd">    :sim_id: ID of simulaton</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">([</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span> <span class="s2">&quot;Membrane potential (soma seg 0)&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;_seg0_soma0-v.png&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">([</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]],</span> <span class="s2">&quot;Membrane potential (soma seg 1)&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;_seg1_soma0-v.png&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">([</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]],</span> <span class="s2">&quot;Membrane potential (axon seg 0)&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;_seg0_axon0-v.png&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">([</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]],</span> <span class="s2">&quot;Membrane potential (axon seg 1)&quot;</span><span class="p">,</span> <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;_seg1_axon0-v.png&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-and-run-the-simulaton">
+<h2>Create and run the simulaton<a class="headerlink" href="#create-and-run-the-simulaton" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function</span>
+
+<span class="sd">    Include the NeuroML model into a LEMS simulation file, run it, plot some</span>
+<span class="sd">    data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Simulation bits</span>
+    <span class="n">sim_id</span> <span class="o">=</span> <span class="s2">&quot;olm_example_sim&quot;</span>
+    <span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span><span class="n">sim_id</span><span class="o">=</span><span class="n">sim_id</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+    <span class="c1"># Include the NeuroML model file</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">create_olm_network</span><span class="p">())</span>
+    <span class="c1"># Assign target for the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="s2">&quot;single_olm_cell_network&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Recording information from the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg0_soma_0&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/0/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg1_soma_0&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/1/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg0_axon_0&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/2/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg1_axon_0&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/3/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg0_dend_0&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/4/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg1_dend_0&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/6/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg0_dend_1&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/5/v&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+                                         <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0_0_v_Seg1_dend_1&quot;</span><span class="p">,</span>
+                                         <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0/0/olm/7/v&quot;</span><span class="p">)</span>
+    <span class="c1"># Save LEMS simulation to file</span>
+    <span class="n">sim_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+
+    <span class="c1"># Run the simulation using the NEURON simulator</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml_neuron</span><span class="p">(</span><span class="n">sim_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">skip_run</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Plot the data</span>
+    <span class="n">plot_data</span><span class="p">(</span><span class="n">sim_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -jar  &quot;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/.venv/lib/python3.10/site-packages/pyneuroml/lib/jNeuroML-0.12.0-jar-with-dependencies.jar&quot; -validate &quot;olm.cell.nml&quot; ) in directory: .
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*******************************************************
+* Cell: olm
+* Notes: None
+* Segments: 0
+* SegmentGroups: 4
+*******************************************************
+Cell -- Cell with  **segment** s specified in a  **morphology**  element along with details on its  **biophysicalProperties** . NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v**  of this cell represents the membrane potential in that isopotential segment.
+
+Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
+
+Valid members for Cell are:
+* morphology_attr (class: NmlId, Optional)
+* biophysical_properties_attr (class: NmlId, Optional)
+* morphology (class: Morphology, Optional)
+	* Contents (&#39;ids&#39;/&lt;objects&gt;): &#39;morphology&#39;
+
+* neuro_lex_id (class: NeuroLexId, Optional)
+	* Contents (&#39;ids&#39;/&lt;objects&gt;): NLXCELL:091206
+
+* biophysical_properties (class: BiophysicalProperties, Optional)
+	* Contents (&#39;ids&#39;/&lt;objects&gt;): &#39;biophys&#39;
+
+* annotation (class: Annotation, Optional)
+* properties (class: Property, Optional)
+* notes (class: xs:string, Optional)
+* id (class: NmlId, Required)
+	* Contents (&#39;ids&#39;/&lt;objects&gt;): olm
+
+* metaid (class: MetaId, Optional)
+
+Morphology -- The collection of  **segment** s which specify the 3D structure of the cell, along with a number of  **segmentGroup** s
+
+Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.
+
+Valid members for Morphology are:
+* segments (class: Segment, Required)
+* segment_groups (class: SegmentGroup, Optional)
+	* Contents (&#39;ids&#39;/&lt;objects&gt;): [&#39;all&#39;, &#39;soma_group&#39;, &#39;axon_group&#39;, &#39;dendrite_group&#39;]
+
+* annotation (class: Annotation, Optional)
+* properties (class: Property, Optional)
+* notes (class: xs:string, Optional)
+* id (class: NmlId, Required)
+	* Contents (&#39;ids&#39;/&lt;objects&gt;): morphology
+
+* metaid (class: MetaId, Optional)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Command completed. Output: 
+  jNeuroML &gt;&gt;   jNeuroML v0.12.0
+  jNeuroML &gt;&gt;  Validating: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm.cell.nml
+  jNeuroML &gt;&gt;  Valid against schema and all tests
+  jNeuroML &gt;&gt;  No warnings
+  jNeuroML &gt;&gt;  
+  jNeuroML &gt;&gt;  Validated 1 files: All valid and no warnings
+  jNeuroML &gt;&gt;  
+  jNeuroML &gt;&gt;  
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: olm.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Including included files (included already: [])
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/leak_chan.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Including included files (included already: [])
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/HCNolm.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Including included files (included already: [&#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/leak_chan.channel.nml&#39;])
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/Kdrfast.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Including included files (included already: [&#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/leak_chan.channel.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/HCNolm.channel.nml&#39;])
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/KvAolm.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Including included files (included already: [&#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/leak_chan.channel.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/HCNolm.channel.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/Kdrfast.channel.nml&#39;])
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/Nav.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Including included files (included already: [&#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/leak_chan.channel.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/HCNolm.channel.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/Kdrfast.channel.nml&#39;, &#39;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/KvAolm.channel.nml&#39;])
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx400M  -jar  &quot;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/.venv/lib/python3.10/site-packages/pyneuroml/lib/jNeuroML-0.12.0-jar-with-dependencies.jar&quot; -validate &quot;olm_example_net.nml&quot; ) in directory: .
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saved image on plane xy to /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm.cell.xy.png of plot: 2D plot of olm from olm.cell.nml
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Command completed. Output: 
+  jNeuroML &gt;&gt;   jNeuroML v0.12.0
+  jNeuroML &gt;&gt;  Validating: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm_example_net.nml
+  jNeuroML &gt;&gt;  Valid against schema and all tests
+  jNeuroML &gt;&gt;  No warnings
+  jNeuroML &gt;&gt;  
+  jNeuroML &gt;&gt;  Validated 1 files: All valid and no warnings
+  jNeuroML &gt;&gt;  
+  jNeuroML &gt;&gt;  
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm_example_net.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm.cell.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/leak_chan.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/HCNolm.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/Kdrfast.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/KvAolm.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading NeuroML2 file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm-example/Nav.channel.nml
+pyNeuroML &gt;&gt;&gt; INFO - Loading LEMS file: LEMS_olm_example_sim.xml and running with jNeuroML_NEURON
+pyNeuroML &gt;&gt;&gt; INFO - Executing: (java -Xmx2G  -Djava.awt.headless=true -jar  &quot;/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/.venv/lib/python3.10/site-packages/pyneuroml/lib/jNeuroML-0.12.0-jar-with-dependencies.jar&quot;  &quot;LEMS_olm_example_sim.xml&quot;  -neuron -run -compile -nogui -I &#39;&#39;) in directory: .
+pyNeuroML &gt;&gt;&gt; INFO - Command completed. Output: 
+  jNeuroML &gt;&gt;   jNeuroML v0.12.0
+  jNeuroML &gt;&gt;  (INFO) Reading from: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/LEMS_olm_example_sim.xml
+  jNeuroML &gt;&gt;  (INFO) Creating NeuronWriter to output files to /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples
+  jNeuroML &gt;&gt;  (INFO) Adding simulation Component(id=olm_example_sim type=Simulation) of network/component: single_olm_cell_network (Type: network)
+  jNeuroML &gt;&gt;  (INFO) Adding population: pop0
+  jNeuroML &gt;&gt;  (INFO) -- Writing to hoc: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm.hoc
+  jNeuroML &gt;&gt;  (INFO) -- Writing to mod: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/leak_chan.mod
+  jNeuroML &gt;&gt;  (INFO) File /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/leak_chan.mod exists and is identical
+  jNeuroML &gt;&gt;  (INFO) -- Writing to mod: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/HCNolm.mod
+  jNeuroML &gt;&gt;  (INFO) File /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/HCNolm.mod exists and is identical
+  jNeuroML &gt;&gt;  (INFO) -- Writing to mod: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/Kdrfast.mod
+  jNeuroML &gt;&gt;  (INFO) File /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/Kdrfast.mod exists and is identical
+  jNeuroML &gt;&gt;  (INFO) -- Writing to mod: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/KvAolm.mod
+  jNeuroML &gt;&gt;  (INFO) File /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/KvAolm.mod exists and is identical
+  jNeuroML &gt;&gt;  (INFO) -- Writing to mod: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/Nav.mod
+  jNeuroML &gt;&gt;  (INFO) File /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/Nav.mod exists and is identical
+  jNeuroML &gt;&gt;  (INFO) Adding projections/connections...
+  jNeuroML &gt;&gt;  (INFO) -- Writing to mod: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/pg_olm.mod
+  jNeuroML &gt;&gt;  (INFO) File /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/pg_olm.mod exists and is identical
+  jNeuroML &gt;&gt;  (INFO) Trying to compile mods in: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples
+  jNeuroML &gt;&gt;  (INFO) Going to compile the mod files in: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples, forcing recompile: false
+  jNeuroML &gt;&gt;  (INFO) Parent dir: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples
+  jNeuroML &gt;&gt;  (INFO) Assuming *nix environment...
+  jNeuroML &gt;&gt;  (INFO) Name of file to be created: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/libnrnmech.la
+  jNeuroML &gt;&gt;  (INFO) Name of file to be created: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/libnrnmech.so
+  jNeuroML &gt;&gt;  (INFO) Name of file to be created: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/.libs/libnrnmech.so
+  jNeuroML &gt;&gt;  (INFO) commandToExecute: /usr/bin/nrnivmodl
+  jNeuroML &gt;&gt;  (INFO) Found previously compiled file: /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/libnrnmech.so
+  jNeuroML &gt;&gt;  (INFO) Going to check if mods in /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples are newer than /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/libnrnmech.so
+  jNeuroML &gt;&gt;  (INFO) Going to check if mods in /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples are newer than /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/.libs/libnrnmech.so
+  jNeuroML &gt;&gt;  (INFO) Not being asked to recompile, and no mod files exist in /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples which are newer than /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/x86_64/.libs/libnrnmech.so
+  jNeuroML &gt;&gt;  (INFO) Success in compiling mods: true
+  jNeuroML &gt;&gt;  (INFO) Have successfully executed command: python /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/LEMS_olm_example_sim_nrn.py
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; 
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt;     Starting simulation in NEURON of 600ms generated from NeuroML2 model...
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; 
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Population pop0 contains 1 instance(s) of component: olm of type: cell
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; 	1 
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Setting up the network to simulate took 0.006119 seconds
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Running a simulation of 600.0ms (dt = 0.01ms; seed=123)
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Finished NEURON simulation in 0.424608 seconds (0.007077 mins)...
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Saving results at t=599.9999999995268...
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Saved data to: time.dat
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Saved data to: olm_example_sim.dat
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Finished saving results in 0.455872 seconds
+  jNeuroML &gt;&gt;  (INFO) NRN Output &gt;&gt;&gt; Done
+  jNeuroML &gt;&gt;  (INFO) Exit value for running NEURON: 0
+  jNeuroML &gt;&gt;  
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential (soma seg 0)
+/home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/.venv/lib64/python3.10/site-packages/pyneuroml/plot/Plot.py:186: UserWarning: marker is redundantly defined by the &#39;marker&#39; keyword argument and the fmt string &quot;o&quot; (-&gt; marker=&#39;o&#39;). The keyword argument will take precedence.
+  plt.plot(
+pyNeuroML &gt;&gt;&gt; INFO - Saving image to /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm_example_sim_seg0_soma0-v.png of plot: Membrane potential (soma seg 0)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyNeuroML &gt;&gt;&gt; INFO - Saved image to olm_example_sim_seg0_soma0-v.png of plot: Membrane potential (soma seg 0)
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential (soma seg 1)
+pyNeuroML &gt;&gt;&gt; INFO - Saving image to /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm_example_sim_seg1_soma0-v.png of plot: Membrane potential (soma seg 1)
+pyNeuroML &gt;&gt;&gt; INFO - Saved image to olm_example_sim_seg1_soma0-v.png of plot: Membrane potential (soma seg 1)
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential (axon seg 0)
+pyNeuroML &gt;&gt;&gt; INFO - Saving image to /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm_example_sim_seg0_axon0-v.png of plot: Membrane potential (axon seg 0)
+pyNeuroML &gt;&gt;&gt; INFO - Saved image to olm_example_sim_seg0_axon0-v.png of plot: Membrane potential (axon seg 0)
+pyNeuroML &gt;&gt;&gt; INFO - Generating plot: Membrane potential (axon seg 1)
+pyNeuroML &gt;&gt;&gt; INFO - Saving image to /home/asinha/Documents/02_Code/00_mine/NeuroML/documentation/source/Userdocs/NML2_examples/olm_example_sim_seg1_axon0-v.png of plot: Membrane potential (axon seg 1)
+pyNeuroML &gt;&gt;&gt; INFO - Saved image to olm_example_sim_seg1_axon0-v.png of plot: Membrane potential (axon seg 1)
+</pre></div>
+</div>
+<img alt="../../_images/2e1bea36fe18d51db608aa0f8ab5ea17531213bda9b78245318583898b1049c5.png" src="../../_images/2e1bea36fe18d51db608aa0f8ab5ea17531213bda9b78245318583898b1049c5.png" />
+<img alt="../../_images/ec193126c160d9b3a694a430ec1c3ce01ff44331eb30ff5cecfa6f5b966145d2.png" src="../../_images/ec193126c160d9b3a694a430ec1c3ce01ff44331eb30ff5cecfa6f5b966145d2.png" />
+<img alt="../../_images/ec193126c160d9b3a694a430ec1c3ce01ff44331eb30ff5cecfa6f5b966145d2.png" src="../../_images/ec193126c160d9b3a694a430ec1c3ce01ff44331eb30ff5cecfa6f5b966145d2.png" />
+<img alt="../../_images/ec193126c160d9b3a694a430ec1c3ce01ff44331eb30ff5cecfa6f5b966145d2.png" src="../../_images/ec193126c160d9b3a694a430ec1c3ce01ff44331eb30ff5cecfa6f5b966145d2.png" />
+<img alt="../../_images/21da5d20d226f9ba010af0c85727743b7d0f604a11d927ff7b85e04705273bf6.png" src="../../_images/21da5d20d226f9ba010af0c85727743b7d0f604a11d927ff7b85e04705273bf6.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/NML2_examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../MultiCompartmentOLMexample.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simulating a multi compartment OLM neuron</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="NeuroML-DB.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Create novel NeuroML models from components on NeuroML-DB</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-neuroml-model">Declaring the NeuroML model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-cell">Create the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-network">Create the network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-we-record">Plot the data we record</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-run-the-simulaton">Create and run the simulaton</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

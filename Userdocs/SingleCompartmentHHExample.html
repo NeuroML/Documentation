@@ -1,0 +1,1881 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Simulating a single compartment Hodgkin-Huxley neuron &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/SingleCompartmentHHExample';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interactive single compartment HH example" href="NML2_examples/HH_single_compartment.html" />
+    <link rel="prev" title="Interactive two population network example" href="NML2_examples/IzhikevichNetwork.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="GettingStarted.html">Getting started with NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/SingleCompartmentHHExample.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/SingleCompartmentHHExample.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Userdocs/SingleCompartmentHHExample.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simulating a single compartment Hodgkin-Huxley neuron</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-model-in-neuroml">Declaring the model in NeuroML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-ion-channels">Declaring ion channels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-cell">Declaring the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-network">Declaring the network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-generated-neuroml-model">The generated NeuroML model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysing-channels">Analysing channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-model">Simulating the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-recorded-variables">Plotting the recorded variables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="simulating-a-single-compartment-hodgkin-huxley-neuron">
+<span id="userdocs-getting-started-single-compartment-example"></span><h1>Simulating a single compartment Hodgkin-Huxley neuron<a class="headerlink" href="#simulating-a-single-compartment-hodgkin-huxley-neuron" title="Link to this heading">#</a></h1>
+<p>In this section we will model and simulate a Hodgkin-Huxley (HH) neuron (<span id="id1">[<a class="reference internal" href="../Reference/zBibliography.html#id14" title="Alan L. Hodgkin and Andrew F. Huxley. A quantitative description of membrane current and its application to conduction and excitation in nerve. The Journal of physiology, 117(4):500, 1952.">HH52</a>]</span>).
+A Hodgkin-Huxley neuron includes Sodium (Na), Potassium (K), and leak ion channels.
+For further information on this neuron model, please see <a class="reference external" href="https://hodgkin-huxley-tutorial.readthedocs.io/en/latest/index.html">here</a>.</p>
+<figure class="align-center" id="id2">
+<img alt="Membrane potential for neuron recorded from the simulation" src="../_images/HH_single_compartment_example_sim-v.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Membrane potential of the simulated Hodgkin-Huxley neuron.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This plot, saved as <code class="docutils literal notranslate"><span class="pre">HH_single_compartment_example_sim-v.png</span></code> is generated using the following Python NeuroML script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Create a network with a single HH cell, and simulate it.</span>
+
+<span class="sd">File: hh-single-compartment.py</span>
+
+<span class="sd">Copyright 2023 NeuroML contributors</span>
+<span class="sd">Author: Ankur Sinha &lt;sanjay DOT ankur AT gmail DOT com&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">neuroml</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">NeuroMLDocument</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">Network</span><span class="p">,</span> <span class="n">Population</span>
+<span class="kn">from</span> <span class="nn">neuroml</span> <span class="kn">import</span> <span class="n">PulseGenerator</span><span class="p">,</span> <span class="n">ExplicitInput</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyneuroml</span> <span class="kn">import</span> <span class="n">pynml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.lems</span> <span class="kn">import</span> <span class="n">LEMSSimulation</span>
+<span class="kn">from</span> <span class="nn">neuroml.utils</span> <span class="kn">import</span> <span class="n">component_factory</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function</span>
+
+<span class="sd">    Include the NeuroML model into a LEMS simulation file, run it, plot some</span>
+<span class="sd">    data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Simulation bits</span>
+    <span class="n">sim_id</span> <span class="o">=</span> <span class="s2">&quot;HH_single_compartment_example_sim&quot;</span>
+    <span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span>
+        <span class="n">sim_id</span><span class="o">=</span><span class="n">sim_id</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span>
+    <span class="p">)</span>
+    <span class="c1"># Include the NeuroML model file</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">create_network</span><span class="p">())</span>
+    <span class="c1"># Assign target for the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="s2">&quot;single_hh_cell_network&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Recording information from the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/iChannels&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/iChannels&quot;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+        <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/na/iDensity&quot;</span><span class="p">,</span>
+        <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/biophys/membraneProperties/na_channels/iDensity/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+        <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/k/iDensity&quot;</span><span class="p">,</span>
+        <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/biophys/membraneProperties/k_channels/iDensity/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Save LEMS simulation to file</span>
+    <span class="n">sim_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+
+    <span class="c1"># Run the simulation using the default jNeuroML simulator</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml</span><span class="p">(</span><span class="n">sim_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Plot the data</span>
+    <span class="n">plot_data</span><span class="p">(</span><span class="n">sim_id</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">sim_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the sim data.</span>
+
+<span class="sd">    Load the data from the file and plot the graph for the membrane potential</span>
+<span class="sd">    using the pynml generate_plot utility function.</span>
+
+<span class="sd">    :sim_id: ID of simulaton</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span>
+        <span class="s2">&quot;Membrane potential&quot;</span><span class="p">,</span>
+        <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;-v.png&quot;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]],</span>
+        <span class="s2">&quot;channel current&quot;</span><span class="p">,</span>
+        <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;-i.png&quot;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;channel current (A)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]],</span>
+        <span class="s2">&quot;current density&quot;</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">],</span>
+        <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;-iden.png&quot;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;current density (A_per_m2)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">create_na_channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the Na channel.</span>
+
+<span class="sd">    This will create the Na channel and save it to a file.</span>
+<span class="sd">    It will also validate this file.</span>
+
+<span class="sd">    returns: name of the created file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">na_channel</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;IonChannelHH&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Sodium channel for HH cell&quot;</span><span class="p">,</span>
+        <span class="n">conductance</span><span class="o">=</span><span class="s2">&quot;10pS&quot;</span><span class="p">,</span>
+        <span class="n">species</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">gate_m</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;GateHHRates&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+        <span class="n">instances</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;m gate for na channel&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">m_forward_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpLinearRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;1per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;10mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">m_reverse_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;4per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-65mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;-18mV&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">gate_m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m_forward_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;forward_rate&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gate_m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m_reverse_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;reverse_rate&quot;</span><span class="p">)</span>
+    <span class="n">na_channel</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gate_m</span><span class="p">)</span>
+
+    <span class="n">gate_h</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;GateHHRates&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="n">instances</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;h gate for na channel&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">h_forward_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;0.07per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-65mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;-20mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">h_reverse_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHSigmoidRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;1per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-35mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;10mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">gate_h</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">h_forward_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;forward_rate&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gate_h</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">h_reverse_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;reverse_rate&quot;</span><span class="p">)</span>
+    <span class="n">na_channel</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gate_h</span><span class="p">)</span>
+
+    <span class="n">na_channel_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Na channel for HH neuron&quot;</span>
+    <span class="p">)</span>
+    <span class="n">na_channel_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_na_channel.nml&quot;</span>
+    <span class="n">na_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">na_channel</span><span class="p">)</span>
+    <span class="n">na_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">na_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">na_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">na_channel_fn</span>
+
+
+<span class="k">def</span> <span class="nf">create_k_channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the K channel</span>
+
+<span class="sd">    This will create the K channel and save it to a file.</span>
+<span class="sd">    It will also validate this file.</span>
+
+<span class="sd">    :returns: name of the K channel file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k_channel</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;IonChannelHH&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;k_channel&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Potassium channel for HH cell&quot;</span><span class="p">,</span>
+        <span class="n">conductance</span><span class="o">=</span><span class="s2">&quot;10pS&quot;</span><span class="p">,</span>
+        <span class="n">species</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">gate_n</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;GateHHRates&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">,</span>
+        <span class="n">instances</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;n gate for k channel&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">n_forward_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpLinearRate&quot;</span><span class="p">,</span>
+        <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;0.1per_ms&quot;</span><span class="p">,</span>
+        <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-55mV&quot;</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;10mV&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">n_reverse_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;0.125per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-65mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;-80mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">gate_n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n_forward_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;forward_rate&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gate_n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n_reverse_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;reverse_rate&quot;</span><span class="p">)</span>
+    <span class="n">k_channel</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gate_n</span><span class="p">)</span>
+
+    <span class="n">k_channel_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;k_channel&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;k channel for HH neuron&quot;</span>
+    <span class="p">)</span>
+    <span class="n">k_channel_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_k_channel.nml&quot;</span>
+    <span class="n">k_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">k_channel</span><span class="p">)</span>
+    <span class="n">k_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">k_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">k_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">k_channel_fn</span>
+
+
+<span class="k">def</span> <span class="nf">create_leak_channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a leak channel</span>
+
+<span class="sd">    This will create the leak channel and save it to a file.</span>
+<span class="sd">    It will also validate this file.</span>
+
+<span class="sd">    :returns: name of leak channel nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">leak_channel</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;IonChannelHH&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;leak_channel&quot;</span><span class="p">,</span> <span class="n">conductance</span><span class="o">=</span><span class="s2">&quot;10pS&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Leak conductance&quot;</span>
+    <span class="p">)</span>
+    <span class="n">leak_channel_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;leak_channel&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;leak channel for HH neuron&quot;</span>
+    <span class="p">)</span>
+    <span class="n">leak_channel_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_leak_channel.nml&quot;</span>
+    <span class="n">leak_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">leak_channel</span><span class="p">)</span>
+    <span class="n">leak_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">leak_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">leak_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">leak_channel_fn</span>
+
+
+<span class="k">def</span> <span class="nf">create_cell</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the cell.</span>
+
+<span class="sd">    :returns: name of the cell nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create the nml file and add the ion channels</span>
+    <span class="n">hh_cell_doc</span> <span class="o">=</span> <span class="n">NeuroMLDocument</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;cell&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;HH cell&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_cell.nml&quot;</span>
+
+    <span class="c1"># Define a cell</span>
+    <span class="n">hh_cell</span> <span class="o">=</span> <span class="n">hh_cell_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;Cell&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;hh_cell&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;A single compartment HH cell&quot;</span>
+    <span class="p">)</span>  <span class="c1"># type: neuroml.Cell</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Channel density for Na channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;na_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;120.0 mS_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;50.0 mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_na_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Channel density for k channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;k_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;360 S_per_m2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;k_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_k_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="c1"># Leak channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;leak_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;3.0 S_per_m2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-54.3mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;non_specific&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;leak_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_leak_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Other membrane properties</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_membrane_property</span><span class="p">(</span><span class="s2">&quot;SpikeThresh&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;-20mV&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s2">&quot;1.0 uF_per_cm2&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s2">&quot;-65mV&quot;</span><span class="p">)</span>
+
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s2">&quot;0.03 kohm_cm&quot;</span><span class="p">)</span>
+
+    <span class="c1"># We want a diameter such that area is 1000 micro meter^2</span>
+    <span class="c1"># surface area of a sphere is 4pi r^2 = 4pi diam^2</span>
+    <span class="n">diam</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span>
+        <span class="n">prox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;soma&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">fraction_along</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">group</span><span class="o">=</span><span class="s2">&quot;soma_0&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">hh_cell_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">hh_cell_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">hh_cell_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">hh_cell_fn</span>
+
+
+<span class="k">def</span> <span class="nf">create_network</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the network</span>
+
+<span class="sd">    :returns: name of network nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">net_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;network&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;HH cell network&quot;</span>
+    <span class="p">)</span>
+    <span class="n">net_doc_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_net.nml&quot;</span>
+    <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;IncludeType&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">create_cell</span><span class="p">())</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;single_hh_cell_network&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Create a population: convenient to create many cells of the same type</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;Population&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pop0&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;A population for our cell&quot;</span><span class="p">,</span>
+        <span class="n">component</span><span class="o">=</span><span class="s2">&quot;hh_cell&quot;</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Input</span>
+    <span class="n">pulsegen</span> <span class="o">=</span> <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pg&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Simple pulse generator&quot;</span><span class="p">,</span>
+        <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span>
+        <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span>
+        <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;0.08nA&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;pop0[0]&quot;</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;pg&quot;</span><span class="p">)</span>
+
+    <span class="n">net_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">net_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">net_doc_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">net_doc_fn</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="declaring-the-model-in-neuroml">
+<span id="userdocs-getting-started-single-compartment-example-model"></span><h2>Declaring the model in NeuroML<a class="headerlink" href="#declaring-the-model-in-neuroml" title="Link to this heading">#</a></h2>
+<p>Similar to previous examples, we will first declare the model, visualise it, and then simulate it.
+The HH neuron model is more complex than the <a class="reference internal" href="SingleNeuronExample.html#userdocs-getting-started-single-example"><span class="std std-ref">Izhikevich neuron model</span></a> we have seen so far.
+For example, it includes voltage-gated ion channels.
+We will first implement these ion channels in NeuroML, then add them to a cell.
+We will then create a network of one cell which will will stimulate with external input to record the membrane potential.</p>
+<p>As you can also see in the script, since this is a slightly more complex model, we have modularised our code into different functions that carry out different tasks.
+Let us now step through the script in a bottom-up fashion.
+We start with the ion channels and build the network simulation.</p>
+<section id="declaring-ion-channels">
+<span id="userdocs-getting-started-single-compartment-example-model-channels"></span><h3>Declaring ion channels<a class="headerlink" href="#declaring-ion-channels" title="Link to this heading">#</a></h3>
+<div class="admonition-note-you-might-not-need-to-define-your-ion-channels-in-python-every-time admonition">
+<p class="admonition-title">Note: you might not need to define your ion channels in Python every time…</p>
+<p>In this example, all parts of the model, including the ion channels, are defined from scratch in Python and then NeuroML files in XML are generated and saved. For many modelling projects however, ion channel XML files will be reused from other models, and can just be included in the cells that use them with: <code class="docutils literal notranslate"><span class="pre">&lt;include</span> <span class="pre">href=&quot;my_channel.nml&quot;/&gt;</span></code>. See <a class="reference internal" href="FindingNeuroMLModels.html#userdocs-finding-models"><span class="std std-ref"> here</span></a> for tips on where to find ion channel models in NeuroML.</p>
+</div>
+<p>Let us look at the definition of the Sodium (Na) channel in NeuroML:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_na_channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the Na channel.</span>
+
+<span class="sd">    This will create the Na channel and save it to a file.</span>
+<span class="sd">    It will also validate this file.</span>
+
+<span class="sd">    returns: name of the created file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">na_channel</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;IonChannelHH&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Sodium channel for HH cell&quot;</span><span class="p">,</span>
+        <span class="n">conductance</span><span class="o">=</span><span class="s2">&quot;10pS&quot;</span><span class="p">,</span>
+        <span class="n">species</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">gate_m</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;GateHHRates&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+        <span class="n">instances</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;m gate for na channel&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">m_forward_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpLinearRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;1per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-40mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;10mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">m_reverse_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;4per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-65mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;-18mV&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">gate_m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m_forward_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;forward_rate&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gate_m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">m_reverse_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;reverse_rate&quot;</span><span class="p">)</span>
+    <span class="n">na_channel</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gate_m</span><span class="p">)</span>
+
+    <span class="n">gate_h</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;GateHHRates&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="n">instances</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;h gate for na channel&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">h_forward_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;0.07per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-65mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;-20mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">h_reverse_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHSigmoidRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;1per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-35mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;10mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">gate_h</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">h_forward_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;forward_rate&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gate_h</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">h_reverse_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;reverse_rate&quot;</span><span class="p">)</span>
+    <span class="n">na_channel</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gate_h</span><span class="p">)</span>
+
+    <span class="n">na_channel_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Na channel for HH neuron&quot;</span>
+    <span class="p">)</span>
+    <span class="n">na_channel_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_na_channel.nml&quot;</span>
+    <span class="n">na_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">na_channel</span><span class="p">)</span>
+    <span class="n">na_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">na_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">na_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">na_channel_fn</span>
+</pre></div>
+</div>
+<p>Here, we define the two gates, <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code>, with their forward and reverse rates and add them to the channel.
+Next, we create a NeuroML document and save this channel (only this channel that we’ve just defined) to a NeuroML file and validate it.
+So we now have our Na channel defined in a separate NeuroML file that can be used in multiple models and shared:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;na_channel&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>Na<span class="w"> </span>channel<span class="w"> </span>for<span class="w"> </span>HH<span class="w"> </span>neuron<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ionChannelHH</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;na_channel&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;na&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;10pS&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>Sodium<span class="w"> </span>channel<span class="w"> </span>for<span class="w"> </span>HH<span class="w"> </span>cell<span class="nt">&lt;/notes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;gateHHrates</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;m&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;notes&gt;</span>m<span class="w"> </span>gate<span class="w"> </span>for<span class="w"> </span>na<span class="w"> </span>channel<span class="nt">&lt;/notes&gt;</span>
+<span class="w">            </span><span class="nt">&lt;forwardRate</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHExpLinearRate&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1per_ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-40mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;10mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;reverseRate</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHExpRate&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;4per_ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-65mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-18mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gateHHrates&gt;</span>
+<span class="w">        </span><span class="nt">&lt;gateHHrates</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;h&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;notes&gt;</span>h<span class="w"> </span>gate<span class="w"> </span>for<span class="w"> </span>na<span class="w"> </span>channel<span class="nt">&lt;/notes&gt;</span>
+<span class="w">            </span><span class="nt">&lt;forwardRate</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHExpRate&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;0.07per_ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-65mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-20mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;reverseRate</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHSigmoidRate&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1per_ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-35mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;10mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gateHHrates&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ionChannelHH&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>The various rate equations (<a class="reference internal" href="Schemas/Channels.html#schema-hhexplinearrate"><span class="std std-ref">HHExpLinearRate</span></a>, <a class="reference internal" href="Schemas/Channels.html#schema-hhexprate"><span class="std std-ref">HHExpRate</span></a>, <a class="reference internal" href="Schemas/Channels.html#schema-hhsigmoidrate"><span class="std std-ref">HHSigmoidRate</span></a> that can be used in the gate (here <a class="reference internal" href="Schemas/Channels.html#schema-gatehhrates"><span class="std std-ref">gateHHrates</span></a>, but other forms such as <a class="reference internal" href="Schemas/Channels.html#schema-gatehhtauinf"><span class="std std-ref">gateHHtauInf</span></a> and <a class="reference internal" href="Schemas/Channels.html#schema-gatehhinstantaneous"><span class="std std-ref">gateHHInstantaneous</span></a> can be used) are defined in the NeuroML <a class="reference internal" href="Schemas/Channels.html#schema-channels"><span class="std std-ref">schema</span></a>.</p>
+<p>Also note that since we’ll want to <em>include</em> this file in other NeuroML files, we make the function return the name of the file.
+This is an implementation detail, and there are other ways of doing this too.
+We could have hard-coded this in all our functions or defined it as a global variable in the script for example.
+If we were using object-oriented programming, we could have created a class and stored this information as a class or object variable.</p>
+<p>The K and leak channels are defined in a similar way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_k_channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the K channel</span>
+
+<span class="sd">    This will create the K channel and save it to a file.</span>
+<span class="sd">    It will also validate this file.</span>
+
+<span class="sd">    :returns: name of the K channel file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k_channel</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;IonChannelHH&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;k_channel&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Potassium channel for HH cell&quot;</span><span class="p">,</span>
+        <span class="n">conductance</span><span class="o">=</span><span class="s2">&quot;10pS&quot;</span><span class="p">,</span>
+        <span class="n">species</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">gate_n</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;GateHHRates&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">,</span>
+        <span class="n">instances</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;n gate for k channel&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">n_forward_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpLinearRate&quot;</span><span class="p">,</span>
+        <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;0.1per_ms&quot;</span><span class="p">,</span>
+        <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-55mV&quot;</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;10mV&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">n_reverse_rate</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;HHRate&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;HHExpRate&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;0.125per_ms&quot;</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="s2">&quot;-65mV&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;-80mV&quot;</span>
+    <span class="p">)</span>
+    <span class="n">gate_n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n_forward_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;forward_rate&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gate_n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n_reverse_rate</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;reverse_rate&quot;</span><span class="p">)</span>
+    <span class="n">k_channel</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gate_n</span><span class="p">)</span>
+
+    <span class="n">k_channel_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;k_channel&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;k channel for HH neuron&quot;</span>
+    <span class="p">)</span>
+    <span class="n">k_channel_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_k_channel.nml&quot;</span>
+    <span class="n">k_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">k_channel</span><span class="p">)</span>
+    <span class="n">k_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">k_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">k_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">k_channel_fn</span>
+
+
+<span class="k">def</span> <span class="nf">create_leak_channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a leak channel</span>
+
+<span class="sd">    This will create the leak channel and save it to a file.</span>
+<span class="sd">    It will also validate this file.</span>
+
+<span class="sd">    :returns: name of leak channel nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">leak_channel</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;IonChannelHH&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;leak_channel&quot;</span><span class="p">,</span> <span class="n">conductance</span><span class="o">=</span><span class="s2">&quot;10pS&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Leak conductance&quot;</span>
+    <span class="p">)</span>
+    <span class="n">leak_channel_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;leak_channel&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;leak channel for HH neuron&quot;</span>
+    <span class="p">)</span>
+    <span class="n">leak_channel_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_leak_channel.nml&quot;</span>
+    <span class="n">leak_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">leak_channel</span><span class="p">)</span>
+    <span class="n">leak_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">leak_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">leak_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">leak_channel_fn</span>
+
+</pre></div>
+</div>
+<p>They are also saved in their own NeuroML files, which have also been validated.
+The file for the K channel:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;k_channel&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>k<span class="w"> </span>channel<span class="w"> </span>for<span class="w"> </span>HH<span class="w"> </span>neuron<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ionChannelHH</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;k_channel&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;k&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;10pS&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>Potassium<span class="w"> </span>channel<span class="w"> </span>for<span class="w"> </span>HH<span class="w"> </span>cell<span class="nt">&lt;/notes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;gateHHrates</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;n&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;notes&gt;</span>n<span class="w"> </span>gate<span class="w"> </span>for<span class="w"> </span>k<span class="w"> </span>channel<span class="nt">&lt;/notes&gt;</span>
+<span class="w">            </span><span class="nt">&lt;forwardRate</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHExpLinearRate&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;0.1per_ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-55mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;10mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;reverseRate</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHExpRate&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;0.125per_ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-65mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-80mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gateHHrates&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ionChannelHH&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>For the leak channel:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;leak_channel&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>leak<span class="w"> </span>channel<span class="w"> </span>for<span class="w"> </span>HH<span class="w"> </span>neuron<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ionChannelHH</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;leak_channel&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;10pS&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>Leak<span class="w"> </span>conductance<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ionChannelHH&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="declaring-the-cell">
+<span id="userdocs-getting-started-single-compartment-example-model-cell"></span><h3>Declaring the cell<a class="headerlink" href="#declaring-the-cell" title="Link to this heading">#</a></h3>
+<p>Now that we have declared our ion channels, we can start constructing our <a class="reference internal" href="Schemas/Cells.html#schema-cell"><span class="std std-ref">cell</span></a> in a different function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_cell</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the cell.</span>
+
+<span class="sd">    :returns: name of the cell nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create the nml file and add the ion channels</span>
+    <span class="n">hh_cell_doc</span> <span class="o">=</span> <span class="n">NeuroMLDocument</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;cell&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;HH cell&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_cell.nml&quot;</span>
+
+    <span class="c1"># Define a cell</span>
+    <span class="n">hh_cell</span> <span class="o">=</span> <span class="n">hh_cell_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;Cell&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;hh_cell&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;A single compartment HH cell&quot;</span>
+    <span class="p">)</span>  <span class="c1"># type: neuroml.Cell</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">show_contents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Channel density for Na channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;na_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;120.0 mS_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;50.0 mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_na_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Channel density for k channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;k_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;360 S_per_m2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-77mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;k_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_k_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="c1"># Leak channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;leak_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;3.0 S_per_m2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-54.3mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;non_specific&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;leak_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_leak_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Other membrane properties</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_membrane_property</span><span class="p">(</span><span class="s2">&quot;SpikeThresh&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;-20mV&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s2">&quot;1.0 uF_per_cm2&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s2">&quot;-65mV&quot;</span><span class="p">)</span>
+
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s2">&quot;0.03 kohm_cm&quot;</span><span class="p">)</span>
+
+    <span class="c1"># We want a diameter such that area is 1000 micro meter^2</span>
+    <span class="c1"># surface area of a sphere is 4pi r^2 = 4pi diam^2</span>
+    <span class="n">diam</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span>
+        <span class="n">prox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;soma&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">fraction_along</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">group</span><span class="o">=</span><span class="s2">&quot;soma_0&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">hh_cell_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">hh_cell_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">hh_cell_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">hh_cell_fn</span>
+
+</pre></div>
+</div>
+<p>Let us walk through this function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">na_channel_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">na_channel</span><span class="p">)</span>
+    <span class="n">na_channel_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">na_channel_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">na_channel_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">na_channel_fn</span>
+</pre></div>
+</div>
+<p>We start by creating a new NeuroML document that we will use to save this cell, and adding the cell to it.</p>
+<p>A <a class="reference internal" href="Schemas/Cells.html#schema-cell"><span class="std std-ref">Cell</span></a> component has a number of child/children components that we need to now populate:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="go">Cell -- Cell with  **segment** s specified in a  **morphology**  element along with details on its  **biophysicalProperties** . NOTE: this can only be correctly simulated using jLEMS when there is a single segment in the cell, and **v**  of this cell represents the membrane potential in that isopotential segment.</span>
+
+<span class="go">Please see the NeuroML standard schema documentation at https://docs.neuroml.org/Userdocs/NeuroMLv2.html for more information.</span>
+
+<span class="go">Valid members for Cell are:</span>
+<span class="go">* morphology_attr (class: NmlId, Optional)</span>
+<span class="go">* biophysical_properties_attr (class: NmlId, Optional)</span>
+<span class="go">* morphology (class: Morphology, Optional)</span>
+<span class="go">        * Contents (&#39;ids&#39;/&lt;objects&gt;): &#39;morphology&#39;</span>
+
+<span class="go">* neuro_lex_id (class: NeuroLexId, Optional)</span>
+<span class="go">* metaid (class: MetaId, Optional)</span>
+<span class="go">* biophysical_properties (class: BiophysicalProperties, Optional)</span>
+<span class="go">        * Contents (&#39;ids&#39;/&lt;objects&gt;): &#39;biophys&#39;</span>
+
+<span class="go">* id (class: NmlId, Required)</span>
+<span class="go">        * Contents (&#39;ids&#39;/&lt;objects&gt;): hh_cell</span>
+
+<span class="go">* notes (class: xs:string, Optional)</span>
+<span class="go">        * Contents (&#39;ids&#39;/&lt;objects&gt;): A single compartment HH cell</span>
+
+<span class="go">* properties (class: Property, Optional)</span>
+<span class="go">* annotation (class: Annotation, Optional)</span>
+</pre></div>
+</div>
+<p>We can see that the <a class="reference internal" href="Schemas/Cells.html#schema-morphology"><span class="std std-ref">morphology</span></a> and <a class="reference internal" href="Schemas/Cells.html#schema-biophysicalproperties"><span class="std std-ref">biophysical properties</span></a> components have already been initialised for us.
+We now need to add the required components to them.</p>
+<p>We begin with the biophysical properties.
+Biophysical properties are themselves split into two:</p>
+<ul class="simple">
+<li><p>the <a class="reference internal" href="Schemas/Cells.html#schema-membraneproperties"><span class="std std-ref">membrane properties</span></a></p></li>
+<li><p>the <a class="reference internal" href="Schemas/Cells.html#schema-intracellularproperties"><span class="std std-ref">intracellular properties</span></a></p></li>
+</ul>
+<p>Let us look at membrane properties first.
+The <a class="reference internal" href="Schemas/Cells.html#schema-membraneproperties"><span class="std std-ref">schema</span></a> shows that membrane properties has two <em>child</em> elements:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Schemas/Cells.html#schema-initmembpotential"><span class="std std-ref">initMembPotential</span></a></p></li>
+<li><p><a class="reference internal" href="Schemas/Cells.html#schema-spikethresh"><span class="std std-ref">spikeThresh</span></a></p></li>
+</ul>
+<p>and three <em>children</em> elements:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Schemas/Cells.html#schema-specificcapacitance"><span class="std std-ref">specificCapacitances</span></a></p></li>
+<li><p><a class="reference internal" href="Schemas/Cells.html#schema-basechannelpopulation"><span class="std std-ref">populations</span></a></p></li>
+<li><p><a class="reference internal" href="Schemas/Cells.html#schema-basechanneldensity"><span class="std std-ref">channelDensities</span></a></p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Child elements vs Children elements</p>
+<p>When an element specifies a <strong>Child</strong> subelement, it will only have one of these present (it could have zero). <strong>Children</strong> explicitly says that there can be zero, one or many subelements.</p>
+</div>
+<p>So, we start with the ion-channels which are distributed along the membrane with some density.
+A number of helpful functions are available to us: <code class="docutils literal notranslate"><span class="pre">add_channel_density</span></code>, <code class="docutils literal notranslate"><span class="pre">add_membrane_property</span></code>, <code class="docutils literal notranslate"><span class="pre">set_specific_capacitance</span></code>, <code class="docutils literal notranslate"><span class="pre">set_init_memb_potential</span></code>:
+For example, for the Na channels:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Channel density for Na channel</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">hh_cell_doc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;na_channels&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;120.0 mS_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;50.0 mV&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;na_channel&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="n">create_na_channel</span><span class="p">(),</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>and similarly for the K and leak channels.
+Now, since the ion-channels were created in other files, we need to make this document aware of their declarations.
+To do this, reference the other files in the <code class="docutils literal notranslate"><span class="pre">ion_chan_def_file</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">add_channel_density</span></code> method.
+Under the hood, this will <code class="docutils literal notranslate"><span class="pre">include</span></code> the ion channel definition file we have created in this cell document using an <code class="docutils literal notranslate"><span class="pre">IncludeType</span></code> component.
+Each document we want to include gets appended to the list of <code class="docutils literal notranslate"><span class="pre">includes</span></code> for the document.</p>
+<p>Next, we add the other child and children elements: the <a class="reference internal" href="Schemas/Cells.html#schema-specificcapacitance"><span class="std std-ref">Specific Capacitance</span></a>, the <a class="reference internal" href="Schemas/Cells.html#schema-spikethresh"><span class="std std-ref">Spike Threshold</span></a>, the <a class="reference internal" href="Schemas/Cells.html#schema-initmembpotential"><span class="std std-ref">InitMembPotential</span></a>.
+This completes the membrane properties.
+We then add the intracellular properties next: <a class="reference internal" href="Schemas/Cells.html#schema-resistivity"><span class="std std-ref">Resistivity</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Other membrane properties</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_membrane_property</span><span class="p">(</span><span class="s2">&quot;SpikeThresh&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;-20mV&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s2">&quot;1.0 uF_per_cm2&quot;</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s2">&quot;-65mV&quot;</span><span class="p">)</span>
+
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s2">&quot;0.03 kohm_cm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we add the <a class="reference internal" href="Schemas/Cells.html#schema-morphology"><span class="std std-ref">Morphology</span></a> related information for our cell.
+Here, we are only creating a single compartment cell with only one segment.
+We will look into multi-compartment cells with more segments in later examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">diam</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">hh_cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span>
+        <span class="n">prox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diam</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;soma&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">fraction_along</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">group</span><span class="o">=</span><span class="s2">&quot;soma_0&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>A <a class="reference internal" href="Schemas/Cells.html#schema-segment"><span class="std std-ref">segment</span></a> has <code class="docutils literal notranslate"><span class="pre">proximal</span></code> and <code class="docutils literal notranslate"><span class="pre">distal</span></code> child elements which describe the extent of the segment.
+These are described using a <a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html#schema-point3dwithdiam"><span class="std std-ref">Point3DWithDiam</span></a> object, which the <code class="docutils literal notranslate"><span class="pre">add_segment</span></code> function creates for us.</p>
+<p>This completes our cell.
+We add it to our NeuroML document, and save (and validate) it.
+The resulting NeuroML file is:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;cell&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>HH<span class="w"> </span>cell<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;HH_example_na_channel.nml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;HH_example_k_channel.nml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;HH_example_leak_channel.nml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;cell</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;hh_cell&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>A<span class="w"> </span>single<span class="w"> </span>compartment<span class="w"> </span>HH<span class="w"> </span>cell<span class="nt">&lt;/notes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;morphology</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;hh_cell_morph&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;segment</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;soma&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;proximal</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">z=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">diameter=</span><span class="s">&quot;17.841241161527712&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;distal</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">z=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">diameter=</span><span class="s">&quot;17.841241161527712&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/segment&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/morphology&gt;</span>
+<span class="w">        </span><span class="nt">&lt;biophysicalProperties</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;hh_b_prop&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;membraneProperties&gt;</span>
+<span class="w">                </span><span class="nt">&lt;channelDensity</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;na_channels&quot;</span><span class="w"> </span><span class="na">ionChannel=</span><span class="s">&quot;na_channel&quot;</span><span class="w"> </span><span class="na">condDensity=</span><span class="s">&quot;120.0 mS_per_cm2&quot;</span><span class="w"> </span><span class="na">erev=</span><span class="s">&quot;50.0 mV&quot;</span><span class="w"> </span><span class="na">ion=</span><span class="s">&quot;na&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;channelDensity</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;k_channels&quot;</span><span class="w"> </span><span class="na">ionChannel=</span><span class="s">&quot;k_channel&quot;</span><span class="w"> </span><span class="na">condDensity=</span><span class="s">&quot;360 S_per_m2&quot;</span><span class="w"> </span><span class="na">erev=</span><span class="s">&quot;-77mV&quot;</span><span class="w"> </span><span class="na">ion=</span><span class="s">&quot;k&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;channelDensity</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;leak_channels&quot;</span><span class="w"> </span><span class="na">ionChannel=</span><span class="s">&quot;leak_channel&quot;</span><span class="w"> </span><span class="na">condDensity=</span><span class="s">&quot;3.0 S_per_m2&quot;</span><span class="w"> </span><span class="na">erev=</span><span class="s">&quot;-54.3mV&quot;</span><span class="w"> </span><span class="na">ion=</span><span class="s">&quot;non_specific&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;spikeThresh</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-20mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;specificCapacitance</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1.0 uF_per_cm2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;initMembPotential</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-65mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/membraneProperties&gt;</span>
+<span class="w">            </span><span class="nt">&lt;intracellularProperties&gt;</span>
+<span class="w">                </span><span class="nt">&lt;resistivity</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0.03 kohm_cm&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/intracellularProperties&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/biophysicalProperties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/cell&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>We now have our cell defined in a separate NeuroML file, that can be re-used and shared.</p>
+</section>
+<section id="declaring-the-network">
+<span id="userdocs-getting-started-single-compartment-example-model-network"></span><h3>Declaring the network<a class="headerlink" href="#declaring-the-network" title="Link to this heading">#</a></h3>
+<p>We now use our cell in a network.
+A <a class="reference internal" href="Schemas/Networks.html#schema-network"><span class="std std-ref">network in NeuroML</span></a> has multiple children elements: <a class="reference internal" href="Schemas/Networks.html#schema-population"><span class="std std-ref">populations</span></a>, <a class="reference internal" href="Schemas/Networks.html#schema-projection"><span class="std std-ref">projections</span></a>, <a class="reference internal" href="Schemas/Networks.html#schema-inputlist"><span class="std std-ref">inputLists</span></a> and so on.
+Here we are going to only create a network with one cell, and an <a class="reference internal" href="Schemas/Networks.html#schema-explicitinput"><span class="std std-ref">explicit input</span></a> to the cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_network</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the network</span>
+
+<span class="sd">    :returns: name of network nml file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">net_doc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;network&quot;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;HH cell network&quot;</span>
+    <span class="p">)</span>
+    <span class="n">net_doc_fn</span> <span class="o">=</span> <span class="s2">&quot;HH_example_net.nml&quot;</span>
+    <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;IncludeType&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">create_cell</span><span class="p">())</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Network&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;single_hh_cell_network&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Create a population: convenient to create many cells of the same type</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;Population&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pop0&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;A population for our cell&quot;</span><span class="p">,</span>
+        <span class="n">component</span><span class="o">=</span><span class="s2">&quot;hh_cell&quot;</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Input</span>
+    <span class="n">pulsegen</span> <span class="o">=</span> <span class="n">net_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="s2">&quot;PulseGenerator&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pg&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Simple pulse generator&quot;</span><span class="p">,</span>
+        <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span>
+        <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span>
+        <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;0.08nA&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">exp_input</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ExplicitInput&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;pop0[0]&quot;</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;pg&quot;</span><span class="p">)</span>
+
+    <span class="n">net_doc</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pynml</span><span class="o">.</span><span class="n">write_neuroml2_file</span><span class="p">(</span>
+        <span class="n">nml2_doc</span><span class="o">=</span><span class="n">net_doc</span><span class="p">,</span> <span class="n">nml2_file_name</span><span class="o">=</span><span class="n">net_doc_fn</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">net_doc_fn</span>
+</pre></div>
+</div>
+<p>We start in the same way, by creating a new NeuroML document and including our cell file into it.
+We then create a <a class="reference internal" href="Schemas/Networks.html#schema-population"><span class="std std-ref">population</span></a> comprising of a single cell.
+We create a <a class="reference internal" href="Schemas/Inputs.html#schema-pulsegenerator"><span class="std std-ref">pulse generator</span></a> as an <a class="reference internal" href="Schemas/Networks.html#schema-explicitinput"><span class="std std-ref">explicit input</span></a>, which targets our population.
+Note that as the schema documentation for <code class="docutils literal notranslate"><span class="pre">ExplicitInput</span></code> notes, any current source (any component that <em>extends</em> <a class="reference internal" href="Schemas/Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>) can be used as an <code class="docutils literal notranslate"><span class="pre">ExplicitInput</span></code>.</p>
+<p>We add all of these to the <a class="reference internal" href="Schemas/Networks.html#schema-network"><span class="std std-ref">network</span></a> and save (and validate) our network file.
+The NeuroML file generated is below:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w">  </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;network&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>HH<span class="w"> </span>cell<span class="w"> </span>network<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;HH_example_cell.nml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pulseGenerator</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;pg&quot;</span><span class="w"> </span><span class="na">delay=</span><span class="s">&quot;100ms&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;100ms&quot;</span><span class="w"> </span><span class="na">amplitude=</span><span class="s">&quot;0.08nA&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>Simple<span class="w"> </span>pulse<span class="w"> </span>generator<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/pulseGenerator&gt;</span>
+<span class="w">    </span><span class="nt">&lt;network</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;single_hh_cell_network&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;population</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;pop0&quot;</span><span class="w"> </span><span class="na">component=</span><span class="s">&quot;hh_cell&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;notes&gt;</span>A<span class="w"> </span>population<span class="w"> </span>for<span class="w"> </span>our<span class="w"> </span>cell<span class="nt">&lt;/notes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/population&gt;</span>
+<span class="w">        </span><span class="nt">&lt;explicitInput</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;pop0[0]&quot;</span><span class="w"> </span><span class="na">input=</span><span class="s">&quot;pg&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/network&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-generated-neuroml-model">
+<span id="userdocs-getting-started-single-compartment-example-model-generatedmodel"></span><h3>The generated NeuroML model<a class="headerlink" href="#the-generated-neuroml-model" title="Link to this heading">#</a></h3>
+<p>Before we look at simulating the model, we can inspect our model to check for correctness.
+All our NeuroML files were validated when they were created already, so we do not need to run this step again.
+However, if required, this can be easily done:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml -validate HH_*nml</span>
+</pre></div>
+</div>
+<p>Next, we can visualise our model using the information noted in the <a class="reference internal" href="VisualisingNeuroMLModels.html#userdocs-visualising-models"><span class="std std-ref">visualising NeuroML models</span></a> page (including the <code class="docutils literal notranslate"><span class="pre">-v</span></code> verbose option for more information on the cell):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml-summary HH_example_net.nml -v</span>
+<span class="go">*******************************************************</span>
+<span class="go">* NeuroMLDocument: network</span>
+<span class="go">*</span>
+<span class="go">*  IonChannelHH: [&#39;k_channel&#39;, &#39;leak_channel&#39;, &#39;na_channel&#39;]</span>
+<span class="go">*  PulseGenerator: [&#39;pg&#39;]</span>
+<span class="go">*</span>
+<span class="go">*  Cell: hh_cell</span>
+<span class="go">*    &lt;Segment|0|soma&gt;</span>
+<span class="go">*      Parent segment: None (root segment)</span>
+<span class="go">*      (0.0, 0.0, 0.0), diam 17.841241161527712um -&gt; (0.0, 0.0, 0.0), diam 17.841241161527712um; seg length: 0.0 um</span>
+<span class="go">*      Surface area: 1000.0 um2, volume: 2973.5401935879518 um3</span>
+<span class="go">*    Total length of 1 segment: 0.0 um; total area: 1000.0 um2</span>
+<span class="go">*</span>
+<span class="go">*    Channel density: na_channels on all;       conductance of 120.0 mS_per_cm2 through ion chan na_channel with ion na, erev: 50.0 mV</span>
+<span class="go">*      Channel is on &lt;Segment|0|soma&gt;,  total conductance: 1200.0 S_per_m2 x 1e-09 m2 = 1.2000000000000002e-06 S (1200000.0000000002 pS)</span>
+<span class="go">*    Channel density: k_channels on all;        conductance of 360 S_per_m2 through ion chan k_channel with ion k, erev: -77mV</span>
+<span class="go">*      Channel is on &lt;Segment|0|soma&gt;,  total conductance: 360.0 S_per_m2 x 1e-09 m2 = 3.6000000000000005e-07 S (360000.00000000006 pS)</span>
+<span class="go">*    Channel density: leak_channels on all;     conductance of 3.0 S_per_m2 through ion chan leak_channel with ion non_specific, erev: -54.3mV</span>
+<span class="go">*      Channel is on &lt;Segment|0|soma&gt;,  total conductance: 3.0 S_per_m2 x 1e-09 m2 = 3.0000000000000004e-09 S (3000.0000000000005 pS)</span>
+<span class="go">*</span>
+<span class="go">*    Specific capacitance on all: 1.0 uF_per_cm2</span>
+<span class="go">*      Capacitance of &lt;Segment|0|soma&gt;, total capacitance: 0.01 F_per_m2 x 1e-09 m2 = 1.0000000000000001e-11 F (10.000000000000002 pF)</span>
+<span class="go">*</span>
+<span class="go">*  Network: single_hh_cell_network</span>
+<span class="go">*</span>
+<span class="go">*   1 cells in 1 populations</span>
+<span class="go">*     Population: pop0 with 1 components of type hh_cell</span>
+<span class="go">*</span>
+<span class="go">*   0 connections in 0 projections</span>
+<span class="go">*</span>
+<span class="go">*   0 inputs in 0 input lists</span>
+<span class="go">*</span>
+<span class="go">*   1 explicit inputs (outside of input lists)</span>
+<span class="go">*     Explicit Input of type pg to pop0(cell 0), destination: unspecified</span>
+<span class="go">*</span>
+<span class="go">*******************************************************</span>
+</pre></div>
+</div>
+<p>Since our model is a single compartment model with only one cell, it doesn’t have any 3D structure to visualise.
+We can check the connectivity graph of the model:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml -graph 10 HH_example_net.nml</span>
+</pre></div>
+</div>
+<p>which will give us this figure:</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/single_hh_cell_network.gv.png"><img alt="Level 10 network graph generated by pynml" src="../_images/single_hh_cell_network.gv.png" style="width: 368.4px; height: 184.2px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Level 10 network graph generated by pynml</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="analysing-channels">
+<span id="userdocs-getting-started-single-compartment-example-model-generatedmodel-analysingchannels"></span><h4>Analysing channels<a class="headerlink" href="#analysing-channels" title="Link to this heading">#</a></h4>
+<p>Finally, we can analyse the ion channels that we’ve declared using the <code class="docutils literal notranslate"><span class="pre">pynml-channelanalysis</span></code> utility:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml-channelanalysis HH_example_k_channel.nml</span>
+</pre></div>
+</div>
+<p>This generates graphs to show the behaviour of the channel:</p>
+<div class="container-fluid">
+<div class="row my-2 py-2">
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/HH_example_k_channel_2.png"><img alt="Steady state behaviour of the K ion channel" src="../_images/HH_example_k_channel_2.png" style="width: 384.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Steady state behaviour of the K ion channel.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/HH_example_k_channel_1.png"><img alt="Time course of the K ion channel" src="../_images/HH_example_k_channel_1.png" style="width: 384.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Time course of the K ion channel.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+</div>
+</div>
+<p>Similarly, we can get these for the Na channel also:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml-channelanalysis HH_example_na_channel.nml</span>
+</pre></div>
+</div>
+<div class="container-fluid">
+<div class="row my-2 py-2">
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/HH_example_na_channel_2.png"><img alt="Steady state behaviour of the Na ion channel" src="../_images/HH_example_na_channel_2.png" style="width: 384.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Steady state behaviour of the Na ion channel.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/HH_example_na_channel_1.png"><img alt="Time course of the Na ion channel" src="../_images/HH_example_na_channel_1.png" style="width: 384.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Time course of the Na ion channel.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="simulating-the-model">
+<span id="userdocs-getting-started-single-compartment-example-simulating"></span><h2>Simulating the model<a class="headerlink" href="#simulating-the-model" title="Link to this heading">#</a></h2>
+<p>Now that we have declared and inspected our network model and all its components, we can proceed to simulate it.
+We do this in the <code class="docutils literal notranslate"><span class="pre">main</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function</span>
+
+<span class="sd">    Include the NeuroML model into a LEMS simulation file, run it, plot some</span>
+<span class="sd">    data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Simulation bits</span>
+    <span class="n">sim_id</span> <span class="o">=</span> <span class="s2">&quot;HH_single_compartment_example_sim&quot;</span>
+    <span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span>
+        <span class="n">sim_id</span><span class="o">=</span><span class="n">sim_id</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span>
+    <span class="p">)</span>
+    <span class="c1"># Include the NeuroML model file</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">create_network</span><span class="p">())</span>
+    <span class="c1"># Assign target for the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="s2">&quot;single_hh_cell_network&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Recording information from the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/iChannels&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/iChannels&quot;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+        <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/na/iDensity&quot;</span><span class="p">,</span>
+        <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/biophys/membraneProperties/na_channels/iDensity/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+        <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/k/iDensity&quot;</span><span class="p">,</span>
+        <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/biophys/membraneProperties/k_channels/iDensity/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Save LEMS simulation to file</span>
+    <span class="n">sim_file</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">()</span>
+
+    <span class="c1"># Run the simulation using the default jNeuroML simulator</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">run_lems_with_jneuroml</span><span class="p">(</span><span class="n">sim_file</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="s2">&quot;2G&quot;</span><span class="p">,</span> <span class="n">nogui</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Plot the data</span>
+    <span class="n">plot_data</span><span class="p">(</span><span class="n">sim_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we first create a <code class="docutils literal notranslate"><span class="pre">LEMSSimulation</span></code> instance and include our network NeuroML file in it.
+We must inform LEMS what the target of the simulation is.
+In our case, it’s the id of our network, <code class="docutils literal notranslate"><span class="pre">single_hh_cell_network</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">sim_id</span> <span class="o">=</span> <span class="s2">&quot;HH_single_compartment_example_sim&quot;</span>
+    <span class="n">simulation</span> <span class="o">=</span> <span class="n">LEMSSimulation</span><span class="p">(</span>
+        <span class="n">sim_id</span><span class="o">=</span><span class="n">sim_id</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">simulation_seed</span><span class="o">=</span><span class="mi">123</span>
+    <span class="p">)</span>
+    <span class="c1"># Include the NeuroML model file</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">include_neuroml2_file</span><span class="p">(</span><span class="n">create_network</span><span class="p">())</span>
+    <span class="c1"># Assign target for the simulation</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">assign_simulation_target</span><span class="p">(</span><span class="s2">&quot;single_hh_cell_network&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also want to record some information, so we create an output file first with an <code class="docutils literal notranslate"><span class="pre">id</span></code> of <code class="docutils literal notranslate"><span class="pre">output0</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">simulation</span><span class="o">.</span><span class="n">create_output_file</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we can record any quantity that is exposed by NeuroML (any <code class="docutils literal notranslate"><span class="pre">exposure</span></code>).
+For example, we add a column for the membrane potential <code class="docutils literal notranslate"><span class="pre">v</span></code> of the <a class="reference internal" href="Schemas/Cells.html#schema-cell"><span class="std std-ref">cell</span></a> which would be the <em>0th</em> (and only) cell in our population <code class="docutils literal notranslate"><span class="pre">pop0</span></code>: <code class="docutils literal notranslate"><span class="pre">pop0[0]/v</span></code>.
+We can also record the current in the channels: <code class="docutils literal notranslate"><span class="pre">pop[0]/iChannels</span></code>
+We can also record the <a class="reference internal" href="Schemas/Cells.html#schema-channeldensity"><span class="std std-ref">current density</span></a> <code class="docutils literal notranslate"><span class="pre">iDensity</span></code> for the channels, so we also record these.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/v&quot;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span> <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/iChannels&quot;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/iChannels&quot;</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+        <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/na/iDensity&quot;</span><span class="p">,</span>
+        <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/biophys/membraneProperties/na_channels/iDensity/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">add_column_to_output_file</span><span class="p">(</span>
+        <span class="s2">&quot;output0&quot;</span><span class="p">,</span>
+        <span class="n">column_id</span><span class="o">=</span><span class="s2">&quot;pop0[0]/k/iDensity&quot;</span><span class="p">,</span>
+        <span class="n">quantity</span><span class="o">=</span><span class="s2">&quot;pop0[0]/biophys/membraneProperties/k_channels/iDensity/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>We then save the LEMS simulation file, run our simulation with the default <a class="reference internal" href="Software/jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a> simulator.</p>
+</section>
+<section id="plotting-the-recorded-variables">
+<span id="userdocs-getting-started-single-compartment-example-plotting"></span><h2>Plotting the recorded variables<a class="headerlink" href="#plotting-the-recorded-variables" title="Link to this heading">#</a></h2>
+<p>To plot the variables that we recorded, we read the data and use the <code class="docutils literal notranslate"><span class="pre">generate_plot</span></code> utility function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">sim_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the sim data.</span>
+
+<span class="sd">    Load the data from the file and plot the graph for the membrane potential</span>
+<span class="sd">    using the pynml generate_plot utility function.</span>
+
+<span class="sd">    :sim_id: ID of simulaton</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;.dat&quot;</span><span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]],</span>
+        <span class="s2">&quot;Membrane potential&quot;</span><span class="p">,</span>
+        <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;-v.png&quot;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;membrane potential (V)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]],</span>
+        <span class="s2">&quot;channel current&quot;</span><span class="p">,</span>
+        <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;-i.png&quot;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;channel current (A)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">pynml</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">data_array</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]],</span>
+        <span class="s2">&quot;current density&quot;</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">],</span>
+        <span class="n">show_plot_already</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">save_figure_to</span><span class="o">=</span><span class="n">sim_id</span> <span class="o">+</span> <span class="s2">&quot;-iden.png&quot;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;current density (A_per_m2)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>This generates the following graphs:</p>
+<div class="container-fluid">
+<div class="row my-2 py-2">
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/HH_single_compartment_example_sim-v.png"><img alt="Membrane potential" src="../_images/HH_single_compartment_example_sim-v.png" style="width: 383.4px; height: 277.2px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Membrane potential</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/HH_single_compartment_example_sim-i.png"><img alt="Channel current" src="../_images/HH_single_compartment_example_sim-i.png" style="width: 375.0px; height: 289.2px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Channel current.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/HH_single_compartment_example_sim-iden.png"><img alt="Channel current densities" src="../_images/HH_single_compartment_example_sim-iden.png" style="width: 375.59999999999997px; height: 277.2px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Channel current densities</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</center>
+</div>
+</div>
+</div>
+<p>This concludes out third example.
+Here we have seen how to create, simulate, record, and visualise a single compartment Hodgkin-Huxley neuron.
+In the next section, you will find an interactive notebook where you can play with this example.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="NML2_examples/IzhikevichNetwork.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interactive two population network example</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="NML2_examples/HH_single_compartment.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interactive single compartment HH example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-model-in-neuroml">Declaring the model in NeuroML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-ion-channels">Declaring ion channels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-cell">Declaring the cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-the-network">Declaring the network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-generated-neuroml-model">The generated NeuroML model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysing-channels">Analysing channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-model">Simulating the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-recorded-variables">Plotting the recorded variables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

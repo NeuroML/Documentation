@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Visualising NeuroML Models &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/VisualisingNeuroMLModels';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualising and analysing ion channel models" href="VisualisingChannels.html" />
+    <link rel="prev" title="Validating NeuroML Models" href="ValidatingNeuroMLModels.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Visualising NeuroML Models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/VisualisingNeuroMLModels.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/VisualisingNeuroMLModels.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Userdocs/VisualisingNeuroMLModels.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visualising NeuroML Models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-quick-summary-of-your-model">Get a quick summary of your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-command-line-tools">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-3d-structure-of-your-model">View the 3D structure of your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-png-cli">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-png-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-connectivity-graph-of-your-model">View the connectivity graph of your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-graph-cli">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-graph-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-connectivity-matrices-of-the-model">View the connectivity matrices of the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-graph-of-the-simulation-instance-of-the-model">View graph of the simulation instance of the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-lemsgraph-cli">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-lemsgraph-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-analysing-ion-channel-dynamics">Viewing/analysing ion channel dynamics</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visualising-neuroml-models">
+<span id="userdocs-visualising-models"></span><h1>Visualising NeuroML Models<a class="headerlink" href="#visualising-neuroml-models" title="Link to this heading">#</a></h1>
+<p>A number of the <a class="reference internal" href="Software/Software.html#userdocs-software"><span class="std std-ref">NeuroML software tools</span></a> can be used to easily visualise models described in NeuroML.</p>
+<section id="get-a-quick-summary-of-your-model">
+<span id="userdoc-visualising-models-summary"></span><h2>Get a quick summary of your model<a class="headerlink" href="#get-a-quick-summary-of-your-model" title="Link to this heading">#</a></h2>
+<section id="using-command-line-tools">
+<span id="userdoc-visualising-models-summary-cli"></span><h3>Using command line tools<a class="headerlink" href="#using-command-line-tools" title="Link to this heading">#</a></h3>
+<p>You can get a quick summary of your NeuroML model using the  <code class="docutils literal notranslate"><span class="pre">pynml-summary</span></code> command line tool that is provided by <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">pynml-summary &lt;NeuroML file&gt;</span>
+</pre></div>
+</div>
+<p>For example, to get a quick summary of the <a class="reference external" href="https://github.com/OpenSourceBrain/ACnet2/blob/master/neuroConstruct/generatedNeuroML2/MediumNet.net.nml">Primary Auditory Cortex model by Dave Beeman</a> (see it <a class="reference external" href="https://www.opensourcebrain.org/projects/acnet2">here on Open Source Brain</a>), one can run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml-summary MediumNet.net.nml</span>
+
+<span class="go">*******************************************************</span>
+<span class="go">* NeuroMLDocument: network_ACnet2</span>
+<span class="go">*</span>
+<span class="go">*  PulseGenerator: [&#39;BackgroundRandomIClamps&#39;]</span>
+<span class="go">*</span>
+<span class="go">*  Network: network_ACnet2 (temperature: 6.3 degC)</span>
+<span class="go">*</span>
+<span class="go">*   60 cells in 2 populations</span>
+<span class="go">*     Population: baskets_12 with 12 components of type bask</span>
+<span class="go">*       Locations: [(372.5585, 75.3425, 459.2106), ...]</span>
+<span class="go">*       Properties: color=0.0 0.19921875 0.59765625;</span>
+<span class="go">*     Population: pyramidals_48 with 48 components of type pyr_4_sym</span>
+<span class="go">*       Locations: [(64.2564, 0.6838, 94.8305), ...]</span>
+<span class="go">*       Properties: color=0.796875 0.0 0.0;</span>
+<span class="go">*</span>
+<span class="go">*   984 connections in 4 projections</span>
+<span class="go">*     Projection: SmallNet_bask_bask from baskets_12 to baskets_12, synapse: GABA_syn_inh</span>
+<span class="go">*       60 connections: [(Connection 0: 3:0(0.41661) -&gt; 0:0(0.68577)), ...]</span>
+<span class="go">*     Projection: SmallNet_bask_pyr from baskets_12 to pyramidals_48, synapse: GABA_syn</span>
+<span class="go">*       336 connections: [(Connection 0: 10:0(0.05824) -&gt; 0:6(0.02628)), ...]</span>
+<span class="go">*     Projection: SmallNet_pyr_bask from pyramidals_48 to baskets_12, synapse: AMPA_syn_inh</span>
+<span class="go">*       252 connections: [(Connection 0: 1:0(0.89734) -&gt; 0:1(0.09495)), ...]</span>
+<span class="go">*     Projection: SmallNet_pyr_pyr from pyramidals_48 to pyramidals_48, synapse: AMPA_syn</span>
+<span class="go">*       336 connections: [(Connection 0: 14:0(0.52814) -&gt; 0:3(0.10797)), ...]</span>
+<span class="go">*</span>
+<span class="go">*   14 inputs in 1 input lists</span>
+<span class="go">*     Input list: BackgroundRandomIClamps to pyramidals_48, component BackgroundRandomIClamps</span>
+<span class="go">*       14 inputs: [(Input 0: 37:0(0.500000)), ...]</span>
+<span class="go">*</span>
+<span class="go">*******************************************************</span>
+</pre></div>
+</div>
+</section>
+<section id="using-pyneuroml">
+<span id="userdoc-visualising-models-summary-pyneuroml"></span><h3>Using pyNeuroML<a class="headerlink" href="#using-pyneuroml" title="Link to this heading">#</a></h3>
+<p>You can also get a summary of your model from within your <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a> script itself using the <code class="docutils literal notranslate"><span class="pre">summary</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyneuroml.pynml</span>
+
+<span class="o">...</span>
+
+
+<span class="n">pyneuroml</span><span class="o">.</span><span class="n">pynml</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">nml2_doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="view-the-3d-structure-of-your-model">
+<span id="userdoc-visualising-models-png"></span><h2>View the 3D structure of your model<a class="headerlink" href="#view-the-3d-structure-of-your-model" title="Link to this heading">#</a></h2>
+<section id="userdoc-visualising-models-png-cli">
+<span id="id1"></span><h3>Using command line tools<a class="headerlink" href="#userdoc-visualising-models-png-cli" title="Link to this heading">#</a></h3>
+<p>You can generate an image of the 3D structure of the NeuroML model using the <code class="docutils literal notranslate"><span class="pre">pynml</span></code> command provided by <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a>, or using the <code class="docutils literal notranslate"><span class="pre">jnml</span></code> command provided by <a class="reference internal" href="Software/jNeuroML.html#jneuroml"><span class="std std-ref">jNeuroML</span></a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">pynml -png/-svg &lt;NeuroML file&gt;</span>
+<span class="go">jnml -png/-svg &lt;NeuroML file&gt;</span>
+</pre></div>
+</div>
+<p>For example, to generate a PNG image of the Auditory Cortex model used above, we can use (use <code class="docutils literal notranslate"><span class="pre">-svg</span></code> to generate a vectorised SVG image instead of a PNG):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml -png MediumNet.net.nml</span>
+</pre></div>
+</div>
+<p>This generates the following image showing different views of the network :</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/Acnet-medium.net.png"><img alt="Graphical view of the Auditory Cortex model generated with pynml" src="../_images/Acnet-medium.net.png" style="width: 325.0px; height: 567.4px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Graphical view of the Auditory Cortex model generated with pynml</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>An visualiser is also included in pyneuroml as <code class="docutils literal notranslate"><span class="pre">pynml-plotmorph</span></code> which includes both 2D and 3D views:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">pynml-plotmorph &lt;NeuroML file&gt;</span>
+<span class="go">pynml-plotmorph -i &lt;NeuroML file&gt;</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/20231122-ACNet.png"><img alt="A network visualised with `pynml-plotmorph`" src="../_images/20231122-ACNet.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Matplotlib based 2D visualisation of a network with <code class="docutils literal notranslate"><span class="pre">pynml-plotmorph</span></code>.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<center>
+    <video src="../_static/files/20231122-ACNet.webm" width="70%"  controls loop>
+        Your browser does not support the video tag
+    </video><br />
+    <i>Example network visualised interactively using `pynml-plotmorph`</i><br /><br />
+</center>
+<p>You can also generate graphical representations that can be viewed with the <a class="reference external" href="http://povray.org/">Persistence of Vision Raytracer (POV-Ray)</a> tool using the <code class="docutils literal notranslate"><span class="pre">pynml-povray</span></code> tool.
+For example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml-povray MediumNet.net.nml -scalez 8</span>
+<span class="go">povray Antialias=On Antialias_Depth=10 Antialias_Threshold=0.1 Output_to_File=y Output_File_Type=N Output_File_Name=Acnet-medium.povray +W1200 +H900 MediumNet.net.nml.pov</span>
+</pre></div>
+</div>
+<p>generates this image:</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/Acnet-medium.povray.png"><img alt="Graphical view of the Auditory Cortex model generated with pynml-povray and POV-Ray" src="../_images/Acnet-medium.povray.png" style="width: 600.0px; height: 450.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Graphical view of the Auditory Cortex model generated with pynml-povray and POV-Ray</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can also use POV-Ray interactively.
+Please refer to the <a class="reference external" href="http://povray.org/download/">official website</a> for more information on installing and using POV-Ray.
+On Fedora Linux systems, you can install it from the Fedora repositories using <code class="docutils literal notranslate"><span class="pre">dnf</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo dnf install povray</span>
+</pre></div>
+</div>
+</section>
+<section id="userdoc-visualising-models-png-pyneuroml">
+<span id="id2"></span><h3>Using pyNeuroML<a class="headerlink" href="#userdoc-visualising-models-png-pyneuroml" title="Link to this heading">#</a></h3>
+<p>These functions are also exposed as Python functions in <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a>, so that you can use them directly in Python scripts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyneuroml.pynml</span>
+
+<span class="n">pyneuroml</span><span class="o">.</span><span class="n">pynml</span><span class="o">.</span><span class="n">nml2_to_png</span><span class="p">(</span><span class="n">nml2_doc</span><span class="p">)</span>
+<span class="n">pyneuroml</span><span class="o">.</span><span class="n">pynml</span><span class="o">.</span><span class="n">nml2_to_svg</span><span class="p">(</span><span class="n">nml2_doc</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">pyneuroml.plot.PlotMorphology</span> <span class="kn">import</span> <span class="n">plot_2D</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.plot.PlotMorphologyVispy</span> <span class="kn">import</span> <span class="n">plot_interactive_3D</span>
+
+<span class="n">plot_2D</span><span class="p">(</span><span class="n">nml2_doc</span><span class="p">)</span>
+<span class="n">plot_interactive_3D</span><span class="p">(</span><span class="n">nml2_doc</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Open Source Brain uses NeuroML.</p>
+<p>The <a class="reference external" href="https://www.opensourcebrain.org">Open Source Brain platform</a> generates the interactive visualisations from NeuroML sources.
+See the Auditory Cortex model on Open Source Brain <a class="reference external" href="https://www.opensourcebrain.org/projects/acnet2">here</a>.</p>
+</div>
+</section>
+</section>
+<section id="view-the-connectivity-graph-of-your-model">
+<span id="userdoc-visualising-models-graph"></span><h2>View the connectivity graph of your model<a class="headerlink" href="#view-the-connectivity-graph-of-your-model" title="Link to this heading">#</a></h2>
+<section id="userdoc-visualising-models-graph-cli">
+<span id="id3"></span><h3>Using command line tools<a class="headerlink" href="#userdoc-visualising-models-graph-cli" title="Link to this heading">#</a></h3>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Use levels to generate connectivity graphs with different levels of detail.</p>
+<p>Positive values for levels will generate figures at the population level, while negative values will generate them at the level of cells.</p>
+</div>
+<p>You can generate an image of the 3D structure of the NeuroML model using <code class="docutils literal notranslate"><span class="pre">pynml</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">pynml &lt;NeuroML file&gt; -graph &lt;level, engine&gt;</span>
+</pre></div>
+</div>
+<p>For example, to generate a PNG image of the Auditory Cortex model used above, we can use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml MediumNet.net.nml -graph 1d</span>
+</pre></div>
+</div>
+<p>This generates the following image showing different views of the network :</p>
+<figure class="align-center" id="id10">
+<img alt="Level 1 network graph generated by pynml" src="../_images/Acnet-medium-graph-level1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Level 1 network graph generated by pynml</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can modify the level of detail included in the graph by using different values of levels.
+For example, this command generates a level 5 graph:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml MediumNet.net.nml -graph 5d</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/Acnet-medium-graph-level5.png"><img alt="Level 5 network graph generated by pynml" src="../_images/Acnet-medium-graph-level5.png" style="width: 345.0px; height: 372.59999999999997px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Level 5 network graph generated by pynml</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="userdoc-visualising-models-graph-pyneuroml">
+<span id="id4"></span><h3>Using pyNeuroML<a class="headerlink" href="#userdoc-visualising-models-graph-pyneuroml" title="Link to this heading">#</a></h3>
+<p>You can also generated these figures from within your <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a> script itself using the <code class="docutils literal notranslate"><span class="pre">generate_nmlgraph</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyneuroml.pynml</span>
+
+<span class="o">...</span>
+
+
+<span class="n">pyneuroml</span><span class="o">.</span><span class="n">pynml</span><span class="o">.</span><span class="n">generate_nmlgraph</span><span class="p">(</span><span class="n">nml2_doc</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="view-the-connectivity-matrices-of-the-model">
+<span id="userdoc-visualising-models-matrix"></span><h2>View the connectivity matrices of the model<a class="headerlink" href="#view-the-connectivity-matrices-of-the-model" title="Link to this heading">#</a></h2>
+<p>You can generate the connectivity matrices of projections between neuronal populations of the NeuroML model using <code class="docutils literal notranslate"><span class="pre">pynml</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">pynml &lt;NeuroML file&gt; -matrix &lt;level&gt;</span>
+</pre></div>
+</div>
+<p>For example, to generate a PNG image of the connectivity matrices in the Auditory Cortex model used above, we can use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pynml MediumNet.net.nml -matrix 1</span>
+</pre></div>
+</div>
+<p>This generates the following images showing different views of the connectivity matrices in the network :</p>
+<div class="container-fluid">
+<div class="row my-2 py-2">
+<div class="col-sm-6 px-2">
+<center>
+<a class="reference internal image-reference" href="../_images/Acnet-matrix-1.png"><img alt="Connectivity matrix generated by pynml - sum of signed weights" src="../_images/Acnet-matrix-1.png" style="width: 320.0px; height: 240.0px;" /></a>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<a class="reference internal image-reference" href="../_images/Acnet-matrix-2.png"><img alt="Connectivity matrix generated by pynml - average magnitude of conductance received by post-synaptic neurons" src="../_images/Acnet-matrix-2.png" style="width: 320.0px; height: 240.0px;" /></a>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<a class="reference internal image-reference" href="../_images/Acnet-matrix-3.png"><img alt="Connectivity matrix generated by pynml - number of connections" src="../_images/Acnet-matrix-3.png" style="width: 320.0px; height: 240.0px;" /></a>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<a class="reference internal image-reference" href="../_images/Acnet-matrix-4.png"><img alt="Connectivity matrix generated by pynml - average conductance received by post-synaptic neurons" src="../_images/Acnet-matrix-4.png" style="width: 320.0px; height: 240.0px;" /></a>
+</center>
+</div>
+<div class="col-sm-6 px-2">
+<center>
+<a class="reference internal image-reference" href="../_images/Acnet-matrix-5.png"><img alt="Connectivity matrix generated by pynml - average weight per connection" src="../_images/Acnet-matrix-5.png" style="width: 320.0px; height: 240.0px;" /></a>
+</center>
+</div>
+</div>
+</div>
+</section>
+<section id="view-graph-of-the-simulation-instance-of-the-model">
+<span id="userdoc-visualising-models-lemsgraph"></span><h2>View graph of the simulation instance of the model<a class="headerlink" href="#view-graph-of-the-simulation-instance-of-the-model" title="Link to this heading">#</a></h2>
+<section id="userdoc-visualising-models-lemsgraph-cli">
+<span id="id5"></span><h3>Using command line tools<a class="headerlink" href="#userdoc-visualising-models-lemsgraph-cli" title="Link to this heading">#</a></h3>
+<p>When you have created a simulation instance of the NeuroML model using LEMS, you can also visualise this using <code class="docutils literal notranslate"><span class="pre">pynml</span></code> or <code class="docutils literal notranslate"><span class="pre">jnml</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">pynml &lt;LEMS simulation file&gt; -lems-graph</span>
+<span class="go">jnml &lt;LEMS simulation file&gt; -lems-graph</span>
+</pre></div>
+</div>
+<p>For example, to generate the LEMS graph for the <a class="reference internal" href="IzhikevichNetworkExample.html#userdocs-gettingstarted-izhikevichnetwork"><span class="std std-ref">Izhikevich neuron network example</span></a>, we will use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jnml LEMS_example_izhikevich2007network_sim.xml -lems-graph</span>
+</pre></div>
+</div>
+<p>will generate:</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/LEMS_example_izhikevich2007network_sim.png"><img alt="Model summary graph generated using jnml." src="../_images/LEMS_example_izhikevich2007network_sim.png" style="width: 365.5px; height: 760.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">A summary graph of the model generated using jnml.</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">-lems-graph</span></code> option does not take options for levels of detail.
+It shows all the details of the simulation instance, and so is better suited for simpler models rather than detailed conductance based network models.
+For example, for the Auditory Cortex model, <a class="reference download internal" download="" href="../_downloads/54d9372f3c36e040552bd9cd5af44e43/Acnet-LEMS.png"><code class="xref download docutils literal notranslate"><span class="pre">this</span></code></a> very very detailed image is generated (please click to open: it is too large to display in the page).</p>
+</section>
+<section id="userdoc-visualising-models-lemsgraph-pyneuroml">
+<span id="id6"></span><h3>Using pyNeuroML<a class="headerlink" href="#userdoc-visualising-models-lemsgraph-pyneuroml" title="Link to this heading">#</a></h3>
+<p>You can also generated these figures from within your <a class="reference internal" href="Software/pyNeuroML.html#pyneuroml"><span class="std std-ref">pyNeuroML</span></a> script itself using the <code class="docutils literal notranslate"><span class="pre">generate_lemsgraph</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyneuroml.pynml</span>
+
+<span class="o">...</span>
+
+<span class="n">pyneuroml</span><span class="o">.</span><span class="n">pynml</span><span class="o">.</span><span class="n">generate_lemsgraph</span><span class="p">(</span><span class="n">lems_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="viewing-analysing-ion-channel-dynamics">
+<h2>Viewing/analysing ion channel dynamics<a class="headerlink" href="#viewing-analysing-ion-channel-dynamics" title="Link to this heading">#</a></h2>
+<p>There is a dedicated section on <a class="reference internal" href="VisualisingChannels.html#userdocs-visualising-channels"><span class="std std-ref">visualising and analysing ion channel models</span></a>.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ValidatingNeuroMLModels.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Validating NeuroML Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VisualisingChannels.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visualising and analysing ion channel models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-quick-summary-of-your-model">Get a quick summary of your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-command-line-tools">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-3d-structure-of-your-model">View the 3D structure of your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-png-cli">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-png-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-connectivity-graph-of-your-model">View the connectivity graph of your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-graph-cli">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-graph-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-connectivity-matrices-of-the-model">View the connectivity matrices of the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-graph-of-the-simulation-instance-of-the-model">View graph of the simulation instance of the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-lemsgraph-cli">Using command line tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#userdoc-visualising-models-lemsgraph-pyneuroml">Using pyNeuroML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-analysing-ion-channel-dynamics">Viewing/analysing ion channel dynamics</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
