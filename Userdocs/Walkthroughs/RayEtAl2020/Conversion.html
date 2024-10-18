@@ -1,0 +1,1552 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Converting to NeuroML &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/Walkthroughs/RayEtAl2020/Conversion';</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Adding OMV tests" href="OMV.html" />
+    <link rel="prev" title="Setting up" href="Setup.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Walkthroughs.html">Walk throughs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Setup.html">Setting up</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/Walkthroughs/RayEtAl2020/Conversion.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Walkthroughs/RayEtAl2020/Conversion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Userdocs/Walkthroughs/RayEtAl2020/Conversion.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Converting to NeuroML</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-the-giant-gabaergic-neuron">Converting the Giant GABAergic Neuron</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-exporting-morphology-of-the-ggn">Step 1) Exporting morphology of the GGN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-adding-biophysics-to-the-ggn">Step 2) Adding biophysics to the GGN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-the-kenyon-cell">Converting the Kenyon Cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-converting-ion-channels">Step 1) Converting ion channels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-kv-naf-kst">1a) Kv, Naf, Kst</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-ka">1b) Ka</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-the-morphology">Step 2) Creating the morphology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-testing-the-model">Step 3) Testing the model</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="converting-to-neuroml">
+<h1>Converting to NeuroML<a class="headerlink" href="#converting-to-neuroml" title="Link to this heading">#</a></h1>
+<p>On inspection of the model, we see that it has two biophysically detailed cell models:</p>
+<ul class="simple">
+<li><p>the GGN (Giant GABAergic Neuron)</p></li>
+<li><p>the KC (Kenyon cell)</p></li>
+</ul>
+<section id="converting-the-giant-gabaergic-neuron">
+<h2>Converting the Giant GABAergic Neuron<a class="headerlink" href="#converting-the-giant-gabaergic-neuron" title="Link to this heading">#</a></h2>
+<section id="step-1-exporting-morphology-of-the-ggn">
+<h3>Step 1) Exporting morphology of the GGN<a class="headerlink" href="#step-1-exporting-morphology-of-the-ggn" title="Link to this heading">#</a></h3>
+<p>Let’s start with the GGN first.
+It’s morphology is defined as an SWC file in <a class="reference external" href="https://github.com/OpenSourceBrain/262670/blob/master/NEURON/mb/cell_templates/GGN_20170309_sc.swc">this file</a>.
+One can download this file and view the morphology in a tool, like the <a class="reference external" href="https://neuroinformatics.nl/HBP/morphology-viewer/#">HBP morphology viewer</a>.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../../_images/GGN.png"><img alt="Screen shot showing visualisation of the GGN in the HBP morphology viewer" src="../../../_images/GGN.png" style="width: 384.0px; height: 199.60000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Visualisation of the GGN in the HBP morphology viewer.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A <a class="reference external" href="https://github.com/OpenSourceBrain/262670/blob/master/NEURON/mb/cell_templates/GGN_20170309_sc.hoc">NEURON HOC script</a> that includes the full morphology and the biophysics is also included.</p>
+<p>Let us export the morphology first.
+pyNeuroML includes the <code class="docutils literal notranslate"><span class="pre">export_to_neuroml2</span></code> helper function that exports a cell model in NEURON to NeuroML.
+We can write a short script to use this function to export the morphology from the provided HOC script.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Convert cell morphology to NeuroML.</span>
+
+<span class="sd">We only export morphologies here. We add the biophysics manually.</span>
+
+<span class="sd">File: NeuroML2/scripts/cell2nml.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">pyneuroml</span>
+<span class="kn">from</span> <span class="nn">pyneuroml.neuron</span> <span class="kn">import</span> <span class="n">export_to_neuroml2</span>
+<span class="kn">from</span> <span class="nn">neuron</span> <span class="kn">import</span> <span class="n">h</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">acell</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main runner method.</span>
+
+<span class="sd">    :param acell: name of cell</span>
+<span class="sd">    :returns: None</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">loader_hoc_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">acell</span><span class="si">}</span><span class="s2">_loader.hoc&quot;</span>
+    <span class="n">loader_hoc_file_txt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    /*load_file(&quot;nrngui.hoc&quot;)*/</span>
+<span class="s2">    load_file(&quot;stdrun.hoc&quot;)</span>
+<span class="s2">    xopen(&quot;../../NEURON/mb/cell_templates/GGN_20170309_sc.hoc&quot;)</span>
+<span class="s2">    objref cell</span>
+<span class="s2">    cell = new GGN_20170309_sc()</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">loader_hoc_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">loader_hoc_file_txt</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">export_to_neuroml2</span><span class="p">(</span><span class="n">loader_hoc_file</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">acell</span><span class="si">}</span><span class="s2">.morph.cell.nml&quot;</span><span class="p">,</span>
+                       <span class="n">includeBiophysicalProperties</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">loader_hoc_file</span><span class="p">)</span>
+    <span class="c1"># Note--a couple of diameters are 0.0, modified to 0.001 to validate the</span>
+    <span class="c1"># model</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This script only accepts one argument.&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>What we’re doing here is using the HOC script to build the cell model in NEURON, and then exporting it to NeuroML.
+Calling it as <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">cellmorph2nml.py</span> <span class="pre">GGN</span></code> will create a new file: <code class="docutils literal notranslate"><span class="pre">GGN.morph.cell.nml</span></code> which contains the morphology of the cell in NeuroML format.
+Note that while <code class="docutils literal notranslate"><span class="pre">export_to_neuroml2</span></code> does allow exporting the biophysics of the cell, it is better to add these manually later once one has gone through and converted the required ion channels and so on.</p>
+<p>We can visualise the morphology using the pyNeuroML tools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pynml-plotmorph<span class="w"> </span>-i<span class="w"> </span>GGN.morph.cell.nml
+</pre></div>
+</div>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../../_images/GGN-vispy.png"><img alt="Screen shot showing visualisation of the GGN using `pynml-plotmorph`" src="../../../_images/GGN-vispy.png" style="width: 384.0px; height: 216.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Visualisation of the GGN using <code class="docutils literal notranslate"><span class="pre">pynml-plotmorph</span></code></span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-2-adding-biophysics-to-the-ggn">
+<h3>Step 2) Adding biophysics to the GGN<a class="headerlink" href="#step-2-adding-biophysics-to-the-ggn" title="Link to this heading">#</a></h3>
+<p>Now that we have the morphology of the GGN exported, we can add the biophysics.
+We need to inspect the original model code to learn about the biophysics.
+In this model, for the GGN cell, the biophysics are included in the HOC script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="n">biophys</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">forsec</span> <span class="nb">all</span> <span class="p">{</span>
+    <span class="n">Ra</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">insert</span> <span class="n">pas</span>
+      <span class="n">g_pas</span> <span class="o">=</span> <span class="mf">0.03e-3</span>   <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span> <span class="o">-</span> <span class="k">as</span> <span class="n">per</span> <span class="n">Laurent</span> <span class="n">et</span> <span class="n">al</span> <span class="mi">1990</span> <span class="n">RM</span> <span class="o">=</span> <span class="mi">33</span><span class="n">kohm</span><span class="o">-</span><span class="n">cm2</span>
+      <span class="n">e_pas</span> <span class="o">=</span> <span class="o">-</span><span class="mi">51</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As we see here, this is a passive cell without any ion channels.
+To add the biophysics, we write a simple Python script that will make use of the pyNeuroML API.
+The complete script is present in the <a class="reference external" href="https://github.com/OpenSourceBrain/262670/blob/master/NeuroML2/postprocess_cells.py">repository</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_and_setup_cell</span><span class="p">(</span><span class="n">cellname</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load a cell, and clean it to prepare it for further modifications.</span>
+
+<span class="sd">    These operations are common for all cells.</span>
+
+<span class="sd">    :param cellname: name of cell.</span>
+<span class="sd">        the file containing the cell should then be &lt;cell&gt;.morph.cell.nml</span>
+<span class="sd">    :returns: document with cell</span>
+<span class="sd">    :rtype: neuroml.NeuroMLDocument</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">celldoc</span> <span class="o">=</span> <span class="n">read_neuroml2_file</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cellname</span><span class="si">}</span><span class="s2">.morph.cell.nml&quot;</span>
+    <span class="p">)</span>  <span class="c1"># type: neuroml.NeuroMLDocument</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">celldoc</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># type: neuroml.Cell</span>
+    <span class="n">celldoc</span><span class="o">.</span><span class="n">networks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">cellname</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">notes</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;GGN_20170309_sc_0_0&quot;</span><span class="p">,</span> <span class="n">cellname</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">notes</span> <span class="o">+=</span> <span class="s2">&quot;. Reference: Subhasis Ray, Zane N Aldworth, Mark A Stopfer (2020) Feedback inhibition and its control in an insect olfactory circuit eLife 9:e53281.&quot;</span>
+
+    <span class="p">[</span>
+        <span class="n">default_all_group</span><span class="p">,</span>
+        <span class="n">default_soma_group</span><span class="p">,</span>
+        <span class="n">default_dendrite_group</span><span class="p">,</span>
+        <span class="n">default_axon_group</span><span class="p">,</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">setup_default_segment_groups</span><span class="p">(</span>
+        <span class="n">use_convention</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">default_groups</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;soma_group&quot;</span><span class="p">,</span> <span class="s2">&quot;dendrite_group&quot;</span><span class="p">,</span> <span class="s2">&quot;axon_group&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># populate default groups</span>
+    <span class="k">for</span> <span class="n">sg</span> <span class="ow">in</span> <span class="n">cell</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">segment_groups</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;soma&quot;</span> <span class="ow">in</span> <span class="n">sg</span><span class="o">.</span><span class="n">id</span> <span class="ow">and</span> <span class="n">sg</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="s2">&quot;soma_group&quot;</span><span class="p">:</span>
+            <span class="n">default_soma_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">Include</span><span class="p">(</span><span class="n">segment_groups</span><span class="o">=</span><span class="n">sg</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s2">&quot;axon&quot;</span> <span class="ow">in</span> <span class="n">sg</span><span class="o">.</span><span class="n">id</span> <span class="ow">and</span> <span class="n">sg</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="s2">&quot;axon_group&quot;</span><span class="p">:</span>
+            <span class="n">default_axon_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">Include</span><span class="p">(</span><span class="n">segment_groups</span><span class="o">=</span><span class="n">sg</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s2">&quot;dend&quot;</span> <span class="ow">in</span> <span class="n">sg</span><span class="o">.</span><span class="n">id</span> <span class="ow">and</span> <span class="n">sg</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="s2">&quot;dendrite_group&quot;</span><span class="p">:</span>
+            <span class="n">default_dendrite_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">Include</span><span class="p">(</span><span class="n">segment_groups</span><span class="o">=</span><span class="n">sg</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+
+    <span class="n">cell</span><span class="o">.</span><span class="n">optimise_segment_groups</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">celldoc</span>
+
+
+<span class="k">def</span> <span class="nf">postprocess_GGN</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Post process GGN and add biophysics.&quot;&quot;&quot;</span>
+    <span class="n">cellname</span> <span class="o">=</span> <span class="s2">&quot;GGN&quot;</span>
+    <span class="n">celldoc</span> <span class="o">=</span> <span class="n">load_and_setup_cell</span><span class="p">(</span><span class="n">cellname</span><span class="p">)</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">celldoc</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># type: neuroml.Cell</span>
+
+    <span class="c1"># biophysics</span>
+    <span class="c1"># all</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;pas&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;pas&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;0.00003 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-51 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;non_specific&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/pas.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s2">&quot;0.1 kohm_cm&quot;</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s2">&quot;1 uF_per_cm2&quot;</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s2">&quot;-80mV&quot;</span><span class="p">)</span>
+
+    <span class="c1"># L1 validation</span>
+    <span class="c1"># cell.validate(recursive=True)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">morph</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">biophys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># use pynml writer to also run L2 validation</span>
+    <span class="n">write_neuroml2_file</span><span class="p">(</span><span class="n">celldoc</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cellname</span><span class="si">}</span><span class="s2">.cell.nml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">load_and_setup_cell</span></code> function does some basic clean up and set up of the cell.
+It ensures that the various segments that were exported from NEURON are placed into the conventional segment groups.
+The <code class="docutils literal notranslate"><span class="pre">postprocess_GGN</span></code> function then adds the passive biophysics to the cell.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pas</span></code> channel is a standard implementation of a passive ion channel.
+The rest are membrane properties–resistivity, specific capacitance and so on.
+Once this is set up, we write the cell to a new file.</p>
+<p>The GGN cell has now been converted.
+Since the GGN is a simple passive cell, we won’t test its biophysics just yet.</p>
+</section>
+</section>
+<section id="converting-the-kenyon-cell">
+<h2>Converting the Kenyon Cell<a class="headerlink" href="#converting-the-kenyon-cell" title="Link to this heading">#</a></h2>
+<p>The KC cell is defined in the <code class="docutils literal notranslate"><span class="pre">kc_1_comp.hoc</span></code> file.
+Whereas the GGN cell had a complex morphology but passive biophysics, the KC cell has very simple morphology—a single compartment—but does contain active channels:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">soma</span>
+
+
+<span class="n">objref</span> <span class="nb">all</span>
+<span class="n">proc</span> <span class="n">subsets</span><span class="p">()</span> <span class="p">{</span> <span class="n">local</span> <span class="n">i</span>
+  <span class="n">objref</span> <span class="nb">all</span>
+  <span class="nb">all</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SectionList</span><span class="p">()</span>
+  <span class="n">soma</span> <span class="nb">all</span><span class="o">.</span><span class="n">append</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="n">proc</span> <span class="n">geom</span><span class="p">()</span> <span class="p">{</span>
+     <span class="n">soma</span> <span class="p">{</span>  <span class="o">//</span> <span class="n">Total</span> <span class="n">Cm</span> <span class="o">=</span> <span class="mi">4</span> <span class="n">pF</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="mf">6.366</span>
+        <span class="n">diam</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">proc</span> <span class="n">biophys</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">forsec</span> <span class="nb">all</span> <span class="p">{</span>
+    <span class="n">Ra</span> <span class="o">=</span> <span class="mf">35.4</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">insert</span> <span class="n">pas</span>
+      <span class="n">g_pas</span> <span class="o">=</span> <span class="mf">9.75e-5</span>         <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span>
+      <span class="n">e_pas</span> <span class="o">=</span> <span class="o">-</span><span class="mi">70</span>             <span class="o">//</span> <span class="n">mV</span>
+    <span class="n">insert</span> <span class="n">kv</span>
+      <span class="n">gbar_kv</span> <span class="o">=</span> <span class="mf">1.5e-3</span>       <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span>
+    <span class="n">insert</span> <span class="n">ka</span>
+      <span class="n">gbar_ka</span> <span class="o">=</span> <span class="mf">1.4525e-2</span>    <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span>
+    <span class="n">insert</span> <span class="n">kst</span>
+      <span class="n">gbar_kst</span> <span class="o">=</span> <span class="mf">2.0275e-3</span>   <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span>
+    <span class="n">insert</span> <span class="n">naf</span>
+      <span class="n">gbar_naf</span> <span class="o">=</span> <span class="mf">3.5e-2</span>      <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span>
+    <span class="n">insert</span> <span class="n">nas</span>
+      <span class="n">gbar_nas</span> <span class="o">=</span> <span class="mf">3e-3</span>        <span class="o">//</span> <span class="n">S</span><span class="o">/</span><span class="n">cm2</span>
+      <span class="n">ek</span> <span class="o">=</span> <span class="o">-</span><span class="mf">81.0</span>             <span class="o">//</span> <span class="n">mV</span>
+      <span class="n">ena</span> <span class="o">=</span> <span class="mf">58.0</span>               <span class="o">//</span> <span class="n">mV</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="step-1-converting-ion-channels">
+<h3>Step 1) Converting ion channels<a class="headerlink" href="#step-1-converting-ion-channels" title="Link to this heading">#</a></h3>
+<p>For this cell, we will first convert the various ion channel models.
+These are included in the <code class="docutils literal notranslate"><span class="pre">mod</span></code> folder.
+An inspection tells us that these are all Hodgkin-Huxley type ion channels that use similar formalisms.</p>
+<p>The first thing to do is to generate plots of time courses and steady states of the various ion channels.
+These can be done easily using <code class="docutils literal notranslate"><span class="pre">pynml-modchananalysis</span></code> command line tool included in pyNeuroML.
+We begin with the <code class="docutils literal notranslate"><span class="pre">nas</span></code> channel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pynml</span><span class="o">-</span><span class="n">modchananalysis</span> <span class="o">-</span><span class="n">modFile</span> <span class="n">nas_wustenberg</span><span class="o">.</span><span class="n">mod</span> <span class="n">nas</span>
+</pre></div>
+</div>
+<p>This will generate two plots, one for the steady state dynamics (<code class="docutils literal notranslate"><span class="pre">inf</span></code>), and one for the time course (<code class="docutils literal notranslate"><span class="pre">tau</span></code>) for activation variables in the channels:</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../../_images/Time_course(s)_of_activation_variables_in_nas_at_6.3_degC.png"><img alt="Image showing time course of activation variables of nas channel, generated with pynml-modchananalysis" src="../../../_images/Time_course%28s%29_of_activation_variables_in_nas_at_6.3_degC.png" style="width: 768.0px; height: 388.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Time course of activation variables of nas channel, generated with pynml-modchananalysis</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../../_images/Steady_state(s)_of_activation_variables_in_nas_at_6.3_degC.png"><img alt="Image showing steady state dynamics of activation variables of nas channel, generated with pynml-modchananalysis" src="../../../_images/Steady_state%28s%29_of_activation_variables_in_nas_at_6.3_degC.png" style="width: 768.0px; height: 388.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Steady state dynamics of activation variables of nas channel, generated with pynml-modchananalysis</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The mod file defining the nas channel is shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span> <span class="n">nas_wustenberg</span><span class="o">.</span><span class="n">mod</span> <span class="o">---</span> 
+<span class="p">:</span> 
+<span class="p">:</span> <span class="n">Filename</span><span class="p">:</span> <span class="n">nas_wustenberg</span><span class="o">.</span><span class="n">mod</span>
+<span class="p">:</span> <span class="n">Description</span><span class="p">:</span> 
+<span class="p">:</span> <span class="n">Author</span><span class="p">:</span> <span class="n">Subhasis</span> <span class="n">Ray</span>
+<span class="p">:</span> <span class="n">Maintainer</span><span class="p">:</span> 
+<span class="p">:</span> <span class="n">Created</span><span class="p">:</span> <span class="n">Wed</span> <span class="n">Dec</span> <span class="mi">13</span> <span class="mi">19</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">03</span> <span class="n">EST</span> <span class="mi">2017</span>
+<span class="p">:</span> <span class="n">Version</span><span class="p">:</span> 
+<span class="p">:</span> <span class="n">Last</span><span class="o">-</span><span class="n">Updated</span><span class="p">:</span> <span class="n">Mon</span> <span class="n">Jun</span> <span class="mi">18</span> <span class="mi">14</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2018</span> <span class="p">(</span><span class="o">-</span><span class="mi">0400</span><span class="p">)</span>
+<span class="p">:</span>           <span class="n">By</span><span class="p">:</span> <span class="n">Subhasis</span> <span class="n">Ray</span>
+<span class="p">:</span> <span class="n">URL</span><span class="p">:</span> 
+<span class="p">:</span> <span class="n">Doc</span> <span class="n">URL</span><span class="p">:</span> 
+<span class="p">:</span> <span class="n">Keywords</span><span class="p">:</span> 
+<span class="p">:</span> <span class="n">Compatibility</span><span class="p">:</span> 
+
+<span class="p">:</span> <span class="n">Commentary</span><span class="p">:</span> 
+<span class="p">:</span> 
+<span class="p">:</span> <span class="n">NEURON</span> <span class="n">implementation</span> <span class="n">of</span> <span class="n">slow</span> <span class="n">Na</span><span class="o">+</span> <span class="n">channel</span> <span class="p">(</span> <span class="n">NAS</span> <span class="p">)</span> <span class="kn">from</span> <span class="nn">Wustenberg</span>
+<span class="p">:</span> <span class="n">DG</span><span class="p">,</span> <span class="n">Boytcheva</span> <span class="n">M</span><span class="p">,</span> <span class="n">Grunewald</span> <span class="n">B</span><span class="p">,</span> <span class="n">Byrne</span> <span class="n">JH</span><span class="p">,</span> <span class="n">Menzel</span> <span class="n">R</span><span class="p">,</span> <span class="n">Baxter</span> <span class="n">DA</span>
+
+<span class="p">:</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">slow</span> <span class="n">Na</span><span class="o">+</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">Apis</span> <span class="n">mellifera</span> <span class="n">Kenyon</span> <span class="n">cells</span> <span class="p">:(</span><span class="n">cultured</span><span class="p">)</span><span class="o">.</span>
+
+<span class="n">TITLE</span> <span class="n">Slow</span> <span class="n">NA</span><span class="o">+</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">honey</span> <span class="n">bee</span> <span class="n">KC</span> <span class="kn">from</span> <span class="nn">Wustenberg</span> <span class="n">et</span> <span class="n">al</span> <span class="mi">2004</span>
+
+<span class="n">COMMENT</span>
+  <span class="n">NEURON</span> <span class="n">implementation</span> <span class="n">by</span> <span class="n">Subhasis</span> <span class="n">Ray</span> <span class="p">(</span><span class="n">ray</span> <span class="n">dot</span> <span class="n">subhasis</span> <span class="n">at</span> <span class="n">gmail</span> <span class="n">dot</span> <span class="n">com</span><span class="p">)</span><span class="o">.</span>
+
+<span class="n">ENDCOMMENT</span>
+
+<span class="n">INDEPENDENT</span> <span class="p">{</span> <span class="n">t</span> <span class="n">FROM</span> <span class="mi">0</span> <span class="n">TO</span> <span class="mi">1</span> <span class="n">WITH</span> <span class="mi">1</span> <span class="p">(</span><span class="n">ms</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="n">NEURON</span> <span class="p">{</span> 
+        <span class="n">SUFFIX</span> <span class="n">nas</span>
+        <span class="n">USEION</span> <span class="n">na</span> <span class="n">READ</span> <span class="n">ena</span> <span class="n">WRITE</span> <span class="n">ina</span>
+        <span class="n">RANGE</span> <span class="n">gbar</span><span class="p">,</span> <span class="n">ina</span><span class="p">,</span> <span class="n">g</span>
+<span class="p">}</span>
+
+<span class="n">UNITS</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">siemens</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">mV</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">millivolt</span><span class="p">)</span> 
+        <span class="p">(</span><span class="n">mA</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">milliamp</span><span class="p">)</span> 
+<span class="p">}</span>
+ 
+<span class="n">PARAMETER</span> <span class="p">{</span> 
+        <span class="n">gbar</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="p">(</span><span class="n">mho</span><span class="o">/</span><span class="n">cm2</span><span class="p">)</span>
+<span class="p">}</span>
+ 
+<span class="n">ASSIGNED</span> <span class="p">{</span> 
+	<span class="n">ena</span>	<span class="p">(</span><span class="n">mV</span><span class="p">)</span>
+        <span class="n">v</span>	<span class="p">(</span><span class="n">mV</span><span class="p">)</span>
+        <span class="n">ina</span>	<span class="p">(</span><span class="n">mA</span><span class="o">/</span><span class="n">cm2</span><span class="p">)</span>
+        <span class="n">g</span>	<span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">cm2</span><span class="p">)</span>
+        <span class="n">minf</span>
+	<span class="n">hinf</span>
+        <span class="n">mtau</span>	<span class="p">(</span><span class="n">ms</span><span class="p">)</span>
+        <span class="n">htau</span>	<span class="p">(</span><span class="n">ms</span><span class="p">)</span>
+<span class="p">}</span>
+ 
+<span class="n">STATE</span> <span class="p">{</span>
+    <span class="n">m</span>
+    <span class="n">h</span>
+<span class="p">}</span>
+
+<span class="n">BREAKPOINT</span> <span class="p">{</span> 
+        <span class="n">SOLVE</span> <span class="n">states</span> <span class="n">METHOD</span> <span class="n">cnexp</span> 
+        <span class="n">g</span> <span class="o">=</span> <span class="n">gbar</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">h</span>
+        <span class="n">ina</span> <span class="o">=</span> <span class="n">g</span> <span class="o">*</span> <span class="p">(</span> <span class="n">v</span> <span class="o">-</span> <span class="n">ena</span> <span class="p">)</span>
+<span class="p">}</span>
+ 
+<span class="n">INITIAL</span> <span class="p">{</span> 
+        <span class="n">settables</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="n">minf</span>
+        <span class="n">h</span>  <span class="o">=</span> <span class="n">hinf</span>
+<span class="p">}</span> 
+
+<span class="n">DERIVATIVE</span> <span class="n">states</span> <span class="p">{</span> 
+        <span class="n">settables</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> 
+        <span class="n">h</span><span class="s1">&#39; = (hinf - h) / htau</span>
+	<span class="n">m</span><span class="s1">&#39; = (minf - m ) / mtau</span>
+<span class="p">}</span>
+
+<span class="p">:</span> <span class="n">Parameters</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">article</span> <span class="p">(</span><span class="n">Table</span> <span class="mi">2</span><span class="p">):</span>
+<span class="p">:</span>
+<span class="p">:</span>       <span class="n">E</span><span class="p">,</span><span class="n">mV</span>    <span class="n">g</span><span class="p">,</span><span class="n">nS</span>            <span class="n">taumax</span><span class="p">,</span><span class="n">ms</span>       <span class="n">taumin</span><span class="p">,</span><span class="n">ms</span>       <span class="n">Vh1</span><span class="p">,</span><span class="n">mV</span>  <span class="n">s1</span>      <span class="n">Vh2</span><span class="p">,</span><span class="n">mV</span>  <span class="n">s2</span>      <span class="n">N</span>
+<span class="p">:</span> <span class="n">INa</span>                     <span class="n">minf</span>                                  <span class="o">-</span><span class="mf">30.1</span>   <span class="mf">6.65</span>                    <span class="mi">3</span>
+<span class="p">:</span>                         <span class="n">taum</span>  <span class="mf">0.83</span>            <span class="mf">0.093</span>           <span class="o">-</span><span class="mf">20.3</span>   <span class="mf">6.45</span>
+<span class="p">:</span> <span class="n">INaF</span>  <span class="mi">58</span>      <span class="mi">140</span>       <span class="n">hinf</span>                                  <span class="o">-</span><span class="mf">51.4</span>   <span class="mf">5.9</span>                     <span class="mi">1</span>
+<span class="p">:</span>                         <span class="n">tauh</span>  <span class="mf">1.66</span>            <span class="mf">0.12</span>            <span class="o">-</span><span class="mf">8.03</span>   <span class="mf">8.69</span>
+<span class="p">:</span>
+<span class="p">:</span> <span class="n">INaS</span>  <span class="mi">58</span>      <span class="mi">12</span>        <span class="n">hinf</span>                                  <span class="o">-</span><span class="mf">51.4</span>   <span class="mf">5.9</span>                     <span class="mi">1</span>
+<span class="p">:</span>                         <span class="n">tauh</span>  <span class="mf">12.24</span>           <span class="mf">1.9</span>             <span class="o">-</span><span class="mf">32.6</span>   <span class="mi">8</span>
+<span class="p">:</span> <span class="n">The</span> <span class="n">equations</span> <span class="n">are</span><span class="p">:</span>
+<span class="p">:</span>       <span class="n">minf</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">Vh</span> <span class="o">-</span> <span class="n">V</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="p">))</span>
+<span class="p">:</span>       <span class="n">hinf</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">V</span> <span class="o">-</span> <span class="n">Vh</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="p">))</span>
+<span class="p">:</span>       <span class="n">taum</span> <span class="o">=</span> <span class="p">(</span><span class="n">taumax</span> <span class="o">-</span> <span class="n">taumin</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">V</span> <span class="o">-</span> <span class="n">Vh1</span><span class="p">)</span> <span class="o">/</span> <span class="n">s1</span><span class="p">))</span> <span class="o">+</span> <span class="n">taumin</span>
+
+<span class="n">PROCEDURE</span> <span class="n">settables</span><span class="p">(</span><span class="n">v</span> <span class="p">(</span><span class="n">mV</span><span class="p">))</span> <span class="p">{</span> 
+<span class="n">UNITSOFF</span>
+        <span class="n">TABLE</span> <span class="n">minf</span><span class="p">,</span> <span class="n">hinf</span><span class="p">,</span> <span class="n">mtau</span><span class="p">,</span> <span class="n">htau</span> <span class="n">FROM</span> <span class="o">-</span><span class="mi">120</span> <span class="n">TO</span> <span class="mi">40</span> <span class="n">WITH</span> <span class="mi">641</span>
+        <span class="n">minf</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="o">-</span><span class="mf">30.1</span> <span class="o">-</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="mf">6.65</span><span class="p">))</span>
+        <span class="n">hinf</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">v</span> <span class="o">+</span> <span class="mf">51.4</span><span class="p">)</span> <span class="o">/</span> <span class="mf">5.9</span> <span class="p">))</span>
+        <span class="n">mtau</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.83</span> <span class="o">-</span> <span class="mf">0.093</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">v</span> <span class="o">+</span> <span class="mf">20.3</span><span class="p">)</span> <span class="o">/</span> <span class="mf">6.45</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.093</span>
+        <span class="n">htau</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.24</span> <span class="o">-</span> <span class="mf">1.9</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">v</span> <span class="o">+</span> <span class="mf">32.6</span><span class="p">)</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1.9</span>
+<span class="n">UNITSON</span>
+<span class="p">}</span>
+
+<span class="p">:</span> <span class="n">nas_wustenberg</span><span class="o">.</span><span class="n">mod</span> <span class="n">ends</span> <span class="n">here</span>
+</pre></div>
+</div>
+<p>Here we have the <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code> activation variables.
+Although they are described in the standard Hodgkin Huxley formalism, in the <code class="docutils literal notranslate"><span class="pre">settables</span></code> procedure, we can see that their values are only calculated in the range of -120mV to 40mV.
+The value does not change beyond 40mV.
+This could be done for a number of reasons.
+Perhaps the cell’s membrane potential does not go beyond 40mV.</p>
+<p>We will attempt to remain faithful to the mod file in our conversion, so we will also incorporate this feature.</p>
+<p>Since we know this is a Hodgkin Huxley type channel, we can search the schema to see if there are any elements that can describe it.
+A search shows us that the <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#ionchannelhh">ionChannelHH</a> component type exists in the schema/standard.
+In the schema, this is identical to <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#ionchannel">ionChannel</a>.
+The usage examples included in the documentation indicate that we can use these elements from the standard to describe the ion channel here.
+We need to:</p>
+<ul class="simple">
+<li><p>include the <code class="docutils literal notranslate"><span class="pre">m</span></code> gate, which has 3 sub units (<code class="docutils literal notranslate"><span class="pre">m^3</span></code>)</p></li>
+<li><p>include the <code class="docutils literal notranslate"><span class="pre">h</span></code> gate, which has 1 sub unit (<code class="docutils literal notranslate"><span class="pre">h^1</span></code>)</p></li>
+<li><p>formalise the equations that are used to calculate the steady state (<code class="docutils literal notranslate"><span class="pre">inf</span></code>)and time course (<code class="docutils literal notranslate"><span class="pre">tau</span></code>) for these gates/activation variables.</p></li>
+</ul>
+<p>To begin with, let us ignore the restriction included in the mod file at 40mV.
+Our NeuroML description will look something like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ionChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;nas&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ionChannelHH&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;1pS&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;na&quot;</span><span class="nt">&gt;</span>
+
+<span class="cm">&lt;!-- some more details to be added here --&gt;</span>
+
+<span class="nt">&lt;/ionChannelHH&gt;</span>
+</pre></div>
+</div>
+<p>Now, there are number of different ways of expressing the dynamics of the activation variables.
+(See <a class="reference external" href="https://www.st-andrews.ac.uk/~wjh/hh_model_intro/">this page for an introduction to HH formalism</a>).
+One can use the values of the forward and reverse rates (called <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> in general) to calculate the steady state and time course.
+Another possibility is that <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> are not given, and instead the equations for the steady state and time course are.
+The latter is the case here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inf</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">Vh</span> <span class="o">-</span> <span class="n">V</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>If the rates are given, one can use the <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#gatehhrates">gateHHrates</a> component type from the standard.
+If the steady state and time course are, we can use <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#gatehhtauinf">gateHHtauInf</a>.
+There are also other components that can be used if a combination of rates and/or steady state and time course are given.</p>
+<p>The equation above is in the form of a <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>.
+Another search in the standard shows us that we have the <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#hhsigmoidvariable">HHSigmoidVariable</a> component type that can be used to represent a rate that is a sigmoid function.
+The <code class="docutils literal notranslate"><span class="pre">dynamics</span></code> tab tells us that the equation is represented as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rate</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mi">0</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">midpoint</span><span class="p">)</span><span class="o">/</span><span class="n">scale</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Putting the equation for <code class="docutils literal notranslate"><span class="pre">minf</span></code> and <code class="docutils literal notranslate"><span class="pre">hinf</span></code> together with this form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rate</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mi">0</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">midpoint</span><span class="p">)</span><span class="o">/</span><span class="n">scale</span><span class="p">))</span>
+<span class="n">minf</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="o">-</span><span class="mf">30.1</span> <span class="o">-</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="mf">6.65</span><span class="p">))</span>
+<span class="n">hinf</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">v</span> <span class="o">+</span> <span class="mf">51.4</span><span class="p">)</span> <span class="o">/</span> <span class="mf">5.9</span> <span class="p">))</span>
+</pre></div>
+</div>
+<p>We can see that for <code class="docutils literal notranslate"><span class="pre">minf</span></code>, <code class="docutils literal notranslate"><span class="pre">rate</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">per</span> <span class="pre">ms</span></code>, <code class="docutils literal notranslate"><span class="pre">scale</span> <span class="pre">=</span> <span class="pre">6.65mV</span></code> and <code class="docutils literal notranslate"><span class="pre">midpoint</span> <span class="pre">=</span> <span class="pre">-30.1mV</span></code>.
+Similarly, for <code class="docutils literal notranslate"><span class="pre">hinf</span></code>, <code class="docutils literal notranslate"><span class="pre">rate</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">per</span> <span class="pre">ms</span></code>, <code class="docutils literal notranslate"><span class="pre">scale</span> <span class="pre">=</span> <span class="pre">-5.9mV</span></code> and <code class="docutils literal notranslate"><span class="pre">midpoint</span> <span class="pre">=</span> <span class="pre">-51.4mV</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ionChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;nas&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ionChannelHH&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;1pS&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;na&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;m&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHSigmoidVariable&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-30.1mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;6.65mV&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/gate&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;h&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHSigmoidVariable&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-51.4mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-5.9mV&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/gate&gt;</span>
+<span class="nt">&lt;/ionChannel&gt;</span>
+</pre></div>
+</div>
+<p>The time course is given by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">taum</span> <span class="o">=</span> <span class="p">(</span><span class="n">taumax</span> <span class="o">-</span> <span class="n">taumin</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">V</span> <span class="o">-</span> <span class="n">Vh1</span><span class="p">)</span> <span class="o">/</span> <span class="n">s1</span><span class="p">))</span> <span class="o">+</span> <span class="n">taumin</span>
+</pre></div>
+</div>
+<p>Even though this is also a sigmoid, it is not, unfortunately, a standard form.
+A component type does not exist in the NeuroML standard that can encapsulate this form
+(It has more parameters, and has an additional <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">taumin</span></code>).</p>
+<p>This is not a problem, though, because NeuroML can be easily extended using <a class="reference internal" href="../../LEMS.html#userdocs-lems"><span class="std std-ref">LEMS</span></a>.
+We can write a new component type to encapsulate these dynamics based on the <a class="reference external" href="https://github.com/NeuroML/NeuroML2/blob/development/NeuroML2CoreTypes/Channels.xml#L99">LEMS definition</a> of the <a class="reference external" href="https://docs.neuroml.org/Userdocs/Schemas/Channels.html#hhsigmoidvariable">HHSigmoidVariable</a> component type:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;HHSigmoidVariable&quot;</span>
+<span class="w">               </span><span class="na">extends=</span><span class="s">&quot;baseHHVariable&quot;</span>
+<span class="w">               </span><span class="na">description=</span><span class="s">&quot;Sigmoidal form for variable equation&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">        </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;rate / (1 + exp(0 - (v - midpoint)/scale))&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<p>Our new component will be this, and we will save it in a different file that we can then “include” in the nas channel definition file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Saved as RayTau.nml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;NeuroML_ionChannel&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Ray_tau&quot;</span>
+<span class="w">                  </span><span class="na">extends=</span><span class="s">&quot;baseVoltageDepTime&quot;</span>
+<span class="w">                  </span><span class="na">description=</span><span class="s">&quot;Tau parameter&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max_tau&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min_tau&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;midpoint&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;scale&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(((max_tau - min_tau) / (1 + exp(0 - (v - midpoint) / scale))) + min_tau)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>Note that it is very similar to the HHSigmoidVariable definition.
+The only difference is that we have had to define additional parameters to use in our equation.
+Also note that <code class="docutils literal notranslate"><span class="pre">HHSigmoidVariable</span></code> extends <code class="docutils literal notranslate"><span class="pre">baseHHVariable</span></code> which extends <code class="docutils literal notranslate"><span class="pre">baseVoltageDepVariable</span></code>.
+However, since we know that <code class="docutils literal notranslate"><span class="pre">tau</span></code> is a time value, we extend the <code class="docutils literal notranslate"><span class="pre">baseVoltageDepTime</span></code> component type instead.
+This is very similar to <code class="docutils literal notranslate"><span class="pre">baseVoltageDepVariable</span></code>, but is designed for component types producing time values, such as the time course here.</p>
+<p>We save this as a different component type (a class), and we will provide it parameters to create our time courses for both <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code> activation variables.
+Our completed file will look like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- saved as nas.channel.nml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;NeuroML_ionChannel&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>NeuroML<span class="w"> </span>file<span class="w"> </span>containing<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>ion<span class="w"> </span>channel<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;RayTau.nml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ionChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;nas&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ionChannelHH&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;1pS&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;na&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;m&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHSigmoidVariable&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-30.1mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;6.65mV&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_tau&quot;</span><span class="w"> </span><span class="na">min_tau=</span><span class="s">&quot;0.83 ms&quot;</span><span class="w"> </span><span class="na">max_tau=</span><span class="s">&quot;0.093 ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-20.3 mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;6.45mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gate&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;h&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HHSigmoidVariable&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-51.4mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-5.9mV&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_tau&quot;</span><span class="w"> </span><span class="na">min_tau=</span><span class="s">&quot;1.9 ms&quot;</span><span class="w"> </span><span class="na">max_tau=</span><span class="s">&quot;12.24 ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-32.6 mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-8.0mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gate&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ionChannel&gt;</span>
+
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>Running <code class="docutils literal notranslate"><span class="pre">pynml-channelanalysis</span> <span class="pre">nas.nml</span></code> will generate the graphs for the steady state and time course from our channel definition, and you will see that these are the same as the graphs we generated from the mod files.</p>
+<p>We are almost there, but we have a little more work to do here.
+Remember that the original mod file limited the value of steady state at 40mV?
+We have not incorporated that into our channel file yet.</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">HHSigmoidVariable</span></code> we have used for the steady state does not allow multiple equations, we will write a new component type for the steady state also:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;NeuroML_ionChannel&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Ray_inf&quot;</span>
+<span class="w">        </span><span class="na">extends=</span><span class="s">&quot;baseVoltageDepVariable&quot;</span>
+<span class="w">        </span><span class="na">description=</span><span class="s">&quot;Inf parameter for Ray et al 2020&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;Constant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;table_max&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40 mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rate&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;midpoint&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;scale&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ConditionalDerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;x&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Case</span><span class="w"> </span><span class="na">condition=</span><span class="s">&quot;v .gt. table_max&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(rate / (1 + exp(0 - (table_max - midpoint) / scale)))&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Case</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(rate / (1 + exp(0 - (v - midpoint) / scale)))&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/ConditionalDerivedVariable&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+<span class="nt">&lt;neuroml/&gt;</span>
+</pre></div>
+</div>
+<p>The only difference here is that instead of the <code class="docutils literal notranslate"><span class="pre">DerivedVariable</span></code>, we have used a <code class="docutils literal notranslate"><span class="pre">ConditionalDerivedVariable</span></code> that allows conditional dynamics.
+We have two cases here:</p>
+<ul class="simple">
+<li><p>if <code class="docutils literal notranslate"><span class="pre">v</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">table_max</span></code> (which is 40mV), the rate is the value at <code class="docutils literal notranslate"><span class="pre">v=40mV</span></code></p></li>
+<li><p>otherwise, the rate is calculated from the value of <code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+</ul>
+<section id="a-kv-naf-kst">
+<h4>1a) Kv, Naf, Kst<a class="headerlink" href="#a-kv-naf-kst" title="Link to this heading">#</a></h4>
+<p>The nas channel is now done.
+If we look at the other channels—naf, kv, and kst—they follow similar formalisms.
+So, we can re-use our newly created component types, <code class="docutils literal notranslate"><span class="pre">Ray_inf</span></code> and <code class="docutils literal notranslate"><span class="pre">Ray_tau</span></code>.
+In fact, we consolidate them in a single file, <code class="docutils literal notranslate"><span class="pre">RaySigmoid.nml</span></code>, and “include” this in the channel definition files.
+For example, here is <code class="docutils literal notranslate"><span class="pre">kv.channel.nml</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;NeuroML_ionChannel&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>NeuroML<span class="w"> </span>file<span class="w"> </span>containing<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>ion<span class="w"> </span>channel<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;RaySigmoid.nml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ionChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;kv&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;1pS&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ionChannelHH&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;k&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>
+<span class="w">                </span>Implementation<span class="w"> </span>of<span class="w"> </span>A<span class="w"> </span>type<span class="w"> </span>K+<span class="w"> </span>channel<span class="w"> </span>(<span class="w"> </span>KV<span class="w"> </span>)<span class="w"> </span>from<span class="w"> </span>Wustenberg<span class="w"> </span>DG,<span class="w"> </span>Boytcheva<span class="w"> </span>M,<span class="w"> </span>Grunewald<span class="w"> </span>B,<span class="w"> </span>Byrne<span class="w"> </span>JH,<span class="w"> </span>Menzel<span class="w"> </span>R,<span class="w"> </span>Baxter<span class="w"> </span>DA.
+<span class="w">                </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>delayed<span class="w"> </span>rectifier<span class="w"> </span>type<span class="w"> </span>K+<span class="w"> </span>channel<span class="w"> </span>in<span class="w"> </span>Apis<span class="w"> </span>mellifera<span class="w"> </span>Kenyon<span class="w"> </span>cells<span class="w"> </span>(cultured).
+<span class="w">        </span><span class="nt">&lt;/notes&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- custom component types because the tables in the mod files only go to 40 --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;m&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_inf&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-37.6mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;27.24mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_tau&quot;</span><span class="w"> </span><span class="na">min_tau=</span><span class="s">&quot;1.85 ms&quot;</span><span class="w"> </span><span class="na">max_tau=</span><span class="s">&quot;3.53 ms&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;45.0 mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-13.71mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gate&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;/ionChannel&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>Plots for the steady state and time course are:</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../../_images/Steady_state(s)_of_activation_variables_of_kv_from_kv.channel.nml_at_6.3_degC.png"><img alt="Image showing steady state dynamics of activation variables of kv channel, generated with pynml-channelanalysis" src="../../../_images/Steady_state%28s%29_of_activation_variables_of_kv_from_kv.channel.nml_at_6.3_degC.png" style="width: 768.0px; height: 388.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Steady state dynamics of activation variables of kv channel, generated with pynml-channelanalysis</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../../_images/Time_Course(s)_of_activation_variables_of_kv_from_kv.channel.nml_at_6.3_degC.png"><img alt="Image showing time course of activation variables of kv channel, generated with pynml-channelanalysis" src="../../../_images/Time_Course%28s%29_of_activation_variables_of_kv_from_kv.channel.nml_at_6.3_degC.png" style="width: 768.0px; height: 388.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">Time course of activation variables of kv channel, generated with pynml-channelanalysis</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In these graphs, the effect of the conditional at 40mV becomes more apparent.</p>
+</section>
+<section id="b-ka">
+<h4>1b) Ka<a class="headerlink" href="#b-ka" title="Link to this heading">#</a></h4>
+<p>The last remaining channel is the ka channel.
+It’s dynamics are defined in the mod file as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCEDURE</span> <span class="n">settables</span><span class="p">(</span><span class="n">v</span> <span class="p">(</span><span class="n">mV</span><span class="p">))</span> <span class="p">{</span> 
+<span class="n">UNITSOFF</span>
+        <span class="n">TABLE</span> <span class="n">minf</span><span class="p">,</span> <span class="n">hinf</span><span class="p">,</span> <span class="n">mtau</span><span class="p">,</span> <span class="n">htau</span> <span class="n">FROM</span> <span class="o">-</span><span class="mi">120</span> <span class="n">TO</span> <span class="mi">40</span> <span class="n">WITH</span> <span class="mi">641</span>
+        <span class="n">minf</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="o">-</span><span class="mf">20.1</span> <span class="o">-</span> <span class="n">v</span><span class="p">)</span><span class="o">/</span><span class="mf">16.1</span><span class="p">))</span>
+        <span class="n">hinf</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span> <span class="p">(</span> <span class="n">v</span> <span class="o">+</span> <span class="mf">74.7</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">7</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="n">mtau</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.65</span> <span class="o">-</span> <span class="mf">0.35</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">70</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">v</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">)))</span> <span class="o">+</span> <span class="mf">0.35</span>
+        <span class="n">htau</span> <span class="o">=</span> <span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="mf">2.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mf">25.0</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">((</span><span class="n">v</span> <span class="o">+</span> <span class="mi">62</span><span class="p">)</span> <span class="o">/</span> <span class="mf">16.0</span><span class="p">)))</span> <span class="o">+</span> <span class="mf">2.5</span>
+<span class="n">UNITSON</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The steady state here follows the same formalism, but the time course does not.
+So, we need to create new component type to encapsulate the time courses here, similar to the <code class="docutils literal notranslate"><span class="pre">Ray_tau</span></code> component type that we did before:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Ray_ka_tau&quot;</span>
+<span class="w">                   </span><span class="na">extends=</span><span class="s">&quot;baseVoltageDepTime&quot;</span>
+<span class="w">                   </span><span class="na">description=</span><span class="s">&quot;Tau parameter to describe ka&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max_tau&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min_tau&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;midpoint1&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;scale1&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;midpoint2&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;scale2&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Constant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;table_max&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40 mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ConditionalDerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Case</span><span class="w"> </span><span class="na">condition=</span><span class="s">&quot;v .gt. table_max&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(max_tau - min_tau) / ((1 + exp(-(table_max + midpoint1) / scale1)) * ( 1 + exp((table_max + midpoint2) / scale2))) + min_tau&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Case</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(max_tau - min_tau) / ((1 + exp(-(v + midpoint1) / scale1)) * ( 1 + exp((v + midpoint2) / scale2))) + min_tau&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">            </span><span class="nt">&lt;/ConditionalDerivedVariable&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ComponentType&gt;</span>
+</pre></div>
+</div>
+<p>We also add this to our <code class="docutils literal notranslate"><span class="pre">RaySigmoid.nml</span></code> file.
+The ka.channel.nml file will, finally, look like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;neuroml</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;NeuroML_ionChannel&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;notes&gt;</span>NeuroML<span class="w"> </span>file<span class="w"> </span>containing<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>ion<span class="w"> </span>channel<span class="nt">&lt;/notes&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;RaySigmoid.nml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;ionChannel</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ka&quot;</span><span class="w"> </span><span class="na">conductance=</span><span class="s">&quot;1pS&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ionChannelHH&quot;</span><span class="w"> </span><span class="na">species=</span><span class="s">&quot;k&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;notes&gt;</span>
+<span class="w">                </span>Implementation<span class="w"> </span>of<span class="w"> </span>A<span class="w"> </span>type<span class="w"> </span>K+<span class="w"> </span>channel<span class="w"> </span>(<span class="w"> </span>KA<span class="w"> </span>)<span class="w"> </span>from<span class="w"> </span>Wustenberg<span class="w"> </span>DG,<span class="w"> </span>Boytcheva<span class="w"> </span>M,<span class="w"> </span>Grunewald<span class="w"> </span>B,<span class="w"> </span>Byrne<span class="w"> </span>JH,<span class="w"> </span>Menzel<span class="w"> </span>R,<span class="w"> </span>Baxter<span class="w"> </span>DA.
+<span class="w">                </span>This<span class="w"> </span>is<span class="w"> </span>transient<span class="w"> </span>A<span class="w"> </span>type<span class="w"> </span>K+<span class="w"> </span>channel<span class="w"> </span>in<span class="w"> </span>Apis<span class="w"> </span>mellifera<span class="w"> </span>Kenyon<span class="w"> </span>cells<span class="w"> </span>(cultured).
+<span class="w">        </span><span class="nt">&lt;/notes&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- custom component types because the tables in the mod files only go to 40 --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;m&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_ka_tau&quot;</span><span class="w"> </span><span class="na">midpoint1=</span><span class="s">&quot;70mV&quot;</span><span class="w"> </span><span class="na">midpoint2=</span><span class="s">&quot;2.0mV&quot;</span><span class="w"> </span><span class="na">scale1=</span><span class="s">&quot;4.0mV&quot;</span><span class="w"> </span><span class="na">scale2=</span><span class="s">&quot;12.0mV&quot;</span><span class="w"> </span><span class="na">min_tau=</span><span class="s">&quot;0.35ms&quot;</span><span class="w"> </span><span class="na">max_tau=</span><span class="s">&quot;1.65ms&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_inf&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-20.1mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;16.1mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gate&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;gate</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;h&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gateHHtauInf&quot;</span><span class="w"> </span><span class="na">instances=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;timeCourse</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_ka_tau&quot;</span><span class="w"> </span><span class="na">midpoint1=</span><span class="s">&quot;60mV&quot;</span><span class="w"> </span><span class="na">midpoint2=</span><span class="s">&quot;62.0mV&quot;</span><span class="w"> </span><span class="na">scale1=</span><span class="s">&quot;25.0mV&quot;</span><span class="w"> </span><span class="na">scale2=</span><span class="s">&quot;16.0mV&quot;</span><span class="w"> </span><span class="na">min_tau=</span><span class="s">&quot;2.5ms&quot;</span><span class="w"> </span><span class="na">max_tau=</span><span class="s">&quot;90.0ms&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;steadyState</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Ray_inf&quot;</span><span class="w"> </span><span class="na">rate=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">midpoint=</span><span class="s">&quot;-74.7mV&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;-7.0mV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/gate&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;/ionChannel&gt;</span>
+<span class="nt">&lt;/neuroml&gt;</span>
+</pre></div>
+</div>
+<p>That is all the ion channels converted.</p>
+<p>The ion channels are usually the most involved to convert because one must understand their initial descriptions in the mod files.
+Even though the <a class="reference external" href="https://nrn.readthedocs.io/en/8.2.2/python/modelspec/programmatic/mechanisms/nmodl.html#nmodl">NMODL language</a> used in mod files does have a well defined structure, like general programming languages, it is free-flowing.
+This means that different people can write the same dynamics in different ways.
+On the other hand, NeuroML and LEMS are more formal with more strict structures, and once channels are converted to these formats, they are much easier to understand.</p>
+</section>
+</section>
+<section id="step-2-creating-the-morphology">
+<h3>Step 2) Creating the morphology<a class="headerlink" href="#step-2-creating-the-morphology" title="Link to this heading">#</a></h3>
+<p>Since the morphology of the KC is a single compartment, we don’t need to export it from NEURON.
+We can create it ourselves.</p>
+<p>The morphology is given in the HOC script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="n">geom</span><span class="p">()</span> <span class="p">{</span>
+     <span class="n">soma</span> <span class="p">{</span>  <span class="o">//</span> <span class="n">Total</span> <span class="n">Cm</span> <span class="o">=</span> <span class="mi">4</span> <span class="n">pF</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="mf">6.366</span>
+        <span class="n">diam</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can create this using a Python script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">celldoc</span> <span class="o">=</span> <span class="n">component_factory</span><span class="p">(</span>
+        <span class="s2">&quot;NeuroMLDocument&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;KC_doc&quot;</span>
+    <span class="p">)</span>  <span class="c1"># type: neuroml.NeuroMLDocument</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">celldoc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Cell&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;KC&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># type: neuroml.Cell</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">setup_nml_cell</span><span class="p">()</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_segment</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">6.366</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="n">seg_type</span><span class="o">=</span><span class="s2">&quot;soma&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">setup_nml_cell</span></code> and <code class="docutils literal notranslate"><span class="pre">add_segment</span></code> methods are part of the <a class="reference external" href="https://libneuroml.readthedocs.io/en/latest/userdocs/coreclasses.html#cell">Cell class in the standard API</a>.</p>
+<p>Now that we have the morphology and the ion channels for the KC, we can add the biophysics to the morphology to complete the cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># biophysics</span>
+    <span class="c1"># all</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_resistivity</span><span class="p">(</span><span class="s2">&quot;35.4 ohm_cm&quot;</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_specific_capacitance</span><span class="p">(</span><span class="s2">&quot;1 uF_per_cm2&quot;</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_init_memb_potential</span><span class="p">(</span><span class="s2">&quot;-70mV&quot;</span><span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">set_spike_thresh</span><span class="p">(</span><span class="s2">&quot;-10mV&quot;</span><span class="p">)</span>
+
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;pas&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;pas&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;9.75e-5 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-70 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;non_specific&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/pas.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># K</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;kv&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;kv&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;1.5e-3 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-81 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/kv.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;ka&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;ka&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;1.4525e-2 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-81 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/ka.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;kst&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;kst&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;2.0275e-3 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;-81 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/kst.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Na</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;naf&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;naf&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;3.5e-2 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;58 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/naf.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cell</span><span class="o">.</span><span class="n">add_channel_density</span><span class="p">(</span>
+        <span class="n">nml_cell_doc</span><span class="o">=</span><span class="n">celldoc</span><span class="p">,</span>
+        <span class="n">cd_id</span><span class="o">=</span><span class="s2">&quot;nas&quot;</span><span class="p">,</span>
+        <span class="n">ion_channel</span><span class="o">=</span><span class="s2">&quot;nas&quot;</span><span class="p">,</span>
+        <span class="n">cond_density</span><span class="o">=</span><span class="s2">&quot;3e-3 S_per_cm2&quot;</span><span class="p">,</span>
+        <span class="n">erev</span><span class="o">=</span><span class="s2">&quot;58 mV&quot;</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+        <span class="n">ion</span><span class="o">=</span><span class="s2">&quot;na&quot;</span><span class="p">,</span>
+        <span class="n">ion_chan_def_file</span><span class="o">=</span><span class="s2">&quot;channels/nas.channel.nml&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>This completes the cell.
+We export it to a NeuroML file.</p>
+</section>
+<section id="step-3-testing-the-model">
+<h3>Step 3) Testing the model<a class="headerlink" href="#step-3-testing-the-model" title="Link to this heading">#</a></h3>
+<p>Finally, we want to test our NeuroML conversion against the original cell to see that it exhibits the same dynamics.
+The <code class="docutils literal notranslate"><span class="pre">test_kc.py</span></code> script runs a simple step current simulation with a single KC cell and shows its membrane potentials:</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../../_images/KC-NEURON.png"><img alt="Image showing the membrane potential of the NEURON implementation of the KC cell model with a step current." src="../../../_images/KC-NEURON.png" style="width: 768.0px; height: 401.20000000000005px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">The membrane potential of the NEURON implementation of the KC cell model with a step current.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We write a quick simulation to reproduce these using our NeuroML model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">step_current_omv_kc</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a step current simulation OMV LEMS file&quot;&quot;&quot;</span>
+    <span class="c1"># read the cell file, modify it, write a new one</span>
+    <span class="n">netdoc</span> <span class="o">=</span> <span class="n">read_neuroml2_file</span><span class="p">(</span><span class="s2">&quot;KC.cell.nml&quot;</span><span class="p">)</span>
+    <span class="n">kc_cell</span> <span class="o">=</span> <span class="n">netdoc</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">netdoc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">Network</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;KC_net&quot;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">neuroml</span><span class="o">.</span><span class="n">Population</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;KC_pop&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">kc_cell</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># should be same as test_kc.py</span>
+    <span class="n">pg</span> <span class="o">=</span> <span class="n">netdoc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="n">neuroml</span><span class="o">.</span><span class="n">PulseGenerator</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pg&quot;</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s2">&quot;100ms&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;500ms&quot;</span><span class="p">,</span>
+            <span class="n">amplitude</span><span class="o">=</span><span class="s2">&quot;16pA&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add these to cells</span>
+    <span class="n">input_list</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="n">neuroml</span><span class="o">.</span><span class="n">InputList</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;input_list&quot;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">populations</span><span class="o">=</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">aninput</span> <span class="o">=</span> <span class="n">input_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="n">neuroml</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="s2">&quot;../</span><span class="si">%s</span><span class="s2">[0]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pop</span><span class="o">.</span><span class="n">id</span><span class="p">),</span>
+            <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;synapses&quot;</span><span class="p">,</span>
+            <span class="n">segment_id</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">write_neuroml2_file</span><span class="p">(</span><span class="n">netdoc</span><span class="p">,</span> <span class="s2">&quot;KC.net.nml&quot;</span><span class="p">)</span>
+
+    <span class="n">generate_lems_file_for_neuroml</span><span class="p">(</span>
+        <span class="n">sim_id</span><span class="o">=</span><span class="s2">&quot;KC_step_test&quot;</span><span class="p">,</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">net</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">neuroml_file</span><span class="o">=</span><span class="s2">&quot;KC.net.nml&quot;</span><span class="p">,</span>
+        <span class="n">duration</span><span class="o">=</span><span class="s2">&quot;700ms&quot;</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="s2">&quot;0.01ms&quot;</span><span class="p">,</span>
+        <span class="n">lems_file_name</span><span class="o">=</span><span class="s2">&quot;LEMS_KC_step_test.xml&quot;</span><span class="p">,</span>
+        <span class="n">nml_doc</span><span class="o">=</span><span class="n">netdoc</span><span class="p">,</span>
+        <span class="n">gen_spike_saves_for_all_somas</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">target_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+        <span class="n">gen_saves_for_quantities</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;k.dat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;KC_pop[0]/biophys/membraneProperties/kv/iDensity&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="n">copy_neuroml</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">run_lems_with_jneuroml_neuron</span><span class="p">(</span>
+        <span class="s2">&quot;LEMS_KC_step_test.xml&quot;</span><span class="p">,</span> <span class="n">load_saved_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">compile_mods</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="n">generate_plot</span><span class="p">(</span>
+        <span class="n">xvalues</span><span class="o">=</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]],</span>
+        <span class="n">yvalues</span><span class="o">=</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;KC_pop[0]/v&quot;</span><span class="p">]],</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Membrane potential: KC&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>This will generate graphs of the KC’s membrane potential.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/KC-NeuroML.png"><img alt="Image showing the membrane potential of the NeuroML implementation of the KC cell model with a step current." src="../../../_images/KC-NeuroML.png" style="width: 768.0px; height: 388.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">The membrane potential of the NeuroML implementation of the KC cell model with a step current.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As we can see, the membrane potentials look very similar.
+In the next page, we will also set up some more validation tests to better verify that the NEURON and NeuroML implementations produce the same dynamics.</p>
+<p>Since this writes a LEMS simulation file also, we can also run the LEMS file directly for later verification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pynml</span> <span class="n">LEMS_KC_step_test</span><span class="o">.</span><span class="n">xml</span> <span class="o">-</span><span class="n">neuron</span> <span class="o">-</span><span class="n">nogui</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/Walkthroughs/RayEtAl2020"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Setup.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Setting up</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="OMV.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Adding OMV tests</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-the-giant-gabaergic-neuron">Converting the Giant GABAergic Neuron</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-exporting-morphology-of-the-ggn">Step 1) Exporting morphology of the GGN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-adding-biophysics-to-the-ggn">Step 2) Adding biophysics to the GGN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-the-kenyon-cell">Converting the Kenyon Cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-converting-ion-channels">Step 1) Converting ion channels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-kv-naf-kst">1a) Kv, Naf, Kst</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-ka">1b) Ka</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-the-morphology">Step 2) Creating the morphology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-testing-the-model">Step 3) Testing the model</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1780 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dynamics &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/LEMS_elements/Dynamics';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Structure" href="Structure.html" />
+    <link rel="prev" title="Defining component types" href="Definingcomponenttypes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/LEMS_elements/Dynamics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/LEMS_elements/Dynamics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/LEMS_elements/Dynamics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dynamics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemsschema-dynamics">Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statevariable">StateVariable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stateassignment">StateAssignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timederivative">TimeDerivative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedvariable">DerivedVariable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onstart">OnStart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oncondition">OnCondition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onevent">OnEvent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eventout">EventOut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kineticscheme">KineticScheme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regime">Regime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onentry">OnEntry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition">Transition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#super">Super</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionalderivedvariable">ConditionalDerivedVariable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case">Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statescalarfield">StateScalarField</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedscalarfield">DerivedScalarField</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedpunctatefield">DerivedPunctateField</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dynamics">
+<span id="lemsschema-page-dynamics"></span><h1>Dynamics<a class="headerlink" href="#dynamics" title="Link to this heading">#</a></h1>
+<p>Schema against which LEMS based on these should be valid: <a class="reference external" href="https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS/LEMS_v0.7.6.xsd">LEMS_v0.7.6.xsd</a>.
+Generated on 18/06/24 from <a class="reference external" href="https://github.com/LEMS/LEMS/commit/fd7b30eceb6735ac343745c8f6992bdde72b248b">this</a> commit.
+Please file any issues or questions at the <a class="reference external" href="https://github.com/LEMS/LEMS/issues">issue tracker here</a>.</p>
+<hr class="docutils" />
+<section id="lemsschema-dynamics">
+<span id="id1"></span><h2>Dynamics<a class="headerlink" href="#lemsschema-dynamics" title="Link to this heading">#</a></h2>
+<p><i>Specifies the dynamical behavior of components build from this ComponentType. Note that all variables in a Dynamics definition are private. If other components need access to them, then the definition should explicitly link them to an Exposure defined in the component class</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>supers</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-super"><span class="std std-ref">Super</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>derivedVariables</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-derivedvariable"><span class="std std-ref">DerivedVariable</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>conditionalDerivedVariables</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-conditionalderivedvariable"><span class="std std-ref">ConditionalDerivedVariable</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>stateVariables</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-statevariable"><span class="std std-ref">StateVariable</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>timeDerivatives</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-timederivative"><span class="std std-ref">TimeDerivative</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>kineticSchemes</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-kineticscheme"><span class="std std-ref">KineticScheme</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>onStarts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-onstart"><span class="std std-ref">OnStart</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>onEvents</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-onevent"><span class="std std-ref">OnEvent</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>onConditions</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-oncondition"><span class="std std-ref">OnCondition</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>stateScalarFields</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-statescalarfield"><span class="std std-ref">StateScalarField</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>derivedScalarFields</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-derivedscalarfield"><span class="std std-ref">DerivedScalarField</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>derivedPunctateFields</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-derivedpunctatefield"><span class="std std-ref">DerivedPunctateField</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>regimes</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-regime"><span class="std std-ref">Regime</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Dynamics&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateVariable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;StateVariable&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DerivedVariable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;DerivedVariable&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ConditionalDerivedVariable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ConditionalDerivedVariable&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TimeDerivative&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;TimeDerivative&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnStart&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;OnStart&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnEvent&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;OnEvent&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnCondition&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;OnCondition&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Regime&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Regime&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KineticScheme&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;KineticScheme&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Dynamics&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ex&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;exp(x)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;ex / (1 + ex)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;Forward/r&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;Reverse/r&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(1 + ex)^2 / ex * (rf * (1 - q) - rr * q)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fcond&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;fcond&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;q^power&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Dynamics&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;Forward/r&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;Reverse/r&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;rf * (1 - q) - rr * q&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fcond&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;fcond&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;q^power&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Dynamics&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;totcurrent&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;current&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;populations[*]/current&quot;</span><span class="w"> </span><span class="na">reduce=</span><span class="s">&quot;add&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(totcurrent + injection) / capacitance&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Dynamics&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;leakConductance * (leakReversal - v) / capacitance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OnEvent</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;spikes-in&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v + deltaV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/OnEvent&gt;</span>
+<span class="nt">&lt;/Dynamics&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="statevariable">
+<span id="lemsschema-statevariable"></span><h2>StateVariable<a class="headerlink" href="#statevariable" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the state variable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>exposure</strong></p></td>
+<td><p>String</p></td>
+<td><p>If this variable is to be accessed from outside, it should be linked to an Exposure that is defined in the ComponentType.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the state variable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateVariable&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dimension&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;exposure&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;voltage&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tlast&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stateassignment">
+<span id="lemsschema-stateassignment"></span><h2>StateAssignment<a class="headerlink" href="#stateassignment" title="Link to this heading">#</a></h2>
+<p><i>Has ‘variable’ and ‘value’ fields</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>variable</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the variable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>value</strong></p></td>
+<td><p>String</p></td>
+<td><p>A string defining the value of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateAssignment&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;variable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v + deltaV&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tlast&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;t&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;geff&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="timederivative">
+<span id="lemsschema-timederivative"></span><h2>TimeDerivative<a class="headerlink" href="#timederivative" title="Link to this heading">#</a></h2>
+<p><i>First order differential equations, functions of StateVariables and Parameters, for how StateVariables change with time. Has a variable and a value. The value is the rate of change of the variable.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>variable</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the variable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>value</strong></p></td>
+<td><p>String</p></td>
+<td><p>A string defining the value of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TimeDerivative&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;variable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;leakConductance * (leakReversal - v) / capacitance&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;q&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;rf * (1 - q) - rr * q&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(1 + ex)^2 / ex * (rf * (1 - q) - rr * q)&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(totcurrent + injection) / capacitance&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivedvariable">
+<span id="lemsschema-derivedvariable"></span><h2>DerivedVariable<a class="headerlink" href="#derivedvariable" title="Link to this heading">#</a></h2>
+<p><i>A quantity that depends algebraically on other quantities in the model. The ‘value’ field can be set to a mathematical expression, or the ‘select’ field to a path expression. If the path expression produces multiple matches, then the ‘reduce’ field says how these are reduced to a single value by taking the sum or product.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of the derived variable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>select</strong></p></td>
+<td><p>String</p></td>
+<td><p>A path to the variable that supplies the value. Note that to select a variable from another component, the variable must be marked as an Exposure. Exactly one of ‘select’ and ‘value’ is required</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td><p>The dimension, or ‘none’. This should be the name of an already defined dimension element</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>description</strong></p></td>
+<td><p>String</p></td>
+<td><p>An optional description of the derived variable</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>reduce</strong></p></td>
+<td><p>String</p></td>
+<td><p>Either ‘add’ or ‘multiply’. This applies if ther are multiple matches to the path or if ‘required’ is false. In the latter case, for multiply mode, multiplicative expressions in this variable behave as if the term was absent. Additive expressions generate an error. Conversely, if set to ‘add’ then additive expressions behave as if it was not there and multiplicative ones generateand error.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>exposure</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>required</strong></p></td>
+<td><p>boolean</p></td>
+<td><p>Set to true if it OK for this variable to be absent. See ‘reduce’ for what happens in this case</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>value</strong></p></td>
+<td><p>String</p></td>
+<td><p>A string defining the value of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DerivedVariable&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dimension&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;exposure&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;select&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reduce&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;required&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-14" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;t - tlast&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;rate * exp((v - midpoint)/scale)&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;rate / (1 + exp( -(v - midpoint)/scale))&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(v - midpoint) / scale&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DerivedVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;per_time&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;rate * x / (1 - exp(-x))&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="onstart">
+<span id="lemsschema-onstart"></span><h2>OnStart<a class="headerlink" href="#onstart" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-15" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>stateAssignments</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-stateassignment"><span class="std std-ref">StateAssignment</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>eventOuts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-eventout"><span class="std std-ref">EventOut</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>transitions</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-transition"><span class="std std-ref">Transition</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-16" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnStart&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-17" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-17">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnStart&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;geff&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnStart&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnStart&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnStart&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnStart&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oncondition">
+<span id="lemsschema-oncondition"></span><h2>OnCondition<a class="headerlink" href="#oncondition" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-18" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-18">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>stateAssignments</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-stateassignment"><span class="std std-ref">StateAssignment</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>eventOuts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-eventout"><span class="std std-ref">EventOut</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>transitions</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-transition"><span class="std std-ref">Transition</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-19" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-19">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnCondition&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EventOut&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EventOut&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Transition&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Transition&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;test&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-20" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-20">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;tsince .gt. period&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnCondition&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;t - tlast .gt. period&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tlast&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;t&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnCondition&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;v .gt. threshold&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;out&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Transition</span><span class="w"> </span><span class="na">regime=</span><span class="s">&quot;refr&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnCondition&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;t .gt. tin + refractoryPeriod&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Transition</span><span class="w"> </span><span class="na">regime=</span><span class="s">&quot;int&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnCondition&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;tsince .gt. period&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tsince&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnCondition&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="onevent">
+<span id="lemsschema-onevent"></span><h2>OnEvent<a class="headerlink" href="#onevent" title="Link to this heading">#</a></h2>
+<p><i>Event handler block</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-21" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-21">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>port</strong></p></td>
+<td><p>String</p></td>
+<td><p>the port to listen on</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-22" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-22">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>stateAssignments</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-stateassignment"><span class="std std-ref">StateAssignment</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>eventOuts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-eventout"><span class="std std-ref">EventOut</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>transitions</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-transition"><span class="std std-ref">Transition</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-23" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-23">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnEvent&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EventOut&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EventOut&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;port&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-24" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-24">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnEvent</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;spikes-in&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v + deltaV&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnEvent&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnEvent</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;in&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;geff&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geff + deltaG&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnEvent&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnEvent</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;in&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v + deltaV&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnEvent&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnEvent</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;spikes-in&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v + deltaV&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnEvent&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eventout">
+<span id="lemsschema-eventout"></span><h2>EventOut<a class="headerlink" href="#eventout" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-25" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-25">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EventOut&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;port&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-26" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-26">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;out&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kineticscheme">
+<span id="lemsschema-kineticscheme"></span><h2>KineticScheme<a class="headerlink" href="#kineticscheme" title="Link to this heading">#</a></h2>
+<p><i>Allows the specification of systems that can be in one of a small number of states at any time with probabilistic transitions between states. This includes continuous time Markov processes as are used for stochastic models of ion channels. A kinetic scheme does not itself introduce any new elements or state variables. It is rather a way of connecting quantities in existing components by saying that quantities in the edge elements should be interpreted as transition rates among quantities in the node elements.</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-27" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-27">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of kinetic scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>nodes</strong></p></td>
+<td><p>String</p></td>
+<td><p>Source of notes for scheme</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>edges</strong></p></td>
+<td><p>String</p></td>
+<td><p>The element that provides the transitions for the scheme</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>stateVariable</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of state variable in state elements</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>edgeSource</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the attribute in the rate element that defines the source of the transition</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>edgeTarget</strong></p></td>
+<td><p>String</p></td>
+<td><p>Attribute tha defines the target</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>forwardRate</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of forward rate exposure</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>reverseRate</strong></p></td>
+<td><p>String</p></td>
+<td><p>Name of reverse rate exposure</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-28" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-28">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KineticScheme&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nodes&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;stateVariable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;edges&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;edgeSource&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;edgeTarget&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;forwardRate&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reverseRate&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-29" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-29">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;KineticScheme</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ks&quot;</span><span class="w"> </span><span class="na">nodes=</span><span class="s">&quot;states&quot;</span><span class="w"> </span><span class="na">stateVariable=</span><span class="s">&quot;occupancy&quot;</span><span class="w"> </span><span class="na">edges=</span><span class="s">&quot;transitions&quot;</span><span class="w"> </span><span class="na">edgeSource=</span><span class="s">&quot;from&quot;</span><span class="w"> </span><span class="na">edgeTarget=</span><span class="s">&quot;to&quot;</span><span class="w"> </span><span class="na">forwardRate=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">reverseRate=</span><span class="s">&quot;rr&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;KineticScheme</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ks&quot;</span><span class="w"> </span><span class="na">nodes=</span><span class="s">&quot;states&quot;</span><span class="w"> </span><span class="na">stateVariable=</span><span class="s">&quot;occupancy&quot;</span><span class="w"> </span><span class="na">edges=</span><span class="s">&quot;transitions&quot;</span><span class="w"> </span><span class="na">edgeSource=</span><span class="s">&quot;from&quot;</span><span class="w"> </span><span class="na">edgeTarget=</span><span class="s">&quot;to&quot;</span><span class="w"> </span><span class="na">forwardRate=</span><span class="s">&quot;rf&quot;</span><span class="w"> </span><span class="na">reverseRate=</span><span class="s">&quot;rr&quot;</span><span class="w"> </span><span class="na">dependency=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">step=</span><span class="s">&quot;deltaV&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regime">
+<span id="lemsschema-regime"></span><h2>Regime<a class="headerlink" href="#regime" title="Link to this heading">#</a></h2>
+<p><i>Allows the dynamics of a ComponentType to be expressed via a finite state machine. Each regime has its internal dynamics, and conditions on which transitions between regimes occur are specified using the OnCondition element</i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-30" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-30">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td><p>The name of the regime</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>initial</strong></p></td>
+<td><p>String</p></td>
+<td><p>‘True’ if this is the initial regime of the system</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-31" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-31">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>derivedVariables</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-derivedvariable"><span class="std std-ref">DerivedVariable</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>stateVariables</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-statevariable"><span class="std std-ref">StateVariable</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>timeDerivatives</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-timederivative"><span class="std std-ref">TimeDerivative</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>onStarts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-onstart"><span class="std std-ref">OnStart</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>onEntrys</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-onentry"><span class="std std-ref">OnEntry</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>onEvents</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-onevent"><span class="std std-ref">OnEvent</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>onConditions</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-oncondition"><span class="std std-ref">OnCondition</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>requiredVars</strong></p></td>
+<td><p><span class="xref std std-ref">lemsschema:requiredvar_</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-32" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-32">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Regime&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TimeDerivative&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;TimeDerivative&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnEntry&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;OnEntry&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnCondition&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;OnCondition&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;initial&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;TrueOrFalse&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-33" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-33">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Regime</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;int&quot;</span><span class="w"> </span><span class="na">initial=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;(current + gleak * (vleak - v)) / capacitance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;v .gt. threshold&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;EventOut</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;out&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Transition</span><span class="w"> </span><span class="na">regime=</span><span class="s">&quot;refr&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/OnCondition&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OnEvent</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;in&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;v + deltaV&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/OnEvent&gt;</span>
+<span class="nt">&lt;/Regime&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Regime</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;refr&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OnEntry&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tin&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;t&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;vreset&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/OnEntry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;OnCondition</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;t .gt. tin + refractoryPeriod&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Transition</span><span class="w"> </span><span class="na">regime=</span><span class="s">&quot;int&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/OnCondition&gt;</span>
+<span class="nt">&lt;/Regime&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="onentry">
+<span id="lemsschema-onentry"></span><h2>OnEntry<a class="headerlink" href="#onentry" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-34" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-34">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>stateAssignments</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-stateassignment"><span class="std std-ref">StateAssignment</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>eventOuts</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-eventout"><span class="std std-ref">EventOut</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>transitions</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-transition"><span class="std std-ref">Transition</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-35" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-35">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnEntry&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;StateAssignment&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-36" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-36">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;OnEntry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;tin&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;t&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;v&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;vreset&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OnEntry&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="transition">
+<span id="lemsschema-transition"></span><h2>Transition<a class="headerlink" href="#transition" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-37" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-37">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Transition&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;regime&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-38" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-38">
+Usage: XML</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Transition</span><span class="w"> </span><span class="na">regime=</span><span class="s">&quot;int&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Transition</span><span class="w"> </span><span class="na">regime=</span><span class="s">&quot;refr&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="super">
+<span id="lemsschema-super"></span><h2>Super<a class="headerlink" href="#super" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+</section>
+<section id="conditionalderivedvariable">
+<span id="lemsschema-conditionalderivedvariable"></span><h2>ConditionalDerivedVariable<a class="headerlink" href="#conditionalderivedvariable" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-39" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-39">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>dimension</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>exposure</strong></p></td>
+<td><p>String</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-40" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-40">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>cases</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-case"><span class="std std-ref">Case</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-41" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-41">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ConditionalDerivedVariable&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Case&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Case&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dimension&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;exposure&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="case">
+<span id="lemsschema-case"></span><h2>Case<a class="headerlink" href="#case" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-42" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-42">
+Properties</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>value</strong></p></td>
+<td><p>String</p></td>
+<td><p>A string defining the value of the element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-43" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-43">
+Schema</label><div class="sd-tab-content docutils">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Case&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;condition&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="equilibrium">
+<span id="lemsschema-equilibrium"></span><h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-44" name="sd-tab-set-15" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-44">
+can contain these elements</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table" style="width: 100%">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>derivedVariables</strong></p></td>
+<td><p><a class="reference internal" href="#lemsschema-derivedvariable"><span class="std std-ref">DerivedVariable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="statescalarfield">
+<span id="lemsschema-statescalarfield"></span><h2>StateScalarField<a class="headerlink" href="#statescalarfield" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+</section>
+<section id="derivedscalarfield">
+<span id="lemsschema-derivedscalarfield"></span><h2>DerivedScalarField<a class="headerlink" href="#derivedscalarfield" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+</section>
+<section id="derivedpunctatefield">
+<span id="lemsschema-derivedpunctatefield"></span><h2>DerivedPunctateField<a class="headerlink" href="#derivedpunctatefield" title="Link to this heading">#</a></h2>
+<p><i></i></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/LEMS_elements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Definingcomponenttypes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Defining component types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Structure.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Structure</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemsschema-dynamics">Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statevariable">StateVariable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stateassignment">StateAssignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timederivative">TimeDerivative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedvariable">DerivedVariable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onstart">OnStart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oncondition">OnCondition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onevent">OnEvent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eventout">EventOut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kineticscheme">KineticScheme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regime">Regime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onentry">OnEntry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition">Transition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#super">Super</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionalderivedvariable">ConditionalDerivedVariable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case">Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statescalarfield">StateScalarField</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedscalarfield">DerivedScalarField</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedpunctatefield">DerivedPunctateField</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

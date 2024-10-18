@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Index &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/Schemas/Index';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NeuroML v1" href="../NeuroMLv1.html" />
+    <link rel="prev" title="Simulation" href="Simulation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Specification.html">Schema/Specification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../NeuroMLv2.html">NeuroML v2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simulation.html">Simulation</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExtendingNeuroMLv2.html">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/Schemas/Index.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/Schemas/Index.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Userdocs/Schemas/Index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Index</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="index">
+<h1>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h1>
+<a name="adexiafcell"/>
+<ul class="simple">
+<li><p><a class="reference internal" href="Cells.html#schema-adexiafcell"><span class="std std-ref">adExIaFCell</span></a>
+<a name="alphacondsynapse"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-alphacondsynapse"><span class="std std-ref">alphaCondSynapse</span></a>
+<a name="alphacurrentsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-alphacurrentsynapse"><span class="std std-ref">alphaCurrentSynapse</span></a>
+<a name="alphacurrsynapse"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-alphacurrsynapse"><span class="std std-ref">alphaCurrSynapse</span></a>
+<a name="alphasynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-alphasynapse"><span class="std std-ref">alphaSynapse</span></a>
+<a name="annotation"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-annotation"><span class="std std-ref">annotation</span></a>
+<a name="area"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-area"><span class="std std-ref">area</span></a>
+<a name="baseblockmechanism"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-baseblockmechanism"><span class="std std-ref">baseBlockMechanism</span></a>
+<a name="basebqbiol"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-basebqbiol"><span class="std std-ref">baseBqbiol</span></a>
+<a name="basecell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basecell"><span class="std std-ref">baseCell</span></a>
+<a name="basecellmembpot"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basecellmembpot"><span class="std std-ref">baseCellMembPot</span></a>
+<a name="basecellmembpotcap"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basecellmembpotcap"><span class="std std-ref">baseCellMembPotCap</span></a>
+<a name="basecellmembpotdl"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basecellmembpotdl"><span class="std std-ref">baseCellMembPotDL</span></a>
+<a name="basechanneldensity"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basechanneldensity"><span class="std std-ref">baseChannelDensity</span></a>
+<a name="basechanneldensitycond"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basechanneldensitycond"><span class="std std-ref">baseChannelDensityCond</span></a>
+<a name="basechannelpopulation"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basechannelpopulation"><span class="std std-ref">baseChannelPopulation</span></a>
+<a name="baseconductancebasedsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-baseconductancebasedsynapse"><span class="std std-ref">baseConductanceBasedSynapse</span></a>
+<a name="baseconductancebasedsynapsetwo"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-baseconductancebasedsynapsetwo"><span class="std std-ref">baseConductanceBasedSynapseTwo</span></a>
+<a name="baseconductancescaling"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-baseconductancescaling"><span class="std std-ref">baseConductanceScaling</span></a>
+<a name="baseconductancescalingcadependent"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-baseconductancescalingcadependent"><span class="std std-ref">baseConductanceScalingCaDependent</span></a>
+<a name="basecurrentbasedsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-basecurrentbasedsynapse"><span class="std std-ref">baseCurrentBasedSynapse</span></a>
+<a name="basegate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basegate"><span class="std std-ref">baseGate</span></a>
+<a name="basegradedsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-basegradedsynapse"><span class="std std-ref">baseGradedSynapse</span></a>
+<a name="basehhrate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basehhrate"><span class="std std-ref">baseHHRate</span></a>
+<a name="basehhvariable"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basehhvariable"><span class="std std-ref">baseHHVariable</span></a>
+<a name="baseiaf"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-baseiaf"><span class="std std-ref">baseIaf</span></a>
+<a name="baseiafcapcell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-baseiafcapcell"><span class="std std-ref">baseIafCapCell</span></a>
+<a name="baseionchannel"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-baseionchannel"><span class="std std-ref">baseIonChannel</span></a>
+<a name="baseplasticitymechanism"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-baseplasticitymechanism"><span class="std std-ref">basePlasticityMechanism</span></a>
+<a name="basepointcurrent"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-basepointcurrent"><span class="std std-ref">basePointCurrent</span></a>
+<a name="basepointcurrentdl"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-basepointcurrentdl"><span class="std std-ref">basePointCurrentDL</span></a>
+<a name="basepopulation"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-basepopulation"><span class="std std-ref">basePopulation</span></a>
+<a name="basepynncell"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-basepynncell"><span class="std std-ref">basePyNNCell</span></a>
+<a name="basepynniafcell"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-basepynniafcell"><span class="std std-ref">basePyNNIaFCell</span></a>
+<a name="basepynniafcondcell"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-basepynniafcondcell"><span class="std std-ref">basePyNNIaFCondCell</span></a>
+<a name="basepynnsynapse"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-basepynnsynapse"><span class="std std-ref">basePynnSynapse</span></a>
+<a name="baseq10settings"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-baseq10settings"><span class="std std-ref">baseQ10Settings</span></a>
+<a name="basespikesource"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-basespikesource"><span class="std std-ref">baseSpikeSource</span></a>
+<a name="basespikingcell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-basespikingcell"><span class="std std-ref">baseSpikingCell</span></a>
+<a name="basestandalone"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-basestandalone"><span class="std std-ref">baseStandalone</span></a>
+<a name="basesynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-basesynapse"><span class="std std-ref">baseSynapse</span></a>
+<a name="basesynapsedl"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-basesynapsedl"><span class="std std-ref">baseSynapseDL</span></a>
+<a name="basevoltageconcdeprate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basevoltageconcdeprate"><span class="std std-ref">baseVoltageConcDepRate</span></a>
+<a name="basevoltageconcdeptime"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basevoltageconcdeptime"><span class="std std-ref">baseVoltageConcDepTime</span></a>
+<a name="basevoltageconcdepvariable"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basevoltageconcdepvariable"><span class="std std-ref">baseVoltageConcDepVariable</span></a>
+<a name="basevoltagedeppointcurrent"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-basevoltagedeppointcurrent"><span class="std std-ref">baseVoltageDepPointCurrent</span></a>
+<a name="basevoltagedeppointcurrentdl"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-basevoltagedeppointcurrentdl"><span class="std std-ref">baseVoltageDepPointCurrentDL</span></a>
+<a name="basevoltagedeppointcurrentspiking"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-basevoltagedeppointcurrentspiking"><span class="std std-ref">baseVoltageDepPointCurrentSpiking</span></a>
+<a name="basevoltagedeprate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basevoltagedeprate"><span class="std std-ref">baseVoltageDepRate</span></a>
+<a name="basevoltagedepsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-basevoltagedepsynapse"><span class="std std-ref">baseVoltageDepSynapse</span></a>
+<a name="basevoltagedeptime"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basevoltagedeptime"><span class="std std-ref">baseVoltageDepTime</span></a>
+<a name="basevoltagedepvariable"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-basevoltagedepvariable"><span class="std std-ref">baseVoltageDepVariable</span></a>
+<a name="biophysicalproperties"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-biophysicalproperties"><span class="std std-ref">biophysicalProperties</span></a>
+<a name="biophysicalproperties2capools"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-biophysicalproperties2capools"><span class="std std-ref">biophysicalProperties2CaPools</span></a>
+<a name="blockingplasticsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-blockingplasticsynapse"><span class="std std-ref">blockingPlasticSynapse</span></a>
+<a name="bqbiol_encodes"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-encodes"><span class="std std-ref">bqbiol_encodes</span></a>
+<a name="bqbiol_haspart"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-haspart"><span class="std std-ref">bqbiol_hasPart</span></a>
+<a name="bqbiol_hasproperty"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-hasproperty"><span class="std std-ref">bqbiol_hasProperty</span></a>
+<a name="bqbiol_hastaxon"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-hastaxon"><span class="std std-ref">bqbiol_hasTaxon</span></a>
+<a name="bqbiol_hasversion"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-hasversion"><span class="std std-ref">bqbiol_hasVersion</span></a>
+<a name="bqbiol_is"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-is"><span class="std std-ref">bqbiol_is</span></a>
+<a name="bqbiol_isdescribedby"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-isdescribedby"><span class="std std-ref">bqbiol_isDescribedBy</span></a>
+<a name="bqbiol_isencodedby"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-isencodedby"><span class="std std-ref">bqbiol_isEncodedBy</span></a>
+<a name="bqbiol_ishomologto"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-ishomologto"><span class="std std-ref">bqbiol_isHomologTo</span></a>
+<a name="bqbiol_ispartof"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-ispartof"><span class="std std-ref">bqbiol_isPartOf</span></a>
+<a name="bqbiol_ispropertyof"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-ispropertyof"><span class="std std-ref">bqbiol_isPropertyOf</span></a>
+<a name="bqbiol_isversionof"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-isversionof"><span class="std std-ref">bqbiol_isVersionOf</span></a>
+<a name="bqbiol_occursin"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqbiol-occursin"><span class="std std-ref">bqbiol_occursIn</span></a>
+<a name="bqmodel_is"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqmodel-is"><span class="std std-ref">bqmodel_is</span></a>
+<a name="bqmodel_isderivedfrom"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqmodel-isderivedfrom"><span class="std std-ref">bqmodel_isDerivedFrom</span></a>
+<a name="bqmodel_isdescribedby"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-bqmodel-isdescribedby"><span class="std std-ref">bqmodel_isDescribedBy</span></a>
+<a name="capacitance"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-capacitance"><span class="std std-ref">capacitance</span></a>
+<a name="cell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-cell"><span class="std std-ref">cell</span></a>
+<a name="cell2capools"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-cell2capools"><span class="std std-ref">cell2CaPools</span></a>
+<a name="channeldensity"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensity"><span class="std std-ref">channelDensity</span></a>
+<a name="channeldensityghk"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensityghk"><span class="std std-ref">channelDensityGHK</span></a>
+<a name="channeldensityghk2"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensityghk2"><span class="std std-ref">channelDensityGHK2</span></a>
+<a name="channeldensitynernst"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensitynernst"><span class="std std-ref">channelDensityNernst</span></a>
+<a name="channeldensitynernstca2"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensitynernstca2"><span class="std std-ref">channelDensityNernstCa2</span></a>
+<a name="channeldensitynonuniform"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensitynonuniform"><span class="std std-ref">channelDensityNonUniform</span></a>
+<a name="channeldensitynonuniformghk"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensitynonuniformghk"><span class="std std-ref">channelDensityNonUniformGHK</span></a>
+<a name="channeldensitynonuniformnernst"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensitynonuniformnernst"><span class="std std-ref">channelDensityNonUniformNernst</span></a>
+<a name="channeldensityvshift"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channeldensityvshift"><span class="std std-ref">channelDensityVShift</span></a>
+<a name="channelpopulation"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channelpopulation"><span class="std std-ref">channelPopulation</span></a>
+<a name="channelpopulationnernst"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-channelpopulationnernst"><span class="std std-ref">channelPopulationNernst</span></a>
+<a name="charge"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-charge"><span class="std std-ref">charge</span></a>
+<a name="charge_per_mole"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-charge-per-mole"><span class="std std-ref">charge_per_mole</span></a>
+<a name="closedstate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-closedstate"><span class="std std-ref">closedState</span></a>
+<a name="compoundinput"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-compoundinput"><span class="std std-ref">compoundInput</span></a>
+<a name="compoundinputdl"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-compoundinputdl"><span class="std std-ref">compoundInputDL</span></a>
+<a name="concentration"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-concentration"><span class="std std-ref">concentration</span></a>
+<a name="concentrationmodel"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-concentrationmodel"><span class="std std-ref">concentrationModel</span></a>
+<a name="conductance"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance"><span class="std std-ref">conductance</span></a>
+<a name="conductance_per_voltage"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductance-per-voltage"><span class="std std-ref">conductance_per_voltage</span></a>
+<a name="conductanceDensity"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-conductancedensity"><span class="std std-ref">conductanceDensity</span></a>
+<a name="connection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-connection"><span class="std std-ref">connection</span></a>
+<a name="connectionwd"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-connectionwd"><span class="std std-ref">connectionWD</span></a>
+<a name="continuousconnection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-continuousconnection"><span class="std std-ref">continuousConnection</span></a>
+<a name="continuousconnectioninstance"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-continuousconnectioninstance"><span class="std std-ref">continuousConnectionInstance</span></a>
+<a name="continuousconnectioninstancew"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-continuousconnectioninstancew"><span class="std std-ref">continuousConnectionInstanceW</span></a>
+<a name="continuousprojection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-continuousprojection"><span class="std std-ref">continuousProjection</span></a>
+<a name="current"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-current"><span class="std std-ref">current</span></a>
+<a name="currentDensity"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-currentdensity"><span class="std std-ref">currentDensity</span></a>
+<a name="decayingpoolconcentrationmodel"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-decayingpoolconcentrationmodel"><span class="std std-ref">decayingPoolConcentrationModel</span></a>
+<a name="display"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-display"><span class="std std-ref">Display</span></a>
+<a name="distal"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-distal"><span class="std std-ref">distal</span></a>
+<a name="distaldetails"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-distaldetails"><span class="std std-ref">distalDetails</span></a>
+<a name="doublesynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-doublesynapse"><span class="std std-ref">doubleSynapse</span></a>
+<a name="eif_cond_alpha_isfa_ista"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-eif-cond-alpha-isfa-ista"><span class="std std-ref">EIF_cond_alpha_isfa_ista</span></a>
+<a name="eif_cond_exp_isfa_ista"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-eif-cond-exp-isfa-ista"><span class="std std-ref">EIF_cond_exp_isfa_ista</span></a>
+<a name="electricalconnection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-electricalconnection"><span class="std std-ref">electricalConnection</span></a>
+<a name="electricalconnectioninstance"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-electricalconnectioninstance"><span class="std std-ref">electricalConnectionInstance</span></a>
+<a name="electricalconnectioninstancew"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-electricalconnectioninstancew"><span class="std std-ref">electricalConnectionInstanceW</span></a>
+<a name="electricalprojection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-electricalprojection"><span class="std std-ref">electricalProjection</span></a>
+<a name="eventoutputfile"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-eventoutputfile"><span class="std std-ref">EventOutputFile</span></a>
+<a name="eventselection"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-eventselection"><span class="std std-ref">EventSelection</span></a>
+<a name="expcondsynapse"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-expcondsynapse"><span class="std std-ref">expCondSynapse</span></a>
+<a name="expcurrsynapse"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-expcurrsynapse"><span class="std std-ref">expCurrSynapse</span></a>
+<a name="explicitconnection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-explicitconnection"><span class="std std-ref">explicitConnection</span></a>
+<a name="explicitinput"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-explicitinput"><span class="std std-ref">explicitInput</span></a>
+<a name="exponesynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-exponesynapse"><span class="std std-ref">expOneSynapse</span></a>
+<a name="expthreesynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-expthreesynapse"><span class="std std-ref">expThreeSynapse</span></a>
+<a name="exptwosynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-exptwosynapse"><span class="std std-ref">expTwoSynapse</span></a>
+<a name="fitzhughnagumocell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-fitzhughnagumocell"><span class="std std-ref">fitzHughNagumoCell</span></a>
+<a name="fixedfactorconcentrationmodel"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-fixedfactorconcentrationmodel"><span class="std std-ref">fixedFactorConcentrationModel</span></a>
+<a name="fixedfactorconcentrationmodeltraub"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-fixedfactorconcentrationmodeltraub"><span class="std std-ref">fixedFactorConcentrationModelTraub</span></a>
+<a name="fixedtimecourse"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-fixedtimecourse"><span class="std std-ref">fixedTimeCourse</span></a>
+<a name="forwardtransition"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-forwardtransition"><span class="std std-ref">forwardTransition</span></a>
+<a name="from"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-from"><span class="std std-ref">from</span></a>
+<a name="gapjunction"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-gapjunction"><span class="std std-ref">gapJunction</span></a>
+<a name="gate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gate"><span class="std std-ref">gate</span></a>
+<a name="gatefractional"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatefractional"><span class="std std-ref">gateFractional</span></a>
+<a name="gatehhinstantaneous"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatehhinstantaneous"><span class="std std-ref">gateHHInstantaneous</span></a>
+<a name="gatehhrates"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatehhrates"><span class="std std-ref">gateHHrates</span></a>
+<a name="gatehhratesinf"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatehhratesinf"><span class="std std-ref">gateHHratesInf</span></a>
+<a name="gatehhratestau"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatehhratestau"><span class="std std-ref">gateHHratesTau</span></a>
+<a name="gatehhratestauinf"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatehhratestauinf"><span class="std std-ref">gateHHratesTauInf</span></a>
+<a name="gatehhtauinf"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gatehhtauinf"><span class="std std-ref">gateHHtauInf</span></a>
+<a name="gateks"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-gateks"><span class="std std-ref">gateKS</span></a>
+<a name="gradedsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-gradedsynapse"><span class="std std-ref">gradedSynapse</span></a>
+<a name="hh_cond_exp"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-hh-cond-exp"><span class="std std-ref">HH_cond_exp</span></a>
+<a name="hhexplinearrate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-hhexplinearrate"><span class="std std-ref">HHExpLinearRate</span></a>
+<a name="hhexplinearvariable"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-hhexplinearvariable"><span class="std std-ref">HHExpLinearVariable</span></a>
+<a name="hhexprate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-hhexprate"><span class="std std-ref">HHExpRate</span></a>
+<a name="hhexpvariable"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-hhexpvariable"><span class="std std-ref">HHExpVariable</span></a>
+<a name="hhsigmoidrate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-hhsigmoidrate"><span class="std std-ref">HHSigmoidRate</span></a>
+<a name="hhsigmoidvariable"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-hhsigmoidvariable"><span class="std std-ref">HHSigmoidVariable</span></a>
+<a name="hindmarshrose1984cell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-hindmarshrose1984cell"><span class="std std-ref">hindmarshRose1984Cell</span></a>
+<a name="iafcell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-iafcell"><span class="std std-ref">iafCell</span></a>
+<a name="iafrefcell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-iafrefcell"><span class="std std-ref">iafRefCell</span></a>
+<a name="iaftaucell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-iaftaucell"><span class="std std-ref">iafTauCell</span></a>
+<a name="iaftaurefcell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-iaftaurefcell"><span class="std std-ref">iafTauRefCell</span></a>
+<a name="idealGasConstantDims"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-idealgasconstantdims"><span class="std std-ref">idealGasConstantDims</span></a>
+<a name="if_cond_alpha"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-if-cond-alpha"><span class="std std-ref">IF_cond_alpha</span></a>
+<a name="if_cond_exp"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-if-cond-exp"><span class="std std-ref">IF_cond_exp</span></a>
+<a name="if_curr_alpha"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-if-curr-alpha"><span class="std std-ref">IF_curr_alpha</span></a>
+<a name="if_curr_exp"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-if-curr-exp"><span class="std std-ref">IF_curr_exp</span></a>
+<a name="include"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-include"><span class="std std-ref">include</span></a>
+<a name="includetype"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLDocument.html#schema-includetype"><span class="std std-ref">IncludeType</span></a>
+<a name="inhomogeneousparameter"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-inhomogeneousparameter"><span class="std std-ref">inhomogeneousParameter</span></a>
+<a name="inhomogeneousvalue"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-inhomogeneousvalue"><span class="std std-ref">inhomogeneousValue</span></a>
+<a name="initmembpotential"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-initmembpotential"><span class="std std-ref">initMembPotential</span></a>
+<a name="input"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-input"><span class="std std-ref">input</span></a>
+<a name="inputlist"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-inputlist"><span class="std std-ref">inputList</span></a>
+<a name="inputw"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-inputw"><span class="std std-ref">inputW</span></a>
+<a name="instance"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-instance"><span class="std std-ref">instance</span></a>
+<a name="intracellularproperties"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-intracellularproperties"><span class="std std-ref">intracellularProperties</span></a>
+<a name="intracellularproperties2capools"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-intracellularproperties2capools"><span class="std std-ref">intracellularProperties2CaPools</span></a>
+<a name="ionchannel"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-ionchannel"><span class="std std-ref">ionChannel</span></a>
+<a name="ionchannelhh"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-ionchannelhh"><span class="std std-ref">ionChannelHH</span></a>
+<a name="ionchannelks"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-ionchannelks"><span class="std std-ref">ionChannelKS</span></a>
+<a name="ionchannelpassive"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-ionchannelpassive"><span class="std std-ref">ionChannelPassive</span></a>
+<a name="ionchannelvshift"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-ionchannelvshift"><span class="std std-ref">ionChannelVShift</span></a>
+<a name="izhikevich2007cell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-izhikevich2007cell"><span class="std std-ref">izhikevich2007Cell</span></a>
+<a name="izhikevichcell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-izhikevichcell"><span class="std std-ref">izhikevichCell</span></a>
+<a name="ksstate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-ksstate"><span class="std std-ref">KSState</span></a>
+<a name="kstransition"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-kstransition"><span class="std std-ref">KSTransition</span></a>
+<a name="length"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-length"><span class="std std-ref">length</span></a>
+<a name="line"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-line"><span class="std std-ref">Line</span></a>
+<a name="lineargradedsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-lineargradedsynapse"><span class="std std-ref">linearGradedSynapse</span></a>
+<a name="location"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-location"><span class="std std-ref">location</span></a>
+<a name="member"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-member"><span class="std std-ref">member</span></a>
+<a name="membraneproperties"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-membraneproperties"><span class="std std-ref">membraneProperties</span></a>
+<a name="membraneproperties2capools"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-membraneproperties2capools"><span class="std std-ref">membraneProperties2CaPools</span></a>
+<a name="meta"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-meta"><span class="std std-ref">Meta</span></a>
+<a name="morphology"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-morphology"><span class="std std-ref">morphology</span></a>
+<a name="network"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-network"><span class="std std-ref">network</span></a>
+<a name="networkwithtemperature"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-networkwithtemperature"><span class="std std-ref">networkWithTemperature</span></a>
+<a name="neuromldocument"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLDocument.html#schema-neuromldocument"><span class="std std-ref">NeuroMLDocument</span></a>
+<a name="notes"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-notes"><span class="std std-ref">notes</span></a>
+<a name="openstate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-openstate"><span class="std std-ref">openState</span></a>
+<a name="outputcolumn"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-outputcolumn"><span class="std std-ref">OutputColumn</span></a>
+<a name="outputfile"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#schema-outputfile"><span class="std std-ref">OutputFile</span></a>
+<a name="parent"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-parent"><span class="std std-ref">parent</span></a>
+<a name="path"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-path"><span class="std std-ref">path</span></a>
+<a name="per_time"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-time"><span class="std std-ref">per_time</span></a>
+<a name="per_voltage"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-per-voltage"><span class="std std-ref">per_voltage</span></a>
+<a name="permeability"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-permeability"><span class="std std-ref">permeability</span></a>
+<a name="pinskyrinzelca3cell"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-pinskyrinzelca3cell"><span class="std std-ref">pinskyRinzelCA3Cell</span></a>
+<a name="point3dwithdiam"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-point3dwithdiam"><span class="std std-ref">point3DWithDiam</span></a>
+<a name="pointcellcondbased"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-pointcellcondbased"><span class="std std-ref">pointCellCondBased</span></a>
+<a name="pointcellcondbasedca"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-pointcellcondbasedca"><span class="std std-ref">pointCellCondBasedCa</span></a>
+<a name="poissonfiringsynapse"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-poissonfiringsynapse"><span class="std std-ref">poissonFiringSynapse</span></a>
+<a name="population"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-population"><span class="std std-ref">population</span></a>
+<a name="populationlist"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-populationlist"><span class="std std-ref">populationList</span></a>
+<a name="projection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-projection"><span class="std std-ref">projection</span></a>
+<a name="property"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-property"><span class="std std-ref">property</span></a>
+<a name="proximal"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-proximal"><span class="std std-ref">proximal</span></a>
+<a name="proximaldetails"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-proximaldetails"><span class="std std-ref">proximalDetails</span></a>
+<a name="pulsegenerator"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-pulsegenerator"><span class="std std-ref">pulseGenerator</span></a>
+<a name="pulsegeneratordl"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-pulsegeneratordl"><span class="std std-ref">pulseGeneratorDL</span></a>
+<a name="q10conductancescaling"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-q10conductancescaling"><span class="std std-ref">q10ConductanceScaling</span></a>
+<a name="q10exptemp"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-q10exptemp"><span class="std std-ref">q10ExpTemp</span></a>
+<a name="q10fixed"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-q10fixed"><span class="std std-ref">q10Fixed</span></a>
+<a name="rampgenerator"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-rampgenerator"><span class="std std-ref">rampGenerator</span></a>
+<a name="rampgeneratordl"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-rampgeneratordl"><span class="std std-ref">rampGeneratorDL</span></a>
+<a name="rdf_bag"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-rdf-bag"><span class="std std-ref">rdf_Bag</span></a>
+<a name="rdf_description"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-rdf-description"><span class="std std-ref">rdf_Description</span></a>
+<a name="rdf_li"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-rdf-li"><span class="std std-ref">rdf_li</span></a>
+<a name="rdf_rdf"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreCompTypes.html#schema-rdf-rdf"><span class="std std-ref">rdf_RDF</span></a>
+<a name="rectangularextent"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-rectangularextent"><span class="std std-ref">rectangularExtent</span></a>
+<a name="region"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-region"><span class="std std-ref">region</span></a>
+<a name="resistance"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-resistance"><span class="std std-ref">resistance</span></a>
+<a name="resistivity"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-resistivity"><span class="std std-ref">resistivity</span></a>
+<a name="reversetransition"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-reversetransition"><span class="std std-ref">reverseTransition</span></a>
+<a name="rho_factor"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-rho-factor"><span class="std std-ref">rho_factor</span></a>
+<a name="segment"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-segment"><span class="std std-ref">segment</span></a>
+<a name="segmentgroup"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-segmentgroup"><span class="std std-ref">segmentGroup</span></a>
+<a name="silentsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-silentsynapse"><span class="std std-ref">silentSynapse</span></a>
+<a name="simulation"/></p></li>
+<li><p><a class="reference internal" href="Simulation.html#id1"><span class="std std-ref">Simulation</span></a>
+<a name="sinegenerator"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-sinegenerator"><span class="std std-ref">sineGenerator</span></a>
+<a name="sinegeneratordl"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-sinegeneratordl"><span class="std std-ref">sineGeneratorDL</span></a>
+<a name="species"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-species"><span class="std std-ref">species</span></a>
+<a name="specificCapacitance"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-specificcapacitance"><span class="std std-ref">specificCapacitance</span></a>
+<a name="spike"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-spike"><span class="std std-ref">spike</span></a>
+<a name="spikearray"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-spikearray"><span class="std std-ref">spikeArray</span></a>
+<a name="spikegenerator"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-spikegenerator"><span class="std std-ref">spikeGenerator</span></a>
+<a name="spikegeneratorpoisson"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-spikegeneratorpoisson"><span class="std std-ref">spikeGeneratorPoisson</span></a>
+<a name="spikegeneratorrandom"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-spikegeneratorrandom"><span class="std std-ref">spikeGeneratorRandom</span></a>
+<a name="spikegeneratorrefpoisson"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-spikegeneratorrefpoisson"><span class="std std-ref">spikeGeneratorRefPoisson</span></a>
+<a name="spikesourcepoisson"/></p></li>
+<li><p><a class="reference internal" href="PyNN.html#schema-spikesourcepoisson"><span class="std std-ref">SpikeSourcePoisson</span></a>
+<a name="spikethresh"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-spikethresh"><span class="std std-ref">spikeThresh</span></a>
+<a name="stdpsynapse"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-stdpsynapse"><span class="std std-ref">stdpSynapse</span></a>
+<a name="subgate"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-subgate"><span class="std std-ref">subGate</span></a>
+<a name="substance"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-substance"><span class="std std-ref">substance</span></a>
+<a name="subtree"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-subtree"><span class="std std-ref">subTree</span></a>
+<a name="synapticconnection"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-synapticconnection"><span class="std std-ref">synapticConnection</span></a>
+<a name="synapticconnectionwd"/></p></li>
+<li><p><a class="reference internal" href="Networks.html#schema-synapticconnectionwd"><span class="std std-ref">synapticConnectionWD</span></a>
+<a name="tauinftransition"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-tauinftransition"><span class="std std-ref">tauInfTransition</span></a>
+<a name="temperature"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-temperature"><span class="std std-ref">temperature</span></a>
+<a name="time"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-time"><span class="std std-ref">time</span></a>
+<a name="timedsynapticinput"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-timedsynapticinput"><span class="std std-ref">timedSynapticInput</span></a>
+<a name="to"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-to"><span class="std std-ref">to</span></a>
+<a name="transientpoissonfiringsynapse"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-transientpoissonfiringsynapse"><span class="std std-ref">transientPoissonFiringSynapse</span></a>
+<a name="tsodyksmarkramdepfacmechanism"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-tsodyksmarkramdepfacmechanism"><span class="std std-ref">tsodyksMarkramDepFacMechanism</span></a>
+<a name="tsodyksmarkramdepmechanism"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-tsodyksmarkramdepmechanism"><span class="std std-ref">tsodyksMarkramDepMechanism</span></a>
+<a name="variableparameter"/></p></li>
+<li><p><a class="reference internal" href="Cells.html#schema-variableparameter"><span class="std std-ref">variableParameter</span></a>
+<a name="vhalftransition"/></p></li>
+<li><p><a class="reference internal" href="Channels.html#schema-vhalftransition"><span class="std std-ref">vHalfTransition</span></a>
+<a name="voltage"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-voltage"><span class="std std-ref">voltage</span></a>
+<a name="voltageclamp"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-voltageclamp"><span class="std std-ref">voltageClamp</span></a>
+<a name="voltageclamptriple"/></p></li>
+<li><p><a class="reference internal" href="Inputs.html#schema-voltageclamptriple"><span class="std std-ref">voltageClampTriple</span></a>
+<a name="voltageconcdepblockmechanism"/></p></li>
+<li><p><a class="reference internal" href="Synapses.html#schema-voltageconcdepblockmechanism"><span class="std std-ref">voltageConcDepBlockMechanism</span></a>
+<a name="volume"/></p></li>
+<li><p><a class="reference internal" href="NeuroMLCoreDimensions.html#schema-dimensions-volume"><span class="std std-ref">volume</span></a></p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs/Schemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Simulation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simulation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../NeuroMLv1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">NeuroML v1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
