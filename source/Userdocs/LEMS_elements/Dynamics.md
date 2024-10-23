@@ -109,7 +109,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:statevariable_)=
 ## StateVariable
 
-<i>Specifies a state variable that stores values that define the state of the system at a point in time. The dynamics of state variables may be defined as Ordinary Differential Equations (ODEs) using the *TimeDerivative* entity. StateVariables may be linked to exposures.</i>
+<i>Specifies a state variable that stores values that define the state of the system at a point in time. The dynamics of state variables may be defined as Ordinary Differential Equations (ODEs) using the *TimeDerivative* entity. They can also be discontinuously modified using elements in *Dynamics* such as *OnStart*s, *OnEvent*s, and *OnCondition*s. StateVariables may be linked to exposures.</i>
 
 `````{tab-set}
 ````{tab-item} Properties
