@@ -46,7 +46,7 @@ First then, the following definitions can be used to express ion channel models 
 This says that a gate can contain any number of states and transitions.
 A state has an occupancy variable, and a transition has links to two states giving the source and target states for the transition.
 
-The transition element here is an abstract element because it doesn't provide a Dynamics block but just specifies what quantities transitions should privide via the two exposures.
+The transition element here is an abstract element because it doesn't provide a Dynamics block but just specifies what quantities transitions should provide via the two exposures.
 One of the most useful forms of transition is a damped Boltzman equation which can be parameterizd as follows:
 
 ```{code-block} xml
