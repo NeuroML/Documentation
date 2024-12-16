@@ -6,7 +6,7 @@
 
 ```{admonition} Read the latest NeuroML reviewed preprint on eLife:
 :class: attention
-[The NeuroML ecosystem for standardized multi-scale modeling in neuroscience](https://doi.org/10.7554/eLife.95135.1)
+[The NeuroML ecosystem for standardized multi-scale modeling in neuroscience](https://doi.org/10.7554/eLife.95135.2)
 ```
 
 
