@@ -75,12 +75,17 @@ function build_book() {
     enable_virtenv
     echo "Building book."
     jupyter-book build ./source
-    sed -i 's|href="_static|href="https://docs.neuroml.org/_static|g' ./source/_build/html/404.html
-    sed -i 's|src="_static|src="https://docs.neuroml.org/_static|g' ./source/_build/html/404.html
 }
 
 function publish_book() {
     enable_virtenv
+    echo "Updating URLs for 404.html"
+    sed -i 's|src="\([[:alnum:]_]\)|src="/\1|g' ./source/_build/html/404.html
+    sed -i 's|href="\([[:alnum:]_]\)|href="/\1|g' ./source/_build/html/404.html
+    # if we also replaced "http.." with "/http..", undo that
+    sed -i 's|href="/http|href="http|g' ./source/_build/html/404.html
+    sed -i 's|src="/http|src="http|g' ./source/_build/html/404.html
+
     echo "Publishing book."
     ghp-import -c "docs.neuroml.org" -n -p -f ./source/_build/html
 }
