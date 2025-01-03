@@ -75,6 +75,8 @@ function build_book() {
     enable_virtenv
     echo "Building book."
     jupyter-book build ./source
+    sed -i 's|href="_static|href="https://docs.neuroml.org/_static|g' ./source/_build/html/404.html
+    sed -i 's|src="_static|src="https://docs.neuroml.org/_static|g' ./source/_build/html/404.html
 }
 
 function publish_book() {

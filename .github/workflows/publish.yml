@@ -39,6 +39,10 @@ jobs:
         jupyter-book build ./source  --builder pdflatex
         mv ./source/_build/latex/neuroml-documentation.pdf ./source/_static/files/
         jupyter-book build ./source
+    - name: Update locations in 404 page
+      run: |
+        sed -i 's|href="_static|href="https://docs.neuroml.org/_static|g' ./source/_build/html/404.html
+        sed -i 's|src="_static|src="https://docs.neuroml.org/_static|g' ./source/_build/html/404.html
     - name: Import to GitHub pages
       run: |
         ghp-import -c "docs.neuroml.org" -n -p -f ./source/_build/html
