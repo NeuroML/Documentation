@@ -70,3 +70,23 @@ sphinx:
         % make phantomsection empty inside figures
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
+      fontpkg: |
+        % https://github.com/sphinx-doc/sphinx/issues/10347#issuecomment-1647984313
+        \setmainfont{FreeSerif}[
+          UprightFont    = *,
+          ItalicFont     = *Italic,
+          BoldFont       = *Bold,
+          BoldItalicFont = *BoldItalic
+        ]
+        \setsansfont{FreeSans}[
+          UprightFont    = *,
+          ItalicFont     = *Oblique,
+          BoldFont       = *Bold,
+          BoldItalicFont = *BoldOblique,
+        ]
+        \setmonofont{FreeMono}[
+          UprightFont    = *,
+          ItalicFont     = *Oblique,
+          BoldFont       = *Bold,
+          BoldItalicFont = *BoldOblique,
+        ]
