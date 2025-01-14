@@ -4,11 +4,10 @@
 *A model description language for computational neuroscience.*
 
 
-```{admonition} Read the latest NeuroML reviewed preprint on eLife:
+```{admonition} Read the latest NeuroML paper in eLife:
 :class: attention
-[The NeuroML ecosystem for standardized multi-scale modeling in neuroscience](https://doi.org/10.7554/eLife.95135.2)
+[The NeuroML ecosystem for standardized multi-scale modeling in neuroscience](https://doi.org/10.7554/eLife.95135.3)
 ```
-
 
 <!-- be careful with the indentation -->
 
