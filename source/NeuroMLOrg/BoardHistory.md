@@ -67,7 +67,7 @@ The seventh election of an editorial board for NeuroML took place in Nov/Dec 202
 - Padraig Gleeson, Boris Marin, Sotirios Panagiotou and Subhasis Ray were nominated. Padraig Gleeson, Boris Marin, Sotirios Panagiotou received highest votes and were elected to serve as editors.
 - Cengiz Gunay was the returning officer for this election.
 
-## Election of editors (2024)
+## Election of editors (2025)
 The eight election of an editorial board for NeuroML took place in Nov/Dec 2024.
 
 - The electorate consisted of the members of the NeuroML mailing lists as well as anyone who had made significant contributions to any of the NeuroML GitHub repositories in the past 3 years.
