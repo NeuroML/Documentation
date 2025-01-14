@@ -107,6 +107,24 @@ France<br />
 <div class="col-sm-4 px-2">
 <center>
 
+```{image} ../images/Board/salva.png
+---
+alt: Salvador Dura-Bernal
+height: 150px
+---
+```
+
+**Salvador Dura-Bernal**<br />
+SUNY Downstate<br />
+Brooklyn, USA<br />
+[Website](http://www.neurosimlab.com/users/salvador-dura-bernal)
+
+</center>
+
+</div>
+<div class="col-sm-4 px-2">
+<center>
+
 ```{image} ../images/ScientificCommittee/robertmcdougal.png
 ---
 alt: Robert McDougal
