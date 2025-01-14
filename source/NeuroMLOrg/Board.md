@@ -11,13 +11,14 @@ Due to the close link between the development of NeuroML 2 and LEMS, this group 
 
 The five current members of the NeuroML Editorial Board are:
 
-- Salvador Dura-Bernal
 - Padraig Gleeson
 - Boris Marin
-- Ankur Sinha
 - Sotirios Panagiotou
+- Subhasis Ray
+- Ankur Sinha
 
-Padraig Gleeson, Boris Marin and Sotirios Panagiotou were elected for three year terms in 2022 (2023--2025) and Salvador Dura-Bernal and Ankur Sinha were elected for three year terms in 2021 (2022--2024).
+Ankur Sinha and Subhasis Ray were elected for three year terms in 2024 (2025--2027).
+Padraig Gleeson, Boris Marin and Sotirios Panagiotou were elected for three year terms in 2022 (2023--2025).
 
 % To force a new line in markdown, end the line with two or more spaces, so do not strip these.
 
@@ -38,24 +39,6 @@ PhD candidate<br />
 Erasmus Medical Center<br />
 Rotterdam, Netherlands<br />
 [Website](https://scholar.google.com/citations?user=8XdZ5jUAAAAJ&hl=en&oi=ao)
-
-</center>
-
-</div>
-<div class="col-sm-4 px-2">
-<center>
-
-```{image} ../images/Board/salva.png
----
-alt: Salvador Dura-Bernal
-height: 150px
----
-```
-
-**Salvador Dura-Bernal**<br />
-SUNY Downstate<br />
-Brooklyn, USA<br />
-[Website](http://www.neurosimlab.com/users/salvador-dura-bernal)
 
 </center>
 
@@ -93,6 +76,24 @@ Universidade Federal do ABC<br />
 Brazil<br />
 [Website](https://www.opensourcebrain.org/users/67)
 
+
+</center>
+
+</div>
+<div class="col-sm-4 px-2">
+<center>
+
+```{image} ../images/Board/subhasis.jpg
+---
+alt: Subhasis Ray
+height: 150px
+---
+```
+
+**Subhasis Ray**<br />
+TCG CREST<br />
+Kolkata, India<br />
+[Website](https://rayslab.github.io/)
 
 </center>
 
