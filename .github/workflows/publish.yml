@@ -30,6 +30,10 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install build-essential -y
         sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex latexmk -y
+    - name: Update buf_size in texmf.cnf
+      run: |
+        kpsewhich -a texmf.cnf
+        grep -i "^buf_size" `kpsewhich -a texmf.cnf`
     - name: Disable building jupyter-books
       run: |
         sed -i "s/execute_notebooks.*/execute_notebooks: 'off'/" source/_config.yml
