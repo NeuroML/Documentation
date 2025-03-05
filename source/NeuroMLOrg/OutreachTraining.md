@@ -15,7 +15,7 @@ Projects are centred around the standardisation of published models in NeuroML t
 ### 2025
 
 This round of Google Summer of Code is currently in progress.
-We are participating under the [INCF](https://incf.org).
+We are participating under the [INCF](https://incf.org/blog/call-project-ideas-and-mentors-gsoc-2025).
 
 We are looking for candidates with prior experience in neuroscience/computational neuroscience to work on our project:
 
