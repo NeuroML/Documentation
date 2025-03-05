@@ -11,14 +11,24 @@ Information on tutorials and workshops can be seen in the Events pages.
 The NeuroML community participates annually in the [Google Summer of Code](https://summerofcode.withgoogle.com) under the [INCF](https://incf.org) organisation.
 Projects are centred around the standardisation of published models in NeuroML to make these standardised versions available on the [Open Source Brain](https://opensourcebrain.org) platform and improving the NeuroML tools wherever possible.
 
+(neuromlorg:outreachtraining:gsoc:2025)=
+### 2025
+
+This round of Google Summer of Code is currently in progress.
+We are participating under the [INCF](https://incf.org).
+
+We are looking for candidates with prior experience in neuroscience/computational neuroscience to work on our project:
+
+"Developing standardised biophysically detailed neuronal circuit models using NeuroML/PyNN/Open Source Brain"
+
+More information can be found [here in the ideas list (#12)](https://docs.google.com/document/d/1T7U4nYFbVbZuIUw_2bB89YASj-ra26hRNtG2a20Gjlw/edit?usp=sharing).
+
 (neuromlorg:outreachtraining:gsoc:2024)=
 ### 2024
 
-This round of Google Summer of Code is currently in progress.
 
-
-- Aditya Pandey: Implementation of an SWC to NeuroML converter in PyNeuroML.
-- Ioannis Daras: Incorporation of new features into an advanced cross platform 3D viewer for NeuroML cells and networks.
+- Aditya Pandey: [Implementation of an SWC to NeuroML converter in PyNeuroML](https://github.com/AdityaPandeyCN/GSOC2024_INCF).
+- Ioannis Daras: [Incorporation of new features into an advanced cross platform 3D viewer for NeuroML cells and networks](https://github.com/lej0hn/GSOC_2024).
 
 
 (neuromlorg:outreachtraining:gsoc:2022)=
