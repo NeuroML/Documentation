@@ -139,7 +139,7 @@ language: python
 lines: 123-142
 ----
 ```
-The utility function takes the dimensions of the segment---it's {ref}`proximal <schema:proximal>` and {ref}`distal <schema:distal>` co-ordinates and the diameter to create a segment of the provided name.
+The utility function takes the dimensions of the segment---it's {ref}`proximal <schema:proximal>` and {ref}`distal <schema:distal>` coordinates and the diameter to create a segment of the provided name.
 Additionally, since segments need to be contiguous, it makes the first segment the *parent* of the second, to build a chain.
 Finally, it places the segment into the specified segment group and the default groups that we also have and adds the segment to the cell's morphology.
 
@@ -179,7 +179,7 @@ Next, we proceed to our {ref}`biophysical properties <schema:biophysicalproperti
   - {ref}`spike threshold <schema:spikethresh>`
   - {ref}`initial membrane potential <schema:initmembpotential>`
   - {ref}`channel densities <schema:basechanneldensity>`
-  - {ref}`specifc capacitances <schema:specificcapacitance>`
+  - {ref}`specific capacitances <schema:specificcapacitance>`
 - the {ref}`intracellular properties <schema:intracellularproperties>`
   - {ref}`resistivity <schema:resistivity>`
 

@@ -181,7 +181,7 @@ def get_libneuroml_signatures():
 def get_comp_examples(srcdirs, examples_max=3):
     """Get examples for component types
 
-    :param srcdirs: directores where examples are
+    :param srcdirs: directories where examples are
     :type srcdir: list(str)
     :param examples_max: maximum number of examples to store
     :type examples_max: int
@@ -474,7 +474,7 @@ def main(srcdir, destdir):
             units = model.units
             units = sorted(units, key=lambda unit: unit.symbol)
 
-            # lables are translated as lowercase in jupyter, so we append two
+            # labels are translated as lowercase in jupyter, so we append two
             # consecutive underscores to differentiate same ones, like M and m.
             symbols = []
             for unit in units:
