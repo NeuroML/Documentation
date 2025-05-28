@@ -17,11 +17,8 @@ Projects are centred around the standardisation of published models in NeuroML t
 This round of Google Summer of Code is currently in progress.
 We are participating under the [INCF](https://incf.org/blog/call-project-ideas-and-mentors-gsoc-2025).
 
-We are looking for candidates with prior experience in neuroscience/computational neuroscience to work on our project:
+Hengye Zhu is working with us on the project, "Developing standardised biophysically detailed neuronal circuit models using NeuroML/PyNN/Open Source Brain".
 
-"Developing standardised biophysically detailed neuronal circuit models using NeuroML/PyNN/Open Source Brain"
-
-More information can be found [here in the ideas list (#12)](https://docs.google.com/document/d/1T7U4nYFbVbZuIUw_2bB89YASj-ra26hRNtG2a20Gjlw/edit?usp=sharing).
 
 (neuromlorg:outreachtraining:gsoc:2024)=
 ### 2024
