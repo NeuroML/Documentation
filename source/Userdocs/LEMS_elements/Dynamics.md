@@ -267,7 +267,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **select**$ String$ A path to the variable that supplies the value. Note that to select a variable from another component, the variable must be marked as an Exposure. Exactly one of 'select' and 'value' is required
 **dimension**$ String$ The dimension, or 'none'. This should be the name of an already defined dimension element
 **description**$ String$ An optional description of the derived variable
-**reduce**$ String$ Either 'add' or 'multiply'. This applies if ther are multiple matches to the path or if 'required' is false. In the latter case, for multiply mode, multiplicative expressions in this variable behave as if the term was absent. Additive expressions generate an error. Conversely, if set to 'add' then additive expressions behave as if it was not there and multiplicative ones generateand error.
+**reduce**$ String$ Either 'add' or 'multiply'. This applies if there are multiple matches to the path or if 'required' is false. In the latter case, for multiply mode, multiplicative expressions in this variable behave as if the term was absent. Additive expressions generate an error. Conversely, if set to 'add' then additive expressions behave as if it was not there and multiplicative ones generateand error.
 **exposure**$ String$ 
 **required**$ boolean$ Set to true if it OK for this variable to be absent. See 'reduce' for what happens in this case
 **value**$ String$ A string defining the value of the element
@@ -553,7 +553,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **edges**$ String$ The element that provides the transitions for the scheme
 **stateVariable**$ String$ Name of state variable in state elements
 **edgeSource**$ String$ The name of the attribute in the rate element that defines the source of the transition
-**edgeTarget**$ String$ Attribute tha defines the target
+**edgeTarget**$ String$ Attribute that defines the target
 **forwardRate**$ String$ Name of forward rate exposure
 **reverseRate**$ String$ Name of reverse rate exposure
 

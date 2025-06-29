@@ -55,7 +55,7 @@ def get_lems_type(variable):
 
 
 def format_math(expr):
-    """Replace math symbols with HTML conterparts
+    """Replace math symbols with HTML counterparts
 
     :param expr: expression to format
     :type expr: str
@@ -387,12 +387,12 @@ eventPorts = env.from_string(textwrap.dedent(
 dynamics = env.from_string(textwrap.dedent(
     """
     ````{tab-item} {{ title }}
-    {% if comp_type.structure  and (comp_type.structure.withs|length +
+    {% if comp_type.structure  and (comp_type.structure.widths|length +
     comp_type.structure.child_instances|length +
     comp_type.structure.multi_instantiates|length +
     comp_type.structure.event_connections|length) > 0 %}
     <i>**Structure**</i>
-    {%- for w in comp_type.structure.withs %}
+    {%- for w in comp_type.structure.widths %}
     : WITH **{{ w.instance }}** AS **{{ w.as_ }}**
     {%- endfor -%}
     {% for ci in comp_type.structure.child_instances %}
