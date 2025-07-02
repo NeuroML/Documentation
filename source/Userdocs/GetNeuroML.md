@@ -13,7 +13,7 @@ The NeuroML stack is written primarily in Python and Java, and so requires:
 
 The software stack is currently [tested on](https://github.com/NeuroML/jNeuroML/blob/master/.github/workflows/ci.yml#L19C15-L19C44):
 
-  - Python versions: 3.8--3.12 (3.11 is preferred)
+  - Python versions: 3.9--3.13 (3.12 is preferred)
   - Java versions 8, 11, 16, 17, 19 on these [operating systems (OS)](https://github.com/actions/runner-images): Ubuntu 22.04 ("ubuntu-latest"), MacOS 14 Arm 64 ("macos-latest"), Windows 2019 ("windows-2019")
 
 
