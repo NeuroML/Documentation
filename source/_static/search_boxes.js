@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function (){
       switch (source) {
         case "osb":
           url = osbsearch + query + '&type=code';
-          window.open(url, '_self');
+          window.open(url, '_blank');
           break;
 
         case "nmldb":
