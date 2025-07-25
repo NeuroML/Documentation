@@ -14,6 +14,13 @@ then
     PYTHON="python3"
 fi
 
+if command -v uv 2>&1
+then
+    USE_UV="yes"
+else
+    USE_UV="no"
+fi
+
 function enable_virtenv() {
     if [[ -z "${VIRTUAL_ENV}" ]];
     then
@@ -54,14 +61,25 @@ function create_virtenv() {
         echo "Please delete it and re-run to create a new one."
     else
         echo "Setting up new virtual environment in $VENV_DIR."
-        $PYTHON -m venv "$VENV_DIR"
+        if [ "yes" == "${USE_UV}" ]
+        then
+            uv venv "$VENV_DIR" --python=${PYTHON}
+        else
+            $PYTHON -m venv "$VENV_DIR"
+        fi
 
         echo "Activating virtual environment."
         source "$VENV_ACTIVATE_SCRIPT"
 
         echo "Installing required dependencies in virtual environment."
-        pip install wheel
-        pip install -r requirements-book.txt
+        if [ "yes" == "${USE_UV}" ]
+        then
+            uv pip install wheel
+            uv pip install -r requirements-book.txt
+        else
+            pip install wheel
+            pip install -r requirements-book.txt
+        fi
         # pip install -r requirements.txt
 
         echo
