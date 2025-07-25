@@ -20,6 +20,14 @@ The NeuroML Database contains NeuroML files for many [cells](https://neuroml-db.
 
 ```
 
+<form class="sharing-custom-search-form">
+    <input type="search" id="querynmldb" name="q" size="50" placeholder="Search models on NeuroML-DB">
+    <input type="hidden" name="source" value="nmldb">
+    <button type="submit">Go</button>
+</form>
+<br />
+
+
 The [NeuroML Database](https://neuroml-db.org/) is a relational database that provides a means for sharing NeuroML model descriptions and their components.
 One of its goals is to contribute to an efficient tool chain for model development using NeuroML.
 This emphasis allows the database design and subsequent searching to take advantage of this specific format.
@@ -40,6 +48,16 @@ To submit your NeuroML model to NeuroML-DB, please see the information on [this 
 Examples of NeuroML 2 models visualised on Open Source Brain. A) [Hodgkin Huxley model](https://www.opensourcebrain.org/projects/hodgkin-huxley-tutorial?explorer=https%3A%2F%2Fraw.githubusercontent.com%2Fopensourcebrain%2Ftutorials%2Fdevelopment%2Fmodels%2FhodgkinHuxley%2FGEPPETTO.json) interactive tutorial. B) Integrate and fire network model of cortical column ([Potjans and Diesmann 2014](https://www.opensourcebrain.org/projects/potjansdiesmann2014)), showing network connectivity. C) Cortical model with multicompartmental cells ([Traub et al. 2005](https://www.opensourcebrain.org/projects/thalamocortical)), showing network properties and simulated membrane potential activity. D) Model of C. elegans nervous system from [OpenWorm project](https://www.opensourcebrain.org/projects/c302/). All visualisation/analysis/simulation enabled due to models being in standardised NeuroML format.
 
 ```
+
+<form class="sharing-custom-search-form">
+    <input type="search" id="queryosb" name="q" size="50" placeholder="Search models on Open Source Brain (GitHub)">
+    <input type="hidden" name="source" value="osb">
+    <button type="submit">Go</button>
+</form>
+<br />
+
+
+
 
 [Open Source Brain](https://www.opensourcebrain.org) is a platform for sharing, viewing, analysing, and simulating standardized models from different brain regions and species.
 An index of various NeuroML models on Open Source Brain and their validation status can be seen [here](https://github.com/OpenSourceBrain/.github/blob/main/testsheet/README.md).
