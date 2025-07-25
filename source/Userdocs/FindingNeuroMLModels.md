@@ -9,7 +9,7 @@ There are an increasing number of repositories where you can find NeuroML models
 
 ```{admonition} Read the NeuroML-DB paper!
 :class: tip
-The lastest manuscript describing NeuroML-DB and its current features is available, published in PLoS Computational Biology is available [here]([https://www.biorxiv.org/content/10.1101/2021.09.11.459920v1](https://doi.org/10.1371/journal.pcbi.1010941).
+The lastest manuscript describing NeuroML-DB and its current features is available, published in PLoS Computational Biology is available [here](https://doi.org/10.1371/journal.pcbi.1010941).
 ```
 
 ```{figure} ../images/NML-DB.png
