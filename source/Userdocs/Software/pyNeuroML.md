@@ -145,21 +145,10 @@ For more information on individual simulation backends and extras, please refer 
 (pyneuroml:install_fedora)=
 ### Installation on Fedora Linux
 
-On [Fedora](https://getfedora.org) Linux systems, the [NeuroFedora](https://neuro.fedoraproject.org) community provides pyNeuroML as a package in their [extras repository](https://docs.fedoraproject.org/en-US/neurofedora/copr/) and can be installed using the following commands:
+PyNeuroML is tested for use on Fedora Linux by the [NeuroFedora team](https://neuro.fedoraproject.org).
+You can install it on Fedora Linux directly using pip.
 
-```{code-block} console
-sudo dnf copr enable @neurofedora/neurofedora-extra
-sudo dnf install python3-pyneuroml
-```
-
-Optional packages can also be installed using the default package manager:
-
-```
-sudo dnf install python3-brian2 python3-neuron neuron-devel python3-netpyne
-```
-
-MPI builds of these tools are also available in the NeuroFedora repositories.
-Please see the [project documentation](https://docs.fedoraproject.org/en-US/neurofedora/mpi/) on installing and using them.
+Please see the [project documentation](https://docs.fedoraproject.org/en-US/neurofedora/) for more information on Neuroscience software packages.
 
 (pyneuroml:docs)=
 ## Documentation
