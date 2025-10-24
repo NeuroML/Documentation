@@ -95,6 +95,21 @@ function build_book() {
     jupyter-book build ./source
 }
 
+function build_book_single_html() {
+    enable_virtenv
+    echo "Building book as single page html."
+    jupyter-book build --builder singlehtml ./source
+}
+
+function build_book_single_md() {
+    build_book_single_html
+
+    echo "Using pandoc to generate single page markdown"
+    pushd source/_build/
+        pandoc -f html -t markdown -o single-markdown.md singlehtml/Landing.html
+    popd
+}
+
 function publish_book() {
     enable_virtenv
     echo "Updating URLs for 404.html"
@@ -145,6 +160,8 @@ function usage() {
     echo "-h: print help message"
     echo "-c: create new virtual environment in $VENV and install packages."
     echo "-b: build book"
+    echo "-s: build book as a single page html"
+    echo "-m: build book as a single page html and generate single page markdown"
     echo "-f: build pdf (using LaTeX)"
     echo "-w: watch source directory for changes and build as necessary, requires inotifywait"
     echo "-p: publish book to GitHub pages (requires commit access to repo)"
@@ -158,9 +175,17 @@ then
 fi
 
 # parse options
-while getopts "bpchwfX" OPTION
+while getopts "bmspchwfX" OPTION
 do
     case $OPTION in
+        m)
+            build_book_single_md
+            exit 0
+            ;;
+        s)
+            build_book_single_html
+            exit 0
+            ;;
         b)
             build_book
             exit 0
