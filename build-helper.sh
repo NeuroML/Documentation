@@ -106,7 +106,7 @@ function build_book_single_md() {
 
     echo "Using pandoc to generate single page markdown"
     pushd source/_build/
-        pandoc -f html -t markdown -o single-markdown.md singlehtml/Landing.html
+        pandoc -f html -t commonmark --no-highlight --strip-comments=true -o single-markdown.md singlehtml/Landing.html
     popd
 }
 
