@@ -1,0 +1,177 @@
+version: 1
+project:
+  title: NeuroML Documentation
+  authors:
+    - name: NeuroML contributors
+  copyright: '2025'
+  github: NeuroML/Documentation
+  thebe:
+    binder:
+      repo: NeuroML/Documentation
+      provider: github
+      url: https://mybinder.org
+      ref: main
+  bibliography:
+    - Reference/references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/neuroml-documentation.pdf
+  toc:
+    - file: Landing.md
+    - title: User documentation
+      children:
+        - file: Userdocs/MissionAndAims.md
+        - file: Userdocs/Usage.md
+        - file: Userdocs/GetNeuroML.md
+        - file: Userdocs/GettingStarted.md
+          children:
+            - file: Userdocs/SingleNeuronExample.md
+            - file: Userdocs/NML2_examples/SingleNeuron.ipynb
+            - file: Userdocs/IzhikevichNetworkExample.md
+            - file: Userdocs/NML2_examples/IzhikevichNetwork.ipynb
+            - file: Userdocs/SingleCompartmentHHExample.md
+            - file: Userdocs/NML2_examples/HH_single_compartment.ipynb
+            - file: Userdocs/MultiCompartmentOLMexample.md
+            - file: Userdocs/NML2_examples/OLM.ipynb
+            - file: Userdocs/NML2_examples/NeuroML-DB.ipynb
+        - file: Userdocs/FindingNeuroMLModels.md
+        - file: Userdocs/CreatingNeuroMLModels.md
+          children:
+            - file: Userdocs/ConvertingModels.md
+            - file: Userdocs/ImportingMorphologyFiles.md
+            - file: Userdocs/HDF5.md
+            - file: Userdocs/Provenance.md
+        - file: Userdocs/ValidatingNeuroMLModels.md
+        - file: Userdocs/VisualisingNeuroMLModels.md
+          children:
+            - file: Userdocs/VisualisingChannels.md
+            - file: Userdocs/VisualisingCells.md
+        - file: Userdocs/SimulatingNeuroMLModels.md
+        - file: Userdocs/OptimisingNeuroMLModels.md
+        - file: Userdocs/TestingNeuroMLModels.md
+        - file: Userdocs/LEMS.md
+          children:
+            - file: Userdocs/LEMSOverview.md
+            - file: Userdocs/LEMSExample1.md
+            - file: Userdocs/LEMSExample2.md
+            - file: Userdocs/LEMSExample3.md
+            - file: Userdocs/LEMSExample4.md
+            - file: Userdocs/LEMSExample5.md
+            - file: Userdocs/LEMSExample6.md
+            - file: Userdocs/LEMSExample7.md
+            - file: Userdocs/LEMSExample8.md
+        - file: Userdocs/Specification.md
+          children:
+            - file: Userdocs/NeuroMLv2.md
+              children:
+                - file: Userdocs/Schemas/NeuroMLDocument.md
+                - file: Userdocs/Schemas/NeuroMLCoreDimensions.md
+                - file: Userdocs/Schemas/NeuroMLCoreCompTypes.md
+                - file: Userdocs/Schemas/Cells.md
+                - file: Userdocs/Schemas/Channels.md
+                - file: Userdocs/Schemas/Synapses.md
+                - file: Userdocs/Schemas/Inputs.md
+                - file: Userdocs/Schemas/Networks.md
+                - file: Userdocs/Schemas/PyNN.md
+                - file: Userdocs/Schemas/Simulation.md
+                - file: Userdocs/Schemas/Index.md
+            - file: Userdocs/NeuroMLv1.md
+            - file: Userdocs/LEMSSchema.md
+              children:
+                - file: Userdocs/LEMS_elements/Modelstructure.md
+                - file: Userdocs/LEMS_elements/Unitsanddimensions.md
+                - file: Userdocs/LEMS_elements/Definingcomponenttypes.md
+                - file: Userdocs/LEMS_elements/Dynamics.md
+                - file: Userdocs/LEMS_elements/Structure.md
+                - file: Userdocs/LEMS_elements/Simulation.md
+                - file: Userdocs/LEMS_elements/Procedure.md
+                - file: Userdocs/LEMS_elements/DefiningComponents.md
+                - file: Userdocs/LEMS_elements/Geometry.md
+        - file: Userdocs/NeuroMLv2AndLEMS.md
+          children:
+            - file: Userdocs/Conventions.md
+            - file: Userdocs/UnitsAndDimensions.md
+            - file: Userdocs/Paths.md
+            - file: Userdocs/QuantitiesAndRecording.md
+            - file: Userdocs/LEMSSimulation.md
+        - file: Userdocs/ExtendingNeuroMLv2.md
+        - file: Userdocs/Software/Software.md
+          children:
+            - file: Userdocs/Software/pyNeuroML.md
+            - file: Userdocs/Software/libNeuroML.md
+            - file: Userdocs/Software/pyLEMS.md
+            - file: Userdocs/Software/NeuroMLlite.md
+            - file: Userdocs/Software/jNeuroML.md
+            - file: Userdocs/Software/jLEMS.md
+            - file: Userdocs/Software/NeuroML_API.md
+            - file: Userdocs/Software/MatLab.md
+            - file: Userdocs/Software/SupportingTools.md
+              children:
+                - file: Userdocs/Software/Tools/Approaches.md
+                - file: Userdocs/Software/Tools/NEURON.md
+                - file: Userdocs/Software/Tools/NetPyNE.md
+                - file: Userdocs/Software/Tools/PyNN.md
+                - file: Userdocs/Software/Tools/Brian.md
+                - file: Userdocs/Software/Tools/MOOSE.md
+                - file: Userdocs/Software/Tools/EDEN.md
+                - file: Userdocs/Software/Tools/Arbor.md
+                - file: Userdocs/Software/Tools/N2A.md
+                - file: Userdocs/Software/Tools/NEST.md
+                - file: Userdocs/Software/Tools/SWC.md
+        - file: Userdocs/Publications.md
+        - file: Userdocs/FAQ.md
+        - file: Userdocs/Walkthroughs/Walkthroughs.md
+          children:
+            - file: Userdocs/Walkthroughs/RayEtAl2020/RayEtAl2020.md
+              children:
+                - file: Userdocs/Walkthroughs/RayEtAl2020/Setup.md
+                - file: Userdocs/Walkthroughs/RayEtAl2020/Conversion.md
+                - file: Userdocs/Walkthroughs/RayEtAl2020/OMV.md
+    - title: NeuroML events
+      children:
+        - file: Events/Events.md
+        - file: Events/202407-CNS2024.md
+        - file: Events/202404-Harmony.md
+        - file: Events/20220630-CNS2022.md
+        - file: Events/202204-Harmony.md
+        - file: Events/202109-COMBINE.md
+        - file: Events/202108-INCF-Training-Week.md
+        - file: Events/202107-CNS2021.md
+        - file: Events/202103-Harmony.md
+        - file: Events/2012-Edinburgh.md
+        - file: Events/PastEvents.md
+    - title: The NeuroML Initiative
+      children:
+        - file: NeuroMLOrg/CommunicationChannels.md
+        - file: NeuroMLOrg/Standards.md
+        - file: NeuroMLOrg/History.md
+        - file: NeuroMLOrg/Board.md
+          children:
+            - file: NeuroMLOrg/BoardHistory.md
+            - file: NeuroMLOrg/BoardMeetingReports.md
+        - file: NeuroMLOrg/ScientificCommittee.md
+        - file: NeuroMLOrg/Funding.md
+        - file: NeuroMLOrg/OutreachTraining.md
+        - file: NeuroMLOrg/Contributors.md
+        - file: NeuroMLOrg/Repositories.md
+        - file: NeuroMLOrg/CoC.md
+    - title: Developer documentation
+      children:
+        - file: Devdocs/Devdocs.md
+          children:
+            - file: Devdocs/DevSOP.md
+            - file: Devdocs/ReleaseProcess.md
+            - file: Devdocs/UpdatingStandard.md
+        - file: Devdocs/InteractionOtherBits.md
+    - title: Reference
+      children:
+        - file: Reference/Glossary.md
+        - file: Reference/zBibliography.md
+site:
+  options:
+    logo: images/logo.png
+    favicon: images/favicon.ico
+    analytics_google: ''
+    folders: true
+  template: book-theme
