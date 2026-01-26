@@ -697,7 +697,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:collection_)=
 ## Collection
 
-<i>Specifies that instances of components based on this class can containe a named collection of other instances. This provides for containers for operating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</i>
+<i>Specifies that instances of components based on this class can contain a named collection of other instances. This provides for containers for operating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</i>
 
 `````{tab-set}
 ````{tab-item} Properties
