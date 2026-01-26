@@ -79,7 +79,7 @@ Chair: Andrew Davison
 * - 11:30
   - **Collaborative Modelling Repository update**
 
-    Padraig presented the initial work towards an open source, collaborative repository for NeuroML models, the Open Source Brain project. A preliminary version of this is avaliable here. It will be based on a version control repository (initially Mercurial) storing the model files. It will have automatic generation of online documentation of the models from ChannelML, MorphML, etc. Connectivity matrices for network connections, etc. can be generated for models which are stored in neuroConstruct format. NeuroLex IDs can be used to identify cells and channels to other resources. Feedback on the initial implementation was welcomed.
+    Padraig presented the initial work towards an open source, collaborative repository for NeuroML models, the Open Source Brain project. A preliminary version of this is available here. It will be based on a version control repository (initially Mercurial) storing the model files. It will have automatic generation of online documentation of the models from ChannelML, MorphML, etc. Connectivity matrices for network connections, etc. can be generated for models which are stored in neuroConstruct format. NeuroLex IDs can be used to identify cells and channels to other resources. Feedback on the initial implementation was welcomed.
 
   - Padraig Gleeson
 
@@ -148,7 +148,7 @@ Chair: Sharon Crook
   -
 
 * - 17:30
-  - **Reconvene and presentated discussions**
+  - **Reconvene and presented discussions**
   -
 
 * - 18:00
@@ -263,7 +263,7 @@ Chair: Avrama Blackwell
 
     Sarah gave a brief overview of libSBML and SBML Level 3. libSBML, which provides an API for creating, editing and saving SBML in many languages (e.g. C++, Python, Java, Ruby, Perl) has been instrumental in the growth of the number of applications supporting SBML.
 
-    SBML Level 3 has a modular architecture, featuring a core specification (roughly in line with previous SBML releases) and a number of specialist packages, which applications can choose to support or not. Examples of these packages incluse layout for storing the spatial topology of a model's network diagram, comp for defining how a model is composed from other models and spatial for describing models that involve a spatial component. libSBML already has a generic framework to support extensions for generic packages.
+    SBML Level 3 has a modular architecture, featuring a core specification (roughly in line with previous SBML releases) and a number of specialist packages, which applications can choose to support or not. Examples of these packages include layout for storing the spatial topology of a model's network diagram, comp for defining how a model is composed from other models and spatial for describing models that involve a spatial component. libSBML already has a generic framework to support extensions for generic packages.
 
   - Sarah Keating
 
@@ -281,7 +281,7 @@ Chair: Avrama Blackwell
   -
 
 * - 17:30
-  - **Reconvene and presentated discussions**
+  - **Reconvene and presented discussions**
   -
 
 * - 18:00

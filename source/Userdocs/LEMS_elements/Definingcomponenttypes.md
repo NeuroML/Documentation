@@ -48,13 +48,13 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 **componentReferences**$ {ref}`lemsschema:componentreference_`
 **componentTypeReferences**$ {ref}`lemsschema:componenttypereference_`
 **locations**$ {ref}`lemsschema:location_`
-**propertys**$ {ref}`lemsschema:property_`
+**properties**$ {ref}`lemsschema:property_`
 **dynamicses**$ {ref}`lemsschema:dynamics_`
 **structures**$ {ref}`lemsschema:structure_`
 **simulations**$ {ref}`lemsschema:simulation_`
 **equilibriums**$ {ref}`lemsschema:equilibrium_`
 **procedures**$ {ref}`lemsschema:procedure_`
-**geometrys**$ {ref}`lemsschema:geometry_`
+**geometries**$ {ref}`lemsschema:geometry_`
 **fixeds**$ {ref}`lemsschema:fixed_`
 **constants**$ {ref}`lemsschema:constant_`
 **attachmentses**$ {ref}`lemsschema:attachments_`
@@ -195,7 +195,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:pathparameter_)=
 ## PathParameter
 
-<i>A parameter of which the value is a path expression. When a ComponentType declares a PathParameter, a corresponding Component definition should have an attibute with that name whose value is a path expression that evaluates within the instance tree of the built model. This is used, for example, in the definition of a group component class, where the coresponding component specifies a path over the instance tree which selectesthe items that should go in the group.</i>
+<i>A parameter of which the value is a path expression. When a ComponentType declares a PathParameter, a corresponding Component definition should have an attribute with that name whose value is a path expression that evaluates within the instance tree of the built model. This is used, for example, in the definition of a group component class, where the corresponding component specifies a path over the instance tree which selectesthe items that should go in the group.</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -697,7 +697,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:collection_)=
 ## Collection
 
-<i>Specifies that instances of components based on this class can containe a named collection of other instances. This provides for containers for oprating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</i>
+<i>Specifies that instances of components based on this class can containe a named collection of other instances. This provides for containers for operating on groups of instances with path and filter expressions defined in components to operate over the instance tree.</i>
 
 `````{tab-set}
 ````{tab-item} Properties
@@ -873,7 +873,7 @@ Please file any issues or questions at the [issue tracker here](https://github.c
 (lemsschema:attachments_)=
 ## Attachments
 
-<i>Specifies that a component can accept attached components of a particular class. Attached components can be added at build time dependent on other events. For scoping and access purposes they are like child components. The cannonical use of attachments is in adding synapses to a cell when a network connection is made.</i>
+<i>Specifies that a component can accept attached components of a particular class. Attached components can be added at build time dependent on other events. For scoping and access purposes they are like child components. The canonical use of attachments is in adding synapses to a cell when a network connection is made.</i>
 
 `````{tab-set}
 ````{tab-item} Properties

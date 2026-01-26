@@ -116,7 +116,7 @@ Create a script to load the output of mod analysis and nml analysis and compare 
 (userdocs:creating_models:converting_conductance:compare_single_comp)=
 ### 4c) Compare single compartment cell with channels
 
-Ensure you have a passive soma example in NeuroML which reproduces the behaviour of an equivalent passibe version inthe original format (from steps 3a and 4a above).
+Ensure you have a passive soma example in NeuroML which reproduces the behaviour of an equivalent passibe version in the original format (from steps 3a and 4a above).
 
 Gradually test the cell with passive conductance and *each channel individually*. Plot v along with rate variables for each channel & compare how they look during current pulse ([example in NEURON](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NEURON/Test_Soma.hoc) vs [example in NeuroML](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.cell.nml) and [LEMS](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/LEMS_Soma_AllNML2.xml))
 
