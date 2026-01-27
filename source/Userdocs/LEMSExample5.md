@@ -80,7 +80,7 @@ This introduces a new construct, the DerivedParameter specification that defines
 ```
 
 The path here uses XPath like syntax operating on the component tree in the model.
-In this case, it finds all the elements of thpe MembranePotential in the model.
+In this case, it finds all the elements of type MembranePotential in the model.
 The predicate selects the one for which the species is the same as the species referred to from the channel used for this population.
 Finally, it takes the "reversal" parameter from the membrane potential component.
 This is made locally available as the parameter "erev".

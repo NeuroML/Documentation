@@ -294,7 +294,7 @@ Although the channel models have now been defined, they still need to be used in
 For this we'll just define a basic channel population type.
 There is one new construct here: the ComponentRef element which in this case says that a channel population needs a reference to a component of type HHChannel. This is much like a Child element, but instead of the component being defined then and there inside the channel population, there is just a reference to it.
 
-The Dynamics block for a cannel population just computes the total conductance and then the current, in this case using Ohm's law.
+The Dynamics block for a channel population just computes the total conductance and then the current, in this case using Ohm's law.
 
 ```{code-block} xml
 <ComponentType name="ChannelPopulation">     
