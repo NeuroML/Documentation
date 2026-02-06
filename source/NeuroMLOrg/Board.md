@@ -12,14 +12,13 @@ Due to the close link between the development of NeuroML 2 and LEMS, this group 
 The five current members of the NeuroML Editorial Board are:
 
 - Padraig Gleeson
-- Boris Marin
 - Sotirios Panagiotou
 - Subhasis Ray
 - Ankur Sinha
 - Hengye Zhu
 
 Ankur Sinha and Subhasis Ray were elected for three year terms in 2024 (2025--2027).
-Padraig Gleeson, Boris Marin and Sotirios Panagiotou were elected for three year terms in 2022 (2023--2025).
+Padraig Gleeson, Sotirios Panagiotou and Hengye Zhu were elected for three year terms in 2026 (2026--2028).
 
 % To force a new line in markdown, end the line with two or more spaces, so do not strip these.
 
@@ -58,25 +57,6 @@ height: 150px
 University College London<br />
 UK<br />
 [Website](http://www.opensourcebrain.org/users/4)
-
-</center>
-
-</div>
-<div class="col-sm-4 px-2">
-<center>
-
-```{image} ../images/Board/boris.jpg
----
-alt: Boris Marin
-height: 150px
----
-```
-
-**Boris Marin**<br />
-Universidade Federal do ABC<br />
-Brazil<br />
-[Website](https://www.opensourcebrain.org/users/67)
-
 
 </center>
 
