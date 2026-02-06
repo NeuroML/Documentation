@@ -16,6 +16,7 @@ The five current members of the NeuroML Editorial Board are:
 - Sotirios Panagiotou
 - Subhasis Ray
 - Ankur Sinha
+- Hengye Zhu
 
 Ankur Sinha and Subhasis Ray were elected for three year terms in 2024 (2025--2027).
 Padraig Gleeson, Boris Marin and Sotirios Panagiotou were elected for three year terms in 2022 (2023--2025).
@@ -112,6 +113,23 @@ height: 150px
 University College London<br />
 UK<br />
 [Website](https://ankursinha.in)
+
+</center>
+</div>
+<div class="col-sm-4 px-2">
+<center>
+
+```{image} ../images/Board/hengye.jpg
+---
+alt: Hengye Zhu
+height: 150px
+---
+```
+
+**Hengye Zhu**<br />
+Shanghai Jiao Tong University<br />
+China<br />
+[Website](https://hengyezhu.github.io/)
 
 </center>
 </div>
