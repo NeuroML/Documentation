@@ -125,6 +125,24 @@ Brooklyn, USA<br />
 <div class="col-sm-4 px-2">
 <center>
 
+```{image} ../images/ScientificCommittee/boris.jpg
+---
+alt: Boris Marin
+height: 150px
+---
+```
+
+**Boris Marin**<br />
+Universidade Federal do ABC<br />
+Brazil<br />
+[Website](https://www.opensourcebrain.org/users/67)
+
+</center>
+
+</div>
+<div class="col-sm-4 px-2">
+<center>
+
 ```{image} ../images/ScientificCommittee/robertmcdougal.png
 ---
 alt: Robert McDougal
