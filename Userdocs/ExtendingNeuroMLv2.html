@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Extending NeuroML &#8212; NeuroML Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/zcustom.css?v=f191df08" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Userdocs/ExtendingNeuroMLv2';</script>
+    <script src="../_static/search_boxes.js?v=5dfd38c8"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Software and Tools" href="Software/Software.html" />
+    <link rel="prev" title="LEMS Simulation files" href="LEMSSimulation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Landing.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="NeuroML Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="NeuroML Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MissionAndAims.html">Mission and Aims</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetNeuroML.html">Get NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GettingStarted.html">Getting started with NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="SingleNeuronExample.html">Simulating a regular spiking Izhikevich neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/SingleNeuron.html">Interactive single Izhikevich neuron NeuroML example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IzhikevichNetworkExample.html">A two population network of regular spiking Izhikevich neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/IzhikevichNetwork.html">Interactive two population network example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SingleCompartmentHHExample.html">Simulating a single compartment Hodgkin-Huxley neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/HH_single_compartment.html">Interactive single compartment HH example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCompartmentOLMexample.html">Simulating a multi compartment OLM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/OLM.html">Interactive multi-compartment OLM cell example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NML2_examples/NeuroML-DB.html">Create novel NeuroML models from components on NeuroML-DB</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="FindingNeuroMLModels.html">Finding and sharing NeuroML models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="CreatingNeuroMLModels.html">Creating NeuroML models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ConvertingModels.html">Converting models to NeuroML and sharing them on Open Source Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImportingMorphologyFiles.html">Handling Morphology Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HDF5.html">HDF5 support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Provenance.html">Maintaining provenance in NeuroML models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="ValidatingNeuroMLModels.html">Validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VisualisingNeuroMLModels.html">Visualising NeuroML Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingChannels.html">Visualising and analysing ion channel models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VisualisingCells.html">Visualising and analysing cell models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="SimulatingNeuroMLModels.html">Simulating NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimisingNeuroMLModels.html">Optimising/fitting NeuroML Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestingNeuroMLModels.html">Testing/validating NeuroML Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="LEMS.html">LEMS: Low Entropy Model Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LEMSOverview.html">Model structure overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample1.html">Example 1: Dimensions, Units, ComponentTypes and Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample2.html">Example 2: tidying up example 1</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample3.html">Example 3: Connection dependent synaptic components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample4.html">Example 4: Kinetic schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample5.html">Example 5: References and paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample6.html">Example 6: User defined types for simulation and display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample7.html">Example 7: User defined types for networks and populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSExample8.html">Example 8: Regimes in Dynamics definitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Specification.html">Schema/Specification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NeuroMLv2.html">NeuroML v2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLDocument.html">NeuroMLDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html">NeuroMLCoreDimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/NeuroMLCoreCompTypes.html">NeuroMLCoreCompTypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Cells.html">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Channels.html">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Synapses.html">Synapses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Inputs.html">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Networks.html">Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/PyNN.html">PyNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Schemas/Index.html">Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuroMLv1.html">NeuroML v1</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="LEMSSchema.html">LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Modelstructure.html">Model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Unitsanddimensions.html">Units and dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Definingcomponenttypes.html">Defining component types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Dynamics.html">Dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Simulation.html">Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Procedure.html">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/DefiningComponents.html">Defining Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LEMS_elements/Geometry.html">Geometry</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="NeuroMLv2AndLEMS.html">NeuroML 2 and LEMS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnitsAndDimensions.html">Units and dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paths.html">Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QuantitiesAndRecording.html">Quantities and recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LEMSSimulation.html">LEMS Simulation files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Extending NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Software/Software.html">Software and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyNeuroML.html">pyNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/libNeuroML.html">libNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/pyLEMS.html">pyLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroMLlite.html">NeuroMLlite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jNeuroML.html">jNeuroML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/jLEMS.html">jLEMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/NeuroML_API.html">NeuroML C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Software/MatLab.html">MatLab NeuroML Toolbox</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Software/SupportingTools.html">Tools and resources with NeuroML support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Approaches.html">Approaches to adding NeuroML support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEURON.html">NEURON and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NetPyNE.html">NetPyNE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/PyNN.html">PyNN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Brian.html">Brian and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/MOOSE.html">MOOSE and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/EDEN.html">EDEN and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/Arbor.html">Arbor and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/N2A.html">N2A and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/NEST.html">NEST and NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/Tools/SWC.html">SWC and NeuroML</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Publications.html">Citing NeuroML and related publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Walkthroughs/Walkthroughs.html">Walk throughs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Walkthroughs/RayEtAl2020/RayEtAl2020.html">Converting Ray et al 2020 to NeuroML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Setup.html">Setting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/Conversion.html">Converting to NeuroML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Walkthroughs/RayEtAl2020/OMV.html">Adding OMV tests</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NeuroML events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Events/Events.html">NeuroML outreach and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202407-CNS2024.html">July 2024: NeuroML tutorial at CNS 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202404-Harmony.html">April 2024: NeuroML hackathon at HARMONY 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/20220630-CNS2022.html">June 2022: NeuroML tutorial at CNS*2022 satellite tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202204-Harmony.html">April 2022: NeuroML development workshop at HARMONY 2022</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202109-COMBINE.html">October 2021: NeuroML development workshop at COMBINE meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202108-INCF-Training-Week.html">August 2021: NeuroML tutorial at INCF Training Weeks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202107-CNS2021.html">July 2021: NeuroML tutorial at CNS*2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/202103-Harmony.html">March 2021: NeuroML hackathon at HARMONY 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/2012-Edinburgh.html">March 2012: Fourth NeuroML Development Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Events/PastEvents.html">Past NeuroML Events</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The NeuroML Initiative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CommunicationChannels.html">Getting in touch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Standards.html">Overview of standards in neuroscience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/History.html">A brief history of NeuroML</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NeuroMLOrg/Board.html">NeuroML Editorial Board</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardHistory.html">History of the NeuroML Editorial Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NeuroMLOrg/BoardMeetingReports.html">Workshop and Meeting reports</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/ScientificCommittee.html">NeuroML Scientific Committee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Funding.html">Funding and Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/OutreachTraining.html">Outreach and training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Contributors.html">NeuroML contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/Repositories.html">NeuroML repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NeuroMLOrg/CoC.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Devdocs/Devdocs.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/DevSOP.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/ReleaseProcess.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Devdocs/UpdatingStandard.html">Making changes to the NeuroML standard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Devdocs/InteractionOtherBits.html">Interaction with other languages and standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Reference/Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Reference/zBibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/edit/main/source/Userdocs/ExtendingNeuroMLv2.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroML/Documentation/issues/new?title=Issue%20on%20page%20%2FUserdocs/ExtendingNeuroMLv2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Userdocs/ExtendingNeuroMLv2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Extending NeuroML</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-componenttypes-with-existing-neuroml-componenttypes">Creating new ComponentTypes with existing NeuroML ComponentTypes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-componenttypes-with-lems-elements">Creating new ComponentTypes with LEMS elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lems-elements">LEMS elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-lorenz-model-for-cellular-convection">Example: Lorenz model for cellular convection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-model-in-python-using-pylems">Writing the model in Python using PyLEMS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="extending-neuroml">
+<span id="userdocs-extending"></span><h1>Extending NeuroML<a class="headerlink" href="#extending-neuroml" title="Link to this heading">#</a></h1>
+<p>As a language, LEMS defines a set of built-in <code class="docutils literal notranslate"><span class="pre">types</span></code> which can be used together to build more user-defined types.
+For example, Python defines <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> and so on as built-in types, and these can then be combined to define user defined types, classes.
+An object of a particular class/type can be instantiated by supplying values for the members defined in the class/type.</p>
+<p><strong>ComponentTypes</strong> in LEMS are similar to classes in Python.
+They define the membership structure of the type, but they do not specify values for their members.
+Once a ComponentType has been defined, an instance of it can be created by setting values for its members.
+This object is referred to as a <strong>Component</strong> in LEMS.</p>
+<p>Having definitions in LEMS allows their re-use, and all new ComponentTypes can be submitted for inclusion to the NeuroMLv2 specification to be made accessible to other users.</p>
+<ul class="simple">
+<li><p>Like NeuroML, LEMS also has a <a class="reference external" href="https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS">well defined schema</a> (XSD) that is used to validate LEMS XML files.</p></li>
+<li><p>Also similar to NeuroML, you can use the <a class="reference internal" href="Software/pyLEMS.html#pylems"><span class="std std-ref">LEMS Python tools</span></a> to work with LEMS and do not need to work directly with the XML files.</p></li>
+</ul>
+<p>The NeuroML2 standard is a list of <a class="reference internal" href="NeuroMLv2.html#userdocs-neuromlv2"><span class="std std-ref">curated LEMS ComponentTypes</span></a>.
+In cases where the set of ComponentTypes defined in the NeuroML standard is not sufficient for a particular modelling project, new ComponentTypes can be defined to extend the NeuroMLv2 standard.</p>
+<section id="creating-new-componenttypes-with-existing-neuroml-componenttypes">
+<span id="userdocs-extending-withneuroml"></span><h2>Creating new ComponentTypes with existing NeuroML ComponentTypes<a class="headerlink" href="#creating-new-componenttypes-with-existing-neuroml-componenttypes" title="Link to this heading">#</a></h2>
+<p>Existing ComponentTypes defined in the NeuroMLv2 standard, when sufficient, should be used to create new ComponentTypes.
+These new ComponentTypes, since they consist of NeuroMLv2 ComponentTypes, <em>will be valid against the NeuroMLv2 schema</em> (must use a <code class="code docutils literal notranslate"><span class="pre">&lt;neuroml</span> <span class="pre">..&gt;</span></code> root element).
+For convenience, the NeuroMLv2 schema includes a subset of the <a class="reference internal" href="LEMSSchema.html#userdocs-lemsschema"><span class="std std-ref">LEMS elements</span></a>.</p>
+<p>An example of this type of extension of NeuroML can be see <a class="reference external" href="https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Ca_LVAst.channel.nml#L42">here</a> where a new Calcium dependent ion channel Component requires a new ComponentType <code class="code docutils literal notranslate"><span class="pre">Ca_LVAst_m_tau_tau</span></code> that implements the time course of the gate.</p>
+<p>However, please note that while the ComponentType will be valid NeuroML, the new Components (instances) one creates of this ComponentType (and models where Components are referenced/used) <em>will not</em>—since the NeuroML schema <em>does not know of the new ComponentType</em>.
+The new Components (and the models) will be valid LEMS.
+For this reason, while the ComponentType file will use a <code class="code docutils literal notranslate"><span class="pre">&lt;neuroml</span> <span class="pre">..&gt;</span></code> root tag, the file containing its instantiated Components will use the <code class="code docutils literal notranslate"><span class="pre">&lt;Lems</span> <span class="pre">..&gt;</span></code> root tag.</p>
+</section>
+<section id="creating-new-componenttypes-with-lems-elements">
+<span id="userdocs-extending-withlems"></span><h2>Creating new ComponentTypes with LEMS elements<a class="headerlink" href="#creating-new-componenttypes-with-lems-elements" title="Link to this heading">#</a></h2>
+<p>When ComponentTypes from the NeuroMLv2 standard are not sufficient for the creation of new ComponentTypes, one must use LEMS elements to do so.
+The definitions of the <a class="reference internal" href="NeuroMLv2AndLEMS.html#userdocs-neuromlv2inlems"><span class="std std-ref">NeuroMLv2 standard core ComponentTypes</span></a> are examples of this.</p>
+<section id="lems-elements">
+<span id="userdocs-extending-withlems-types"></span><h3>LEMS elements<a class="headerlink" href="#lems-elements" title="Link to this heading">#</a></h3>
+<p>The list of built-in types provided by LEMS can be seen <a class="reference internal" href="LEMSSchema.html#userdocs-lemsschema"><span class="std std-ref">in the LEMS documentation</span></a>.
+As the documentation notes, a ComponentType is the “Root element for defining component types”.
+It must contain a <code class="docutils literal notranslate"><span class="pre">name</span></code>, and can <code class="docutils literal notranslate"><span class="pre">extend</span></code> another ComponentType, thus inheriting its members/attributes.
+Each ComponentType can contain members of other LEMS types: <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, <code class="docutils literal notranslate"><span class="pre">DerivedParameter</span></code>, <code class="docutils literal notranslate"><span class="pre">Dynamics</span></code>, <code class="docutils literal notranslate"><span class="pre">Exposure</span></code> and so on.</p>
+</section>
+<section id="example-lorenz-model-for-cellular-convection">
+<span id="userdocs-extending-withlems-examplexml"></span><h3>Example: Lorenz model for cellular convection<a class="headerlink" href="#example-lorenz-model-for-cellular-convection" title="Link to this heading">#</a></h3>
+<p>To see how to create new ComponentTypes using LEMS, let us create one that is not neuroscience specific.
+We will first create it using the plain XML and then see how it can be done using the Python pyLEMS API.</p>
+<p>For this example, we will use the Lorenz model for cellular convection <span id="id1">[<a class="reference internal" href="../Reference/zBibliography.html#id16" title="Edward N. Lorenz. Deterministic nonperiodic flow. Journal of Atmospheric Sciences, 20(2):130–141, 1963. doi:10.1175/1520-0469(1963)020&lt;0130:dnf&gt;2.0.co;2.">Lor63</a>]</span>.
+The <a class="reference external" href="https://en.wikipedia.org/wiki/Lorenz_system#Overview">Wikipedia article</a> provides a short summary of the model, and the equations that govern it:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-765c3413-da07-4edf-b81c-d7336158a718">
+<span class="eqno">(1)<a class="headerlink" href="#equation-765c3413-da07-4edf-b81c-d7336158a718" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{dx}{dt} &amp;= \sigma (y - x) \\
+\frac{dy}{dt} &amp;= x (\rho - z) - y \\
+\frac{dz}{dt} &amp;= xy - \beta z
+\end{align}\]</div>
+<p>So we can see here that we have three parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+</ul>
+<p>Next, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> are the <em>state variables</em> for this model, with initial values <code class="docutils literal notranslate"><span class="pre">x0</span></code>, <code class="docutils literal notranslate"><span class="pre">y0</span></code>, and <code class="docutils literal notranslate"><span class="pre">z0</span></code> respectively.
+We also want to be able to observe the values of <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>, so they must be <em>exposed</em> in the LEMS definition.</p>
+<p>Let us start with the XML definition of a ComponentType that will describe this model.
+Each XML file must start with a <code class="docutils literal notranslate"><span class="pre">&lt;Lems&gt;</span></code> “root node”.
+This includes information about the version of the LEMS schema that this document is valid against.
+In this case, we document that this LEMS file should be valid against version 0.7.6 of the LEMS schema.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Lems</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/lems/0.7.6&quot;</span>
+<span class="w">      </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">      </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/lems/0.7.6 https://raw.github.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.7.6.xsd&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lorenz1963&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;The Lorenz system is a simplified model for atomspheric convection, derived from the Navier Stokes equations.&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- Parameters: free parameters to be used in the model --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sigma&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Prandtl Number&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;beta&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Also named b elsewhere&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rho&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Related to the Rayleigh number, also named r elsewhere&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- Initial Conditions: also free parameters to be set when creating a Component from the ComponentType --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+
+
+<span class="w">        </span><span class="cm">&lt;!-- Exposure: what we want to be able to record from the LEMS simulation --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/ComponentType&gt;</span>
+<span class="nt">&lt;/Lems&gt;</span>
+</pre></div>
+</div>
+<p>Note that each parameter has a <em>dimension</em>, not a <em>unit</em>.
+This is because LEMS allows us to use any valid units for each dimension, and takes care of the conversion factors and so on.
+NeuroML also takes advantage of this LEMS feature, as noted <a class="reference internal" href="UnitsAndDimensions.html#userdocs-unitsanddimensions"><span class="std std-ref">here</span></a>.</p>
+<p>Now, we can define the <em>dynamics</em> of the model, summarised in the equations above:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">            </span><span class="cm">&lt;!-- State variables: linked to Exposures so that they can be accessed --&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;x&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">            </span><span class="cm">&lt;!-- Equations defining the dynamics of each state variable --&gt;</span>
+<span class="w">            </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( sigma * (y - x) ) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( rho * x - y - x * z ) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( x * y - beta * z) / sec&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">            </span><span class="cm">&lt;!-- Actions to take on the start of a LEMS simulation --&gt;</span>
+<span class="w">            </span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">                </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;x0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;y0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;z0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/OnStart&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Dynamics&gt;</span>
+</pre></div>
+</div>
+<p>Our LEMS file is almost complete.
+However, notice that we have used <code class="docutils literal notranslate"><span class="pre">sec</span></code> in the dynamics to denote time but have not yet declared it.
+We define <code class="docutils literal notranslate"><span class="pre">sec</span></code> as a <em>constant</em> whose value is defined in the ComponentType itself (and will not be set by us when instantiating a Component of this ComponentType):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">&lt;Constant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sec&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1s&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Also note that while we have defined this constant, we have not yet defined the <code class="docutils literal notranslate"><span class="pre">time</span></code> dimension or its units.
+We can do that outside the ComponentType:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&lt;Dimension</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">t=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Unit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;second&quot;</span><span class="w"> </span><span class="na">symbol=</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Unit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;milli second&quot;</span><span class="w"> </span><span class="na">symbol=</span><span class="s">&quot;ms&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;-3&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>We have defined two units for the time dimension, with their conversion factors.
+LEMS will use this information to correctly convert all dimensions as required.
+The NeuroMLv2 standard defines various dimensions and their units <a class="reference internal" href="Schemas/NeuroMLCoreDimensions.html#schema-neuromlcoredimensions"><span class="std std-ref">in the schema</span></a> for us to use.</p>
+<p>The complete LEMS file will be this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Lems</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/lems/0.7.6&quot;</span>
+<span class="w">      </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">      </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/lems/0.7.6 https://raw.github.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.7.6.xsd&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;Dimension</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">t=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Unit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;second&quot;</span><span class="w"> </span><span class="na">symbol=</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Unit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;milli second&quot;</span><span class="w"> </span><span class="na">symbol=</span><span class="s">&quot;ms&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;-3&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lorenz1963&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;The Lorenz system is a simplified model for atomspheric convection, derived from the Navier Stokes equations.&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Parameters: free parameters to be used in the model --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sigma&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Prandtl Number&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;beta&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Also named b elsewhere&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rho&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Related to the Rayleigh number, also named r elsewhere&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Initial Conditions: also free parameters to be set when creating a Component from the ComponentType --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+
+
+<span class="w">    </span><span class="cm">&lt;!-- Exposure: what we want to be able to record from the LEMS simulation --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Constant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sec&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1s&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- State variables: linked to Exposures so that they can be accessed --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;x&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- Equations defining the dynamics of each state variable --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( sigma * (y - x) ) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( rho * x - y - x * z ) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( x * y - beta * z) / sec&quot;</span><span class="nt">/&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- Actions to take on the start of a LEMS simulation --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;x0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;y0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;z0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/ComponentType&gt;</span>
+<span class="nt">&lt;/Lems&gt;</span>
+</pre></div>
+</div>
+<p>We now have a complete LEMS model declaration.
+To use this model, we need to create an instance of the ComponentType, a Component.
+This requires us to set the values of various parameters of the defined model:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;lorenz1963</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;lorenzCell&quot;</span><span class="w"> </span><span class="na">sigma=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">beta=</span><span class="s">&quot;2.67&quot;</span><span class="w"> </span><span class="na">rho=</span><span class="s">&quot;28&quot;</span>
+<span class="w">    </span><span class="na">x0=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">y0=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">z0=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Here, we’ve set parameters that result in the chaotic attractor regime.
+We could also use different values for the parameters—like a class can have many many objects with different parameters, a ComponentType can have also have different Components.</p>
+<p>Note that one can also define a Component using the standard constructor form:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&lt;Component</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;lorenzCell&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;lorenz1963&quot;</span><span class="w"> </span><span class="na">sigma=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">beta=</span><span class="s">&quot;2.67&quot;</span><span class="w"> </span><span class="na">rho=</span><span class="s">&quot;28&quot;</span><span class="w"> </span><span class="na">x0=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">y0=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">z0=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>The two forms are equivalent.
+As with other conventions, either form can be used as long as it is used consistently.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Include</span></code> element type allows us to modularise our models.
+In NeuroML based models, we use it to break our model down into small independent reusable files.</p>
+</section>
+<section id="writing-the-model-in-python-using-pylems">
+<span id="userdocs-extending-lorenz-python"></span><h3>Writing the model in Python using PyLEMS<a class="headerlink" href="#writing-the-model-in-python-using-pylems" title="Link to this heading">#</a></h3>
+<p>While the underlying format for NeuroML and LEMS is XML, Python is the suggested programming language for end users.
+In this section we will see how the Lorenz model can be written using the <a class="reference internal" href="Software/pyLEMS.html#pylems"><span class="std std-ref">PyLEMS</span></a> Python LEMS API.
+The complete script is below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">lems.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lems</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lems.base.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_lems</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">lems</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Dimension</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;second&quot;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;milli second&quot;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">power</span><span class="o">=-</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">lorenz</span> <span class="o">=</span> <span class="n">lems</span><span class="o">.</span><span class="n">ComponentType</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;lorenz1963&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The Lorenz system is a simplified model for atomspheric convection, derived from the Navier Stokes equations&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lorenz</span><span class="p">)</span>
+
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Prandtl Number&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Also named b elsewhere&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rho&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Related to the Rayleigh number, also named r elsewhere&quot;</span><span class="p">))</span>
+
+
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;y0&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;z0&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">))</span>
+
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Exposure</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Exposure</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Exposure</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">))</span>
+
+<span class="n">lorenz</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;sec&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">))</span>
+
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">StateVariable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">exposure</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">StateVariable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">exposure</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">StateVariable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">exposure</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">))</span>
+
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">TimeDerivative</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;( sigma * (y - x)) / sec&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">TimeDerivative</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;( rho * x - y - x * z ) / sec&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">TimeDerivative</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;( x * y - beta * z) / sec&quot;</span><span class="p">))</span>
+
+<span class="n">onstart</span> <span class="o">=</span> <span class="n">lems</span><span class="o">.</span><span class="n">OnStart</span><span class="p">()</span>
+<span class="n">onstart</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">StateAssignment</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;x0&quot;</span><span class="p">))</span>
+<span class="n">onstart</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">StateAssignment</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;y0&quot;</span><span class="p">))</span>
+<span class="n">onstart</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">StateAssignment</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;z0&quot;</span><span class="p">))</span>
+<span class="n">lorenz</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">onstart</span><span class="p">)</span>
+
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lems</span><span class="o">.</span><span class="n">Component</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="s2">&quot;lorenzCell&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="n">lorenz</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                         <span class="n">beta</span><span class="o">=</span><span class="s2">&quot;2.67&quot;</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="s2">&quot;28&quot;</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span> <span class="n">z0</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;LEMS_lorenz.xml&quot;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">export_to_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+
+<span class="n">validate_lems</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you will see, the PyLEMS API exactly follows the XML constructs that we used before.
+Running this script, let’s call it <code class="docutils literal notranslate"><span class="pre">LorenzLems.py</span></code> gives us:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>LorenzLems.py
+<span class="go">Validating LEMS_lorenz.xml against https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.6.xsd</span>
+<span class="go">It&#39;s valid!</span>
+</pre></div>
+</div>
+<p>The generated XML file is below.
+As you can see, it is identical to the XML file that we wrote by hand in the previous section.
+You will also see that the Python API also provides convenience functions, such as the <code class="docutils literal notranslate"><span class="pre">export_to_file</span></code> and <code class="docutils literal notranslate"><span class="pre">validate_lems</span></code> functions to quickly save your model to an XML file, and validate it.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;Lems</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.neuroml.org/lems/0.7.6&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.neuroml.org/lems/0.7.6 https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.6.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Dimension</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">t=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Unit</span><span class="w"> </span><span class="na">symbol=</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Unit</span><span class="w"> </span><span class="na">symbol=</span><span class="s">&quot;ms&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="w"> </span><span class="na">power=</span><span class="s">&quot;-3&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;ComponentType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lorenz1963&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;The Lorenz system is a simplified model for atomspheric convection, derived from the Navier Stokes equations&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sigma&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Prandtl Number&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;beta&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Also named b elsewhere&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;rho&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Related to the Rayleigh number, also named r elsewhere&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z0&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Constant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sec&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1s&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;time&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Exposure</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dynamics&gt;</span>
+<span class="w">      </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;x&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;StateVariable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">dimension=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">exposure=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( sigma * (y - x)) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( rho * x - y - x * z ) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TimeDerivative</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;( x * y - beta * z) / sec&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;OnStart&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;x0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;y0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;StateAssignment</span><span class="w"> </span><span class="na">variable=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;z0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/OnStart&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dynamics&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/ComponentType&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Component</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;lorenzCell&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;lorenz1963&quot;</span><span class="w"> </span><span class="na">sigma=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">beta=</span><span class="s">&quot;2.67&quot;</span><span class="w"> </span><span class="na">rho=</span><span class="s">&quot;28&quot;</span><span class="w"> </span><span class="na">x0=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">y0=</span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="na">z0=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Lems&gt;</span>
+</pre></div>
+</div>
+<p>We strongly suggest that users use the Python tools when working with both NeuroML and LEMS.
+Not only is Python easier to read and write than XML, it also provides powerful programming constructs and has a rich ecosystem of scientific software.</p>
+</section>
+</section>
+<section id="examples">
+<span id="userdocs-extending-examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>Here are some examples of Components written using LEMS to extend NeuroML that can be used as references.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/NeuroML/NeuroMLlite/blob/master/examples/test_files/Lorenz1963.xml">The Lorenz example XML source code</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LEMS/pylems/blob/master/examples/apitest2.py">An example script for building a LEMS model using Python</a></p></li>
+<li><p><a class="reference external" href="https://github.com/OpenSourceBrain/BonoClopath2017/blob/master/NeuroML2/AMPA_NMDA.synapse.nml">Defining a new synapse in LEMS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/na.channel.nml">Defining an ion channel in LEMS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/OpenSourceBrain/PospischilEtAl2008/blob/master/NeuroML2/channels/Ca/Ca.nml">Defining a new Calcium pool in LEMS</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "NeuroML/Documentation",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Userdocs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LEMSSimulation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LEMS Simulation files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Software/Software.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Software and Tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-componenttypes-with-existing-neuroml-componenttypes">Creating new ComponentTypes with existing NeuroML ComponentTypes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-componenttypes-with-lems-elements">Creating new ComponentTypes with LEMS elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lems-elements">LEMS elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-lorenz-model-for-cellular-convection">Example: Lorenz model for cellular convection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-model-in-python-using-pylems">Writing the model in Python using PyLEMS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NeuroML contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
