@@ -27,7 +27,7 @@ The 'variable' attribute is for future use - at present, the independent variabl
 
 A Run element can be added to the Dynamics block in any type definition to make it independently runnable.
 
-Running a simulation without any output is rarely much use, so there are two futher elements that can be included in the Dynamics block: Show and Record.
+Running a simulation without any output is rarely much use, so there are two further elements that can be included in the Dynamics block: Show and Record.
 The 'src' attribute of the Show element points to the components that should be shown.
 These in turn can contain other Show elements but eventually everything pointed to by a Show element should contain one or more Record elements.
 These specify what will actually be sent as output.
