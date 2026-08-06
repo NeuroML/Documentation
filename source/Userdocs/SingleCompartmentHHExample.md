@@ -189,7 +189,7 @@ The resulting NeuroML file is:
 ----
 language: xml
 ```
-We now have our cell defined in a separate NeuroML file, that can be re-used and shared.
+We now have our cell defined in a separate NeuroML file, that can be reused and shared.
 
 (userdocs:getting_started:single_compartment_example:model:network)=
 ### Declaring the network

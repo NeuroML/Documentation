@@ -543,7 +543,7 @@ We have two cases here:
 
 The nas channel is now done.
 If we look at the other channels---naf, kv, and kst---they follow similar formalisms.
-So, we can re-use our newly created component types, `Ray_inf` and `Ray_tau`.
+So, we can reuse our newly created component types, `Ray_inf` and `Ray_tau`.
 In fact, we consolidate them in a single file, `RaySigmoid.nml`, and "include" this in the channel definition files.
 For example, here is `kv.channel.nml`:
 

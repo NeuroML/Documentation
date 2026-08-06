@@ -10,7 +10,7 @@ They define the membership structure of the type, but they do not specify values
 Once a ComponentType has been defined, an instance of it can be created by setting values for its members.
 This object is referred to as a **Component** in LEMS.
 
-Having definitions in LEMS allows their re-use, and all new ComponentTypes can be submitted for inclusion to the NeuroMLv2 specification to be made accessible to other users.
+Having definitions in LEMS allows their reuse, and all new ComponentTypes can be submitted for inclusion to the NeuroMLv2 specification to be made accessible to other users.
 
 - Like NeuroML, LEMS also has a [well defined schema](https://github.com/LEMS/LEMS/tree/master/Schemas/LEMS) (XSD) that is used to validate LEMS XML files.
 - Also similar to NeuroML, you can use the {ref}`LEMS Python tools <pylems>` to work with LEMS and do not need to work directly with the XML files.

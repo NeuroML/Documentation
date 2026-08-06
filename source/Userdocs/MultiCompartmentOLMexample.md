@@ -29,7 +29,7 @@ language: python
 Similar to previous examples, we will first declare the model, visualise it, and then simulate it.
 The OLM model is slightly more complex than the HH neuron model we had worked with in the {ref}`previous tutorial <userdocs:getting_started:single_compartment_example>` since it includes multiple compartments.
 However, where we had declared the ion-channels ourselves in the previous example, here will will not do so.
-We will *include* channels that have been pre-defined in NeuroML to demonstrate how components defined in NeuroML can be easily re-used in models.
+We will *include* channels that have been pre-defined in NeuroML to demonstrate how components defined in NeuroML can be easily reused in models.
 
 We will follow the same method as before.
 We will first define the cell, create a network with one instance of the cell, and then simulate it to record and plot the membrane potential from different segments.
@@ -139,7 +139,7 @@ language: python
 lines: 123-142
 ----
 ```
-The utility function takes the dimensions of the segment---it's {ref}`proximal <schema:proximal>` and {ref}`distal <schema:distal>` co-ordinates and the diameter to create a segment of the provided name.
+The utility function takes the dimensions of the segment---it's {ref}`proximal <schema:proximal>` and {ref}`distal <schema:distal>` coordinates and the diameter to create a segment of the provided name.
 Additionally, since segments need to be contiguous, it makes the first segment the *parent* of the second, to build a chain.
 Finally, it places the segment into the specified segment group and the default groups that we also have and adds the segment to the cell's morphology.
 
@@ -179,7 +179,7 @@ Next, we proceed to our {ref}`biophysical properties <schema:biophysicalproperti
   - {ref}`spike threshold <schema:spikethresh>`
   - {ref}`initial membrane potential <schema:initmembpotential>`
   - {ref}`channel densities <schema:basechanneldensity>`
-  - {ref}`specifc capacitances <schema:specificcapacitance>`
+  - {ref}`specific capacitances <schema:specificcapacitance>`
 - the {ref}`intracellular properties <schema:intracellularproperties>`
   - {ref}`resistivity <schema:resistivity>`
 
@@ -198,7 +198,7 @@ lines: 200-289
 ----
 ```
 Note that we are not writing our channel files from scratch here.
-We are re-using already written NeuroML channel definitions by simply including their NeuroML definition files.
+We are reusing already written NeuroML channel definitions by simply including their NeuroML definition files.
 
 This completes the definition of our cell.
 We now run the level one validation, write it to a file while also running a complete (level one and level two) validation using pyNeuroML.

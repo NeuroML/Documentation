@@ -116,7 +116,7 @@ Create a script to load the output of mod analysis and nml analysis and compare 
 (userdocs:creating_models:converting_conductance:compare_single_comp)=
 ### 4c) Compare single compartment cell with channels
 
-Ensure you have a passive soma example in NeuroML which reproduces the behaviour of an equivalent passibe version inthe original format (from steps 3a and 4a above).
+Ensure you have a passive soma example in NeuroML which reproduces the behaviour of an equivalent passibe version in the original format (from steps 3a and 4a above).
 
 Gradually test the cell with passive conductance and *each channel individually*. Plot v along with rate variables for each channel & compare how they look during current pulse ([example in NEURON](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NEURON/Test_Soma.hoc) vs [example in NeuroML](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/Soma_AllNML2.cell.nml) and [LEMS](https://github.com/OpenSourceBrain/BlueBrainProjectShowcase/blob/master/NMC/NeuroML2/LEMS_Soma_AllNML2.xml))
 
@@ -138,7 +138,7 @@ export_to_neuroml2("test.hoc", "test.morphonly.cell.nml", includeBiophysicalProp
 
 Alternatively manually add the `<channelDensity>` elements to the cell file (as [here](https://github.com/OpenSourceBrain/SmithEtAl2013-L23DendriticSpikes/blob/master/NeuroML2/L23_NoHotSpot.cell.nml#L16711)).
 
-You can use the tools for {ref}`visualising NeuroML Models <userdocs:visualising_models>` to compare how these versions look agains the originals.
+You can use the tools for {ref}`visualising NeuroML Models <userdocs:visualising_models>` to compare how these versions look against the originals.
 
 As with the single compartment example, it's best to **start off with the passive case**, i.e no active channels on the soma or dendrites, and compare that to the original code (for membrane potential at multiple locations!), and gradually add channels.
 
