@@ -1,0 +1,16 @@
+/* Wrap code blocks */
+pre, .highlight-python, .highlight-xml, .highlight {
+    white-space : pre-wrap !important; /*for Mozilla*/
+    word-wrap: break-word !important; /*for IE*/
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: auto !important;
+    max-height: 30em !important;
+}
+
+/* For highlights in search results
+ * https://github.com/executablebooks/jupyter-book/issues/1244#issuecomment-867181414
+ */
+dt:target, span.highlighted {
+    background-color: #fbe54e;
+}
